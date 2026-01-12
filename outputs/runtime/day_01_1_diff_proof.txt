@@ -1,0 +1,46 @@
+diff --git a/docs/canon/CANON_INDEX.md b/docs/canon/CANON_INDEX.md
+index 5fd53b2..95a2388 100644
+--- a/docs/canon/CANON_INDEX.md
++++ b/docs/canon/CANON_INDEX.md
+@@ -1,5 +1,13 @@
+ # MarketSniper AI — Canon Index
+ 
++**canon_version:** 1.0.0
++**last_bump:** 2026-01-12 (G0.CANON_01_1)
++
++## Canon Versioning Policy
++- **MAJOR**: When contracts change meaning or gates change semantics.
++- **MINOR**: When new canon docs are added without breaking meaning.
++- **PATCH**: When typos/format fixes or clarifications only.
++
+ ## Canonical Path
+ `docs/canon/`
+ 
+@@ -16,6 +24,7 @@
+ - **ENDPOINT_CONTRACT.md**: The API surface definition.
+ - **AUTH_AND_GATES.md**: Security and Auth-Level governance.
+ - **SYSTEM_LAWS.md**: Supreme immutable laws (Truth, Lens, Silence).
++- **GLOSSARY.md**: Semantic authority for all system terms.
+ - **CONTEXT_CORE.md**: Core context definitions.
+ - **MAP_CORE.md**: High-level map of the system's core.
+ - **SYSTEM_ATLAS.md**: Detailed atlas of system components.
+diff --git a/docs/canon/SYSTEM_LAWS.md b/docs/canon/SYSTEM_LAWS.md
+index d56f54c..4a5879a 100644
+--- a/docs/canon/SYSTEM_LAWS.md
++++ b/docs/canon/SYSTEM_LAWS.md
+@@ -30,3 +30,15 @@ There is **One** Artifacts Root.
+ 1. **Safety** overrides **Performance**.
+ 2. **Truth** overrides **Stability**.
+ 3. **Founder Override** overrides **Everything** (Forensics).
++^>
++**RULE:**
++Glossary
++is
++the
++semantic
++authority:
++when
++in
++doubt
++follow
++GLOSSARY.

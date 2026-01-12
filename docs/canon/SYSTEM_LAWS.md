@@ -30,3 +30,15 @@ There is **One** Artifacts Root.
 1. **Safety** overrides **Performance**.
 2. **Truth** overrides **Stability**.
 3. **Founder Override** overrides **Everything** (Forensics).
+^>
+**RULE:**
+Glossary
+is
+the
+semantic
+authority:
+when
+in
+doubt
+follow
+GLOSSARY.

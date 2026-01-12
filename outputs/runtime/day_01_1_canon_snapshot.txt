@@ -30,3 +30,20 @@
 - **SYSTEM_ATLAS.md**: Detailed atlas of system components.
 
 > **RULE:** Any lasting system decision must be reflected in these canon docs.
+GLOSSARY
+HEADINGS:
+### Artifact
+### ARTIFACTS_ROOT
+### Lens
+### Gate
+### Critical Gates
+### Fallback
+### CALIBRATING
+### MISSING_ARTIFACT
+### SCHEMA_INVALID
+### Founder Mode
+### LKG (Last Known Good)
+### Truth Surface
+### Seal
+### Contract
+### Evidence Index
