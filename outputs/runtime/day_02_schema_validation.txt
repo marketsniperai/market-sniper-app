@@ -1,0 +1,15 @@
+# Schema Validation Evidence
+
+1. **Manifest**: Validated via Pydantic on live `run_manifest.json`.
+2. **Dashboard**: Fallback triggered (MISSING_ARTIFACT). This confirms `safe_read_or_fallback` works.
+3. **Context**: Fallback triggered (MISSING_ARTIFACT). Safe.
+4. **Efficacy**: Fallback triggered (MISSING_ARTIFACT). Safe.
+
+**Compliance**: All endpoints return `FallbackEnvelope` structure:
+```json
+{
+  "status": "...",
+  "as_of_utc": "...",
+  "payload": ...
+}
+```
