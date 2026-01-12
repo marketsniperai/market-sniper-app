@@ -1,0 +1,31 @@
+Folder PATH listing
+Volume serial number is A4FD-E415
+C:.
+|   .gitignore
+|   PROJECT_STATE.md
+|   
++---backend
+|   |   api_server.py
+|   |   
+|   +---config
+|   \---outputs
++---docs
+|       CONTEXT_CORE.md
+|       MAP_CORE.md
+|       PRINCIPIO_OPERATIVO__MADRE_NODRIZA.md
+|       SYSTEM_ATLAS.md
+|       
++---market_sniper_app
++---ops
+\---outputs
+    +---logs
+    +---runtime
+    |       day_00_git_status.txt
+    |       day_00_tree.txt
+    |       day_00_workspace_truth.txt
+    |       
+    \---seals
+            SEAL_DAY_00_0_WORKSPACE_TRUTH.md
+            SEAL_DAY_00_1_GIT_INIT.md
+            SEAL_DAY_00_2_SKELETON.md
+            

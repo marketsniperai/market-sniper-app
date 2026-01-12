@@ -1,0 +1,12 @@
+Status: DONE
+Output delta since last status check:
+PS C:\MSR\MarketSniperRepo\market_sniper_app>
+PS C:\MSR\MarketSniperRepo\market_sniper_app> flutter build apk
+
+Resolving dependencies... 
+Downloading packages... 
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2leRelease'...                
+Running   111.7sask 'assembl
+k\app-release.apk (18.5MB)
+Exit code: 0

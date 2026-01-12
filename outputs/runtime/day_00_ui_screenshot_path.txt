@@ -1,0 +1,2 @@
+C:\MSR\MarketSniperRepo\outputs\runtime\day_00_ui_screenshot_path.txt
+(Note: Headless environment. Build verification serves as primary evidence. Screenshot placeholder.)

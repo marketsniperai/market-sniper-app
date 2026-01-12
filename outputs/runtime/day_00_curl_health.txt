@@ -1,0 +1,1 @@
+{"status":"CALIBRATING","run_id":"68e12839-3563-4c8c-ab6d-177cb34cdef1","build_id":"DAY_00_INIT","server_time_utc":"2026-01-12T21:22:27.444474+00:00","api_base_url_echo":"http://localhost:8000"}
