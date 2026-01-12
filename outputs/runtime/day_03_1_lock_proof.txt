@@ -1,0 +1,2 @@
+Result 1: {'ok': True, 'mode': 'LIGHT', 'window': 'AFTER_HOURS', 'run_id': '82b6fb09-08d8-4dae-b9f7-c9d4be9d88ce', 'artifacts_written': ['run_manifest.json', 'pulse/pulse_report.json'], 'error': None}
+Result 2: {'ok': True, 'mode': 'LIGHT', 'window': 'AFTER_HOURS', 'run_id': 'ff36289a-a8fe-49dd-9f83-b7cbf0ad90de', 'artifacts_written': ['run_manifest.json', 'pulse/pulse_report.json'], 'error': None}
