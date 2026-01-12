@@ -1,0 +1,1 @@
+{"ok":false,"mode":"LIGHT","window":"AFTER_HOURS","run_id":"aff6f1ca-ba58-4e76-8942-074b2b0f38f9","artifacts_written":[],"error":"`RunManifest` is not fully defined; you should define `Dict`, then call `RunManifest.model_rebuild()`.\n\nFor further information visit https://errors.pydantic.dev/2.12/u/class-not-fully-defined"}Internal Server Error

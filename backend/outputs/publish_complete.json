@@ -1,11 +1,8 @@
 {
-  "run_id": "ff36289a-a8fe-49dd-9f83-b7cbf0ad90de",
+  "run_id": "aff6f1ca-ba58-4e76-8942-074b2b0f38f9",
   "mode": "LIGHT",
   "window": "AFTER_HOURS",
-  "generated_at_utc": "2026-01-12T22:43:55.675505+00:00",
-  "artifacts_written": [
-    "run_manifest.json",
-    "pulse/pulse_report.json"
-  ],
-  "ok": true
+  "generated_at_utc": "2026-01-12T22:46:44.838838+00:00",
+  "artifacts_written": [],
+  "ok": false
 }

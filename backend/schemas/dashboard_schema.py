@@ -13,5 +13,9 @@ class DashboardPayload(BaseModel):
     widgets: List[DashboardWidget]
     generated_at: Optional[str] = None
     
+    # Linkage & Snapshot
+    run_manifest_ref: Optional[str] = None
+    market_snapshot: Dict[str, Any] = Field(default_factory=dict)
+    
     # Forensic trace is often injected dynamically, but we can model it if present
     forensic_trace: Optional[Dict[str, Any]] = None

@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-12
 **Purpose:** OMSR Day 00 Initialization
-**Status:** DAY_03=SEALED
+**Status:** DAY_04=SEALED
 
 ## Rules
 - No legacy artifacts.
@@ -21,6 +21,8 @@
 - **Day 01:** System Contract defined and sealed.
 - **Day 02:** Schemas and Lens endpoints active. Safe fallbacks verified.
 - **Day 03:** Autonomy Spine and Producer Stubs active. Pipeline verified.
+- **Day 03.1:** Autonomy Hardened (Locking + Publish Marker).
+- **Day 04:** Pipeline Logic v0 active with Real Data Minimum.
 
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`
