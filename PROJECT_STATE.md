@@ -17,3 +17,8 @@
 - **Step 3:** Backend live. /health_ext compliant. Manifest generated.
 - **Step 4:** Founder flags and trace headers active.
 - **Step 5:** Flutter shell app created and compiled. Dashboard connected.
+
+## Canonical Docs Registry
+- **Canonical Docs Path:** `docs/canon/`
+- **Canon Index:** `docs/canon/CANON_INDEX.md`
+- **Canon Authority Order:** MADRE_NODRIZA > CONTEXT > MAP > ATLAS
