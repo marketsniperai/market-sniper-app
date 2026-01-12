@@ -1,0 +1,6 @@
+Analyzing market_sniper_app...                                  
+
+  error - There's no constant named 'resume' in 'AppLifecycleState' - lib\screens\dashboard_screen.dart:45:36 - undefined_enum_constant
+warning - Unused import: 'package:market_sniper_app/main.dart' - test\widget_test.dart:11:8 - unused_import
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+

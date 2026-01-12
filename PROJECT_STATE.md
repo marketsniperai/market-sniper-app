@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-12
 **Purpose:** OMSR Day 00 Initialization
-**Status:** DAY_04=SEALED
+**Status:** DAY_05=SEALED
 
 ## Rules
 - No legacy artifacts.
@@ -23,6 +23,7 @@
 - **Day 03:** Autonomy Spine and Producer Stubs active. Pipeline verified.
 - **Day 03.1:** Autonomy Hardened (Locking + Publish Marker).
 - **Day 04:** Pipeline Logic v0 active with Real Data Minimum.
+- **Day 05:** Flutter Dashboard v0 shipped (Founder APK).
 
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`

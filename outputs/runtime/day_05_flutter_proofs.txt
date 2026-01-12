@@ -1,0 +1,11 @@
+
+    Directory: C:\Users\Sergio B\OneDrive\Desktop\Apk Release
+
+Mode      LastWriteTime
+----      -------------
+-a---       1/12/2026
+                6:00 PM
+
+SHA256 hash of C:\Users\Sergio B\OneDrive\Desktop\Apk Release\app-release-founder-day05.apk:
+6e5fb6c5b0ede34a01a4c528cf39ab01c9dcb49cbabe1941aada9feec5ffec19
+CertUtil: -hashfile command completed successfully.
