@@ -1,6 +1,8 @@
 {
-  "run_id": "e9d263c3-c668-42d7-8cbc-d6a0d8681131",
-  "build_id": "DAY_00_INIT",
-  "timestamp": "2026-01-12T21:22:52.683046+00:00",
-  "status": "DAY_00_CALIBRATING"
+  "run_id": "c1d12ef9-8a33-4f7c-97fd-657acabf120b",
+  "build_id": "DAY_03_LIGHT",
+  "timestamp": "2026-01-12T22:38:07.776040+00:00",
+  "status": "LIVE_PULSE",
+  "pipeline_type": "LIGHT",
+  "schema_version": "1.0"
 }

@@ -1,0 +1,1 @@
+{'ok': True, 'mode': 'LIGHT', 'window': 'AFTER_HOURS', 'run_id': 'c1d12ef9-8a33-4f7c-97fd-657acabf120b', 'artifacts_written': ['run_manifest.json', 'pulse/pulse_report.json'], 'error': None}
