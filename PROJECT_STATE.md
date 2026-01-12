@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-12
 **Purpose:** OMSR Day 00 Initialization
-**Status:** DAY_00=SEALED
+**Status:** DAY_01=SEALED
 
 ## Rules
 - No legacy artifacts.
@@ -17,6 +17,8 @@
 - **Step 3:** Backend live. /health_ext compliant. Manifest generated.
 - **Step 4:** Founder flags and trace headers active.
 - **Step 5:** Flutter shell app created and compiled. Dashboard connected.
+- **G0.CANON_0:** Canon registry established.
+- **Day 01:** System Contract defined and sealed.
 
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`
