@@ -24,6 +24,7 @@
 - **Day 03.1:** Autonomy Hardened (Locking + Publish Marker).
 - **Day 04:** Pipeline Logic v0 active with Real Data Minimum.
 - **Day 05:** Flutter Dashboard v0 shipped (Founder APK).
+- **TARGET_STATE:** `B_VICTORY_CHECKLIST__CLEAN.md` (frozen)
 
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`

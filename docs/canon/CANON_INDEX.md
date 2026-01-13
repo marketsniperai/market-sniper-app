@@ -2,6 +2,8 @@
 
 **canon_version:** 1.0.0
 **last_bump:** 2026-01-12 (G0.CANON_01_1)
+**target_state_reference:** `docs/canon/B_VICTORY_CHECKLIST__CLEAN.md`
+**target_state_rule:** "Desde Day 06 en adelante: no inventar; solo reimplementar, mejorar, endurecer, pulir UX, preservando doctrina."
 
 ## Canon Versioning Policy
 - **MAJOR**: When contracts change meaning or gates change semantics.
