@@ -1,0 +1,14 @@
+
+--- TEST: Consensus Gate Logic (Unit) ---
+PASS: Case 1 (ALLOW+DENY) -> Denied. Reasons: ["Risk Vote DENY: ['UnitTest']"]
+PASS: Case 2 (DENY+ALLOW) -> Denied. Reasons: ["Policy Vote DENY: ['UnitTest']"]
+PASS: Case 4 (Missing Risk) -> Denied. Reasons: ['Risk Vote Missing']
+PASS: Case 4 (Missing Policy) -> Denied. Reasons: ['Policy Vote Missing']
+PASS: Case 3 (ALLOW+ALLOW) -> Approved
+
+--- TEST: Integration (Surgeon apply_proposal) ---
+Executing Apply...
+PASS: Integration Apply Succeeded. Result: {'success': True, 'results': ['Fixed outputs/runtime/day_30_2/test_file.json']}
+PASS: Votes persisted
+
+ALL TESTS PASSED

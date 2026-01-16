@@ -1,0 +1,12 @@
+{
+  "summary": "Market Regime: NEUTRAL. VIX: 15.5",
+  "global_risk_score": 0.275,
+  "generated_at": "2026-01-13T22:32:34.451699+00:00",
+  "daily_stat_pack": {
+    "spy_change": 0.05,
+    "window": "AFTER_HOURS"
+  },
+  "normalization_map": {
+    "vix_norm": 0.275
+  }
+}

@@ -1,0 +1,40 @@
+=== DAY 20 VERIFICATION SUITE ===
+
+[1] Baseline AGMS Run...
+Drift Score: 0
+
+[2] Forced Scenario (Missing Light)...
+Drift Deltas: ['MISSING_LIGHT_MANIFEST']
+
+[3] War Room Integration...
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_day_20.py", line 83, in <module>
+    run_verification()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\MSR\MarketSniperRepo\backend\verify_day_20.py", line 62, in run_verification
+    dashboard = WarRoom.get_dashboard()
+  File "C:\MSR\MarketSniperRepo\backend\war_room.py", line 31, in get_dashboard
+    autofix_status_raw = AutoFixControlPlane.assess_and_recommend()
+  File "C:\MSR\MarketSniperRepo\backend\autofix_control_plane.py", line 127, in assess_and_recommend
+    playbooks = AutoFixControlPlane.load_playbooks()
+  File "C:\MSR\MarketSniperRepo\backend\autofix_control_plane.py", line 62, in load_playbooks
+    data = yaml.safe_load(f)
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\yaml\__init__.py", line 79, in load
+    loader = Loader(stream)
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\yaml\loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\yaml\reader.py", line 85, in __init__
+    self.determine_encoding()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\yaml\reader.py", line 124, in determine_encoding
+    self.update_raw()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\yaml\reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 281: character maps to <undefined>

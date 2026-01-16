@@ -1,13 +1,13 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, Dict
 
 class RunManifest(BaseModel):
     run_id: str
     build_id: str
     timestamp: str
     status: str
-    mode: str
-    window: str
+    mode: str = "FULL"
+    window: str = "UNKNOWN"
     schema_version: Optional[str] = "1.0"
     
     # Detailed Status

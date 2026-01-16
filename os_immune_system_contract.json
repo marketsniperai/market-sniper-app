@@ -1,0 +1,27 @@
+{
+    "contract_name": "OS.ImmuneSystem.Contract",
+    "version": "1.0",
+    "mode": "SHADOW_SANITIZE",
+    "description": "Active defense against poisoned inputs (Day 32).",
+    "signals": {
+        "NULL_PACKET": "Input payload is missing or empty entirely.",
+        "REQUIRED_KEYS_MISSING": "Critical schema keys are absent.",
+        "ZERO_VOLATILITY_ANOMALY": "IV or Volatility is exactly 0.0 while market is OPEN.",
+        "PRICE_SPIKE_ANOMALY": "Price changed > X% since last known (flash move).",
+        "NEGATIVE_OR_NAN": "Prices or numeric fields are NaN, Infinite, or Negative.",
+        "TIME_TRAVEL": "Timestamps are in the future or significantly out of order."
+    },
+    "actions": {
+        "SHADOW": "Log anomaly, tag artifact with 'immune_flags', write to immune_ledger, DO NOT BLOCK.",
+        "ENFORCE": "Reject payload, halt pipeline, quarantine input (DISABLED IN V1)."
+    },
+    "thresholds": {
+        "price_spike_pct": 50.0,
+        "future_time_tolerance_seconds": 300
+    },
+    "paths": {
+        "snapshot": "backend/outputs/runtime/immune/immune_snapshot.json",
+        "ledger": "backend/outputs/runtime/immune/immune_ledger.jsonl",
+        "report": "backend/outputs/runtime/immune/immune_report.json"
+    }
+}

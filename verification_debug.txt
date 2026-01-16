@@ -1,0 +1,11 @@
+--- TEST: Policy Mode = SHADOW ---
+Loaded Policy Mode: SHADOW
+Policy Keys: dict_keys(['policy_metadata', 'configuration', 'modes', 'limits', 'allowlist', 'required_evidence_rules'])
+PASS
+--- TEST: Shadow Ledger Logging ---
+FAIL: Ledger missing
+FAIL
+--- TEST: War Room Summary ---
+Shadow Summary: {'total_decisions': 0, 'allow_count': 0, 'deny_count': 0, 'top_deny_reasons': [], 'last_decision': 'NONE'}
+FAIL
+FAILURES: ['Shadow Trace', 'War Room']

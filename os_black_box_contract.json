@@ -1,0 +1,36 @@
+{
+    "contract_name": "OS.Ops.BlackBox.Contract",
+    "version": "1.0",
+    "mode": "ALWAYS_ON",
+    "description": "Forensic Indestructibility (Day 34). Immutable Truth Recorder.",
+    "ledger_type": "IMMUTABLE_HASH_CHAIN",
+    "hash_algo": "SHA256",
+    "event_types": [
+        "AGMS_THINK",
+        "POLICY_DECISION",
+        "AUTOFIX_ACTION",
+        "SURGEON_PROPOSAL",
+        "SURGEON_APPLY",
+        "IMMUNE_FLAG",
+        "PIPELINE_RUN",
+        "CRASH_EVENT"
+    ],
+    "storage": {
+        "ledger": "backend/outputs/runtime/black_box/decision_ledger.jsonl",
+        "snapshots": "backend/outputs/runtime/black_box/crash_snapshots/",
+        "retention": "APPEND_ONLY"
+    },
+    "sanitization": {
+        "forbidden_keys": [
+            "api_key",
+            "secret",
+            "token",
+            "password",
+            "x-founder-key",
+            "auth_header",
+            "credentials"
+        ],
+        "max_array_len": 50,
+        "max_string_len": 1000
+    }
+}

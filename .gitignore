@@ -12,8 +12,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-# lib/  <-- Removed to support Flutter
-# lib64/ <-- Removed
 parts/
 sdist/
 var/
@@ -51,7 +49,8 @@ Desktop.ini
 
 # Project Specific
 outputs/logs/
-outputs/runtime/*.tmp
+outputs/runtime/
+backend/outputs/
 secrets/
 *.key
 *.pem

@@ -1,0 +1,49 @@
+{
+    "contract_metadata": {
+        "version": "1.5.0",
+        "last_updated": "2026-01-14",
+        "doc_id": "CONTRACT-SHADOW-REPAIR-V1.5"
+    },
+    "titanium_law": "PROPOSE_ONLY",
+    "description": "Shadow Repair generates patch proposals but NEVER applies them. It is a Read-Only Intelligence Module.",
+    "permissions": {
+        "allowed_inputs": [
+            "os_playbooks.yml",
+            "os_module_contracts.json",
+            "os_registry.json",
+            "outputs/runtime/*"
+        ],
+        "allowed_outputs": [
+            "outputs/runtime/shadow_repair/*"
+        ],
+        "forbidden_actions": [
+            "APPLY_PATCH",
+            "MODIFY_SOURCE",
+            "EXECUTE_PIPELINE",
+            "RESTART_SERVICE"
+        ]
+    },
+    "proposal_schema": {
+        "mandatory_fields": [
+            "proposal_id",
+            "created_utc",
+            "target_files",
+            "unified_diff",
+            "risk_tags",
+            "mapped_playbook_id",
+            "mapped_contract_id",
+            "rationale"
+        ],
+        "risk_tag_vocabulary": [
+            "LOW_RISK",
+            "MEDIUM_RISK",
+            "HIGH_RISK",
+            "TOUCHES_API_SURFACE",
+            "TOUCHES_SCHEMA",
+            "TOUCHES_PIPELINE",
+            "TOUCHES_RUNTIME_ONLY",
+            "NEEDS_HUMAN_REVIEW",
+            "INSUFFICIENT_CONTEXT"
+        ]
+    }
+}

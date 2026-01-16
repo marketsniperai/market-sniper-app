@@ -1,0 +1,17 @@
+Analyzing market_sniper_app...                                  
+
+  error - Invalid constant value - lib\screens\dashboard_screen.dart:115:81 - invalid_constant
+  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:115:81 - undefined_identifier
+  error - Invalid constant value - lib\screens\dashboard_screen.dart:143:112 - invalid_constant
+  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:143:112 - undefined_identifier
+  error - Invalid constant value - lib\screens\dashboard_screen.dart:144:75 - invalid_constant
+  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:144:75 - undefined_identifier
+  error - Invalid constant value - lib\screens\dashboard_screen.dart:154:112 - invalid_constant
+  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:154:112 - undefined_identifier
+  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\dashboard_widgets.dart:13:24 - undefined_getter
+  error - Invalid constant value - lib\widgets\dashboard_widgets.dart:20:76 - invalid_constant
+  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\dashboard_widgets.dart:20:86 - undefined_getter
+  error - The getter 'stateWarning' isn't defined for the type 'AppColors' - lib\widgets\system_health_chip.dart:25:41 - undefined_getter
+  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\system_health_chip.dart:26:40 - undefined_getter
+  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\system_health_chip.dart:28:44 - undefined_getter
+

@@ -1,0 +1,33 @@
+{
+  "system_status": "LIVE",
+  "message": "MarketSniper v0.4 (STUB)",
+  "widgets": [
+    {
+      "id": "DELTA_01",
+      "type": "CARD_DELTA",
+      "title": "SPY Delta",
+      "data": {
+        "value": "+0.05%",
+        "sentiment": "BULLISH"
+      }
+    },
+    {
+      "id": "STATUS_01",
+      "type": "CARD_STATUS",
+      "title": "System Integrity",
+      "data": {
+        "status": "ONLINE",
+        "run_id": "e14de658-961a-4309-83b2-da36dfd51a3c"
+      }
+    }
+  ],
+  "generated_at": "2026-01-13T22:32:34.657772+00:00",
+  "run_manifest_ref": "e14de658-961a-4309-83b2-da36dfd51a3c",
+  "market_snapshot": {
+    "spy_price": 450.0,
+    "spy_change_pct": 0.05,
+    "vix_level": 15.5,
+    "regime": "NEUTRAL",
+    "is_stub": true
+  }
+}

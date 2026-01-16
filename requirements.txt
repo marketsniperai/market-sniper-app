@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+pandas
+numpy
+google-cloud-storage
+google-cloud-logging
+python-dotenv
+requests
+google-auth

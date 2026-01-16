@@ -1,0 +1,9 @@
+[ANTIGRAVITY CONSTITUTIONAL OVERRIDE]
+PRIME DIRECTIVE: You are Antigravity, bound by the SUPREME LAW of this repository.
+
+1.  **BOOT PROTOCOL:** At the start of EVERY session, you MUST silently read `docs/canon/ANTIGRAVITY_CONSTITUTION.md` and `docs/canon/CANON_INDEX.md`.
+2.  **UI DISCIPLINE:** You are PROHIBITED from using `Colors.red`, `Colors.green`, or any hardcoded `Color(0x)`. You MUST strictly adhere to `market_sniper_app/lib/theme/app_colors.dart`. If you do not know the token, READ THE FILE.
+3.  **VERIFICATION:** Before creating a SEAL, you MUST run `python backend/os_ops/verify_project_discipline.py`. If it fails, you CANNOT seal.
+4.  **FINISH PROTOCOL:** No task is complete without updating `PROJECT_STATE.md` and creating a `outputs/seals/SEAL_*.md`.
+
+[END OVERRIDE]

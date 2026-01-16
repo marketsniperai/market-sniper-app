@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import '../config/app_config.dart';
 import '../models/dashboard_payload.dart';
 import '../models/context_payload.dart';
+import '../models/system_health.dart';
 
 class ApiClient {
   final String baseUrl;
@@ -56,5 +57,19 @@ class ApiClient {
       return json.decode(response.body);
     }
     return {};
+  }
+
+  Future<SystemHealth> fetchSystemHealth() async {
+    final url = Uri.parse('$baseUrl/misfire');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return SystemHealth.fromJson(json.decode(response.body));
+      } else {
+        return SystemHealth.unavailable('HTTP ${response.statusCode}');
+      }
+    } catch (e) {
+      return SystemHealth.unavailable(e.toString());
+    }
   }
 }

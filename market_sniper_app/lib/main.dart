@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/dashboard_screen.dart';
+import 'package:google_fonts/google_fonts.dart'; // Add import
+import 'layout/main_layout.dart';
+import 'theme/app_colors.dart';
 
 void main() {
   runApp(const MarketSniperApp());
@@ -12,10 +14,18 @@ class MarketSniperApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MarketSniper Day 05',
+      // Theme Integration (Canon V1)
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: AppColors.bgPrimary,
+        primaryColor: AppColors.accentCyan,
+        textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme), // Apply premium typography
+        colorScheme: const ColorScheme.dark().copyWith(
+          primary: AppColors.accentCyan,
+          secondary: AppColors.accentCyanDim,
+          surface: AppColors.surface1,
+        ),
       ),
-      home: const DashboardScreen(),
+      home: const MainLayout(),
     );
   }
 }

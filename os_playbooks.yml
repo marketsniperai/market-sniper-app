@@ -1,0 +1,360 @@
+version: 2.0.0
+updated_at: 2026-01-14T12:00:00Z
+authority: CANONICAL
+rule: "NO feature ships without playbook entry"
+LAW: "AGMS Thinks. Autofix Acts. Playbooks do not grant execution authority."
+
+playbooks:
+  # --- GROUP 1: PIPELINE INTEGRITY (EXISTING REFINED) ---
+  - playbook_id: PB-T1-MISFIRE-FULL
+    tier: T1
+    description: Pipeline Full Misfire Check
+    conditions:
+      pattern_keys: ["MISSING_FULL_MANIFEST", "MANIFEST_MISSING"]
+      requires_band: ["ANY"]
+      required_inputs: ["outputs/runtime/misfire_report.json"]
+    action:
+      action_id: RUN_PIPELINE_FULL
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: ["outputs/runtime/autofix/execute/autofix_execute_result.json"]
+      includes_fields: ["status"]
+    governance:
+      owner_module: OS.Ops.Misfire
+      safe_mode_behavior: BLOCK_EXECUTION
+
+  - playbook_id: PB-T1-MISFIRE-LIGHT
+    tier: T1
+    description: Pipeline Light Misfire Check
+    conditions:
+      pattern_keys: ["MISSING_LIGHT_MANIFEST"]
+      requires_band: ["ANY"]
+    action:
+      action_id: RUN_PIPELINE_LIGHT
+      cooldown_seconds: 1800
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Misfire
+
+  - playbook_id: PB-T1-STALE-FULL
+    tier: T1
+    description: Pipeline Full Stale
+    conditions:
+      pattern_keys: ["FULL_MANIFEST_STALE", "full manifest age > 26h"]
+    action:
+      action_id: RUN_PIPELINE_FULL
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Misfire
+
+  - playbook_id: PB-T1-STALE-LIGHT
+    tier: T1
+    description: Pipeline Light Stale
+    conditions:
+      pattern_keys: ["LIGHT_MANIFEST_STALE", "light manifest age > 15m"]
+    action:
+      action_id: RUN_PIPELINE_LIGHT
+      cooldown_seconds: 900
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Misfire
+
+  # --- GROUP 2: SYSTEM HYGIENE (EXISTING REFINED) ---
+  - playbook_id: PB-T1-LOCK-STUCK
+    tier: T1
+    description: OS Lock Held Too Long
+    conditions:
+      pattern_keys: ["LOCK_HELD", "os_lock.json age > 1h"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Housekeeper
+
+  - playbook_id: PB-T1-GARBAGE-FOUND
+    tier: T1
+    description: Operational Garbage Detected
+    conditions:
+      pattern_keys: ["GARBAGE_FILES_FOUND", "found .tmp or .bak files older than 1h"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Housekeeper
+
+  - playbook_id: PB-T1-DRIFT-MANIFEST
+    tier: T1
+    description: Critical Manifest Drift
+    conditions:
+      pattern_keys: ["MANIFEST_DRIFT", "missing critical manifest file"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 7200
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Intel
+
+  # --- GROUP 3: API & CONNECTIVITY (NEW) ---
+  - playbook_id: PB-T1-API-ERROR-SPIKE
+    tier: T1.5
+    description: High Rate of API 5xx Errors
+    conditions:
+      pattern_keys: ["API_ERROR_RATE_HIGH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 1800
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.API
+
+  - playbook_id: PB-T1-API-LATENCY-SPIKE
+    tier: T1.5
+    description: API Latency > 2s avg
+    conditions:
+      pattern_keys: ["API_LATENCY_HIGH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.API
+
+  # --- GROUP 4: DISK & RESOURCES (NEW) ---
+  - playbook_id: PB-T1-DISK-WARNING
+    tier: T1
+    description: Disk Usage > 80%
+    conditions:
+      pattern_keys: ["DISK_USAGE_HIGH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.Sys
+
+  - playbook_id: PB-T1-DISK-CRITICAL
+    tier: T1
+    description: Disk Usage > 90%
+    conditions:
+      pattern_keys: ["DISK_USAGE_CRITICAL"]
+    action:
+      action_id: NOOP_REPORT # Manual intervention required
+      cooldown_seconds: 900
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.Sys
+
+  # --- GROUP 5: GATES & CONTRACTS (NEW) ---
+  - playbook_id: PB-T1-GATE-LOCKED
+    tier: T1
+    description: Critical Gate Locked (Market Closed/Holiday)
+    conditions:
+      pattern_keys: ["GATE_LOCKED_Unexpected"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 7200
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.Gates
+
+  - playbook_id: PB-T1-CONTRACT-BREACH
+    tier: T1
+    description: Artifact Contract Breach
+    conditions:
+      pattern_keys: ["CONTRACT_INVALID", "SCHEMA_MISMATCH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.WarRoom
+
+  # --- GROUP 6: AGMS INTELLIGENCE (NEW) ---
+  - playbook_id: PB-T1-AGMS-DRIFT
+    tier: T1.5
+    description: AGMS Drift Detection High
+    conditions:
+      pattern_keys: ["AGMS_DRIFT_HIGH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Intel.Intel
+
+  - playbook_id: PB-T1-AGMS-COHERENCE-LOW
+    tier: T1.5
+    description: AGMS Coherence Score < 0.5
+    conditions:
+      pattern_keys: ["AGMS_COHERENCE_LOW"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 7200
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Intel.Intel
+
+  - playbook_id: PB-T1-SHADOW-SUGGEST-FLOOD
+    tier: T1.5
+    description: Too many shadow suggestions (>10/hr)
+    conditions:
+      pattern_keys: ["SHADOW_FLOOD"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Intel.ShadowRec
+
+  # --- GROUP 7: SECURITY & AUTH (NEW) ---
+  - playbook_id: PB-T1-AUTH-FAIL-SPIKE
+    tier: T1
+    description: Founder Key Failures High
+    conditions:
+      pattern_keys: ["AUTH_FAILURE_SPIKE"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.Gates
+
+  # --- GROUP 8: DATA INTEGRITY (NEW) ---
+  - playbook_id: PB-T1-DATA-GAP
+    tier: T1
+    description: Significant Data Gap in Candles
+    conditions:
+      pattern_keys: ["DATA_GAP_DETECTED"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Pipeline
+
+  - playbook_id: PB-T1-CHECKSUM-FAIL
+    tier: T1
+    description: Artifact Checksum Mismatch
+    conditions:
+      pattern_keys: ["CHECKSUM_MISMATCH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Housekeeper
+
+  # --- GROUP 9: CLOUD RUN OPS (NEW) ---
+  - playbook_id: PB-T1-MEMORY-WARN
+    tier: T1.5
+    description: Container Memory > 80%
+    conditions:
+      pattern_keys: ["MEMORY_USAGE_HIGH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 1800
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.Sys
+
+  - playbook_id: PB-T1-STARTUP-SLOW
+    tier: T1.5
+    description: FastApi Startup > 30s
+    conditions:
+      pattern_keys: ["STARTUP_LATENCY_HIGH"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 86400
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.API
+
+  # --- GROUP 10: USER EXPERIENCE (NEW) ---
+  - playbook_id: PB-T1-DASHBOARD-EMPTY
+    tier: T1
+    description: Dashboard returning empty payload
+    conditions:
+      pattern_keys: ["DASHBOARD_EMPTY"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 1800
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Biz.Dashboard
+
+  - playbook_id: PB-T1-CLIENT-ERROR-SPIKE
+    tier: T1.5
+    description: Flutter Client Errors High
+    conditions:
+      pattern_keys: ["CLIENT_ERROR_SPIKE"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Infra.API
+
+  # --- GROUP 11: CRON & SCHEDULER (NEW) ---
+  - playbook_id: PB-T1-CRON-MISSED
+    tier: T1
+    description: Cloud Scheduler Job Missed
+    conditions:
+      pattern_keys: ["CRON_MISSED"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Misfire
+
+  - playbook_id: PB-T1-JOB-TIMEOUT
+    tier: T1
+    description: Pipeline Job Timeout
+    conditions:
+      pattern_keys: ["JOB_TIMEOUT"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 3600
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.Pipeline
+
+  - playbook_id: PB-T1-UNKNOWN-PATTERN
+    tier: T1
+    description: Catch-all for detected but unmapped patterns
+    conditions:
+      pattern_keys: ["UNKNOWN"]
+    action:
+      action_id: NOOP_REPORT
+      cooldown_seconds: 86400
+    evidence_output:
+      writes: []
+    governance:
+      owner_module: OS.Ops.WarRoom

@@ -1,0 +1,33 @@
+{
+    "contract_name": "OMSR_STABILITY_BANDS_CONTRACT",
+    "version": "1.0.0",
+    "authority": "CANONICAL",
+    "effective_day": 25,
+    "titanium_law": {
+        "clause_1": "BANDS ARE DESCRIPTIVE. THEY DO NOT CHANGE EXECUTION AUTHORITY.",
+        "clause_2": "TRIGGER CONDITIONS ARE DETERMINISTIC AND HIERARCHICAL (RED > ORANGE > YELLOW > GREEN).",
+        "clause_3": "SAFETY FIRST: DEGRADED DATA DEFAULTS TO YELLOW OR ORANGE."
+    },
+    "bands": {
+        "GREEN": {
+            "level": 0,
+            "description": "NOMINAL. System Operating Optimally.",
+            "triggers": "Coherence > 90 AND Drift < 2 AND Thresholds Released"
+        },
+        "YELLOW": {
+            "level": 1,
+            "description": "WATCH. Minor Drift or degraded coherence.",
+            "triggers": "Coherence > 80 AND Drift < 5"
+        },
+        "ORANGE": {
+            "level": 2,
+            "description": "WARNING. Significant Drift or Threshold Tightening Active.",
+            "triggers": "Coherence > 70 OR Drift >= 5 OR Multiplier < 0.9"
+        },
+        "RED": {
+            "level": 3,
+            "description": "CRITICAL. Low Coherence or Hard Limit Clamp.",
+            "triggers": "Coherence <= 70 OR Hard Limit Clamp"
+        }
+    }
+}

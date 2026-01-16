@@ -1,0 +1,35 @@
+{
+    "contract_name": "OMSR_AGMS_INTELLIGENCE_CONTRACT",
+    "version": "1.0.0",
+    "authority": "CANONICAL",
+    "effective_day": 21,
+    "titanium_law": {
+        "clause_1": "AGMS INTELLIGENCE IS DESCRIPTIVE ONLY.",
+        "clause_2": "NO EXECUTION. NO MUTATION. NO FEEDBACK LOOPS.",
+        "clause_3": "ARTIFACTS ARE READ-ONLY AND APPEND-ONLY."
+    },
+    "scope": {
+        "allowed_inputs": [
+            "outputs/runtime/agms/agms_ledger.jsonl",
+            "outputs/runtime/agms/agms_delta.json",
+            "outputs/runtime/autofix/autofix_ledger.jsonl",
+            "outputs/runtime/housekeeper/housekeeper_ledger.jsonl"
+        ],
+        "allowed_outputs": [
+            "outputs/runtime/agms/agms_patterns.json",
+            "outputs/runtime/agms/agms_coherence_snapshot.json",
+            "outputs/runtime/agms/agms_weekly_summary.json"
+        ],
+        "forbidden_actions": [
+            "EXECUTE_PIPELINE",
+            "TRIGGER_CLOUD_RUN",
+            "MODIFY_SOURCE_CODE",
+            "GENERATE_RECOMMENDATIONS",
+            "SUGGEST_ACTIONS"
+        ]
+    },
+    "sla": {
+        "analysis_frequency": "ON_DEMAND_OR_DAILY",
+        "retention_policy": "FULL_HISTORY_COMPRESSED"
+    }
+}

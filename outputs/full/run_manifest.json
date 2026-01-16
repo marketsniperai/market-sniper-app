@@ -1,0 +1,8 @@
+{
+  "run_id": "TEST_RUN",
+  "mode": "FULL",
+  "timestamp_utc": "2026-01-01T00:00:00Z",
+  "context": {
+    "price": 100.0
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "contract_name": "OMSR_AUTOPILOT_CONTRACT",
+    "version": "1.0.0",
+    "authority": "CANONICAL",
+    "effective_day": 23,
+    "titanium_law": {
+        "clause_1": "AGMS THINKS. AUTOFIX ACTS. NEVER THE REVERSE.",
+        "clause_2": "HANDOFF REQUIRES CRYPTOGRAPHIC PROVENANCE (TOKEN).",
+        "clause_3": "EXECUTION REQUIRES FOUNDER AUTHORITY OR EXPLICIT ENABLEMENT."
+    },
+    "roles": {
+        "AGMS": "EMITTER (READ-ONLY, GENERATES HANDOFF)",
+        "AUTOFIX": "RECEIVER (VALIDATES TOKEN, EXECUTES ACTION)"
+    },
+    "gates": {
+        "token": "HMAC_SHA256(handoff_id + playbook_id + bucket)",
+        "allowlist": [
+            "RUN_PIPELINE_LIGHT",
+            "RUN_PIPELINE_FULL"
+        ],
+        "cooldown": "ENFORCED_PER_PLAYBOOK",
+        "auth": "FOUNDER_KEY_OR_ENV_VAR"
+    }
+}

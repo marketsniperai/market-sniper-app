@@ -1,0 +1,63 @@
+{
+    "policy_metadata": {
+        "version": "1.0",
+        "last_updated": "2026-01-14",
+        "authority": "TITANIUM_LAW",
+        "description": "Autonomy Dial Policy. Controls when Autofix may execute AGMS handoffs."
+    },
+    "configuration": {
+        "default_mode": "SHADOW",
+        "active_mode": "SAFE_AUTOPILOT",
+        "founder_overrides": {
+            "allow_safe_autopilot_with_key": true
+        }
+    },
+    "modes": {
+        "OFF": {
+            "allow_execution": false,
+            "description": "System is completely manual. No Autofix execution allowed."
+        },
+        "SHADOW": {
+            "allow_execution": false,
+            "description": "AGMS suggests, Autofix logs decision but DOES NOT execute. Default state."
+        },
+        "SAFE_AUTOPILOT": {
+            "allow_execution": true,
+            "required_band": [
+                "GREEN"
+            ],
+            "require_evidence": true,
+            "description": "Execution allowed ONLY in GREEN band with sufficient evidence."
+        },
+        "FULL_AUTOPILOT": {
+            "allow_execution": true,
+            "required_band": [
+                "GREEN",
+                "YELLOW"
+            ],
+            "require_evidence": true,
+            "description": "Execution allowed in GREEN/YELLOW. Founder-level override only."
+        }
+    },
+    "limits": {
+        "max_actions_per_day": 2,
+        "max_actions_per_hour": 1,
+        "max_consecutive_same_playbook": 1,
+        "require_two_of_two_confirmation": true
+    },
+    "allowlist": [
+        "RUN_PIPELINE_LIGHT",
+        "RUN_PIPELINE_FULL",
+        "APPLY_PATCH_RUNTIME"
+    ],
+    "required_evidence_rules": {
+        "agms_suggestion_must_exist": true,
+        "agms_suggestion_must_map_to_playbook": true,
+        "min_confidence_score": 0.7,
+        "symptoms_must_include_one_of": [
+            "MISFIRE",
+            "MANIFEST_MISSING",
+            "DATA_STALE"
+        ]
+    }
+}

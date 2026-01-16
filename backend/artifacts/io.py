@@ -5,10 +5,16 @@ from typing import Optional, Any, Dict, List
 from datetime import datetime
 
 # IMMUTABLE CONTRACT: ARTIFACTS_ROOT
-# Must resolve to C:\MSR\MarketSniperRepo\backend\outputs
-# We calculate relative to this file: backend/artifacts/io.py
-# Root is ../outputs
-ARTIFACTS_ROOT = Path(__file__).parent.parent / "outputs"
+# Must resolve to C:\MSR\MarketSniperRepo\outputs
+# The standard relative path is ../outputs from backend/artifacts/io.py
+# However, this calculation is brittle if cwd varies or __file__ context is weird.
+# We will make it robust.
+
+# If we are in backend/artifacts/io.py:
+# parent: backend/artifacts
+# parent.parent: backend
+# parent.parent.parent: repo root (MarketSniperRepo)
+ARTIFACTS_ROOT = Path(__file__).parent.parent.parent / "outputs"
 
 def get_artifacts_root() -> Path:
     """Returns the immutable Artifacts Root."""
@@ -74,3 +80,45 @@ def safe_read_or_fallback(
             "status": "IO_ERROR",
             "reason_codes": fallback_reasons + [str(e)]
         }
+
+def atomic_write_json(filename: str, data: Dict[str, Any]):
+    """
+    Writes JSON atomically: write to .tmp -> fsync -> rename.
+    Ensures data integrity.
+    """
+    target = get_artifacts_root() / filename
+    
+    # Create temp file in the same directory to ensure same filesystem for rename
+    # Use simple suffix
+    tmp_path = target.with_suffix(".tmp")
+    
+    try:
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+            f.flush()
+            os.fsync(f.fileno())
+            
+        # Atomic rename (os.replace is atomic on POSIX)
+        os.replace(tmp_path, target)
+    except Exception as e:
+        # Cleanup
+        if tmp_path.exists():
+            try:
+                os.remove(tmp_path)
+            except:
+                pass
+        raise e
+
+def append_to_ledger(filename: str, entry: Dict[str, Any]):
+    """
+    Appends a JSON line to a ledger file.
+    Creates file if it doesn't exist.
+    """
+    target = get_artifacts_root() / filename
+    
+    # Ensure parent dir
+    os.makedirs(target.parent, exist_ok=True)
+    
+    with open(target, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry) + "\n")
+

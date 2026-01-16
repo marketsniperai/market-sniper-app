@@ -1,0 +1,10 @@
+--- TEST: Deny High Risk Surgeon ---
+Decision: DENY, Reasons: ['Deny: Surgeon attempted High Risk action.']
+PASS
+--- TEST: Allow Safe Surgeon ---
+Decision: ALLOW
+PASS
+--- TEST: Execute Surgeon Apply ---
+Apply Result: {'success': True, 'results': ['Fixed outputs/light/run_manifest.json']}
+PASS
+ALL TESTS PASSED

@@ -1,0 +1,31 @@
+{
+    "contract_name": "OS.Intel.Dojo.Contract",
+    "version": "1.0",
+    "mode": "OFFLINE_ONLY",
+    "description": "The Dojo (Day 33). Offline Simulation & Deep Dreaming.",
+    "simulation_budget": {
+        "default": 1000,
+        "max": 10000
+    },
+    "constraints": {
+        "reality_anchoring": "STRICT",
+        "no_overfit": "TRUE",
+        "forbidden_actions": [
+            "PROVIDER_CALL",
+            "PIPELINE_RUN",
+            "FILE_DELETE",
+            "SOURCE_EDIT"
+        ]
+    },
+    "allowed_inputs": [
+        "backend/outputs/runtime",
+        "backend/outputs/full",
+        "backend/outputs/light"
+    ],
+    "outputs": {
+        "snapshot": "backend/outputs/runtime/dojo/dojo_snapshot.json",
+        "report": "backend/outputs/runtime/dojo/dojo_simulation_report.json",
+        "recommendations": "backend/outputs/runtime/dojo/dojo_recommended_thresholds.json",
+        "ledger": "backend/outputs/runtime/dojo/dojo_ledger.jsonl"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "contract_version": "1.0.0",
+    "modules": {
+        "misfire_monitor": {
+            "endpoints": [
+                "/health_ext"
+            ],
+            "artifacts": [
+                "outputs/full/run_manifest.json",
+                "outputs/light/run_manifest.json"
+            ],
+            "sla": {
+                "full_freshness_hours": 26,
+                "light_freshness_minutes": 15
+            }
+        },
+        "autofix": {
+            "endpoints": [
+                "/autofix"
+            ],
+            "artifacts": [
+                "outputs/runtime/autofix/autofix_ledger.jsonl",
+                "outputs/runtime/autofix/autofix_execute_ledger.jsonl"
+            ],
+            "ledgers": [
+                "outputs/runtime/autofix/autofix_execute_ledger.jsonl"
+            ]
+        },
+        "housekeeper": {
+            "endpoints": [
+                "/housekeeper"
+            ],
+            "artifacts": [
+                "outputs/runtime/housekeeper/housekeeper_ledger.jsonl"
+            ],
+            "ledgers": [
+                "outputs/runtime/housekeeper/housekeeper_ledger.jsonl"
+            ]
+        },
+        "war_room": {
+            "endpoints": [
+                "/lab/war_room"
+            ],
+            "artifacts": [],
+            "required_views": [
+                "timeline",
+                "modules",
+                "truth_compare"
+            ]
+        }
+    }
+}

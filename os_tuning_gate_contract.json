@@ -1,0 +1,41 @@
+{
+    "contract_name": "OS.Ops.TuningGate.Contract",
+    "version": "1.0",
+    "description": "Governance for Runtime Tuning. Enforces 2-Vote Consensus and Bounds.",
+    "scope": "DYNAMIC_THRESHOLDS_ONLY",
+    "mode": "RUNTIME_ONLY",
+    "constraints": {
+        "kill_switch_enforced": true,
+        "bounds_clamping": "STRICT",
+        "required_votes": 2,
+        "forbidden_actions": [
+            "CODE_MODIFICATION",
+            "CONTRACT_MODIFICATION",
+            "DELETE_ARTIFACTS"
+        ]
+    },
+    "voters": [
+        {
+            "role": "POLICY",
+            "agent": "AutopilotPolicyEngine",
+            "criteria": "GREEN_OR_SAFE_MODE"
+        },
+        {
+            "role": "RISK",
+            "agent": "TuningRiskAssessor",
+            "criteria": "BOUNDS_RESPECTED"
+        }
+    ],
+    "inputs": {
+        "dojo_recommendations": "backend/outputs/runtime/dojo/dojo_recommended_thresholds.json",
+        "contracts": [
+            "os_dynamic_thresholds_contract.json",
+            "os_kill_switches.json"
+        ]
+    },
+    "outputs": {
+        "applied": "backend/outputs/runtime/tuning/applied_thresholds.json",
+        "ledger": "backend/outputs/runtime/tuning/tuning_ledger.jsonl",
+        "votes_dir": "backend/outputs/runtime/tuning/votes"
+    }
+}

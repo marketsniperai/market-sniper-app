@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 import '../models/dashboard_payload.dart';
+import '../models/system_health.dart';
 import '../services/api_client.dart';
 import '../config/app_config.dart';
 import '../widgets/dashboard_widgets.dart';
+import '../widgets/system_health_chip.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -15,6 +18,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingObserver {
   late ApiClient _api;
   DashboardPayload? _dashboard;
+  SystemHealth? _health;
   bool _loading = true;
   String? _error;
   Timer? _refreshTimer;
@@ -65,10 +69,15 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
        setState(() { _loading = true; _error = null; });
     }
     try {
-      final data = await _api.fetchDashboard();
+      final results = await Future.wait([
+        _api.fetchDashboard(),
+        _api.fetchSystemHealth(),
+      ]);
+      
       if (mounted) {
         setState(() {
-          _dashboard = data;
+          _dashboard = results[0] as DashboardPayload;
+          _health = results[1] as SystemHealth;
           _loading = false;
         });
       }
@@ -76,6 +85,9 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
       if (mounted) {
         setState(() {
           _error = e.toString();
+          // Even on error, try to show whatever health we got if possible, 
+          // but Future.wait fails all. 
+          // For resilience, fetching health could be separate, but strict error handling is okay.
           _loading = false;
         });
       }
@@ -84,26 +96,16 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black, // Oled dark
-      appBar: AppBar(
-        title: const Text("MARKET SNIPER v0"),
-        backgroundColor: AppConfig.isFounderBuild ? Colors.purple[900] : Colors.grey[900],
-        actions: [
-          if (_loading) const Center(child: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2)),
-          ))
-        ],
-      ),
-      body: RefreshIndicator(
-        onRefresh: () => _loadData(),
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Padding(
-             padding: const EdgeInsets.all(16.0),
-             child: _buildBody(),
-          ),
+    // V1 Integration: No inner Scaffold. Inner AppBar content moved/suppressed.
+    // Main shell handles the Scaffold/AppBar.
+    
+    return RefreshIndicator(
+      onRefresh: () => _loadData(),
+      child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: Padding(
+           padding: const EdgeInsets.all(16.0),
+           child: _buildBody(),
         ),
       ),
     );
@@ -111,7 +113,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
 
   Widget _buildBody() {
     if (_error != null && _dashboard == null) {
-      return Center(child: Text("ERROR: $_error", style: const TextStyle(color: Colors.red)));
+      return Center(child: Text("ERROR: $_error", style: const TextStyle(color: AppColors.stateLocked)));
     }
     
     if (_dashboard == null) {
@@ -121,9 +123,26 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // Loading Indicator (Moved from AppBar)
+        if (_loading) 
+          const Padding(
+            padding: EdgeInsets.only(bottom: 16.0),
+            child: LinearProgressIndicator(minHeight: 2),
+          ),
+
+        // Health Surface (Day 09)
+        if (_health != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: SystemHealthChip(
+              health: _health!,
+              isFounder: AppConfig.isFounderBuild,
+            ),
+          ),
+
         // Header Info
-        Text("STATUS: ${_dashboard!.systemStatus}", style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.cyan)),
-        Text("MSG: ${_dashboard!.message}", style: const TextStyle(color: Colors.white70)),
+        Text("STATUS: ${_dashboard!.systemStatus}", style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.accentCyan)),
+        Text("MSG: ${_dashboard!.message}", style: const TextStyle(color: AppColors.textPrimary)),
         const SizedBox(height: 16),
         
         // Dynamic Widgets
@@ -133,7 +152,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
         )),
         
         const SizedBox(height: 32),
-        Center(child: Text("Generated: ${_dashboard!.generatedAt ?? 'Unknown'}", style: const TextStyle(color: Colors.grey, fontSize: 10))),
+        Center(child: Text("Generated: ${_dashboard!.generatedAt ?? 'Unknown'}", style: const TextStyle(color: AppColors.textDisabled, fontSize: 10))),
       ],
     );
   }

@@ -2,29 +2,35 @@
 
 **Date:** 2026-01-12
 **Purpose:** OMSR Day 00 Initialization
-**Status:** DAY_05=SEALED
+**Status:** PHASE 3: AUTONOMY (Surgeon & Freeze Law)
 
 ## Rules
 - No legacy artifacts.
 - "Truth Surface" must be minimal and verified.
 - Founder Always-On.
 - Smoke tests must pass to seal.
+- **Core OS Freeze Law is ACTIVE.**
 
 ## Log
 - **Step 0:** Workspace checked. Empty. Structure created.
-- **Step 1:** Git initialized. Initial commit made.
-- **Step 2:** Skeleton created. Stubs verified. No duplicates.
-- **Step 3:** Backend live. /health_ext compliant. Manifest generated.
-- **Step 4:** Founder flags and trace headers active.
-- **Step 5:** Flutter shell app created and compiled. Dashboard connected.
-- **G0.CANON_0:** Canon registry established.
-- **Day 01:** System Contract defined and sealed.
-- **Day 02:** Schemas and Lens endpoints active. Safe fallbacks verified.
-- **Day 03:** Autonomy Spine and Producer Stubs active. Pipeline verified.
-- **Day 03.1:** Autonomy Hardened (Locking + Publish Marker).
-- **Day 04:** Pipeline Logic v0 active with Real Data Minimum.
-- **Day 05:** Flutter Dashboard v0 shipped (Founder APK).
-- **TARGET_STATE:** `B_VICTORY_CHECKLIST__CLEAN.md` (frozen)
+- ... [History Truncated] ...
+- **Day 28:** Autopilot Policy v1 (Autonomy Dial).
+- **Day 29:** Shadow Observation.
+- **Day 30:** SAFE_AUTOPILOT Activation.
+- **Day 31:** The Surgeon (Runtime Self-Repair).
+- **Day 31.1:** Canon Sync.
+- **Day 30.1:** Core OS Freeze & Kill Switches (SEALED).
+- **Day 30.2:** Surgeon 2-Vote Consensus (SEALED).
+- **Day 31.2:** Antigravity Constitution & Discipline Verifier (SEALED).
+- **Day 32:** OS.ImmuneSystem (Shadow Sanitize) - Active Defense (SEALED).
+- **Day 33:** OS.Intel.Dojo - Offline Simulation (SEALED).
+- **Day 33.1:** OS.Ops.TuningGate - Runtime Tuning Governance (SEALED).
+- **Day 34:** OS.Ops.BlackBox - Forensic Indestructibility (SEALED).
+- **Day 36:** System Language Normalization - 100% English Artifacts (SEALED).
+- **Day 36.1:** Forensic Language Audit - Zero Tolerance Verification (SEALED).
+- **Day 37:** War Calendar Phase 6 Expansion (Final Gap Closure) (SEALED).
+- **Day 37.00:** Frontend Pre-flight (AppColors Tokens) - Codebase compliant with app_colors.dart. Compilation Restored. (SEALED).
+- **TARGET_STATE:** PHASE 6: EXECUTION
 
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`

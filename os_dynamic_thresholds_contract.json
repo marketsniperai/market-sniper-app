@@ -1,0 +1,35 @@
+{
+    "contract_name": "OMSR_DYNAMIC_THRESHOLDS_CONTRACT",
+    "version": "1.0.0",
+    "authority": "CANONICAL",
+    "effective_day": 24,
+    "titanium_law": {
+        "clause_1": "AGMS MAY TUNE SENSITIVITY, BUT NEVER EXECUTION AUTHORITY.",
+        "clause_2": "TUNING MUST RESPECT HARD LIMITS (MIN/MAX).",
+        "clause_3": "THRESHOLDS ARE PULL-ONLY. AGMS DOES NOT PUSH-FORCE CONFIG."
+    },
+    "tunables": {
+        "stale_light_seconds": {
+            "default": 900,
+            "min": 300,
+            "max": 1800,
+            "description": "Max age for Light Manifest before deemed Stale"
+        },
+        "stale_full_seconds": {
+            "default": 93600,
+            "min": 3600,
+            "max": 172800,
+            "description": "Max age for Full Manifest before deemed Stale"
+        },
+        "misfire_threshold_seconds": {
+            "default": 93600,
+            "min": 3600,
+            "max": 172800,
+            "description": "Max age for Misfire Monitor (Legacy)"
+        }
+    },
+    "logic": {
+        "tighten_condition": "HIGH_DRIFT_FREQUENCY OR LOW_COHERENCE",
+        "relax_condition": "SUSTAINED_STABILITY (NOMINAL > 7 DAYS)"
+    }
+}

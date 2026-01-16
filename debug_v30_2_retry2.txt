@@ -1,0 +1,13 @@
+
+--- TEST: Consensus Gate Logic (Unit) ---
+PASS: Case 1 (ALLOW+DENY) -> Denied. Reasons: ["Risk Vote DENY: ['UnitTest']"]
+PASS: Case 2 (DENY+ALLOW) -> Denied. Reasons: ["Policy Vote DENY: ['UnitTest']"]
+PASS: Case 4 (Missing Risk) -> Denied. Reasons: ['Risk Vote Missing']
+PASS: Case 4 (Missing Policy) -> Denied. Reasons: ['Policy Vote Missing']
+PASS: Case 3 (ALLOW+ALLOW) -> Approved
+
+--- TEST: Integration (Surgeon apply_proposal) ---
+Executing Apply...
+FAIL: Integration Apply Failed. Error: KILL_SWITCH: Config Missing (cannot access local variable 'json' where it is not associated with a value)
+
+TESTS FAILED

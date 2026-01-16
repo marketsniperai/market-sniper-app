@@ -1,0 +1,9 @@
+--- TEST: Deny High Risk Surgeon ---
+Decision: DENY, Reasons: ['Deny: Surgeon attempted High Risk action.']
+PASS
+--- TEST: Allow Safe Surgeon ---
+Decision: ALLOW
+PASS
+--- TEST: Execute Surgeon Apply ---
+ERROR: name 'shutil' is not defined
+FAILURES: ['Exec Apply']

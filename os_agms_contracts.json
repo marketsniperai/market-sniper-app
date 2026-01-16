@@ -1,0 +1,43 @@
+{
+    "contract_name": "OMSR_AGMS_FOUNDATION_CONTRACT",
+    "version": "1.0.0",
+    "authority": "CANONICAL",
+    "effective_day": 20,
+    "titanium_law": {
+        "clause_1": "AGMS IS OBSERVE + COMPARE + RECORD ONLY.",
+        "clause_2": "NO ACTING. NO WEIGHTS. NO EXECUTION.",
+        "clause_3": "APPEND-ONLY LEDGER. HISTORY IS IMMUTABLE."
+    },
+    "scope": {
+        "allowed_inputs": [
+            "outputs/full/run_manifest.json",
+            "outputs/light/run_manifest.json",
+            "outputs/runtime/autofix/autofix_status.json",
+            "outputs/runtime/autofix/autofix_execute_ledger.jsonl",
+            "outputs/runtime/housekeeper/housekeeper_report.json",
+            "outputs/runtime/misfire_report.json",
+            "os_lock.json"
+        ],
+        "allowed_outputs": [
+            "outputs/runtime/agms/agms_snapshot.json",
+            "outputs/runtime/agms/agms_delta.json",
+            "outputs/runtime/agms/agms_ledger.jsonl"
+        ],
+        "forbidden_actions": [
+            "EXECUTE_PIPELINE",
+            "TRIGGER_CLOUD_RUN",
+            "MODIFY_SOURCE_CODE",
+            "WRITE_MANIFESTS",
+            "DELETE_FILES",
+            "APPLY_PATCH"
+        ]
+    },
+    "sla": {
+        "freshness_tolerance_seconds": 3600,
+        "degrade_strategy": "REPORT_STALE_AND_CONTINUE"
+    },
+    "privacy": {
+        "pii_policy": "NO_PII_ALLOWED",
+        "secret_policy": "REDACT_ALL_KEYS"
+    }
+}

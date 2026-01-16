@@ -1,0 +1,4 @@
+Analyzing market_sniper_app...                                  
+
+   info - Use 'const' with the constructor to improve performance - lib\layout\main_layout.dart:100:18 - prefer_const_constructors
+

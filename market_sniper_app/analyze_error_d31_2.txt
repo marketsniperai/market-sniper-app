@@ -1,0 +1,4 @@
+Analyzing market_sniper_app...                                  
+
+  error - The named parameter 'screenScale' isn't defined - lib\theme\textured_bar.dart:24:11 - undefined_named_parameter
+

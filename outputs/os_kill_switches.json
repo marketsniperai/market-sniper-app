@@ -1,0 +1,14 @@
+{
+  "kill_switch_metadata": {
+    "version": "1.0",
+    "authority": "FOUNDER_ONLY",
+    "description": "Analog overrides for autonomous systems. These flags supersede ALL policy logic."
+  },
+  "switches": {
+    "AUTOPILOT_ENABLED": true,
+    "SURGEON_RUNTIME_ENABLED": true,
+    "SHADOW_REPAIR_APPLY_ENABLED": false,
+    "PIPELINE_RUN_ENABLED": true,
+    "FOUNDER_OVERRIDE_ENABLED": true
+  }
+}

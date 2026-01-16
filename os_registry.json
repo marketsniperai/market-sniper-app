@@ -1,0 +1,748 @@
+{
+    "registry_metadata": {
+        "version": "2.1",
+        "last_updated": "2026-01-14",
+        "authority": "CANONICAL",
+        "enforcement_day": 27
+    },
+    "modules": [
+        {
+            "module_id": "OS.Infra.API",
+            "name": "API Server",
+            "type": "CORE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/api_server.py"
+            ],
+            "wiring": {
+                "inputs": [],
+                "outputs": [],
+                "ports": [
+                    "/*"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "*"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Infra.Gates",
+            "name": "Core Gates",
+            "type": "CORE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/gates/core_gates.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "full/run_manifest.json"
+                ],
+                "outputs": [
+                    "gate_status"
+                ],
+                "ports": [
+                    "run_core_gates"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Infra.API"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Ops.Pipeline",
+            "name": "Pipeline Controller",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/pipeline_controller.py",
+                "backend/pipeline_premarket.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "config/config_registry.json"
+                ],
+                "outputs": [
+                    "full/run_manifest.json",
+                    "light/run_manifest.json"
+                ],
+                "ports": [
+                    "POST /lab/run_pipeline"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Infra.API"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "Rebuild Job",
+                "war_room_visibility": [
+                    "pipeline_status"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.Misfire",
+            "name": "Misfire Monitor",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/misfire_monitor.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "os_lock.json"
+                ],
+                "outputs": [
+                    "misfire_report"
+                ],
+                "ports": [
+                    "GET /misfire",
+                    "POST /lab/misfire_autoheal"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Ops.AutoFix"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "Auto-Heal Trigger",
+                "war_room_visibility": [
+                    "misfire_status"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.AutoFix",
+            "name": "AutoFix Control Plane",
+            "type": "OPS",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/autofix_control_plane.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "runtime/agms/agms_handoff.json"
+                ],
+                "outputs": [
+                    "autofix_ledger.jsonl"
+                ],
+                "ports": [
+                    "GET /autofix",
+                    "POST /lab/autofix/execute"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Misfire",
+                        "OS.Intel.Handoff"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "autofix_status"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.Housekeeper",
+            "name": "Housekeeper",
+            "type": "OPS",
+            "owner": "HOUSEKEEPER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/housekeeper.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "outputs/"
+                ],
+                "outputs": [
+                    "housekeeper_scan.json",
+                    "housekeeper_ledger.jsonl"
+                ],
+                "ports": [
+                    "GET /housekeeper",
+                    "POST /lab/housekeeper/run"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "Clean Sweep",
+                "war_room_visibility": [
+                    "housekeeper_status"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.WarRoom",
+            "name": "War Room",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/war_room.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "*"
+                ],
+                "outputs": [],
+                "ports": [
+                    "GET /lab/war_room"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Misfire",
+                        "OS.Ops.AutoFix"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "SELF"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.ImmuneSystem",
+            "name": "Immune System",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/immune_system.py",
+                "os_immune_system_contract.json"
+            ],
+            "wiring": {
+                "inputs": [
+                    "pipeline_payloads"
+                ],
+                "outputs": [
+                    "immune_snapshot.json",
+                    "immune_ledger.jsonl",
+                    "immune_report.json"
+                ],
+                "ports": [
+                    "GET /immune/status",
+                    "GET /immune/tail"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Pipeline"
+                    ],
+                    "downstream": [
+                        "OS.Ops.WarRoom"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "os_immune_system_contract.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "immune_system"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.BlackBox",
+            "name": "Black Box",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE_ALWAYS_ON",
+            "primary_files": [
+                "backend/os_ops/black_box.py",
+                "os_black_box_contract.json"
+            ],
+            "wiring": {
+                "inputs": [
+                    "AGMS_THINK",
+                    "POLICY_DECISION",
+                    "AUTOFIX_ACTION",
+                    "SURGEON_APPLY",
+                    "IMMUNE_FLAG",
+                    "PIPELINE_RUN"
+                ],
+                "outputs": [
+                    "decision_ledger.jsonl",
+                    "crash_snapshots/*.json"
+                ],
+                "ports": [
+                    "GET /blackbox/status",
+                    "GET /blackbox/ledger/tail",
+                    "GET /blackbox/snapshots"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "ALL"
+                    ],
+                    "downstream": [
+                        "OS.Ops.WarRoom"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "os_black_box_contract.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "black_box"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Ops.ShadowRepair",
+            "name": "Shadow Repair",
+            "type": "OPS",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/shadow_repair.py"
+            ],
+            "wiring": {
+                "inputs": [],
+                "outputs": [],
+                "ports": [
+                    "POST /lab/shadow_repair/propose"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "Apply Patch",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Ops.TuningGate",
+            "name": "Tuning Gate",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE_RUNTIME",
+            "primary_files": [
+                "backend/os_ops/tuning_gate.py",
+                "os_tuning_gate_contract.json"
+            ],
+            "wiring": {
+                "inputs": [
+                    "dojo_recommended_thresholds.json"
+                ],
+                "outputs": [
+                    "applied_thresholds.json",
+                    "tuning_ledger.jsonl"
+                ],
+                "ports": [
+                    "POST /lab/tuning/apply",
+                    "GET /tuning/status",
+                    "GET /tuning/tail"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.Dojo",
+                        "OS.Ops.BlackBox"
+                    ],
+                    "downstream": [
+                        "OS.Intel.Thresholds",
+                        "OS.Ops.WarRoom"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "os_tuning_gate_contract.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "tuning_gate"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Foundation",
+            "name": "AGMS Foundation",
+            "type": "INTELLIGENCE",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_intel/agms_foundation.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "full/run_manifest.json"
+                ],
+                "outputs": [
+                    "agms_foundation_snapshot.json"
+                ],
+                "ports": [
+                    "GET /agms/foundation"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Pipeline"
+                    ],
+                    "downstream": [
+                        "OS.Intel.Intel"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "agms_foundation"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Intel",
+            "name": "AGMS Intelligence",
+            "type": "INTELLIGENCE",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_intel/agms_intelligence.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "agms_foundation_snapshot.json"
+                ],
+                "outputs": [
+                    "agms_intelligence.json"
+                ],
+                "ports": [
+                    "GET /agms/intelligence"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.Foundation"
+                    ],
+                    "downstream": [
+                        "OS.Intel.ShadowRec"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "agms_intelligence"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Dojo",
+            "name": "The Dojo",
+            "type": "INTELLIGENCE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE_OFFLINE",
+            "primary_files": [
+                "backend/os_intel/dojo_simulator.py",
+                "os_dojo_contract.json"
+            ],
+            "wiring": {
+                "inputs": [
+                    "run_manifest.json (FULL/LIGHT)",
+                    "immune_snapshot.json"
+                ],
+                "outputs": [
+                    "dojo_simulation_report.json",
+                    "dojo_recommended_thresholds.json",
+                    "dojo_ledger.jsonl"
+                ],
+                "ports": [
+                    "POST /lab/dojo/run",
+                    "GET /dojo/status",
+                    "GET /dojo/tail"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.Foundation",
+                        "OS.Ops.ImmuneSystem"
+                    ],
+                    "downstream": [
+                        "OS.Ops.WarRoom"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "os_dojo_contract.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "dojo"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.ShadowRec",
+            "name": "AGMS Shadow Recommender",
+            "type": "INTELLIGENCE",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_intel/agms_shadow_recommender.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "agms_intelligence.json"
+                ],
+                "outputs": [
+                    "agms_shadow_ledger.jsonl"
+                ],
+                "ports": [
+                    "GET /agms/shadow/suggestions"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.Intel"
+                    ],
+                    "downstream": [
+                        "OS.Intel.Handoff"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "shadow_recommendations"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Handoff",
+            "name": "Autopilot Handoff",
+            "type": "INTELLIGENCE",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_intel/agms_autopilot_handoff.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "agms_shadow_ledger.jsonl"
+                ],
+                "outputs": [
+                    "agms_handoff.json"
+                ],
+                "ports": [
+                    "GET /agms/handoff"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.ShadowRec"
+                    ],
+                    "downstream": [
+                        "OS.Ops.AutoFix"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "handoff_token"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Thresholds",
+            "name": "Dynamic Thresholds",
+            "type": "INTELLIGENCE",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_intel/agms_dynamic_thresholds.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "agms_intelligence.json"
+                ],
+                "outputs": [
+                    "agms_dynamic_thresholds.json"
+                ],
+                "ports": [
+                    "GET /agms/thresholds"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.Intel"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "dynamic_thresholds"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Bands",
+            "name": "Confidence Bands",
+            "type": "INTELLIGENCE",
+            "owner": "AGMS",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_intel/agms_stability_bands.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "agms_intelligence.json"
+                ],
+                "outputs": [
+                    "agms_stability_band.json"
+                ],
+                "ports": [],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Intel.Intel"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "stability_band"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Biz.Dashboard",
+            "name": "Dashboard",
+            "type": "FEATURE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/schemas/dashboard_schema.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "dashboard_market_sniper.json"
+                ],
+                "outputs": [],
+                "ports": [
+                    "GET /dashboard"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Pipeline"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Biz.Context",
+            "name": "Context",
+            "type": "FEATURE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/schemas/context_schema.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "context_market_sniper.json"
+                ],
+                "outputs": [],
+                "ports": [
+                    "GET /context"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Pipeline"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Biz.Efficacy",
+            "name": "Efficacy Engine",
+            "type": "FEATURE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/schemas/efficacy_schema.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "efficacy_report.json"
+                ],
+                "outputs": [],
+                "ports": [
+                    "GET /efficacy"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.Ops.Pipeline"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        }
+    ]
+}

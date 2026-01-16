@@ -1,0 +1,36 @@
+{
+    "contract_name": "OMSR_AGMS_SHADOW_RECOMMENDER_CONTRACT",
+    "version": "1.0.0",
+    "authority": "CANONICAL",
+    "effective_day": 22,
+    "titanium_law": {
+        "clause_1": "AGMS MAY SUGGEST, BUT MUST NEVER ACT.",
+        "clause_2": "AGMS THINKS. AUTOFIX ACTS. NEVER THE REVERSE.",
+        "clause_3": "OUTPUTS ARE SUGGESTIONS ONLY. EXECUTION AUTHORITY IS NULL."
+    },
+    "scope": {
+        "allowed_inputs": [
+            "outputs/runtime/agms/agms_patterns.json",
+            "outputs/runtime/agms/agms_coherence_snapshot.json",
+            "outputs/runtime/agms/agms_ledger.jsonl",
+            "os_playbooks.yml"
+        ],
+        "allowed_outputs": [
+            "outputs/runtime/agms/agms_shadow_suggestions.json",
+            "outputs/runtime/agms/agms_shadow_explanations.json",
+            "outputs/runtime/agms/agms_shadow_ledger.jsonl",
+            "outputs/runtime/agms/agms_shadow_snapshot.json"
+        ],
+        "forbidden_actions": [
+            "EXECUTE_PIPELINE",
+            "TRIGGER_CLOUD_RUN",
+            "MODIFY_RUN_MANIFEST",
+            "MODIFY_SOURCE_CODE",
+            "DELETE_FILES"
+        ]
+    },
+    "sla": {
+        "suggestion_latency": "BATCH_MODE",
+        "confidence_threshold": 0.5
+    }
+}

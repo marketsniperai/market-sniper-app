@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/dashboard_payload.dart';
+import '../theme/app_colors.dart';
 
 class UnknownWidgetCard extends StatelessWidget {
   final DashboardWidget widget;
@@ -9,17 +10,17 @@ class UnknownWidgetCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.red[900],
+      color: AppColors.stateLocked.withOpacity(0.2),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("UNKNOWN WIDGET: ${widget.type}",
-                style: const TextStyle(fontWeight: FontWeight.bold)),
+                style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.stateLocked)),
             const SizedBox(height: 8),
             Text(widget.data.toString(),
-                style: const TextStyle(fontFamily: 'Monospace', fontSize: 10)),
+                style: const TextStyle(fontFamily: 'Monospace', fontSize: 10, color: AppColors.textSecondary)),
           ],
         ),
       ),
@@ -36,17 +37,17 @@ class DeltaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final value = widget.data['value'] ?? '--';
     final sentiment = widget.data['sentiment'] ?? 'NEUTRAL';
-    Color color = Colors.grey;
-    if (sentiment == 'BULLISH') color = Colors.green;
-    if (sentiment == 'BEARISH') color = Colors.red;
+    Color color = AppColors.textSecondary;
+    if (sentiment == 'BULLISH') color = AppColors.marketBull;
+    if (sentiment == 'BEARISH') color = AppColors.marketBear;
 
     return Card(
-      color: Colors.grey[900],
+      color: AppColors.surface1,
       child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
-            Text(widget.title, style: const TextStyle(color: Colors.white54)),
+            Text(widget.title, style: const TextStyle(color: AppColors.textSecondary)),
             const SizedBox(height: 8),
             Text(value,
                 style: TextStyle(
@@ -78,9 +79,9 @@ class StatusCard extends StatelessWidget {
     final runId = widget.data['run_id'] ?? 'N/A';
     
     return Card(
-      color: Colors.blueGrey[900],
+      color: AppColors.surface1,
       child: ListTile(
-        leading: const Icon(Icons.security, color: Colors.cyanAccent),
+        leading: const Icon(Icons.security, color: AppColors.accentCyan),
         title: Text(widget.title),
         subtitle: Text("$status (Run: $runId)"),
       ),
