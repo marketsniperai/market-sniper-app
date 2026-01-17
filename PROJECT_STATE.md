@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-12
 **Purpose:** OMSR Day 00 Initialization
-**Status:** PHASE 3: AUTONOMY (Surgeon & Freeze Law)
+**Status:** PHASE 7: ELITE ARC (DAY 41) - AUTHORIZED
 
 ## Rules
 - No legacy artifacts.
@@ -10,6 +10,7 @@
 - Founder Always-On.
 - Smoke tests must pass to seal.
 - **Core OS Freeze Law is ACTIVE.**
+- **Dashboard Layout Verifier is MANDATORY (No Stack/No Hardcoded Spacing).**
 
 ## Log
 - **Step 0:** Workspace checked. Empty. Structure created.
@@ -30,7 +31,85 @@
 - **Day 36.1:** Forensic Language Audit - Zero Tolerance Verification (SEALED).
 - **Day 37:** War Calendar Phase 6 Expansion (Final Gap Closure) (SEALED).
 - **Day 37.00:** Frontend Pre-flight (AppColors Tokens) - Codebase compliant with app_colors.dart. Compilation Restored. (SEALED).
-- **TARGET_STATE:** PHASE 6: EXECUTION
+- **Day 37.00.1A:** Flutter SDK Upgrade - Cleaned SDK git tree. Upgraded 3.24.5 -> 3.38.7. (SEALED).
+- **Day 37.00.2:** Global Shell Baseline - Implemented persistent Top/Bottom bars and scrollable body. (SEALED).
+- **Day 37.00.3:** Premium Palette Alignment - Upgraded AppColors to Night Finance Premium tokens. (SEALED).
+- **Day 37.01:** Dashboard SSOT Wiring - Wired DashboardRepository to valid SSOT. Added Freshness Debug Logic. (SEALED).
+- **Day 37.02:** Session Window Widget - Implemented canonical Session Window (DST-aware). (SEALED).
+- **Day 37.03:** Live/Stale/Locked Precedence - Implemented data state resolution logic. (SEALED).
+- **Day 37.02.1:** Session Strip Polish - Applied Bestia institutional branding to header. (SEALED).
+- **Day 37.04:** OS Health Widget - Implemented unified health widget (health_ext > os/health). (SEALED).
+- **Day 37.05:** Last Run Widget - Implemented pipeline status/result widget. (SEALED).
+- **Day 37.06:** Founder Mode Always-On - Implemented institutional debug visibility. (SEALED).
+- **Day 37.07:** Refresh Governance - Implemented auto/manual refresh with cooldowns. (SEALED).
+- **Day 37.08:** Dashboard Degrade Rules - Implemented safe degrade states (Unavailable/Partial/Stale). (SEALED).
+- [ ] D38.01 — War Room Tiles Shell - Implemented command center shell + Founder 8-tap access. (SEALED).
+- [ ] D38.01.1 — Dashboard Layout System - Enforced Spacing Tokens, Card Wrapper, and Composer (No Stacks). (SEALED).
+- [ ] D38.01.2 — Dashboard Layout Discipline Verifier (Hard Gate) - Activated automated verifier for Stack/EdgeInsets. (SEALED).
+- [ ] D38.02 — War Room Tiles Wiring - Wired real OS data (Health/Autopilot/Iron/Universe) with strict color canon. (SEALED).
+- [ ] D38.03 — War Room Tile — Autofix Control Plane Summary (Status/Mode/Cooldown). (SEALED).
+- [ ] D38.04 — Misfire + Housekeeper War Room Tiles - Completed Command Center Spine with Incident/Hygiene visibility. (SEALED).
+- [ ] D38.05 — Misfire Monitor + Auto-Recovery Tile - Upgraded Misfire surface with Proof/Cooldown visibility. (SEALED).
+- [ ] D38.06 — Iron OS Tile (State + Details) - Upgraded Iron OS tile to full state machine monitor. (SEALED).
+- [ ] D38.07 — Universe Tile - Completed Universe/Overlay visibility surface. (SEALED).
+- [ ] D38.08 — War Room Refresh Governance - Implemented 60s auto-refresh, atomic updates, and backoff logic. (SEALED).
+- [ ] D38.09 — War Room Truth & Degrade Hardening - Global degrade policy, banner system, and Founder Truth Surface. (SEALED).
+- Roadmap updated with Elite onboarding + Command Center concept
+- [x] D39.01 — CORE20 Universe Surface - Implemented canonical CORE20 domain, screen, and Watchlist validation. (SEALED).
+- [x] D39.01A — CORE20 Canon Fix - Hardened to 20 symbols (Removed VIX) and strict alias mapping. (SEALED).
+- [x] D39.01B — CORE20 Correction - Restored VIX, Removed US2Y to maintain 20 count. (SEALED).
+- [x] D39.01C — CORE20 Canon Final - Restored US2Y, Count 21 (Canon Preservation). (SEALED).
+- [x] D39.01D — CORE_UNIVERSE Canon Clarification - Renamed to CORE_UNIVERSE (21 symbols) to resolve numeric conflict. (SEALED).
+- [x] D39.02 — Extended Universe UI - Implemented sector badges, breakdown panel, and degrade logic (UNAVAILABLE). (SEALED).
+- [x] D39.03 — Extended Governance Visibility - Implemented 10m cooldown/100 cap transparency surface (Policy Mode). (SEALED).
+- [x] D39.HF01 — Web Shell Visibility Hotfix - Fixed blank layout on Web/Chrome. (SEALED).
+- [x] D39.04 — Overlay Truth Metadata UI - Implemented LIVE/SIM/PARTIAL truth surface + freshness/confidence. (SEALED).
+- [x] D39.08 — Universe Integrity Tile - Implemented consolidated truth traffic light (Core/Ext/Overlay/Gov/Cons). (SEALED).
+- [x] D39.06 — Universe Propagation Audit - Implemented Consumer detection surface (Total/OK/Issues). (SEALED).
+- [x] D39.09 — Universe Drift Surface - Implemented drift diagnostics (Missing/Dup/Unknown/Orphan). (SEALED).
+- [x] D39.07 — Safe Degrade Rules - Implemented strict overlay degradation logic (UNAVAILABLE > STALE > DEGRADED > NOMINAL) and UI warning strips. (SEALED).
+- [x] D39.05 — Extended Summary Overlay Injection - Implemented safe context summary surface with Unavailable strip default. (SEALED).
+- [x] D39.11 — Sector Sentinel Status Placeholder - Implemented UI surface defaulting to UNAVAILABLE/DISABLED until D40. (SEALED).
+- [x] D39.10 — Sector Heatmap Mini (Dispersion) - Implemented 10-sector dispersion grid with safe degradation and strict truth rules. (SEALED).
+- **[SEALED] DAY 39 — UNIVERSE V3 UI & GOVERNANCE COMPLETE.**
+  - Universe V3 parity restored with full structural integrity.
+  - Core, Extended, Governance, Overlay, Propagation, Drift, and Sector surfaces implemented and verified.
+  - Safe degradation logic enforced globally.
+  - Ready for D40 Real-Time Intelligence injection.
+  - Seal: `outputs/seals/SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md`
+- [x] D40.01 — Core Universe Realtime Tape - Implemented tape surface with Size Guard (20) and Safe Degradation (UNAVAILABLE default). (SEALED).
+- [x] D40.02 — Pulse Core - Implemented Primary Risk State UI (Risk On/Off/Shock). (SEALED).
+- [x] D40.09 — Pulse Confidence Bands - Implemented Confidence, Stability, Volatility Regime UI. (SEALED).
+- [x] D40.02 — Pulse Core - Implemented Primary Risk State UI (Risk On/Off/Shock). (SEALED).
+- [x] D40.09 — Pulse Confidence Bands - Implemented Confidence, Stability, Volatility Regime UI. (SEALED).
+- [x] D40.10 — Pulse Drift Surface - Implemented Cross-Check Diagnostics (Pulse vs Core/Sentinel/Overlay). (SEALED).
+- [x] D40.03 — Sector Sentinel RT - Implemented RT Surface with 11-sector strip & safe degrade. (SEALED).
+- [x] D40.11 — Sentinel Heatmap RT - Implemented Pressure/Dispersion Heatmap with safe colors. (SEALED).
+- [x] D40.05 — Global Pulse Synthesis - Implemented Risk State, Drivers, Confidence UI. (SEALED).
+- [x] D40.13 — RT Freshness Monitor - Implemented 4-component freshness tracking (Core/Sentinel/Overlay/Synthesis) with strict precedence. (SEALED).
+- [x] D40.06 — Disagreement Report - Implemented UI for system conflicts (Scope/Severity/Message). (SEALED).
+- [x] D40.12 — Global Pulse Timeline - Implemented Last-5 timeline with Risk State badges. (SEALED).
+- [x] D40.14 — Degrade Rules Surface - Implemented static policy explanation for stale states. (SEALED).
+- [x] D40.15 — What Changed Panel - Implemented real-time change log (Last 60s). (SEALED).
+- [x] D40.07 — Elite Explain Trigger - Implemented SHOCK/FRACTURED/RISK_OFF override bubble with cooldown. (SEALED).
+- [x] D40.08 — Auto-Risk Actions UI - Implemented read-only system action surface. (SEALED).
+- [x] D40.04 — Extended Overlay LIVE Composer - Implemented RT composer (Sentinel->Overlay) and Repo parsing. (SEALED).
+- **[SEALED] DAY 40 — REAL-TIME INTELLIGENCE ARC COMPLETE.**
+  - Seal: `outputs/seals/SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md`
+- **TARGET_STATE:** PHASE 7: ELITE ARC (DAY 41)
+- **Day 41**: Iron OS (Forensics)
+  - [x] D41.01 — Iron OS Status Surface - Implemented strict backend reading (os_state.json) and War Room UI (State/Age/Tick) with Unavailable defaults. (SEALED).
+  - [x] D41.02 — Timeline Tail Viewer - Implemented strictly bounded (10 events, 8KB) audit log surface. (SEALED).
+  - [x] D41.07 — Iron State History Strip - Implemented last 10 states audit history, read-only. (SEALED).
+  - [x] D41.09 — LKG Snapshot Viewer - Implemented LKG metadata visibility (hash/time/valid). (SEALED).
+  - [x] D41.10 — Iron Decision Path - Implemented last decision visibility (type/reason/fallback). (SEALED).
+  - [x] D41.08 — Iron Drift Surface - Implemented drift report visibility (mismatches). (SEALED).
+  - [x] D41.11 — Replay Integrity Report - Implemented integrity flags visibility. (SEALED).
+- **Day 42**: Self-Heal & Housekeeper (War Room V2)
+  - [x] D42.01: War Room (Lock Reason) - Implemented lock reason visibility (active/none). (SEALED).
+  - [x] D42.02: Coverage Surface (SEALED).
+  - [x] D42.08: Findings Panel (Read-Only) (SEALED).
+  - [x] D42.09: Before/After Diff Surface (Read-Only) (SEALED).
 
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`

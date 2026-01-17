@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI, Request, BackgroundTasks, Header
+from fastapi import FastAPI, Request, BackgroundTasks, Header, HTTPException
 from typing import Optional, Dict, Any
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -228,6 +228,80 @@ def housekeeper_run(request: Request):
     # Gate check implied/enforceable
     
     return Housekeeper.execute_clean(auth_header)
+    
+# IRON OS ENDPOINTS (DAY 41)
+from backend.os_ops.iron_os import IronOS
+
+@app.get("/lab/os/iron/status")
+def iron_status():
+    """
+    Day 41: Iron OS Status (State + Heartbeat).
+    Returns strict snapshot or 404/Null if unavailable.
+    """
+    status = IronOS.get_status()
+    if not status:
+        return JSONResponse(status_code=404, content={"error": "UNAVAILABLE"})
+    return status
+
+@app.get("/lab/os/iron/timeline_tail")
+def iron_timeline():
+    """
+    D41.02: Iron OS Timeline Tail.
+    Returns last 10 events or 404.
+    """
+    data = IronOS.get_timeline_tail()
+    if not data:
+        return JSONResponse(status_code=404, content={"error": "UNAVAILABLE"})
+    return data
+
+@app.get("/lab/os/self_heal/findings")
+async def get_self_heal_findings():
+    """D42.08: Findings Panel Surface (Strict Lens for os_findings.json)"""
+    data = IronOS.get_findings()
+    if data is None:
+        raise HTTPException(status_code=404, detail="Findings unavailable")
+    return data
+
+@app.get("/lab/os/self_heal/before_after")
+async def get_self_heal_before_after():
+    """D42.09: Before/After Diff Surface (Strict Lens for os_before_after_diff.json)"""
+    data = IronOS.get_before_after_diff()
+    if data is None:
+        raise HTTPException(status_code=404, detail="Diff unavailable")
+    return data
+
+@app.get("/lab/os/iron/state_history")
+def iron_history():
+    """
+    D41.07: Iron OS State History.
+    Returns last 10 states or 404.
+    """
+    data = IronOS.get_state_history()
+    if not data:
+        return JSONResponse(status_code=404, content={"error": "UNAVAILABLE"})
+    return data
+
+@app.get("/lab/os/iron/drift")
+def iron_drift():
+    """
+    D41.08: Iron OS Drift Surface.
+    Returns drift report or 404.
+    """
+    data = IronOS.get_drift_report()
+    if data is None: 
+        return JSONResponse(status_code=404, content={"error": "UNAVAILABLE"})
+    return data
+
+@app.get("/lab/os/iron/replay_integrity")
+def iron_replay():
+    """
+    D41.11: Iron OS Replay Integrity.
+    Returns integrity report or 404.
+    """
+    data = IronOS.get_replay_integrity()
+    if not data:
+        return JSONResponse(status_code=404, content={"error": "UNAVAILABLE"})
+    return data
 
 # WAR ROOM ENDPOINTS (DAY 18)
 from backend.os_ops.war_room import WarRoom

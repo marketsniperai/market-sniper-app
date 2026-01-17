@@ -137,64 +137,199 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
 - [ ] D37 — Dashboard Core (Lens OS Surface)
   - [x] D37.00 — Frontend Pre-flight (AppColors Import + Token Alignment)
     - ↳ Seal: [`SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md`](../../outputs/seals/SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md)
-  - [ ] D37.01 — Dashboard SSOT wiring (dashboard_market_sniper.json + freshness states)
-  - [ ] D37.02 — Session Window widget (PRE/MARKET/AFTER/CLOSED)
-  - [ ] D37.03 — Live/Stale/Locked chip discipline (sources + precedence)
-  - [ ] D37.04 — OS Health widget (health_ext + os/health + Misfire integration)
-  - [ ] D37.05 — Last Run widget (FULL/LIGHT + result + age_seconds)
-  - [ ] D37.06 — Founder Mode always-on (founder-only chips + debug banners)
-  - [ ] D37.07 — Auto-refresh + pull-to-refresh governance (cooldowns + UX)
-  - [ ] D37.08 — Dashboard degrade rules (missing artifacts, stale, partial)
+  - [x] D37.00.1A — Flutter SDK Decontamination & Upgrade (3.24.5 -> 3.38.7)
+    - ↳ Seal: [`SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md`](../../outputs/seals/SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md)
+  - [x] D37.00.2 — Global Shell Baseline (Persistent Top Bar + Bottom Nav)
+    - ↳ Seal: [`SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md`](../../outputs/seals/SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md)
+  - [x] D37.00.3 — Premium Palette Alignment (AppColors Upgrade)
+    - ↳ Seal: [`SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md`](../../outputs/seals/SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md)
+  - [x] D38.01.1 — Dashboard Layout System - Enforced Spacing Tokens, Card Wrapper, and Composer (No Stacks).
+    - ↳ Seal: [`SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md`](../../outputs/seals/SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md)
+  - [x] D38.01.2 — Dashboard Layout Discipline Verifier (Hard Gate)
+    - ↳ Seal: [`SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md`](../../outputs/seals/SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md)
+  - [x] D37.01 — Dashboard SSOT wiring (dashboard_market_sniper.json + freshness states)
+    - ↳ Seal: [`SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md`](../../outputs/seals/SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md)
+  - [x] D37.02 — Session Window widget (PRE/MARKET/AFTER/CLOSED)
+    - ↳ Seal: [`SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md`](../../outputs/seals/SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md)
+  - [x] D37.02.1 — Session Strip Polish (Institutional Header Fit & Finish)
+    - ↳ Seal: [`SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md`](../../outputs/seals/SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md)
+  - [x] D37.03 — Live/Stale/Locked chip discipline (sources + precedence)
+    - ↳ Seal: [`SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md`](../../outputs/seals/SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md)
+  - [x] D37.04 — OS Health widget (health_ext + os/health + Misfire integration)
+    - ↳ Seal: [`SEAL_DAY_37_04_OS_HEALTH_WIDGET.md`](../../outputs/seals/SEAL_DAY_37_04_OS_HEALTH_WIDGET.md)
+  - [x] D37.05 — Last Run widget (FULL/LIGHT + result + age_seconds)
+    - ↳ Seal: [`SEAL_DAY_37_05_LAST_RUN_WIDGET.md`](../../outputs/seals/SEAL_DAY_37_05_LAST_RUN_WIDGET.md)
+  - [x] D37.06 — Founder Mode always-on (founder-only chips + debug banners)
+    - ↳ Seal: [`SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md`](../../outputs/seals/SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md)
+  - [x] D37.07 — Auto-refresh + pull-to-refresh governance (cooldowns + UX)
+    - ↳ Seal: [`SEAL_DAY_37_07_REFRESH_GOVERNANCE.md`](../../outputs/seals/SEAL_DAY_37_07_REFRESH_GOVERNANCE.md)
+  - [x] D37.08 — Dashboard degrade rules (missing artifacts, stale, partial)
+    - ↳ Seal: [`SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md`](../../outputs/seals/SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md)
 
 - [ ] D38 — War Room Spine v1 (Command Center Tiles)
-  - [ ] D38.01 — OS Health tile (NOMINAL/DEGRADED/MISFIRE/LOCKED)
-  - [ ] D38.02 — Autopilot Status tile (OFF/SHADOW/SAFE_AUTOPILOT + kill switches)
-  - [ ] D38.03 — AutoFix Control Plane tile (observe/recommend/execute status)
-  - [ ] D38.04 — Housekeeper tile (auto status + last run + ledger tail)
-  - [ ] D38.05 — Misfire Monitor / Auto-Recovery tile (proof + cooldown)
-  - [ ] D38.06 — Iron OS tile (state + last rollback + last replay)
-  - [ ] D38.07 — Universe tile (CORE20/Extended/Overlay LIVE-SIM-PARTIAL)
-  - [ ] D38.08 — OS Registry / Module Radar surface (drilldown)
-  - [ ] D38.09 — War Room Color Canon enforcement + “?” legend modal
-  NOTE: Keep a short reference note that War Room Color Canon was previously sealed (Step 21.2) — do not rewrite history.
+  - [x] D38.01 — OS Health tile (NOMINAL/DEGRADED/MISFIRE/LOCKED)
+    - ↳ Seal: [`SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md`](../../outputs/seals/SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md)
+  - [x] D38.02 — War Room Tiles Wiring - Wired real OS data (Health/Autopilot/Iron/Universe) with strict color canon.
+    - ↳ Seal: [`SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md`](../../outputs/seals/SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md)
+  - [x] D38.03 — War Room Tile — Autofix Control Plane Summary (Status/Mode/Cooldown).
+    - ↳ Seal: [`SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md`](../../outputs/seals/SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md)
+  - [x] D38.04 — Housekeeper tile (auto status + last run + ledger tail)
+    - ↳ Seal: [`SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md`](../../outputs/seals/SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md)
+  - [x] D38.05 — Misfire Monitor / Auto-Recovery tile (proof + cooldown)
+    - ↳ Seal: [`SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md`](../../outputs/seals/SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md)
+  - [x] D38.06 — Iron OS tile (state + last rollback + last replay)
+    - ↳ Seal: [`SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md`](../../outputs/seals/SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md)
+  - [x] D38.07 — Universe tile (CORE20/Extended/Overlay LIVE-SIM-PARTIAL)
+    - ↳ Seal: [`SEAL_DAY_38_07_UNIVERSE_TILE.md`](../../outputs/seals/SEAL_DAY_38_07_UNIVERSE_TILE.md)
+  - [x] D38.08 — War Room Refresh Governance
+    - ↳ Seal: [`SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md`](../../outputs/seals/SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md)
+  - [x] D38.09 — War Room Truth & Degrade Hardening (Final)
+    - ↳ Seal: [`SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md`](../../outputs/seals/SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md)
 
 - [ ] D39 — Universe V3 + Extended + Overlay (UI & Governance)
-  - [ ] D39.01 — CORE20 universe surface + Watchlist validation (Universe compliance)
-  - [ ] D39.02 — Extended Universe UI: sector badges + breakdown panel
-  - [ ] D39.03 — Extended Governance visibility (cooldown 10m, cap 100/day, ledger/proof surface)
-  - [ ] D39.04 — Overlay truth metadata UI (LIVE/SIM/PARTIAL + age_seconds + OK/STALE + confidence)
-  - [ ] D39.05 — Extended Summary Overlay injection surface (context_market_sniper.json)
-  - [ ] D39.06 — Universe Propagation Audit surface (consumer detection results)
-  - [ ] D39.07 — Safe degrade rules when overlay missing or stale
+  CORE
+  - [x] D39.01 — CORE_UNIVERSE Canon Defined - Renamed from CORE20 to resolve semantic conflict without loss of information.
+    - ↳ Seal: [`SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md`](../../outputs/seals/SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md)
+    - ↳ Seal Fix: [`SEAL_DAY_39_01A_CORE20_CANON_FIX.md`](../../outputs/seals/SEAL_DAY_39_01A_CORE20_CANON_FIX.md)
+    - ↳ Correction: [`SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md`](../../outputs/seals/SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md)
+  - [x] D39.01C — CORE20 Canon Final - Restored US2Y, Count 21 (Strict Canon Preservation).
+    - ↳ Seal: [`SEAL_DAY_39_01C_CORE20_CANON_FINAL.md`](../../outputs/seals/SEAL_DAY_39_01C_CORE20_CANON_FINAL.md)
+  - [x] D39.02 — Extended Universe UI: sector badges + breakdown panel
+  - [x] D39.03 — Extended Governance visibility (cooldown 10m, cap 100/day, ledger/proof surface)
+
+  OVERLAY
+  - [x] D39.04 — Overlay truth metadata UI (LIVE/SIM/PARTIAL + age_seconds + OK/STALE + confidence)
+    - ↳ Seal: [`SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md`](../../outputs/seals/SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md)
+  - [x] D39.05 — Extended Summary Overlay injection surface (context_market_sniper.json)
+    - ↳ Seal: [`SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md`](../../outputs/seals/SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md)
+
+  AUDIT & GOVERNANCE
+  - [x] D39.06 — Universe Propagation Audit surface (consumer detection results)
+    - ↳ Seal: [`SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md`](../../outputs/seals/SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md)
+  - [x] D39.07 — Safe degrade rules when overlay missing or stale
+    - ↳ Seal: [`SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md`](../../outputs/seals/SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md)
+
+  BEAST PARITY (NEW)
+  - [x] D39.08 — Universe Integrity Tile (CORE20 + EXTENDED + OVERLAY + GOVERNANCE + Consumers + Freshness)
+    - ↳ Seal: [`SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md`](../../outputs/seals/SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md)
+  - [x] D39.09 — Universe Drift Surface (missing / orphan / duplicate / unknown symbols)
+    - ↳ Seal: [`SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md`](../../outputs/seals/SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md)
+  - [x] D39.10 — Sector Heatmap Mini (11 sectors, dispersion-coded) (Optional)
+    - ↳ Seal: [`SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md`](../../outputs/seals/SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md)
+  - [x] D39.11 — Sector Sentinel Status (ACTIVE/STALE/DISABLED + last ingest + freshness) (Placeholder until D40)
+    - ↳ Seal: [`SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md`](../../outputs/seals/SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md)
+    - UI placeholder; engine and tape are delivered in D40 (Sector Sentinel RT).
+  - [x] D39.HF01 Web Shell Visibility Hotfix - Fixed blank body on web via explicit constraints. (SEALED).
+    - ↳ Seal: [`SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md`](../../outputs/seals/SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md)
 
 - [ ] D40 — Real-Time Intelligence Arc v1
-  - [ ] D40.01 — Core20 Realtime Tape surface (core20_tape.json + freshness + size guard)
-  - [ ] D40.02 — Pulse Core20 surface (Risk On/Off/Shock + explanation hook)
-  - [ ] D40.03 — Sector Sentinel RT surface (sector_sentinel_tape.json + freshness)
+
+  CORE
+  - [x] D40.01 — CORE_UNIVERSE Realtime Tape surface
+    - ↳ Seal: [`SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md`](../../outputs/seals/SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md)
+
+  PULSE
+  - [x] D40.02 — Pulse Core surface (Risk On / Risk Off / Shock)
+    - ↳ Seal: [`SEAL_DAY_40_02_PULSE_CORE.md`](../../outputs/seals/SEAL_DAY_40_02_PULSE_CORE.md)
+  - [x] D40.09 — Pulse Confidence Bands UI (confidence + stability + regime)
+    - ↳ Seal: [`SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md`](../../outputs/seals/SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md)
+  - [x] D40.10 — Pulse Drift Surface (CORE vs Sentinel vs Overlay)
+    - ↳ Seal: [`SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md`](../../outputs/seals/SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md)
+
+  SENTINEL
+  - [x] D40.03 — Sector Sentinel RT surface
+    - ↳ Seal: [`SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md`](../../outputs/seals/SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md)
+  - [x] D40.11 — Sentinel Sector Heatmap (RT)
+    - ↳ Seal: [`SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md`](../../outputs/seals/SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md)
+
+  OVERLAY LIVE
   - [ ] D40.04 — Extended Overlay LIVE Composer surface (source: SECTOR_SENTINEL)
-  - [ ] D40.05 — Global Pulse Synthesis UI (global_risk_state.json)
-  - [ ] D40.06 — Disagreement report UI (global_disagreement_report.json)
-  - [ ] D40.07 — Elite Explain Trigger bubble wiring (SHOCK/FRACTURED/RISK_OFF, 30m cooldown)
-  - [ ] D40.08 — Auto-Risk Actions (UI-only) surface + artifact discipline (auto_risk_action.json)
+
+  GLOBAL SYNTHESIS
+  - [x] D40.05 — Global Pulse Synthesis UI (global_risk_state.json)
+    - ↳ Seal: [`SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md`](../../outputs/seals/SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md)
+  - [x] D40.06 — Disagreement Report UI (global_disagreement_report.json)
+    - ↳ Seal: [`SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md`](../../outputs/seals/SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md)
+  - [x] D40.12 — Global Pulse Timeline (last 5 states)
+    - ↳ Seal: [`SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md`](../../outputs/seals/SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md)
+
+  REAL-TIME HEALTH
+  - [x] D40.13 — Real-Time Freshness Monitor
+    - ↳ Seal: [`SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md`](../../outputs/seals/SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md)
+  - [x] D40.14 — Real-Time Degrade Rules Surface
+    - ↳ Seal: [`SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md`](../../outputs/seals/SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md)
+  
+  ELITE INTEGRATION
+  - [x] D40.07 — Elite Explain Trigger bubble wiring (SHOCK/FRACTURED/RISK_OFF, 30m cooldown)
+    - ↳ Seal: [`SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md`](../../outputs/seals/SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md)
+  - [x] D40.15 — “What Changed?” RT Micro-Panel
+    - ↳ Seal: [`SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md`](../../outputs/seals/SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md)
+
+  AUTO-RISK
+  - [x] D40.08 — Auto-Risk Actions (UI-only)
+    - ↳ Seal: [`SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md`](../../outputs/seals/SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md)
+
+  **[SEALED] DAY 40 — REAL-TIME INTELLIGENCE ARC COMPLETE.**
+  - ↳ Seal: [`SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md`](../../outputs/seals/SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md)
 
 - [ ] D41 — Iron OS Arc (State / Replay / Rollback)
-  - [ ] D41.01 — Iron OS status surface (os_state.json + last tick)
-  - [ ] D41.02 — Timeline tail viewer (bounded, 8KB/event guard visibility)
+  - [x] D41.01 — Iron OS status surface (os_state.json + last tick)
+    - ↳ Seal: [`SEAL_DAY_41_01_IRON_OS_STATUS.md`](../../outputs/seals/SEAL_DAY_41_01_IRON_OS_STATUS.md)
+  - [x] D41.02 — Timeline tail viewer (bounded, 8KB/event guard visibility)
+    - ↳ Seal: [`SEAL_DAY_41_02_TIMELINE_TAIL.md`](../../outputs/seals/SEAL_DAY_41_02_TIMELINE_TAIL.md)
   - [ ] D41.03 — Institutional Day Replay UI (OS.R2.0 surface)
   - [ ] D41.04 — Replay Archive + Time Machine UI (OS.R2.1 surface)
   - [ ] D41.05 — Founder-gated rollback UI action (confirm + logging)
   - [ ] D41.06 — Replay/rollback failsafe states + integrity indicators
 
+  BEAST PARITY (NEW)
+  - [x] D41.07 — Iron State History Strip (last 10 states + timestamps + cause if present)
+    - ↳ Seal: [`SEAL_DAY_41_07_IRON_STATE_HISTORY.md`](../../outputs/seals/SEAL_DAY_41_07_IRON_STATE_HISTORY.md)
+  - [x] D41.08 — Iron Drift Surface (state/timeline/LKG mismatch)
+    - ↳ Seal: [`SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md`](../../outputs/seals/SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md)
+  - [x] D41.09 — LKG Snapshot Viewer (hash + timestamp + size + validity)
+    - ↳ Seal: [`SEAL_DAY_41_09_LKG_VIEWER.md`](../../outputs/seals/SEAL_DAY_41_09_LKG_VIEWER.md)
+  - [x] D41.10 — Iron Decision Path (last decision + reason + fallback + skipped action)
+    - ↳ Seal: [`SEAL_DAY_41_10_IRON_DECISION_PATH.md`](../../outputs/seals/SEAL_DAY_41_10_IRON_DECISION_PATH.md)
+  - [x] D41.11 — Replay Integrity Report (corruption/truncation/ordering/dup/out-of-order)
+    - ↳ Seal: [`SEAL_DAY_41_11_REPLAY_INTEGRITY.md`](../../outputs/seals/SEAL_DAY_41_11_REPLAY_INTEGRITY.md)
+
 - [ ] D42 — Self-Heal & Housekeeper Arc (Unlock, Explain, Repair)
-  - [ ] D42.01 — Lock Reason Engine surface (lock_reason.json + suggested action)
-  - [ ] D42.02 — Lock Reason coverage surface (lock_reason_coverage_report.json)
+  - [x] D42.01 — Lock Reason Engine surface (lock_reason.json + suggested action)
+    - ↳ Seal: [`SEAL_DAY_42_01_LOCK_REASON.md`](../../outputs/seals/SEAL_DAY_42_01_LOCK_REASON.md)
+  - [x] D42.02 — Lock Reason coverage surface (lock_reason_coverage_report.json)
+    - ↳ Seal: [`SEAL_DAY_42_02_COVERAGE.md`](../../outputs/seals/SEAL_DAY_42_02_COVERAGE.md)
   - [ ] D42.03 — Housekeeper Auto surface (status + run + ledger tail)
   - [ ] D42.04 — AutoFix Execute Tier 1 UI surface (cooldown visibility + ledger tail)
   - [ ] D42.05 — Misfire Auto-Recovery Tier 2 UI surface (proof + escalation logic visibility)
   - [ ] D42.06 — “Red Button” manual action surfaces (Founder override alignment)
   - [ ] D42.07 — Cooldown/throttle transparency surfaces (why action is skipped)
 
+  BEAST PARITY (NEW)
+  - [x] D42.08 — Housekeeper Findings Panel (findings_panel.json)
+    - ↳ Seal: [`SEAL_DAY_42_08_FINDINGS_PANEL.md`](../../outputs/seals/SEAL_DAY_42_08_FINDINGS_PANEL.md)
+  - [x] D42.09 — Housekeeper Before/After Diff (before_after_diff.json)
+    - ↳ Seal: [`SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md`](../../outputs/seals/SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md)
+  - [ ] D42.10 — AutoFix Decision Path (reason + fallback + skip reason + cooldown visibility)
+  - [ ] D42.11 — Misfire Root Cause Panel (artifact + pipeline + fallback + action taken)
+  - [ ] D42.12 — Self-Heal Confidence Indicator (HIGH/MED/LOW per action)
+  - [ ] D42.13 — Self-Heal “What Changed?” Panel (after repair: artifacts updated + state unlocked)
+
 - [ ] D43 — Elite Arc v1 (Mentor, Explain, Memory, Ritual)
+  - [ ] D43.00 — Elite First Interaction Script (30–45s, voice/text)
+    - Canonical script (warm institutional, personalized greeting + 3 suggested questions):
+      “Good [morning/afternoon/evening], <Name>. I’m Elite… I just fired up the context engine… Tell me what you’re trying to understand — I’ll map the context in plain language.”
+      Suggested questions:
+      1) “Explain the current market regime”
+      2) “Do you learn over time?”
+      3) “What do you observe today in the tech sector?”
+    - Must include the non-paranoid philosophy: sell what we ARE (context), not what we are NOT.
+    - Must include a clean learning explanation for Q2:
+      “Each day I compare prior reads with what actually happened… refine noise reduction… improve coherence with real data.”
+    - Tier variants:
+      - Free: only Q1 visible; Q2/Q3 blurred with subtle “Elite unlock” overlay.
+      - Plus: all 3 visible; Q2 ends with “In Plus you see basic evolution. In Elite, it becomes personal.”
+      - Elite: full response + optional anonymized aggregate learning micro-fact (no promises).
   - [ ] D43.01 — Elite overlay shell (~70%) with 30% dashboard visibility
   - [ ] D43.02 — Elite Mentor Brain tone adaptation (Human/Institutional) + positive institutional stance
   - [ ] D43.03 — Elite OS Reader (run_manifest, context_market_sniper, global_risk_state, overlays)
@@ -206,6 +341,14 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [ ] D43.09 — Daily Ritual triggers (Morning Briefing 09:20, Market Summary 16:05, How I Did Today 16:10 ET) + cooldowns
   - [ ] D43.10 — Institutional Explainer Protocol template (Drivers / What to watch / What OS is doing / No advice)
 
+  BEAST PARITY (NEW)
+  - [ ] D43.11 — Elite Context Engine Status (LIVE/STALE + artifacts + degrade)
+  - [ ] D43.12 — Elite “What Changed?” (last 5 minutes: market + OS + overlay)
+  - [ ] D43.13 — Elite Contextual Recall (bounded, non-AGMS)
+  - [ ] D43.14 — Explain My Screen (contextual dashboard explain)
+  - [ ] D43.15 — Elite Micro-Briefing on Open (context snapshot)
+  - [ ] D43.16 — Elite Context Safety Layer (tone + legal + fallback)
+
 - [ ] D44 — Watchlist & On-Demand Workflow v1
   - [ ] D44.01 — Watchlist AddTickerModal (Universe validation + dedupe)
   - [ ] D44.02 — Watchlist Analyze Now flow (LOCKED -> LockReasonModal + ledger; LIVE -> analyze result)
@@ -215,6 +358,16 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [ ] D44.06 — Tier limits (Free 3/day, Plus 10/day, Elite unlimited, Founder override) + counters
   - [ ] D44.07 — Lexicon Guard + Standard Envelope enforcement for On-Demand outputs (institutional safe response shape)
   - [ ] D44.08 — BadgeStripWidget no-overlap layout proof enforcement (ui_layout_proof_on_demand_badge.json)
+
+  BEAST PARITY (NEW)
+  - [ ] D44.09 — Watchlist State Chips (LIVE/STALE/LOCKED)
+  - [ ] D44.10 — Watchlist Last Analyzed Timestamp
+  - [ ] D44.11 — On-Demand Envelope Preview Header (institutional header)
+  - [ ] D44.12 — On-Demand Context Strip (sector + regime + overlay + pulse)
+  - [ ] D44.13 — On-Demand → Elite Explain Button
+  - [ ] D44.14 — Watchlist Quick Actions (Analyze / Remove)
+  - [ ] D44.15 — On-Demand History (last 5)
+  - [ ] D44.16 — On-Demand Stale Warning
 
 - [ ] D45 — Shell, Premium/Paywall, News/Calendar, Growth & Sharing
   - [ ] D45.01 — Top Bar surfaces (logo state, session, date/time, Live/Stale/Locked chip)
@@ -229,6 +382,44 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [ ] D45.10 — Share Prompt Loop (post-share booster sheet + CTA clicks tracked)
   - [ ] D45.11 — Share-to-Install loop scaffold (deterministic URLs + install banner + tracking)
   - [ ] D45.12 — Share Attribution Dashboard (Founder-only Growth Bloomberg) surface (KPIs/heatmap/tier breakdown)
+  - [ ] D45.13 — Command Center Secret Surface (Elite-only)
+    - Access ritual: “Tap 4× to open Command Center” bubble pointing to top bar logo/title.
+    - Separation rule: War Room = Founder-only (ops/control). Command Center = Elite-only (market mysteries, reading-only).
+    - Zero buttons, zero targets, zero “top picks” language.
+  - [ ] D45.14 — 5-Day Unlock (Plus) + Immediate Unlock (Elite) + No-reset Progress
+    - Free: no Command Center.
+    - Plus: unlock at Day 5 of opens; if user misses a day, progress PAUSES (no hard reset). Show “3/5 days completed”.
+    - Elite: unlocked Day 1.
+    - Include “blurred preview” for Plus before day 5 (visible shell, content fogged).
+  - [ ] D45.15 — Command Center Content Spec (WOW + legal-safe)
+    - Top 3 Context Shifts (last 24h) (NOT picks)
+      Each shift includes: Drivers (2 bullets), Evidence sources (Pulse/Overlay/Evidence Memory), What OS is doing, What OS is not doing.
+    - Top 3 Highest-Confidence Descriptions
+      Confidence = Coverage/Integrity (NOT win-rate). Badges: SAMPLE / COVERAGE / PROVIDER_LIVE / PROXY_ESTIMATED.
+    - Flow Concentration (Context-only) (future: options L3)
+      Show: Ticker, side bias (call/put), tenor bucket, premium bucket.
+      Include ONE elegant line: “Descriptive snapshot of aggregated premium — not a forecast.”
+    - The OS Learned This Week (3 micro-learnings, shareable, institutional)
+    - Artifacts Vault (Elite-only): Today’s Briefing / Aftermarket / Evidence Match / Pulse State / One Rule with timestamp + integrity badge.
+  - [ ] D45.16 — Viral Teaser Share (No sensitive data)
+    - First open: microcopy “You just opened a hidden OS surface.”
+    - CTA “Share a teaser” generates an image with watermark + official slogan, no market data.
+
+  CORE SHELL (NEW)
+  - [ ] D45.17 — Session Awareness Micro-Panel (countdown + canon color)
+  - [ ] D45.18 — Provider Status Indicator (LIVE/DEGRADED/DOWN)
+
+  PREMIUM / PAYWALL (NEW)
+  - [ ] D45.19 — Premium Feature Matrix (visual grid)
+
+  NEWS & CALENDAR (NEW)
+  - [ ] D45.20 — News Flip Card Interaction (summary → explain → summary)
+  - [ ] D45.21 — Calendar Impact Badges (HIGH/MED/LOW)
+
+  SHARING / GROWTH (NEW)
+  - [ ] D45.22 — Evidence Ghost Overlay (Elite-only)
+  - [ ] D45.23 — Persona Caption Presets (4 styles)
+  - [ ] D45.24 — Watermark Modes (Elite/Preview/Founder)
 
 ---
 
