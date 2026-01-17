@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-01-17T12:13:56.356526",
+  "module": "UI.Sentinel.RT",
+  "scenarios": [
+    {
+      "state": "ACTIVE",
+      "sectors": [
+        {
+          "id": "XLK",
+          "status": "OK",
+          "pressure": "UP",
+          "dispersion": "LOW"
+        },
+        {
+          "id": "XLF",
+          "status": "OK",
+          "pressure": "FLAT",
+          "dispersion": "NORMAL"
+        }
+      ],
+      "ui_result": "Green Badge, Live Chips"
+    },
+    {
+      "state": "STALE",
+      "ui_result": "Amber Badge, Stale Chips"
+    },
+    {
+      "state": "UNAVAILABLE",
+      "ui_result": "SENTINEL UNAVAILABLE strip"
+    }
+  ],
+  "compliance": "PASS"
+}

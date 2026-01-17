@@ -1,0 +1,38 @@
+Resolving dependencies...
+Downloading packages...
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  characters 1.4.0 (1.4.1 available)
+  ffi 2.1.3 (2.1.5 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  google_fonts 6.3.0 (7.0.2 available)
+  http_parser 4.0.2 (4.1.2 available)
+  lints 4.0.0 (6.0.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.0 available)
+  path_provider_android 2.2.15 (2.2.22 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  source_span 1.10.0 (1.10.1 available)
+  string_scanner 1.2.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.7 (0.7.9 available)
+  vm_service 14.2.5 (15.0.2 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing market_sniper_app...                                  
+
+  error - The named parameter 'source' is required, but there's no corresponding argument - lib\repositories\universe_repository.dart:232:30 - missing_required_argument
+  error - Arguments of a constant creation must be constant expressions - lib\repositories\universe_repository.dart:237:3 - const_with_non_constant_argument
+  error - Too many positional arguments: 0 expected, but 2 found - lib\repositories\universe_repository.dart:237:3 - extra_positional_arguments_could_be_named
+  error - Undefined name 'static' - lib\repositories\universe_repository.dart:237:3 - undefined_identifier
+   info - Unnecessary 'const' keyword - lib\repositories\universe_repository.dart:237:10 - unnecessary_const
+  error - Arguments of a constant creation must be constant expressions - lib\repositories\universe_repository.dart:237:10 - const_with_non_constant_argument
+  error - Const variables must be initialized with a constant value - lib\repositories\universe_repository.dart:237:10 - const_initialized_with_non_constant_value
+  error - Expected to find ',' - lib\repositories\universe_repository.dart:237:10 - expected_token
+  error - Missing selector such as '.identifier' or '[0]' - lib\repositories\universe_repository.dart:237:10 - missing_assignable_selector
+  error - Expected to find '(' - lib\repositories\universe_repository.dart:237:16 - expected_token
+  error - The name 'unavailable' isn't a class - lib\repositories\universe_repository.dart:237:16 - creation_with_non_type
+  error - Expected to find ')' - lib\repositories\universe_repository.dart:243:4 - expected_token
+

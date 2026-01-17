@@ -1,0 +1,79 @@
+Resolving dependencies...
+Downloading packages...
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  characters 1.4.0 (1.4.1 available)
+  ffi 2.1.3 (2.1.5 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  google_fonts 6.3.0 (7.0.2 available)
+  http_parser 4.0.2 (4.1.2 available)
+  lints 4.0.0 (6.0.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.0 available)
+  path_provider_android 2.2.15 (2.2.22 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  source_span 1.10.0 (1.10.1 available)
+  string_scanner 1.2.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.7 (0.7.9 available)
+  vm_service 14.2.5 (15.0.2 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing market_sniper_app...                                  
+
+warning - The value of the local variable 'defaultState' isn't used - tool\verify_extended_universe_ui.dart:22:9 - unused_local_variable
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:31:5 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:31:12 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:31:12 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:31:14 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:31:20 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:31:20 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:32:5 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:32:17 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:32:17 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:32:19 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:32:23 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:32:23 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:33:5 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:33:13 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:33:13 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:33:15 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:33:28 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:33:28 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:34:5 - expected_token
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:34:14 - missing_identifier
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:34:14 - unexpected_token
+  error - Expected to find ';' - tool\verify_extended_universe_ui.dart:45:5 - expected_token
+  error - Unexpected text ';' - tool\verify_extended_universe_ui.dart:46:4 - unexpected_token
+  error - Undefined name 'defaultState' - tool\verify_extended_universe_ui.dart:54:18 - undefined_identifier
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:61:9 - missing_identifier
+  error - Expected to find ')' - tool\verify_extended_universe_ui.dart:61:19 - expected_token
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:61:32 - missing_function_body
+   info - Use 'const' for final variables initialized to a constant value - tool\verify_extended_universe_ui.dart:64:3 - prefer_const_declarations
+  error - 'if' can't be used as an identifier because it's a keyword - tool\verify_extended_universe_ui.dart:66:3 - expected_identifier_but_got_keyword
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:66:7 - missing_identifier
+  error - Expected to find ')' - tool\verify_extended_universe_ui.dart:66:8 - expected_token
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:66:34 - missing_function_body
+  error - Functions must have an explicit list of parameters - tool\verify_extended_universe_ui.dart:66:34 - missing_function_parameters
+  error - The name 'file' is already defined - tool\verify_extended_universe_ui.dart:66:34 - duplicate_definition
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:66:38 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - tool\verify_extended_universe_ui.dart:66:38 - expected_executable
+  error - Functions must have an explicit list of parameters - tool\verify_extended_universe_ui.dart:66:39 - missing_function_parameters
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:66:45 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - tool\verify_extended_universe_ui.dart:66:45 - expected_executable
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - tool\verify_extended_universe_ui.dart:66:66 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - tool\verify_extended_universe_ui.dart:66:66 - obsolete_colon_for_default_value
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:66:73 - missing_function_body
+  error - Functions must have an explicit list of parameters - tool\verify_extended_universe_ui.dart:67:3 - missing_function_parameters
+  error - The name 'file' is already defined - tool\verify_extended_universe_ui.dart:67:3 - duplicate_definition
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:67:7 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - tool\verify_extended_universe_ui.dart:67:7 - expected_executable
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:67:37 - missing_function_body
+  error - The name 'print' is already defined - tool\verify_extended_universe_ui.dart:68:3 - duplicate_definition
+  error - Expected an identifier - tool\verify_extended_universe_ui.dart:68:9 - missing_identifier
+  error - Expected to find ')' - tool\verify_extended_universe_ui.dart:68:23 - expected_token
+  error - A function body must be provided - tool\verify_extended_universe_ui.dart:68:30 - missing_function_body
+  error - Expected a method, getter, setter or operator declaration - tool\verify_extended_universe_ui.dart:69:1 - expected_executable
+

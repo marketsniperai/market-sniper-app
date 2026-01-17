@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-01-17T10:16:06.604578",
+  "module": "UI.Universe.Governance",
+  "status": "IMPLEMENTED",
+  "degrade_rule": "POLICY_SURFACE_IF_NO_TELEMETRY",
+  "snapshot_behavior": {
+    "default": {
+      "cooldownSeconds": 600,
+      "dailyCap": 100,
+      "runsToday": null,
+      "nextEligibleUtc": null,
+      "source": "CANON",
+      "state": "DEGRADED"
+    }
+  },
+  "compliance": "PASS"
+}

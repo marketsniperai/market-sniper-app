@@ -1,0 +1,4 @@
+2026-01-17 17:35:04,306 - INFO - HTTP Request: GET http://testserver/lab/os/self_heal/coverage "HTTP/1.1 404 Not Found"
+Running Coverage Verification...
+PASS: Missing Artifact
+FAIL: 

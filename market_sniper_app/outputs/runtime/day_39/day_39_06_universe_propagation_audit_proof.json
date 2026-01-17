@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-01-17T10:43:06.892708",
+  "module": "UI.Universe.PropagationAudit",
+  "snapshot": {
+    "status": "OK",
+    "consumersTotal": 15,
+    "consumersOk": 15,
+    "consumersIssues": 0,
+    "issuesSample": [],
+    "ageSeconds": 5,
+    "source": "SIMULATION"
+  },
+  "integrity_implication": "If PropagationStatus=OK -> Consumers=OK (PASS)",
+  "compliance": "PASS"
+}

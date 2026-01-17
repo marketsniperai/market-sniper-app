@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-01-17T10:56:11.908218",
+  "module": "UI.Universe.OverlayTruth",
+  "policy": "OverlayDegradePolicy",
+  "scenarios": [
+    {
+      "scenario": "Missing Data",
+      "input": {
+        "mode": null
+      },
+      "expectedState": "UNAVAILABLE",
+      "pass": true
+    },
+    {
+      "scenario": "Stale Data (>5 min)",
+      "input": {
+        "mode": "LIVE",
+        "age": 400
+      },
+      "expectedState": "STALE",
+      "pass": true
+    },
+    {
+      "scenario": "Sim Mode",
+      "input": {
+        "mode": "SIM"
+      },
+      "expectedState": "DEGRADED",
+      "pass": true
+    },
+    {
+      "scenario": "Partial Mode",
+      "input": {
+        "mode": "PARTIAL"
+      },
+      "expectedState": "DEGRADED",
+      "pass": true
+    }
+  ],
+  "compliance": "PASS"
+}

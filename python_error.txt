@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_coverage_proof.py", line 5, in <module>
+    from backend.api_server import app
+  File "C:\MSR\MarketSniperRepo\backend\api_server.py", line 291, in <module>
+    from backend.os_ops.war_room import WarRoom
+  File "C:\MSR\MarketSniperRepo\backend\os_ops\war_room.py", line 117
+    return {
+           ^
+SyntaxError: '{' was never closed

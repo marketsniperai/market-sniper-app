@@ -1,0 +1,14 @@
+2026-01-17 17:36:04,640 - INFO - HTTP Request: GET http://testserver/lab/os/self_heal/coverage "HTTP/1.1 404 Not Found"
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_coverage_proof.py", line 87, in <module>
+    test_coverage_valid_artifact()
+Running Coverage Verification...
+PASS: Missing Artifact
+DEBUG: Artifacts Root: C:\MSR\MarketSniperRepo\outputs
+DEBUG: Writing to: C:\MSR\MarketSniperRepo\outputs\os\os_coverage.json
+FAIL: 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\MSR\MarketSniperRepo\backend\verify_coverage_proof.py", line 46, in test_coverage_valid_artifact
+    assert snap is not None
+           ^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,67 @@
+Resolving dependencies...
+Downloading packages...
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  characters 1.4.0 (1.4.1 available)
+  ffi 2.1.3 (2.1.5 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  google_fonts 6.3.0 (7.0.2 available)
+  http_parser 4.0.2 (4.1.2 available)
+  lints 4.0.0 (6.0.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.0 available)
+  path_provider_android 2.2.15 (2.2.22 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  source_span 1.10.0 (1.10.1 available)
+  string_scanner 1.2.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.7 (0.7.9 available)
+  vm_service 14.2.5 (15.0.2 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing market_sniper_app...                                  
+
+  error - The named parameter 'mainAxisSize' isn't defined - lib\screens\universe\universe_screen.dart:128:11 - undefined_named_parameter
+  error - Expected to find ']' - lib\screens\universe\universe_screen.dart:307:5 - expected_token
+  error - The method '_buildOverlayRow' isn't defined for the type '_UniverseScreenState' - lib\screens\universe\universe_screen.dart:409:17 - undefined_method
+  error - The method '_buildOverlayRow' isn't defined for the type '_UniverseScreenState' - lib\screens\universe\universe_screen.dart:411:17 - undefined_method
+  error - Expected a class member - lib\screens\universe\universe_screen.dart:448:5 - expected_class_member
+   info - The variable name 'Row' isn't a lowerCamelCase identifier - lib\screens\universe\universe_screen.dart:448:12 - non_constant_identifier_names
+  error - 'Row' must have a method body because '_UniverseScreenState' isn't abstract - lib\screens\universe\universe_screen.dart:448:12 - concrete_class_with_abstract_member
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\screens\universe\universe_screen.dart:449:24 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\screens\universe\universe_screen.dart:449:24 - obsolete_colon_for_default_value
+  error - Named parameters must be enclosed in curly braces ('{' and '}') - lib\screens\universe\universe_screen.dart:450:15 - named_parameter_outside_group
+  error - Using a colon as the separator before a default value is no longer supported - lib\screens\universe\universe_screen.dart:450:15 - obsolete_colon_for_default_value
+  error - The default value of an optional parameter must be constant - lib\screens\universe\universe_screen.dart:450:17 - non_constant_default_value
+  error - Undefined name 'label' - lib\screens\universe\universe_screen.dart:454:18 - undefined_identifier
+  error - Undefined name 'subText' - lib\screens\universe\universe_screen.dart:455:17 - undefined_identifier
+  error - Undefined name 'subText' - lib\screens\universe\universe_screen.dart:456:20 - undefined_identifier
+  error - Undefined name 'value' - lib\screens\universe\universe_screen.dart:461:19 - undefined_identifier
+  error - Undefined name 'badge' - lib\screens\universe\universe_screen.dart:462:18 - undefined_identifier
+  error - Undefined name 'badgeColor' - lib\screens\universe\universe_screen.dart:467:28 - undefined_identifier
+  error - Undefined name 'badgeColor' - lib\screens\universe\universe_screen.dart:469:47 - undefined_identifier
+  error - Undefined name 'badge' - lib\screens\universe\universe_screen.dart:471:30 - undefined_identifier
+  error - Undefined name 'badgeColor' - lib\screens\universe\universe_screen.dart:471:75 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:497:45 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:508:51 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:530:49 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:531:49 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:566:69 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:575:48 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:596:59 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:599:97 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:601:76 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:617:49 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:618:50 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:664:40 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:669:42 - undefined_identifier
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:687:14 - prefer_const_constructors
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:691:43 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:710:49 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\universe\universe_screen.dart:714:47 - undefined_identifier
+  error - The function '_buildOverlayRow' isn't defined - lib\screens\universe\universe_screen.dart:729:17 - undefined_function
+  error - The function '_buildOverlayRow' isn't defined - lib\screens\universe\universe_screen.dart:732:20 - undefined_function
+  error - Expected a method, getter, setter or operator declaration - lib\screens\universe\universe_screen.dart:739:1 - expected_executable
+

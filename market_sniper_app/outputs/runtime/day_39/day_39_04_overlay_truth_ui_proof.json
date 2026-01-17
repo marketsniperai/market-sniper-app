@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-01-17T10:30:12.785632",
+  "module": "UI.Universe.OverlayTruth",
+  "overlay_present": true,
+  "mode": "LIVE",
+  "age_seconds": 124,
+  "freshness": "OK",
+  "confidence": "HIGH",
+  "degrade_state": "NOMINAL",
+  "compliance": "PASS"
+}

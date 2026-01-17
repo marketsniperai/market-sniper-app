@@ -1,0 +1,25 @@
+{
+    "state": "ACTIVE",
+    "as_of_utc": "2026-01-17T12:00:00Z",
+    "age_seconds": 120,
+    "actions": [
+        {
+            "action_id": "RISK_OFF_HEDGE",
+            "title": "Data-Only Hedge Mode",
+            "description": "System entering defensive data posture.",
+            "rationale": "Global Pulse SHOCK detected.",
+            "scope": "SYSTEM",
+            "status": "ACTIVE",
+            "cooldown_seconds": 3600
+        },
+        {
+            "action_id": "SKIP_AGGRESSIVE_SCANS",
+            "title": "Skip Aggressive Scans",
+            "description": "Skipping high-volatility sector scans.",
+            "rationale": "Volatility regime ELEVATED.",
+            "scope": "DATA",
+            "status": "SKIPPED",
+            "cooldown_seconds": 0
+        }
+    ]
+}

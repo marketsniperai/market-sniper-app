@@ -1,0 +1,11 @@
+Analyzing market_sniper_app...                                  
+
+  error - Target of URI doesn't exist: 'dashboard_payload.dart' - lib\repositories\dashboard_repository.dart:1:8 - uri_does_not_exist
+  error - The name 'DashboardPayload' isn't a type, so it can't be used as a type argument - lib\repositories\dashboard_repository.dart:14:10 - non_type_as_type_argument
+  error - Undefined class 'DashboardRepository' - lib\screens\dashboard_screen.dart:19:8 - undefined_class
+  error - The method 'DashboardRepository' isn't defined for the type '_DashboardScreenState' - lib\screens\dashboard_screen.dart:32:13 - undefined_method
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\theme\textured_bar.dart:32:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\widgets\dashboard_widgets.dart:13:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\widgets\dashboard_widgets.dart:59:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\widgets\system_health_chip.dart:45:33 - deprecated_member_use
+

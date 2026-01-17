@@ -1,0 +1,50 @@
+{
+  "timestamp_utc": "2026-01-17T11:09:48.394309",
+  "module": "UI.Universe.SectorHeatmap",
+  "snapshot_model": "SectorHeatmapSnapshot",
+  "scenarios": [
+    {
+      "scenario": "Unavailable (Default)",
+      "input": {
+        "source": "UNAVAILABLE"
+      },
+      "expectedUI": "Unavailable Strip",
+      "pass": true
+    },
+    {
+      "scenario": "High Dispersion",
+      "input": {
+        "states": {
+          "XLF": "HIGH"
+        },
+        "source": "OVERLAY"
+      },
+      "expectedUI": "Amber Dot",
+      "pass": true
+    },
+    {
+      "scenario": "Normal Dispersion",
+      "input": {
+        "states": {
+          "XLK": "NORMAL"
+        },
+        "source": "OVERLAY"
+      },
+      "expectedUI": "Grey Dot",
+      "pass": true
+    },
+    {
+      "scenario": "Low Dispersion",
+      "input": {
+        "states": {
+          "XLE": "LOW"
+        },
+        "source": "OVERLAY"
+      },
+      "expectedUI": "Cyan Dot",
+      "pass": true
+    }
+  ],
+  "ui_impact": "10-Sector Dispersion Grid",
+  "compliance": "PASS"
+}

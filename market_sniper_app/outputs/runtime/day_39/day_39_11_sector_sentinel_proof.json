@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-01-17T11:04:09.942247",
+  "module": "UI.Universe.SectorSentinel",
+  "snapshot_model": "SectorSentinelStatusSnapshot",
+  "scenarios": [
+    {
+      "scenario": "Unavailable (Default)",
+      "input": {
+        "status": "UNAVAILABLE"
+      },
+      "expectedUI": "Locked/Red Strip",
+      "pass": true
+    },
+    {
+      "scenario": "Disabled",
+      "input": {
+        "status": "DISABLED"
+      },
+      "expectedUI": "Locked/Red Strip",
+      "pass": true
+    },
+    {
+      "scenario": "Active",
+      "input": {
+        "status": "ACTIVE"
+      },
+      "expectedUI": "Green Badge",
+      "pass": true
+    },
+    {
+      "scenario": "Stale",
+      "input": {
+        "status": "STALE"
+      },
+      "expectedUI": "Amber Badge",
+      "pass": true
+    }
+  ],
+  "ui_impact": "Placeholder Status Surface",
+  "compliance": "PASS"
+}

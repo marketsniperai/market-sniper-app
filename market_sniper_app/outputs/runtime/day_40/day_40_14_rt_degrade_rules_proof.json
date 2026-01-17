@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-01-17T12:06:42.236751",
+  "module": "UI.RT.DegradeRules",
+  "type": "STATIC_POLICY",
+  "rules_count": 4,
+  "ui_check": "Visible regardless of data state",
+  "compliance": "PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-01-17T10:38:33.803362",
+  "module": "UI.Universe.IntegrityTile",
+  "snapshot": {
+    "coreStatus": "OK",
+    "extendedStatus": "UNAVAILABLE",
+    "overlayStatus": "UNAVAILABLE",
+    "governanceStatus": "POLICY_ONLY",
+    "consumersStatus": "UNKNOWN",
+    "freshnessAgeSeconds": 0,
+    "freshnessState": "UNAVAILABLE",
+    "overallState": "UNAVAILABLE",
+    "source": "MIXED"
+  },
+  "logic_verification": {
+    "rule_unavailable": "Overlay UNAVAILABLE -> Overall UNAVAILABLE (PASS)",
+    "rule_degraded": "Gov POLICY -> DEGRADED (PASS)",
+    "rule_consumers": "Consumers UNKNOWN (PASS)"
+  },
+  "compliance": "PASS"
+}

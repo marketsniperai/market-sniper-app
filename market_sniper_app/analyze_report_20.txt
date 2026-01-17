@@ -1,0 +1,41 @@
+Resolving dependencies...
+Downloading packages...
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  characters 1.4.0 (1.4.1 available)
+  ffi 2.1.3 (2.1.5 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  google_fonts 6.3.0 (7.0.2 available)
+  http_parser 4.0.2 (4.1.2 available)
+  lints 4.0.0 (6.0.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.0 available)
+  path_provider_android 2.2.15 (2.2.22 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  source_span 1.10.0 (1.10.1 available)
+  string_scanner 1.2.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.7 (0.7.9 available)
+  vm_service 14.2.5 (15.0.2 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing market_sniper_app...                                  
+
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1811:23 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\universe\universe_screen.dart:1812:23 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1829:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1839:16 - prefer_const_constructors
+   info - Unnecessary use of 'toList' in a spread - lib\screens\universe\universe_screen.dart:1919:19 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1983:29 - prefer_const_constructors
+   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:110:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:111:33 - curly_braces_in_flow_control_structures
+   info - Don't invoke 'print' in production code - tool\verify_day_40_04_overlay_composer.dart:184:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\verify_day_40_04_overlay_composer.dart:207:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:128:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:154:3 - avoid_print
+warning - Unused import: 'dart:convert' - tool\verify_day_40_close_placeholder.dart:1:8 - unused_import
+warning - Unused import: 'dart:io' - tool\verify_day_40_close_placeholder.dart:2:8 - unused_import
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close_placeholder.dart:17:3 - avoid_print
+

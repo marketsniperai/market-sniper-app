@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2026-01-17T10:59:10.672585",
+  "module": "UI.Universe.OverlaySummaryInjection",
+  "snapshot_model": "ExtendedOverlaySummarySnapshot",
+  "scenarios": [
+    {
+      "scenario": "Missing Data",
+      "input": {
+        "summary": null
+      },
+      "expectedState": "UNAVAILABLE",
+      "summaryPoints": [],
+      "pass": true
+    },
+    {
+      "scenario": "Valid Data",
+      "input": {
+        "summary": {
+          "mode": "CONTEXT",
+          "points": [
+            "Market is volatile.",
+            "VIX > 20."
+          ]
+        }
+      },
+      "expectedState": "OK",
+      "summaryPoints": [
+        "Market is volatile.",
+        "VIX > 20."
+      ],
+      "pass": true
+    }
+  ],
+  "ui_impact": "Render Summary or Unavailable Strip",
+  "compliance": "PASS"
+}

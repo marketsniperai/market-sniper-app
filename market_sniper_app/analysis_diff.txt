@@ -1,0 +1,82 @@
+Resolving dependencies...
+Downloading packages...
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  characters 1.4.0 (1.4.1 available)
+  ffi 2.1.3 (2.1.5 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  google_fonts 6.3.0 (7.0.2 available)
+  http_parser 4.0.2 (4.1.2 available)
+  lints 4.0.0 (6.0.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.0 available)
+  path_provider_android 2.2.15 (2.2.22 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  source_span 1.10.0 (1.10.1 available)
+  string_scanner 1.2.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.7 (0.7.9 available)
+  vm_service 14.2.5 (15.0.2 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing market_sniper_app...                                  
+
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1811:23 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\universe\universe_screen.dart:1812:23 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1829:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1839:16 - prefer_const_constructors
+   info - Unnecessary use of 'toList' in a spread - lib\screens\universe\universe_screen.dart:1919:19 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1983:29 - prefer_const_constructors
+   info - Use interpolation to compose strings and values - lib\screens\war_room_screen.dart:709:54 - prefer_interpolation_to_compose_strings
+  error - The method '_get' isn't defined for the type 'ApiClient' - lib\services\api_client.dart:219:13 - undefined_method
+  error - The method '_get' isn't defined for the type 'ApiClient' - lib\services\api_client.dart:223:13 - undefined_method
+  error - 'subtitle' isn't a field in the enclosing class - lib\widgets\war_room_tile.dart:23:5 - initializing_formal_for_non_existent_field
+  error - 'debugInfo' isn't a field in the enclosing class - lib\widgets\war_room_tile.dart:24:5 - initializing_formal_for_non_existent_field
+  error - 'onTap' isn't a field in the enclosing class - lib\widgets\war_room_tile.dart:25:5 - initializing_formal_for_non_existent_field
+  error - The body might complete normally, causing 'null' to be returned, but the return type, 'Widget', is a potentially non-nullable type - lib\widgets\war_room_tile.dart:32:10 - body_might_complete_normally
+  error - Expected to find ';' - lib\widgets\war_room_tile.dart:39:13 - expected_token
+  error - Expected an identifier - lib\widgets\war_room_tile.dart:39:14 - missing_identifier
+  error - Unexpected text ';' - lib\widgets\war_room_tile.dart:39:14 - unexpected_token
+  error - Undefined name 'subtitle' - lib\widgets\war_room_tile.dart:61:9 - undefined_identifier
+warning - The value of the local variable 'get' isn't used - lib\widgets\war_room_tile.dart:64:9 - unused_local_variable
+  error - Expected to find ';' - lib\widgets\war_room_tile.dart:64:9 - expected_token
+  error - Expected to find ';' - lib\widgets\war_room_tile.dart:64:13 - expected_token
+  error - Undefined name '_statusColor' - lib\widgets\war_room_tile.dart:64:13 - undefined_identifier
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:67:16 - return_of_invalid_type
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:69:16 - return_of_invalid_type
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:71:16 - return_of_invalid_type
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:73:16 - return_of_invalid_type
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:75:16 - return_of_invalid_type
+warning - Dead code - lib\widgets\war_room_tile.dart:79:3 - dead_code
+warning - The value of the local variable 'get' isn't used - lib\widgets\war_room_tile.dart:79:9 - unused_local_variable
+  error - Expected to find ';' - lib\widgets\war_room_tile.dart:79:9 - expected_token
+  error - The name 'get' is already defined - lib\widgets\war_room_tile.dart:79:9 - duplicate_definition
+  error - Expected to find ';' - lib\widgets\war_room_tile.dart:79:13 - expected_token
+  error - Undefined name '_borderColor' - lib\widgets\war_room_tile.dart:79:13 - undefined_identifier
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:80:53 - return_of_invalid_type
+  error - A value of type 'Color' can't be returned from the method '_buildBody' because it has a return type of 'Widget' - lib\widgets\war_room_tile.dart:81:57 - return_of_invalid_type
+  error - Undefined name '_statusColor' - lib\widgets\war_room_tile.dart:82:12 - undefined_identifier
+warning - The declaration 'build' isn't referenced - lib\widgets\war_room_tile.dart:86:10 - unused_element
+  error - Undefined name 'onTap' - lib\widgets\war_room_tile.dart:88:14 - undefined_identifier
+  error - Undefined name '_borderColor' - lib\widgets\war_room_tile.dart:93:37 - undefined_identifier
+  error - Local variable '_buildStatusIndicator' can't be referenced before it is declared - lib\widgets\war_room_tile.dart:113:17 - referenced_before_declaration
+  error - Local variable '_buildBody' can't be referenced before it is declared - lib\widgets\war_room_tile.dart:120:24 - referenced_before_declaration
+  error - Undefined name 'debugInfo' - lib\widgets\war_room_tile.dart:125:45 - undefined_identifier
+  error - Undefined name 'debugInfo' - lib\widgets\war_room_tile.dart:129:19 - undefined_identifier
+   info - The local variable '_buildStatusIndicator' starts with an underscore - lib\widgets\war_room_tile.dart:145:10 - no_leading_underscores_for_local_identifiers
+  error - Undefined name '_statusColor' - lib\widgets\war_room_tile.dart:156:16 - undefined_identifier
+  error - Undefined name '_statusColor' - lib\widgets\war_room_tile.dart:160:30 - undefined_identifier
+   info - The local variable '_buildBody' starts with an underscore - lib\widgets\war_room_tile.dart:166:10 - no_leading_underscores_for_local_identifiers
+  error - Undefined name 'subtitle' - lib\widgets\war_room_tile.dart:181:9 - undefined_identifier
+  error - Undefined name 'subtitle' - lib\widgets\war_room_tile.dart:186:17 - undefined_identifier
+  error - Expected to find '}' - lib\widgets\war_room_tile.dart:197:1 - expected_token
+   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:112:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:113:33 - curly_braces_in_flow_control_structures
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:128:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:154:3 - avoid_print
+warning - Unused import: 'dart:convert' - tool\verify_day_40_close_placeholder.dart:1:8 - unused_import
+warning - Unused import: 'dart:io' - tool\verify_day_40_close_placeholder.dart:2:8 - unused_import
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close_placeholder.dart:17:3 - avoid_print
+

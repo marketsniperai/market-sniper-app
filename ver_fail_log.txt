@@ -1,0 +1,13 @@
+2026-01-17 17:45:23,850 - INFO - HTTP Request: GET http://testserver/lab/os/self_heal/findings "HTTP/1.1 404 Not Found"
+2026-01-17 17:45:23,853 - INFO - HTTP Request: GET http://testserver/lab/os/self_heal/findings "HTTP/1.1 404 Not Found"
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_findings_proof.py", line 107, in <module>
+    test_findings_valid_artifact()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\MSR\MarketSniperRepo\backend\verify_findings_proof.py", line 58, in test_findings_valid_artifact
+    assert response.status_code == 200
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Running Findings Verification...
+PASS: Missing Artifact
+FAIL: 

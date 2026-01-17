@@ -1,0 +1,16 @@
+Initializing Antigravity Discipline Check...
+
+============================================================
+ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: PASS
+============================================================
+
+[+] All Systems Nominal. Discipline is maintained.
+[+] Constitution respected. UI is semantic.
+Running Dashboard Layout Discipline Verifier (D38.01.2)...
+
+[!] DASHBOARD LAYOUT VIOLATIONS FOUND:
+  Rule: NO_EDGEINSETS_LITERALS
+  File: market_sniper_app\lib\screens\dashboard_screen.dart:195
+  Code: padding: const EdgeInsets.all(16.0), // DashboardSpacing.screenPadding
+  >> HINT: Use DashboardSpacing tokens (e.g. DashboardSpacing.cardPadding) instead of hardcoded EdgeInsets.
+----------------------------------------

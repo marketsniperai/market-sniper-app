@@ -1,0 +1,1 @@
+{"entries": [{"capability": "ValidOne", "status": "AVAILABLE"}, {"capability": "BadStatus", "status": "KINDA_OK"}, {"missing_status": "True"}]}

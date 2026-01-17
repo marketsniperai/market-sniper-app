@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-01-17T12:06:42.249067",
+  "module": "UI.RT.WhatChanged",
+  "snapshot_model": "WhatChangedSnapshot",
+  "scenarios": [
+    {
+      "status": "UNAVAILABLE",
+      "ui": "MONITOR UNAVAILABLE strip"
+    },
+    {
+      "status": "LIVE",
+      "items": [],
+      "ui": "No material changes detected."
+    },
+    {
+      "status": "LIVE",
+      "items": [
+        {
+          "message": "Pulse state transitioned to SHOCK.",
+          "scope": "PULSE"
+        }
+      ],
+      "ui": "List of items with cyan bullets"
+    }
+  ],
+  "compliance": "PASS"
+}

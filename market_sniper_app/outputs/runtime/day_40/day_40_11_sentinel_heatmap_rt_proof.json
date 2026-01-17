@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2026-01-17T12:13:56.365336",
+  "module": "UI.Sentinel.Heatmap",
+  "scenarios": [
+    {
+      "state": "ACTIVE",
+      "cells": [
+        {
+          "id": "XLK",
+          "pressure": "UP",
+          "dispersion": "LOW",
+          "color": "Cyan",
+          "dot": "Cyan"
+        },
+        {
+          "id": "XLE",
+          "pressure": "DOWN",
+          "dispersion": "HIGH",
+          "color": "Grey",
+          "dot": "Amber"
+        }
+      ],
+      "ui_result": "Grid rendered with correct colors"
+    },
+    {
+      "state": "UNAVAILABLE",
+      "ui_result": "HEATMAP UNAVAILABLE strip"
+    }
+  ],
+  "compliance": "PASS"
+}

@@ -1,0 +1,11 @@
+2026-01-17 17:37:45,844 - INFO - HTTP Request: GET http://testserver/lab/os/self_heal/coverage "HTTP/1.1 404 Not Found"
+2026-01-17 17:37:45,850 - INFO - HTTP Request: GET http://testserver/lab/os/self_heal/coverage "HTTP/1.1 200 OK"
+Running Coverage Verification...
+DEBUG: API coverage data: None
+PASS: Missing Artifact
+DEBUG: Artifacts Root: C:\MSR\MarketSniperRepo\outputs
+DEBUG: Writing to: C:\MSR\MarketSniperRepo\outputs\os\os_coverage.json
+DEBUG: API coverage data: {'entries': [{'capability': 'AutoFix', 'status': 'AVAILABLE', 'reason': None}, {'capability': 'Housekeeper', 'status': 'DEGRADED', 'reason': 'Drift detected'}, {'capability': 'SafetyNet', 'status': 'UNAVAILABLE', 'reason': 'Disabled'}]}
+PASS: Valid Artifact
+PASS: Partial Invalid
+Proof generated.

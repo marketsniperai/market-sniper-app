@@ -1,0 +1,11 @@
+Initializing Antigravity Discipline Check...
+
+============================================================
+ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
+============================================================
+
+[!] UI DISCIPLINE VIOLATIONS (Hardcoded Colors)
+  File: market_sniper_app\lib\screens\universe\universe_screen.dart:1351
+  Code: case 'MIXED': pressureColor = Colors.white; break;
+  >> HINT: Found 'Colors.white'. Use a semantic token from AppColors (e.g., AppColors.stateError for red).
+----------------------------------------
