@@ -54,3 +54,4 @@ backend/outputs/
 secrets/
 *.key
 *.pem
+outputs/backups/

@@ -30,13 +30,15 @@
   - *Correction:* Use `AppTypography.body(context)`, etc.
 
 ### Runtime & Ops
-- **PROHIBITED:** Committing files in `outputs/runtime/` to git (should be ignored).
+- **PROHIBITED:** Committing files in `outputs/runtime/` to git (Ephemeral).
+- **MANDATORY:** Proof artifacts must be stored in `outputs/proofs/` and tracked.
 - **MANDATORY:** `PROJECT_STATE.md` must be updated at the end of every Task.
 - **MANDATORY:** `outputs/seals/` must be created to close a Task.
 
 ## 4. Finish Protocol
 *Every Task concludes with this sequence:*
 1.  **Update State:** Edit `PROJECT_STATE.md`.
-2.  **Verify Discipline:** Run `verify_project_discipline.py`.
-3.  **Seal:** Create `outputs/seals/SEAL_*.md`.
-4.  **Evidence:** Generate logs in `outputs/runtime/`.
+2.  **Auto-Stage Canon:** Run `python tool/auto_stage_canon_outputs.py`.
+3.  **Verify Discipline:** Run `verify_project_discipline.py`.
+4.  **Seal:** Create `outputs/seals/SEAL_*.md`.
+5.  **Evidence:** Generate logs in `outputs/proofs/`.

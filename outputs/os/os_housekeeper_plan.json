@@ -1,0 +1,1 @@
+{"plan_id": "TEST_PLAN_02", "timestamp_utc": "2026-01-17T12:00:00Z", "actions": [{"action_code": "DESTROY_WORLD", "target": null, "description": "Bad action", "reversible": true, "risk_tier": "TIER_0"}]}

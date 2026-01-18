@@ -3,6 +3,7 @@ import re
 import json
 import sys
 from pathlib import Path
+import verify_dashboard_layout_discipline
 
 # --- CONFIG ---
 ROOT_DIR = Path(os.getcwd())
@@ -96,8 +97,34 @@ def scan_ui_hardcodes():
                 
     return violations
 
-def generate_report(canon_missing, ui_violations):
-    passed = (len(canon_missing) == 0) and (len(ui_violations) == 0)
+def verify_untracked_canon():
+    """Checks if any canonical outputs (seals/proofs) are untracked."""
+    import subprocess
+    
+    untracked_violations = []
+    
+    try:
+        # Check for untracked files
+        result = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT_DIR, capture_output=True, text=True)
+        lines = result.stdout.splitlines()
+        
+        for line in lines:
+            if line.startswith("?? "):
+                path = line[3:].strip('"')
+                path_obj = Path(path)
+                
+                # Check specific directories
+                if "outputs/seals/" in path or "outputs/proofs/" in path:
+                     untracked_violations.append(path)
+                     
+    except Exception as e:
+        print(f"Error running git status: {e}")
+        return []
+
+    return untracked_violations
+
+def generate_report(canon_missing, ui_violations, untracked_canon):
+    passed = (len(canon_missing) == 0) and (len(ui_violations) == 0) and (len(untracked_canon) == 0)
     
     report = {
         "status": "PASS" if passed else "FAIL",
@@ -109,6 +136,10 @@ def generate_report(canon_missing, ui_violations):
             "status": "PASS" if not ui_violations else "FAIL",
             "violation_count": len(ui_violations),
             "violations": ui_violations
+        },
+        "untracked_canon_check": {
+            "status": "PASS" if not untracked_canon else "FAIL",
+            "violations": untracked_canon
         }
     }
     
@@ -129,10 +160,16 @@ def generate_report(canon_missing, ui_violations):
             print(f"  Code: {v['code']}")
             print(f"  >> HINT: {v['correction_hint']}")
             print("-" * 40)
+
+    if untracked_canon:
+        print("\n[!] CRITICAL: UNTRACKED CANON OUTPUTS DETECTED")
+        for f in untracked_canon:
+            print(f"  - {f}")
+        print("\n>> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`")
             
     if passed:
         print("\n[+] All Systems Nominal. Discipline is maintained.")
-        print("[+] Constitution respected. UI is semantic.")
+        print("[+] Constitution respected. UI is semantic. Canon is tracked.")
 
     # Save JSON
     out_dir = OUTPUTS_RUNTIME / "day_31_2"
@@ -146,7 +183,10 @@ if __name__ == "__main__":
     print("Initializing Antigravity Discipline Check...")
     missing = verify_canon_existence()
     violations = scan_ui_hardcodes()
-    success = generate_report(missing, violations)
+    untracked_canon = verify_untracked_canon()
+    success = generate_report(missing, violations, untracked_canon)
+    if success:
+        success = verify_dashboard_layout_discipline.scan_and_report()
     
     if not success:
         sys.exit(1)

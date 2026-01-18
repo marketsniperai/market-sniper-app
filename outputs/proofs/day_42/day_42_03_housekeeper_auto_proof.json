@@ -1,0 +1,19 @@
+{
+  "run_id": "HK_20260117_233448",
+  "timestamp_utc": "2026-01-17T23:34:48.526803+00:00",
+  "plan_id": "TEST_PLAN_02",
+  "status": "PARTIAL",
+  "actions_executed": 0,
+  "actions_skipped": 1,
+  "actions_failed": 0,
+  "results": [
+    {
+      "action_code": "DESTROY_WORLD",
+      "target": null,
+      "status": "SKIPPED",
+      "reason": "Action code 'DESTROY_WORLD' not in allowlist.",
+      "backup": null
+    }
+  ],
+  "findings_updated": false
+}
