@@ -1,1 +1,11 @@
-{"timestamp_utc": "2026-01-17T22:55:34.758712+00:00", "operation_id": "OP-123", "originating_module": "AutoFix", "before": {"status": "broken", "count": 1}, "after": {"status": "fixed", "count": 0}, "changed_keys": ["status", "count"]}
+{
+  "timestamp_utc": "2026-01-17T23:34:48.518754+00:00",
+  "type": "HOUSEKEEPER_RUN",
+  "changes": [
+    {
+      "target": "outputs/os/test_orphan_file.tmp",
+      "action": "CLEAN_ORPHANS",
+      "backup": "C:\\MSR\\MarketSniperRepo\\outputs\\backups\\housekeeper\\test_orphan_file.tmp.20260117_233448.bak"
+    }
+  ]
+}

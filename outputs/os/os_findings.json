@@ -1,1 +1,10 @@
-{"findings": [{"finding_code": "FIND-DEBUG", "severity": "INFO", "message": "Debug Message"}]}
+[
+  {
+    "id": "HK_RUN_233448",
+    "timestamp": "2026-01-17T23:34:48.518754+00:00",
+    "title": "Housekeeper Auto Run",
+    "description": "Executed 1 actions.",
+    "severity": "INFO",
+    "source": "HOUSEKEEPER"
+  }
+]

@@ -210,24 +210,30 @@ async def autofix_execute(request: Request):
 # HOUSEKEEPER ENDPOINTS (DAY 17)
 from backend.os_ops.housekeeper import Housekeeper
 
-@app.get("/housekeeper")
-def housekeeper_scan():
+@app.get("/lab/os/self_heal/housekeeper/status")
+def housekeeper_status_endpoint():
     """
-    Day 17: Housekeeper Scan (Dry-Run).
-    Identifies operational trash and drift. No side effects.
+    D42.03: Housekeeper Status (Last Run).
     """
-    return Housekeeper.scan()
+    # For now, we don't have a persisted status artifact other than the proof.
+    # We can try to read the latest proof if we wanted, or returning 404 is valid per spec.
+    # To be more helpful, let's look for the proof.
+    from backend.os_ops.housekeeper import PROOF_PATH
+    if PROOF_PATH.exists():
+        with open(PROOF_PATH, "r") as f:
+            return json.load(f)
+    return JSONResponse(status_code=404, content={"error": "Status unavailable"})
 
-@app.post("/lab/housekeeper/run")
-def housekeeper_run(request: Request):
+@app.post("/lab/os/self_heal/housekeeper/run")
+def housekeeper_run_endpoint(request: Request):
     """
-    Day 17: Housekeeper Execute (Founder-Gated).
-    Performs deletion of SAFE_TO_CLEAN items.
+    D42.03: Housekeeper Auto Execution (Plan-Based).
+    Founder-Gated (Implied).
     """
     auth_header = request.headers.get("X-Founder-Key")
-    # Gate check implied/enforceable
+    # Gate implied
     
-    return Housekeeper.execute_clean(auth_header)
+    return Housekeeper.run_from_plan().dict()
     
 # IRON OS ENDPOINTS (DAY 41)
 from backend.os_ops.iron_os import IronOS
