@@ -1,0 +1,24 @@
+{
+    "timestamp_utc": "2026-01-19T13:35:00Z",
+    "default_state_verification": {
+        "flow_a_icon_tap": {
+            "action": "User taps Diamond Icon (Top Right)",
+            "logic": "MainLayout calls _showEliteOverlay(resetToWelcome: true)",
+            "result": "Elite Sheet opens in WELCOME state (Greeting + 3 Questions), clearing old context."
+        },
+        "flow_b_explain_tap": {
+            "action": "User taps '?' on Widget",
+            "logic": "MainLayout calls _showEliteOverlay(explainKey: 'XYZ', resetToWelcome: false)",
+            "result": "Elite Sheet opens in EXPLAIN state for 'XYZ'."
+        },
+        "flow_c_elite_home": {
+            "action": "User taps 'ELITE HOME' inside Explain View",
+            "logic": "_clearExplainMyScreen sets _isFirstInteraction = true",
+            "result": "View returns to WELCOME state."
+        }
+    },
+    "files_changed": [
+        "lib/widgets/elite_interaction_sheet.dart",
+        "lib/layout/main_layout.dart"
+    ]
+}

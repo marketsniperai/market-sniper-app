@@ -1,0 +1,21 @@
+{
+    "timestamp_utc": "2026-01-18T10:35:00Z",
+    "seals_found": [
+        "SEAL_DAY_42_01_LOCK_REASON.md",
+        "SEAL_DAY_42_02_COVERAGE.md",
+        "SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md",
+        "SEAL_DAY_42_04_AUTOFIX_TIER1.md",
+        "SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md",
+        "SEAL_DAY_42_06_RED_BUTTON_SURFACES.md",
+        "SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md",
+        "SEAL_DAY_42_08_FINDINGS_PANEL.md",
+        "SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md",
+        "SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md",
+        "SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md",
+        "SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md",
+        "SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md"
+    ],
+    "calendar_lines_updated_count": 4,
+    "project_state_appended": true,
+    "post_git_status_porcelain": "M docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md\nM PROJECT_STATE.md\n?? outputs/proofs/day_42/day_42_war_calendar_canonize_proof.json"
+}

@@ -1,0 +1,39 @@
+{
+    "day": "44",
+    "sub_day": "05",
+    "task_name": "On-Demand Cache + Freshness",
+    "status": "SEALED",
+    "description": "Implemented deterministic backend cache for context snapshots with strict freshness labels.",
+    "components": [
+        {
+            "name": "Backend Cache",
+            "file": "backend/os_ops/on_demand_cache.py",
+            "features": [
+                "Bounded (256KB/50 items)",
+                "Eviction (Oldest First)",
+                "TTL (Free:900s)"
+            ]
+        },
+        {
+            "name": "API Endpoint",
+            "path": "GET /on_demand/context",
+            "features": [
+                "Cache Hit/Miss Logic",
+                "Freshness Labeling"
+            ]
+        },
+        {
+            "name": "Frontend",
+            "file": "lib/screens/on_demand_panel.dart",
+            "features": [
+                "Live API Integration",
+                "Result Rendering"
+            ]
+        }
+    ],
+    "verification": {
+        "project_discipline": "Verifying...",
+        "flutter_analyze": "Passed",
+        "cache_policy": "outputs/os/os_on_demand_cache_policy.json"
+    }
+}

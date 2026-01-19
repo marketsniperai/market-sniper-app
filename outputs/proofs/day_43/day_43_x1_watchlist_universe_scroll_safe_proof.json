@@ -1,0 +1,25 @@
+{
+    "timestamp_utc": "2026-01-19T13:30:00Z",
+    "scroll_safe_verification": {
+        "watchlist_screen": {
+            "issue": "Static Column overflow",
+            "fix": "SingleChildScrollView + Padding(bottom + Nav)",
+            "status": "SAFE"
+        },
+        "universe_screen": {
+            "issue": "Bottom clipping (Nav overlap)",
+            "fix": "Padding(bottom: kBottomNav + Safe + 24)",
+            "status": "SAFE"
+        },
+        "watchlist_add_modal": {
+            "issue": "Gesture bar overlap",
+            "fix": "Padding(viewInsets + viewPadding + 16)",
+            "status": "SAFE"
+        }
+    },
+    "manual_qa_checklist": [
+        "[x] Watchlist content scrolls above floating nav/FAB area.",
+        "[x] Universe last item (extended universe) fully visible.",
+        "[x] Modal input field clears keyboard and home bar."
+    ]
+}

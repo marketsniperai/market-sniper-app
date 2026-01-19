@@ -1,0 +1,36 @@
+{
+    "day": "44",
+    "sub_day": "06",
+    "task_name": "Tier Limits + Counters",
+    "status": "SEALED",
+    "description": "Implemented deterministic daily tier limits (Free:3, Plus:10) with 04:00 ET reset.",
+    "components": [
+        {
+            "name": "Policy",
+            "path": "outputs/os/os_on_demand_tier_limits.json"
+        },
+        {
+            "name": "Enforcer",
+            "file": "backend/os_ops/on_demand_tier_enforcer.py",
+            "features": [
+                "04:00 ET Bucket",
+                "Ledger Scanning",
+                "Founder Bypass"
+            ]
+        },
+        {
+            "name": "Frontend",
+            "file": "lib/screens/on_demand_panel.dart",
+            "features": [
+                "Usage Counters",
+                "Blocked State UI",
+                "AppColors.shadow"
+            ]
+        }
+    ],
+    "verification": {
+        "discipline": "Passed",
+        "flutter_analyze": "Passed",
+        "policy_check": "Verified"
+    }
+}

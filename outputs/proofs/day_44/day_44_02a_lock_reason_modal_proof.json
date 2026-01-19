@@ -1,0 +1,24 @@
+{
+    "day": "44",
+    "sub_day": "02A",
+    "task_name": "Lock Reason Modal (Canonical)",
+    "status": "SEALED",
+    "components": [
+        {
+            "name": "LockReasonModal",
+            "file": "lib/widgets/lock_reason_modal.dart",
+            "type": "UI Widget",
+            "features": [
+                "Canonical Layout",
+                "Tokenized Colors",
+                "Snapshot Binding",
+                "Safe Area"
+            ]
+        }
+    ],
+    "verification": {
+        "uses_appcolors": true,
+        "scroll_safe": true,
+        "flutter_analyze": "Passed"
+    }
+}

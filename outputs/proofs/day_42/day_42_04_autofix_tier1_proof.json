@@ -1,0 +1,23 @@
+{
+  "run_id": "AFX_20260118_143759",
+  "timestamp_utc": "2026-01-18T14:37:59.040322+00:00",
+  "plan_id": "INVALID",
+  "trigger_context": "UNKNOWN",
+  "status": "NOOP",
+  "actions_executed": 0,
+  "actions_skipped": 0,
+  "actions_failed": 0,
+  "results": [
+    {
+      "action_code": "PLAN_LOAD",
+      "target": null,
+      "status": "FAILED",
+      "reason": "1 validation error for AutoFixPlan\nactions.3.risk_tier\n  Input should be 'TIER_0' or 'TIER_1' [type=literal_error, input_value='TIER_2', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/literal_error",
+      "backup": null
+    }
+  ],
+  "findings_updated": false,
+  "before_after_updated": false,
+  "backups_created": [],
+  "actions_requested": 1
+}

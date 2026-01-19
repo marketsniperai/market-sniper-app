@@ -1,0 +1,18 @@
+{
+    "timestamp_utc": "2026-01-19T17:40:00Z",
+    "git_branch": "chore/flutter-upgrade-hygiene-d37-00-1",
+    "git_commit_short": "f154dd9",
+    "git_status_porcelain": "M PROJECT_STATE.md\nMM backend/api_server.py\n?? verify_debug.txt\n?? outputs/os/os_explain_protocol.json",
+    "flutter_version": "Flutter 3.x (see log)",
+    "founder_mechanism_detected": "--dart-define=FOUNDER_BUILD=true",
+    "build_command_exact": "flutter build apk --release --dart-define=FOUNDER_BUILD=true",
+    "source_apk_path": "build/app/outputs/flutter-apk/app-release.apk",
+    "source_apk_size_bytes": 0,
+    "source_apk_sha256": null,
+    "destination_path": "C:\\Users\\Sergio B\\OneDrive\\Desktop\\Apk Release",
+    "destination_apk_sha256": null,
+    "match": false,
+    "status": "FAILED",
+    "error": "lib/repositories/war_room_repository.dart:65:27: Error: Required named parameter 'misfireRootCause' must be provided.",
+    "notes": "Build failed due to missing parameter in WarRoomSnapshot constructor call."
+}

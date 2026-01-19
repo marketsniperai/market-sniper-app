@@ -111,7 +111,44 @@
   - [x] D42.08: Findings Panel (Read-Only) (SEALED).
   - [x] D42.09: Before/After Diff Surface (Read-Only) (SEALED).
 
+- **Day 43**: Elite Arc v1
+  - [x] D43.00: Elite First Interaction - Implemented canonical script and tier-gated UI. (SEALED).
+  - [x] D43.01: Elite Overlay Shell - Upgrade to 70/30 shell with status line and institutional headers. (SEALED).
+  - [x] D43.02: Elite Mentor Brain - Implemented tone adaptation logic. (SEALED).
+  - [x] D43.03: Elite OS Reader - Implemented read-only OS snapshot reader and API. (SEALED).
+  - [x] D43.04: Day Memory - Implemented 4KB local memory with 4:00 ET reset. (SEALED).
+  - [x] D43.06: Elite Explain Router - Implemented router with safe fallback. (SEALED).
+  - [x] D43.07: Explain Buttons Wiring - Wired "?" buttons to Elite Router. (SEALED).
+  - [x] D43.08: Session Thread Memory - Implemented v2 with local store and UI log. (SEALED).
+  - [x] D43.09: Daily Ritual Triggers - Implemented local scheduler with ET windows. (SEALED).
+  - [x] D43.10: Institutional Explainer Protocol - Implemented definition and reader. (SEALED).
+  - [x] D43.11: Elite Context Engine Status - Implemented strict read-only backend and UI. (SEALED).
+  - [x] D43.12: Elite What Changed - **D43.12:** Elite "What Changed?" (Last 5 Min) (SEALED)
+  - [x] D43.13: Elite Contextual Recall (Bounded) (SEALED)
+  - [x] D43.14: "Explain My Screen" (Active Recon) (SEALED)
+  - [x] D43.15: Elite Micro-Briefing on Open - Implemented deterministic 3-bullet engine triggered by ritual. (SEALED).
+  - [x] D43.16: Elite Context Safety Layer - Implemented transversal validator and UI indicator. (SEALED).
+  - [x] D43.05: Elite AGMS Recall Reader - Implemented read-only surface for AGMS patterns. (SEALED).
+
 ## Canonical Docs Registry
 - **Canonical Docs Path:** `docs/canon/`
 - **Canon Index:** `docs/canon/CANON_INDEX.md`
 - **Canon Authority Order:** MADRE_NODRIZA > CONTEXT > MAP > ATLAS
+D42 War Calendar canonized with seal links (D42.01–D42.13).
+
+## PATCH — WAR ROOM CATCH-UP (D41–D42)
+- **[PARTIAL] DAY 41 — IRON OS VISIBILITY (Sealed D41.01, D41.02, D41.07–D41.11).**
+  - Pending: D41.03–D41.06 (Replay/Rollback UI).
+  - Seals Verified: IRON_OS_STATUS, TIMELINE_TAIL, STATE_HISTORY, DRIFT_SURFACE, LKG_VIEWER, DECISION_PATH, REPLAY_INTEGRITY.
+- **[SEALED] DAY 42 — SELF-HEAL ARC COMPLETE.**
+  - Sealed: LOCK_REASON, COVERAGE, HOUSEKEEPER_AUTO, AUTOFIX_TIER1, MISFIRE_TIER2, RED_BUTTON, COOLDOWN, FINDINGS, BEFORE_AFTER, DECISION_PATH, MISFIRE_ROOT_CAUSE, CONFIDENCE, WHAT_CHANGED.
+  - Final Seal: SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md
+- **Layout Police**: `docs/dev/LAYOUT_POLICE.md` established + Runtime Debug Guard installed (Founder Only). Enforces scroll discipline.
+- **Layout Hotlist**: Fixed War Room nested scroll traps (converted to Slivers). Verified Dashboard/Elite compliance.
+- **Canon Sync Total**: Synchronized all canonical docs (Madre, Map, Context, Atlas, Modules) with Day 43 state.
+- **Scroll Safe**: Fixed Watchlist/Universe/Modal bottom clipping. Enforced safe scrolling padding.
+- **Elite Interaction**: "First Interaction" guaranteed on icon tap (Greeting/Questions). Explain actions routed correctly.
+- **Watchlist Core**: Implemented Store (D44.01) and Basic Screen (D44.14). (SEALED).
+- **Correction (D44.C0)**: Reclassified D44.02 Stub as D44.14A. Unsealed D44.02. (GOVERNANCE).
+- **On-Demand**: Implemented Screen (D44.04) with Validation and Result Container. (SEALED).
+- **Correction (D44.04A)**: Refactored On-Demand to `OnDemandPanel` (D44.04A) to comply with "No Duplicate Screen" law. (SEALED).

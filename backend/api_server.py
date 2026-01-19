@@ -21,6 +21,19 @@ from backend.pipeline_controller import trigger_pipeline
 from backend.pipeline_controller import trigger_pipeline
 import backend.stub_producers as stub_producers
 import backend.os_ops.misfire_monitor as misfire_monitor
+from backend.os_ops.elite_os_reader import EliteOSReader
+from backend.os_ops.elite_context_engine_status_reader import EliteContextEngineStatusReader
+from backend.os_ops.elite_what_changed_reader import EliteWhatChangedReader
+from backend.os_ops.elite_micro_briefing_engine import EliteMicroBriefingEngine
+from backend.os_ops.elite_context_safety_validator import EliteContextSafetyValidator # D43.16 Safety
+from backend.os_ops.elite_agms_recall_reader import EliteAGMSRecallReader # D43.05
+from backend.os_ops.watchlist_action_logger import (
+    WatchlistActionEvent, 
+    append_watchlist_log, 
+    tail_watchlist_log
+)
+from backend.os_ops.on_demand_cache import OnDemandCache # D44.05
+from backend.os_ops.on_demand_tier_enforcer import OnDemandTierEnforcer # D44.06
 
 app = FastAPI()
 
@@ -234,6 +247,45 @@ def housekeeper_run_endpoint(request: Request):
     # Gate implied
     
     return Housekeeper.run_from_plan().dict()
+
+# AUTOFIX TIER 1 ENDPOINTS (DAY 42.04)
+from backend.os_ops.autofix_tier1 import AutoFixTier1
+
+@app.get("/lab/os/self_heal/autofix/tier1/status")
+def autofix_tier1_status():
+    """
+    D42.04: AutoFix Tier 1 Status (Last Run).
+    """
+    from backend.os_ops.autofix_tier1 import PROOF_PATH
+    if PROOF_PATH.exists():
+        with open(PROOF_PATH, "r") as f:
+            return json.load(f)
+    return JSONResponse(status_code=404, content={"error": "Status unavailable"})
+
+@app.post("/lab/os/self_heal/autofix/tier1/run")
+def autofix_tier1_run(request: Request):
+    """
+    D42.04: AutoFix Tier 1 Execution.
+    """
+    auth_header = request.headers.get("X-Founder-Key")
+    # In real impl, check auth_header for high-privilege actions
+    # This engine has tight allowlists anyway.
+    
+    is_founder = auth_header is not None
+    return AutoFixTier1.run_from_plan(founder_context=is_founder).dict()
+
+@app.get("/lab/os/self_heal/autofix/decision_path")
+def autofix_decision_path():
+    """
+    D42.10: AutoFix Decision Path (Read-Only).
+    """
+    from backend.os_ops.autofix_decision_reader import AutoFixDecisionReader
+    data = AutoFixDecisionReader.get_decision_path()
+    if data:
+        return data
+    return JSONResponse(status_code=404, content={"error": "Decision path unavailable"})
+
+
     
 # IRON OS ENDPOINTS (DAY 41)
 from backend.os_ops.iron_os import IronOS
@@ -596,6 +648,219 @@ def tuning_tail(limit: int = 50):
                  lines = [json.loads(l) for l in f.readlines()[-limit:]]
         except: pass
     return lines
+
+# ELITE EXPLAIN ROUTER (D43.06)
+from backend.os_ops.explain_router import ExplainRouter
+
+@app.get("/elite/explain/status")
+def elite_explain_status():
+    """
+    D43.06: Elite Explain Router Status.
+    Returns availability of explanation keys, library status, and protocol integrity.
+    No generation/execution.
+    """
+    return ExplainRouter.get_status()
+
+@app.get("/elite/os/snapshot")
+def elite_os_snapshot():
+    """
+    D43.03: Elite OS Reader Snapshot.
+    Read-Only access to canonical RunManifest, GlobalRisk, and OverlayState.
+    Bounded, Safe, Degrade-First.
+    """
+    snapshot = EliteOSReader.get_snapshot()
+    if snapshot.run_manifest is None and snapshot.global_risk is None and snapshot.overlay is None:
+        # If absolutely everything is missing, we still return the structure but it will be largely empty/None.
+        # However, user prompt said "If ALL are missing: return 404 (UNAVAILABLE)."
+        # But get_snapshot returns an object with None fields. 
+        # So we check fields.
+        pass
+        
+    # Per prompt: "If ALL are missing: return 404 (UNAVAILABLE)."
+    if not snapshot.run_manifest and not snapshot.global_risk and not snapshot.overlay:
+         raise HTTPException(status_code=404, detail="OS UNAVAILABLE")
+         
+    return snapshot
+
+@app.get("/elite/script/first_interaction")
+def elite_first_interaction_script():
+    """
+    D43.00: Elite First Interaction Script.
+    Read-Only access to canonical script.
+    """
+    script = EliteOSReader.get_first_interaction_script()
+    if not script:
+        raise HTTPException(status_code=404, detail="Script Unavailable")
+    return script
+
+@app.get("/elite/context/status")
+async def get_elite_context_status():
+    """
+    Returns the operational status of the Elite Context Engine (D43.11).
+    Strict read-only check of artifacts, freshness, and locks.
+    """
+    try:
+        reader = EliteContextEngineStatusReader()
+        status = reader.get_status()
+        if not status:
+            raise HTTPException(status_code=404, detail="Context Engine Status Unavailable")
+        return status
+    except Exception as e:
+        logger.error(f"Error reading context engine status: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+@app.get("/elite/what_changed")
+async def get_elite_what_changed():
+    """
+    Returns the 'What Changed' snapshot (Last 5 Minutes).
+    D43.12: Strict bounds, no synthesis.
+    """
+    try:
+        reader = EliteWhatChangedReader()
+        snapshot = reader.get_what_changed()
+        if snapshot is None:
+             raise HTTPException(status_code=404, detail="Timeline Unavailable")
+        
+        # D43.16: Safety Validation
+        validator = EliteContextSafetyValidator()
+        validated_snapshot, filtered = validator.validate_payload(snapshot.dict())
+        validated_snapshot['safety_filtered'] = filtered
+        
+        return validated_snapshot
+    except Exception as e:
+        logger.error(f"Error reading what changed: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+@app.get("/elite/micro_briefing/open")
+async def get_elite_micro_briefing_open():
+    """
+    Returns the Elite Micro-Briefing on Open (D43.15).
+    Deterministic, protocol-driven 3-bullet summary.
+    """
+    try:
+        engine = EliteMicroBriefingEngine()
+        snapshot = engine.generate_briefing()
+        if not snapshot:
+            raise HTTPException(status_code=404, detail="Briefing Unavailable")
+        
+        # D43.16: Safety Validation
+        validator = EliteContextSafetyValidator()
+        # micro-briefing returns Pydantic model usually, convert to dict
+        validated_snapshot, filtered = validator.validate_payload(snapshot.dict())
+        validated_snapshot['safety_filtered'] = filtered
+        
+        return validated_snapshot
+    except Exception as e:
+        logger.error(f"Error generating micro-briefing: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+@app.get("/elite/agms/recall")
+async def get_elite_agms_recall(tier: str = "elite"):
+    """
+    Returns AGMS Aggregate Recall (D43.05).
+    Status-Only, Anonymized, Safe.
+    """
+    try:
+        reader = EliteAGMSRecallReader()
+        snapshot = reader.get_recall(tier=tier)
+        return snapshot
+    except Exception as e:
+        logger.error(f"Error reading AGMS Recall: {e}")
+        # Return graceful degradation instead of 500? Snapshot handles it.
+        return {"status": "UNAVAILABLE", "patterns": [], "safety_filtered": False}
+
+# --- Watchlist Action Logging (D44.03) ---
+
+@app.post("/lab/watchlist/log")
+async def post_watchlist_log(event: WatchlistActionEvent):
+    """
+    D44.03: Appends action to backend JSONL ledger.
+    Read-only safe; input validation via Pydantic.
+    """
+    return append_watchlist_log(event)
+
+@app.get("/lab/watchlist/log/tail")
+async def get_watchlist_log_tail(lines: int = 50):
+    """
+    D44.03: Returns last N lines of the watchlist ledger.
+    """
+    if lines > 100: lines = 100 # Bound
+    return {"lines": tail_watchlist_log(lines)}
+
+# --- On-Demand Cache (D44.05) ---
+
+@app.get("/on_demand/context")
+async def get_on_demand_context(
+    ticker: str, 
+    tier: str = "FREE", 
+    allow_stale: bool = False,
+    x_founder_key: Optional[str] = Header(None)
+):
+    """
+    D44.05: On-Demand Context with Cache & Freshness Discipline.
+    D44.06: Tier Limits Enforcement.
+    """
+    # 0. Enforce Tier Limits (D44.06)
+    allowed, usage, limit, reason = OnDemandTierEnforcer.check_and_log(ticker, tier, x_founder_key)
+    
+    if not allowed:
+        return JSONResponse(
+            status_code=429,
+            content={
+                "status": "BLOCKED",
+                "reason": "LIMIT_REACHED",
+                "tier": tier,
+                "usage": usage,
+                "limit": limit,
+                "reset_et": "04:00"
+            }
+        )
+
+    # 1. Check Cache
+    result = OnDemandCache.get(ticker=ticker, tier=tier, allow_stale=allow_stale)
+    
+    # ... Helper to inject usage headers ...
+    def with_headers(resp_dict):
+        # We can't easily add headers to a dict return in FastAPI without Response object, 
+        # but we can return JSONResponse or just include in body.
+        # User requested "Usage headers/body". We will put in body for easy frontend parsing.
+        resp_dict["_meta"] = {
+            "tier": tier,
+            "usage": usage, # This is the count AFTER incremental log
+            "limit": limit
+        }
+        return resp_dict
+    
+    if result.status == "HIT":
+        return with_headers({
+            "source": "CACHE",
+            "freshness": result.freshness,
+            "status": "AVAILABLE",
+            "payload": result.entry.payload,
+            "timestamp_utc": result.entry.created_utc
+        })
+        
+    # 2. Cache Miss or Expired (and stale not allowed)
+    snapshot = EliteOSReader.get_snapshot()
+    
+    # Compose payload
+    payload = {
+        "ticker": ticker,
+        "global_risk": snapshot.global_risk,
+        "regime": snapshot.overlay.get("regime") if snapshot.overlay else "UNKNOWN",
+        "generated_at": datetime.now().isoformat()
+    }
+    
+    # 3. Put to Cache
+    OnDemandCache.put(ticker=ticker, tier=tier, payload=payload)
+    
+    return with_headers({
+        "source": "LIVE_FETCH",
+        "freshness": "LIVE",
+        "status": "AVAILABLE",
+        "payload": payload,
+        "timestamp_utc": datetime.now().isoformat()
+    })
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

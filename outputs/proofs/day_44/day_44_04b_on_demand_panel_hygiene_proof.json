@@ -1,0 +1,24 @@
+{
+    "day": "44",
+    "sub_day": "04B",
+    "task_name": "On-Demand Panel Hygiene",
+    "status": "SEALED",
+    "components": [
+        {
+            "name": "OnDemandPanel",
+            "file": "lib/screens/on_demand_panel.dart",
+            "type": "UI",
+            "action": "Renamed from on_demand_screen.dart",
+            "reason": "Class name match and hygiene"
+        }
+    ],
+    "invariants": {
+        "tab_count": "5 (Dashboard, Watchlist, News, On-Demand, Calendar)",
+        "ondemand_index": "3",
+        "routes_added": []
+    },
+    "verification": {
+        "imports": "Updated MainLayout.",
+        "flutter_analyze": "Passed."
+    }
+}

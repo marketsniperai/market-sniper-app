@@ -299,24 +299,34 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_42_01_LOCK_REASON.md`](../../outputs/seals/SEAL_DAY_42_01_LOCK_REASON.md)
   - [x] D42.02 — Lock Reason coverage surface (lock_reason_coverage_report.json)
     - ↳ Seal: [`SEAL_DAY_42_02_COVERAGE.md`](../../outputs/seals/SEAL_DAY_42_02_COVERAGE.md)
-  - [ ] D42.03 — Housekeeper Auto surface (status + run + ledger tail)
-  - [ ] D42.04 — AutoFix Execute Tier 1 UI surface (cooldown visibility + ledger tail)
-  - [ ] D42.05 — Misfire Auto-Recovery Tier 2 UI surface (proof + escalation logic visibility)
-  - [ ] D42.06 — “Red Button” manual action surfaces (Founder override alignment)
-  - [ ] D42.07 — Cooldown/throttle transparency surfaces (why action is skipped)
+  - [x] D42.03 — Housekeeper Auto surface (status + run + ledger tail)
+    - ↳ Seal: [`SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md`](../../outputs/seals/SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md)
+  - [x] D42.04 — AutoFix Execute Tier 1 UI surface (cooldown visibility + ledger tail)
+    - ↳ Seal: [`SEAL_DAY_42_04_AUTOFIX_TIER1.md`](../../outputs/seals/SEAL_DAY_42_04_AUTOFIX_TIER1.md)
+  - [x] D42.05 — Misfire Auto-Recovery Tier 2 UI surface (proof + escalation logic visibility)
+    - ↳ Seal: [`SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md`](../../outputs/seals/SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md)
+  - [x] D42.06 — “Red Button” manual action surfaces (Founder override alignment)
+    - ↳ Seal: [`SEAL_DAY_42_06_RED_BUTTON_SURFACES.md`](../../outputs/seals/SEAL_DAY_42_06_RED_BUTTON_SURFACES.md)
+  - [x] D42.07 — Cooldown/throttle transparency surfaces (why action is skipped)
+    - ↳ Seal: [`SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md`](../../outputs/seals/SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md)
 
   BEAST PARITY (NEW)
   - [x] D42.08 — Housekeeper Findings Panel (findings_panel.json)
     - ↳ Seal: [`SEAL_DAY_42_08_FINDINGS_PANEL.md`](../../outputs/seals/SEAL_DAY_42_08_FINDINGS_PANEL.md)
   - [x] D42.09 — Housekeeper Before/After Diff (before_after_diff.json)
     - ↳ Seal: [`SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md`](../../outputs/seals/SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md)
-  - [ ] D42.10 — AutoFix Decision Path (reason + fallback + skip reason + cooldown visibility)
-  - [ ] D42.11 — Misfire Root Cause Panel (artifact + pipeline + fallback + action taken)
-  - [ ] D42.12 — Self-Heal Confidence Indicator (HIGH/MED/LOW per action)
-  - [ ] D42.13 — Self-Heal “What Changed?” Panel (after repair: artifacts updated + state unlocked)
+  - [x] D42.10 — AutoFix Decision Path (reason + fallback + skip reason + cooldown visibility)
+    - ↳ Seal: [`SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md`](../../outputs/seals/SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md)
+  - [x] D42.11 — Misfire Root Cause Panel (artifact + pipeline + fallback + action taken)
+    - ↳ Seal: [`SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md`](../../outputs/seals/SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md)
+  - [x] D42.12 — Self-Heal Confidence Indicator (HIGH/MED/LOW per action)
+    - ↳ Seal: [`SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md`](../../outputs/seals/SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md)
+  - [x] D42.13 — Self-Heal “What Changed?” Panel (after repair: artifacts updated + state unlocked)
+    - ↳ Seal: [`SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md`](../../outputs/seals/SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md)
 
 - [ ] D43 — Elite Arc v1 (Mentor, Explain, Memory, Ritual)
-  - [ ] D43.00 — Elite First Interaction Script (30–45s, voice/text)
+  - [x] D43.00 — Elite First Interaction Script (30–45s, voice/text)
+    - ↳ Seal: [`SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md`](../../outputs/seals/SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md)
     - Canonical script (warm institutional, personalized greeting + 3 suggested questions):
       “Good [morning/afternoon/evening], <Name>. I’m Elite… I just fired up the context engine… Tell me what you’re trying to understand — I’ll map the context in plain language.”
       Suggested questions:
@@ -330,32 +340,78 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
       - Free: only Q1 visible; Q2/Q3 blurred with subtle “Elite unlock” overlay.
       - Plus: all 3 visible; Q2 ends with “In Plus you see basic evolution. In Elite, it becomes personal.”
       - Elite: full response + optional anonymized aggregate learning micro-fact (no promises).
-  - [ ] D43.01 — Elite overlay shell (~70%) with 30% dashboard visibility
-  - [ ] D43.02 — Elite Mentor Brain tone adaptation (Human/Institutional) + positive institutional stance
-  - [ ] D43.03 — Elite OS Reader (run_manifest, context_market_sniper, global_risk_state, overlays)
-  - [ ] D43.04 — Day Memory bounded file (4KB, resets 04:00 ET) + degrade rules
-  - [ ] D43.05 — Elite AGMS Recall Reader (top 3 patterns, 4KB bound, degrade rules)
-  - [ ] D43.06 — Explain Library + Router ("Explain [KEY]" + safe fallback + stale handling)
-  - [ ] D43.07 — “?” buttons wiring on widgets/cards -> Explain Router
-  - [ ] D43.08 — Session Thread Memory v2 (12 turns / 4KB, reset 04:00 ET, Clear History)
-  - [ ] D43.09 — Daily Ritual triggers (Morning Briefing 09:20, Market Summary 16:05, How I Did Today 16:10 ET) + cooldowns
-  - [ ] D43.10 — Institutional Explainer Protocol template (Drivers / What to watch / What OS is doing / No advice)
+  - [x] D43.01 — Elite overlay shell (~70%) with 30% dashboard visibility
+    - ↳ Seal: [`SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md`](../../outputs/seals/SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md)
+  - [x] D43.02 — Elite Mentor Brain tone adaptation (Human/Institutional) + positive institutional stance
+    - ↳ Seal: [`SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md`](../../outputs/seals/SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md)
+  - [x] D43.03 — Elite OS Reader (run_manifest, context_market_sniper, global_risk_state, overlays)
+    - ↳ Seal: [`SEAL_DAY_43_03_ELITE_OS_READER.md`](../../outputs/seals/SEAL_DAY_43_03_ELITE_OS_READER.md)
+  - [x] D43.04 — Day Memory bounded file (4KB, resets 04:00 ET) + degrade rules
+    - ↳ Seal: [`SEAL_DAY_43_04_DAY_MEMORY.md`](../../outputs/seals/SEAL_DAY_43_04_DAY_MEMORY.md)
+  - [x] D43.05 — Elite AGMS Recall Reader (top 3 patterns, 4KB bound, degrade rules)
+    - ↳ Seal: [`SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md`](../../outputs/seals/SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md)
+  - [x] D43.06 — Explain Library + Router ("Explain [KEY]" + safe fallback + stale handling)
+    - ↳ Seal: [`SEAL_DAY_43_06_EXPLAIN_ROUTER.md`](../../outputs/seals/SEAL_DAY_43_06_EXPLAIN_ROUTER.md)
+  - [x] D43.07 — “?” Buttons Wiring → Explain Router (no new logic, just routing)
+    - ↳ Seal: [`SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md`](../../outputs/seals/SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md)
+  - [x] D43.08 — Session Thread Memory v2 (12 turns / 4KB, reset 04:00 ET, Clear History)
+    - ↳ Seal: [`SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md`](../../outputs/seals/SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md)
+  - [x] D43.09 — Daily Ritual triggers (Morning Briefing 09:20, Market Summary 16:05, How I Did Today 16:10 ET) + cooldowns
+    - ↳ Seal: [`SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md`](../../outputs/seals/SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md)
+  - [x] D43.10 — Institutional Explainer Protocol template (Drivers / What to watch / What OS is doing / No advice)
+    - ↳ Seal: [`SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md`](../../outputs/seals/SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md)
 
   BEAST PARITY (NEW)
-  - [ ] D43.11 — Elite Context Engine Status (LIVE/STALE + artifacts + degrade)
-  - [ ] D43.12 — Elite “What Changed?” (last 5 minutes: market + OS + overlay)
-  - [ ] D43.13 — Elite Contextual Recall (bounded, non-AGMS)
-  - [ ] D43.14 — Explain My Screen (contextual dashboard explain)
-  - [ ] D43.15 — Elite Micro-Briefing on Open (context snapshot)
-  - [ ] D43.16 — Elite Context Safety Layer (tone + legal + fallback)
+  - [x] D43.11 — Elite Context Engine Status (LIVE/STALE + artifacts + degrade)
+    - ↳ Seal: [`SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md`](../../outputs/seals/SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md)
+  - [x] D43.12 — Elite “What Changed?” (last 5 minutes: market + OS + overlay)
+    - ↳ Seal: [`SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md`](../../outputs/seals/SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md)
+  - [x] **D43.13: Elite Contextual Recall (Bounded)** [SEAL](./../../outputs/seals/SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md)
+  - *Context:* "What do I need to know right now?"
+  - *Memory:* Read from `DayMemoryStore` and `SessionThreadMemoryStore`.
+  - *Bounds:* Max 3 bullets. 160 chars per bullet. Max 4KB total context.
+  - *Logic:* Strictly deterministic (e.g. "If VIX > 25, show Risk Condition").
+  - *Output:* Rendered to `EliteInteractionSheet` (Tier 2/3).
+  - *Persistence:* Write the rendered textual frame back to `DayMemoryStore` as `CONTEXTUAL_RECALL_LAST`.
+  - [x] D43.14 — Explain My Screen (contextual dashboard explain)
+    - ↳ Seal: [`SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md`](../../outputs/seals/SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md)
+  - [x] D43.15 — Elite Micro-Briefing on Open (context snapshot)
+    - ↳ Seal: [`SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md`](../../outputs/seals/SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md)
+  - [x] **D43.16: Elite Context Safety Layer (Tone + Legal + Fallback)** [SEAL](./../../outputs/seals/SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md)
+    - *Protocol:* `os_elite_context_safety_protocol.json` (SSOT).
+    - *Validator:* `EliteContextSafetyValidator` (Python Backend).
+    - *Enforcement:* Strictly intercepts "Advice", "Promise", or "Prediction" tokens.
+    - *Fallback:* Degrades to "Context unavailable due to safety boundary".
+    - *UI:* Displays "SAFETY FILTER APPLIED" label. No red banners.
+
+- [x] D43.X — Layout Police (Doc + Debug Guard)
+  - ↳ Seal: [`SEAL_DAY_43_LAYOUT_POLICE_GUARD.md`](../../outputs/seals/SEAL_DAY_43_LAYOUT_POLICE_GUARD.md)
+
+- [x] D43.Y — Layout Police Hotlist (3 Target Fixes)
+  - ↳ Seal: [`SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md`](../../outputs/seals/SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md)
+
+- [x] D43.X1 — Scroll Safe Fixes (Watchlist/Universe/Modal)
+  - ↳ Seal: [`SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md`](../../outputs/seals/SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md)
+
+- [x] D43.X2 — Elite First Interaction (Default State + Home Button)
+  - ↳ Seal: [`SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md`](../../outputs/seals/SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md)
 
 - [ ] D44 — Watchlist & On-Demand Workflow v1
-  - [ ] D44.01 — Watchlist AddTickerModal (Universe validation + dedupe)
-  - [ ] D44.02 — Watchlist Analyze Now flow (LOCKED -> LockReasonModal + ledger; LIVE -> analyze result)
-  - [ ] D44.03 — Watchlist action logging endpoint wiring (/lab/watchlist/log) + jsonl ledger
-  - [ ] D44.04 — On-Demand screen (ticker input + results modal/screen)
-  - [ ] D44.05 — On-Demand cache discipline (outputs/on_demand_cache + freshness)
-  - [ ] D44.06 — Tier limits (Free 3/day, Plus 10/day, Elite unlimited, Founder override) + counters
+  - [x] D44.01 — Watchlist AddTickerModal (Universe validation + dedupe)
+    - ↳ Seal: [`SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md`](../../outputs/seals/SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md)
+  - [x] D44.02 — Watchlist Analyze Now flow (LOCKED -> LockReasonModal + ledger; LIVE -> analyze result)
+    - ↳ Submodule: `SEAL_DAY_44_02A_LOCK_REASON_MODAL.md` (Stub Enabler)
+    - ↳ Seal: `SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md`
+  - [x] D44.03 — Watchlist action logging endpoint wiring (/lab/watchlist/log) + jsonl ledger
+    - ↳ Seal: `SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md`
+  - [x] D44.04 — On-Demand screen (ticker input + results modal/screen)
+  - [x] D44.04 — On-Demand screen (ticker input + results modal/screen)
+    - ↳ Seal: [`SEAL_DAY_44_04_ON_DEMAND_SCREEN.md`](../../outputs/seals/SEAL_DAY_44_04_ON_DEMAND_SCREEN.md)
+    - ↳ Correction: Reabsorbed as `OnDemandPanel` (D44.04A).
+    - ↳ Hygiene: Renamed to `on_demand_panel.dart` (D44.04B).
+  - [x] D44.05 — On-Demand cache + freshness (live/stale labels)
+    - ↳ Seal: `SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md`
+  - [ ] D44.06 — Watchlist <-> On-Demand Integration (Tap ticker -> populate OD)
   - [ ] D44.07 — Lexicon Guard + Standard Envelope enforcement for On-Demand outputs (institutional safe response shape)
   - [ ] D44.08 — BadgeStripWidget no-overlap layout proof enforcement (ui_layout_proof_on_demand_badge.json)
 
@@ -365,7 +421,9 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [ ] D44.11 — On-Demand Envelope Preview Header (institutional header)
   - [ ] D44.12 — On-Demand Context Strip (sector + regime + overlay + pulse)
   - [ ] D44.13 — On-Demand → Elite Explain Button
-  - [ ] D44.14 — Watchlist Quick Actions (Analyze / Remove)
+  - [x] D44.14 — Watchlist Quick Actions (Analyze / Remove)
+    - ↳ Seal: [`SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md`](../../outputs/seals/SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md)
+    - Note: Includes D44.14A Analyze Stub (SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md)
   - [ ] D44.15 — On-Demand History (last 5)
   - [ ] D44.16 — On-Demand Stale Warning
 
@@ -420,6 +478,40 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [ ] D45.22 — Evidence Ghost Overlay (Elite-only)
   - [ ] D45.23 — Persona Caption Presets (4 styles)
   - [ ] D45.24 — Watermark Modes (Elite/Preview/Founder)
+
+- [ ] D46 — MSK Kernel Activation (Risk Lanes, Receipt, AbuseScore, Lock)
+  - [ ] D46.MSK.01 — Kernel Risk Lanes (Mode by Risk Class)
+    - Define MSK “Risk Lanes” to avoid treating all flows the same:
+      - LANE A (READ-ONLY): surfaces, explain router read-only; no writes; no network
+      - LANE B (WRITE SAFE): strictly bounded writes to outputs/os/ + timestamped backups; reversible required
+      - LANE C (FOUNDER HIGH PRIV): rollback/red-button class actions; founder-gated; confirm + logging
+      - LANE D (NETWORK/LLM): Gemini/OpenAI/Polygon/Massive; super-gated; strict quotas; explicit audit trail
+  - [ ] D46.MSK.02 — Procedure Planner Receipt (Auditable)
+    - Require MSK to always emit a bounded receipt artifact after any planned procedure:
+      - outputs/os/os_kernel_receipt.json (bounded)
+      - procedure_id
+      - steps_planned: precheck → gate → delegate → verify → stage
+      - steps_executed: per delegated module (what ran vs skipped)
+      - final_outcome
+      - proof_pointers (paths to proofs/seals/artifacts)
+  - [ ] D46.MSK.03 — Intent-Aware AbuseScore (No ML, Transparent)
+    - Replace naive “requests per second” only logic with auditable intention patterns:
+      - allow small bursts consistent with human taps
+      - detect fuzzing patterns (weird shapes / long strings / repeated malformed payloads)
+      - detect scraping patterns (high repetition with minimal variation)
+    - Emit a transparent score:
+      - AbuseScore 0–100 with simple rules (no ML)
+      - write incidents/findings:
+        - outputs/os/os_incident.json
+        - outputs/os/os_findings.json
+      - War Room surface should read: “Abuse Suspected (score=X) → throttled” (visibility-only)
+  - [ ] D46.MSK.04 — Global Execution Lock (Intent Locks)
+    - MSK must own a Global Execution Lock to prevent concurrent writes/read hazards:
+      - LOCK:SELF_HEAL_WRITE
+      - LOCK:PIPELINE_FULL
+      - LOCK:ELITE_CHAT
+      - LOCK:ROLLBACK
+    - Explicitly prevent “half-written reads” scenarios (e.g., housekeeper modifying files while autofix regenerates and UI reads).
 
 ---
 

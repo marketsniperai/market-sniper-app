@@ -1,0 +1,55 @@
+{
+    "day": "D43.09",
+    "task": "Daily Ritual Triggers",
+    "status": "PASS",
+    "timestamp": "2026-01-19T11:05:00-05:00",
+    "proofs": {
+        "scheduling_logic": {
+            "mechanism": "RitualScheduler (Local)",
+            "timezone": "Eastern Time (America/Detroit)",
+            "rituals": [
+                {
+                    "id": "MORNING_BRIEFING",
+                    "time": "09:20 ET",
+                    "window": "15m"
+                },
+                {
+                    "id": "MARKET_SUMMARY",
+                    "time": "16:05 ET",
+                    "window": "15m"
+                },
+                {
+                    "id": "HOW_I_DID_TODAY",
+                    "time": "16:10 ET",
+                    "window": "15m"
+                }
+            ],
+            "cooldown": "Keyed by day_id (YYYY-MM-DD)"
+        },
+        "persistence": {
+            "store": "SharedPreferences",
+            "keys": [
+                "ritual_MORNING_BRIEFING_last_day",
+                "ritual_MARKET_SUMMARY_last_day",
+                "ritual_HOW_I_DID_TODAY_last_day"
+            ]
+        },
+        "ui_integration": {
+            "location": "EliteInteractionSheet > Rituals Section",
+            "states": [
+                "READY (Button)",
+                "COOLDOWN (Text)",
+                "NOT IN WINDOW (Text)"
+            ],
+            "logging": "Writes to SessionThreadMemoryStore + DayMemoryStore"
+        },
+        "constraints": {
+            "no_background_service": "Verified (Foreground only check)",
+            "local_only": "Verified"
+        }
+    },
+    "verification": {
+        "discipline": "PASSED",
+        "flutter_analyze": "Checked (legacy ignored)"
+    }
+}

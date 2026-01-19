@@ -1,0 +1,25 @@
+{
+    "day": "44",
+    "sub_day": "04A",
+    "task_name": "On-Demand Reabsorption (Panel Refactor)",
+    "status": "SEALED",
+    "components": [
+        {
+            "name": "OnDemandPanel",
+            "file": "lib/screens/on_demand_screen.dart",
+            "type": "UI",
+            "action": "Renamed from OnDemandScreen",
+            "reason": "Compliance with No Duplicate Screen law"
+        },
+        {
+            "name": "MainLayout",
+            "file": "lib/layout/main_layout.dart",
+            "action": "Updated to use OnDemandPanel"
+        }
+    ],
+    "verification": {
+        "manual_qa": "Verified On-Demand tab still functions correctly as index 3.",
+        "code_check": "OnDemandScreen class no longer exists. Replaced by OnDemandPanel.",
+        "flutter_analyze": "Passed."
+    }
+}

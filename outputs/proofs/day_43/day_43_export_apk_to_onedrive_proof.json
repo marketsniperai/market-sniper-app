@@ -1,0 +1,9 @@
+{
+    "timestamp_utc": "2026-01-19T18:05:00Z",
+    "source_apk_path": "build/app/outputs/flutter-apk/app-release.apk",
+    "dest_apk_path": "C:\\Users\\Sergio B\\OneDrive\\Desktop\\Apk Release\\MarketSniper_FOUNDER_RELEASE_20260119_1235.apk",
+    "dest_file_size_bytes": 51335713,
+    "sha256_source": "326462f4b23ce7c69e75ab067f9754f7626359546258079869680ed97cbf3315",
+    "sha256_dest": "326462f4b23ce7c69e75ab067f9754f7626359546258079869680ed97cbf3315",
+    "status": "SUCCESS"
+}

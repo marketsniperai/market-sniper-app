@@ -1,0 +1,46 @@
+{
+    "day": "44",
+    "sub_day": "02B",
+    "task_name": "Watchlist Analyze Now Flow",
+    "status": "SEALED",
+    "description": "Implemented specific logic for Locked vs Live state analysis triggering.",
+    "components": [
+        {
+            "name": "NavigationBus",
+            "file": "lib/logic/navigation_bus.dart",
+            "type": "Logic",
+            "features": [
+                "Decoupled tab switching",
+                "Arguments passing"
+            ]
+        },
+        {
+            "name": "WatchlistLedger",
+            "file": "lib/logic/watchlist_ledger.dart",
+            "type": "Logic",
+            "features": [
+                "Local JSONL logging",
+                "Append-only"
+            ]
+        },
+        {
+            "name": "WatchlistScreen._analyze",
+            "file": "lib/screens/watchlist_screen.dart",
+            "type": "UI Logic",
+            "features": [
+                "Health Check",
+                "LockReasonModal trigger",
+                "Navigation to OnDemand"
+            ]
+        }
+    ],
+    "verification": {
+        "flutter_analyze": "Passed",
+        "verified_cases": [
+            "LOCKED (Modal)",
+            "LIVE (OnDemand)"
+        ],
+        "ledger_active": true,
+        "layout_police": "Compliant"
+    }
+}

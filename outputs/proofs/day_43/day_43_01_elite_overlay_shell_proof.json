@@ -1,0 +1,27 @@
+{
+    "task": "D43.01 - Elite Overlay Shell (70/30)",
+    "timestamp": "2026-01-19T09:47:00-05:00",
+    "touched_widgets": [
+        "MainLayout",
+        "EliteInteractionSheet"
+    ],
+    "route_entrypoint": "MainLayout._showEliteOverlay",
+    "shell_specs": {
+        "initialChildSize": 0.7,
+        "maxChildSize": 0.85,
+        "minChildSize": 0.5
+    },
+    "ui_features": [
+        "Institutional Header (ELITE CONTEXT ENGINE)",
+        "Status Line (EXPLAIN: [STATUS])",
+        "Placeholder Output Container",
+        "70/30 Split Layout"
+    ],
+    "status_fetch_simulation": {
+        "url": "/elite/explain/status",
+        "method": "GET",
+        "expected_response_active": "EXPLAIN: ACTIVE",
+        "expected_response_error": "EXPLAIN: UNAVAILABLE"
+    },
+    "discipline_check": "PASSED"
+}

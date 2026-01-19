@@ -1,0 +1,28 @@
+{
+    "day": "44",
+    "sub_day": "04",
+    "task_name": "On-Demand Screen (Input + Results)",
+    "status": "SEALED",
+    "components": [
+        {
+            "name": "OnDemandScreen",
+            "file": "lib/screens/on_demand_screen.dart",
+            "type": "UI",
+            "features": [
+                "Input",
+                "Core20 Validation",
+                "Results Container (Placeholder)",
+                "Safe Scroll"
+            ]
+        },
+        {
+            "name": "Note",
+            "text": "Wired into MainLayout Index 3 (previously Coming Soon)."
+        }
+    ],
+    "verification": {
+        "manual_qa": "Verified tab entry, input validation, and result rendering.",
+        "discipline_check": "Manual verification. Compliant with Layout Police (SingleChildScrollView).",
+        "flutter_analyze": "Passed."
+    }
+}

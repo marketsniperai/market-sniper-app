@@ -39,6 +39,8 @@
 | **OS.Repo.Universe** | Repository | `UniverseRepository` | Data | `universe_repository.dart` | `UniverseScreen` |
 | **OS.UI.UniverseScreen** | UI | `UniverseScreen` | Screen | `universe_screen.dart` | `WatchlistAddModal` |
 | **OS.UI.WatchlistAddModal** | UI | `WatchlistAddModal` | Widget | `watchlist_add_modal.dart` | `WatchlistScreen` |
+| **OS.UI.OnDemandTab** | UI | `OnDemandPanel` | Panel | `on_demand_panel.dart` | `MainLayout` |
+| **OS.Logic.WatchlistStore** | Logic | `WatchlistStore` | Persistence | `watchlist_store.dart` | `WatchlistScreen` |
 | **UI.Universe.Extended** | UI | Extended Universe Surface | Universal | `universe_screen.dart` | `D39.02` |
 | **UI.Universe.Governance** | UI | Extended Governance Visibility | Universal | `universe_screen.dart` | `D39.03` |
 | **UI.Universe.OverlayTruth** | UI | Overlay Truth Metadata Surface | Universal | `universe_screen.dart` | `D39.04` |
@@ -85,3 +87,8 @@
 *   **Aftermarket**: `GET /aftermarket`
 *   **Sunday Setup**: `GET /sunday_setup`
 *   **Options**: `GET /options_report`
+
+| **OS.Elite.Overlay** | Elite Overlay | UI | 70/30 Context Shell. | (Internal Function) | `lib/widgets/elite_interaction_sheet.dart` |
+| **OS.Elite.Router** | Explain Router | UI | Maps queries to specialized modules. | (Internal Function) | `lib/logic/elite_explain_router.dart` |
+| **OS.Elite.Safety** | Safety Valve | OPS | Institutional tone enforcement. | (Internal Validator) | `lib/models/elite/context_safety_protocol.dart` |
+| **OS.Infra.LayoutPolice** | Layout Police | OPS | Runtime Layout Guard. | (Internal Function) | `lib/guards/layout_police.dart` |

@@ -1,0 +1,9 @@
+{
+    "timestamp_utc": "2026-01-19T09:16:00Z",
+    "changed_files": [
+        "docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md"
+    ],
+    "summary": "Added Day 46 — MSK Kernel Activation section with Risk Lanes, Receipt, AbuseScore, and Global Execution Lock requirements.",
+    "verifier_result": "PASS",
+    "git_status_porcelain": "M docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md\n?? outputs/proofs/day_46/day_46_war_calendar_msk_kernel_step_added_proof.json"
+}
