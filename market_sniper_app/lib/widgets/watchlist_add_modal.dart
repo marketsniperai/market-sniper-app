@@ -3,6 +3,8 @@ import '../domain/universe/core20_universe.dart';
 import '../screens/universe/universe_screen.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
+import '../logic/watchlist_store.dart';
+import '../logic/watchlist_ledger.dart'; // D44.03 Logging
 
 class WatchlistAddModal extends StatefulWidget {
   const WatchlistAddModal({super.key});
@@ -22,22 +24,47 @@ class _WatchlistAddModalState extends State<WatchlistAddModal> {
       // _isValid = false;
     });
 
-    final input = _controller.text.trim();
+    final input = _controller.text.trim().toUpperCase();
     if (input.isEmpty) return;
 
     if (CoreUniverse.isCore20(input)) {
-      // setState(() => _isValid = true);
-      // In real app, here we would return the symbol or add to repo
-      // For D39.01, we just validate UI behavior
-      if (mounted) {
-         Navigator.of(context).pop(input.toUpperCase());
-         ScaffoldMessenger.of(context).showSnackBar(
-           SnackBar(content: Text("Mock: Added ${input.toUpperCase()} to Watchlist (Validation Passed)"))
-         );
+      final store = WatchlistStore();
+      
+      // Dedupe Check
+      if (store.contains(input)) {
+         setState(() {
+           _error = "Symbol already in watchlist."; // Subtle feedback
+         });
+         return;
       }
+
+      // Add & Close
+      store.addTicker(input).then((_) {
+         
+         // D44.03 Logging
+         WatchlistLedger().logAction(
+            action: "ADD", 
+            ticker: input, 
+            resolvedState: "LIVE", // Assume live for add context (validated vs universe)
+            result: "SUCCESS",
+            sourceScreen: "WatchlistAddModal"
+         );
+
+         if (mounted) {
+           Navigator.of(context).pop();
+           ScaffoldMessenger.of(context).showSnackBar(
+             SnackBar(
+               content: Text("Added $input to Watchlist"),
+               backgroundColor: AppColors.stateLive,
+               duration: const Duration(seconds: 2),
+             )
+           );
+         }
+      });
+      
     } else {
       setState(() {
-         // _isValid = false;
+         // Institutional Guard Language
          _error = "Institutional Guard: Symbol not in CORE20 universe yet.\nExtended Universe unlocks in D39.02.";
       });
     }
@@ -54,7 +81,7 @@ class _WatchlistAddModalState extends State<WatchlistAddModal> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
+        bottom: MediaQuery.of(context).viewInsets.bottom + MediaQuery.of(context).viewPadding.bottom + 16,
         left: 16, 
         right: 16, 
         top: 16

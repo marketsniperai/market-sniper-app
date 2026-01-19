@@ -17,6 +17,14 @@ class WarRoomSnapshot {
   final UniverseSnapshot universe;
   final FindingsSnapshot findings;
   final BeforeAfterDiffSnapshot? beforeAfterDiff;
+  final AutoFixTier1Snapshot autofixTier1;
+  final AutoFixDecisionPathSnapshot autofixDecisionPath;
+  final MisfireRootCauseSnapshot misfireRootCause;
+  final SelfHealConfidenceSnapshot selfHealConfidence;
+  final SelfHealWhatChangedSnapshot selfHealWhatChanged;
+  final CooldownTransparencySnapshot cooldownTransparency;
+  final RedButtonStatusSnapshot redButton;
+  final MisfireTier2Snapshot misfireTier2;
 
 
   const WarRoomSnapshot({
@@ -36,6 +44,14 @@ class WarRoomSnapshot {
     required this.universe,
     required this.findings,
     this.beforeAfterDiff, // Nullable, as it might be missing
+    required this.autofixTier1,
+    required this.autofixDecisionPath,
+    required this.misfireRootCause,
+    required this.selfHealConfidence,
+    required this.selfHealWhatChanged,
+    required this.cooldownTransparency,
+    required this.redButton,
+    required this.misfireTier2,
   });
 
   static const WarRoomSnapshot initial = WarRoomSnapshot(
@@ -54,7 +70,346 @@ class WarRoomSnapshot {
     coverage: CoverageSnapshot.unknown,
     universe: UniverseSnapshot.unknown,
     findings: FindingsSnapshot.unknown,
+
     beforeAfterDiff: null,
+    autofixTier1: AutoFixTier1Snapshot.unknown,
+    autofixDecisionPath: AutoFixDecisionPathSnapshot.unknown,
+    misfireRootCause: MisfireRootCauseSnapshot.unknown,
+    selfHealConfidence: SelfHealConfidenceSnapshot.unknown,
+    selfHealWhatChanged: SelfHealWhatChangedSnapshot.unknown,
+    cooldownTransparency: CooldownTransparencySnapshot.unknown,
+    redButton: RedButtonStatusSnapshot.unknown,
+    misfireTier2: MisfireTier2Snapshot.unknown,
+  );
+}
+
+class MisfireTier2Snapshot {
+  final String timestampUtc;
+  final String incidentId;
+  final String detectedBy;
+  final String escalationPolicy;
+  final List<MisfireEscalationStepSnapshot> steps;
+  final String finalOutcome;
+  final String? actionTaken;
+  final String? notes;
+  final bool isAvailable;
+
+  const MisfireTier2Snapshot({
+    required this.timestampUtc,
+    required this.incidentId,
+    required this.detectedBy,
+    required this.escalationPolicy,
+    required this.steps,
+    required this.finalOutcome,
+    this.actionTaken,
+    this.notes,
+    required this.isAvailable,
+  });
+
+  static const MisfireTier2Snapshot unknown = MisfireTier2Snapshot(
+    timestampUtc: "N/A",
+    incidentId: "N/A",
+    detectedBy: "N/A",
+    escalationPolicy: "N/A",
+    steps: [],
+    finalOutcome: "N/A",
+    isAvailable: false,
+  );
+}
+
+class MisfireEscalationStepSnapshot {
+    final String stepId;
+    final String description;
+    final bool attempted;
+    final bool permitted;
+    final String? gateReason;
+    final String? result;
+    final String? timestampUtc;
+
+    const MisfireEscalationStepSnapshot({
+        required this.stepId,
+        required this.description,
+        required this.attempted,
+        required this.permitted,
+        this.gateReason,
+        this.result,
+        this.timestampUtc,
+    });
+}
+
+class RedButtonStatusSnapshot {
+  final String timestampUtc;
+  final bool available;
+  final bool founderRequired;
+  final List<String> capabilities;
+  final RedButtonRunSummarySnapshot? lastRun;
+
+  const RedButtonStatusSnapshot({
+    required this.timestampUtc,
+    required this.available,
+    required this.founderRequired,
+    required this.capabilities,
+    this.lastRun,
+  });
+
+  static const RedButtonStatusSnapshot unknown = RedButtonStatusSnapshot(
+    timestampUtc: "N/A",
+    available: false,
+    founderRequired: true,
+    capabilities: [],
+  );
+}
+
+class RedButtonRunSummarySnapshot {
+  final String runId;
+  final String action;
+  final String timestampUtc;
+  final String status;
+  final String? notes;
+
+  const RedButtonRunSummarySnapshot({
+    required this.runId,
+    required this.action,
+    required this.timestampUtc,
+    required this.status,
+    this.notes,
+  });
+}
+
+class CooldownTransparencySnapshot {
+  final String timestampUtc;
+  final String? runId;
+  final List<CooldownEntrySnapshot> entries;
+  final bool isAvailable;
+
+  const CooldownTransparencySnapshot({
+      required this.timestampUtc,
+      this.runId,
+      required this.entries,
+      required this.isAvailable,
+  });
+
+  static const CooldownTransparencySnapshot unknown = CooldownTransparencySnapshot(
+    timestampUtc: "N/A",
+    runId: "N/A",
+    entries: [],
+    isAvailable: false,
+  );
+}
+
+class CooldownEntrySnapshot {
+    final String engine;
+    final String actionCode;
+    final bool attempted;
+    final bool permitted;
+    final String gateReason;
+    final int? cooldownRemainingSeconds;
+    final int? throttleWindowSeconds;
+    final String? lastExecutedTimestampUtc;
+    final String? notes;
+
+    const CooldownEntrySnapshot({
+        required this.engine,
+        required this.actionCode,
+        required this.attempted,
+        required this.permitted,
+        required this.gateReason,
+        this.cooldownRemainingSeconds,
+        this.throttleWindowSeconds,
+        this.lastExecutedTimestampUtc,
+        this.notes,
+    });
+}
+
+class SelfHealWhatChangedSnapshot {
+  final String timestampUtc;
+  final String runId;
+  final String? summary;
+  final List<ArtifactUpdateSnapshot> artifactsUpdated;
+  final StateTransitionSnapshot? stateTransition;
+  final bool isAvailable;
+
+  const SelfHealWhatChangedSnapshot({
+      required this.timestampUtc,
+      required this.runId,
+      this.summary,
+      required this.artifactsUpdated,
+      this.stateTransition,
+      required this.isAvailable,
+  });
+
+  static const SelfHealWhatChangedSnapshot unknown = SelfHealWhatChangedSnapshot(
+    timestampUtc: "N/A",
+    runId: "N/A",
+    artifactsUpdated: [],
+    isAvailable: false,
+  );
+}
+
+class ArtifactUpdateSnapshot {
+    final String path;
+    final String changeType;
+    final String? beforeHash;
+    final String? afterHash;
+
+    const ArtifactUpdateSnapshot({
+        required this.path,
+        required this.changeType,
+        this.beforeHash,
+        this.afterHash,
+    });
+}
+
+class StateTransitionSnapshot {
+    final String? fromState;
+    final String? toState;
+    final bool unlocked;
+
+    const StateTransitionSnapshot({
+        this.fromState,
+        this.toState,
+        required this.unlocked,
+    });
+}
+
+class SelfHealConfidenceSnapshot {
+  final String timestampUtc;
+  final String runId;
+  final String overall;
+  final List<ConfidenceEntrySnapshot> entries;
+  final bool isAvailable;
+
+  const SelfHealConfidenceSnapshot({
+    required this.timestampUtc,
+    required this.runId,
+    required this.overall,
+    required this.entries,
+    required this.isAvailable,
+  });
+
+  static const SelfHealConfidenceSnapshot unknown = SelfHealConfidenceSnapshot(
+    timestampUtc: "N/A",
+    runId: "N/A",
+    overall: "UNAVAILABLE",
+    entries: [],
+    isAvailable: false,
+  );
+}
+
+class ConfidenceEntrySnapshot {
+  final String engine;
+  final String actionCode;
+  final String confidence;
+  final List<String> evidence;
+
+  const ConfidenceEntrySnapshot({
+    required this.engine,
+    required this.actionCode,
+    required this.confidence,
+    required this.evidence,
+  });
+}
+
+class MisfireRootCauseSnapshot {
+  final String timestampUtc;
+  final String incidentId;
+  final String misfireType;
+  final String originatingModule;
+  final String detectedBy;
+  final String? primaryArtifact;
+  final String? pipelineMode;
+  final String? fallbackUsed;
+  final String? actionTaken;
+  final String outcome;
+  final String? notes;
+  final bool isAvailable;
+
+  const MisfireRootCauseSnapshot({
+    required this.timestampUtc,
+    required this.incidentId,
+    required this.misfireType,
+    required this.originatingModule,
+    required this.detectedBy,
+    this.primaryArtifact,
+    this.pipelineMode,
+    this.fallbackUsed,
+    this.actionTaken,
+    required this.outcome,
+    this.notes,
+    required this.isAvailable,
+  });
+
+  static const MisfireRootCauseSnapshot unknown = MisfireRootCauseSnapshot(
+    timestampUtc: "N/A",
+    incidentId: "N/A",
+    misfireType: "UNKNOWN",
+    originatingModule: "UNKNOWN",
+    detectedBy: "UNKNOWN",
+    outcome: "UNAVAILABLE",
+    isAvailable: false,
+  );
+}
+
+class AutoFixDecisionPathSnapshot {
+  final String status;
+  final String runId;
+  final String context;
+  final int actionCount;
+  final List<DecisionActionSnapshot> actions;
+  final bool isAvailable;
+
+  const AutoFixDecisionPathSnapshot({
+    required this.status,
+    required this.runId,
+    required this.context,
+    required this.actionCount,
+    required this.actions,
+    required this.isAvailable,
+  });
+
+  static const AutoFixDecisionPathSnapshot unknown = AutoFixDecisionPathSnapshot(
+    status: "UNAVAILABLE",
+    runId: "N/A",
+    context: "N/A",
+    actionCount: 0,
+    actions: [],
+    isAvailable: false,
+  );
+}
+
+class DecisionActionSnapshot {
+  final String code;
+  final String outcome;
+  final String reason;
+  
+  const DecisionActionSnapshot({
+    required this.code,
+    required this.outcome,
+    required this.reason,
+  });
+}
+
+class AutoFixTier1Snapshot {
+  final String status; // NOOP, SUCCESS, PARTIAL, FAILED, UNAVAILABLE
+  final String planId;
+  final int actionsExecuted;
+  final String lastRun;
+  final bool isAvailable;
+
+  const AutoFixTier1Snapshot({
+    required this.status,
+    required this.planId,
+    required this.actionsExecuted,
+    required this.lastRun,
+    required this.isAvailable,
+  });
+
+  static const AutoFixTier1Snapshot unknown = AutoFixTier1Snapshot(
+    status: "UNAVAILABLE",
+    planId: "N/A",
+    actionsExecuted: 0,
+    lastRun: "NEVER",
+    isAvailable: false,
   );
 }
 

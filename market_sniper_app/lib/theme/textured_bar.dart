@@ -29,7 +29,7 @@ class TexturedBarBackground extends StatelessWidget {
         children: [
           // Overlay layer to keep it subtle and premium (not noisy)
           Container(
-            color: AppColors.bgPrimary.withOpacity(overlayOpacity),
+            color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: overlayOpacity),
           ),
           // Actual content (AppBar/NavBar)
           child,

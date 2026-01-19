@@ -111,7 +111,7 @@ class _UniverseScreenState extends State<UniverseScreen> {
     }
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.fromLTRB(16, 16, 16, kBottomNavigationBarHeight + MediaQuery.of(context).viewPadding.bottom + 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

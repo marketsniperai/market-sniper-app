@@ -21,6 +21,12 @@ class DashboardWidget {
   }
 }
 
+enum FreshnessState {
+  live,
+  stale,
+  unknown,
+}
+
 class DashboardPayload {
   final String systemStatus;
   final String message;
@@ -52,5 +58,30 @@ class DashboardPayload {
       runManifestRef: json['run_manifest_ref'],
       marketSnapshot: json['market_snapshot'] ?? {},
     );
+  }
+
+  // --- SSOT Usage Getters ---
+
+  String get runId => runManifestRef ?? 'UNKNOWN';
+
+  DateTime? get asOfUtc {
+    if (generatedAt == null) return null;
+    return DateTime.tryParse(generatedAt!)?.toUtc();
+  }
+
+  int get ageSeconds {
+    final asOf = asOfUtc;
+    if (asOf == null) return 999999; // Infinite age if unknown
+    final now = DateTime.now().toUtc();
+    return now.difference(asOf).inSeconds;
+  }
+
+  FreshnessState get freshnessState {
+    // D37.01 Baseline: 5 minute threshold (300s)
+    const int thresholdSeconds = 300; 
+    
+    if (asOfUtc == null) return FreshnessState.unknown;
+    if (ageSeconds <= thresholdSeconds) return FreshnessState.live;
+    return FreshnessState.stale;
   }
 }

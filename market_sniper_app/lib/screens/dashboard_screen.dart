@@ -1,12 +1,30 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../theme/app_colors.dart';
+// import 'package:google_fonts/google_fonts.dart'; // Moved to Composer
+// import '../theme/app_colors.dart'; // Moved to Composer
 import '../models/dashboard_payload.dart';
 import '../models/system_health.dart';
 import '../services/api_client.dart';
 import '../config/app_config.dart';
-import '../widgets/dashboard_widgets.dart';
-import '../widgets/system_health_chip.dart';
+// import '../widgets/dashboard_widgets.dart'; // Moved to Composer
+import '../logic/data_state_resolver.dart';
+import '../repositories/dashboard_repository.dart';
+import '../utils/time_utils.dart';
+// import '../widgets/session_window_strip.dart'; // Moved to Composer
+
+// import '../widgets/system_health_chip.dart'; // Moved to Composer
+// import '../widgets/os_health_widget.dart'; // Moved to Composer
+// import '../widgets/last_run_widget.dart'; // Moved to Composer
+// import '../widgets/founder_banner.dart'; // Moved to Composer
+import '../logic/dashboard_refresh_controller.dart';
+import '../repositories/system_health_repository.dart';
+import '../repositories/last_run_repository.dart';
+import '../models/system_health_snapshot.dart';
+import '../models/last_run_snapshot.dart';
+import '../logic/dashboard_degrade_policy.dart';
+// import '../widgets/degrade_banner.dart'; // Moved to Composer
+import 'dashboard/dashboard_composer.dart';
+import '../ui/tokens/dashboard_spacing.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -16,20 +34,44 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingObserver {
-  late ApiClient _api;
+  late DashboardRepository _repo;
+  late SystemHealthRepository _healthRepo;
+  late LastRunRepository _lastRunRepo;
+  late ApiClient _api; // Kept for health (separate concern for now, or move to repo later)
   DashboardPayload? _dashboard;
-  SystemHealth? _health;
+  SystemHealth? _health; // Legacy
+  SystemHealthSnapshot _healthSnapshot = SystemHealthSnapshot.unknown;
+  LastRunSnapshot _lastRunSnapshot = LastRunSnapshot.unknown;
+  
   bool _loading = true;
   String? _error;
-  Timer? _refreshTimer;
+  late DashboardRefreshController _refreshController;
+  // Timer? _refreshTimer; // Replaced by DashboardRefreshController
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    
+    // D37.02: Initialize Timezones
+    TimeUtils.init();
+
     _api = ApiClient();
-    _loadData();
-    _startTimer();
+    _repo = DashboardRepository(api: _api);
+    _healthRepo = SystemHealthRepository(api: _api);
+    _lastRunRepo = LastRunRepository(api: _api);
+
+    _refreshController = DashboardRefreshController(
+      onRefresh: () async => await _loadData(silent: true),
+    );
+
+    // Initial load
+    _loadData().then((_) {
+       // Start auto-refresh after initial load
+       _refreshController.start();
+    });
+    
+    // _startTimer(); // Removed
     
     // Forensic Trace
     if (AppConfig.isFounderBuild) {
@@ -39,7 +81,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
 
   @override
   void dispose() {
-    _stopTimer();
+    _refreshController.dispose();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -47,22 +89,14 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      _startTimer();
-      _loadData();
+      _refreshController.resume();
+      // Resume should trigger refresh if needed, handled by controller
     } else if (state == AppLifecycleState.paused) {
-      _stopTimer();
+      _refreshController.pause();
     }
   }
 
-  void _startTimer() {
-    _stopTimer();
-    _refreshTimer = Timer.periodic(const Duration(seconds: 10), (_) => _loadData(silent: true));
-  }
-
-  void _stopTimer() {
-    _refreshTimer?.cancel();
-    _refreshTimer = null;
-  }
+  // Timer logic removed, handled by controller
 
   Future<void> _loadData({bool silent = false}) async {
     if (!silent) {
@@ -70,14 +104,35 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
     }
     try {
       final results = await Future.wait([
-        _api.fetchDashboard(),
-        _api.fetchSystemHealth(),
+        _repo.fetchDashboard(),
+        _api.fetchSystemHealth(), // TODO: Move to SystemRepository
       ]);
       
       if (mounted) {
         setState(() {
           _dashboard = results[0] as DashboardPayload;
-          _health = results[1] as SystemHealth;
+          _health = results[1] as SystemHealth; // Legacy
+          
+          // D37.04: Fetch Unified Health logic (integrated here for now to ensure data availability)
+          // Ideally this should participate in the Future.wait, but we need _dashboard first for resolver override if possible.
+          // However, repo.fetchUnifiedHealth accepts override.
+          
+          final d = _dashboard!;
+          final resolved = DataStateResolver.resolve(dashboard: d, health: _health);
+          
+          // D37.07: Report Locked State to Controller
+          _refreshController.reportLockedState(resolved.state == DataState.locked);
+          
+          // We trigger the unified fetch NOW, using the resolved state
+          _healthRepo.fetchUnifiedHealth(dataState: resolved).then((h) {
+             if (mounted) setState(() => _healthSnapshot = h);
+          });
+
+          // Fetch Last Run (D37.05)
+          _lastRunRepo.fetchLastRun().then((lr) {
+             if (mounted) setState(() => _lastRunSnapshot = lr);
+          });
+
           _loading = false;
         });
       }
@@ -100,60 +155,46 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
     // Main shell handles the Scaffold/AppBar.
     
     return RefreshIndicator(
-      onRefresh: () => _loadData(),
-      child: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: Padding(
-           padding: const EdgeInsets.all(16.0),
-           child: _buildBody(),
-        ),
-      ),
+      onRefresh: () async {
+        await _refreshController.requestManualRefresh();
+      },
+      child: _buildBody(context),
     );
   }
 
-  Widget _buildBody() {
-    if (_error != null && _dashboard == null) {
-      return Center(child: Text("ERROR: $_error", style: const TextStyle(color: AppColors.stateLocked)));
-    }
+  Widget _buildBody(BuildContext context) {
+    // D37.08: Degrade Policy
+    final resolvedState = DataStateResolver.resolve(dashboard: _dashboard, health: _health);
     
-    if (_dashboard == null) {
-      return const SizedBox.shrink(); // Loading indicator in app bar handles visual feedback
+    final degradeContext = DashboardDegradePolicy.evaluate(
+      payload: _dashboard,
+      dataState: resolvedState,
+      fetchError: _error,
+    );
+    
+    // -- Dashboard Composer (D38.01.1) --
+    // Orchestrates the list of widgets
+    final composer = DashboardComposer(
+      dashboard: _dashboard,
+      health: _health,
+      healthSnapshot: _healthSnapshot,
+      lastRunSnapshot: _lastRunSnapshot,
+      isFounder: AppConfig.isFounderBuild,
+      resolvedState: resolvedState,
+      degradeContext: degradeContext,
+    );
+
+    final widgets = composer.buildList(context);
+
+    if (_loading && _dashboard == null) {
+       // Show loading indicator only if we have no data at all
+       return const Center(child: CircularProgressIndicator());
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // Loading Indicator (Moved from AppBar)
-        if (_loading) 
-          const Padding(
-            padding: EdgeInsets.only(bottom: 16.0),
-            child: LinearProgressIndicator(minHeight: 2),
-          ),
-
-        // Health Surface (Day 09)
-        if (_health != null)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: SystemHealthChip(
-              health: _health!,
-              isFounder: AppConfig.isFounderBuild,
-            ),
-          ),
-
-        // Header Info
-        Text("STATUS: ${_dashboard!.systemStatus}", style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.accentCyan)),
-        Text("MSG: ${_dashboard!.message}", style: const TextStyle(color: AppColors.textPrimary)),
-        const SizedBox(height: 16),
-        
-        // Dynamic Widgets
-        ..._dashboard!.widgets.map((w) => Padding(
-          padding: const EdgeInsets.only(bottom: 12.0),
-          child: renderWidget(w),
-        )),
-        
-        const SizedBox(height: 32),
-        Center(child: Text("Generated: ${_dashboard!.generatedAt ?? 'Unknown'}", style: const TextStyle(color: AppColors.textDisabled, fontSize: 10))),
-      ],
+    return ListView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      padding: DashboardSpacing.screenPadding,
+      children: widgets,
     );
   }
 }

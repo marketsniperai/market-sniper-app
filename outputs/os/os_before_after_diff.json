@@ -1,11 +1,11 @@
 {
-  "timestamp_utc": "2026-01-17T23:34:48.518754+00:00",
-  "type": "HOUSEKEEPER_RUN",
+  "timestamp_utc": "2026-01-18T14:37:59.037357+00:00",
+  "type": "AUTOFIX_TIER1_RUN",
   "changes": [
     {
-      "target": "outputs/os/test_orphan_file.tmp",
-      "action": "CLEAN_ORPHANS",
-      "backup": "C:\\MSR\\MarketSniperRepo\\outputs\\backups\\housekeeper\\test_orphan_file.tmp.20260117_233448.bak"
+      "target": "outputs/os/test_artifact.json",
+      "action": "REGENERATE_MISSING_ARTIFACT",
+      "backup": null
     }
   ]
 }

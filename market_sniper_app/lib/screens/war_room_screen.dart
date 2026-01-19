@@ -11,6 +11,7 @@ import '../services/api_client.dart';
 import '../logic/war_room_refresh_controller.dart';
 import '../logic/war_room_degrade_policy.dart';
 import '../config/app_config.dart';
+// import '../widgets/canonical_scroll_container.dart'; // Replaced by CustomScrollView
 
 class WarRoomScreen extends StatefulWidget {
   const WarRoomScreen({super.key});
@@ -156,47 +157,67 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
       ),
       body: RefreshIndicator(
         onRefresh: () async => await _refreshController.requestManualRefresh(),
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _buildStatusBanner(),
-                const SizedBox(height: 16),
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 1.1,
-                  children: [
-                    _buildHealthTile(),
-                    _buildAutopilotTile(),
-                    _buildMisfireTile(),
-                    _buildHousekeeperTile(),
-                    _buildIronTile(),
-                    _buildIronTimelineTile(),
-                    _buildLKGTile(),
-                    _buildDecisionPathTile(),
-                    _buildDriftTile(),
-                    _buildReplayIntegrityTile(),
-                    _buildLockReasonTile(),
-                    _buildCoverageTile(),
-                    _buildFindingsTile(),
-                    _buildBeforeAfterTile(),
-                    _buildUniverseTile(),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                _buildIronHistorySection(),
-                const SizedBox(height: 24),
-                if (AppConfig.isFounderBuild) _buildFounderTruth(),
-              ],
-            ),
-          ),
+        child: CustomScrollView(
+           physics: const AlwaysScrollableScrollPhysics(),
+           slivers: [
+              SliverPadding(
+                 padding: const EdgeInsets.all(16.0),
+                 sliver: SliverList(
+                    delegate: SliverChildListDelegate([
+                       _buildStatusBanner(),
+                       const SizedBox(height: 16),
+                    ]),
+                 ),
+              ),
+              
+              SliverPadding(
+                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                 sliver: SliverGrid.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: 1.1,
+                    children: [
+                      _buildHealthTile(),
+                      _buildAutopilotTile(),
+                      _buildMisfireTile(),
+                      _buildHousekeeperTile(),
+                      _buildIronTile(),
+                      _buildIronTimelineTile(),
+                      _buildLKGTile(),
+                      _buildDecisionPathTile(),
+                      _buildDriftTile(),
+                      _buildReplayIntegrityTile(),
+                      _buildLockReasonTile(),
+                      _buildCoverageTile(),
+                      _buildFindingsTile(),
+                      _buildBeforeAfterTile(),
+                      _buildAutoFixTier1Tile(),
+                      _buildAutoFixDecisionPathTile(),
+                      _buildMisfireRootCauseTile(),
+                      _buildSelfHealConfidenceTile(),
+                      _buildSelfHealWhatChangedTile(),
+                      _buildCooldownTransparencyTile(),
+                      _buildRedButtonTile(),
+                      _buildMisfireTier2Tile(),
+                      _buildUniverseTile(),
+                    ],
+                 ),
+              ),
+
+              SliverPadding(
+                 padding: const EdgeInsets.all(16.0),
+                 sliver: SliverList(
+                    delegate: SliverChildListDelegate([
+                       const SizedBox(height: 16),
+                       _buildIronHistorySection(),
+                       const SizedBox(height: 24),
+                       if (AppConfig.isFounderBuild) _buildFounderTruth(),
+                       const SizedBox(height: 32), // Bottom padding
+                    ]),
+                 ),
+              ),
+           ],
         ),
       ),
     );
@@ -460,25 +481,24 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         status = WarRoomTileStatus.unavailable;
         lines.add("UNAVAILABLE");
       } else {
-        if (hk.autoRun) {
-           status = WarRoomTileStatus.nominal;
-        } else {
-           status = WarRoomTileStatus.degraded; // Auto-Run OFF
-        }
-        
-        if (hk.result == "FAILED") status = WarRoomTileStatus.degraded; // or Incident? Degraded for now per canon (Green/Orange/Red) - Orange is Warning.
+        // Evaluate tile status from result string
+        // result can be "SUCCESS (5)", "PARTIAL", "FAILED", "NOOP", "UNKNOWN"
+        String res = hk.result.split(' ').first; // Extract basic status
 
-        lines.add("AUTO: ${hk.autoRun ? 'ON' : 'OFF'}");
+        if (res == "SUCCESS") status = WarRoomTileStatus.nominal;
+        else if (res == "NOOP") status = WarRoomTileStatus.nominal; // NOOP is fine (e.g. missing plan is safe)
+        else if (res == "PARTIAL") status = WarRoomTileStatus.degraded;
+        else if (res == "FAILED") status = WarRoomTileStatus.incident;
+        else status = WarRoomTileStatus.degraded;
+
+        if (hk.autoRun) lines.add("AUTO: ON");
+        else lines.add("AUTO: OFF"); // Legacy flag or inferred
         
         String last = hk.lastRun;
         if (last.contains("T")) last = last.split("T").last.split(".").first;
-        lines.add("LAST RUN: $last");
+        lines.add("LAST: $last");
         
-        lines.add("RESULT: ${hk.result}");
-        
-        if (hk.cooldown > 0) {
-          lines.add("COOLDOWN: ${hk.cooldown}s");
-        }
+        lines.add("STATUS: ${hk.result}");
       }
     }
 
@@ -780,6 +800,337 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
       status: _loading ? WarRoomTileStatus.loading : status,
       subtitle: lines,
       debugInfo: "Source: ${r.source}",
+    );
+  }
+
+  Widget _buildAutoFixTier1Tile() {
+    final afx = _snapshot.autofixTier1;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!afx.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        // Status mapping
+        // NOOP/SUCCESS -> NOMINAL
+        // PARTIAL -> DEGRADED
+        // FAILED -> INCIDENT
+        String s = afx.status;
+        if (s == "SUCCESS" || s == "NOOP") status = WarRoomTileStatus.nominal;
+        else if (s == "PARTIAL") status = WarRoomTileStatus.degraded;
+        else if (s == "FAILED") status = WarRoomTileStatus.incident;
+        else status = WarRoomTileStatus.degraded;
+
+        lines.add("STATUS: $s");
+        lines.add("PLAN: ${afx.planId}");
+        lines.add("EXECUTED: ${afx.actionsExecuted}");
+        
+        String ts = afx.lastRun;
+        if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
+        lines.add("LAST: $ts");
+      }
+    }
+
+    return WarRoomTile(
+      title: "AUTOFIX (TIER 1)",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/autofix/tier1",
+    );
+  }
+
+  Widget _buildAutoFixDecisionPathTile() {
+    final dp = _snapshot.autofixDecisionPath;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!dp.isAvailable) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         // Status Mapping
+         String overall = dp.status;
+         if (overall == "SUCCESS" || overall == "NO_OP") status = WarRoomTileStatus.nominal;
+         else if (overall == "PARTIAL") status = WarRoomTileStatus.degraded;
+         else if (overall == "FAILED" || overall == "BLOCKED") status = WarRoomTileStatus.incident;
+         else status = WarRoomTileStatus.nominal;
+         
+         lines.add("PATH: $overall");
+         lines.add("ID: ${dp.runId}");
+         lines.add("CTX: ${dp.context}");
+         
+         // Action Summary or Detail
+         // Show breakdown of outcomes if possible
+         int exec = 0;
+         int skipped = 0;
+         int blocked = 0;
+         
+         for (var a in dp.actions) {
+             if (a.outcome == "EXECUTED") exec++;
+             else if (a.outcome == "SKIPPED") skipped++;
+             else if (a.outcome == "BLOCKED" || a.outcome == "REJECTED") blocked++;
+         }
+         
+         if (dp.actionCount == 0) {
+             lines.add("ACTIONS: NONE");
+         } else {
+             lines.add("EXEC:$exec SKIP:$skipped BLK:$blocked");
+         }
+      }
+    }
+
+    return WarRoomTile(
+      title: "AUTOFIX PATH",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/autofix/decision_path",
+    );
+  }
+
+  Widget _buildMisfireRootCauseTile() {
+    final rc = _snapshot.misfireRootCause;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!rc.isAvailable) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         // Status Mapping
+         if (rc.outcome == "RESOLVED" || rc.outcome == "MITIGATED") status = WarRoomTileStatus.nominal;
+         else if (rc.outcome == "OPEN") status = WarRoomTileStatus.incident;
+         else if (rc.outcome == "FAILED") status = WarRoomTileStatus.degraded;
+         else status = WarRoomTileStatus.nominal;
+         
+         lines.add("TYPE: ${rc.misfireType}");
+         lines.add("OUTCOME: ${rc.outcome}");
+         lines.add("MOD: ${rc.originatingModule}");
+         
+         if (rc.primaryArtifact != null) lines.add("ART: ${rc.primaryArtifact}");
+         if (rc.fallbackUsed != null) lines.add("FALLBACK: ${rc.fallbackUsed}");
+         if (rc.actionTaken != null) lines.add("ACTION: ${rc.actionTaken}");
+      }
+    }
+
+    return WarRoomTile(
+      title: "MISFIRE ROOT CAUSE",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/misfire/root_cause",
+    );
+  }
+
+  Widget _buildSelfHealConfidenceTile() {
+    final conf = _snapshot.selfHealConfidence;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!conf.isAvailable) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         // Status Mapping
+         if (conf.overall == "HIGH") status = WarRoomTileStatus.nominal;
+         else if (conf.overall == "MED") status = WarRoomTileStatus.nominal; 
+         else if (conf.overall == "LOW") status = WarRoomTileStatus.degraded;
+         else status = WarRoomTileStatus.nominal;
+         
+         lines.add("OVERALL: ${conf.overall}");
+         // lines.add("RUN: ${conf.runId}");
+         
+         if (conf.entries.isEmpty) {
+             lines.add("NO ACTIONS RECORDED");
+         } else {
+             // Show last entry or summary
+             final last = conf.entries.last;
+             lines.add("${last.engine}: ${last.confidence}");
+             lines.add("ACT: ${last.actionCode}");
+             if (last.evidence.isNotEmpty) {
+                 lines.add("EVID: ${last.evidence.join(',')}");
+             }
+         }
+      }
+    }
+
+    return WarRoomTile(
+      title: "SELF-HEAL CONFIDENCE",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/confidence",
+    );
+  }
+
+  Widget _buildSelfHealWhatChangedTile() {
+    final wc = _snapshot.selfHealWhatChanged;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!wc.isAvailable) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         status = WarRoomTileStatus.nominal;
+         
+         if (wc.summary != null) lines.add("SUM: ${wc.summary}");
+
+         // State Transition
+         if (wc.stateTransition != null) {
+             final st = wc.stateTransition!;
+             lines.add("STATE: ${st.fromState ?? '?'} -> ${st.toState ?? '?'}");
+             if (st.unlocked) lines.add("UNLOCKED: TRUE");
+         }
+
+         // Artifacts
+         if (wc.artifactsUpdated.isEmpty) {
+             lines.add("NO ARTIFACTS CHANGED");
+         } else {
+             for (var art in wc.artifactsUpdated.take(3)) {
+                 lines.add("${art.changeType}: ${art.path.split('/').last}");
+             }
+             if (wc.artifactsUpdated.length > 3) {
+                 lines.add("+${wc.artifactsUpdated.length - 3} MORE");
+             }
+         }
+      }
+    }
+
+    return WarRoomTile(
+      title: "SELF-HEAL WHAT CHANGED",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/what_changed",
+    );
+  }
+
+  Widget _buildCooldownTransparencyTile() {
+    final ct = _snapshot.cooldownTransparency;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!ct.isAvailable) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         status = WarRoomTileStatus.nominal;
+         
+         if (ct.entries.isEmpty) {
+             lines.add("NO GATING RECORDED");
+         } else {
+             for (var entry in ct.entries.take(3)) {
+                 String state = entry.permitted ? "PERMITTED" : "SKIPPED";
+                 String reason = entry.gateReason;
+                 if (entry.cooldownRemainingSeconds != null) {
+                     reason += " (${entry.cooldownRemainingSeconds}s)";
+                 }
+                 lines.add("$state: ${entry.actionCode}");
+                 lines.add("REASON: $reason");
+             }
+             if (ct.entries.length > 3) {
+                 lines.add("+${ct.entries.length - 3} MORE");
+             }
+         }
+      }
+    }
+
+    return WarRoomTile(
+      title: "SELF-HEAL COOLDOWNS",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/cooldowns",
+    );
+  }
+
+  Widget _buildRedButtonTile() {
+    final rb = _snapshot.redButton;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+    bool isFounder = AppConfig.isFounderBuild;
+
+    if (!_loading) {
+      if (!rb.available) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         status = WarRoomTileStatus.nominal;
+         
+         // Capabilities
+         if (isFounder) {
+             lines.add("FOUNDER ACTIVE");
+             if (rb.capabilities.isEmpty) {
+                 lines.add("NO ACTIONS AVAILABLE");
+             } else {
+                 for (var cap in rb.capabilities) {
+                     // In a real app, these would be interactive buttons
+                     // For now, we list them as visible capabilities
+                     lines.add("[ACTION] $cap"); 
+                 }
+             }
+         } else {
+             lines.add("LOCKED (FOUNDER ONLY)");
+             lines.add("${rb.capabilities.length} ACTIONS HIDDEN");
+         }
+
+         // Last Run
+         if (rb.lastRun != null) {
+             final lr = rb.lastRun!;
+             lines.add("LAST: ${lr.action} (${lr.status})");
+         }
+      }
+    }
+
+    return WarRoomTile(
+      title: "SELF-HEAL RED BUTTON",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/red_button",
+    );
+  }
+
+  Widget _buildMisfireTier2Tile() {
+    final Tier2 = _snapshot.misfireTier2;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!Tier2.isAvailable) {
+         status = WarRoomTileStatus.unavailable;
+         lines.add("UNAVAILABLE");
+      } else {
+         status = WarRoomTileStatus.nominal;
+         if (Tier2.finalOutcome == "FAILED" || Tier2.finalOutcome == "ESCALATED_TO_FOUNDER") {
+             status = WarRoomTileStatus.degraded; // Or incident
+         }
+         
+         lines.add("ID: ${Tier2.incidentId} (${Tier2.finalOutcome})");
+         if (Tier2.actionTaken != null) lines.add("ACTION: ${Tier2.actionTaken}");
+
+         // Steps
+         if (Tier2.steps.isEmpty) {
+             lines.add("NO STEPS RECORDED");
+         } else {
+             for (var step in Tier2.steps.take(3)) {
+                 String res = step.result ?? (step.gateReason ?? "PENDING");
+                 lines.add("${step.stepId}: $res");
+             }
+             if (Tier2.steps.length > 3) {
+                 lines.add("+${Tier2.steps.length - 3} MORE STEPS");
+             }
+         }
+      }
+    }
+
+    return WarRoomTile(
+      title: "SELF-HEAL TIER 2",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /lab/os/self_heal/misfire/tier2",
     );
   }
 

@@ -19,3 +19,8 @@
 
 ## Verification
 *The Discipline Verifier checks that all files listed above exist.*
+
+### Recent Seals (Day 43)
+- [Day 43.16: Elite Safety Layer](../../outputs/seals/SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md)
+- [Day 43.X: Layout Police](../../outputs/seals/SEAL_DAY_43_LAYOUT_POLICE_GUARD.md)
+- [Day 43.Y: Layout Police Hotlist](../../outputs/seals/SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md)

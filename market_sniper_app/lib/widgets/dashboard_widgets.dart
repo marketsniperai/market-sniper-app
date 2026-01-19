@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/dashboard_payload.dart';
 import '../theme/app_colors.dart';
+import '../logic/elite_messages.dart';
 
 class UnknownWidgetCard extends StatelessWidget {
   final DashboardWidget widget;
@@ -10,7 +11,7 @@ class UnknownWidgetCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.stateLocked.withOpacity(0.2),
+      color: AppColors.textDisabled.withValues(alpha: 0.5),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -43,26 +44,52 @@ class DeltaCard extends StatelessWidget {
 
     return Card(
       color: AppColors.surface1,
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            Text(widget.title, style: const TextStyle(color: AppColors.textSecondary)),
-            const SizedBox(height: 8),
-            Text(value,
-                style: TextStyle(
-                    fontSize: 48, fontWeight: FontWeight.bold, color: color)),
-            const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: color.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(4),
+      child: Stack(
+         children: [
+           Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              children: [
+                Text(widget.title, style: const TextStyle(color: AppColors.textSecondary)),
+                const SizedBox(height: 8),
+                Text(value,
+                    style: TextStyle(
+                        fontSize: 48, fontWeight: FontWeight.bold, color: color)),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: color.withValues(alpha: 0.05),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(sentiment, style: TextStyle(color: color)),
+                )
+              ],
+            ),
+          ),
+          if (widget.title.toUpperCase().contains('REGIME') || 
+              widget.title.toUpperCase().contains('RISK') ||
+              widget.title.toUpperCase().contains('CONFIDENCE') ||
+              widget.title.toUpperCase().contains('PULSE'))
+            Positioned(
+              top: 0,
+              right: 0,
+              child: IconButton(
+                icon: const Icon(Icons.help_outline, size: 18, color: AppColors.textDisabled),
+                onPressed: () {
+                   String key = "UNKNOWN";
+                   final t = widget.title.toUpperCase();
+                   if (t.contains('REGIME') || t.contains('RISK')) {
+                     key = 'MARKET_REGIME';
+                   } else if (t.contains('CONFIDENCE') || t.contains('PULSE')) {
+                     key = 'PULSE_CONFIDENCE';
+                   }
+                   
+                   EliteExplainNotification(key).dispatch(context);
+                },
               ),
-              child: Text(sentiment, style: TextStyle(color: color)),
-            )
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }
@@ -80,10 +107,30 @@ class StatusCard extends StatelessWidget {
     
     return Card(
       color: AppColors.surface1,
-      child: ListTile(
-        leading: const Icon(Icons.security, color: AppColors.accentCyan),
-        title: Text(widget.title),
-        subtitle: Text("$status (Run: $runId)"),
+      child: Stack(
+         children: [
+           ListTile(
+            leading: const Icon(Icons.security, color: AppColors.accentCyan),
+            title: Text(widget.title),
+            subtitle: Text("$status (Run: $runId)"),
+          ),
+          if (widget.title.toUpperCase().contains('UNIVERSE') || widget.title.toUpperCase().contains('OVERLAY'))
+             Positioned(
+              top: 0,
+              right: 0,
+              child: IconButton(
+                icon: const Icon(Icons.help_outline, size: 18, color: AppColors.textDisabled),
+                onPressed: () {
+                   String key = "UNKNOWN";
+                   final t = widget.title.toUpperCase();
+                   if (t.contains('UNIVERSE') || t.contains('OVERLAY')) {
+                     key = 'UNIVERSE_STATUS';
+                   }
+                   EliteExplainNotification(key).dispatch(context);
+                },
+              ),
+            ),
+         ],
       ),
     );
   }

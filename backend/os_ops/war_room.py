@@ -8,6 +8,7 @@ from backend.artifacts.io import get_artifacts_root, safe_read_or_fallback
 # from backend.misfire_monitor import MisfireMonitor (Not a class, using artifact read instead)
 from backend.os_ops.autofix_control_plane import AutoFixControlPlane
 from backend.os_ops.housekeeper import Housekeeper
+from backend.os_ops.iron_os import IronOS
 
 class WarRoom:
     """
@@ -98,7 +99,10 @@ class WarRoom:
             "black_box": WarRoom._get_black_box_status(),
             "dojo": WarRoom._get_dojo_status(root),
             "tuning_gate": WarRoom._get_tuning_status(root),
-            "timestamp_utc": now_utc
+            "dojo": WarRoom._get_dojo_status(root),
+            "tuning_gate": WarRoom._get_tuning_status(root),
+            "iron_os_status": IronOS.get_status(),
+            "timestamp_utc": now.isoformat()
         }
         
         # 2. Unified Forensic Timeline

@@ -12,6 +12,11 @@ class WarRoomRepository {
   WarRoomRepository({required this.api})
       : healthRepo = SystemHealthRepository(api: api);
 
+  Future<LockReasonSnapshot> fetchLockReason() async {
+    final json = await api.fetchLockReason();
+    return _parseLockReason(json);
+  }
+
   Future<WarRoomSnapshot> fetchSnapshot() async {
     // Parallel fetch
     final results = await Future.wait([
@@ -32,6 +37,14 @@ class WarRoomRepository {
       api.fetchCoverage(), // Coverage (D42.02)
       api.fetchFindings(), // Findings (D42.08)
       api.fetchBeforeAfterDiff(), // Before/After Diff (D42.09)
+      api.fetchAutoFixTier1Status(), // AutoFix Tier 1 (D42.04)
+      api.fetchAutoFixDecisionPath(), // AutoFix Decision Path
+      api.fetchMisfireRootCause(), // Misfire Root Cause
+      api.fetchSelfHealConfidence(), // Self Heal Confidence
+      api.fetchSelfHealWhatChanged(), // Self Heal What Changed
+      api.fetchCooldownTransparency(), // Cooldown Transparency
+      api.fetchRedButtonStatus(), // Red Button Status
+      api.fetchMisfireTier2(), // Misfire Tier 2
     ]);
 
     final osHealth = results[0] as SystemHealthSnapshot;
@@ -51,6 +64,14 @@ class WarRoomRepository {
     final coverageJson = results[14] as Map<String, dynamic>;
     final findingsJson = results[15] as Map<String, dynamic>;
     final diffJson = results[16] as Map<String, dynamic>;
+    final afxTier1Json = results[17] as Map<String, dynamic>;
+    final afxDecisionPathJson = results[18] as Map<String, dynamic>;
+    final misfireRootCauseJson = results[19] as Map<String, dynamic>;
+    final selfHealConfidenceJson = results[20] as Map<String, dynamic>;
+    final selfHealWhatChangedJson = results[21] as Map<String, dynamic>;
+    final cooldownTransparencyJson = results[22] as Map<String, dynamic>;
+    final redButtonJson = results[23] as Map<String, dynamic>;
+    final misfireTier2Json = results[24] as Map<String, dynamic>;
 
 
 
@@ -76,6 +97,33 @@ class WarRoomRepository {
       findings: (await _parseFindingsWrapper(findingsJson)) ?? FindingsSnapshot.unknown,
       universe: _parseUniverse(universeJson, healthJson),
       beforeAfterDiff: await _parseBeforeAfterDiff(diffJson),
+      autofixTier1: _parseAutoFixTier1(afxTier1Json),
+      autofixDecisionPath: _parseAutoFixDecisionPath(afxDecisionPathJson),
+      misfireRootCause: _parseMisfireRootCause(misfireRootCauseJson),
+      selfHealConfidence: _parseSelfHealConfidence(selfHealConfidenceJson),
+      selfHealWhatChanged: _parseSelfHealWhatChanged(selfHealWhatChangedJson),
+      cooldownTransparency: _parseCooldownTransparency(cooldownTransparencyJson),
+      redButton: _parseRedButton(redButtonJson),
+      misfireTier2: _parseMisfireTier2(misfireTier2Json),
+    );
+  }
+
+  AutoFixTier1Snapshot _parseAutoFixTier1(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+        return AutoFixTier1Snapshot(
+            status: json['status'] ?? "UNKNOWN",
+            planId: json['plan_id'] ?? "N/A",
+            actionsExecuted: json['actions_executed'] ?? 0,
+            lastRun: json['timestamp_utc'] ?? "NEVER",
+            isAvailable: true,
+        );
+    }
+    return const AutoFixTier1Snapshot(
+        status: "UNAVAILABLE",
+        planId: "N/A",
+        actionsExecuted: 0,
+        lastRun: "NEVER",
+        isAvailable: false,
     );
   }
   
@@ -165,12 +213,34 @@ class WarRoomRepository {
 
   HousekeeperSnapshot _parseHousekeeper(Map<String, dynamic> json) {
     if (json.isNotEmpty) {
+      if (json.containsKey("error")) { // Unavailable state
+           return const HousekeeperSnapshot(
+              autoRun: false,
+              lastRun: "NEVER",
+              result: "UNAVAILABLE",
+              cooldown: 0,
+              source: "/lab/os/self_heal/housekeeper/status",
+              isAvailable: true, // Tile exists but status is 404-like
+            );
+      }
+      
+      // D42.03 Format
+      // { "timestamp_utc": "...", "plan_id": "...", "status": "...", "actions_executed": ... }
+      final runTime = json['timestamp_utc'] ?? 'NEVER';
+      final status = json['status'] ?? 'UNKNOWN';
+      final execCount = json['actions_executed'] ?? 0;
+      
+      String displayResult = status;
+      if (status == 'SUCCESS' || status == 'PARTIAL') {
+          displayResult = "$status ($execCount)";
+      }
+
       return HousekeeperSnapshot(
-        autoRun: json['autorun_enabled'] ?? false,
-        lastRun: json['last_run_timestamp'] ?? json['last_run_at'] ?? 'NEVER',
-        result: json['last_result'] ?? 'UNKNOWN', 
-        cooldown: json['cooldown_seconds_remaining'] ?? 0,
-        source: "/lab/housekeeper/status",
+        autoRun: true, // Implied enabled if we have status
+        lastRun: runTime,
+        result: displayResult,
+        cooldown: 0,
+        source: "/lab/os/self_heal/housekeeper/status",
         isAvailable: true,
       );
     }
@@ -464,5 +534,172 @@ class WarRoomRepository {
       source: "MISSING",
       isAvailable: false,
     );
+  }
+
+  AutoFixDecisionPathSnapshot _parseAutoFixDecisionPath(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+        final actionsList = (json['actions'] as List?)?.map((e) => DecisionActionSnapshot(
+            code: e['code'] ?? 'UNKNOWN',
+            outcome: e['outcome'] ?? 'UNKNOWN',
+            reason: e['reason'] ?? 'N/A',
+        )).toList() ?? [];
+
+        return AutoFixDecisionPathSnapshot(
+            status: json['status'] ?? "UNKNOWN",
+            runId: json['run_id'] ?? "N/A",
+            context: json['context'] ?? "N/A",
+            actionCount: json['action_count'] ?? 0,
+            actions: actionsList,
+            isAvailable: true,
+        );
+    }
+    return AutoFixDecisionPathSnapshot.unknown;
+  }
+
+  MisfireRootCauseSnapshot _parseMisfireRootCause(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+       return MisfireRootCauseSnapshot(
+         timestampUtc: json['timestamp_utc'] ?? 'N/A',
+         incidentId: json['incident_id'] ?? 'N/A',
+         misfireType: json['misfire_type'] ?? 'UNKNOWN',
+         originatingModule: json['originating_module'] ?? 'UNKNOWN',
+         detectedBy: json['detected_by'] ?? 'UNKNOWN',
+         primaryArtifact: json['primary_artifact'],
+         pipelineMode: json['pipeline_mode'],
+         fallbackUsed: json['fallback_used'],
+         actionTaken: json['action_taken'],
+         outcome: json['outcome'] ?? 'UNAVAILABLE',
+         notes: json['notes'],
+         isAvailable: true,
+       );
+    }
+    return MisfireRootCauseSnapshot.unknown;
+  }
+
+  SelfHealConfidenceSnapshot _parseSelfHealConfidence(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+        final entries = (json['entries'] as List?)?.map((e) => ConfidenceEntrySnapshot(
+            engine: e['engine'] ?? 'UNKNOWN',
+            actionCode: e['action_code'] ?? 'UNKNOWN',
+            confidence: e['confidence'] ?? 'UNKNOWN',
+            evidence: (e['evidence'] as List?)?.cast<String>() ?? [],
+        )).toList() ?? [];
+
+        return SelfHealConfidenceSnapshot(
+            timestampUtc: json['timestamp_utc'] ?? 'N/A',
+            runId: json['run_id'] ?? 'N/A',
+            overall: json['overall'] ?? 'UNAVAILABLE',
+            entries: entries,
+            isAvailable: true,
+        );
+    }
+    return SelfHealConfidenceSnapshot.unknown;
+  }
+
+  SelfHealWhatChangedSnapshot _parseSelfHealWhatChanged(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+        final artifacts = (json['artifacts_updated'] as List?)?.map((e) => ArtifactUpdateSnapshot(
+            path: e['path'] ?? 'UNKNOWN',
+            changeType: e['change_type'] ?? 'UNKNOWN',
+            beforeHash: e['before_hash'],
+            afterHash: e['after_hash'],
+        )).toList() ?? [];
+
+        StateTransitionSnapshot? stateTransition;
+        if (json.containsKey('state_transition')) {
+            final st = json['state_transition'];
+            stateTransition = StateTransitionSnapshot(
+                fromState: st['from_state'],
+                toState: st['to_state'],
+                unlocked: st['unlocked'] ?? false,
+            );
+        }
+
+        return SelfHealWhatChangedSnapshot(
+            timestampUtc: json['timestamp_utc'] ?? 'N/A',
+            runId: json['run_id'] ?? 'N/A',
+            summary: json['summary'],
+            artifactsUpdated: artifacts,
+            stateTransition: stateTransition,
+            isAvailable: true,
+        );
+    }
+    return SelfHealWhatChangedSnapshot.unknown;
+  }
+
+  CooldownTransparencySnapshot _parseCooldownTransparency(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+        final entries = (json['entries'] as List?)?.map((e) => CooldownEntrySnapshot(
+            engine: e['engine'] ?? 'UNKNOWN',
+            actionCode: e['action_code'] ?? 'UNKNOWN',
+            attempted: e['attempted'] ?? false,
+            permitted: e['permitted'] ?? false,
+            gateReason: e['gate_reason'] ?? 'UNKNOWN',
+            cooldownRemainingSeconds: e['cooldown_remaining_seconds'],
+            throttleWindowSeconds: e['throttle_window_seconds'],
+            lastExecutedTimestampUtc: e['last_executed_timestamp_utc'],
+            notes: e['notes'],
+        )).toList() ?? [];
+
+        return CooldownTransparencySnapshot(
+            timestampUtc: json['timestamp_utc'] ?? 'N/A',
+            runId: json['run_id'],
+            entries: entries,
+            isAvailable: true,
+        );
+    }
+    return CooldownTransparencySnapshot.unknown;
+  }
+
+  RedButtonStatusSnapshot _parseRedButton(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+        RedButtonRunSummarySnapshot? lastRun;
+        if (json.containsKey('last_run')) {
+            final lr = json['last_run'];
+            lastRun = RedButtonRunSummarySnapshot(
+                runId: lr['run_id'] ?? 'N/A',
+                action: lr['action'] ?? 'UNKNOWN',
+                timestampUtc: lr['timestamp_utc'] ?? 'N/A',
+                status: lr['status'] ?? 'UNKNOWN',
+                notes: lr['notes'],
+            );
+        }
+
+        return RedButtonStatusSnapshot(
+            timestampUtc: json['timestamp_utc'] ?? 'N/A',
+            available: json['available'] ?? false,
+            founderRequired: json['founder_required'] ?? true,
+            capabilities: (json['capabilities'] as List?)?.cast<String>() ?? [],
+            lastRun: lastRun,
+        );
+    }
+    return RedButtonStatusSnapshot.unknown;
+  }
+
+  MisfireTier2Snapshot _parseMisfireTier2(Map<String, dynamic> json) {
+    if (json.isNotEmpty && !json.containsKey("error")) {
+         final steps = (json['steps'] as List?)?.map((e) => MisfireEscalationStepSnapshot(
+             stepId: e['step_id'] ?? 'UNKNOWN',
+             description: e['description'] ?? 'UNKNOWN',
+             attempted: e['attempted'] ?? false,
+             permitted: e['permitted'] ?? false,
+             gateReason: e['gate_reason'],
+             result: e['result'],
+             timestampUtc: e['timestamp_utc'],
+         )).toList() ?? [];
+
+         return MisfireTier2Snapshot(
+             timestampUtc: json['timestamp_utc'] ?? 'N/A',
+             incidentId: json['incident_id'] ?? 'N/A',
+             detectedBy: json['detected_by'] ?? 'UNKNOWN',
+             escalationPolicy: json['escalation_policy'] ?? 'UNKNOWN',
+             steps: steps,
+             finalOutcome: json['final_outcome'] ?? 'UNKNOWN',
+             actionTaken: json['action_taken'],
+             notes: json['notes'],
+             isAvailable: true,
+         );
+    }
+    return MisfireTier2Snapshot.unknown;
   }
 }

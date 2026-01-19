@@ -1,17 +1,31 @@
+Resolving dependencies...
+Downloading packages...
+  async 2.11.0 (2.13.0 available)
+  boolean_selector 2.1.1 (2.1.2 available)
+  characters 1.4.0 (1.4.1 available)
+  ffi 2.1.3 (2.1.5 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  google_fonts 6.3.0 (7.0.2 available)
+  http_parser 4.0.2 (4.1.2 available)
+  lints 4.0.0 (6.0.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.0 available)
+  path_provider_android 2.2.15 (2.2.22 available)
+  path_provider_foundation 2.4.1 (2.6.0 available)
+  source_span 1.10.0 (1.10.1 available)
+  string_scanner 1.2.0 (1.4.1 available)
+  term_glyph 1.2.1 (1.2.2 available)
+  test_api 0.7.7 (0.7.9 available)
+  vm_service 14.2.5 (15.0.2 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
 Analyzing market_sniper_app...                                  
 
-  error - Invalid constant value - lib\screens\dashboard_screen.dart:115:81 - invalid_constant
-  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:115:81 - undefined_identifier
-  error - Invalid constant value - lib\screens\dashboard_screen.dart:143:112 - invalid_constant
-  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:143:112 - undefined_identifier
-  error - Invalid constant value - lib\screens\dashboard_screen.dart:144:75 - invalid_constant
-  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:144:75 - undefined_identifier
-  error - Invalid constant value - lib\screens\dashboard_screen.dart:154:112 - invalid_constant
-  error - Undefined name 'AppColors' - lib\screens\dashboard_screen.dart:154:112 - undefined_identifier
-  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\dashboard_widgets.dart:13:24 - undefined_getter
-  error - Invalid constant value - lib\widgets\dashboard_widgets.dart:20:76 - invalid_constant
-  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\dashboard_widgets.dart:20:86 - undefined_getter
-  error - The getter 'stateWarning' isn't defined for the type 'AppColors' - lib\widgets\system_health_chip.dart:25:41 - undefined_getter
-  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\system_health_chip.dart:26:40 - undefined_getter
-  error - The getter 'stateError' isn't defined for the type 'AppColors' - lib\widgets\system_health_chip.dart:28:44 - undefined_getter
+   info - Don't invoke 'print' in production code - tool\generate_core20_proof.dart:6:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\generate_core20_proof.dart:37:3 - avoid_print
+   info - Use 'const' for final variables initialized to a constant value - tool\generate_core20_proof.dart:40:3 - prefer_const_declarations
+   info - Don't invoke 'print' in production code - tool\generate_core20_proof.dart:44:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\generate_core20_proof.dart:47:5 - avoid_print
 

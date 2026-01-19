@@ -42,7 +42,7 @@ class _SystemHealthChipState extends State<SystemHealthChip> {
             }
           },
           child: Container(
-            color: _statusColor.withOpacity(0.1),
+            color: _statusColor.withValues(alpha: 0.1),
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Row(
               children: [
