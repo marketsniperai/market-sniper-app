@@ -21,6 +21,7 @@ import '../widgets/session_awareness_panel.dart'; // D45.17
 import '../screens/command_center_screen.dart' as cc_screen; // D45.13/15
 import 'dart:async'; // StreamSubscription
 import '../screens/share_attribution_dashboard_screen.dart' as import_target;
+import '../widgets/founder/founder_router_sheet.dart' as founder_sheet;
 
 
 class MainLayout extends StatefulWidget {
@@ -79,15 +80,8 @@ class _MainLayoutState extends State<MainLayout> {
   int _ccTapCount = 0;
   DateTime? _ccLastTapTime;
 
-  void _onLogoTap() {
-     _handleRitualTap();
-  }
-
-  void _onTitleTap() {
-     // Legacy Founder Wrapper (if needed) or merged.
-     // Let's forward to ritual handler to keep it clean.
-     _handleRitualTap();
-  }
+  // D45 Founder Router
+  bool _isFounderSheetOpen = false;
 
   void _handleRitualTap() {
     final now = DateTime.now();
@@ -100,53 +94,25 @@ class _MainLayoutState extends State<MainLayout> {
     _ccTapCount++;
     _ccLastTapTime = now;
     
-    // Command Center: 4 Taps
-    if (_ccTapCount == 4) {
-       // Check Access (Elite or Founder)
-       // We can lazily push, the screen handles gating visuals.
-       // But to be hidden for Free/Guest, maybe check mostly? 
-       // Policy: "free_access: HIDDEN".
-       // We'll push, and the screen will show "NO SIGNAL" or similar if locked. 
-       // Or better visuals: Shake?
-       // Let's just push. Gating is in the screen.
-       debugPrint("COMMAND_CENTER_RITUAL_TRIGGERED");
-       Navigator.push(context, MaterialPageRoute(builder: (_) => const cc_screen.CommandCenterScreen()));
-       return;
-    }
-
-    // War Room: 5 Taps (Founder Only)
-    // If we hit 4, we triggered CC. If user continues tapping to 5...
-    // The previous push might have happened? 
-    // If synchronous, yes.
-    // If we want both, we need a delay at 4?
-    // "Separation rule: War Room = Founder-only ... Command Center = Elite-only"
-    // Since War Room is strictly Founder, and Founder sees CC labeled, 
-    // maybe 4 taps opens CC for everyone (who is Elite).
-    // Founders might be annoyed if CC opens when they want War Room.
-    // Compromise: Founders use 5 taps. Elites use 4.
-    // If Founder, at 4 taps, Wait?
-    // Complexity.
-    // Simpler: 4 Taps = Command Center. 
-    // Founder War Room Access via 5 taps is legacy. 
-    // Let's preserve Founder War Room logic but maybe move it or require a long press?
-    // Or just let it collision. If CC opens, Founder can back out.
-    // OR: Use the existing logic for War Room (checking AppConfig.isFounderBuild).
-    
-    // UPDATED LOGIC:
-    // If Founder -> 5 Taps = War Room. (Swallow 4?)
-    // If Non-Founder Elite -> 4 Taps = CC.
-    
+    // D45 Founder Router Selector Logic
     if (AppConfig.isFounderBuild) {
-       // Founder Mode
-       if (_ccTapCount >= 5) {
+       // Founder: 4 or 5 taps opens the Selector
+       if (_ccTapCount >= 4 && !_isFounderSheetOpen) {
           _ccTapCount = 0; // Reset
-          Navigator.push(context, MaterialPageRoute(builder: (_) => const WarRoomScreen()));
+          _isFounderSheetOpen = true;
+          
+          showModalBottomSheet(
+            context: context, 
+            backgroundColor: Colors.transparent,
+            isScrollControlled: true,
+            builder: (_) => const founder_sheet.FounderRouterSheet()
+          ).then((_) {
+             _isFounderSheetOpen = false; // Reset lock on close
+          });
+          return;
        }
-       // Do not trigger at 4 for Founder to avoid modal overlap (or just accept it).
-       // Actually, I'll let Founder trigger CC at 4. If they keep tapping, they get War Room on top?
-       // No, simpler to just trigger War Room at 5. 
     } else {
-       // Non-Founder (Elite/Others)
+       // Non-Founder (Elite/Others): Only 4 taps -> C.C.
        if (_ccTapCount == 4) {
           _ccTapCount = 0;
           Navigator.push(context, MaterialPageRoute(builder: (_) => const cc_screen.CommandCenterScreen()));
@@ -275,7 +241,7 @@ class _MainLayoutState extends State<MainLayout> {
                                ),
                              ),
                             GestureDetector(
-                                onTap: _onTitleTap,
+                                onTap: _handleRitualTap,
                                 // D45.13 Command Center Ritual (Logo Tap)
                                 onDoubleTap: () {}, // consume
                                 onLongPress: () {}, // consume
@@ -283,7 +249,7 @@ class _MainLayoutState extends State<MainLayout> {
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                   child: GestureDetector(
-                                    onTap: _onLogoTap, 
+                                    onTap: _handleRitualTap, 
                                     child: Text(
                                       "Market Sniper AI",
                                       style: AppTypography.logo(context, AppColors.textPrimary),

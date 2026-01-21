@@ -1,0 +1,19 @@
+{
+    "timestamp_utc": "2026-01-22T03:30:00Z",
+    "feature": "Founder Router Selector",
+    "founder_build": true,
+    "behavior": {
+        "triggers": {
+            "4_tap": "Shows FounderRouterSheet",
+            "5_tap": "Shows FounderRouterSheet (implicit via >=4 check)"
+        },
+        "default_destination": "war_room",
+        "persistence": {
+            "mechanism": "shared_preferences",
+            "key": "founder_router_last_destination",
+            "test_flow": "OPEN -> SAVE -> REOPEN -> RESTORE OK"
+        },
+        "public_build_safety": "Non-founder path untouched (4 taps -> CC)"
+    },
+    "status": "VERIFIED"
+}

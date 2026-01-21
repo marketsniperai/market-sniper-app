@@ -521,6 +521,10 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [x] D45.24 — Watermark Modes (Elite/Preview/Founder)
     - ↳ Seal: [`SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md`](../../outputs/seals/SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md)
 
+  FOUNDER EXCLUSIVE
+  - [x] D45.F1 — Founder Router Selector (War Room / Command Center)
+    - ↳ Seal: [`SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md`](../../outputs/seals/SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md)
+
 DAY 45 COMPLETE (SEALED)
 - [x] **D45 MASTER CLOSE — Shell + Premium + News/Calendar + Growth/Sharing**
   - ↳ Seal: [`SEAL_DAY_45_MASTER_CLOSE.md`](../../outputs/seals/SEAL_DAY_45_MASTER_CLOSE.md)
