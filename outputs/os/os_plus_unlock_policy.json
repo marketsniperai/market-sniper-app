@@ -1,0 +1,20 @@
+{
+    "policy_name": "PLUS_UNLOCK_POLICY_V1",
+    "version": "1.0",
+    "requirements": {
+        "plus_required_opens": 5,
+        "elite_required_opens": 0,
+        "free_access": "HIDDEN"
+    },
+    "mechanics": {
+        "progress_key": "PLUS_COMMAND_CENTER_OPENS",
+        "day_boundary_et": "04:00",
+        "market_hours_only": true,
+        "start_et": "09:30",
+        "end_et": "16:00",
+        "reset_policy": "NO_RESET"
+    },
+    "storage": {
+        "max_day_ids_stored": 10
+    }
+}

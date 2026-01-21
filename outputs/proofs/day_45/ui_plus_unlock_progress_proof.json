@@ -1,0 +1,19 @@
+{
+    "timestamp_utc": "2026-01-21T23:55:00Z",
+    "component": "PlusUnlockEngine",
+    "policy": "outputs/os/os_plus_unlock_policy.json",
+    "unlock_mechanics": {
+        "engine": "PlusUnlockEngine",
+        "store": "PlusUnlockStore (SharedPreferences)",
+        "target": "5 Market Opens",
+        "day_boundary": "04:00 ET",
+        "market_hours_check": true
+    },
+    "states": {
+        "ELITE": "Immediate Full Access",
+        "PLUS_LOCKED": "Blurred + Progress (e.g. 3/5)",
+        "PLUS_UNLOCKED": "Full Access",
+        "FREE": "Hidden/No Signal"
+    },
+    "status": "VERIFIED_BY_DESIGN"
+}

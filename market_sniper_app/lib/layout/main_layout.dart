@@ -42,6 +42,9 @@ class _MainLayoutState extends State<MainLayout> {
     // D45.06 Trial Engine Check
     TrialEngine.checkAndIncrement(); // Fire and forget (it is async/safe)
     
+    // D45.14 Plus Unlock Check
+    PlusUnlockEngine.checkAndIncrement();
+    
     // D44.02B / D45.02 Intent Priority: Intent wins over restore if simultaneous (by nature of Stream)
     // Also persist intent-driven changes.
     _navSubscription = NavigationBus().events.listen((event) {

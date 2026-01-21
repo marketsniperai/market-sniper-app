@@ -4,6 +4,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../../config/app_config.dart';
 import '../logic/premium_status_resolver.dart';
+import '../logic/plus_unlock_engine.dart'; // D45.14
 import '../models/premium/premium_matrix_model.dart'; // Verified import
 
 class CommandCenterScreen extends StatefulWidget {
@@ -16,6 +17,8 @@ class CommandCenterScreen extends StatefulWidget {
 class _CommandCenterScreenState extends State<CommandCenterScreen> {
   bool _isElite = false;
   bool _isPlus = false;
+  bool _isPlusUnlocked = false; // D45.14
+  String _plusProgress = "";
   bool _isLoading = true;
 
   @override
@@ -24,7 +27,7 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
     _checkAccess();
   }
 
-  void _checkAccess() {
+  Future<void> _checkAccess() async {
     // Determine status (Sync now)
     final tier = PremiumStatusResolver.currentTier;
     
@@ -35,10 +38,20 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
     final isEliteValues = (tier == PremiumTier.elite || isFounder);
     final isPlusValues = (tier == PremiumTier.plus);
 
+    bool unlocked = false;
+    String progress = "";
+
+    if (isPlusValues && !isEliteValues) {
+       unlocked = await PlusUnlockEngine.isUnlocked();
+       progress = await PlusUnlockEngine.getProgressString();
+    }
+
     if (mounted) {
       setState(() {
          _isElite = isEliteValues;
          _isPlus = isPlusValues;
+         _isPlusUnlocked = unlocked;
+         _plusProgress = progress;
          _isLoading = false;
       });
     }
@@ -55,10 +68,12 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
 
     // Access Logic:
     // Elite/Founder -> Full
-    // Plus -> Blurred
-    // Free -> Locked/Hidden (Should technically not reach here if gesture blocked, but safe fallback)
+    // Plus (Unlocked) -> Full
+    // Plus (Locked) -> Blurred + Progress
+    // Free -> Locked/Hidden
     
-    final bool showBlurred = _isPlus && !_isElite;
+    final bool hasAccess = _isElite || (_isPlus && _isPlusUnlocked);
+    final bool showBlurred = _isPlus && !hasAccess;
     final bool locked = !_isElite && !_isPlus;
 
     return Scaffold(
@@ -119,6 +134,16 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
                             Text("ELITE CLEARANCE REQUIRED", style: AppTypography.headline(context).copyWith(color: AppColors.stateLocked)),
                             const SizedBox(height: 8),
                             Text("Command Center access is restricted.", style: AppTypography.body(context)),
+                            const SizedBox(height: 16),
+                            Container(
+                               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                               decoration: BoxDecoration(
+                                 color: AppColors.surface1,
+                                 borderRadius: BorderRadius.circular(4),
+                                 border: Border.all(color: AppColors.accentCyan),
+                               ),
+                               child: Text("PLUS PROGRESS: $_plusProgress", style: const TextStyle(color: AppColors.accentCyan, fontSize: 11, fontFamily: 'RobotoMono', fontWeight: FontWeight.bold)),
+                            )
                          ],
                        ),
                     ),

@@ -474,11 +474,12 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - Separation rule: War Room = Founder-only (ops/control). Command Center = Elite-only (market mysteries, reading-only).
     - ↳ Seal: [`SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md`](../../outputs/seals/SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md)
     - Zero buttons, zero targets, zero “top picks” language.
-  - [ ] D45.14 — 5-Day Unlock (Plus) + Immediate Unlock (Elite) + No-reset Progress
+  - [x] D45.14 — 5-Day Unlock (Plus) + Immediate Unlock (Elite) + No-reset Progress
     - Free: no Command Center.
     - Plus: unlock at Day 5 of opens; if user misses a day, progress PAUSES (no hard reset). Show “3/5 days completed”.
     - Elite: unlocked Day 1.
     - Include “blurred preview” for Plus before day 5 (visible shell, content fogged).
+    - ↳ Seal: [`SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md`](../../outputs/seals/SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md)
   - [ ] D45.15 — Command Center Content Spec (WOW + legal-safe)
     - Top 3 Context Shifts (last 24h) (NOT picks)
       Each shift includes: Drivers (2 bullets), Evidence sources (Pulse/Overlay/Evidence Memory), What OS is doing, What OS is not doing.
