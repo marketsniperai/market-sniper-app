@@ -122,105 +122,139 @@ class _PremiumScreenState extends State<PremiumScreen> {
   }
 
   Widget _buildMatrixHeader() {
-    return Row(
-      children: [
-        Expanded(
-          flex: 4,
-          child: Text("FEATURE", style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 10, fontWeight: FontWeight.bold)),
-        ),
-        _buildHeaderCell("GUEST"),
-        _buildHeaderCell("PLUS"),
-        _buildHeaderCell("ELITE"),
-        _buildHeaderCell("FOUNDER"),
-      ],
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      decoration: const BoxDecoration(
+        color: AppColors.surface1,
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 4,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text("FEATURE", style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 9, fontWeight: FontWeight.bold, letterSpacing: 0.5)),
+            ),
+          ),
+          _buildHeaderCell("GUEST", AppColors.textDisabled),
+          _buildHeaderCell("PLUS", AppColors.accentCyan),
+          _buildHeaderCell("ELITE", AppColors.marketBull),
+          _buildHeaderCell("FNDR", AppColors.stateLive, isFounder: true), // Abbreviated for space
+        ],
+      ),
     );
   }
 
-  Widget _buildHeaderCell(String label) {
+  Widget _buildHeaderCell(String label, Color color, {bool isFounder = false}) {
     return Expanded(
       flex: 2,
-      child: Center(
+      child: Container(
+        alignment: Alignment.center,
+        color: isFounder ? AppColors.stateLive.withValues(alpha: 0.05) : Colors.transparent,
         child: Text(
-          label[0], // First letter only on mobile to save space, or rotate? 
-          // Matrix grid on phone is tight. Let's try 1 letter or specific icon.
-          // Prompt says "4 tiers". Let's assume standard phone width.
-          style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 10, fontWeight: FontWeight.bold),
+          label,
+          style: GoogleFonts.inter(color: color, fontSize: 9, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
       ),
     );
   }
 
   Widget _buildMatrixRow(BuildContext context, PremiumFeatureRow row, PremiumTier currentTier) {
-    // Dynamic Label Substitution
+    // Dynamic Label
     String label = row.label;
     if (row.dynamicValueKey == "trial_opens_progress") {
-       label = label.replaceFirst("Trial", "Trial: ${PremiumStatusResolver.trialProgressString}");
+       label = "Trial (${PremiumStatusResolver.trialProgressString} Opens)";
     }
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: AppColors.borderSubtle.withValues(alpha: 0.5))),
+        color: AppColors.bgPrimary,
+        border: Border(bottom: BorderSide(color: AppColors.borderSubtle.withValues(alpha: 0.3))),
       ),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 4,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(label, style: GoogleFonts.inter(color: AppColors.textPrimary, fontSize: 12, fontWeight: FontWeight.w600)),
-                Text(row.detail, style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 10), maxLines: 2, overflow: TextOverflow.ellipsis),
-              ],
+      child: IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Label Column
+            Expanded(
+              flex: 4,
+              child: Padding(
+                 padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Text(label, style: GoogleFonts.inter(color: AppColors.textPrimary, fontSize: 11, fontWeight: FontWeight.w600)),
+                     const SizedBox(height: 2),
+                     Text(row.detail, style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 9, height: 1.1), maxLines: 2, overflow: TextOverflow.ellipsis),
+                   ],
+                 ),
+              ),
             ),
-          ),
-          _buildStatusCell(row.availability[PremiumTier.guest], row.limits[PremiumTier.guest], row.key == "trial_progress"),
-          _buildStatusCell(row.availability[PremiumTier.plus], row.limits[PremiumTier.plus], row.key == "trial_progress"),
-          _buildStatusCell(row.availability[PremiumTier.elite], row.limits[PremiumTier.elite], row.key == "trial_progress"),
-          _buildStatusCell(row.availability[PremiumTier.founder], row.limits[PremiumTier.founder], row.key == "trial_progress"),
-        ],
+            // Status Columns (Vertical Dividers?)
+            _buildStatusCell(row.availability[PremiumTier.guest], row.limits[PremiumTier.guest], false),
+            _buildStatusCell(row.availability[PremiumTier.plus], row.limits[PremiumTier.plus], false),
+            _buildStatusCell(row.availability[PremiumTier.elite], row.limits[PremiumTier.elite], false),
+            _buildStatusCell(row.availability[PremiumTier.founder], row.limits[PremiumTier.founder], true, isFounder: true),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildStatusCell(FeatureStatus? status, String? limit, bool isTrialRow) {
-    Widget icon;
+  Widget _buildStatusCell(FeatureStatus? status, String? limit, bool isTrialRow, {bool isFounder = false}) {
+    Color bg = isFounder ? AppColors.stateLive.withValues(alpha: 0.05) : Colors.transparent;
+    
+    // Status Chip Logic
+    Widget chip;
     switch (status) {
       case FeatureStatus.included:
-        if (isTrialRow) {
-           // Special icon for Trial row? Or just checkmark. Prompt implies 0/3 logic.
-           // Actually, if it's "Trial (0/3 Market Opens)", the row itself explains it.
-           // The status is just "Included".
-        }
-        icon = const Icon(Icons.check, color: AppColors.stateLive, size: 14);
+        chip = const Icon(Icons.check, color: AppColors.stateLive, size: 14);
         break;
       case FeatureStatus.locked:
-        icon = const Icon(Icons.lock, color: AppColors.textDisabled, size: 12);
+        chip = const Icon(Icons.lock_outline, color: AppColors.textDisabled, size: 12);
         break;
       case FeatureStatus.limited:
-        icon = const Icon(Icons.timelapse, color: AppColors.accentCyan, size: 14);
+        chip = Text("LIMIT", style: GoogleFonts.robotoMono(color: AppColors.accentCyan, fontSize: 8, fontWeight: FontWeight.bold));
         break;
       case FeatureStatus.progress:
-        icon = const Icon(Icons.trending_up, color: AppColors.marketBull, size: 14);
+        chip = const Icon(Icons.trending_up, color: AppColors.marketBull, size: 14);
         break;
       default:
-        icon = const SizedBox();
+        chip = const SizedBox();
     }
 
     return Expanded(
       flex: 2,
-      child: Column(
-        children: [
-          icon,
-          if (limit != null && status != FeatureStatus.locked) // Show limit if relevant
-             Padding(
-               padding: const EdgeInsets.only(top: 2.0),
-               child: Text(
-                 "Limit", // Too tight for full text
-                 style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 7),
+      child: Container(
+        color: bg,
+        padding: const EdgeInsets.symmetric(horizontal: 2),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+               width: 24, height: 24,
+               alignment: Alignment.center,
+               decoration: BoxDecoration(
+                 color: AppColors.surface1,
+                 shape: BoxShape.circle,
+                 border: Border.all(color: AppColors.borderSubtle.withValues(alpha: 0.5)),
                ),
-             ),
-        ],
+               child: chip,
+            ),
+            if (limit != null && status != FeatureStatus.locked)
+               Padding(
+                 padding: const EdgeInsets.only(top: 4.0),
+                 child: Text(
+                   limit, 
+                   style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 8),
+                   textAlign: TextAlign.center,
+                 ),
+               ),
+          ],
+        ),
       ),
     );
   }

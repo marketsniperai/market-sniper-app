@@ -1,0 +1,30 @@
+{
+    "timestamp_utc": "2026-01-22T02:45:00Z",
+    "pack": "Sharing & Growth Finalization",
+    "components": {
+        "overlay": {
+            "widget": "EvidenceGhostOverlay",
+            "logic": "Elite-Only Visibility",
+            "content": "EVIDENCE-BACKED SNAPSHOT (No Numbers)"
+        },
+        "captions": {
+            "service": "CaptionService",
+            "presets": [
+                "INSTITUTIONAL",
+                "MINIMAL",
+                "HUMAN",
+                "TEASER"
+            ],
+            "ui": "SharePreviewSheet Selector"
+        },
+        "watermark": {
+            "service": "WatermarkService",
+            "modes": {
+                "founder": "Brand + Slogan",
+                "elite": "Brand + Slogan",
+                "preview": "Brand Only"
+            }
+        }
+    },
+    "status": "VERIFIED_TIER_LOGIC"
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import 'watermark_service.dart';
+import '../../widgets/share/evidence_ghost_overlay.dart';
 
 class ShareComposer {
   // Builds a Share Card Widget ready for RepaintBoundary
@@ -9,7 +10,10 @@ class ShareComposer {
     required String title,
     required String timestamp,
     required List<String> bullets,
-    String mode = "PREVIEW"
+    String mode = "PREVIEW",
+    String? shareId,
+    bool isFounder = false,
+    bool isElite = false,
   }) {
     // 1. Base Card
     final card = Container(
@@ -63,10 +67,25 @@ class ShareComposer {
        ),
     );
 
-    // 2. Apply Watermark
+    // 2. Logic: Watermark + Ghost Overlay
+    final withOverlay = Stack(
+       children: [
+          card,
+          Positioned.fill(child: EvidenceGhostOverlay(isElite: isElite)),
+       ],
+    );
+
+    // 3. Apply Watermark
     return Container(
        color: AppColors.surface1, // Background behind card if needed, or card IS bg
-       child: WatermarkService.applyWatermark(context, card, tierLabel: mode),
+       child: WatermarkService.applyWatermark(
+         context, 
+         withOverlay, 
+         tierLabel: mode, 
+         shareId: shareId,
+         isFounder: isFounder,
+         isElite: isElite,
+       ),
     );
   }
 }

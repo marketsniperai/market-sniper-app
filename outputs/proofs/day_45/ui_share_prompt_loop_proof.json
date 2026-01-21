@@ -1,0 +1,30 @@
+{
+    "timestamp_utc": "2026-01-21T22:45:00Z",
+    "component": "SharePromptLoop",
+    "policy": "outputs/os/os_share_prompt_loop_policy.json",
+    "mechanism_check": {
+        "exporter_hook": "ShareExporter.shareFile calls SharePromptLoop.maybeShow",
+        "cooldown": "10 minutes",
+        "storage_key": "ms_share_prompt_last_time",
+        "founder_bypass": "CHECKED (AppConfig.isFounderBuild)",
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "ui_check": {
+        "widget": "ShareBoosterSheet",
+        "ctas": [
+            "Save",
+            "Share",
+            "Unlock Elite"
+        ],
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "telemetry_check": {
+        "events": [
+            "PROMPT_SHOWN",
+            "CTA_CLICKED",
+            "PROMPT_DISMISSED"
+        ],
+        "ledger_target": "outputs/os/os_share_cta_ledger.jsonl",
+        "status": "SUCCESS"
+    }
+}

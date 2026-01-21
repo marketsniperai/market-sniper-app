@@ -30,7 +30,7 @@ class _ShareButtonState extends State<ShareButton> {
     final path = await ShareExporter.captureAndSave(widget.repaintBoundaryKey, filename);
     
     if (path != null) {
-       await ShareExporter.shareFile(path, text: widget.contentTitle);
+       await ShareExporter.shareFile(context, path, text: widget.contentTitle);
        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
              const SnackBar(content: Text("Snapshot Generated for Sharing"), duration: Duration(seconds: 1))

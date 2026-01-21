@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../theme/app_colors.dart';
-import '../../theme/app_typography.dart';
 import '../../models/news/news_digest_model.dart';
 import 'package:intl/intl.dart';
 
@@ -26,7 +25,7 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
     return GestureDetector(
       onTap: _toggleFlip,
       child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 600),
         transitionBuilder: (Widget child, Animation<double> animation) {
           final rotateAnim = Tween(begin: 3.14, end: 0.0).animate(animation);
           return AnimatedBuilder(
@@ -36,12 +35,19 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
               final isUnder = (ValueKey(_isFlipped) != child!.key);
               var tilt = ((animation.value - 0.5).abs() - 0.5) * 0.003;
               tilt *= isUnder ? -1.0 : 1.0;
-              final value = isUnder ? 3.14 * animation.value : 3.14 * (1 - animation.value); // Simplified crossfade effect fallback if rotation is too complex for now, but trying simple switcher first.
-              // Actually, standard crossfade is safer for layout.
-              return FadeTransition(opacity: animation, child: child);
+              final value = isUnder ? 3.14 * animation.value : 3.14 * (1 - animation.value); 
+              
+              return Transform(
+                transform: Matrix4.rotationY(value)..setEntry(3, 0, tilt),
+                alignment: Alignment.center,
+                child: child,
+              );
             },
           );
         },
+        layoutBuilder: (widget, list) => Stack(children: [widget ?? const SizedBox(), ...list]),
+        switchInCurve: Curves.easeInBack,
+        switchOutCurve: Curves.easeInBack.flipped,
         child: _isFlipped ? _buildBack(context) : _buildFront(context),
       ),
     );

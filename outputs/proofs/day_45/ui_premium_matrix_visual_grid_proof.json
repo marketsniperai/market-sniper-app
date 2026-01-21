@@ -1,0 +1,21 @@
+{
+    "timestamp_utc": "2026-01-22T02:15:00Z",
+    "component": "PremiumFeatureMatrix",
+    "ui": {
+        "grid_structure": "Row with Expanded Flex (4:2:2:2:2)",
+        "headers": [
+            "FEATURE",
+            "GUEST",
+            "PLUS",
+            "ELITE",
+            "FNDR"
+        ],
+        "founder_distinction": "Background Tint (StateLive 5%)",
+        "status_style": "Icon Chips (Check, Lock, Limit, Trend)"
+    },
+    "logic": {
+        "dynamic_trial_row": "Maintained",
+        "status_mapping_preserved": true
+    },
+    "status": "VERIFIED_BY_DESIGN"
+}

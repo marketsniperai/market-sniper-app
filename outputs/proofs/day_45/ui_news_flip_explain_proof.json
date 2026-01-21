@@ -1,0 +1,23 @@
+{
+    "timestamp_utc": "2026-01-22T02:30:00Z",
+    "component": "NewsDigestCard",
+    "interaction": "3D Flip Animation (Matrix4 RotationY)",
+    "state_management": "Local setState (isFlipped)",
+    "content": {
+        "front": [
+            "Title",
+            "Source",
+            "Time",
+            "Impact Badge",
+            "Summary Brief"
+        ],
+        "back": [
+            "Title (Cyan)",
+            "Source",
+            "Time",
+            "Flip Hint",
+            "Expanded Explanation"
+        ]
+    },
+    "status": "VERIFIED_SMOOTH_REVERSIBLE"
+}

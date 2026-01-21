@@ -5,6 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
 // import 'package:share_plus/share_plus.dart'; // Uncomment when dependency added
 
+import 'share_prompt_loop.dart';
+
 class ShareExporter {
   static Future<String?> captureAndSave(GlobalKey key, String filename) async {
     try {
@@ -12,9 +14,7 @@ class ShareExporter {
       if (boundary == null) return null;
 
       if (boundary.debugNeedsPaint) {
-         // Wait for paint? Simple retry or delay might be needed in real loop,
-         // but usually if on screen it's fine.
-         // Actually, if off-screen, needs layout.
+         // capture usually safe if visible
       }
 
       final image = await boundary.toImage(pixelRatio: 3.0); // High res
@@ -32,12 +32,15 @@ class ShareExporter {
     }
   }
 
-  static Future<void> shareFile(String path, {String text = "MarketSniper Insight"}) async {
+  static Future<void> shareFile(BuildContext context, String path, {String text = "MarketSniper Insight"}) async {
       // Mock / Placeholder for Share Plus
       debugPrint("NATIVE SHARE REQUESTED FOR: $path");
       
       // if (hasSharePlus) {
       //    await Share.shareXFiles([XFile(path)], text: text);
       // }
+      
+      // D45.10 Share Prompt Loop (Post-Export Booster)
+      await SharePromptLoop.maybeShow(context);
   }
 }

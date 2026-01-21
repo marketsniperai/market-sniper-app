@@ -58,10 +58,8 @@ class CalendarEventCard extends StatelessWidget {
                 Row(
                   children: [
                     _buildCategoryBadge(context),
-                    if (event.impact == EventImpact.high) ...[
                       const SizedBox(width: 6),
                       _buildImpactBadge(context),
-                    ],
                   ],
                 ),
                 const SizedBox(height: 4),
@@ -107,16 +105,34 @@ class CalendarEventCard extends StatelessWidget {
   }
 
   Widget _buildImpactBadge(BuildContext context) {
+    Color color;
+    String label;
+    
+    switch (event.impact) {
+      case EventImpact.high:
+        color = AppColors.marketBear; // Red
+        label = "HIGH";
+        break;
+      case EventImpact.medium:
+        color = AppColors.stateStale; 
+        label = "MED";
+        break;
+      case EventImpact.low:
+        color = AppColors.textDisabled;
+        label = "LOW";
+        break;
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
       decoration: BoxDecoration(
-        color: AppColors.marketBear.withValues(alpha: 0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(3),
-        border: Border.all(color: AppColors.marketBear.withValues(alpha: 0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
-      child: const Text(
-        "HIGH",
-        style: TextStyle(color: AppColors.marketBear, fontSize: 9, fontWeight: FontWeight.bold),
+      child: Text(
+        label,
+        style: TextStyle(color: color, fontSize: 9, fontWeight: FontWeight.bold),
       ),
     );
   }

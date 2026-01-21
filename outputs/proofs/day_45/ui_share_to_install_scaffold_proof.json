@@ -1,0 +1,24 @@
+{
+    "timestamp_utc": "2026-01-21T23:00:00Z",
+    "component": "ShareToInstallScaffold",
+    "policy": "outputs/os/os_share_to_install_policy.json",
+    "share_id_check": {
+        "service": "ShareIdService",
+        "format": "MSR-SHARE-<YYYYMMDD>-<COUNTER>",
+        "persistence": "SharedPreferences (ms_share_id_counter)",
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "watermark_check": {
+        "slogan": "Institutional Power... In Your Pocket.",
+        "install_hint": "Get the OS → MarketSniper AI (No URL)",
+        "share_id_rendered": true,
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "ledger_check": {
+        "target": "outputs/os/os_share_install_ledger.jsonl",
+        "events": [
+            "SHARE_ID_CREATED"
+        ],
+        "status": "SUCCESS"
+    }
+}

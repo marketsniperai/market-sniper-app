@@ -37,7 +37,7 @@ class _ShareLibraryScreenState extends State<ShareLibraryScreen> {
     // For now getting the file again might be tricky if cleaned up.
     // If localPath exists and file exists, share it.
     if (item.localPath != null) {
-       await ShareExporter.shareFile(item.localPath!, text: CaptionPresets.all[item.captionKey] ?? "");
+       await ShareExporter.shareFile(context, item.localPath!, text: CaptionPresets.all[item.captionKey] ?? "");
        await ShareLibraryStore.logEvent('SHARE_RESHARE', {'hash': item.contentHash});
     } else {
        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("File expired.")));

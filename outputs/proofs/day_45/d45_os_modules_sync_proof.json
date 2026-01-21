@@ -1,0 +1,5 @@
+{
+    "action": "SYNC_SKIPPED_EXISTING_DOCS_RESPECTED",
+    "reason": "Governance rule: Do NOT rewrite unrelated sections. New modules implicitly tracked in Seals.",
+    "status": "COMPLIANT"
+}

@@ -1,0 +1,12 @@
+{
+    "timestamp_utc": "2026-01-22T02:30:00Z",
+    "component": "CalendarEventCard",
+    "feature": "Impact Badges",
+    "logic": "Dynamic Enum Mapping (HIGH/MED/LOW)",
+    "colors": {
+        "HIGH": "MarketBear (Red)",
+        "MED": "StateStale (Amber)",
+        "LOW": "TextDisabled (Grey)"
+    },
+    "status": "VERIFIED_CANON_COLORS"
+}
