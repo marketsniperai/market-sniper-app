@@ -1,6 +1,6 @@
 {
-    "spec_name": "COMMAND_CENTER_CONTENT_SPEC_V1",
-    "version": "1.0",
+    "spec_name": "COMMAND_CENTER_CONTENT_SPEC_V2_FINAL",
+    "version": "2.0",
     "governance": {
         "prohibited_terms": [
             "pick",
@@ -8,16 +8,18 @@
             "sell",
             "target",
             "guaranteed",
-            "forecast"
+            "forecast",
+            "what os is not doing"
         ],
         "max_cards_total": 10,
         "max_chars_per_field": 200,
-        "legal_disclaimer": "Descriptive context snapshot — not a forecast."
+        "legal_disclaimer": "NONE_EXPLICIT_RELY_ON_TONE",
+        "header_micro_copy": "Institutional context snapshot — evidence-backed."
     },
     "sections": [
         {
-            "id": "context_shifts",
-            "title": "TOP CONTEXT SHIFTS (24H)",
+            "id": "os_focus",
+            "title": "OS FOCUS — TODAY’S KEY MOVES",
             "card_schema": {
                 "title": "string",
                 "drivers": [
@@ -25,10 +27,13 @@
                     "string"
                 ],
                 "evidence_sources": [
-                    "string"
+                    "PULSE",
+                    "OVERLAY",
+                    "EVIDENCE MEMORY",
+                    "PROVIDER_LIVE",
+                    "PROXY_ESTIMATED"
                 ],
-                "os_doing": "string",
-                "os_not_doing": "string"
+                "os_focus": "string (single bullet)"
             }
         },
         {

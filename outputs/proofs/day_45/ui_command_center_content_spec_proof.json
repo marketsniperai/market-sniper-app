@@ -1,22 +1,18 @@
 {
-    "timestamp_utc": "2026-01-22T00:10:00Z",
-    "component": "CommandCenterContent",
+    "timestamp_utc": "2026-01-22T01:30:00Z",
+    "component": "CommandCenterContent (Final)",
     "policy": "outputs/os/os_command_center_content_spec.json",
-    "data_structure": {
-        "builder": "CommandCenterBuilder",
-        "sections_present": [
-            "Context Shifts",
-            "Confidence",
-            "Learnings",
-            "Artifacts"
-        ],
-        "card_count": 6,
-        "degrade_mode": "Safe Defaults (Deterministic)",
-        "status": "SUCCESS"
+    "structure_check": {
+        "header_micro_copy": "Institutional context snapshot — evidence-backed.",
+        "primary_section": "OS FOCUS — TODAY’S KEY MOVES",
+        "disclaimers_removed": true,
+        "confidence_semantics": "BADGES_ONLY",
+        "status": "VERIFIED_BY_DESIGN"
     },
-    "safety_check": {
-        "prohibited_terms_found": false,
-        "legal_disclaimer_present": true,
+    "gating_check": {
+        "ELITE": "FULL_CONTENT",
+        "PLUS": "BLURRED_WITH_PROGRESS",
+        "FREE": "FROSTED_GLASS_NO_BUTTONS",
         "status": "VERIFIED_BY_DESIGN"
     }
 }

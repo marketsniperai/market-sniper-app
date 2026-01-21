@@ -128,57 +128,27 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
       ),
       body: Stack(
         children: [
-          // Content Layer (Always built, maybe blurred)
-          if (!locked && _data != null) 
+          // Content Layer (Always built, maybe blurred/frosted)
+          if (_data != null) 
             SingleChildScrollView(
               padding: const EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   if (_showTeaserBanner)
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 24),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: AppColors.accentCyan.withValues(alpha: 0.1),
-                          border: Border.all(color: AppColors.accentCyan),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          children: [
-                             const Icon(Icons.share, color: AppColors.accentCyan, size: 20),
-                             const SizedBox(width: 12),
-                             Expanded(
-                               child: Column(
-                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                 children: [
-                                   Text("You just opened a hidden OS surface.", style: AppTypography.body(context).copyWith(fontSize: 12, fontWeight: FontWeight.bold)),
-                                   const SizedBox(height: 4),
-                                   GestureDetector(
-                                     onTap: () async {
-                                        // Share Action
-                                        await TeaserComposer.shareTeaser(isFounder: AppConfig.isFounderBuild);
-                                        await ViralTeaserStore.markShared();
-                                        if (mounted) setState(() => _showTeaserBanner = false);
-                                     },
-                                     child: Text("SHARE A TEASER >", style: AppTypography.label(context).copyWith(color: AppColors.accentCyan, fontWeight: FontWeight.bold)),
-                                   ),
-                                 ],
-                               ),
-                             ),
-                             IconButton(
-                               icon: const Icon(Icons.close, color: AppColors.textDisabled, size: 16),
-                               onPressed: () => setState(() => _showTeaserBanner = false),
-                             )
-                          ],
-                        ),
-                      ),
-                   
-                   _buildSectionHeader("CONTEXT SHIFTS (24H)"),
+                   // Header Micro-Copy (ONCE)
+                   Center(
+                     child: Text(
+                       "Institutional context snapshot — evidence-backed.",
+                       style: AppTypography.body(context).copyWith(color: AppColors.textDisabled, fontSize: 10, letterSpacing: 0.5),
+                     ),
+                   ),
+                   const SizedBox(height: 24),
+                
+                   _buildSectionHeader("OS FOCUS — TODAY’S KEY MOVES"),
                    const SizedBox(height: 16),
-                   ..._data!.contextShifts.map((c) => Column(
+                   ..._data!.osFocusCards.map((c) => Column(
                      children: [
-                       _buildCard(c.title, c.bullets, badges: c.badges),
+                       _buildFocusCard(c),
                        const SizedBox(height: 16),
                      ],
                    )),
@@ -188,7 +158,7 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
                    const SizedBox(height: 16),
                    ..._data!.confidenceDescriptions.map((c) => Column(
                      children: [
-                        _buildCard(c.title, c.bullets, badges: c.badges),
+                        _buildConfidenceCard(c),
                         const SizedBox(height: 16),
                      ],
                    )),
@@ -206,13 +176,6 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
                    const SizedBox(height: 16),
                    ..._data!.artifacts.map((a) => _buildArtifactRow(a['name']!, a['status']!)),
                    
-                   const SizedBox(height: 32),
-                   const Divider(color: AppColors.borderSubtle),
-                   const SizedBox(height: 8),
-                   const Text(
-                     "Descriptive context snapshot — not a forecast.",
-                     style: TextStyle(color: AppColors.textDisabled, fontSize: 10, fontStyle: FontStyle.italic),
-                   ),
                    const SizedBox(height: 32),
                 ],
               ),
@@ -253,16 +216,28 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
               ),
             ),
             
-          // Locked Layer for Free/Guest
+          // Frosted Layer for Free (Institutional Tease)
           if (locked)
-             Center(
-               child: Column(
-                 mainAxisSize: MainAxisSize.min,
-                 children: [
-                    const Icon(Icons.visibility_off, color: AppColors.textDisabled, size: 48),
-                    const SizedBox(height: 16),
-                    Text("NO SIGNAL", style: AppTypography.headline(context).copyWith(color: AppColors.textDisabled)),
-                 ],
+             Positioned.fill(
+               child: ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                  child: Container(
+                    color: AppColors.bgDeepVoid.withValues(alpha: 0.8), // Frosted look
+                    child: Center(
+                       child: Column(
+                         mainAxisSize: MainAxisSize.min,
+                         children: [
+                            const Icon(Icons.visibility_off, color: AppColors.textDisabled, size: 48),
+                            const SizedBox(height: 16),
+                            Text("RESTRICTED SURFACE", style: AppTypography.headline(context).copyWith(color: AppColors.textDisabled, letterSpacing: 2.0)),
+                            const SizedBox(height: 8),
+                            Text("Institutional context available inside.", style: AppTypography.body(context).copyWith(color: AppColors.textSecondary)),
+                         ],
+                       ),
+                    ),
+                  ),
+                ),
                ),
              ),
         ],
@@ -281,7 +256,8 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
     );
   }
 
-  Widget _buildCard(String title, List<String> bullets, {List<String> badges = const []}) {
+  // OS Focus Card (Priority Market Read)
+  Widget _buildFocusCard(CommandCenterCard card) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -292,28 +268,79 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-               Expanded(child: Text(title, style: const TextStyle(color: AppColors.textPrimary, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'))),
-               if (badges.isNotEmpty)
-                  ...badges.map((b) => Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                      decoration: BoxDecoration(color: AppColors.accentCyan.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(2)),
-                      child: Text(b, style: const TextStyle(color: AppColors.accentCyan, fontSize: 8, fontWeight: FontWeight.bold)),
-                    ),
-                  ))
-            ],
-          ),
+          // Title
+          Text(card.title, style: const TextStyle(color: AppColors.textPrimary, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono')),
           const SizedBox(height: 12),
-          ...bullets.map((b) => Padding(
+          
+          // Drivers (Bullets)
+          ...card.drivers.map((d) => Padding(
             padding: const EdgeInsets.only(bottom: 4),
             child: Row(
                crossAxisAlignment: CrossAxisAlignment.start,
                children: [
                  const Text(">", style: TextStyle(color: AppColors.accentCyan, fontSize: 10, fontFamily: 'RobotoMono')),
+                 const SizedBox(width: 8),
+                 Expanded(child: Text(d, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12, fontFamily: 'RobotoMono'))),
+               ],
+            ),
+          )),
+          const SizedBox(height: 8),
+          
+          // Evidence Sources (Badges)
+          if (card.evidenceBadges.isNotEmpty)
+             Wrap(
+               spacing: 6,
+               runSpacing: 6,
+               children: card.evidenceBadges.map((b) => _buildBadge(b)).toList(),
+             ),
+             
+          const SizedBox(height: 12),
+          // OS Focus (Single Strong Bullet)
+          if (card.osFocus != null)
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 const Icon(Icons.adjust, color: AppColors.accentCyan, size: 12),
+                 const SizedBox(width: 8),
+                 Expanded(child: Text(card.osFocus!, style: const TextStyle(color: AppColors.stateLive, fontSize: 12, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'))),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+
+  // Confidence Card (Integrity)
+  Widget _buildConfidenceCard(CommandCenterCard card) {
+     return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surface1,
+        border: Border.all(color: AppColors.borderSubtle),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+           Row(
+             children: [
+               Expanded(child: Text(card.title, style: const TextStyle(color: AppColors.textPrimary, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'))),
+             ],
+           ),
+           const SizedBox(height: 8),
+           if (card.badges.isNotEmpty)
+             Wrap(
+               spacing: 6,
+               runSpacing: 6,
+               children: card.badges.map((b) => _buildBadge(b)).toList(),
+             ),
+           const SizedBox(height: 12),
+           ...card.descriptionBullets.map((b) => Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Row(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 const Text("•", style: TextStyle(color: AppColors.textDisabled, fontSize: 10, fontFamily: 'RobotoMono')),
                  const SizedBox(width: 8),
                  Expanded(child: Text(b, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12, fontFamily: 'RobotoMono'))),
                ],
@@ -321,6 +348,14 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
           )),
         ],
       ),
+     );
+  }
+
+  Widget _buildBadge(String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+      decoration: BoxDecoration(color: AppColors.accentCyan.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(3)),
+      child: Text(text, style: const TextStyle(color: AppColors.accentCyan, fontSize: 9, fontWeight: FontWeight.bold, letterSpacing: 0.5)),
     );
   }
 

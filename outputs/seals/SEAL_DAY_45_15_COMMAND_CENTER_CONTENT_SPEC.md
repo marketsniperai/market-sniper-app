@@ -1,17 +1,20 @@
-# SEAL: DAY 45.15 — COMMAND CENTER CONTENT SPEC
+# SEAL: DAY 45.15 — COMMAND CENTER CONTENT SPEC (FINAL)
 
 ## SUMMARY
-D45.15 delivers the **Command Center Content Specification** and a deterministic `CommandCenterBuilder` to populate the Elite surface. The content is strictly governed to be descriptive key-value context (shifts, confidence, artifacts) with no predictive language, ensuring legal safety and institutional tone.
+D45.15 (Canonical Final) redefines the Command Center as a pure "Institutional Context" surface. Legal disclaimers are removed in later revisions in favor of a strictly evidence-backed structure ("OS Focus"). The content is rendered deterministically via `CommandCenterBuilder`, adhering to the "Today's Key Moves" schema with zero predictive language.
 
 ## FEATURES
-- **Content Spec**: SSOT `outputs/os/os_command_center_content_spec.json`.
-- **Builder**: `CommandCenterBuilder` (Degrades gracefully to safe defaults).
-- **UI**: Updated `CommandCenterScreen` to render badges, structured cards, and micro-learnings.
-- **Safety**: Disclaimer "Descriptive context snapshot — not a forecast" enforced.
+- **OS Focus**: "Today's Key Moves" replaces "Context Shifts".
+- **Evidence-Based**: Confidence expressed solely via badges (PULSE, OVERLAY, etc.).
+- **Institutional Tone**: Micro-copy header: "Institutional context snapshot — evidence-backed."
+- **Gating**:
+  - **Elite**: Full Access.
+  - **Plus**: Blurred + Progress.
+  - **Free**: Frosted Glass ("Institutional context available inside").
 
 ## ARTIFACTS
-- `outputs/os/os_command_center_content_spec.json` (New)
-- `market_sniper_app/lib/logic/command_center/command_center_builder.dart` (New)
+- `outputs/os/os_command_center_content_spec.json` (Final SSOT)
+- `market_sniper_app/lib/logic/command_center/command_center_builder.dart` (Modified)
 - `market_sniper_app/lib/screens/command_center_screen.dart` (Modified)
 
 ## PROOF

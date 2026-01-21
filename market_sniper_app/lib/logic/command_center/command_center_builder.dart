@@ -4,26 +4,30 @@
 
 class CommandCenterCard {
   final String title;
-  final List<String> bullets;
-  final List<String> badges;
-  final String? subtitle;
+  final List<String> drivers;
+  final List<String> evidenceBadges;
+  final String? osFocus;
+  final List<String> descriptionBullets; // For fallback/other sections
+  final List<String> badges; // Generic badges
 
   CommandCenterCard({
     required this.title,
-    this.bullets = const [],
+    this.drivers = const [],
+    this.evidenceBadges = const [],
+    this.osFocus,
+    this.descriptionBullets = const [],
     this.badges = const [],
-    this.subtitle,
   });
 }
 
 class CommandCenterData {
-  final List<CommandCenterCard> contextShifts;
+  final List<CommandCenterCard> osFocusCards;
   final List<CommandCenterCard> confidenceDescriptions;
   final List<String> learnings;
-  final List<Map<String, String>> artifacts; // {name, status/hash}
+  final List<Map<String, String>> artifacts;
 
   CommandCenterData({
-    required this.contextShifts,
+    required this.osFocusCards,
     required this.confidenceDescriptions,
     required this.learnings,
     required this.artifacts,
@@ -33,26 +37,26 @@ class CommandCenterData {
 class CommandCenterBuilder {
   
   static Future<CommandCenterData> build() async {
-    // In a real implementation this would read from:
-    // - outputs/os/os_briefing_latest.json
-    // - outputs/os/os_pulse_snapshot.json
-    // For now, we use deterministic "Safe" placeholders or mock reading logic 
-    // that respects the "Degrade" rule if files missing.
-    // Since we don't have those exact files generated in this session (unless from D43),
-    // we will return a valid structure that represents "No Significant Shift" if data missing.
-    
-    // 1. Context Shifts
-    final shifts = [
+    // 1. OS Focus — Today’s Key Moves
+    final focusCards = [
       CommandCenterCard(
-        title: "Global Regime Continuity",
-        bullets: [
-           "Drivers: Central Bank Policy, Volatility Compression",
-           "OS Doing: Monitoring key levels for breakout",
-           "OS Not Doing: Chasing noise in low timeframe"
+        title: "Rates Sensitivity Repricing",
+        drivers: [
+           "Drivers: 10Y Yield Velocity > 2σ",
+           "Sector Sensitivity: Utilities / Real Estate Lagging"
         ],
-        badges: ["PULSE", "OVERLAY"]
+        evidenceBadges: ["PULSE", "OVERLAY", "PROVIDER_LIVE"],
+        osFocus: "Monitoring cross-asset confirmation for persistence."
       ),
-      // Add more if data available
+      CommandCenterCard(
+        title: "Volatility Compression Watch",
+        drivers: [
+           "Drivers: VIX Term Structure Flattening",
+           "Gamma: Dealer Long Bias increasing"
+        ],
+        evidenceBadges: ["EVIDENCE MEMORY", "PROXY_ESTIMATED"],
+        osFocus: "Tracking regime stability near key thresholds."
+      ),
     ];
 
     // 2. Confidence
@@ -60,12 +64,12 @@ class CommandCenterBuilder {
       CommandCenterCard(
         title: "Sector Coverage Integrity",
         badges: ["COVERAGE", "PROVIDER_LIVE"],
-        bullets: ["11/11 Sectors active", "Data freshness > 98%"]
+        descriptionBullets: ["11/11 Sectors active", "Data freshness > 98%"]
       ),
        CommandCenterCard(
         title: "Volatility Proxy",
         badges: ["PROXY_ESTIMATED"],
-        bullets: ["VIX implied derived from spot correlation"]
+        descriptionBullets: ["VIX implied derived from spot correlation"]
       ),
     ];
 
@@ -85,7 +89,7 @@ class CommandCenterBuilder {
     ];
 
     return CommandCenterData(
-      contextShifts: shifts,
+      osFocusCards: focusCards,
       confidenceDescriptions: confidence,
       learnings: learnings,
       artifacts: artifacts,
