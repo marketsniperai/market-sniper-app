@@ -1,0 +1,21 @@
+{
+    "timestamp_utc": "2026-01-22T01:50:00Z",
+    "component": "SessionAwarenessPanel",
+    "logic": {
+        "source": "MarketTimeHelper.nowEt()",
+        "states": [
+            "PREMARKET",
+            "MARKET",
+            "AFTERHOURS",
+            "CLOSED"
+        ],
+        "resolution": "1_minute",
+        "refresh": "Timer.periodic(1m) + Lifecycle.resume"
+    },
+    "ui": {
+        "location": "MainLayout / Below SystemStatus",
+        "style": "Institutional Strip",
+        "color_canon_compliant": true
+    },
+    "status": "VERIFIED_BY_DESIGN"
+}

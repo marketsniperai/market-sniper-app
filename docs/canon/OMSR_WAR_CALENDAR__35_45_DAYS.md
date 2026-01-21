@@ -497,7 +497,8 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md`](../../outputs/seals/SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md)
 
   CORE SHELL (NEW)
-  - [ ] D45.17 — Session Awareness Micro-Panel (countdown + canon color)
+  - [x] D45.17 — Session Awareness Micro-Panel (countdown + canon color)
+    - ↳ Seal: [`SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md`](../../outputs/seals/SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md)
   - [ ] D45.18 — Provider Status Indicator (LIVE/DEGRADED/DOWN)
 
   PREMIUM / PAYWALL (NEW)

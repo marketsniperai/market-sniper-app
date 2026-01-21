@@ -16,6 +16,9 @@ import '../screens/news_screen.dart'; // D45.03 News Tab
 import '../screens/calendar_screen.dart'; // D45.04 Calendar Tab
 import '../screens/premium_screen.dart'; // D45.05 Premium Screen
 import '../logic/trial_engine.dart'; // D45.06 Trial Engine
+import '../logic/plus_unlock_engine.dart'; // D45.14
+import '../widgets/session_awareness_panel.dart'; // D45.17
+import '../screens/command_center_screen.dart' as cc_screen; // D45.13/15
 import 'dart:async'; // StreamSubscription
 import '../screens/share_attribution_dashboard_screen.dart' as import_target;
 
@@ -280,29 +283,7 @@ class _MainLayoutState extends State<MainLayout> {
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                   child: GestureDetector(
-                                    onTap: _onLogoTap, // Separate from Title Tap (Founder) or unified? 
-                                    // Prompt says: "Tap 4x to open Command Center... pointing to top bar logo/title"
-                                    // _onTitleTap is currently Founder War Room (5 taps).
-                                    // Let's use _onLogoTap for Command Center (4 taps).
-                                    // Wait, if _onTitleTap is on the Text, I should combine or separate.
-                                    // "Ritual: TAP_LOGO_4X_WITHIN_4S"
-                                    // Current _onTitleTap is on the TEXT "Market Sniper AI".
-                                    // War Room = Founder. Command Center = Elite.
-                                    // If Founder taps 5 times, they get War Room.
-                                    // If Elite taps 4 times, they get Command Center.
-                                    // Founder is also Elite.
-                                    // If I tap 4 times, I trigger Command Center.
-                                    // If I tap 5 times, I trigger War Room (if Founder).
-                                    // Logic collision?
-                                    // If I tap 5 times rapidly, I hit 4 first.
-                                    // Logic: On 4th tap, wait slightly? Or simpler:
-                                    // Different targets?
-                                    // Prompt: "via a tap ritual on the top bar title/logo".
-                                    // "Access ritual: 'Tap 4× to open Command Center' bubble pointing to top bar logo/title."
-                                    // "Separation rule: War Room = Founder-only ... Command Center = Elite-only"
-                                    // I will use `_onLogoTap` attached to the Text, and split logic inside.
-                                    // Or clearer: 4 taps = CC. 5+ taps = War Room (Founder Override).
-                                    // Actually, let's keep _onTitleTap which is already there, and enhance it.
+                                    onTap: _onLogoTap, 
                                     child: Text(
                                       "Market Sniper AI",
                                       style: AppTypography.logo(context, AppColors.textPrimary),
@@ -323,6 +304,10 @@ class _MainLayoutState extends State<MainLayout> {
                     ],
                   ),
                 ),
+
+                // D45.17 Session Awareness Micro-Panel
+                // Placed below Top Bar, above Content
+                const SessionAwarenessPanel(),
 
                 // --- Main Content (Expanded) ---
                 Expanded(
