@@ -1,0 +1,67 @@
+{
+    "spec_name": "COMMAND_CENTER_CONTENT_SPEC_V1",
+    "version": "1.0",
+    "governance": {
+        "prohibited_terms": [
+            "pick",
+            "buy",
+            "sell",
+            "target",
+            "guaranteed",
+            "forecast"
+        ],
+        "max_cards_total": 10,
+        "max_chars_per_field": 200,
+        "legal_disclaimer": "Descriptive context snapshot — not a forecast."
+    },
+    "sections": [
+        {
+            "id": "context_shifts",
+            "title": "TOP CONTEXT SHIFTS (24H)",
+            "card_schema": {
+                "title": "string",
+                "drivers": [
+                    "string",
+                    "string"
+                ],
+                "evidence_sources": [
+                    "string"
+                ],
+                "os_doing": "string",
+                "os_not_doing": "string"
+            }
+        },
+        {
+            "id": "confidence_descriptions",
+            "title": "HIGHEST CONFIDENCE DESCRIPTIONS",
+            "card_schema": {
+                "title": "string",
+                "badges": [
+                    "SAMPLE",
+                    "COVERAGE",
+                    "PROVIDER_LIVE",
+                    "PROXY_ESTIMATED"
+                ],
+                "description": "string"
+            }
+        },
+        {
+            "id": "learnings",
+            "title": "THE OS LEARNED THIS WEEK",
+            "card_schema": {
+                "micro_learning": "string"
+            }
+        },
+        {
+            "id": "artifacts",
+            "title": "ARTIFACTS VAULT",
+            "items": [
+                "Briefing.json",
+                "Aftermarket.json",
+                "EvidenceMatch",
+                "PulseState",
+                "OneRule"
+            ]
+        }
+    ]
+}

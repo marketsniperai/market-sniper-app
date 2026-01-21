@@ -480,7 +480,7 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - Elite: unlocked Day 1.
     - Include “blurred preview” for Plus before day 5 (visible shell, content fogged).
     - ↳ Seal: [`SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md`](../../outputs/seals/SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md)
-  - [ ] D45.15 — Command Center Content Spec (WOW + legal-safe)
+  - [x] D45.15 — Command Center Content Spec (WOW + legal-safe)
     - Top 3 Context Shifts (last 24h) (NOT picks)
       Each shift includes: Drivers (2 bullets), Evidence sources (Pulse/Overlay/Evidence Memory), What OS is doing, What OS is not doing.
     - Top 3 Highest-Confidence Descriptions
@@ -490,6 +490,7 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
       Include ONE elegant line: “Descriptive snapshot of aggregated premium — not a forecast.”
     - The OS Learned This Week (3 micro-learnings, shareable, institutional)
     - Artifacts Vault (Elite-only): Today’s Briefing / Aftermarket / Evidence Match / Pulse State / One Rule with timestamp + integrity badge.
+    - ↳ Seal: [`SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md`](../../outputs/seals/SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md)
   - [ ] D45.16 — Viral Teaser Share (No sensitive data)
     - First open: microcopy “You just opened a hidden OS surface.”
     - CTA “Share a teaser” generates an image with watermark + official slogan, no market data.
