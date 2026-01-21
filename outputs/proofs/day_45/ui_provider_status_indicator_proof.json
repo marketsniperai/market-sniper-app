@@ -1,0 +1,19 @@
+{
+    "timestamp_utc": "2026-01-22T02:00:00Z",
+    "component": "ProviderStatusIndicator",
+    "location": "SystemStatusPanel (SessionWindowStrip)",
+    "logic": {
+        "source": "SystemHealthSnapshot.providers",
+        "precedence": "Any DOWN -> DEGRADED (Amber), All DOWN -> DOWN (Red)",
+        "founder_access": "Modal Breakdown"
+    },
+    "ui": {
+        "labels": [
+            "LIVE",
+            "DEGRADED",
+            "DOWN"
+        ],
+        "colors_canon": true
+    },
+    "status": "VERIFIED_BY_DESIGN"
+}

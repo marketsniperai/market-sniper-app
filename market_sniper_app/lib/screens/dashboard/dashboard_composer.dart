@@ -75,7 +75,10 @@ class DashboardComposer {
     if (resolvedState != null) {
       items.add(Padding(
         padding: DashboardSpacing.bottomGap,
-        child: SessionWindowStrip(dataState: resolvedState!),
+        child: SessionWindowStrip(
+          dataState: resolvedState!,
+          healthSnapshot: healthSnapshot, // D45.18
+        ),
       ));
     }
 

@@ -499,7 +499,9 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   CORE SHELL (NEW)
   - [x] D45.17 — Session Awareness Micro-Panel (countdown + canon color)
     - ↳ Seal: [`SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md`](../../outputs/seals/SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md)
-  - [ ] D45.18 — Provider Status Indicator (LIVE/DEGRADED/DOWN)
+  - [x] D45.18 — Provider Status Indicator (LIVE/DEGRADED/DOWN)
+    - ↳ Seal: [`SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md`](../../outputs/seals/SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md)
+
 
   PREMIUM / PAYWALL (NEW)
   - [ ] D45.19 — Premium Feature Matrix (visual grid)

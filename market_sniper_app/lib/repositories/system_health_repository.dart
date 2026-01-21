@@ -46,14 +46,36 @@ class SystemHealthRepository {
     
     // health_ext usually has 'generated_at' or 'timestamp'
     
+    // D45.18: Parse Providers
+    // Expecting: "providers": {"Polygon": "UP", "Fred": "DOWN"}
+    final Map<String, String> providers = {};
+    if (json.containsKey('providers') && json['providers'] is Map) {
+       final pMap = json['providers'] as Map;
+       pMap.forEach((k, v) {
+         providers[k.toString()] = v.toString().toUpperCase();
+       });
+    }
+
     HealthStatus status = _parseStatus(statusStr);
     
+    // D45.18 Logic: If any provider is DOWN, upgrade status to DEGRADED (if nominal)
+    // "Precedence: Any provider DOWN -> overall = DEGRADED"
+    // Also "DOWN" -> RED. If statusStr is "OK" but one provider is DOWN?
+    // The repo enforces the rule or the backend does? 
+    // Usually backend. But prompt implies I implement logic.
+    // "Precedence: Any provider DOWN → overall = DEGRADED"
+    bool anyDown = providers.values.any((v) => v == 'DOWN' || v == 'ERROR' || v == 'FAIL');
+    if (anyDown && status == HealthStatus.nominal) {
+       status = HealthStatus.degraded;
+    }
+
     return _applyOverride(SystemHealthSnapshot(
       status: status,
       source: HealthSource.ext,
       ageSeconds: age, // Placeholder unless we parse
       message: statusStr,
       rawTimestamp: timestamp,
+      providers: providers,
     ), override);
   }
 
@@ -85,6 +107,7 @@ class SystemHealthRepository {
         ageSeconds: snapshot.ageSeconds,
         message: "LOCKED (${override.reason.name})",
         rawTimestamp: snapshot.rawTimestamp,
+        providers: snapshot.providers,
       );
     }
     return snapshot;

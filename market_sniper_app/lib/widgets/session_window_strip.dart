@@ -5,13 +5,17 @@ import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_colors.dart';
 import '../logic/data_state_resolver.dart';
 import '../utils/time_utils.dart';
+import '../models/system_health_snapshot.dart'; // D45.18
+import 'provider_status_indicator.dart'; // D45.18
 
 class SessionWindowStrip extends StatefulWidget {
   final ResolvedDataState dataState;
+  final SystemHealthSnapshot? healthSnapshot; // D45.18
 
   const SessionWindowStrip({
     super.key,
     required this.dataState,
+    this.healthSnapshot, // Optional for backward/layout safety
   });
 
   @override
@@ -194,7 +198,15 @@ class _SessionWindowStripState extends State<SessionWindowStrip> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: 8), // Tighter GAP
+
+                // D45.18 Provider Status Indicator
+                if (widget.healthSnapshot != null)
+                   Padding(
+                     padding: const EdgeInsets.only(right: 8),
+                     child: ProviderStatusIndicator(snapshot: widget.healthSnapshot!),
+                   ),
+
                 // Status Chip (Pill)
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),

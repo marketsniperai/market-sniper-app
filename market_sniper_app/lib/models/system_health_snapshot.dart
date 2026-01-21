@@ -19,6 +19,7 @@ class SystemHealthSnapshot {
   final int ageSeconds;
   final String message;
   final String? rawTimestamp;
+  final Map<String, String> providers; // D45.18 Provider Status
 
   const SystemHealthSnapshot({
     required this.status,
@@ -26,6 +27,7 @@ class SystemHealthSnapshot {
     required this.ageSeconds,
     required this.message,
     this.rawTimestamp,
+    this.providers = const {}, 
   });
 
   static const SystemHealthSnapshot unknown = SystemHealthSnapshot(
@@ -33,5 +35,6 @@ class SystemHealthSnapshot {
     source: HealthSource.unknown,
     ageSeconds: -1,
     message: "Initializing...",
+    providers: {},
   );
 }
