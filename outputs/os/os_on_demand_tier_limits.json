@@ -1,0 +1,28 @@
+{
+    "policy_name": "ON_DEMAND_TIER_LIMITS",
+    "version": "1.1.0",
+    "limits": {
+        "free_daily_limit": 0,
+        "plus_daily_limit": 10,
+        "elite_daily_limit": -1,
+        "founder_daily_limit": -1
+    },
+    "cooldowns_seconds": {
+        "free": 0,
+        "plus": 600,
+        "elite": 300,
+        "founder": 0
+    },
+    "reset_config": {
+        "reset_time_et": "04:00",
+        "timezone": "US/Eastern"
+    },
+    "ledger_path": "outputs/os/on_demand_usage_ledger.jsonl",
+    "tokens": {
+        "block": "LIMIT_REACHED",
+        "block_tier": "TIER_LOCKED",
+        "block_cooldown": "COOLDOWN_ACTIVE",
+        "bypass": "FOUNDER_BYPASS",
+        "unknown": "TIER_UNKNOWN"
+    }
+}

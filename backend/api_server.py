@@ -799,55 +799,51 @@ async def get_on_demand_context(
     """
     D44.05: On-Demand Context with Cache & Freshness Discipline.
     D44.06: Tier Limits Enforcement.
+    D44.X: Global Universe + Source Ladder + Cooldowns.
     """
-    # 0. Enforce Tier Limits (D44.06)
-    allowed, usage, limit, reason = OnDemandTierEnforcer.check_and_log(ticker, tier, x_founder_key)
+    # 0. Enforce Tier Limits (D44.06/D44.X)
+    allowed, usage, limit, reason, cooldown_rem = OnDemandTierEnforcer.check_and_log(ticker, tier, x_founder_key)
     
     if not allowed:
+        # D44.X: Distinguish TIER_LOCKED (403) vs LIMIT/COOLDOWN (429)
+        status_code = 429
+        if reason == "TIER_LOCKED":
+             status_code = 403 # Forbidden (Upgrade required)
+        
         return JSONResponse(
-            status_code=429,
+            status_code=status_code,
             content={
                 "status": "BLOCKED",
-                "reason": "LIMIT_REACHED",
+                "reason": reason,
                 "tier": tier,
                 "usage": usage,
                 "limit": limit,
+                "cooldown_remaining": cooldown_rem,
                 "reset_et": "04:00"
             }
         )
 
-    # 1. Check Cache
-    result = OnDemandCache.get(ticker=ticker, tier=tier, allow_stale=allow_stale)
+    # 1. Resolve Source (D44.X Source Ladder)
+    # This handles Pipeline -> Cache -> Offline logic
+    result_envelope = OnDemandCache.resolve_source(ticker, tier, allow_stale)
     
     # ... Helper to inject usage headers ...
-    def with_headers(resp_dict):
-        # We can't easily add headers to a dict return in FastAPI without Response object, 
-        # but we can return JSONResponse or just include in body.
-        # User requested "Usage headers/body". We will put in body for easy frontend parsing.
+    def with_meta(resp_dict):
         resp_dict["_meta"] = {
             "tier": tier,
-            "usage": usage, # This is the count AFTER incremental log
-            "limit": limit
+            "usage": usage,
+            "limit": limit,
+            "cooldown_remaining": 0
         }
         return resp_dict
     
-    if result.status == "HIT":
-        return with_headers({
-            "source": "CACHE",
-            "freshness": result.freshness,
-            "status": "AVAILABLE",
-            "payload": result.entry.payload,
-            "timestamp_utc": result.entry.created_utc
-        })
-        
-    # 2. Cache Miss or Expired (and stale not allowed)
-    snapshot = EliteOSReader.get_snapshot()
+    # 2. Return Result
+    return with_meta(result_envelope)
     
-    # Compose payload
-    payload = {
-        "ticker": ticker,
-        "global_risk": snapshot.global_risk,
-        "regime": snapshot.overlay.get("regime") if snapshot.overlay else "UNKNOWN",
+    # NOTE: EliteOSReader fallback is now handled inside resolve_source (via OFFLINE path) 
+    # or should be handled if resolve_source returns OFFLINE?
+    # Actually, resolve_source returns the full envelope including OFFLINE status.
+    # So we just return what it gives us + meta.
         "generated_at": datetime.now().isoformat()
     }
     

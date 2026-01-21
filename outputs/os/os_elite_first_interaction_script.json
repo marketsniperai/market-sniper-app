@@ -1,0 +1,29 @@
+{
+    "meta_purpose": "Canonical script and logic for Elite First Interaction.",
+    "version": "1.0.0",
+    "greeting_template": "Good {time_of_day}, {user_name}. I’m Elite... I just fired up the context engine... Tell me what you’re trying to understand — I’ll map the context in plain language.",
+    "philosophy": "Sell Context. Not Prediction.",
+    "questions": [
+        {
+            "id": "q1_regime",
+            "text": "Explain the current market regime",
+            "tier_min": "free",
+            "action_type": "EXPLAIN_KEY",
+            "action_payload": "MARKET_REGIME"
+        },
+        {
+            "id": "q2_learning",
+            "text": "Do you learn over time?",
+            "tier_min": "plus",
+            "action_type": "STATIC_ANSWER",
+            "answer_template": "Each day I compare prior reads with what actually happened... refine noise reduction... improve coherence with real data.\n\n[In Plus you see basic evolution. In Elite, it becomes personal.]"
+        },
+        {
+            "id": "q3_sector",
+            "text": "What do you observe today in the tech sector?",
+            "tier_min": "plus",
+            "action_type": "EXPLAIN_KEY",
+            "action_payload": "SECTOR_TECH"
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "keys": {
+        "MARKET_REGIME": {
+            "description": "Explains the current primary market regime (Risk On/Off, Volatility, Shock).",
+            "required_artifacts": [
+                "outputs/os/os_state.json",
+                "outputs/os/os_snapshot.json"
+            ],
+            "allowed_tiers": [
+                "FREE",
+                "PLUS",
+                "ELITE"
+            ],
+            "fallback_behavior": "STATIC_DEFINITION"
+        },
+        "GLOBAL_RISK_STATE": {
+            "description": "Explains the global risk state calculation and contributing factors.",
+            "required_artifacts": [
+                "outputs/os/os_state.json",
+                "outputs/os/pulse_synthesis.json"
+            ],
+            "allowed_tiers": [
+                "PLUS",
+                "ELITE"
+            ],
+            "fallback_behavior": "UNAVAILABLE"
+        },
+        "PULSE_CONFIDENCE": {
+            "description": "Explains the confidence, stability, and volatility bands of the Pulse.",
+            "required_artifacts": [
+                "outputs/os/pulse_confidence.json"
+            ],
+            "allowed_tiers": [
+                "ELITE"
+            ],
+            "fallback_behavior": "STALE_CACHE"
+        },
+        "UNIVERSE_STATUS": {
+            "description": "Explains the current propagation status and integrity of the Universe.",
+            "required_artifacts": [
+                "outputs/os/universe_integrity.json"
+            ],
+            "allowed_tiers": [
+                "PLUS",
+                "ELITE"
+            ],
+            "fallback_behavior": "UNAVAILABLE"
+        },
+        "OVERLAY_STATE": {
+            "description": "Explains the active overlay configuration and its rationale.",
+            "required_artifacts": [
+                "outputs/os/overlay_state.json"
+            ],
+            "allowed_tiers": [
+                "ELITE"
+            ],
+            "fallback_behavior": "STATIC_DEFINITION"
+        }
+    },
+    "constraints": {
+        "max_requests_per_minute": 10,
+        "cache_ttl_seconds": 300,
+        "strict_mode": true
+    }
+}

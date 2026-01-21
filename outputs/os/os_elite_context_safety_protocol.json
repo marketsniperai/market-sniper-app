@@ -1,0 +1,40 @@
+{
+    "version": "1.0",
+    "allowed_tones": [
+        "INSTITUTIONAL",
+        "HUMAN"
+    ],
+    "forbidden_language_tokens": [
+        "advice",
+        "buy",
+        "sell",
+        "target",
+        "profit",
+        "guarantee",
+        "prediction",
+        "promise"
+    ],
+    "mandatory_boundary_phrases": [
+        "Context is descriptive, not prescriptive."
+    ],
+    "fallback_rules": {
+        "stale_content": "Context unavailable (Stale).",
+        "locked_os": "Status: LOCKED. Safety engaged.",
+        "unavailable": "Context unavailable.",
+        "safety_violation": "Content redacted by Safety Protocol."
+    },
+    "tier_constraints": {
+        "free": {
+            "max_bullets": 1,
+            "allow_learning_claims": false
+        },
+        "plus": {
+            "max_bullets": 3,
+            "allow_learning_claims": true
+        },
+        "elite": {
+            "max_bullets": 3,
+            "allow_learning_claims": true
+        }
+    }
+}

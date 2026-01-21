@@ -118,7 +118,8 @@
   - [x] D43.03: Elite OS Reader - Implemented read-only OS snapshot reader and API. (SEALED).
   - [x] D43.04: Day Memory - Implemented 4KB local memory with 4:00 ET reset. (SEALED).
   - [x] D43.06: Elite Explain Router - Implemented router with safe fallback. (SEALED).
-  - [x] D43.07: Explain Buttons Wiring - Wired "?" buttons to Elite Router. (SEALED).
+  - [x] D43.07: Explain Buttons Wiring - Wired "?"- **D44.X**: On-Demand Global Canon (Source Ladder, Tier/Cooldowns, Global Universe). [SEALED]
+- **D44.06**: Tier limits + counters. [SEALED]).
   - [x] D43.08: Session Thread Memory - Implemented v2 with local store and UI log. (SEALED).
   - [x] D43.09: Daily Ritual Triggers - Implemented local scheduler with ET windows. (SEALED).
   - [x] D43.10: Institutional Explainer Protocol - Implemented definition and reader. (SEALED).

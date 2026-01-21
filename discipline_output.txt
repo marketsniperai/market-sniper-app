@@ -1,0 +1,20 @@
+Initializing Antigravity Discipline Check...
+
+============================================================
+ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
+============================================================
+
+[!] CRITICAL: UNTRACKED CANON OUTPUTS DETECTED
+  - outputs/proofs/day_42/day_42_project_state_war_room_catchup_proof.json
+  - outputs/proofs/day_42/day_42_war_calendar_canonize_proof.json
+  - outputs/proofs/day_43/
+  - outputs/proofs/day_46/
+  - outputs/seals/SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md
+  - outputs/seals/SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md
+  - outputs/seals/SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md
+  - outputs/seals/SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md
+  - outputs/seals/SEAL_DAY_43_06_EXPLAIN_ROUTER.md
+  - outputs/seals/SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md
+  - outputs/seals/SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md
+
+>> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`

@@ -1,0 +1,74 @@
+{
+    "version": "1.0.0",
+    "meta_purpose": "Defines the MANDATORY structure, tone, and safety constraints for all Elite explanations.",
+    "sections_order": [
+        {
+            "id": "drivers",
+            "label": "Drivers",
+            "requirement": "Identify 1-3 primary market forces driving the current context.",
+            "mandatory": true
+        },
+        {
+            "id": "what_to_watch",
+            "label": "What to Watch",
+            "requirement": "Highlight specific data points, levels, or events to monitor.",
+            "mandatory": true
+        },
+        {
+            "id": "os_action",
+            "label": "What the OS Is Doing",
+            "requirement": "Description of system state, active filters, or noise reduction. NO future promises.",
+            "mandatory": true
+        },
+        {
+            "id": "boundary",
+            "label": "Boundary Statement",
+            "requirement": "Explicit statement that this is context/observation only. No advice. No prediction.",
+            "mandatory": true
+        }
+    ],
+    "tone_rules": {
+        "style": "Institutional",
+        "voice": "Calm, Confident, Objective",
+        "prohibited": [
+            "Hype",
+            "Promissory language",
+            "Emotional manipulation",
+            "Defensive disclaimers (e.g., 'Not financial advice')",
+            "Targets",
+            "Calls to action",
+            "Predictions",
+            "Confidence percentages (unless strictly mathematical)"
+        ],
+        "philosophy": "Sell Context, Observation, and Coherence. Do NOT sell prediction."
+    },
+    "tier_rules": {
+        "free": {
+            "structure": "truncated",
+            "depth": "surface",
+            "allowed_sections": [
+                "drivers"
+            ]
+        },
+        "plus": {
+            "structure": "full",
+            "depth": "generic",
+            "allowed_sections": [
+                "drivers",
+                "what_to_watch",
+                "os_action",
+                "boundary"
+            ]
+        },
+        "elite": {
+            "structure": "full",
+            "depth": "contextual_depth",
+            "allowed_sections": [
+                "drivers",
+                "what_to_watch",
+                "os_action",
+                "boundary"
+            ]
+        }
+    }
+}

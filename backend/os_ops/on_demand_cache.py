@@ -138,6 +138,47 @@ class OnDemandCache:
             return OnDemandCacheGetResult(status="ERROR", cache_hit=False, freshness="UNAVAILABLE", reason=str(e))
 
     @staticmethod
+    def resolve_source(ticker: str, tier: str = "FREE", allow_stale: bool = False) -> Dict:
+        """
+        D44.X Source Ladder:
+        1. PIPELINE_ARTIFACT (Not yet implemented, stub)
+        2. ON_DEMAND_CACHE
+        3. OFFLINE_FALLBACK
+        """
+        
+        # 1. Pipeline Artifact (Stub)
+        # TODO: Implement when pipeline artifacts are standardized for tickers
+        # if pipeline_hit: return ...
+        
+        # 2. Cache
+        cache_res = OnDemandCache.get(ticker, tier, allow_stale)
+        if cache_res.status == "HIT":
+             return {
+                 "source": "CACHE",
+                 "freshness": cache_res.freshness,
+                 "status": "AVAILABLE",
+                 "payload": cache_res.entry.payload,
+                 "timestamp_utc": cache_res.entry.created_utc
+             }
+             
+        # 3. Offline / Live Provider (Not integrated)
+        # If cache missed/expired, we default to OFFLINE for now as we don't have live providers.
+        # But we must return a valid envelope so UI shows "Offline" badge.
+        
+        return {
+            "source": "OFFLINE",
+            "freshness": "UNAVAILABLE", 
+            "status": "OFFLINE",
+            "payload": {
+                "ticker": ticker,
+                "global_risk": "UNKNOWN", 
+                "regime": "UNKNOWN",
+                "note": "Market data providers are not connected."
+            },
+            "timestamp_utc": datetime.now(timezone.utc).isoformat()
+        }
+
+    @staticmethod
     def put(ticker: str, payload: Dict, tier: str = "FREE"):
         OnDemandCache._ensure_dir()
         policy = OnDemandCache._read_policy()
@@ -192,4 +233,5 @@ class OnDemandCache:
             
         # Write Index
         OnDemandCache._save_index(index)
+
         

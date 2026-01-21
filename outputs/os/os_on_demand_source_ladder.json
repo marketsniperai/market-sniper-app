@@ -1,0 +1,25 @@
+{
+    "policy_name": "ON_DEMAND_SOURCE_LADDER",
+    "version": "1.0.0",
+    "ladder": [
+        {
+            "priority": 1,
+            "source": "PIPELINE_ARTIFACT",
+            "description": "Pre-computed institutional data from daily pipeline."
+        },
+        {
+            "priority": 2,
+            "source": "ON_DEMAND_CACHE",
+            "description": "Transient cache from previous on-demand requests (TTL governed by tier)."
+        },
+        {
+            "priority": 3,
+            "source": "OFFLINE_FALLBACK",
+            "description": "Institutional fallback when no data is available and providers are offline."
+        }
+    ],
+    "freshness_rules": {
+        "pipeline_max_age_hours": 24,
+        "allow_stale_override": true
+    }
+}

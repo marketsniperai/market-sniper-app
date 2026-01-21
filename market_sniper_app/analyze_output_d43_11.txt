@@ -1,0 +1,91 @@
+Analyzing market_sniper_app...                                  
+
+   info - Don't invoke 'print' in production code - lib\logic\day_memory_store.dart:36:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\logic\day_memory_store.dart:128:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\logic\day_memory_store.dart:148:7 - avoid_print
+warning - This default clause is covered by the previous cases - lib\logic\elite_mentor_brain.dart:18:7 - unreachable_switch_default
+warning - This default clause is covered by the previous cases - lib\logic\elite_mentor_brain.dart:30:7 - unreachable_switch_default
+warning - This default clause is covered by the previous cases - lib\logic\elite_mentor_brain.dart:41:7 - unreachable_switch_default
+warning - This default clause is covered by the previous cases - lib\logic\elite_mentor_brain.dart:51:7 - unreachable_switch_default
+warning - This default clause is covered by the previous cases - lib\logic\elite_mentor_brain.dart:61:7 - unreachable_switch_default
+warning - This default clause is covered by the previous cases - lib\logic\elite_mentor_brain.dart:71:7 - unreachable_switch_default
+warning - The value of the local variable 'nowEt' isn't used - lib\logic\ritual_scheduler.dart:133:12 - unused_local_variable
+   info - Don't invoke 'print' in production code - lib\logic\session_thread_memory_store.dart:36:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\logic\session_thread_memory_store.dart:127:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\logic\session_thread_memory_store.dart:152:7 - avoid_print
+  error - The named parameter 'cooldownTransparency' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:65:12 - missing_required_argument
+  error - The named parameter 'misfireRootCause' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:65:12 - missing_required_argument
+  error - The named parameter 'misfireTier2' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:65:12 - missing_required_argument
+  error - The named parameter 'redButton' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:65:12 - missing_required_argument
+  error - The named parameter 'selfHealConfidence' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:65:12 - missing_required_argument
+  error - The named parameter 'selfHealWhatChanged' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:65:12 - missing_required_argument
+  error - The method '_parseAutoFixDecisionPath' isn't defined for the type 'WarRoomRepository' - lib\repositories\war_room_repository.dart:83:28 - undefined_method
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1811:23 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\universe\universe_screen.dart:1812:23 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1829:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1839:16 - prefer_const_constructors
+   info - Unnecessary use of 'toList' in a spread - lib\screens\universe\universe_screen.dart:1919:19 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1983:29 - prefer_const_constructors
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:475:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:476:33 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:477:36 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:478:35 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:479:14 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:481:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:482:14 - curly_braces_in_flow_control_structures
+   info - Use interpolation to compose strings and values - lib\screens\war_room_screen.dart:716:54 - prefer_interpolation_to_compose_strings
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:808:44 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:809:34 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:810:33 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:811:14 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:843:58 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:844:41 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:845:64 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:846:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:859:43 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:860:47 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:861:74 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:891:69 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:892:41 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:893:43 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:894:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:925:38 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:926:42 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:927:42 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:928:15 - curly_braces_in_flow_control_structures
+   info - The variable name 'Tier2' isn't a lowerCamelCase identifier - lib\screens\war_room_screen.dart:1084:11 - non_constant_identifier_names
+warning - Duplicate import - lib\widgets\elite_interaction_sheet.dart:8:8 - duplicate_import
+warning - Duplicate import - lib\widgets\elite_interaction_sheet.dart:10:8 - duplicate_import
+warning - Duplicate import - lib\widgets\elite_interaction_sheet.dart:11:8 - duplicate_import
+warning - Duplicate import - lib\widgets\elite_interaction_sheet.dart:13:8 - duplicate_import
+warning - Duplicate import - lib\widgets\elite_interaction_sheet.dart:14:8 - duplicate_import
+warning - The value of the local variable 'greeting' isn't used - lib\widgets\elite_interaction_sheet.dart:214:13 - unused_local_variable
+   info - Unnecessary use of 'toList' in a spread - lib\widgets\elite_interaction_sheet.dart:261:16 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:263:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:265:26 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:265:74 - prefer_const_constructors
+   info - Unnecessary use of 'toList' in a spread - lib\widgets\elite_interaction_sheet.dart:334:79 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:336:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:336:30 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:336:88 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:377:35 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:388:31 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:390:35 - prefer_const_constructors
+warning - The value of the local variable 'runId' isn't used - lib\widgets\elite_interaction_sheet.dart:586:20 - unused_local_variable
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:630:57 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:631:54 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:632:60 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:669:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:669:52 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:673:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:727:39 - prefer_const_constructors
+warning - Dead code - lib\widgets\elite_interaction_sheet.dart:835:11 - dead_code
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\widgets\elite_interaction_sheet.dart:856:65 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:112:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:113:33 - curly_braces_in_flow_control_structures
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:128:3 - avoid_print
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:154:3 - avoid_print
+warning - Unused import: 'dart:convert' - tool\verify_day_40_close_placeholder.dart:1:8 - unused_import
+warning - Unused import: 'dart:io' - tool\verify_day_40_close_placeholder.dart:2:8 - unused_import
+   info - Don't invoke 'print' in production code - tool\verify_day_40_close_placeholder.dart:17:3 - avoid_print
+

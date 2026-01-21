@@ -1,0 +1,28 @@
+{
+    "protocol": "Elite Micro-Briefing on Open",
+    "version": "1.0",
+    "authority": "D43.15",
+    "max_bullets": 3,
+    "section_order": [
+        "Drivers",
+        "What to watch",
+        "What OS is doing",
+        "Boundary"
+    ],
+    "tone": "Institutional",
+    "constraints": [
+        "No advice",
+        "No targets",
+        "No promises",
+        "Strict Mirroring"
+    ],
+    "tier_rules": {
+        "free": {
+            "max_bullets": 1
+        },
+        "elite": {
+            "max_bullets": 3
+        }
+    },
+    "boundary_text": "--- END OF BRIEF ---"
+}

@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "max_patterns": 3,
+    "max_total_size_kb": 4,
+    "allowed_pattern_types": [
+        "NOISE_REDUCTION",
+        "COHERENCE_GAIN",
+        "CONSISTENCY_IMPROVEMENT",
+        "OBSERVATIONAL"
+    ],
+    "forbidden_claims": [
+        "performance",
+        "returns",
+        "accuracy",
+        "edge",
+        "alpha",
+        "predict",
+        "forecast"
+    ],
+    "phrasing_style": "aggregate, anonymized, observational"
+}

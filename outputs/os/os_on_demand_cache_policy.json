@@ -1,0 +1,20 @@
+{
+    "policy_name": "ON_DEMAND_CACHE_POLICY",
+    "version": "1.0.0",
+    "storage_dir": "outputs/on_demand_cache/",
+    "ttl_seconds": {
+        "free": 900,
+        "plus": 1800,
+        "elite": 3600
+    },
+    "bounds": {
+        "max_entries": 50,
+        "max_bytes_total": 512000
+    },
+    "freshness_labels": [
+        "LIVE",
+        "STALE",
+        "UNAVAILABLE"
+    ],
+    "default_request_type": "CONTEXT_SNAPSHOT"
+}

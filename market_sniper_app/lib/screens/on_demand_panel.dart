@@ -70,13 +70,15 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     final input = _controller.text.trim().toUpperCase();
     if (input.isEmpty) return;
 
-    // 1. Validate Universe (Institutional Guard)
-    if (!CoreUniverse.isCore20(input)) {
-      setState(() {
-        _errorText = "Institutional Guard: Symbol not in CORE20 universe yet.\nExtended Universe unlocks in D39.02.";
+    // 1. Validate Pattern Only (Global Universe)
+    final validTicker = RegExp(r'^[A-Z0-9._-]{1,12}$');
+    if (!validTicker.hasMatch(input)) {
+       setState(() {
+        _errorText = "Invalid Ticker Format. Use symbols like AAPL, BTC-USD.";
       });
       return;
     }
+
 
     // 2. Set Loading
     setState(() {
@@ -98,7 +100,17 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     setState(() {
       if (response["status"] == "BLOCKED") {
          _state = OnDemandViewState.error;
-         _errorText = "Daily Limit Reached (Resets 04:00 ET)";
+         final reason = response["reason"] ?? "LIMIT_REACHED";
+         final cooldown = response["cooldown_remaining"] ?? 0;
+         
+         if (reason == "TIER_LOCKED") {
+             _errorText = "Feature Locked for this Tier. Upgrade required.";
+         } else if (reason == "COOLDOWN_ACTIVE") {
+             _errorText = "Cooling down... Wait $cooldown seconds.";
+         } else {
+             _errorText = "Daily Limit Reached (Resets 04:00 ET)";
+         }
+         
          final usage = response["usage"] ?? 0;
          final limit = response["limit"] ?? 0;
          final tier = response["tier"] ?? "UNKNOWN";
@@ -125,6 +137,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
 
       _state = OnDemandViewState.result;
       
+      final status = response["status"];
       final freshness = response["freshness"] ?? "UNKNOWN";
       final source = response["source"] ?? "UNKNOWN";
       final payload = response["payload"] ?? {};
@@ -135,10 +148,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
       _result = OnDemandResult(
         ticker: input,
         generatedAt: DateTime.tryParse(ts) ?? DateTime.now(),
-        status: freshness, 
+        status: status == "OFFLINE" ? "OFFLINE" : freshness, 
         bullets: [
           "Ticker: $input",
-          "Universe: CORE20", // Still guarded
           "Source: $source",
           "Risk State: $globalRisk",
           "Regime: $regime",
@@ -299,7 +311,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
            child: Column(
              children: [
                 SizedBox(height: 24),
-                Text("Fetching snapshot...", style: TextStyle(color: AppColors.accentCyan)),
+                CircularProgressIndicator(strokeWidth: 2, color: AppColors.accentCyan),
+                SizedBox(height: 16),
+                Text("Analyzing Global Market Data...", style: TextStyle(color: AppColors.accentCyan)),
              ],
            ),
          );
