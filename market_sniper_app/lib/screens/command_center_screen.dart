@@ -6,6 +6,8 @@ import '../../config/app_config.dart';
 import '../logic/premium_status_resolver.dart';
 import '../logic/plus_unlock_engine.dart'; // D45.14
 import '../logic/command_center/command_center_builder.dart'; // D45.15
+import '../logic/share/viral_teaser_store.dart'; // D45.16
+import '../logic/share/teaser_composer.dart'; // D45.16
 import '../models/premium/premium_matrix_model.dart'; // Verified import
 
 class CommandCenterScreen extends StatefulWidget {
@@ -23,12 +25,30 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
   
   CommandCenterData? _data; // D45.15
   bool _isLoading = true;
+  bool _showTeaserBanner = false; // D45.16
 
   @override
   void initState() {
     super.initState();
     _checkAccess();
     _loadData();
+    _checkTeaser();
+  }
+
+  Future<void> _checkTeaser() async {
+     final seen = await ViralTeaserStore.isFirstOpenSeen();
+     // Or maybe we want to show it until they dismiss/share? 
+     // "trigger: first_open_of_command_center" implies ONCE.
+     // Let's show it if NOT seen.
+     if (!seen && mounted) {
+        setState(() => _showTeaserBanner = true);
+        // Mark seen *after* they see it? Or immediately?
+        // Prompt doesn't specify persistence of the banner itself, just the trigger.
+        // Usually "First Open" means we detect it's the first time.
+        // If we want them to act on it, maybe don't mark seen until dismissed?
+        // Simpler: Mark seen after this session.
+        await ViralTeaserStore.markFirstOpenSeen();
+     }
   }
 
   Future<void> _loadData() async {
@@ -115,6 +135,45 @@ class _CommandCenterScreenState extends State<CommandCenterScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                   if (_showTeaserBanner)
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 24),
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: AppColors.accentCyan.withValues(alpha: 0.1),
+                          border: Border.all(color: AppColors.accentCyan),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                             const Icon(Icons.share, color: AppColors.accentCyan, size: 20),
+                             const SizedBox(width: 12),
+                             Expanded(
+                               child: Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Text("You just opened a hidden OS surface.", style: AppTypography.body(context).copyWith(fontSize: 12, fontWeight: FontWeight.bold)),
+                                   const SizedBox(height: 4),
+                                   GestureDetector(
+                                     onTap: () async {
+                                        // Share Action
+                                        await TeaserComposer.shareTeaser(isFounder: AppConfig.isFounderBuild);
+                                        await ViralTeaserStore.markShared();
+                                        if (mounted) setState(() => _showTeaserBanner = false);
+                                     },
+                                     child: Text("SHARE A TEASER >", style: AppTypography.label(context).copyWith(color: AppColors.accentCyan, fontWeight: FontWeight.bold)),
+                                   ),
+                                 ],
+                               ),
+                             ),
+                             IconButton(
+                               icon: const Icon(Icons.close, color: AppColors.textDisabled, size: 16),
+                               onPressed: () => setState(() => _showTeaserBanner = false),
+                             )
+                          ],
+                        ),
+                      ),
+                   
                    _buildSectionHeader("CONTEXT SHIFTS (24H)"),
                    const SizedBox(height: 16),
                    ..._data!.contextShifts.map((c) => Column(

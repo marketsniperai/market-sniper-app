@@ -1,0 +1,37 @@
+{
+    "policy_name": "VIRAL_TEASER_SHARE_POLICY_V1",
+    "version": "1.0",
+    "triggers": {
+        "primary": "FIRST_OPEN_OF_COMMAND_CENTER",
+        "cooldown_days": 7
+    },
+    "content_safety": {
+        "allowed": [
+            "LOGO",
+            "PRODUCT_NAME",
+            "OFFICIAL_SLOGAN",
+            "TEASER_COPY",
+            "WATERMARK"
+        ],
+        "prohibited": [
+            "TICKERS",
+            "PRICES",
+            "RETURNS",
+            "CHARTS",
+            "TOP_PICKS",
+            "FORECASTS"
+        ]
+    },
+    "watermark_logic": {
+        "modes": [
+            "FOUNDER",
+            "ELITE",
+            "PREVIEW"
+        ],
+        "default_slogan": "Market Sniper AI // Hidden Surface"
+    },
+    "interaction": {
+        "cta_label": "Share a teaser",
+        "banner_copy": "You just opened a hidden OS surface."
+    }
+}
