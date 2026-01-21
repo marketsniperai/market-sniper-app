@@ -1,9 +1,0 @@
-Analyzing 3 items...                                            
-
-warning - Unused import: '../domain/universe/core20_universe.dart' - lib\screens\on_demand_panel.dart:4:8 - unused_import
-warning - Unused import: '../logic/data_state_resolver.dart' - lib\screens\watchlist_screen.dart:8:8 - unused_import
-warning - Unused import: '../repositories/dashboard_repository.dart' - lib\screens\watchlist_screen.dart:10:8 - unused_import
-   info - Statements in an if should be enclosed in a block - lib\screens\watchlist_screen.dart:62:20 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\watchlist_screen.dart:63:24 - curly_braces_in_flow_control_structures
-warning - The declaration '_onTickerTap' isn't referenced - lib\screens\watchlist_screen.dart:109:8 - unused_element
-

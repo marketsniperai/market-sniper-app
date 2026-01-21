@@ -1,4 +1,0 @@
-Analyzing on_demand_panel.dart...                               
-
-  error - Undefined name 'status' - lib\screens\on_demand_panel.dart:150:17 - undefined_identifier
-

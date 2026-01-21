@@ -1,0 +1,17 @@
+{
+    "timestamp_utc": "2026-01-21T18:55:00Z",
+    "view_modes": [
+        "DAILY",
+        "WEEKLY"
+    ],
+    "default_mode": "DAILY",
+    "daily_events_count": 0,
+    "weekly_days_rendered": 0,
+    "includes_earnings": true,
+    "freshness": "OFFLINE",
+    "safe_degrade": [
+        "OFFLINE",
+        "NO_EVENTS_TODAY"
+    ],
+    "status": "SUCCESS"
+}

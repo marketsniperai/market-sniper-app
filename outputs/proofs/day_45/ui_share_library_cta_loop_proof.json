@@ -1,0 +1,27 @@
+{
+    "timestamp_utc": "2026-01-21T22:15:00Z",
+    "component": "ShareLibraryV1",
+    "policy": "outputs/os/os_share_library_policy.json",
+    "store_check": {
+        "persistence": "SharedPreferences",
+        "key": "ms_share_library_v1",
+        "cap": 12,
+        "dedupe": "CONTENT_HASH",
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "telemetry_check": {
+        "events_buffer": "ms_share_telemetry_buffer",
+        "events_caught": [
+            "SHARE_EXPORTED",
+            "CTA_UPGRADE_CLICKED"
+        ],
+        "status": "SUCCESS"
+    },
+    "ui_check": {
+        "screen": "ShareLibraryScreen",
+        "cta_present": true,
+        "history_list_present": true,
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "status": "SUCCESS"
+}

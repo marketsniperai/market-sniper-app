@@ -1,0 +1,14 @@
+{
+    "tabs": [
+        "HOME",
+        "WATCHLIST",
+        "NEWS",
+        "ON_DEMAND",
+        "CALENDAR"
+    ],
+    "persist_last_tab": true,
+    "storage_key": "ms_last_tab_index",
+    "default_tab_index": 0,
+    "intent_priority": true,
+    "founder_always_on": true
+}

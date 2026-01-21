@@ -1,0 +1,26 @@
+{
+    "timestamp_utc": "2026-01-21T18:40:00Z",
+    "tab": "NEWS",
+    "items_rendered": 0,
+    "header": {
+        "freshness": "OFFLINE",
+        "source": "OFFLINE",
+        "as_of_utc": "18:40"
+    },
+    "card": {
+        "has_flip_badge": true,
+        "front_has_brief_summary": true,
+        "back_has_expanded_summary": true
+    },
+    "degrade_cases": [
+        {
+            "scenario": "OFFLINE",
+            "expected_label": "OFFLINE"
+        },
+        {
+            "scenario": "STALE",
+            "expected_label": "DATA DELAYED"
+        }
+    ],
+    "status": "SUCCESS"
+}

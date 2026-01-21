@@ -1,4 +1,0 @@
-Analyzing on_demand_panel.dart...                               
-
-  error - The getter 'accentOrange' isn't defined for the type 'AppColors' - lib\screens\on_demand_panel.dart:458:58 - undefined_getter
-

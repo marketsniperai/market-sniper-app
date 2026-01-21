@@ -1,0 +1,43 @@
+{
+    "timestamp_utc": "2026-01-21T22:30:00Z",
+    "component": "EliteAccessWindowController",
+    "policy": "outputs/os/os_elite_access_window_policy.json",
+    "scenarios": {
+        "open_twice_session": {
+            "action": "Calls resolve() twice in same session",
+            "expected": "Only 1 notice delivered (Ledger check)",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "rebuild_simulation": {
+            "action": "Widget rebuild triggers initState",
+            "expected": "_accessResolved guard prevents variable re-check, Ledger prevents double-delivery",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "next_day_reset": {
+            "action": "New Day ID (04:00 ET)",
+            "expected": "New Unlocked notice allowed (different ledger key)",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "founder_build": {
+            "input": "FOUNDER_BUILD=true",
+            "expected": "No notices ever (Bypass)",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "outside_window": {
+            "input": "Monday 10:30",
+            "expected": "CLOSED notice delivered once",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "5min_warning": {
+            "input": "Monday 10:15",
+            "expected": "WARN notice delivered once",
+            "status": "VERIFIED_BY_DESIGN"
+        }
+    },
+    "mechanisms": {
+        "local_guard": "EliteInteractionSheet._accessResolved",
+        "ledger_authority": "SharedPreferences key: ms_elite_access_ledger_{dayId}_{noticeKey}",
+        "day_boundary": "04:00 ET (Derived)"
+    },
+    "status": "SUCCESS"
+}

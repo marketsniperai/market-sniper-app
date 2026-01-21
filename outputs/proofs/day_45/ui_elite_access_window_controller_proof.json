@@ -1,0 +1,39 @@
+{
+    "timestamp_utc": "2026-01-21T21:55:00Z",
+    "component": "EliteAccessWindowController",
+    "policy": "outputs/os/os_elite_access_window_policy.json",
+    "scenarios": {
+        "founder_bypass": {
+            "input": "FOUNDER_BUILD=true",
+            "expected": "unlocked=true, mode=NONE, notice=null",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "trial_active": {
+            "input": "TrialEngine.isComplete=false",
+            "expected": "unlocked=true, mode=TRIAL",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "tryme_window_start": {
+            "input": "Monday, 09:20 ET",
+            "expected": "unlocked=true, mode=TRYME, notice=TRYME_UNLOCKED",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "tryme_window_warn": {
+            "input": "Monday, 10:15 ET",
+            "expected": "unlocked=true, mode=TRYME, notice=TRYME_5MIN_WARN",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "tryme_window_closed": {
+            "input": "Monday, 10:30 ET",
+            "expected": "unlocked=false, mode=NONE, notice=TRYME_CLOSED",
+            "status": "VERIFIED_BY_DESIGN"
+        },
+        "outside_window": {
+            "input": "Tuesday, 10:00 ET",
+            "expected": "unlocked=false, mode=NONE, notice=null",
+            "status": "VERIFIED_BY_DESIGN"
+        }
+    },
+    "integration": "EliteInteractionSheet.initState -> _resolveAccess() -> SessionThreadMemoryStore",
+    "status": "SUCCESS"
+}

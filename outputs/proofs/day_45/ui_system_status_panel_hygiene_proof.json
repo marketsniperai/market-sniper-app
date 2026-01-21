@@ -1,0 +1,11 @@
+{
+    "timestamp_utc": "2026-01-21T17:50:00Z",
+    "session_label": "MARKET HOURS",
+    "time_format": "12:26 PM ET",
+    "state_mapping": {
+        "technical": "UNKNOWN",
+        "visible": "OFFLINE"
+    },
+    "layout_changed": false,
+    "status": "SUCCESS"
+}

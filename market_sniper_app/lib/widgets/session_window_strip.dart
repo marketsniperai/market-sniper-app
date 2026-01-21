@@ -76,20 +76,45 @@ class _SessionWindowStripState extends State<SessionWindowStrip> {
 
   @override
   Widget build(BuildContext context) {
-    // Formatting: Bestia style (Uppercase, condensed)
+    // Formatting: Institutional (hh:mm a ET)
     final dateFormat = DateFormat('EEE MM/dd/yyyy'); 
-    final timeFormat = DateFormat('HH:mm:ss'); // Seconds for "live" feel, or just HH:mm? Prompt said HH:mm earlier but "live clock tick". Let's stick to HH:mm for clean look or HH:mm:ss for "Sniper" feel. Prompt example "14:07". Stick to HH:mm for cleaner UI unless user asked for seconds. User asked for "Live Time". 14:07 is fine.
-    
-    // Actually, let's do HH:mm to match spec "14:07 ET".
-    // But update every second to ensure the minute flip is precise.
+    final timeFormat = DateFormat('hh:mm a'); // 12:26 PM
     
     final dateStr = dateFormat.format(_currentTimeEt).toUpperCase();
     final timeStr = timeFormat.format(_currentTimeEt);
-    final sessionStr = _currentSession.name.toUpperCase();
+
+    // D45.01 Copy Hygiene
+    String sessionLabel;
+    switch (_currentSession) {
+      case SessionState.pre: sessionLabel = "PREMARKET"; break;
+      case SessionState.market: sessionLabel = "MARKET HOURS"; break;
+      case SessionState.after: sessionLabel = "AFTER HOURS"; break;
+      case SessionState.closed: sessionLabel = "MARKET CLOSED"; break;
+    }
     
     // Status Chip Logic
-    final statusColor = _freshnessColor;
-    final statusLabel = widget.dataState.state.name.toUpperCase();
+    Color statusColor = AppColors.textDisabled; // Default offline
+    String statusLabel = "OFFLINE"; // Default offline
+
+    switch (widget.dataState.state) {
+       case DataState.live:
+          statusColor = AppColors.stateLive;
+          statusLabel = "LIVE";
+          break;
+       case DataState.stale:
+          statusColor = AppColors.stateStale;
+          statusLabel = "DATA DELAYED";
+          break;
+       case DataState.locked:
+          statusColor = AppColors.stateLocked;
+          statusLabel = "LOCKED";
+          break;
+       case DataState.unknown:
+       default:
+          statusColor = AppColors.textDisabled;
+          statusLabel = "OFFLINE";
+          break;
+    }
 
     return Container(
       height: 42, // Tighter height (Bestia)
@@ -110,22 +135,12 @@ class _SessionWindowStripState extends State<SessionWindowStrip> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // LEFT: Session Indicator
+          // LEFT: Session Indicator (No Label)
           Expanded(
             flex: 3,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                 Text(
-                  "SESSION", 
-                  style: GoogleFonts.inter(
-                    color: AppColors.textDisabled, 
-                    fontSize: 9, 
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.5,
-                  ),
-                ),
-                const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
@@ -134,7 +149,7 @@ class _SessionWindowStripState extends State<SessionWindowStrip> {
                     border: Border.all(color: _sessionColor.withValues(alpha: 0.3), width: 0.5),
                   ),
                   child: Text(
-                    sessionStr,
+                    sessionLabel,
                     style: GoogleFonts.inter(
                       color: _sessionColor,
                       fontSize: 10,

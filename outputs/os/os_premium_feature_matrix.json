@@ -1,0 +1,127 @@
+{
+    "tiers": [
+        "GUEST",
+        "PLUS",
+        "ELITE",
+        "FOUNDER"
+    ],
+    "rows": [
+        {
+            "key": "trial_progress",
+            "label": "Trial (Market Opens)",
+            "detail": "Full OS access for 3 market opens",
+            "availability": {
+                "GUEST": "INCLUDED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            },
+            "dynamic_value": "trial_opens_progress"
+        },
+        {
+            "key": "watchlist",
+            "label": "Watchlist",
+            "detail": "Follow tickers + quick actions",
+            "availability": {
+                "GUEST": "INCLUDED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        },
+        {
+            "key": "on_demand",
+            "label": "On-Demand Lookup",
+            "detail": "Global context lookup (Source Ladder)",
+            "availability": {
+                "GUEST": "LOCKED",
+                "PLUS": "LIMITED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            },
+            "limits": {
+                "PLUS": "10/day"
+            }
+        },
+        {
+            "key": "elite_overlay",
+            "label": "Elite Overlay",
+            "detail": "Mentor surface + explain protocols",
+            "availability": {
+                "GUEST": "LOCKED",
+                "PLUS": "LIMITED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        },
+        {
+            "key": "explain",
+            "label": "Explain (Context)",
+            "detail": "Explain from OS snapshot / on-demand result",
+            "availability": {
+                "GUEST": "LOCKED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        },
+        {
+            "key": "news_digest",
+            "label": "News Digest",
+            "detail": "Top 8 impact digest + flip expand",
+            "availability": {
+                "GUEST": "INCLUDED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        },
+        {
+            "key": "economic_calendar",
+            "label": "Economic Calendar",
+            "detail": "Daily/Weekly macro + earnings impact",
+            "availability": {
+                "GUEST": "INCLUDED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        },
+        {
+            "key": "try_me_hour",
+            "label": "Try-Me Hour",
+            "detail": "Mon 09:20–10:20 ET access window",
+            "availability": {
+                "GUEST": "INCLUDED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        },
+        {
+            "key": "command_center",
+            "label": "Command Center",
+            "detail": "Hidden OS surface (context mysteries)",
+            "availability": {
+                "GUEST": "LOCKED",
+                "PLUS": "PROGRESS",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            },
+            "limits": {
+                "PLUS": "Unlock at Day 5 (no reset)"
+            }
+        },
+        {
+            "key": "history_memory",
+            "label": "History & Memory",
+            "detail": "Recent context + session memory",
+            "availability": {
+                "GUEST": "LOCKED",
+                "PLUS": "INCLUDED",
+                "ELITE": "INCLUDED",
+                "FOUNDER": "INCLUDED"
+            }
+        }
+    ]
+}

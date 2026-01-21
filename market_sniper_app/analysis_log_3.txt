@@ -1,9 +1,0 @@
-Analyzing on_demand_panel.dart...                               
-
-  error - Undefined name 'ts' - lib\screens\on_demand_panel.dart:142:40 - undefined_identifier
-  error - Undefined name 'status' - lib\screens\on_demand_panel.dart:143:17 - undefined_identifier
-  error - Undefined name 'freshness' - lib\screens\on_demand_panel.dart:143:51 - undefined_identifier
-  error - Undefined name 'source' - lib\screens\on_demand_panel.dart:146:21 - undefined_identifier
-  error - Undefined name 'globalRisk' - lib\screens\on_demand_panel.dart:147:25 - undefined_identifier
-  error - Undefined name 'regime' - lib\screens\on_demand_panel.dart:148:21 - undefined_identifier
-

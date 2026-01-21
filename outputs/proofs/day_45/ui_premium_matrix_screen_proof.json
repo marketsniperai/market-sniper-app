@@ -1,0 +1,16 @@
+{
+    "timestamp_utc": "2026-01-21T19:50:00Z",
+    "menu_entry": "Premium",
+    "screen": "PremiumScreen",
+    "rows_count": 10,
+    "includes_trial_row": true,
+    "trial_value_example": "0/3",
+    "tiers": [
+        "GUEST",
+        "PLUS",
+        "ELITE",
+        "FOUNDER"
+    ],
+    "founder_always_on": true,
+    "status": "SUCCESS"
+}

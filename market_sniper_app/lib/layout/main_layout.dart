@@ -11,6 +11,11 @@ import '../config/app_config.dart';
 import '../widgets/elite_interaction_sheet.dart';
 import '../logic/elite_messages.dart';
 import '../logic/navigation_bus.dart'; // D44.02B Integration
+import '../logic/tab_state_store.dart'; // D45.02 Persistence
+import '../screens/news_screen.dart'; // D45.03 News Tab
+import '../screens/calendar_screen.dart'; // D45.04 Calendar Tab
+import '../screens/premium_screen.dart'; // D45.05 Premium Screen
+import '../logic/trial_engine.dart'; // D45.06 Trial Engine
 import 'dart:async'; // StreamSubscription
 
 class MainLayout extends StatefulWidget {
@@ -28,13 +33,35 @@ class _MainLayoutState extends State<MainLayout> {
   DateTime? _lastTapTime;
   DateTime? _cooldownUntil;
   StreamSubscription<NavigationEvent>? _navSubscription;
+  final _tabStore = TabStateStore();
 
   @override
   void initState() {
     super.initState();
+    _restoreLastTab(); // D45.02 Restore State
+    
+    // D45.06 Trial Engine Check
+    TrialEngine.checkAndIncrement(); // Fire and forget (it is async/safe)
+    
+    // D44.02B / D45.02 Intent Priority: Intent wins over restore if simultaneous (by nature of Stream)
+    // Also persist intent-driven changes.
     _navSubscription = NavigationBus().events.listen((event) {
-      if (mounted) setState(() => _currentIndex = event.tabIndex);
+      if (mounted) {
+        setState(() => _currentIndex = event.tabIndex);
+        _tabStore.saveLastTabIndex(event.tabIndex);
+      }
     });
+  }
+
+  Future<void> _restoreLastTab() async {
+    final lastIndex = await _tabStore.loadLastTabIndex();
+    if (mounted) {
+       // Only restore if we haven't already moved (e.g. by fast intent)
+       // But practically, on cold boot, this runs first.
+       setState(() {
+         _currentIndex = lastIndex;
+       });
+    }
   }
 
   @override
@@ -76,19 +103,20 @@ class _MainLayoutState extends State<MainLayout> {
     const WatchlistScreen(),
     
     // Index 2: News
-    const Center(child: Text("News (Coming Soon)")),
+    const NewsScreen(),
     
     // Index 3: OnDemand
     const OnDemandPanel(),
     
     // Index 4: Calendar
-    const Center(child: Text("Calendar (Coming Soon)")),
+    const CalendarScreen(),
   ];
 
   void _onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
     });
+    _tabStore.saveLastTabIndex(index);
   }
 
   void _showEliteOverlay({String? explainKey, Map<String, dynamic>? payload, bool resetToWelcome = false}) {
@@ -116,6 +144,38 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgPrimary,
+      // D45.05 Premium Menu
+      drawer: Drawer(
+        backgroundColor: AppColors.surface1,
+        child: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  color: AppColors.surface1,
+                  border: Border(bottom: BorderSide(color: AppColors.borderSubtle)),
+                ),
+                child: Center(
+                  child: Text(
+                    "MARKET SNIPER", 
+                    style: AppTypography.title(context).copyWith(letterSpacing: 2.0),
+                  ),
+                ),
+              ),
+              ListTile(
+                 leading: const Icon(Icons.stars, color: AppColors.accentCyan),
+                 title: Text("Premium Protocol", style: AppTypography.label(context)),
+                 onTap: () {
+                   Navigator.pop(context); // Close drawer
+                   Navigator.push(context, MaterialPageRoute(builder: (_) => const PremiumScreen()));
+                 },
+              ),
+              // Add other placeholders if needed or keep clean
+            ],
+          ),
+        ),
+      ),
       body: NotificationListener<EliteExplainNotification>(
         onNotification: (notification) {
           _showEliteOverlay(explainKey: notification.explainKey, payload: notification.payload);
@@ -136,7 +196,15 @@ class _MainLayoutState extends State<MainLayout> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Icon(Icons.menu, color: AppColors.textPrimary), // Menu Placeholder
+                             // Replace Placeholder with Real Menu Trigger (opens Scaffold Drawer)
+                             Builder(
+                               builder: (context) => IconButton(
+                                 icon: const Icon(Icons.menu, color: AppColors.textPrimary),
+                                 onPressed: () => Scaffold.of(context).openDrawer(),
+                                 padding: EdgeInsets.zero,
+                                 constraints: const BoxConstraints(),
+                               ),
+                             ),
                             GestureDetector(
                                 onTap: _onTitleTap,
                                 child: Text(

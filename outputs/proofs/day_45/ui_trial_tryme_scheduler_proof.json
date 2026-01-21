@@ -1,0 +1,27 @@
+{
+    "timestamp_utc": "2026-01-21T20:15:00Z",
+    "policy": "outputs/os/os_trial_tryme_policy.json",
+    "cases": [
+        {
+            "name": "weekend_install_then_monday_open_counts",
+            "expected": "count_increments_on_first_weekday_market_hours",
+            "status": "PASS"
+        },
+        {
+            "name": "counts_once_per_market_day",
+            "expected": "no_double_count_same_day",
+            "status": "PASS"
+        },
+        {
+            "name": "trial_completes_at_3",
+            "expected": "status_complete",
+            "status": "PASS"
+        },
+        {
+            "name": "try_me_only_post_trial_guest_monday_window",
+            "expected": "eligible_only_in_window",
+            "status": "PASS"
+        }
+    ],
+    "status": "SUCCESS"
+}

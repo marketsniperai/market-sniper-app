@@ -1,0 +1,19 @@
+{
+    "policy_name": "ELITE_ACCESS_WINDOW_POLICY_D45_07",
+    "version": "1.0",
+    "rules": {
+        "founder_always_unlocked": true,
+        "trial_logic": "3_MARKET_OPENS_UNLOCKS_FULL",
+        "tryme_window": {
+            "day": "Monday",
+            "start_time_et": "09:20",
+            "end_time_et": "10:20"
+        }
+    },
+    "notices": {
+        "TRYME_UNLOCKED": "Try-Me Hour active. Elite FULL access temporarily unlocked.",
+        "TRYME_5MIN_WARN": "5 minutes remaining in Try-Me Hour.",
+        "TRYME_CLOSED": "Try-Me Hour has ended. Elite access reverted.",
+        "TRIAL_ACTIVE": "Trial Active. Elite FULL access granted for this session."
+    }
+}

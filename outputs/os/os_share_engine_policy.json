@@ -1,0 +1,40 @@
+{
+    "policy_name": "SHARE_ENGINE_POLICY_V1",
+    "version": "1.0",
+    "modes": {
+        "PREVIEW": {
+            "watermark_text": "Institutional Power... In Your Pocket.",
+            "tier_label": "PREVIEW",
+            "resolution": "1080x1350"
+        },
+        "ELITE": {
+            "watermark_text": "Institutional Power... In Your Pocket.",
+            "tier_label": "ELITE INTELLIGENCE",
+            "resolution": "1080x1920"
+        },
+        "FOUNDER": {
+            "watermark_text": "Institutional Power... In Your Pocket.",
+            "tier_label": "FOUNDER",
+            "resolution": "1080x1920"
+        }
+    },
+    "content_safety": {
+        "prohibited": [
+            "TARGETS",
+            "PREDICTIONS",
+            "RETURNS",
+            "BUY_SELL_ADHOC"
+        ],
+        "allowed_context": [
+            "STATE",
+            "RISK",
+            "LEVELS",
+            "TIMING"
+        ]
+    },
+    "export_rules": {
+        "format": "PNG",
+        "filename_pattern": "msr_share_{timestamp}.png",
+        "cooldown_seconds": 5
+    }
+}

@@ -11,6 +11,7 @@ import '../logic/session_thread_memory_store.dart';
 import '../logic/ritual_scheduler.dart';
 import '../logic/elite_contextual_recall_engine.dart'; // D43.13
 import 'canonical_scroll_container.dart';
+import '../logic/elite_access_window_controller.dart'; // D45.07
 
 enum EliteTier { free, plus, elite }
 
@@ -33,7 +34,7 @@ class EliteInteractionSheet extends StatefulWidget {
 }
 
 class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
-  final EliteTier _tier = EliteTier.elite; // Fixed: Made final
+  EliteTier _tier = EliteTier.free; // Default safe, updated in initState
   String _statusText = "CHECKING...";
   Color _statusColor = AppColors.textDisabled;
   String? _pendingExplainKey;
@@ -55,10 +56,16 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
   EliteContextualRecallSnapshot? _recallSnapshot;
   // D43.05: AGMS Recall
   Map<String, dynamic>? _agmsRecall;
+  
+  // D45.H1: Idempotency Guard
+  bool _accessResolved = false;
 
   @override
   void initState() {
     super.initState();
+    // D45.07: Resolve Elite Access (Idempotent Guard)
+    if (!_accessResolved) _resolveAccess();
+
     // D43.X2: Reset Logic Priority
     if (widget.resetToWelcome) {
        _isFirstInteraction = true;
@@ -73,6 +80,31 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     if (_pendingExplainKey == null) _fetchStatus(); // Only fetch default status if not explaining
     if (_isFirstInteraction) _fetchFirstInteractionScript();
     _initMemory();
+  }
+
+  Future<void> _resolveAccess() async {
+    _accessResolved = true;
+    final access = await EliteAccessWindowController.resolve();
+    
+    setState(() {
+       // Map Access to Tier
+       if (access.isUnlocked) {
+         _tier = EliteTier.elite;
+       } else {
+         // Fallback to base tier (simplified for now to Free/Guest as we don't have Plus in Enums yet or logic is outside)
+         // Assuming Free for now if locked. 
+         // Real app would check PremiumStatusResolver.currentTier mapping.
+         _tier = EliteTier.free; 
+       }
+    });
+
+    // Handle Notice
+    if (access.systemNotice != null) {
+       // Inject into thread
+       await SessionThreadMemoryStore().init(); // Ensure init
+       await SessionThreadMemoryStore().append("ELITE", access.systemNotice!); // System as Elite
+       _refreshMemoryView();
+    }
   }
 
   Future<void> _initMemory() async {
@@ -978,10 +1010,9 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
           case "LIVE": statusColor = AppColors.accentCyan; break;
           case "STALE": statusColor = AppColors.textSecondary; break; 
           // AppColors.accentGold exists? If not, use standard yellow/orange. 
-          // Let's stick to strict AppColors. If accentGold missing, use accentCyan with opacity or similar.
-          // Actually, let's just use textSecondary for stale/locked to be safe if no Warning color.
-          // Or use AppColors.accentCyan for LIVE and textDisabled for others.
           // Wait, requirement: "MUST use AppColors/AppTypography only".
+      }
+
       // If Live, use Cyan. Else Grey.
       if (status == "LIVE") statusColor = AppColors.accentCyan;
       

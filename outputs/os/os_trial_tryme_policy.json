@@ -1,0 +1,17 @@
+{
+    "trial_market_opens": 3,
+    "trial_count_rule": "APP_OPEN_DURING_MARKET_HOURS",
+    "timezone": "America/New_York",
+    "day_boundary_et_hour": 4,
+    "market_hours_et": {
+        "open": "09:30",
+        "close": "16:00"
+    },
+    "try_me_hour": {
+        "day": "MONDAY",
+        "start": "09:20",
+        "end": "10:20"
+    },
+    "guest_try_me_starts_after_trial": true,
+    "founder_always_on": true
+}

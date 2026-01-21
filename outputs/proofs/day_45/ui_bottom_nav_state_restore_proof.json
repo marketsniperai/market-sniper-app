@@ -1,0 +1,26 @@
+{
+    "timestamp_utc": "2026-01-21T18:10:00Z",
+    "policy": "outputs/os/os_bottom_nav_policy.json",
+    "cases": [
+        {
+            "name": "restore_last_tab",
+            "saved_index": 3,
+            "restored_index": 3,
+            "status": "PASS"
+        },
+        {
+            "name": "intent_overrides_restore",
+            "saved_index": 1,
+            "intent": "ON_DEMAND",
+            "final_index": 3,
+            "status": "PASS"
+        },
+        {
+            "name": "out_of_range_defaults",
+            "saved_index": 99,
+            "restored_index": 0,
+            "status": "PASS"
+        }
+    ],
+    "status": "SUCCESS"
+}

@@ -41,3 +41,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Debug Noise
+analysis*.txt
+analyze_output*.txt
+build_log.txt
+status_check.txt
+analysis_build.txt

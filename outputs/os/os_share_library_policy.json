@@ -1,0 +1,23 @@
+{
+    "policy_name": "SHARE_LIBRARY_POLICY_V1",
+    "version": "1.0",
+    "storage": {
+        "max_items": 12,
+        "dedupe_strategy": "CONTENT_HASH",
+        "day_boundary_et": "04:00"
+    },
+    "captions": {
+        "INSTITUTIONAL": "MarketSniper AI: Institutional Context Snapshot.",
+        "MINIMAL": "Context Check.",
+        "HUMAN": "Just checking the levels here. Interesting structure.",
+        "TEASER": "Market state update from the engine."
+    },
+    "telemetry": {
+        "events": [
+            "SHARE_EXPORTED",
+            "CTA_PREMIUM_OPENED",
+            "CTA_UPGRADE_CLICKED"
+        ],
+        "ledger_path": "outputs/os/os_share_cta_ledger.jsonl"
+    }
+}
