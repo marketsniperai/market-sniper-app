@@ -1,0 +1,31 @@
+{
+    "timestamp_utc": "2026-01-21T23:15:00Z",
+    "component": "ShareAttributionDashboard",
+    "policy": "outputs/os/os_share_attribution_dashboard_policy.json",
+    "access_control": {
+        "role": "FOUNDER_ONLY",
+        "mechanism": "AppConfig.isFounderBuild (Drawer Entry)",
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "metrics_engine": {
+        "aggregator": "ShareAttributionAggregator",
+        "source": "SharedPreferences (ms_share_telemetry_buffer)",
+        "day_boundary": "04:00 ET Local Approx",
+        "kpis": [
+            "shares24h",
+            "clicks24h",
+            "clickRate7d"
+        ],
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "ui_state": {
+        "screen_loaded": true,
+        "simulated_state": "LIVE",
+        "features": [
+            "KPI Grid",
+            "Daily Table (14D)",
+            "Surface Table (7D)"
+        ],
+        "status": "SUCCESS"
+    }
+}

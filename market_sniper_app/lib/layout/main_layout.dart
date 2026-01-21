@@ -17,6 +17,8 @@ import '../screens/calendar_screen.dart'; // D45.04 Calendar Tab
 import '../screens/premium_screen.dart'; // D45.05 Premium Screen
 import '../logic/trial_engine.dart'; // D45.06 Trial Engine
 import 'dart:async'; // StreamSubscription
+import '../screens/share_attribution_dashboard_screen.dart' as import_target;
+
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -171,6 +173,15 @@ class _MainLayoutState extends State<MainLayout> {
                    Navigator.push(context, MaterialPageRoute(builder: (_) => const PremiumScreen()));
                  },
               ),
+              if (AppConfig.isFounderBuild)
+                 ListTile(
+                   leading: const Icon(Icons.analytics, color: AppColors.accentRed),
+                   title: Text("Share Attribution (Founder)", style: AppTypography.label(context)),
+                   onTap: () {
+                     Navigator.pop(context);
+                     Navigator.push(context, MaterialPageRoute(builder: (_) => const import_target.ShareAttributionDashboardScreen()));
+                   },
+                 ),
               // Add other placeholders if needed or keep clean
             ],
           ),

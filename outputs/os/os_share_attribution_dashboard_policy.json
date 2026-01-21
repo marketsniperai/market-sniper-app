@@ -1,0 +1,33 @@
+{
+    "policy_name": "SHARE_ATTRIBUTION_DASHBOARD_POLICY_V1",
+    "version": "1.0",
+    "access": {
+        "role": "FOUNDER_ONLY",
+        "mechanism": "AppConfig.isFounderBuild check"
+    },
+    "metrics": {
+        "kpis": [
+            "shares_exported_24h",
+            "shares_exported_7d",
+            "cta_upgrade_clicked_24h",
+            "cta_upgrade_clicked_7d",
+            "cta_click_rate_7d"
+        ],
+        "segmentation": [
+            "surface",
+            "tier",
+            "day_id"
+        ]
+    },
+    "bounds": {
+        "max_days": 14,
+        "max_events_read": 2000,
+        "max_rows_per_table": 20,
+        "day_boundary_et": "04:00"
+    },
+    "safe_states": [
+        "OFFLINE",
+        "NO_DATA",
+        "PARTIAL"
+    ]
+}

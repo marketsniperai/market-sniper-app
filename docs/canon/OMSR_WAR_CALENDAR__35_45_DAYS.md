@@ -463,9 +463,12 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_45_08_SHARE_ENGINE_V1.md`](../../outputs/seals/SEAL_DAY_45_08_SHARE_ENGINE_V1.md)
   - [x] D45.09 — Share Library + CTA Loop surfaces (history, captions, telemetry)
     - ↳ Seal: [`SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md`](../../outputs/seals/SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md)
-  - [ ] D45.10 — Share Prompt Loop (post-share booster sheet + CTA clicks tracked)
-  - [ ] D45.11 — Share-to-Install loop scaffold (deterministic URLs + install banner + tracking)
-  - [ ] D45.12 — Share Attribution Dashboard (Founder-only Growth Bloomberg) surface (KPIs/heatmap/tier breakdown)
+  - [x] D45.10 — Share Prompt Loop (post-share booster sheet + CTA clicks tracked)
+    - ↳ Seal: [`SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md`](../../outputs/seals/SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md)
+  - [x] D45.11 — Share-to-Install loop scaffold (deterministic URLs + install banner + tracking)
+    - ↳ Seal: [`SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md`](../../outputs/seals/SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md)
+  - [x] D45.12 — Share Attribution Dashboard (Founder-only Growth Bloomberg) surface (KPIs/heatmap/tier breakdown)
+    - ↳ Seal: [`SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md`](../../outputs/seals/SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md)
   - [ ] D45.13 — Command Center Secret Surface (Elite-only)
     - Access ritual: “Tap 4× to open Command Center” bubble pointing to top bar logo/title.
     - Separation rule: War Room = Founder-only (ops/control). Command Center = Elite-only (market mysteries, reading-only).
