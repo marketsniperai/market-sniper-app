@@ -1,0 +1,14 @@
+{
+    "timestamp_utc": "2026-01-22T04:30:00Z",
+    "feature": "API Base URL Release Guard",
+    "ssot_defined_in": "lib/config/app_config.dart",
+    "canonical_prod_url": "https://marketsniper-api-3ygzdvszba-uc.a.run.app",
+    "logic": {
+        "release_mode": "ALWAYS uses canonical_prod_url (ignores env vars)",
+        "debug_mode": "Uses env var API_BASE_URL or defaults to localhost 10.0.2.2"
+    },
+    "ui_verification": {
+        "widget": "SessionWindowStrip",
+        "founder_only_label": "API: PROD (if run.app match) or API: LOCAL"
+    }
+}

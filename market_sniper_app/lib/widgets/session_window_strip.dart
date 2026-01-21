@@ -7,6 +7,7 @@ import '../logic/data_state_resolver.dart';
 import '../utils/time_utils.dart';
 import '../models/system_health_snapshot.dart'; // D45.18
 import 'provider_status_indicator.dart'; // D45.18
+import '../config/app_config.dart'; // Founder Check
 
 class SessionWindowStrip extends StatefulWidget {
   final ResolvedDataState dataState;
@@ -190,6 +191,22 @@ class _SessionWindowStripState extends State<SessionWindowStrip> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                 // D45.H2 Founder API Mode Label
+                 if (AppConfig.isFounderBuild) ...[
+                    Container(
+                      margin: const EdgeInsets.only(right: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: AppColors.stateLive.withValues(alpha: 0.5)),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        AppConfig.apiBaseUrl.contains('run.app') ? "API: PROD" : "API: LOCAL",
+                        style: GoogleFonts.robotoMono(fontSize: 9, color: AppColors.stateLive, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                 ],
+
                  Text(
                   "$timeStr ET",
                   style: GoogleFonts.robotoMono( // Code/tabular feel for time

@@ -1,0 +1,15 @@
+{
+    "timestamp_utc": "2026-01-22T04:30:00Z",
+    "feature": "Founder Ritual Tap Reliability",
+    "widget": "MainLayout",
+    "hitbox_behavior": "HitTestBehavior.opaque",
+    "telemetry": {
+        "log_tap": "FOUNDER_RITUAL_TAP count=X",
+        "log_trigger": "FOUNDER_RITUAL_TRIGGERED taps=X"
+    },
+    "logic": {
+        "network_dependency": "NONE (Purely local logic)",
+        "threshold": "4 or 5 taps (Founder)",
+        "feedback": "Immediate Sheet Open"
+    }
+}

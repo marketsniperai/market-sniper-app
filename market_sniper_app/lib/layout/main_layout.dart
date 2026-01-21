@@ -96,8 +96,11 @@ class _MainLayoutState extends State<MainLayout> {
     
     // D45 Founder Router Selector Logic
     if (AppConfig.isFounderBuild) {
+       debugPrint("FOUNDER_RITUAL_TAP count=$_ccTapCount");
+       
        // Founder: 4 or 5 taps opens the Selector
        if (_ccTapCount >= 4 && !_isFounderSheetOpen) {
+          debugPrint("FOUNDER_RITUAL_TRIGGERED taps=$_ccTapCount");
           _ccTapCount = 0; // Reset
           _isFounderSheetOpen = true;
           
