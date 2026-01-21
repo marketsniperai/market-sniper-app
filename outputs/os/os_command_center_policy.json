@@ -1,0 +1,26 @@
+{
+    "policy_name": "COMMAND_CENTER_POLICY_V1",
+    "version": "1.0",
+    "access_control": {
+        "role": "ELITE_ONLY",
+        "ritual": "TAP_LOGO_4X_WITHIN_4S",
+        "preview_mode": {
+            "plus": "BLURRED_PREVIEW",
+            "free": "HIDDEN",
+            "founder": "FULL_ACCESS_LABELED"
+        }
+    },
+    "content_governance": {
+        "source": "LOCAL_ARTIFACTS_ONLY",
+        "prohibited_terms": [
+            "top picks",
+            "buy",
+            "sell",
+            "target",
+            "guaranteed"
+        ],
+        "max_cards": 8,
+        "max_bullets_per_card": 3,
+        "max_chars_per_bullet": 160
+    }
+}

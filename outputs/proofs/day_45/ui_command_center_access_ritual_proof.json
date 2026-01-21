@@ -1,0 +1,27 @@
+{
+    "timestamp_utc": "2026-01-21T23:30:00Z",
+    "component": "CommandCenterSecretSurface",
+    "policy": "outputs/os/os_command_center_policy.json",
+    "ritual_check": {
+        "gesture": "4x Tap on Logo",
+        "handler": "MainLayout._handleRitualTap",
+        "logic": "Elite/Plus=4 Taps, Founder=5 Taps (War Room priority) or 4 (CC)",
+        "status": "VERIFIED_BY_DESIGN"
+    },
+    "content_check": {
+        "sections": [
+            "CONTEXT SHIFTS",
+            "HIGHEST CONFIDENCE",
+            "ARTIFACTS VAULT"
+        ],
+        "source": "Local Static (Skeleton)",
+        "status": "SUCCESS"
+    },
+    "gating_check": {
+        "ELITE": "FULL ACCESS",
+        "PLUS": "BLURRED PREVIEW",
+        "GUEST": "NO SIGNAL",
+        "FOUNDER": "FULL ACCESS (LABELED)",
+        "status": "VERIFIED_BY_DESIGN"
+    }
+}

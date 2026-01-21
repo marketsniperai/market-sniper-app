@@ -469,9 +469,10 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md`](../../outputs/seals/SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md)
   - [x] D45.12 — Share Attribution Dashboard (Founder-only Growth Bloomberg) surface (KPIs/heatmap/tier breakdown)
     - ↳ Seal: [`SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md`](../../outputs/seals/SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md)
-  - [ ] D45.13 — Command Center Secret Surface (Elite-only)
+  - [x] D45.13 — Command Center Secret Surface (Elite-only)
     - Access ritual: “Tap 4× to open Command Center” bubble pointing to top bar logo/title.
     - Separation rule: War Room = Founder-only (ops/control). Command Center = Elite-only (market mysteries, reading-only).
+    - ↳ Seal: [`SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md`](../../outputs/seals/SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md)
     - Zero buttons, zero targets, zero “top picks” language.
   - [ ] D45.14 — 5-Day Unlock (Plus) + Immediate Unlock (Elite) + No-reset Progress
     - Free: no Command Center.
