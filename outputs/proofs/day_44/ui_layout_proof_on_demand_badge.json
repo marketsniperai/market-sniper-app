@@ -1,0 +1,61 @@
+{
+    "timestamp_utc": "2026-01-21T16:35:00Z",
+    "device_scenarios": [
+        {
+            "name": "w320_font1.0",
+            "width": 320,
+            "font_scale": 1.0
+        },
+        {
+            "name": "w360_font1.0",
+            "width": 360,
+            "font_scale": 1.0
+        },
+        {
+            "name": "w320_font1.5",
+            "width": 320,
+            "font_scale": 1.5
+        }
+    ],
+    "badge_scenarios": [
+        {
+            "name": "baseline_2",
+            "count": 2,
+            "labels": [
+                "LIVE",
+                "CACHE"
+            ]
+        },
+        {
+            "name": "stress_5_long",
+            "count": 5,
+            "labels": [
+                "PROXY_ESTIMATED",
+                "PROVIDER_DENIED",
+                "COVERAGE_SAMPLE",
+                "STALE",
+                "USAGE_9_10"
+            ]
+        },
+        {
+            "name": "stress_7_mix",
+            "count": 7,
+            "labels": [
+                "LIVE",
+                "CACHE",
+                "PROXY",
+                "DENIED",
+                "SAMPLE",
+                "STALE",
+                "USAGE"
+            ]
+        }
+    ],
+    "checks": {
+        "no_overflow_errors": true,
+        "no_clipping": true,
+        "max_height_dp": 96
+    },
+    "structural_fix": "Refactored Row into Wrap in BadgeStripWidget",
+    "status": "PASS"
+}

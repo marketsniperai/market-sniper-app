@@ -1,0 +1,35 @@
+{
+    "timestamp_utc": "2026-01-21T17:00:00Z",
+    "cases": [
+        {
+            "name": "live_pipeline",
+            "status": "LIVE",
+            "source": "PIPELINE",
+            "as_of_present": true,
+            "badges_count": 3
+        },
+        {
+            "name": "stale_cache",
+            "status": "STALE",
+            "source": "CACHE",
+            "as_of_present": true,
+            "badges_count": 4
+        },
+        {
+            "name": "unavailable",
+            "status": "UNAVAILABLE",
+            "source": "OFFLINE",
+            "as_of_present": false,
+            "badges_count": 0
+        }
+    ],
+    "verified_components": [
+        "EnvelopePreviewHeader",
+        "OnDemandPanel._buildResultContainer"
+    ],
+    "layout_checks": {
+        "no_overflow": true,
+        "no_clipping": true
+    },
+    "status": "SUCCESS"
+}

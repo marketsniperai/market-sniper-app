@@ -1,0 +1,23 @@
+{
+    "timestamp_utc": "2026-01-21T16:50:00Z",
+    "examples": [
+        {
+            "ticker": "SPY",
+            "state": "LIVE"
+        },
+        {
+            "ticker": "QQQ",
+            "state": "STALE"
+        },
+        {
+            "ticker": "XYZ",
+            "state": "LOCKED"
+        }
+    ],
+    "verified_components": [
+        "WatchlistStateResolver",
+        "WatchlistScreen._refreshGlobalState",
+        "StateChip"
+    ],
+    "status": "SUCCESS"
+}

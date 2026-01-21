@@ -1,0 +1,25 @@
+{
+    "timestamp_utc": "2026-01-21T12:00:00",
+    "feature": "On-Demand History (Last 5)",
+    "store_bound": 5,
+    "dedupe": true,
+    "reset_cond": "04:00 ET",
+    "history_items": [
+        {
+            "ticker": "BTC-USD",
+            "last_used_utc": "2026-01-21T11:59:00Z"
+        },
+        {
+            "ticker": "AAPL",
+            "last_used_utc": "2026-01-21T11:58:00Z"
+        }
+    ],
+    "verified_actions": [
+        "STORE_INIT",
+        "RECORD_SUCCESS",
+        "DEDUPE_CHECK",
+        "CAP_CHECK_5",
+        "RESET_LOGIC_CHECK"
+    ],
+    "result": "SUCCESS"
+}

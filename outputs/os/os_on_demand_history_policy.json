@@ -1,0 +1,7 @@
+{
+    "max_items": 5,
+    "dedupe": true,
+    "persist": true,
+    "reset_time_et": "04:00",
+    "founder_bypass": true
+}

@@ -1,0 +1,68 @@
+{
+    "spec_name": "ON_DEMAND_STANDARD_ENVELOPE",
+    "version": "1.0.0",
+    "fields": {
+        "status": {
+            "type": "ENUM",
+            "values": [
+                "LIVE",
+                "STALE",
+                "LOCKED",
+                "UNAVAILABLE",
+                "ERROR"
+            ]
+        },
+        "as_of_utc": {
+            "type": "ISO8601_STRING"
+        },
+        "source": {
+            "type": "ENUM",
+            "values": [
+                "PIPELINE",
+                "CACHE",
+                "OFFLINE"
+            ]
+        },
+        "confidence_badges": {
+            "type": "LIST<ENUM>",
+            "values": [
+                "COVERAGE",
+                "INTEGRITY",
+                "PROVIDER_LIVE",
+                "PROXY_ESTIMATED"
+            ]
+        },
+        "bullets": {
+            "type": "LIST<STRING>",
+            "constraints": {
+                "min_items": 0,
+                "max_items": 10
+            }
+        },
+        "sanitized": {
+            "type": "BOOLEAN"
+        },
+        "sanitization_reason": {
+            "type": "ENUM OR NULL",
+            "values": [
+                "BANNED_PHRASE_DETECTED",
+                "MISSING_MANDATORY_DATA",
+                "NONE"
+            ]
+        }
+    },
+    "lexicon_policy": {
+        "banned_phrases": [
+            "guaranteed",
+            "promise",
+            "risk-free",
+            "sure thing",
+            "buy now",
+            "sell now",
+            "winning",
+            "moon",
+            "lambo"
+        ],
+        "action": "SANITIZE_AND_FLAG"
+    }
+}

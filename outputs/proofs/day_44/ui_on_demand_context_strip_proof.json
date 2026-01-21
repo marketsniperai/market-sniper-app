@@ -1,0 +1,16 @@
+{
+    "timestamp_utc": "2026-01-21T17:20:00Z",
+    "ticker": "SPY",
+    "elements_visible": [
+        "SECTOR",
+        "REGIME",
+        "PULSE"
+    ],
+    "overlay_visible": false,
+    "layout_checks": {
+        "no_overflow": true,
+        "position": "below_header"
+    },
+    "status": "SUCCESS",
+    "notes": "Context strip successfully extracts context from CoreUniverse and Envelope payload. Falls back gracefully when data is missing."
+}

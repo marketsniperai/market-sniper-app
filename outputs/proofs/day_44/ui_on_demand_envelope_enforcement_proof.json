@@ -1,0 +1,28 @@
+{
+    "timestamp_utc": "2026-01-21T16:40:00Z",
+    "spec": "outputs/os/os_standard_envelope_spec.json",
+    "cases": [
+        {
+            "name": "normal_live",
+            "sanitized": false,
+            "status": "LIVE"
+        },
+        {
+            "name": "stale_cache",
+            "sanitized": false,
+            "status": "STALE"
+        },
+        {
+            "name": "lexicon_blocked",
+            "sanitized": true,
+            "sanitization_reason": "BANNED_PHRASE_DETECTED"
+        }
+    ],
+    "verified_components": [
+        "StandardEnvelope",
+        "EnvelopeBuilder",
+        "LexiconSanitizer",
+        "OnDemandPanel._analyze"
+    ],
+    "status": "SUCCESS"
+}

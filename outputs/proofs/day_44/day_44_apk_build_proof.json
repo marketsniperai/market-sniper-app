@@ -1,0 +1,8 @@
+{
+    "timestamp_utc": "2026-01-21T11:20:00",
+    "apk_source_path": "market_sniper_app/build/app/outputs/flutter-apk/app-release.apk",
+    "apk_destination_path": "C:/Users/Sergio B/OneDrive/Desktop/Apk Release/MarketSniper_FOUNDER_RELEASE_D44.apk",
+    "build_type": "RELEASE",
+    "founder_always_on": true,
+    "flutter_build_status": "SUCCESS"
+}

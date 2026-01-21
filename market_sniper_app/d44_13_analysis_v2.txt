@@ -1,0 +1,30 @@
+Analyzing 4 items...                                            
+
+   info - Unnecessary use of 'toList' in a spread - lib\widgets\elite_interaction_sheet.dart:314:16 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:316:16 - prefer_const_constructors
+   info - Unnecessary use of 'toList' in a spread - lib\widgets\elite_interaction_sheet.dart:447:79 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:449:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:449:30 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:449:88 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:460:38 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:461:33 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:502:35 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:513:31 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:515:35 - prefer_const_constructors
+warning - The value of the local variable 'runId' isn't used - lib\widgets\elite_interaction_sheet.dart:733:20 - unused_local_variable
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:777:57 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:778:54 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:779:60 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:816:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:816:52 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:820:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:874:39 - prefer_const_constructors
+warning - Dead code - lib\widgets\elite_interaction_sheet.dart:987:11 - dead_code
+   info - Unnecessary instance of 'Container' - lib\widgets\elite_interaction_sheet.dart:1037:14 - avoid_unnecessary_containers
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1039:18 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\widgets\elite_interaction_sheet.dart:1041:25 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1130:40 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1130:58 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1199:36 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1199:54 - prefer_const_constructors
+

@@ -1,0 +1,36 @@
+Analyzing 4 items...                                            
+
+warning - The value of the local variable 'greeting' isn't used - lib\widgets\elite_interaction_sheet.dart:269:13 - unused_local_variable
+   info - Unnecessary use of 'toList' in a spread - lib\widgets\elite_interaction_sheet.dart:316:16 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:318:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:320:26 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:320:74 - prefer_const_constructors
+   info - Use interpolation to compose strings and values - lib\widgets\elite_interaction_sheet.dart:399:37 - prefer_interpolation_to_compose_strings
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:399:91 - prefer_const_constructors
+   info - Unnecessary use of 'toList' in a spread - lib\widgets\elite_interaction_sheet.dart:449:79 - unnecessary_to_list_in_spreads
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:451:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:451:30 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:451:88 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:462:38 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:463:33 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:504:35 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:515:31 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:517:35 - prefer_const_constructors
+warning - The value of the local variable 'runId' isn't used - lib\widgets\elite_interaction_sheet.dart:735:20 - unused_local_variable
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:779:57 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:780:54 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:781:60 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:818:13 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:818:52 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:822:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:876:39 - prefer_const_constructors
+warning - Dead code - lib\widgets\elite_interaction_sheet.dart:989:11 - dead_code
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\widgets\elite_interaction_sheet.dart:1010:65 - deprecated_member_use
+   info - Unnecessary instance of 'Container' - lib\widgets\elite_interaction_sheet.dart:1039:14 - avoid_unnecessary_containers
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1041:18 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\widgets\elite_interaction_sheet.dart:1043:25 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1132:40 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1132:58 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1201:36 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\elite_interaction_sheet.dart:1201:54 - prefer_const_constructors
+

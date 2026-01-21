@@ -396,7 +396,14 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
 - [x] D43.X2 — Elite First Interaction (Default State + Home Button)
   - ↳ Seal: [`SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md`](../../outputs/seals/SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md)
 
-- [ ] D44 — Watchlist & On-Demand Workflow v1
+- [x] D44 — Watchlist & On-Demand Workflow (Beast Parity + Institutional Hardening)
+  - Status: **CLOSED** (2026-01-21)
+  - ↳ Seal: [`SEAL_D44_FINAL_CLOSE.md`](../../outputs/seals/SEAL_D44_FINAL_CLOSE.md)
+  - Goals:
+    - [x] Persistent Watchlist (local storage, add/remove, analyze now)
+    - [x] On-Demand Global (universe-agnostic, source ladder pipeline/cache/offline)
+    - [x] Tier Limits Enforcement (Free=Blocked, Plus=10/day, Elite=Unlimited)
+    - [x] Institutional UI (Standard Envelope, Lexicon Guard, Rich Context)
   - [x] D44.01 — Watchlist AddTickerModal (Universe validation + dedupe)
     - ↳ Seal: [`SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md`](../../outputs/seals/SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md)
   - [x] D44.02 — Watchlist Analyze Now flow (LOCKED -> LockReasonModal + ledger; LIVE -> analyze result)
@@ -411,21 +418,31 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Hygiene: Renamed to `on_demand_panel.dart` (D44.04B).
   - [x] D44.05 — On-Demand cache + freshness (live/stale labels)
     - ↳ Seal: `SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md`
-  - [ ] D44.06 — Watchlist <-> On-Demand Integration (Tap ticker -> populate OD)
-  - [ ] D44.07 — Lexicon Guard + Standard Envelope enforcement for On-Demand outputs (institutional safe response shape)
-  - [ ] D44.08 — BadgeStripWidget no-overlap layout proof enforcement (ui_layout_proof_on_demand_badge.json)
+  - [x] D44.06 — Watchlist <-> On-Demand Integration (Tap ticker -> populate OD)
+    - ↳ Seal: [`SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md`](../../outputs/seals/SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md)
+  - [x] D44.07 — Lexicon Guard + Standard Envelope enforcement for On-Demand outputs (institutional safe response shape)
+    - ↳ Seal: [`SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md`](../../outputs/seals/SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md)
+  - [x] D44.08 — BadgeStrip No-Overlap Layout Proof
+    - ↳ Seal: [`SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md`](../../outputs/seals/SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md)
 
   BEAST PARITY (NEW)
-  - [ ] D44.09 — Watchlist State Chips (LIVE/STALE/LOCKED)
-  - [ ] D44.10 — Watchlist Last Analyzed Timestamp
-  - [ ] D44.11 — On-Demand Envelope Preview Header (institutional header)
-  - [ ] D44.12 — On-Demand Context Strip (sector + regime + overlay + pulse)
-  - [ ] D44.13 — On-Demand → Elite Explain Button
+  - [x] D44.09 — Watchlist State Chips (LIVE/STALE/LOCKED)
+    - ↳ Seal: [`SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md`](../../outputs/seals/SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md)
+  - [x] D44.10 — Watchlist Last Analyzed Timestamp
+    - ↳ Seal: [`SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md`](../../outputs/seals/SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md)
+  - [x] D44.11 — On-Demand Envelope Preview Header (institutional header)
+    - ↳ Seal: [`SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md`](../../outputs/seals/SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md)
+  - [x] D44.12 — On-Demand Context Strip (sector + regime + overlay + pulse)
+    - ↳ Seal: [`SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md`](../../outputs/seals/SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md)
+  - [x] D44.13 — On-Demand → Elite Explain Button
+    - ↳ Seal: [`SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md`](../../outputs/seals/SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md)
   - [x] D44.14 — Watchlist Quick Actions (Analyze / Remove)
     - ↳ Seal: [`SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md`](../../outputs/seals/SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md)
     - Note: Includes D44.14A Analyze Stub (SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md)
-  - [ ] D44.15 — On-Demand History (last 5)
-  - [ ] D44.16 — On-Demand Stale Warning
+  - [x] D44.15 — On-Demand History (last 5)
+    - ↳ Seal: [`SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md`](../../outputs/seals/SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md)
+  - [x] D44.16 — On-Demand Stale Warning (if source=CACHE/OFFLINE or age>threshold)
+    - ↳ Seal: [`SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md`](../../outputs/seals/SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md)
 
 - [ ] D45 — Shell, Premium/Paywall, News/Calendar, Growth & Sharing
   - [ ] D45.01 — Top Bar surfaces (logo state, session, date/time, Live/Stale/Locked chip)

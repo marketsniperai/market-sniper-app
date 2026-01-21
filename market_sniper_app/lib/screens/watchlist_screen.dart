@@ -5,11 +5,13 @@ import '../widgets/watchlist_add_modal.dart';
 import '../logic/watchlist_store.dart';
 import '../logic/navigation_bus.dart'; // D44.02B
 import '../logic/watchlist_ledger.dart'; // D44.02B
-import '../logic/data_state_resolver.dart'; // D44.02B
 import '../repositories/war_room_repository.dart'; // D44.02B
-import '../repositories/dashboard_repository.dart'; // D44.02B
 import '../services/api_client.dart'; // D44.02B
 import '../widgets/lock_reason_modal.dart'; // D44.02A
+import '../logic/on_demand_intent.dart'; // D44.06
+import '../logic/watchlist_state_resolver.dart'; // D44.09
+import '../logic/watchlist_last_analyzed_resolver.dart'; // D44.10
+
 
 class WatchlistScreen extends StatefulWidget {
   const WatchlistScreen({super.key});
@@ -26,6 +28,27 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
     super.initState();
     _store.addListener(_onStoreUpdate);
     _store.init(); // Ensure loaded
+    _refreshGlobalState(); // D44.09
+  }
+  
+  // D44.09
+  final WatchlistStateResolver _stateResolver = WatchlistStateResolver();
+  // D44.10
+  final WatchlistLastAnalyzedResolver _timestampResolver = WatchlistLastAnalyzedResolver();
+  
+  Future<void> _refreshGlobalState() async {
+     try {
+       final api = ApiClient();
+       final repo = WarRoomRepository(api: api);
+       final health = await repo.healthRepo.fetchUnifiedHealth();
+       if (mounted) {
+         setState(() {
+           _stateResolver.setGlobalStateFromHealth(health.status.name);
+         });
+       }
+     } catch (e) {
+       // Silent fail to LIVE or keep default
+     }
   }
 
   @override
@@ -58,8 +81,11 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
      final isStale = healthSnapshot.status.name.toUpperCase().contains('DEGRADED') || healthSnapshot.status.name.toUpperCase().contains('MISFIRE');
      
      String resolvedState = "LIVE";
-     if (isLocked) resolvedState = "LOCKED";
-     else if (isStale) resolvedState = "STALE";
+     if (isLocked) {
+       resolvedState = "LOCKED";
+     } else if (isStale) {
+       resolvedState = "STALE";
+     }
 
      if (isLocked || isStale) {
         // A. BLOCKED PATH
@@ -83,9 +109,17 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
           lockReason: "${lockReason.reasonCode}: ${lockReason.description}"
         );
      } else {
-        // B. SUCCESS PATH
-        // Navigate to OnDemand (Index 3)
-        NavigationBus().navigate(3, arguments: ticker);
+        // B. SUCCESS PATH (D44.06 Integration)
+        // Navigate to OnDemand (Index 3) with Intent
+        NavigationBus().navigate(
+          3, 
+          arguments: OnDemandIntent(
+            ticker: ticker,
+            autoTrigger: true,
+            source: "WATCHLIST_ANALYZE",
+            timestampUtc: DateTime.now().toUtc(),
+          )
+        );
         
         // Log to Ledger
         WatchlistLedger().logAction(
@@ -95,6 +129,19 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
           result: "OPENED_RESULT"
         );
      }
+  }
+
+  void _onTickerTap(String ticker) {
+     // D44.06: Tap to Prefill (No Auto-Trigger)
+     NavigationBus().navigate(
+        3, 
+        arguments: OnDemandIntent(
+          ticker: ticker,
+          autoTrigger: false,
+          source: "WATCHLIST_TAP",
+          timestampUtc: DateTime.now().toUtc(),
+        )
+     );
   }
 
   void _remove(String ticker) {
@@ -153,7 +200,14 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
               itemCount: tickers.length,
               itemBuilder: (context, index) {
                 final ticker = tickers[index];
-                return _buildTickerTile(ticker);
+                return _TickerTile(
+                  ticker: ticker, 
+                  stateResolver: _stateResolver, 
+                  timestampResolver: _timestampResolver, // Pass to sub-widget for FutureBuilder isolation
+                  onTap: _onTickerTap, 
+                  onAnalyze: _analyze, 
+                  onRemove: _remove
+                );
               },
             ),
       floatingActionButton: FloatingActionButton.extended(
@@ -175,38 +229,129 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
     );
   }
 
-  Widget _buildTickerTile(String ticker) {
-     return Container(
+}
+
+class _TickerTile extends StatelessWidget {
+  final String ticker;
+  final WatchlistStateResolver stateResolver;
+  final WatchlistLastAnalyzedResolver timestampResolver;
+  final Function(String) onTap;
+  final Function(String) onAnalyze;
+  final Function(String) onRemove;
+
+  const _TickerTile({
+    required this.ticker,
+    required this.stateResolver,
+    required this.timestampResolver,
+    required this.onTap,
+    required this.onAnalyze,
+    required this.onRemove,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
        margin: const EdgeInsets.only(bottom: 12),
-       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
        decoration: BoxDecoration(
          color: AppColors.surface1,
          borderRadius: BorderRadius.circular(8),
          border: Border.all(color: AppColors.borderSubtle),
        ),
-       child: Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-         children: [
-           Text(
-             ticker,
-             style: AppTypography.headline(context).copyWith(fontFamily: 'RobotoMono'),
+       child: Material(
+         color: Colors.transparent,
+         child: InkWell(
+           borderRadius: BorderRadius.circular(8),
+           onTap: () => onTap(ticker),
+           child: Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+             child: Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                      Text(
+                        ticker,
+                        style: AppTypography.headline(context).copyWith(fontFamily: 'RobotoMono'),
+                      ),
+                      const SizedBox(height: 4),
+                      // D44.10 Timestamp
+                      FutureBuilder<DateTime?>(
+                        future: timestampResolver.resolve(ticker),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData || snapshot.data == null) return const SizedBox.shrink();
+                          final dt = snapshot.data!.toUtc();
+                          final timeStr = "${dt.hour.toString().padLeft(2,'0')}:${dt.minute.toString().padLeft(2,'0')}";
+                          return Text(
+                            "Last analyzed · $timeStr UTC",
+                            style: AppTypography.label(context).copyWith(fontSize: 10, color: AppColors.textDisabled),
+                          );
+                        },
+                      ),
+                   ],
+                 ),
+                 Row(
+                   children: [
+                     // D44.09 State Chip
+                     StateChip(state: stateResolver.resolve(ticker)),
+                     const SizedBox(width: 8),
+                     IconButton(
+                       icon: const Icon(Icons.analytics, color: AppColors.accentCyan),
+                       onPressed: () => onAnalyze(ticker),
+                       tooltip: "Analyze (D44.02)",
+                     ),
+                     IconButton(
+                       icon: const Icon(Icons.delete_outline, color: AppColors.textDisabled),
+                       onPressed: () => onRemove(ticker),
+                       tooltip: "Remove",
+                     ),
+                   ],
+                 )
+               ],
+             ),
            ),
-           Row(
-             children: [
-               IconButton(
-                 icon: const Icon(Icons.analytics, color: AppColors.accentCyan),
-                 onPressed: () => _analyze(ticker),
-                 tooltip: "Analyze (D44.02)",
-               ),
-               IconButton(
-                 icon: const Icon(Icons.delete_outline, color: AppColors.textDisabled),
-                 onPressed: () => _remove(ticker),
-                 tooltip: "Remove",
-               ),
-             ],
-           )
-         ],
+         ),
        ),
      );
+  }
+}
+
+class StateChip extends StatelessWidget {
+  final WatchlistTickerState state;
+
+  const StateChip({super.key, required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    Color color;
+    String label;
+    
+    switch (state) {
+      case WatchlistTickerState.live:
+        color = AppColors.stateLive;
+        label = "LIVE";
+        break;
+      case WatchlistTickerState.stale:
+        color = AppColors.stateStale;
+        label = "STALE";
+        break;
+      case WatchlistTickerState.locked:
+        color = AppColors.stateLocked;
+        label = "LOCKED";
+        break;
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
+      ),
+      child: Text(
+        label,
+        style: AppTypography.label(context).copyWith(fontSize: 9, color: color, fontWeight: FontWeight.bold),
+      ),
+    );
   }
 }

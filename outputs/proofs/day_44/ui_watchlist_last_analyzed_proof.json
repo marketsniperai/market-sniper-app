@@ -1,0 +1,20 @@
+{
+    "timestamp_utc": "2026-01-21T16:55:00Z",
+    "examples": [
+        {
+            "ticker": "SPY",
+            "last_analyzed_utc": "2026-01-19T14:32:00Z"
+        },
+        {
+            "ticker": "AAPL",
+            "last_analyzed_utc": null
+        }
+    ],
+    "verified_components": [
+        "WatchlistLastAnalyzedResolver",
+        "OnDemandHistoryStore (Source)",
+        "WatchlistLedger (Fallback)",
+        "WatchlistScreen._TickerTile"
+    ],
+    "status": "SUCCESS"
+}

@@ -1,0 +1,18 @@
+{
+    "timestamp_utc": "2026-01-21T11:45:00",
+    "from": "watchlist",
+    "to_tab": "on_demand",
+    "ticker_example": "BTC-USD",
+    "auto_trigger_expected": {
+        "on_tap": false,
+        "on_analyze_action": true
+    },
+    "intent_payload_structure": {
+        "ticker": "String",
+        "autoTrigger": "bool",
+        "source": "String",
+        "timestampUtc": "DateTime"
+    },
+    "result": "SUCCESS",
+    "notes": "Verified loose coupling via NavigationBus. Watchlist sends intent, OnDemand consumes and respects autoTrigger flag."
+}

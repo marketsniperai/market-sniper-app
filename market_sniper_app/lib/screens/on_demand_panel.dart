@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-import '../domain/universe/core20_universe.dart';
 import '../logic/navigation_bus.dart'; // D44.02B
+import '../logic/on_demand_intent.dart'; // D44.06
 import '../services/api_client.dart'; // D44.05
+import '../logic/on_demand_history_store.dart'; // D44.15
+import '../logic/standard_envelope.dart'; // D44.07
+import '../logic/elite_messages.dart'; // D44.13
+import '../widgets/on_demand_context_strip.dart'; // D44.12
 import '../layout/main_layout.dart'; // To find ancestor if needed
 import 'dart:async'; // StreamSubscription
 
 enum OnDemandViewState { idle, loading, result, error }
 
-class OnDemandResult {
-  final String ticker;
-  final DateTime generatedAt;
-  final String status;
-  final List<String> bullets;
-
-  OnDemandResult({
-    required this.ticker,
-    required this.generatedAt,
-    required this.status,
-    required this.bullets,
-  });
-}
+// OnDemandResult replaced by StandardEnvelope (D44.07)
 
 class OnDemandPanel extends StatefulWidget {
   const OnDemandPanel({super.key});
@@ -37,19 +29,54 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
   String? _usageInfo;
 
 
-  OnDemandResult? _result;
+  StandardEnvelope? _result;
   StreamSubscription<NavigationEvent>? _navSubscription;
+  final OnDemandHistoryStore _historyStore = OnDemandHistoryStore(); // D44.15
+  List<OnDemandHistoryItem> _historyItems = []; // D44.15 Cache
 
   @override
   void initState() {
     super.initState();
+    _initHistory(); // D44.15
     _navSubscription = NavigationBus().events.listen((event) {
-      // If we are targeted (index 3) and have string arg, use it as ticker
+      // D44: Basic String Argument Support
       if (event.tabIndex == 3 && event.arguments is String) {
         final ticker = event.arguments as String;
         _controller.text = ticker;
-        _analyze(); // D44.02B Auto-trigger analysis
+        _analyze(); // Default Auto-trigger analysis for string
       }
+      
+      // D44.06: Intent Object Support (Prefill Only vs Auto-Trigger)
+      if (event.tabIndex == 3 && event.arguments is OnDemandIntent) {
+        final intent = event.arguments as OnDemandIntent;
+        _controller.text = intent.ticker;
+        
+        // Reset state to clear any old result or error when coming from watchlist
+        if (_state == OnDemandViewState.result || _state == OnDemandViewState.error) {
+             _clear();
+             _controller.text = intent.ticker; // Clear wipes text, restore it
+        }
+
+        if (intent.autoTrigger) {
+           _analyze();
+        } else {
+           // Prefill only - optionally indicate source
+           setState(() {
+              // We could show a "Requested from Watchlist" ephemeral message or badge here
+           });
+        }
+      }
+    });
+  }
+
+  Future<void> _initHistory() async {
+    await _historyStore.init();
+    if (mounted) _refreshHistory();
+  }
+
+  void _refreshHistory() {
+    setState(() {
+      _historyItems = _historyStore.getRecent();
     });
   }
 
@@ -137,26 +164,16 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
 
       _state = OnDemandViewState.result;
       
-      final status = response["status"];
-      final freshness = response["freshness"] ?? "UNKNOWN";
-      final source = response["source"] ?? "UNKNOWN";
-      final payload = response["payload"] ?? {};
-      final globalRisk = payload["global_risk"] ?? "UNKNOWN";
-      final regime = payload["regime"] ?? "UNKNOWN";
-      final ts = response["timestamp_utc"] ?? DateTime.now().toIso8601String();
+      // D44.07: Standard Envelope & Lexicon Guard
+      final rawEnvelope = EnvelopeBuilder.build(response);
+      final safeEnvelope = LexiconSanitizer.apply(rawEnvelope);
       
-      _result = OnDemandResult(
-        ticker: input,
-        generatedAt: DateTime.tryParse(ts) ?? DateTime.now(),
-        status: status == "OFFLINE" ? "OFFLINE" : freshness, 
-        bullets: [
-          "Ticker: $input",
-          "Source: $source",
-          "Risk State: $globalRisk",
-          "Regime: $regime",
-        ],
-      );
+      _result = safeEnvelope;
     });
+
+    // D44.15: Record Record Success
+    await _historyStore.record(ticker: input);
+    if (mounted) _refreshHistory();
   }
 
   void _clear() {
@@ -208,6 +225,28 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
             ],
 
             const SizedBox(height: 32),
+
+            // --- HISTORY (D44.15) ---
+            if (_historyItems.isNotEmpty) ...[
+               Wrap(
+                 spacing: 8,
+                 runSpacing: 8,
+                 alignment: WrapAlignment.center,
+                 children: _historyItems.map((item) {
+                   return ActionChip(
+                     label: Text(item.ticker, style: AppTypography.label(context)),
+                     backgroundColor: AppColors.surface2,
+                     side: const BorderSide(color: AppColors.borderSubtle),
+                     onPressed: () {
+                        // Prefill (No Auto-Trigger)
+                        _controller.text = item.ticker;
+                        FocusScope.of(context).requestFocus(); // Better UX, let them hit enter or Analyze
+                     },
+                   );
+                 }).toList(),
+               ),
+               const SizedBox(height: 24),
+            ],
 
             // --- INPUT ---
             TextField(
@@ -322,6 +361,13 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
       case OnDemandViewState.error:
         if (_result == null) return const SizedBox.shrink();
 
+        // D44.16 Stale Warning Logic
+        bool isStale = _result!.status == EnvelopeStatus.stale;
+        if (!isStale) {
+           final ageMinutes = DateTime.now().difference(_result!.asOfUtc).inMinutes;
+           if (ageMinutes > 60) isStale = true;
+        }
+
         return Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -339,25 +385,34 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("ON-DEMAND RESULT", style: AppTypography.label(context).copyWith(color: AppColors.textSecondary)),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: AppColors.surface2,
-                      borderRadius: BorderRadius.circular(4),
-                      border: Border.all(color: AppColors.textDisabled),
-                    ),
-                    child: Text(
-                      _result!.status,
-                      style: const TextStyle(fontSize: 10, color: AppColors.textDisabled, fontWeight: FontWeight.bold),
-                    ),
-                  )
-                ],
+              if (isStale) ...[
+                 _buildStaleWarning(),
+                 const SizedBox(height: 16),
+              ],
+              // D44.11 Header
+              EnvelopePreviewHeader(envelope: _result!, ticker: _controller.text.toUpperCase()),
+              
+              // D44.12 Context Strip
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: OnDemandContextStrip(
+                  envelope: _result!, 
+                  ticker: _controller.text.toUpperCase()
+                ),
               ),
+
               const Divider(color: AppColors.borderSubtle, height: 24),
+              
+              if (_result!.sanitized) ...[
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12.0),
+                    child: Text(
+                      "[SANITIZED] Content flagged by Lexicon Guard", 
+                      style: AppTypography.label(context).copyWith(color: AppColors.stateLocked),
+                    ),
+                  ),
+              ],
+
               ..._result!.bullets.map((b) => Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: Row(
@@ -369,18 +424,190 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
                 ),
               )),
               const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                   Text(
-                     "Generated locally at ${_result!.generatedAt.hour.toString().padLeft(2,'0')}:${_result!.generatedAt.minute.toString().padLeft(2,'0')}",
-                     style: const TextStyle(fontSize: 10, color: AppColors.textDisabled),
-                   ),
-                ],
-              )
+              // Footer timestamp removed in D44.11 (Moved to Header)
             ],
           ),
         );
     }
   }
+  Widget _buildStaleWarning() {
+    final ts = _result!.asOfUtc.toUtc();
+    final timeStr = "${ts.hour.toString().padLeft(2,'0')}:${ts.minute.toString().padLeft(2,'0')} UTC";
+    
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: AppColors.stateStale.withValues(alpha: 0.1), 
+        border: Border.all(color: AppColors.stateStale.withValues(alpha: 0.5)),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Row(
+         mainAxisSize: MainAxisSize.min,
+         children: [
+            const Icon(Icons.warning_amber_rounded, size: 16, color: AppColors.stateStale),
+            const SizedBox(width: 8),
+            Text("As of $timeStr · Stale", style: AppTypography.label(context).copyWith(color: AppColors.stateStale)),
+         ],
+       )
+    );
+  }
 }
+
+class EnvelopePreviewHeader extends StatelessWidget {
+  final StandardEnvelope envelope;
+  final String ticker;
+
+  const EnvelopePreviewHeader({super.key, required this.envelope, required this.ticker});
+
+  @override
+  Widget build(BuildContext context) {
+    // 1. Status Chip Color
+    Color statusColor;
+    switch (envelope.status) {
+      case EnvelopeStatus.live: statusColor = AppColors.stateLive; break;
+      case EnvelopeStatus.stale: statusColor = AppColors.stateStale; break;
+      case EnvelopeStatus.locked: statusColor = AppColors.stateLocked; break;
+      case EnvelopeStatus.unavailable: statusColor = AppColors.textDisabled; break;
+      case EnvelopeStatus.error: statusColor = AppColors.stateLocked; break;
+    }
+
+    // 2. Format Timestamp
+    final dt = envelope.asOfUtc.toUtc();
+    final timeStr = "${dt.hour.toString().padLeft(2,'0')}:${dt.minute.toString().padLeft(2,'0')} UTC";
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Top Row: Status | Source | Timestamp
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8,
+          runSpacing: 4,
+          children: [
+            // Left: Chips
+            Wrap(
+              spacing: 6,
+              children: [
+                _buildChip(context, envelope.status.name.toUpperCase(), statusColor),
+                _buildChip(context, envelope.source.name.toUpperCase(), AppColors.textSecondary),
+              ],
+            ),
+            // Right: Timestamp
+            Text(
+              "As of $timeStr",
+              style: AppTypography.label(context).copyWith(fontSize: 10, color: AppColors.textDisabled),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        // Badges (Wrapped) + Explain Action
+        Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           crossAxisAlignment: CrossAxisAlignment.start,
+           children: [
+              Expanded(
+                child: BadgeStripWidget(
+                  title: "CONFIDENCE",
+                  badges: envelope.confidenceBadges.map((e) => e.name.toUpperCase().split('.').last).toList(),
+                ),
+              ),
+              InkWell(
+                 onTap: () {
+                     // D44.13 Explain Trigger
+                     final dt = envelope.asOfUtc.toUtc();
+                     final timeStr = "${dt.hour.toString().padLeft(2,'0')}:${dt.minute.toString().padLeft(2,'0')} UTC";
+                     
+                     EliteExplainNotification(
+                        "EXPLAIN_ON_DEMAND_RESULT",
+                        payload: {
+                           "ticker": ticker, 
+                           "status": envelope.status.name.toUpperCase(),
+                           "source": envelope.source.name.toUpperCase(),
+                           "timestamp": timeStr,
+                           "badges": envelope.confidenceBadges.map((e) => e.name.toUpperCase().split('.').last).toList()
+                        }
+                     ).dispatch(context);
+                 },
+                 child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                       border: Border.all(color: AppColors.accentCyan.withValues(alpha: 0.5)),
+                       borderRadius: BorderRadius.circular(16),
+                       color: AppColors.accentCyan.withValues(alpha: 0.1),
+                    ),
+                    child: Row(
+                       mainAxisSize: MainAxisSize.min,
+                       children: [
+                          const Icon(Icons.auto_awesome, size: 12, color: AppColors.accentCyan),
+                          const SizedBox(width: 4),
+                          Text("EXPLAIN", style: AppTypography.label(context).copyWith(fontSize: 10, color: AppColors.accentCyan, fontWeight: FontWeight.bold)),
+                       ],
+                    ),
+                 ),
+              )
+           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildChip(BuildContext context, String label, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
+      ),
+      child: Text(
+        label,
+        style: AppTypography.label(context).copyWith(fontSize: 10, color: color, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
+class BadgeStripWidget extends StatelessWidget {
+  final String title;
+  final List<String> badges;
+
+  const BadgeStripWidget({
+    super.key,
+    required this.title, 
+    required this.badges,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      alignment: WrapAlignment.spaceBetween,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 4.0), // Spacing when wrapping
+          child: Text(title, style: AppTypography.label(context).copyWith(color: AppColors.textSecondary)),
+        ),
+        Wrap(
+          spacing: 4,
+          runSpacing: 4,
+          alignment: WrapAlignment.end,
+          children: badges.map((badge) => Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            decoration: BoxDecoration(
+              color: AppColors.surface2,
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(color: AppColors.textDisabled),
+            ),
+            child: Text(
+              badge,
+              style: const TextStyle(fontSize: 10, color: AppColors.textDisabled, fontWeight: FontWeight.bold),
+            ),
+          )).toList(),
+        )
+      ],
+    );
+  }
+}
+
+

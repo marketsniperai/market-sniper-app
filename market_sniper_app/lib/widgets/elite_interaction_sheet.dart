@@ -16,12 +16,14 @@ enum EliteTier { free, plus, elite }
 
 class EliteInteractionSheet extends StatefulWidget {
   final String? initialExplainKey;
+  final Map<String, dynamic>? initialPayload;
   final bool resetToWelcome;
   final ScrollController? scrollController;
 
   const EliteInteractionSheet({
     super.key,
     this.initialExplainKey,
+    this.initialPayload,
     this.resetToWelcome = false,
     this.scrollController,
   });
@@ -264,9 +266,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
   Widget _buildFirstInteractionView(BuildContext context) {
       if (_scriptData == null) return const SizedBox.shrink();
 
-      final greeting = (_scriptData!['greeting_template'] as String)
-          .replaceAll("{time_of_day}", "Morning") // Simple mock
-          .replaceAll("{user_name}", "Sniper");     // Simple mock
+      // greeting variable removed as it was unused and replaced by mentorGreeting
       
       // Override with Mentor Brain if we want strict control, or compose it.
       // For D43.02 we want Mentor Brain to have a say.
@@ -311,11 +311,11 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
                      ),
                   ),
                );
-            }).toList(),
+            }),
             if (_tier == EliteTier.free)
                Padding(
                   padding: const EdgeInsets.only(top: 8.0),
-                  child: Text("Upgrade to Unlock Elite Insights", style: TextStyle(color: AppColors.stateLocked, fontSize: 10, fontStyle: FontStyle.italic)),
+                  child: const Text("Upgrade to Unlock Elite Insights", style: TextStyle(color: AppColors.stateLocked, fontSize: 10, fontStyle: FontStyle.italic)),
                ),
          ],
       );
@@ -360,6 +360,52 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
       // Context Collector (Mocked per plan)
       final List<String> screenKeys = ['MARKET_REGIME', 'GLOBAL_RISK', 'UNIVERSE_STATUS'];
       
+      // D44.13: On-Demand Payload Context
+      if (_pendingExplainKey == 'EXPLAIN_ON_DEMAND_RESULT' && widget.initialPayload != null) {
+          final p = widget.initialPayload!;
+          return Container(
+             width: double.infinity,
+             padding: const EdgeInsets.all(16),
+             decoration: BoxDecoration(
+               color: AppColors.surface1.withValues(alpha: 0.5),
+               borderRadius: BorderRadius.circular(12),
+               border: Border.all(color: AppColors.accentCyan.withValues(alpha: 0.3)),
+             ),
+             child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                        Text("ON-DEMAND CONTEXT", style: AppTypography.label(context).copyWith(color: AppColors.accentCyan)),
+                        IconButton(
+                           icon: const Icon(Icons.close, size: 16, color: AppColors.textDisabled),
+                           onPressed: _clearExplainMyScreen,
+                           padding: EdgeInsets.zero,
+                           constraints: const BoxConstraints(),
+                        ),
+                     ],
+                   ),
+                   const SizedBox(height: 12),
+                   _buildContextRow("TICKER", p['ticker'] ?? 'UNK'),
+                   _buildContextRow("STATUS", p['status'] ?? 'UNK'),
+                   _buildContextRow("SOURCE", p['source'] ?? 'UNK'),
+                   _buildContextRow("TIMESTAMP", p['timestamp'] ?? 'UNK'),
+                   if (p.containsKey('badges'))
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text("BADGES: ${(p['badges'] as List).join(", ")}", style: const TextStyle(color: AppColors.textSecondary, fontSize: 10)),
+                      ),
+                   const SizedBox(height: 16),
+                   Text(
+                     "Analysis Strategy: The system evaluates high-frequency signals against institutional levels. A locked or stale status indicates data integrity constraints were triggered to prevent false positives.",
+                     style: AppTypography.body(context).copyWith(fontSize: 12, height: 1.4),
+                   ),
+                ],
+             ),
+          );
+      }
+
       return Container(
          width: double.infinity,
          padding: const EdgeInsets.all(16),
@@ -398,11 +444,23 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
                  ],
                ),
                const SizedBox(height: 12),
-               ...screenKeys.map((key) => _buildKeyExplanation(context, key)).toList(),
+               ...screenKeys.map((key) => _buildKeyExplanation(context, key)),
                const SizedBox(height: 8),
                Center(child: Text("Data source: Iron OS Artifacts (Read-Only)", style: TextStyle(color: AppColors.textDisabled, fontSize: 9, fontStyle: FontStyle.italic))),
             ],
          ),
+      );
+  }
+  
+  Widget _buildContextRow(String label, String value) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 4.0),
+        child: Row(
+          children: [
+             Text("$label: ", style: TextStyle(color: AppColors.textSecondary, fontFamily: 'RobotoMono', fontSize: 10, fontWeight: FontWeight.bold)),
+             Text(value, style: TextStyle(color: AppColors.textPrimary, fontFamily: 'RobotoMono', fontSize: 10)),
+          ],
+        ),
       );
   }
   
@@ -682,7 +740,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
                   final rm = data['run_manifest'];
                   if (rm != null) {
                      runMode = rm['mode'] ?? 'UNK';
-                     runId = (rm['run_id'] ?? 'UNK').toString().substring(0, 8);
+                     // runId removed (unused)
                   }
                   
                   final gr = data['global_risk'];
@@ -924,16 +982,6 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
           // Actually, let's just use textSecondary for stale/locked to be safe if no Warning color.
           // Or use AppColors.accentCyan for LIVE and textDisabled for others.
           // Wait, requirement: "MUST use AppColors/AppTypography only".
-          // Checking AppColors... usually has surface, text, accentCyan.
-          // Let's use accentCyan for LIVE, textSecondary for STALE/DEGRADED.
-          break;
-          case "LOCKED": 
-          case "DEGRADED":
-          case "UNAVAILABLE":
-             statusColor = AppColors.textSecondary; 
-             break;
-      }
-      
       // If Live, use Cyan. Else Grey.
       if (status == "LIVE") statusColor = AppColors.accentCyan;
       
@@ -947,7 +995,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
                   Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                       decoration: BoxDecoration(
-                          border: Border.all(color: statusColor.withOpacity(0.3)),
+                          border: Border.all(color: statusColor.withValues(alpha: 0.3)),
                           borderRadius: BorderRadius.circular(4),
                       ),
                       child: Row(

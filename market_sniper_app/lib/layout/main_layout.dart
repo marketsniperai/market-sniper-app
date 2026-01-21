@@ -91,7 +91,7 @@ class _MainLayoutState extends State<MainLayout> {
     });
   }
 
-  void _showEliteOverlay({String? explainKey, bool resetToWelcome = false}) {
+  void _showEliteOverlay({String? explainKey, Map<String, dynamic>? payload, bool resetToWelcome = false}) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -102,7 +102,8 @@ class _MainLayoutState extends State<MainLayout> {
         maxChildSize: 0.85,
         builder: (context, scrollController) {
           return EliteInteractionSheet(
-             initialExplainKey: explainKey, 
+             initialExplainKey: explainKey,
+             initialPayload: payload,
              resetToWelcome: resetToWelcome,
              scrollController: scrollController
           );
@@ -117,7 +118,7 @@ class _MainLayoutState extends State<MainLayout> {
       backgroundColor: AppColors.bgPrimary,
       body: NotificationListener<EliteExplainNotification>(
         onNotification: (notification) {
-          _showEliteOverlay(explainKey: notification.explainKey);
+          _showEliteOverlay(explainKey: notification.explainKey, payload: notification.payload);
           return true;
         },
         child: Stack(

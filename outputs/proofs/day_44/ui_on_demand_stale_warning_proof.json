@@ -1,0 +1,9 @@
+{
+    "timestamp_utc": "2026-01-21T12:15:00",
+    "scenario": "CACHE_STALE",
+    "as_of_utc": "10:00 UTC",
+    "age_minutes": 135,
+    "warning_visible": true,
+    "logic_tested": "freshness == STALE || age > 60min",
+    "result": "SUCCESS"
+}

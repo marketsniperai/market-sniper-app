@@ -153,3 +153,15 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
 - **Correction (D44.C0)**: Reclassified D44.02 Stub as D44.14A. Unsealed D44.02. (GOVERNANCE).
 - **On-Demand**: Implemented Screen (D44.04) with Validation and Result Container. (SEALED).
 - **Correction (D44.04A)**: Refactored On-Demand to `OnDemandPanel` (D44.04A) to comply with "No Duplicate Screen" law. (SEALED).
+- **[SEALED] DAY 44 — WATCHLIST & ON-DEMAND WORKFLOW V1 COMPLETE.**
+  - Canonical Commit and Founder APK Release.
+  - Seal: `outputs/seals/SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md`
+- **D44.06**: Watchlist <-> On-Demand Integration (Prefill + AutoTrigger). [SEALED]
+- **D44.15**: On-Demand History (Last 5) with 04:00 ET Reset. [SEALED]
+- **D44.16**: On-Demand Stale Warning (UI Only). [SEALED]
+- **D44.08**: BadgeStrip No-Overlap Layout Proof. [SEALED]
+- **D44.07**: On-Demand Standard Envelope & Lexicon Guard. [SEALED]
+- **D44.09**: Watchlist State Chips. [SEALED]
+- **D44.10**: Watchlist Last Analyzed Timestamp. [SEALED]
+- **D44.11**: On-Demand Envelope Preview Header. [SEALED]
+- **D44.13**: On-Demand Elite Explain Button. [SEALED]

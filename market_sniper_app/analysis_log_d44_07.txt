@@ -1,0 +1,19 @@
+Analyzing 2 items...                                            
+
+warning - Unused import: 'package:flutter/foundation.dart' - lib\logic\standard_envelope.dart:2:8 - unused_import
+   info - The constant name 'LIVE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:5:23 - constant_identifier_names
+   info - The constant name 'STALE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:5:29 - constant_identifier_names
+   info - The constant name 'LOCKED' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:5:36 - constant_identifier_names
+   info - The constant name 'UNAVAILABLE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:5:44 - constant_identifier_names
+   info - The constant name 'ERROR' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:5:57 - constant_identifier_names
+   info - The constant name 'PIPELINE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:8:23 - constant_identifier_names
+   info - The constant name 'CACHE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:8:33 - constant_identifier_names
+   info - The constant name 'OFFLINE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:8:40 - constant_identifier_names
+   info - The constant name 'COVERAGE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:11:24 - constant_identifier_names
+   info - The constant name 'INTEGRITY' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:11:34 - constant_identifier_names
+   info - The constant name 'PROVIDER_LIVE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:11:45 - constant_identifier_names
+   info - The constant name 'PROXY_ESTIMATED' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:11:60 - constant_identifier_names
+   info - The constant name 'BANNED_PHRASE_DETECTED' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:14:27 - constant_identifier_names
+   info - The constant name 'MISSING_MANDATORY_DATA' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:14:51 - constant_identifier_names
+   info - The constant name 'NONE' isn't a lowerCamelCase identifier - lib\logic\standard_envelope.dart:14:75 - constant_identifier_names
+

@@ -92,3 +92,13 @@
 | **OS.Elite.Router** | Explain Router | UI | Maps queries to specialized modules. | (Internal Function) | `lib/logic/elite_explain_router.dart` |
 | **OS.Elite.Safety** | Safety Valve | OPS | Institutional tone enforcement. | (Internal Validator) | `lib/models/elite/context_safety_protocol.dart` |
 | **OS.Infra.LayoutPolice** | Layout Police | OPS | Runtime Layout Guard. | (Internal Function) | `lib/guards/layout_police.dart` |
+| **OS.UI.Watchlist.Chips** | Watchlist State Chips | UI | Live/Stale/Locked status. | (Internal Widget) | `D44.09` |
+| **OS.UI.Watchlist.Memory** | Watchlist Last Analyzed | UI | Persisted timestamp visualization. | (Internal Widget) | `D44.10` |
+| **OS.UI.Watchlist.Actions** | Watchlist Quick Actions | UI | Analyze/Remove actions. | (Internal Widget) | `D44.14` |
+| **OS.UI.OnDemand.Bridge** | On-Demand Bridge | UI | Intent-based navigation (Watchlist -> OD). | (Interaction) | `D44.06` |
+| **OS.UI.OnDemand.Header** | Institutional Header | UI | Standard Envelope rendering. | (Internal Widget) | `D44.11` |
+| **OS.UI.OnDemand.Context** | Context Strip | UI | Contextual metadata (Regime, Pulse, Overlay). | (Internal Widget) | `D44.12` |
+| **OS.UI.OnDemand.History** | On-Demand History | UI | Recents list (Last 5). | (Internal Widget) | `D44.15` |
+| **OS.UI.OnDemand.Stale** | Stale Warning | UI | Stale data warning injection. | (Internal Widget) | `D44.16` |
+| **OS.Logic.OnDemand.Envelope** | Standard Envelope | LOGIC | Lexicon Guard + Sanitization. | (Internal Class) | `D44.07` |
+| **OS.Elite.Explain.Bridge** | Explain Bridge | UI | Router extension for On-Demand payloads. | (Internal Logic) | `D44.13` |

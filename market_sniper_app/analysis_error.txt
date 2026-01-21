@@ -1,0 +1,7 @@
+Analyzing 2 items...                                            
+
+  error - Undefined class 'WatchlistLastAnalyzedResolver' - lib\screens\watchlist_screen.dart:36:9 - undefined_class
+  error - The method 'WatchlistLastAnalyzedResolver' isn't defined for the type '_WatchlistScreenState' - lib\screens\watchlist_screen.dart:36:60 - undefined_method
+  error - Undefined class 'WatchlistLastAnalyzedResolver' - lib\screens\watchlist_screen.dart:236:9 - undefined_class
+  error - The method 'StateChip' isn't defined for the type '_TickerTile' - lib\screens\watchlist_screen.dart:295:22 - undefined_method
+

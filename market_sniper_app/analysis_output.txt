@@ -1,61 +1,17 @@
-Resolving dependencies...
-Downloading packages...
-  async 2.11.0 (2.13.0 available)
-  boolean_selector 2.1.1 (2.1.2 available)
-  characters 1.4.0 (1.4.1 available)
-  ffi 2.1.3 (2.1.5 available)
-  flutter_lints 4.0.0 (6.0.0 available)
-  google_fonts 6.3.0 (7.0.2 available)
-  http_parser 4.0.2 (4.1.2 available)
-  lints 4.0.0 (6.0.0 available)
-  matcher 0.12.17 (0.12.18 available)
-  material_color_utilities 0.11.1 (0.13.0 available)
-  meta 1.17.0 (1.18.0 available)
-  path_provider_android 2.2.15 (2.2.22 available)
-  path_provider_foundation 2.4.1 (2.6.0 available)
-  source_span 1.10.0 (1.10.1 available)
-  string_scanner 1.2.0 (1.4.1 available)
-  term_glyph 1.2.1 (1.2.2 available)
-  test_api 0.7.7 (0.7.9 available)
-  vm_service 14.2.5 (15.0.2 available)
-Got dependencies!
-18 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-Analyzing market_sniper_app...                                  
+Analyzing 2 items...                                            
 
-  error - The argument for the named parameter 'findings' was already specified - lib\models\war_room_snapshot.dart:61:5 - duplicate_named_argument
-  error - The named parameter 'autofixDecisionPath' is required, but there's no corresponding argument - lib\repositories\war_room_repository.dart:63:12 - missing_required_argument
-  error - Undefined name 'afxTier1Json' - lib\repositories\war_room_repository.dart:80:40 - undefined_identifier
-   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1811:23 - prefer_const_constructors
-   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\universe\universe_screen.dart:1812:23 - prefer_const_literals_to_create_immutables
-   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1829:16 - prefer_const_constructors
-   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1839:16 - prefer_const_constructors
-   info - Unnecessary use of 'toList' in a spread - lib\screens\universe\universe_screen.dart:1919:19 - unnecessary_to_list_in_spreads
-   info - Use 'const' with the constructor to improve performance - lib\screens\universe\universe_screen.dart:1983:29 - prefer_const_constructors
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:469:31 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:470:33 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:471:36 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:472:35 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:473:14 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:475:25 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:476:14 - curly_braces_in_flow_control_structures
-   info - Use interpolation to compose strings and values - lib\screens\war_room_screen.dart:710:54 - prefer_interpolation_to_compose_strings
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:802:44 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:803:34 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:804:33 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:805:14 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:837:58 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:838:41 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:839:64 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:840:15 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:853:43 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:854:47 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - lib\screens\war_room_screen.dart:855:74 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:112:28 - curly_braces_in_flow_control_structures
-   info - Statements in an if should be enclosed in a block - tool\verify_day_40_04_overlay_composer.dart:113:33 - curly_braces_in_flow_control_structures
-   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:128:3 - avoid_print
-   info - Don't invoke 'print' in production code - tool\verify_day_40_close.dart:154:3 - avoid_print
-warning - Unused import: 'dart:convert' - tool\verify_day_40_close_placeholder.dart:1:8 - unused_import
-warning - Unused import: 'dart:io' - tool\verify_day_40_close_placeholder.dart:2:8 - unused_import
-   info - Don't invoke 'print' in production code - tool\verify_day_40_close_placeholder.dart:17:3 - avoid_print
+  error - The named parameter 'title' isn't defined - lib\screens\on_demand_panel.dart:416:17 - undefined_named_parameter
+  error - The named parameter 'badges' isn't defined - lib\screens\on_demand_panel.dart:417:17 - undefined_named_parameter
+   info - Constructors for public widgets should have a named 'key' parameter - lib\screens\on_demand_panel.dart:468:7 - use_key_in_widget_constructors
+  error - The final variable 'title' must be initialized - lib\screens\on_demand_panel.dart:469:16 - final_not_initialized
+  error - The final variable 'badges' must be initialized - lib\screens\on_demand_panel.dart:470:22 - final_not_initialized
+  error - Getters, setters and methods can't be declared to be 'const' - lib\screens\on_demand_panel.dart:472:3 - const_method
+   info - The variable name '_BadgeStripWidget' isn't a lowerCamelCase identifier - lib\screens\on_demand_panel.dart:472:9 - non_constant_identifier_names
+warning - The declaration '_BadgeStripWidget' isn't referenced - lib\screens\on_demand_panel.dart:472:9 - unused_element
+  error - '_BadgeStripWidget' must have a method body because 'BadgeStripWidget' isn't abstract - lib\screens\on_demand_panel.dart:472:9 - concrete_class_with_abstract_member
+  error - Initializing formal parameters can only be used in constructors - lib\screens\on_demand_panel.dart:473:5 - field_initializer_outside_constructor
+  error - Initializing formal parameters can only be used in constructors - lib\screens\on_demand_panel.dart:474:5 - field_initializer_outside_constructor
+   info - 'textScaleFactor' is deprecated and shouldn't be used. Use textScaler instead. Use of textScaleFactor was deprecated in preparation for the upcoming nonlinear text scaling support. This feature was deprecated after v3.12.0-2.0.pre - test\ui_layout_proof_on_demand_badge_test.dart:50:36 - deprecated_member_use
+  error - The named parameter 'title' isn't defined - test\ui_layout_proof_on_demand_badge_test.dart:55:21 - undefined_named_parameter
+  error - The named parameter 'badges' isn't defined - test\ui_layout_proof_on_demand_badge_test.dart:56:21 - undefined_named_parameter
 
