@@ -243,20 +243,22 @@ class _MainLayoutState extends State<MainLayout> {
                                  constraints: const BoxConstraints(),
                                ),
                              ),
+                            // D45.H3: FIXED RITUAL HITBOX
+                            // Removed nested GestureDetector. Ensured specific height/padding.
                             GestureDetector(
                                 onTap: _handleRitualTap,
                                 // D45.13 Command Center Ritual (Logo Tap)
                                 onDoubleTap: () {}, // consume
                                 onLongPress: () {}, // consume
                                 behavior: HitTestBehavior.opaque,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                  child: GestureDetector(
-                                    onTap: _handleRitualTap, 
-                                    child: Text(
-                                      "Market Sniper AI",
-                                      style: AppTypography.logo(context, AppColors.textPrimary),
-                                    ),
+                                child: Container(
+                                  // Min Height 48px for reliability logic
+                                  constraints: const BoxConstraints(minHeight: 48, minWidth: 120),
+                                  alignment: Alignment.center,
+                                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                                  child: Text(
+                                    "Market Sniper AI",
+                                    style: AppTypography.logo(context, AppColors.textPrimary),
                                   ),
                                 ),
                               ),

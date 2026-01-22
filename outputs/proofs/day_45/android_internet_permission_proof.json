@@ -1,0 +1,9 @@
+{
+    "timestamp_utc": "2026-01-22T05:00:00Z",
+    "manifest_path": "market_sniper_app/android/app/src/main/AndroidManifest.xml",
+    "permissions_added": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE"
+    ],
+    "reason": "Fix 'SocketException: Host lookup failed' on physical devices in Release mode where INTERNET permission is not implicit/debug-only."
+}

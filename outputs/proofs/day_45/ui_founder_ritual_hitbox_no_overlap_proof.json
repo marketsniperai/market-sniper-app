@@ -1,0 +1,9 @@
+{
+    "timestamp_utc": "2026-01-22T05:00:00Z",
+    "feature": "Founder Ritual Hitbox & Overlap Fix",
+    "widget": "MainLayout",
+    "action": "Removed nested GestureDetector, Applied BoxConstraints(minHeight: 48, minWidth: 120)",
+    "behavior": "HitTestBehavior.opaque",
+    "overlap_check": "Verified no AppBar.bottom or Positioned overlays intercepting title area",
+    "telemetry": "Logs 'FOUNDER_RITUAL_TAP' and 'FOUNDER_RITUAL_TRIGGERED' correctly"
+}
