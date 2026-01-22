@@ -1,0 +1,19 @@
+{
+    "day": "41.05",
+    "feature": "Founder-gated Rollback UI Action (OS.R2.3)",
+    "timestamp": "2026-01-22T09:22:00-05:00",
+    "failsafe_gate": "Founder Key Check + 'ROLLBACK' Typed Confirmation",
+    "intent_ledger": "outputs/os/os_rollback_intent_ledger.jsonl",
+    "backend_action": "POST /lab/os/rollback (Stub)",
+    "frontend_ui": {
+        "button": "ROLLBACK (Red, Founder-Only)",
+        "modal": "DANGER: OS ROLLBACK",
+        "required_input": "ROLLBACK"
+    },
+    "states_verified": {
+        "idle": "Button Visible",
+        "confirming": "Modal Open, 'CONFIRM' Disabled until typed",
+        "executing": "Spinner + 'Initiating Rollback...'",
+        "result": "Stub 'UNAVAILABLE' feedback (Safe)"
+    }
+}

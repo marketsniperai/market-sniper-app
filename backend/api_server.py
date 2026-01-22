@@ -402,6 +402,39 @@ def get_replay_archive(limit: int = 30):
     from backend.os_ops.replay_archive import ReplayArchive
     return ReplayArchive.get_tail(limit)
 
+@app.post("/lab/os/rollback")
+async def os_rollback(request: Request):
+    """
+    D41.05: Founder-Gated Rollback Trigger (Stub).
+    """
+    auth_header = request.headers.get("X-Founder-Key")
+    # Gate implied
+    
+    try:
+        body = await request.json()
+        target_hash = body.get("target_hash", "UNKNOWN")
+        reason = body.get("reason", "No reason provided")
+    except:
+        target_hash = "UNKNOWN"
+        reason = "Payload error"
+        
+    # Log Intent
+    from backend.os_ops.rollback_ledger import RollbackLedger
+    RollbackLedger.log_intent(
+        actor="FOUNDER",
+        action="ROLLBACK_ATTEMPT",
+        target_lkg_hash=target_hash,
+        result="UNAVAILABLE", # Stub result
+        reason=reason
+    )
+    
+    # Stub Response
+    return {
+        "status": "UNAVAILABLE",
+        "reason": "ROLLBACK_ENGINE_MISSING",
+        "guidance": "Engine implementation pending (OS.R2.3)"
+    }
+
 # WAR ROOM ENDPOINTS (DAY 18)
 from backend.os_ops.war_room import WarRoom
 

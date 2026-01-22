@@ -251,6 +251,103 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
     );
   }
 
+  }
+
+  Future<void> _confirmRollback() async {
+    final TextEditingController _confirmCtrl = TextEditingController();
+    
+    await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+            backgroundColor: AppColors.surface1,
+            title: Row(children: [
+                Icon(Icons.warning_amber_rounded, color: AppColors.error), 
+                SizedBox(width: 8), 
+                Text("DANGER: OS ROLLBACK", style: GoogleFonts.jetbrainsMono(color: AppColors.error))
+            ]),
+            content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                    Text("This will revert Iron OS state to the last Known Good (LKG) snapshot.", style: GoogleFonts.inter(color: AppColors.textPrimary)),
+                    SizedBox(height: 12),
+                    Text("Type 'ROLLBACK' to confirm:", style: GoogleFonts.jetbrainsMono(color: AppColors.textSecondary, fontSize: 12)),
+                    SizedBox(height: 8),
+                    TextField(
+                        controller: _confirmCtrl,
+                        style: GoogleFonts.jetbrainsMono(color: AppColors.textPrimary),
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.error)),
+                            hintText: "ROLLBACK",
+                            hintStyle: GoogleFonts.jetbrainsMono(color: AppColors.textDisabled)
+                        ),
+                    )
+                ],
+            ),
+            actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context), 
+                    child: Text("CANCEL", style: GoogleFonts.jetbrainsMono(color: AppColors.textSecondary))
+                ),
+                TextButton(
+                    onPressed: () {
+                        if (_confirmCtrl.text == "ROLLBACK") {
+                            Navigator.pop(context);
+                            _executeRollback();
+                        }
+                    }, 
+                    child: Text("CONFIRM", style: GoogleFonts.jetbrainsMono(color: AppColors.error))
+                ),
+            ],
+        )
+    );
+  }
+
+  Future<void> _executeRollback() async {
+    setState(() {
+       _isLoading = true;
+       _status = "ROLLBACK";
+       _message = "Initiating Rollback Procedure...";
+    });
+
+    try {
+        final baseUrl = "http://127.0.0.1:8000"; 
+        
+        final response = await http.post(
+            Uri.parse('$baseUrl/lab/os/rollback'),
+            headers: {
+                "Content-Type": "application/json",
+                if (widget.isFounder) "X-Founder-Key": "mz_founder_888" 
+            },
+            body: jsonEncode({
+                "target_hash": "LATEST_LKG", // In real impl, fetch this first
+                "reason": "Founder Manual Trigger"
+            }),
+        );
+        
+        if (response.statusCode == 200) {
+            final data = jsonDecode(response.body);
+            setState(() {
+                _status = data['status'] ?? "UNKNOWN";
+                _message = data['reason'] ?? "Rollback command sent";
+            });
+        } else {
+             setState(() {
+                _status = "FAILED";
+                _message = "Rollback Error: ${response.statusCode}";
+            });
+        }
+    } catch (e) {
+        setState(() {
+           _status = "FAILED";
+           _message = "Network Error";
+        });
+    } finally {
+        setState(() => _isLoading = false);
+    }
+  }
+
   Color _getStatusColor() {
     switch (_status) {
       case "SUCCESS": return AppColors.success;
@@ -338,6 +435,29 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Icon(Icons.history, size: 16, color: AppColors.textSecondary),
+                ),
+              ),
+              const SizedBox(width: 8),
+              // Rollback Button
+               InkWell(
+                onTap: (widget.isFounder && !_isLoading) ? _confirmRollback : null,
+                borderRadius: BorderRadius.circular(4),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: (widget.isFounder && !_isLoading) ? AppColors.error.withOpacity(0.1) : AppColors.surface,
+                    border: Border.all(
+                      color: (widget.isFounder && !_isLoading) ? AppColors.error : AppColors.divider.withOpacity(0.3)
+                    ),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                      "ROLLBACK",
+                      style: GoogleFonts.jetbrainsMono(
+                        color: widget.isFounder ? AppColors.error : AppColors.textSecondary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                  ),
                 ),
               ),
             ],

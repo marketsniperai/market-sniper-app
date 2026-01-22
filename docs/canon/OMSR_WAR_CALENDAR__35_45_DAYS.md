@@ -281,7 +281,8 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md`](../../outputs/seals/SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md)
   - [x] D41.04 — Replay Archive + Time Machine UI (OS.R2.1 surface)
     - ↳ Seal: [`SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md`](../../outputs/seals/SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md)
-  - [ ] D41.05 — Founder-gated rollback UI action (confirm + logging)
+  - [x] D41.05 — Founder-gated rollback UI action (confirm + logging)
+    - ↳ Seal: [`SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md`](../../outputs/seals/SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md)
   - [x] D41.06 — Replay/rollback failsafe states + integrity indicators
     - ↳ Seal: [`SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md`](../../outputs/seals/SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md)
 
@@ -535,6 +536,8 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
 DAY 45 COMPLETE (SEALED)
 - [x] **D45 MASTER CLOSE — Shell + Premium + News/Calendar + Growth/Sharing**
   - ↳ Seal: [`SEAL_DAY_45_MASTER_CLOSE.md`](../../outputs/seals/SEAL_DAY_45_MASTER_CLOSE.md)
+
+  
   - [ ] D46.MSK.01 — Kernel Risk Lanes (Mode by Risk Class)
     - Define MSK “Risk Lanes” to avoid treating all flows the same:
       - LANE A (READ-ONLY): surfaces, explain router read-only; no writes; no network
