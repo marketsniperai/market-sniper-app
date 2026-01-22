@@ -1,0 +1,20 @@
+{
+    "day": "41.03",
+    "feature": "Institutional Day Replay UI (OS.R2.0)",
+    "timestamp": "2026-01-22T09:10:00-05:00",
+    "endpoint_used": "/lab/replay/day",
+    "status": "SUCCESS",
+    "components": [
+        "ReplayControlTile",
+        "WarRoomScreen wiring"
+    ],
+    "states_captured": {
+        "ready": "Day selector active",
+        "running": "Spinner + localized message",
+        "unavailable": "Status chip UNAVAILABLE (stub response)"
+    },
+    "degrade_rules": {
+        "missing_endpoint": "Degradation to UNAVAILABLE status chip",
+        "non_founder": "Button disabled / UI hidden (logic present)"
+    }
+}

@@ -103,7 +103,7 @@ This rule is **binding** for all future Antigravity prompts. The Campaign moves 
 - [x] D31 — The Surgeon (Runtime Self-Repair)
     - ↳ Seal: [`SEAL_DAY_31_THE_SURGEON.md`](../../outputs/seals/SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md)
 
-## PHASE 5 — Transcendence
+## PHASE 4 — Transcendence
 *Level 4 Autonomy and Growth.*
 
 - [x] D31.1 — Canon Sync (Post-Surgeon)
@@ -117,21 +117,21 @@ This rule is **binding** for all future Antigravity prompts. The Campaign moves 
     - ↳ Seal: [`SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md`](../../outputs/seals/SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md)
 - [x] D34 — The Black Box (Forensic Indestructibility)
     - ↳ Seal: [`SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md`](../../outputs/seals/SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md)
-- [ ] D35 — The Voice (Emotional Interpretability Layer) — PLANNED
+- [x] D35 — The Voice (Superseded by D43 Elite Arc)
 - [x] D36 — System Language Normalization (100% English)
     - ↳ Seal: [`SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md`](../../outputs/seals/SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md)
 - [x] D36.1 — Forensic Language Audit (Zero Spanish)
     - ↳ Seal: [`SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md`](../../outputs/seals/SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md)
 
 
-## PHASE 6 — Feature Phase v1 (Visible Body of the OS)
+## PHASE 5 — Feature Phase v1 (Visible Body of the OS)
 
 This phase externalizes already-sealed OS capabilities into visible, usable, and governable product surfaces. No new autonomy logic is created.
 
-**Phase 6 uses SubDays as the default sealing unit. Macro Days are campaign groupings.**
+**Phase 5 uses SubDays as the default sealing unit. Macro Days are campaign groupings.**
 
 ------------------------------------------------
-### PHASE 6 — MACRO DAYS & SUBDAYS
+### PHASE 5 — MACRO DAYS & SUBDAYS
 ------------------------------------------------
 
 - [ ] D37 — Dashboard Core (Lens OS Surface)
@@ -277,7 +277,8 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_41_01_IRON_OS_STATUS.md`](../../outputs/seals/SEAL_DAY_41_01_IRON_OS_STATUS.md)
   - [x] D41.02 — Timeline tail viewer (bounded, 8KB/event guard visibility)
     - ↳ Seal: [`SEAL_DAY_41_02_TIMELINE_TAIL.md`](../../outputs/seals/SEAL_DAY_41_02_TIMELINE_TAIL.md)
-  - [ ] D41.03 — Institutional Day Replay UI (OS.R2.0 surface)
+  - [x] D41.03 — Institutional Day Replay UI (OS.R2.0 surface)
+    - ↳ Seal: [`SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md`](../../outputs/seals/SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md)
   - [ ] D41.04 — Replay Archive + Time Machine UI (OS.R2.1 surface)
   - [ ] D41.05 — Founder-gated rollback UI action (confirm + logging)
   - [ ] D41.06 — Replay/rollback failsafe states + integrity indicators
@@ -482,7 +483,7 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md`](../../outputs/seals/SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md)
   - [x] D45.15 — Command Center Content Spec (WOW + legal-safe)
     - Top 3 Context Shifts (last 24h) (NOT picks)
-      Each shift includes: Drivers (2 bullets), Evidence sources (Pulse/Overlay/Evidence Memory), What OS is doing, What OS is not doing.
+      Each shift includes: Drivers (2 bullets), Evidence sources (Pulse/Overlay/Evidence Memory), What OS is doing.
     - Top 3 Highest-Confidence Descriptions
       Confidence = Coverage/Integrity (NOT win-rate). Badges: SAMPLE / COVERAGE / PROVIDER_LIVE / PROXY_ESTIMATED.
     - Flow Concentration (Context-only) (future: options L3)
@@ -524,6 +525,10 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   FOUNDER EXCLUSIVE
   - [x] D45.F1 — Founder Router Selector (War Room / Command Center)
     - ↳ Seal: [`SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md`](../../outputs/seals/SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md)
+  - [x] D45.H2 — Founder Phone Hotfix (BaseURL Release Guard + Ritual Reliability)
+    - ↳ Seal: [`SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md`](../../outputs/seals/SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md)
+  - [x] D45.H3 — Founder Ritual Hitbox + Network Permissions
+    - ↳ Seal: [`SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md`](../../outputs/seals/SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md)
 
 DAY 45 COMPLETE (SEALED)
 - [x] **D45 MASTER CLOSE — Shell + Premium + News/Calendar + Growth/Sharing**

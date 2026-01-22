@@ -11,7 +11,8 @@ import '../services/api_client.dart';
 import '../logic/war_room_refresh_controller.dart';
 import '../logic/war_room_degrade_policy.dart';
 import '../config/app_config.dart';
-// import '../widgets/canonical_scroll_container.dart'; // Replaced by CustomScrollView
+import '../widgets/war_room/replay_control_tile.dart'; // D41.03 Replay UI
+import '../widgets/canonical_scroll_container.dart'; // Legacy but kept if needed, though replaced mostly
 
 class WarRoomScreen extends StatefulWidget {
   const WarRoomScreen({super.key});
@@ -188,6 +189,7 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
                       _buildDecisionPathTile(),
                       _buildDriftTile(),
                       _buildReplayIntegrityTile(),
+                      _buildReplayTile(), // D41.03
                       _buildLockReasonTile(),
                       _buildCoverageTile(),
                       _buildFindingsTile(),
@@ -800,6 +802,14 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
       status: _loading ? WarRoomTileStatus.loading : status,
       subtitle: lines,
       debugInfo: "Source: ${r.source}",
+    );
+  }
+
+  Widget _buildReplayTile() {
+    // D41.03 Institutional Day Replay
+    // Founder-only interactive tile
+    return ReplayControlTile(
+      isFounder: AppConfig.isFounderBuild,
     );
   }
 

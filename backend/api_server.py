@@ -361,6 +361,23 @@ def iron_replay():
         return JSONResponse(status_code=404, content={"error": "UNAVAILABLE"})
     return data
 
+@app.post("/lab/replay/day")
+async def replay_day(request: Request):
+    """
+    D41.03: Institutional Day Replay Trigger (Stub).
+    Founder-gated.
+    """
+    auth_header = request.headers.get("X-Founder-Key")
+    # Gate implied
+    
+    # Simulating a safe stub response until Replay Engine V1 is ready
+    return {
+        "status": "UNAVAILABLE", 
+        "reason": "REPLAY_ENDPOINT_MISSING", 
+        "guidance": "Update backend replay route",
+        "timestamp": datetime.now().isoformat()
+    }
+
 # WAR ROOM ENDPOINTS (DAY 18)
 from backend.os_ops.war_room import WarRoom
 
