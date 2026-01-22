@@ -371,12 +371,36 @@ async def replay_day(request: Request):
     # Gate implied
     
     # Simulating a safe stub response until Replay Engine V1 is ready
-    return {
+    response = {
         "status": "UNAVAILABLE", 
         "reason": "REPLAY_ENDPOINT_MISSING", 
         "guidance": "Update backend replay route",
         "timestamp": datetime.now().isoformat()
     }
+    
+    # D41.04: Log this attempt to Archive
+    from backend.os_ops.replay_archive import ReplayArchive
+    try:
+        body = await request.json()
+        day_id = body.get("day_id", "UNKNOWN")
+    except:
+        day_id = "UNKNOWN"
+        
+    ReplayArchive.append_entry(
+        day_id=day_id, 
+        status="UNAVAILABLE", 
+        summary="Stub execution (Endpoint logic pending)"
+    )
+    
+    return response
+
+@app.get("/lab/replay/archive/tail")
+def get_replay_archive(limit: int = 30):
+    """
+    D41.04: Replay Archive Tail (Time Machine).
+    """
+    from backend.os_ops.replay_archive import ReplayArchive
+    return ReplayArchive.get_tail(limit)
 
 # WAR ROOM ENDPOINTS (DAY 18)
 from backend.os_ops.war_room import WarRoom

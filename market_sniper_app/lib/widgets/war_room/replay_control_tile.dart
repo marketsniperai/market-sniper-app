@@ -102,6 +102,112 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
     }
   }
 
+  Future<void> _showTimeMachine(BuildContext context) async {
+    // Fetch archive
+    List<dynamic> history = [];
+    try {
+        final baseUrl = "http://127.0.0.1:8000"; 
+        final response = await http.get(Uri.parse('$baseUrl/lab/replay/archive/tail?limit=30'));
+        if (response.statusCode == 200) {
+            history = jsonDecode(response.body);
+        }
+    } catch (e) {
+        // quiet fail
+    }
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: 600,
+        decoration: BoxDecoration(
+          color: AppColors.bgPrimary,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          border: Border.all(color: AppColors.borderSubtle),
+        ),
+        child: Column(
+          children: [
+             Padding(
+               padding: const EdgeInsets.all(16.0),
+               child: Text(
+                 "TIME MACHINE ARCHIVE (LAST 30)",
+                 style: GoogleFonts.jetbrainsMono(color: AppColors.textPrimary, fontWeight: FontWeight.bold),
+               ),
+             ),
+             Divider(color: AppColors.divider, height: 1),
+             Expanded(
+               child: history.isEmpty 
+                 ? Center(child: Text("No Replay History", style: GoogleFonts.inter(color: AppColors.textDisabled)))
+                 : ListView.separated(
+                     padding: EdgeInsets.all(16),
+                     itemCount: history.length,
+                     separatorBuilder: (c, i) => SizedBox(height: 8),
+                     itemBuilder: (context, index) {
+                        final item = history[index];
+                        final ts = item['timestamp_utc'] ?? "";
+                        final day = item['day_id'] ?? "UNKNOWN";
+                        final status = item['status'] ?? "UNKNOWN";
+                        final summary = item['summary'] ?? "";
+                        
+                        Color statusColor = AppColors.textSecondary;
+                        if (status == "SUCCESS") statusColor = AppColors.success;
+                        if (status == "FAILED") statusColor = AppColors.error;
+                        if (status == "UNAVAILABLE") statusColor = AppColors.warning;
+
+                        return InkWell(
+                          onTap: () {
+                             setState(() {
+                               if (day != "UNKNOWN") {
+                                 try {
+                                   _selectedDate = DateTime.parse(day);
+                                   _status = "READY";
+                                   _message = "Selected from Time Machine";
+                                 } catch (e) {}
+                               }
+                             });
+                             Navigator.pop(context);
+                          },
+                          child: Container(
+                             padding: EdgeInsets.all(12),
+                             decoration: BoxDecoration(
+                               color: AppColors.surface1,
+                               borderRadius: BorderRadius.circular(8),
+                               border: Border.all(color: AppColors.divider),
+                             ),
+                             child: Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                       Text(day, style: GoogleFonts.jetbrainsMono(color: AppColors.textPrimary, fontWeight: FontWeight.bold)),
+                                       Container(
+                                          padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                          decoration: BoxDecoration(
+                                             color: statusColor.withOpacity(0.1),
+                                             borderRadius: BorderRadius.circular(4),
+                                             border: Border.all(color: statusColor.withOpacity(0.3)),
+                                          ),
+                                          child: Text(status, style: GoogleFonts.jetbrainsMono(fontSize: 10, color: statusColor)),
+                                       ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(summary, style: GoogleFonts.inter(color: AppColors.textSecondary, fontSize: 12), maxLines: 1, overflow: TextOverflow.ellipsis),
+                                  Text(ts, style: GoogleFonts.jetbrainsMono(color: AppColors.textDisabled, fontSize: 10)),
+                               ],
+                             ),
+                          ),
+                        );
+                     },
+                   ),
+             ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Color _getStatusColor() {
     switch (_status) {
       case "SUCCESS": return AppColors.success;
@@ -174,6 +280,21 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              // History Button
+               InkWell(
+                onTap: (widget.isFounder && !_isLoading) ? () => _showTimeMachine(context) : null,
+                borderRadius: BorderRadius.circular(4),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: AppColors.surface,
+                    border: Border.all(color: AppColors.divider),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Icon(Icons.history, size: 16, color: AppColors.textSecondary),
                 ),
               ),
             ],

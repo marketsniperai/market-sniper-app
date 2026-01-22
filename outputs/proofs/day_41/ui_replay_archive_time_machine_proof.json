@@ -1,0 +1,23 @@
+{
+    "day": "41.04",
+    "feature": "Replay Archive + Time Machine UI (OS.R2.1)",
+    "timestamp": "2026-01-22T09:15:00-05:00",
+    "storage": {
+        "type": "JSONL",
+        "path": "runtime/os_replay_archive.jsonl",
+        "bound": 30
+    },
+    "endpoints": {
+        "log": "Appended via Stub (D41.03)",
+        "tail": "GET /lab/replay/archive/tail"
+    },
+    "ui": {
+        "component": "ReplayControlTile",
+        "modal": "Time Machine Archive",
+        "interaction": "Select past entry -> Prefills Date Picker"
+    },
+    "verification": {
+        "analysis": "Passed (Baseline)",
+        "flow": "Stub run -> Archive Log -> Time Machine List -> Selection"
+    }
+}
