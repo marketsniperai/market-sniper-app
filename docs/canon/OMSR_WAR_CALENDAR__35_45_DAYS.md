@@ -279,7 +279,8 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_41_02_TIMELINE_TAIL.md`](../../outputs/seals/SEAL_DAY_41_02_TIMELINE_TAIL.md)
   - [x] D41.03 — Institutional Day Replay UI (OS.R2.0 surface)
     - ↳ Seal: [`SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md`](../../outputs/seals/SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md)
-  - [ ] D41.04 — Replay Archive + Time Machine UI (OS.R2.1 surface)
+  - [x] D41.04 — Replay Archive + Time Machine UI (OS.R2.1 surface)
+    - ↳ Seal: [`SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md`](../../outputs/seals/SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md)
   - [ ] D41.05 — Founder-gated rollback UI action (confirm + logging)
   - [ ] D41.06 — Replay/rollback failsafe states + integrity indicators
 
