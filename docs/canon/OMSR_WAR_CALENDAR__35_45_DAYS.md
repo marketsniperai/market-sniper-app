@@ -117,14 +117,17 @@ This rule is **binding** for all future Antigravity prompts. The Campaign moves 
     - ↳ Seal: [`SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md`](../../outputs/seals/SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md)
 - [x] D34 — The Black Box (Forensic Indestructibility)
     - ↳ Seal: [`SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md`](../../outputs/seals/SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md)
-- [x] D35 — The Voice (Superseded by D43 Elite Arc)
+- [ ] D35 — The Voice v2 (Full Voice Engine: end-to-end ritual + personalization + caching + governance) — PLANNED
+  - Note: TTS/Voice MVP surfaces exist (sealed elsewhere); D35 is reserved for the full Voice Engine v2.
 - [x] D36 — System Language Normalization (100% English)
     - ↳ Seal: [`SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md`](../../outputs/seals/SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md)
 - [x] D36.1 — Forensic Language Audit (Zero Spanish)
     - ↳ Seal: [`SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md`](../../outputs/seals/SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md)
 
 
-## PHASE 5 — Feature Phase v1 (Visible Body of the OS)
+## PHASE 5 — merged into PHASE 6 (Feature Phase v1).
+ 
+## PHASE 6 — Feature Phase v1 (Visible Body of the OS)
 
 This phase externalizes already-sealed OS capabilities into visible, usable, and governable product surfaces. No new autonomy logic is created.
 
