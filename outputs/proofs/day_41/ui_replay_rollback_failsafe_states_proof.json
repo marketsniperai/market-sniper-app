@@ -1,0 +1,30 @@
+{
+    "day": "41.06",
+    "feature": "Replay/Rollback Failsafe & Integrity (OS.R2.2)",
+    "timestamp": "2026-01-22T09:18:00-05:00",
+    "integrity_check": {
+        "source": "GET /lab/os/iron/replay_integrity",
+        "indicators": {
+            "safe": "INT: OK (Grey)",
+            "risk": "INT: RISK (Red)",
+            "unknown": "INT: UNKNOWN (Grey)"
+        }
+    },
+    "states_defined": [
+        "IDLE",
+        "RUNNING",
+        "SUCCESS",
+        "FAILED",
+        "UNAVAILABLE",
+        "INTEGRITY_RISK"
+    ],
+    "failsafe_logic": {
+        "condition": "If !integritySafe && isFounder",
+        "action": "Block Replay Execution",
+        "feedback": "Status message: BLOCKED: Integrity Risk"
+    },
+    "ui_verification": {
+        "location": "ReplayControlTile bottom row",
+        "element": "Integrity Badge (Boxed)"
+    }
+}

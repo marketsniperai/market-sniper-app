@@ -21,7 +21,50 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
   DateTime _selectedDate = DateTime.now();
   bool _isLoading = false;
 
+  bool _integritySafe = true;
+  String _integrityStatus = "Checking...";
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchIntegrity();
+  }
+
+  Future<void> _fetchIntegrity() async {
+    try {
+        final baseUrl = "http://127.0.0.1:8000"; 
+        final response = await http.get(Uri.parse('$baseUrl/lab/os/iron/replay_integrity'));
+        
+        if (mounted) {
+            setState(() {
+                if (response.statusCode == 200) {
+                    final data = jsonDecode(response.body);
+                    bool corrupted = data['corrupted'] ?? false;
+                    bool truncated = data['truncated'] ?? false;
+                    if (corrupted || truncated) {
+                        _integritySafe = false;
+                        _integrityStatus = "RISK: ${corrupted ? 'CORRUPT' : 'TRUNCATED'}";
+                    } else {
+                        _integritySafe = true;
+                        _integrityStatus = "OK";
+                    }
+                } else {
+                    _integrityStatus = "UNKNOWN (No Artifact)";
+                    // Neutral, not risk
+                }
+            });
+        }
+    } catch (e) {
+        if (mounted) setState(() => _integrityStatus = "UNKNOWN (Net Err)");
+    }
+  }
+
   Future<void> _runReplay() async {
+    if (!_integritySafe && widget.isFounder) {
+        setState(() => _message = "BLOCKED: Integrity Risk");
+        return; 
+    }
+
     setState(() {
       _isLoading = true;
       _status = "RUNNING";
@@ -331,14 +374,36 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
                   ],
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  _message,
-                  style: GoogleFonts.inter(
-                    color: AppColors.textSecondary,
-                    fontSize: 12,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _message,
+                        style: GoogleFonts.inter(
+                          color: AppColors.textSecondary,
+                          fontSize: 12,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: _integritySafe ? AppColors.textDisabled : AppColors.error),
+                            borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                            "INT: $_integrityStatus",
+                            style: GoogleFonts.jetbrainsMono(
+                                fontSize: 10, 
+                                color: _integritySafe ? AppColors.textDisabled : AppColors.error,
+                                fontWeight: FontWeight.bold
+                            ),
+                        ),
+                    ),
+                  ],
                 ),
               ],
             ),

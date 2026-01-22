@@ -282,7 +282,8 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
   - [x] D41.04 — Replay Archive + Time Machine UI (OS.R2.1 surface)
     - ↳ Seal: [`SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md`](../../outputs/seals/SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md)
   - [ ] D41.05 — Founder-gated rollback UI action (confirm + logging)
-  - [ ] D41.06 — Replay/rollback failsafe states + integrity indicators
+  - [x] D41.06 — Replay/rollback failsafe states + integrity indicators
+    - ↳ Seal: [`SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md`](../../outputs/seals/SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md)
 
   BEAST PARITY (NEW)
   - [x] D41.07 — Iron State History Strip (last 10 states + timestamps + cause if present)
