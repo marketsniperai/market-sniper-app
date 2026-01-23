@@ -1,4 +1,7 @@
 # SEAL: DAY 45.05 — PREMIUM FEATURE MATRIX (UPDATED)
+> [!NOTE]
+> **SUPERSEDED IN PART**: The "Menu Entry: Integrated in Drawer" section is obsolete. The Drawer has been replaced by `MenuScreen` in `SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md`.
+
 
 ## SUMMARY
 Implemented the Premium Feature Matrix screen (v2) incorporating the "Trial (0/3 Market Opens)" row and dynamic status resolution.

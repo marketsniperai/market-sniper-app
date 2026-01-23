@@ -25,6 +25,9 @@ class WarRoomSnapshot {
   final CooldownTransparencySnapshot cooldownTransparency;
   final RedButtonStatusSnapshot redButton;
   final MisfireTier2Snapshot misfireTier2;
+  final OptionsInfoSnapshot options; // D36.3
+  final MacroInfoSnapshot macro; // D36.5
+  final EvidenceInfoSnapshot evidence; // D36.4
 
 
   const WarRoomSnapshot({
@@ -52,6 +55,9 @@ class WarRoomSnapshot {
     required this.cooldownTransparency,
     required this.redButton,
     required this.misfireTier2,
+    required this.options, // D36.3
+    required this.macro, // D36.5
+    required this.evidence, // D36.4
   });
 
   static const WarRoomSnapshot initial = WarRoomSnapshot(
@@ -80,6 +86,63 @@ class WarRoomSnapshot {
     cooldownTransparency: CooldownTransparencySnapshot.unknown,
     redButton: RedButtonStatusSnapshot.unknown,
     misfireTier2: MisfireTier2Snapshot.unknown,
+    options: OptionsInfoSnapshot.unknown, // D36.3
+    macro: MacroInfoSnapshot.unknown, // D36.5
+    evidence: EvidenceInfoSnapshot.unknown, // D36.4
+  );
+}
+
+class OptionsInfoSnapshot {
+  final String status;
+  final String coverage;
+  final String ivRegime;
+  final String skew;
+  final String expectedMove;
+  final String asOfUtc;
+  final bool isAvailable;
+  
+  // v1.1.0 Fields
+  final String version;
+  final String expectedMoveHorizon;
+  final String confidence;
+  final String note;
+  // Diagnostics
+  final bool providerAttempted;
+  final String providerResult;
+  final String fallbackReason;
+
+  const OptionsInfoSnapshot({
+    required this.status,
+    required this.coverage,
+    required this.ivRegime,
+    required this.skew,
+    required this.expectedMove,
+    required this.asOfUtc,
+    required this.isAvailable,
+    required this.version,
+    required this.expectedMoveHorizon,
+    required this.confidence,
+    required this.note,
+    required this.providerAttempted,
+    required this.providerResult,
+    required this.fallbackReason,
+  });
+
+  static const OptionsInfoSnapshot unknown = OptionsInfoSnapshot(
+    status: "N_A",
+    coverage: "N_A",
+    ivRegime: "N/A",
+    skew: "N/A",
+    expectedMove: "N/A",
+    asOfUtc: "N/A",
+    isAvailable: false,
+    version: "1.0",
+    expectedMoveHorizon: "N/A",
+    confidence: "N_A",
+    note: "",
+    providerAttempted: false,
+    providerResult: "NONE",
+    fallbackReason: "INIT",
   );
 }
 
@@ -135,6 +198,59 @@ class MisfireEscalationStepSnapshot {
         this.result,
         this.timestampUtc,
     });
+    fallbackReason: "INIT",
+  );
+}
+
+class MacroInfoSnapshot {
+  final String status;
+  final String coverage;
+  final String rates;
+  final String dollar;
+  final String oil;
+  final String summary;
+  final bool isAvailable;
+
+  const MacroInfoSnapshot({
+    required this.status,
+    required this.coverage,
+    required this.rates,
+    required this.dollar,
+    required this.oil,
+    required this.summary,
+    required this.isAvailable,
+  });
+
+  static const MacroInfoSnapshot unknown = MacroInfoSnapshot(
+    status: "N_A",
+    coverage: "N_A",
+    rates: "N/A",
+    dollar: "N/A",
+    oil: "N/A",
+    summary: "Initializing...",
+    isAvailable: false,
+  );
+}
+
+class EvidenceInfoSnapshot {
+  final String status;
+  final int sampleSize;
+  final String headline;
+  final bool isAvailable;
+
+  const EvidenceInfoSnapshot({
+    required this.status,
+    required this.sampleSize,
+    required this.headline,
+    required this.isAvailable,
+  });
+
+  static const EvidenceInfoSnapshot unknown = EvidenceInfoSnapshot(
+    status: "N_A",
+    sampleSize: 0,
+    headline: "Initializing...",
+    isAvailable: false,
+  );
 }
 
 class RedButtonStatusSnapshot {

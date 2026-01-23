@@ -1,4 +1,7 @@
 # SEAL: DAY 45.12 — SHARE ATTRIBUTION DASHBOARD
+> [!NOTE]
+> **SUPERSEDED IN PART**: The "Access Control: Restricted to Founder builds via the Main Drawer" section is obsolete. The Drawer has been replaced by `MenuScreen` in `SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md`.
+
 
 ## SUMMARY
 D45.12 introduces the **Founder-only Share Attribution Dashboard** ("Growth Bloomberg"). It aggregates telemetry from the Share Engine to visualize Key Performance Indicators (e.g., Shares/24h, Click Rate/7d) and volume trends. It operates in strict read-only mode using a local ledger aggregation strategy.

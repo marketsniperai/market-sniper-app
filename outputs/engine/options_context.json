@@ -1,0 +1,20 @@
+{
+  "version": "1.1.0",
+  "as_of_utc": "2026-01-23T18:23:38.108351Z",
+  "symbol": "SPY",
+  "status": "PROVIDER_DENIED",
+  "coverage": "N_A",
+  "iv_regime": "N/A",
+  "skew": "N/A",
+  "expected_move": "N/A",
+  "expected_move_horizon": "N/A",
+  "confidence": "N_A",
+  "data_sources": [],
+  "diagnostics": {
+    "provider_attempted": false,
+    "provider_result": "NONE",
+    "cache_age_seconds": null,
+    "fallback_reason": "PROVIDER_DENIED_NO_KEY"
+  },
+  "note": "Options Intelligence offline. API Key missing."
+}

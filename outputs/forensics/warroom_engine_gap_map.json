@@ -1,0 +1,49 @@
+{
+    "gap_map_meta": {
+        "generated_at": "2026-01-23",
+        "context": "POLISH.WARROOM.RESTORE.02",
+        "source_truth": "B_VICTORY_CHECKLIST__RAW.md"
+    },
+    "engines": [
+        {
+            "id": "D36.3",
+            "name": "Options Intelligence v1",
+            "status": "STUB",
+            "war_room_tile_required": true,
+            "primary_artifact": "outputs/engine/options_context.json",
+            "legacy_ref": "C2 — Options Intelligence"
+        },
+        {
+            "id": "D36.4",
+            "name": "Evidence & Backtesting Engine v1",
+            "status": "PARTIAL",
+            "war_room_tile_required": true,
+            "primary_artifact": "outputs/engine/evidence_summary.json",
+            "legacy_ref": "C3 — Backtest Real / B6 — Backtest Visual"
+        },
+        {
+            "id": "D36.5",
+            "name": "Macro Layer v1",
+            "status": "MISSING",
+            "war_room_tile_required": true,
+            "primary_artifact": "outputs/engine/macro_context.json",
+            "legacy_ref": "C2 — Macro Layer / B3 Context"
+        },
+        {
+            "id": "D36.6",
+            "name": "Lexicon Pro v1",
+            "status": "MISSING",
+            "war_room_tile_required": false,
+            "primary_artifact": "config/lexicon_rules.json",
+            "legacy_ref": "B5 — Lenguaje Legal & Honesto"
+        },
+        {
+            "id": "D36.7",
+            "name": "Voice/TTS MVP Reconciliation",
+            "status": "MISSING",
+            "war_room_tile_required": false,
+            "primary_artifact": "outputs/engine/voice_state.json",
+            "legacy_ref": "Legacy MVP"
+        }
+    ]
+}

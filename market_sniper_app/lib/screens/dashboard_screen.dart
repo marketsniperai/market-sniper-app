@@ -42,6 +42,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
   SystemHealth? _health; // Legacy
   SystemHealthSnapshot _healthSnapshot = SystemHealthSnapshot.unknown;
   LastRunSnapshot _lastRunSnapshot = LastRunSnapshot.unknown;
+  Map<String, dynamic>? _optionsContext; // D36.3
   
   bool _loading = true;
   String? _error;
@@ -132,6 +133,17 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
           _lastRunRepo.fetchLastRun().then((lr) {
              if (mounted) setState(() => _lastRunSnapshot = lr);
           });
+          
+          // D36.3: Fetch Options Context (Async, non-blocking)
+          _repo.fetchOptionsContext().then((opts) {
+             if (mounted) {
+               setState(() {
+                 // We need to pass this to composer. 
+                 // Storing in state for now, will add variable.
+                 _optionsContext = opts;
+               });
+             }
+          });
 
           _loading = false;
         });
@@ -182,6 +194,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
       isFounder: AppConfig.isFounderBuild,
       resolvedState: resolvedState,
       degradeContext: degradeContext,
+      optionsContext: _optionsContext, // D36.3
     );
 
     final widgets = composer.buildList(context);

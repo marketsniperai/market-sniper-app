@@ -4,7 +4,7 @@
 CONTEXT CORE — MarketSniper AI (UPDATED)
 =======================================
 
-Last Updated: 2025-12-29  
+Last Updated: 2026-01-23 (Day 45)
 Status: SEALED / CANONICAL  
 Owner: Founder (Sergio)  
 Primary Objective: Massive revenue fast, without sacrificing legality, honesty, or long-term scalability.
@@ -17,7 +17,7 @@ MarketSniper AI is a legally safe, institutional-grade market intelligence platf
 
 It generates:
 ✅ Descriptive intelligence  
-✅ Market context snapshots  
+✅ Market context snapshots (Iron OS)
 ✅ Regime framing and risk classification  
 ✅ Evidence / memory style backtest summaries  
 ✅ News + macro context and interpretation surfaces  
@@ -133,7 +133,10 @@ Layer 2 — PULSE
 Layer 3 — REAL-TIME EVENTS  
 - News + macro surfaces, always descriptive.
 
-Layer 4 — META WATCHDOG  
+Layer 4 — IRON (THE MIRROR)
+- State History, Replay, and LKG validity.
+
+Layer 5 — META WATCHDOG  
 - System integrity + provider health + drift enforcement.
 - Safe Mode triggers only when true corruption or dangerous inconsistency exists.
 
@@ -160,25 +163,25 @@ C3: Evidence / Backtests (fingerprint matching + stats, N>=15 hard N/A) ✅ DONE
 C4: Effectiveness / Noise Reduction (client-side personalization) ✅ DONE  
 C5: Monetization Engine (shadow mode, entitlements) ✅ DONE  
 
-Phase D — Elite Ritual Engine ✅ IN FLIGHT / CORE COMPLETE
+Phase D — Elite Ritual Engine ✅ DONE
 D1 Premarket Briefing ritual ✅ DONE  
 D2 Aftermarket Closure ritual ✅ DONE  
 D3 Sunday Setup ritual ✅ DONE  
 D3.1 Production hardening ✅ DONE  
 Elite MVP + conversion “Try-me Monday” ✅ DONE  
 
-Phase E — Scale (FUTURE)
-- Multi-asset
-- API product
-- Institutional / B2B
+Phase 5 — Feature Phase v1 (Visible Body) ✅ SECTORS COMPLETED (D37-D45)
+- Dashboard Core (D37)
+- War Room (D38)
+- Universe & Real-Time Intelligence (D39-D40)
+- Iron OS (D41)
+- Self-Heal (D42)
+- Elite Experience (D43)
+- Watchlist & On-Demand (D44)
+- Shell, Premium, Share (D45)
 
-Phase D.2 — Elite Experience (Day 43) ✅ SEALED
-- Elite Overlay 70/30 Shell (Status + Context)
-- Mentor Brain (Tone Adaptation)
-- Explain Router (Clean fallback architecture)
-- Day Memory + Session Thread Memory
-- Context Safety Layer (Strict Institutional Guard)
-- Layout Police (Infrastructure Guard)
+Phase 6 — Transcendence (Future)
+- Scale, Multi-asset, Institutional B2B.
 
 ──────────────────────────────────────────────────────────────────────────────
 8) SEALED GOVERNANCE — DOCTRINA OFICIAL
@@ -199,49 +202,7 @@ Sealed rule:
 9) MAJOR SYSTEM PATCHES (NOW CANON)
 ──────────────────────────────────────────────────────────────────────────────
 
-W0 — Weekend Correctness Patch
-- Market Closed banner
-- session_state injection
-- Safe weekend behavior
-- Simulation header (X-Simulation-Date) for validation
-
-W1 — Founder Weekend Mode
-- Weekend stale TTL relaxed to 96h
-- Allows app usage when markets closed
-- Still blocks on true corruption
-
-W2 — Watchdog Harden
-- Drift mismatch can degrade trust instead of safe mode lock
-- WD_BENIGN_DRIFT warning introduced
-
-W3 — API Base URL Matrix
-- Web/Release always prod URL
-- Debug Android uses emulator 10.0.2.2 only
-- Env override MS_API_BASE_URL
-- All repos must use AppConfig.apiBaseUrl
-- Eliminated “Integrity Check Failed” due to wrong base URL
-
-N1 — News Flip Cards
-- UI flip surfaces expanded_summary
-
-N1.2 — Backend News Enrichment (Heuristic)
-- expanded_summary, tags, coverage
-- safe institutional templates
-
-N1.2.1 — Header polish (Context/Implication/Watch/Risk)
-
-N1.3 — LLM Shadow Scaffold (OFF by default)
-- backend/news_enrichment/ abstraction
-- HeuristicEnricher extracted
-- LLMShadowEnricher stub, zero network calls
-
-N2 — News Read-Through
-- WebView + share
-
-D3 — Sunday Setup ritual
-- artifact sunday_setup_report.json
-- endpoint /sunday_setup
-- UI SundaySetupScreen
+(W0-W3, N1-N2, D3 retained for history)
 
 Critical Fixes (RC FINAL)
 - lexicon_guard list/string concat bug fixed (stopped /dashboard 500)
@@ -266,27 +227,18 @@ The assistant is NOT:
 - A dopamine dealer
 - A trader/predictor
 
-Tone preference:
-- Spanish, cercano, alegre, jodedor (humor + complicidad)
-- But always precise and honest
-- Institutional language inside product outputs
+Language Policy (D36 Law):
+- Code/Docs/Artifacts: 100% ENGLISH.
+- Founder Communication: Spanish (cercano, alegre) allowed.
 
 ──────────────────────────────────────────────────────────────────────────────
-11) CURRENT PRIORITY (DEC 2025)
+11) CURRENT PRIORITY (JAN 2026)
 ──────────────────────────────────────────────────────────────────────────────
 
 Immediate priority:
-- Hardening release build
-- Eliminating remaining UI + behavior bugs:
-  * Watchlist add ticker broken
-  * Prediction list empty due to filter strictness
-  * Context analysis 500 errors on certain tickers
-  * News flip not appearing on device sometimes
-  * Elite tone too robotic (later)
-- Pipeline cadence upgrade (5m / 1m feasibility)
-- Subscription plumbing finalization
-- Conversion/retention polish
-- QA automation checklist
+- Governance Sync & Checkpoint (D36-D45 Completion)
+- Kernel Risk Lanes (D46)
+- Polish Phase
 
 North Star:
 The user must feel MarketSniper is indispensable.
@@ -301,7 +253,7 @@ Assume:
 - Architecture is correct
 - Safety is enforced
 - Ritual system is installed
-- Phase D hardening ongoing
+- Phase D/5 hardening ongoing
 - Revenue is north star
 
 Then:

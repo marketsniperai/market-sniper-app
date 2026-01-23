@@ -183,6 +183,78 @@ def sunday_setup():
 def options_report():
     return read_and_validate("options_report.json", GenericReport, subdir="full")
 
+@app.get("/options_context")
+def options_context():
+    """
+    D36.3: Options Intelligence v1 Context.
+    Returns options_context.json or generates N/A stub if missing.
+    """
+    from backend.artifacts.io import safe_read_or_fallback
+    from backend.options_engine import generate_options_context
+    
+    # Try reading existing artifact
+    res = safe_read_or_fallback("engine/options_context.json")
+    
+    # If missing or failed, generate fresh N/A artifact (Always-On contract)
+    if not res["success"]:
+        return generate_options_context()
+        
+    return res["data"]
+
+@app.get("/macro_context")
+def macro_context():
+    """
+    D36.5: Macro Layer v1 Context.
+    Returns macro_context.json or generates N/A stub.
+    """
+    from backend.artifacts.io import safe_read_or_fallback
+    from backend.macro_engine import generate_macro_context
+    
+    # Try reading existing artifact
+    res = safe_read_or_fallback("engine/macro_context.json")
+    
+    if not res["success"]:
+        return generate_macro_context()
+        
+    return res["data"]
+
+
+@app.get("/evidence_summary")
+def evidence_summary():
+    """
+    D36.4: Evidence & Backtesting Engine v1.
+    Returns evidence_summary.json or generates N_A stub.
+    """
+    from backend.artifacts.io import safe_read_or_fallback
+    from backend.evidence_engine import generate_evidence_summary
+    
+    # Try reading existing artifact
+    res = safe_read_or_fallback("engine/evidence_summary.json")
+    
+    if not res["success"]:
+        return generate_evidence_summary()
+        
+    return res["data"]
+
+
+@app.get("/voice_state")
+def voice_state():
+    """
+    D36.7: Voice MVP Stub.
+    Returns voice_state.json.
+    """
+    from backend.artifacts.io import safe_read_or_fallback
+    from backend.voice_mvp_engine import generate_voice_state
+    
+    # Try reading existing artifact
+    res = safe_read_or_fallback("engine/voice_state.json")
+    
+    if not res["success"]:
+        generate_voice_state()
+        res = safe_read_or_fallback("engine/voice_state.json") # Re-read
+        
+    return res["data"] if res["success"] else {"status": "ERROR"}
+
 
 # AUTOFIX ENDPOINTS (DAY 15)
 from backend.os_ops.autofix_control_plane import AutoFixControlPlane

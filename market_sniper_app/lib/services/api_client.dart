@@ -192,6 +192,39 @@ class ApiClient {
     } catch (_) {}
     return {};
   }
+  
+  Future<Map<String, dynamic>> fetchOptionsContext() async {
+    final url = Uri.parse('$baseUrl/options_context');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {'status': 'N_A'};
+  }
+
+  Future<Map<String, dynamic>> fetchMacroContext() async {
+     final url = Uri.parse('$baseUrl/macro_context');
+     try {
+       final response = await client.get(url, headers: _headers);
+       if (response.statusCode == 200) {
+         return json.decode(response.body);
+       }
+     } catch (_) {}
+     return {'status': 'N_A'};
+  }
+
+  Future<Map<String, dynamic>> fetchEvidenceSummary() async {
+     final url = Uri.parse('$baseUrl/evidence_summary');
+     try {
+       final response = await client.get(url, headers: _headers);
+       if (response.statusCode == 200) {
+         return json.decode(response.body);
+       }
+     } catch (_) {}
+     return {'status': 'N_A'};
+  }
 
   Future<Map<String, dynamic>> fetchHousekeeperStatus() async {
     final url = Uri.parse('$baseUrl/lab/housekeeper/status');

@@ -19,6 +19,7 @@ import '../../widgets/os_health_widget.dart';
 import '../../widgets/last_run_widget.dart';
 import '../../widgets/system_health_chip.dart';
 import '../../widgets/dashboard_widgets.dart'; // For renderWidget
+import '../../widgets/options_context_widget.dart'; // D36.3
 
 class DashboardComposer {
   final DashboardPayload? dashboard;
@@ -28,6 +29,7 @@ class DashboardComposer {
   final bool isFounder;
   final ResolvedDataState? resolvedState;
   final DegradeContext degradeContext;
+  final Map<String, dynamic>? optionsContext; // D36.3
 
   DashboardComposer({
     required this.dashboard,
@@ -37,6 +39,7 @@ class DashboardComposer {
     required this.isFounder,
     required this.resolvedState,
     required this.degradeContext,
+    this.optionsContext,
   });
 
   List<Widget> buildList(BuildContext context) {
@@ -106,6 +109,14 @@ class DashboardComposer {
     // 6. Usage Chips (Navigation / Quick Filter)
     items.add(_buildCategoryChips());
     items.add(const SizedBox(height: DashboardSpacing.gap));
+
+    // D36.3: Options Intelligence Widget (Below Chips, Above Legacy Health)
+    if (optionsContext != null) {
+      items.add(Padding(
+        padding: DashboardSpacing.bottomGap,
+        child: OptionsContextWidget(data: optionsContext!),
+      ));
+    }
 
     // 7. Legacy Health Chip (If exists)
     if (health != null) {

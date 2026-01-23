@@ -3,7 +3,7 @@ PRINCIPIO OPERATIVO — MADRE NODRIZA
 OMSR (Operational Market Sniper Runtime)
 Authority: SUPREME
 Status: CANONICAL
-Last Sync: Day 43 — Elite Arc v1 + Layout Police
+Last Sync: Day 45 — Feature Phase & Governance Sync
 Supersedes: G0.CANON_0 (Bestia Era)
 
 0. DECLARACIÓN FUNDACIONAL
@@ -39,7 +39,7 @@ descripción
 
 clasificación
 
-memoria
+memoria (Iron OS & Elite)
 
 coherencia
 
@@ -88,7 +88,7 @@ La legalidad vive en:
 
 separación estricta entre contexto y acción
 
-Lexicon Guard
+Lexicon Guard (Stealth)
 
 N/A como protección cognitiva
 
@@ -232,7 +232,7 @@ Layer B — PULSE
 
 Early AM + intraday
 
-Contexto vivo
+Contexto vivo (Sentinel, Sector Heatmap)
 
 Nunca reemplaza Snapshot
 
@@ -241,6 +241,14 @@ Layer C — REAL-TIME EVENTS
 News → Impact → Context
 
 Event-driven, no signal-driven
+
+Layer D — IRON (THE MIRROR)
+
+State History (Time Machine)
+
+Replay & Rollback
+
+Forensic Indestructibility
 
 Layer META — WATCHDOG
 
@@ -293,7 +301,7 @@ Providers
 
 SAFE MODE
 
-Run lineage
+Run lineage (Iron OS)
 
 12. WAR ROOM (FOUNDER COMMAND CENTER)
 
@@ -310,7 +318,7 @@ Es tablero de mando.
 
 13. HUMAN MODE (ACCESIBILIDAD)
 
-Human Mode:
+Human Mode (via Elite):
 
 No cambia hechos
 

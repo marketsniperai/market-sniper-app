@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "as_of_utc": "2026-01-23T18:23:40.498193Z",
+  "status": "N_A",
+  "coverage": "N_A",
+  "fingerprint": {
+    "regime": "Neutral",
+    "trend": "Flat",
+    "vol_regime": "Normal"
+  },
+  "sample_size": 0,
+  "horizon_days": [
+    1,
+    5
+  ],
+  "metrics": null,
+  "narrative": {
+    "headline": "Insufficient historical matches found.",
+    "bullets": []
+  },
+  "diagnostics": {
+    "match_method": "STUB_V1",
+    "data_window": "N/A",
+    "fallback_reason": "INIT_NO_DATA",
+    "lexicon": {
+      "text": "Insufficient historical matches found.",
+      "rules_applied": [],
+      "version": "1.0.0"
+    }
+  }
+}

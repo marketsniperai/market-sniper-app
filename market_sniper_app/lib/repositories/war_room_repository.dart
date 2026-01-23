@@ -45,6 +45,7 @@ class WarRoomRepository {
       api.fetchCooldownTransparency(), // Cooldown Transparency
       api.fetchRedButtonStatus(), // Red Button Status
       api.fetchMisfireTier2(), // Misfire Tier 2
+      api.fetchOptionsContext(), // Options Context (D36.3)
     ]);
 
     final osHealth = results[0] as SystemHealthSnapshot;
@@ -72,6 +73,7 @@ class WarRoomRepository {
     final cooldownTransparencyJson = results[22] as Map<String, dynamic>;
     final redButtonJson = results[23] as Map<String, dynamic>;
     final misfireTier2Json = results[24] as Map<String, dynamic>;
+    final optionsJson = results[25] as Map<String, dynamic>;
 
 
 
@@ -105,7 +107,31 @@ class WarRoomRepository {
       cooldownTransparency: _parseCooldownTransparency(cooldownTransparencyJson),
       redButton: _parseRedButton(redButtonJson),
       misfireTier2: _parseMisfireTier2(misfireTier2Json),
+      options: _parseOptions(optionsJson), // D36.3
     );
+  }
+
+  OptionsInfoSnapshot _parseOptions(Map<String, dynamic> json) {
+    if (json.isNotEmpty && json['status'] != null) {
+      final diag = json['diagnostics'] ?? {};
+      return OptionsInfoSnapshot(
+        status: json['status'] ?? "N_A",
+        coverage: json['coverage'] ?? "N_A",
+        ivRegime: json['iv_regime'] ?? "N/A",
+        skew: json['skew'] ?? "N/A",
+        expectedMove: json['expected_move'] ?? "N/A",
+        asOfUtc: json['as_of_utc'] ?? "N/A",
+        isAvailable: true,
+        version: json['version'] ?? "1.0",
+        expectedMoveHorizon: json['expected_move_horizon'] ?? "N/A",
+        confidence: json['confidence'] ?? "N/A",
+        note: json['note'] ?? "",
+        providerAttempted: diag['provider_attempted'] ?? false,
+        providerResult: diag['provider_result'] ?? "NONE",
+        fallbackReason: diag['fallback_reason'] ?? "NONE",
+      );
+    }
+    return OptionsInfoSnapshot.unknown;
   }
 
   AutoFixTier1Snapshot _parseAutoFixTier1(Map<String, dynamic> json) {

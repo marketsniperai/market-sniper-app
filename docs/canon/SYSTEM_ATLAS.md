@@ -1,7 +1,7 @@
 # SYSTEM ATLAS (G0.CANON_ATLAS)
 
 **Authority:** IMMUTABLE
-**Sync Date:** Day 31 (The Surgeon)
+**Sync Date:** Day 45 (Feature Phase)
 
 ## 1. Cloud Infrastructure (GCP)
 - **Project ID**: `marketsniper-intel-osr-9953`
@@ -44,6 +44,9 @@
 - **Shadow Repair (The Surgeon)**: 
     - *Propose Mode*: Generates diffs for source/contract changes (Human Review).
     - *Surgeon Mode*: Autonomously patches **RUNTIME** artifacts (Low Risk) with Rollback.
+- **Iron OS (The Mirror)**:
+    - *Roles*: State Management, History, Replay.
+    - *Artifacts*: `os_state.json`, `iron_timeline.json`, `lkg_snapshot.json`.
 
 ## 4. Persistence
 - **Bucket**: `gs://marketsniper-outputs-marketsniper-intel-osr-9953`
@@ -63,7 +66,22 @@
 - **Misfire Monitor**: Embedded in API, detects lock staleness.
 - **Housekeeper**: Embedded in API, cleans drift.
 
-## 6. Elite Arc (Day 43) - COMPLETED
+## 6. Real-Time Intelligence Arc (Day 40) - COMPLETED
+- **Pulse**: Real-time sector/regime state.
+- **Sentinel**: Sector heatmap and active monitoring.
+- **Freshness**: Real-time logic (1 min - 15 min degrade).
+
+## 7. Iron OS Arc (Day 41) - COMPLETED
+- **Iron OS**: The immutable state recorder.
+- **Replay Archive**: Time travel for states (Institutional Day Replay).
+- **Rollback Ledger**: Founder-gated undo capability.
+
+## 8. Self-Heal & Housekeeper Arc (Day 42) - COMPLETED
+- **AutoFix Tier 1**: Deterministic self-repair.
+- **Housekeeper**: Auto-clean operational debris.
+- **Misfire Tier 2**: Deep-fix logic.
+
+## 9. Elite Arc (Day 43) - COMPLETED
 - **Elite Context Memory**:
     - `day_memory.json`: Session memory (4KB/Day).
     - `session_thread_memory.json`: Thread state (12 turns).
@@ -74,3 +92,14 @@
     - **LayoutPolice**: Debug guard (Founder build).
 - **Automation**:
     - **Ritual Scheduler**: Local time-based triggers (Morning, Afternoon, Setup).
+
+## 10. Watchlist & On-Demand (Day 44) - COMPLETED
+- **Watchlist Store**: Local persistence, live chips, easy-add.
+- **On-Demand Engine**: Universe-agnostic search (Pipeline/Cache/Offline).
+- **Institutional Guard**: Lexicon enforcement on results.
+
+## 11. Feature Phase v1 (Day 45) - COMPLETED
+- **Premium Matrix**: Trial/Plus/Elite logic.
+- **Share Engine**: Watermarked institutional sharing.
+- **Command Center**: Elite-only mystery surface.
+- **News & Calendar**: High-fidelity data surfaces.

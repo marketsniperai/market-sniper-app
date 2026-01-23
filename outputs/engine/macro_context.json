@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "as_of_utc": "2026-01-23T18:23:42.800220Z",
+  "status": "N_A",
+  "coverage": "N_A",
+  "rates_context": "N/A",
+  "dollar_context": "N/A",
+  "oil_context": "N/A",
+  "summary": "Macro context offline. No providers.",
+  "diagnostics": {
+    "sources_used": [],
+    "fallback_reason": "NO_PROVIDERS_CONFIGURED",
+    "cache_age_seconds": null,
+    "lexicon": {
+      "text": "Macro context offline. No providers.",
+      "rules_applied": [],
+      "version": "1.0.0"
+    }
+  }
+}

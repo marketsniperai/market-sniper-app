@@ -203,6 +203,9 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
                       _buildRedButtonTile(),
                       _buildMisfireTier2Tile(),
                       _buildUniverseTile(),
+                      _buildOptionsTile(), // D36.3
+                      _buildMacroTile(), // D36.5
+                      _buildEvidenceTile(), // D36.4
                     ],
                  ),
               ),
@@ -802,6 +805,123 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
       status: _loading ? WarRoomTileStatus.loading : status,
       subtitle: lines,
       debugInfo: "Source: ${r.source}",
+    );
+  }
+
+  Widget _buildOptionsTile() {
+    final o = _snapshot.options;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!o.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        // Map Status Logic
+        // status: LIVE => Nominal
+        // PROVIDER_DENIED => Degraded (Yellow)
+        // PROXY_ESTIMATED => Degraded
+        // N_A => Degraded/Info
+        if (o.status == 'LIVE') status = WarRoomTileStatus.nominal;
+        else if (o.status == 'CACHE') status = WarRoomTileStatus.nominal; // Cache is nominal enough
+        else if (o.status == 'PROVIDER_DENIED') status = WarRoomTileStatus.degraded;
+        else if (o.status == 'PROXY_ESTIMATED') status = WarRoomTileStatus.degraded;
+        else status = WarRoomTileStatus.degraded; // N_A or others
+
+        lines.add("STATUS: ${o.status}");
+        // lines.add("COVERAGE: ${o.coverage}"); // Can remove to save space if needed
+        
+        if (o.status == 'CACHE') {
+           // Maybe show cache age if passed in snapshot? Current snapshot has fallback reason but not raw age.
+           // We can infer from fallback reason or just show status.
+        }
+        
+        if (o.providerAttempted) {
+           lines.add("PROV: ${o.providerResult}");
+        }
+        
+        if (o.fallbackReason != "NONE" && o.fallbackReason != "null") {
+           String r = o.fallbackReason;
+           if (r.length > 15) r = "${r.substring(0, 15)}...";
+           lines.add("ERR: $r");
+        }
+        
+        String t = o.asOfUtc;
+        if (t.contains('T')) t = t.split('T').last.split('.').first;
+        lines.add("TIME: $t");
+      }
+    }
+
+    return WarRoomTile(
+      title: "OPTIONS INTEL",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /options_context",
+    );
+  }
+
+  Widget _buildMacroTile() {
+    final m = _snapshot.macro;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!m.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        // Status mapping
+        if (m.status == 'LIVE') status = WarRoomTileStatus.nominal;
+        else if (m.status == 'PARTIAL') status = WarRoomTileStatus.degraded;
+        else if (m.status == 'N_A') status = WarRoomTileStatus.degraded; // Neutral
+        else status = WarRoomTileStatus.incident;
+
+        lines.add("STATUS: ${m.status}");
+        lines.add("RATES: ${m.rates}");
+        lines.add("USDOLLAR: ${m.dollar}");
+        lines.add("OIL: ${m.oil}");
+      }
+    }
+
+    return WarRoomTile(
+      title: "MACRO CONTEXT",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /macro_context",
+    );
+  }
+
+  Widget _buildEvidenceTile() {
+    final e = _snapshot.evidence;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!e.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        // Status mapping
+        if (e.status == 'LIVE') status = WarRoomTileStatus.nominal;
+        else if (e.status == 'PARTIAL') status = WarRoomTileStatus.degraded;
+        else if (e.status == 'N_A') status = WarRoomTileStatus.degraded; // Neutral
+        else status = WarRoomTileStatus.incident;
+
+        lines.add("STATUS: ${e.status}");
+        lines.add("N: ${e.sampleSize}");
+        
+        String h = e.headline;
+        if (h.length > 25) h = "${h.substring(0, 25)}...";
+        lines.add("HEAD: $h");
+      }
+    }
+
+    return WarRoomTile(
+      title: "EVIDENCE",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: /evidence_summary",
     );
   }
 

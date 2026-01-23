@@ -7,6 +7,132 @@
     },
     "modules": [
         {
+            "module_id": "OS.Intel.VoiceMVP",
+            "name": "Voice MVP Stub",
+            "type": "LEGACY",
+            "owner": "FOUNDER",
+            "status": "DISABLED",
+            "primary_files": [
+                "backend/voice_mvp_engine.py"
+            ],
+            "wiring": {
+                "inputs": [],
+                "outputs": [
+                    "voice_state.json"
+                ],
+                "ports": [
+                    "GET /voice_state"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "voice_state.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Intel.Lexicon",
+            "name": "Lexicon Pro Engine",
+            "type": "INTELLIGENCE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/lexicon_pro_engine.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "raw_text"
+                ],
+                "outputs": [
+                    "refined_text"
+                ],
+                "ports": [
+                    "(Internal Library)"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Intel.Options",
+                        "OS.Intel.Macro",
+                        "OS.Intel.Evidence"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Intel.Evidence",
+            "name": "Evidence Engine",
+            "type": "INTELLIGENCE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/evidence_engine.py"
+            ],
+            "wiring": {
+                "inputs": [],
+                "outputs": [
+                    "evidence_summary.json"
+                ],
+                "ports": [
+                    "GET /evidence_summary"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "evidence_summary.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "evidence"
+                ]
+            }
+        },
+        {
+            "module_id": "OS.Intel.Macro",
+            "name": "Macro Engine",
+            "type": "INTELLIGENCE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/macro_engine.py"
+            ],
+            "wiring": {
+                "inputs": [],
+                "outputs": [
+                    "macro_context.json"
+                ],
+                "ports": [
+                    "GET /macro_context"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": [
+                    "macro"
+                ]
+            }
+        },
+        {
             "module_id": "OS.Infra.API",
             "name": "API Server",
             "type": "CORE",

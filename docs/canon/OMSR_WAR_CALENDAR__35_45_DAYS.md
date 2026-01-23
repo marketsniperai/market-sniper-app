@@ -124,6 +124,59 @@ This rule is **binding** for all future Antigravity prompts. The Campaign moves 
 - [x] D36.1 — Forensic Language Audit (Zero Spanish)
     - ↳ Seal: [`SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md`](../../outputs/seals/SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md)
 
+> **Note (D36.2+ Insert):** Gaps identified via `legacy_vs_omsr` forensic audit. Forward-only backlog insertion; no re-interpretation of past days.
+
+- [x] D36.2 — Engine Reconciliation Backlog Insert (Repo viejo → OMSR)
+    - ↳ Seal: [`SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md`](../../outputs/seals/SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md)
+- [x] D36.3 — Options Intelligence v1 (Descriptive / N/A Safe / UI wiring)
+    - ↳ Seal: [`SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md`](../../outputs/seals/SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md)
+    - **Purpose:** Descriptive options context (IV regime, skew, expected move) — NOT signals.
+    - **Safety:** N/A defaults, no hallucination, no predictions. Explicitly state: NO trade ideas, NO targets, NO probabilities.
+    - **Inputs:** Options chain snapshots / proxies.
+    - **Outputs:** `options_context.json` (or equivalent).
+    - **UI:** OptionsContextWidget (dashboard + on-demand + command center).
+    - **Legacy Ref:** C2 (Options Intelligence).
+
+- [x] D36.3A — Options Intelligence v1.1 (Provider Ready)
+    - ↳ Seal: [`SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1_PROVIDER_READY.md`](../../outputs/seals/SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md)
+
+- [x] D36.4 — Evidence & Backtesting Engine v1 (regime match + sample size + horizons)
+    - ↳ Seal: [`SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md`](../../outputs/seals/SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md)
+    - **Purpose:** Regime-based historical matching (NOT forecasting).
+    - **Inputs:** Historical price/volatility data.
+    - **Logic:** Sample-size minimums, horizons (1D / 5D / 20D).
+    - **Outputs:** Evidence/backtest summaries (`evidence_summary.json`).
+    - **UI:** EvidenceCard / EvidenceGhostOverlay.
+    - **Guardrail:** N/A if insufficient sample size.
+    - **Legacy Ref:** C3 (Backtest Real) / B6 (Backtest Visual).
+
+- [x] D36.5 — Macro Layer v1 (Rates/USD/Oil + fallbacks + contract)
+    - ↳ Seal: [`SEAL_DAY_36_5_MACRO_LAYER_V1.md`](../../outputs/seals/SEAL_DAY_36_5_MACRO_LAYER_V1.md)
+    - **Purpose:** Macro context layer feeding Context Core.
+    - **Inputs:** Rates, Dollar, Oil (with provider fallback logic).
+    - **Behavior:** Graceful degrade if data missing.
+    - **Outputs:** `macro_context.json` or embedded macro block.
+    - **UI:** Context sections (no standalone macro “calls”).
+    - **Legacy Ref:** C2 (Macro Layer) / B3 (Context).
+
+- [x] D36.6 — Lexicon Pro v1 (Light Rewrite + Stealth; Founder-only label)
+    - ↳ Seal: [`SEAL_DAY_36_6_LEXICON_PRO_V1.md`](../../outputs/seals/SEAL_DAY_36_6_LEXICON_PRO_V1.md)
+    - **Purpose:** Copy refinement + institutional tone enforcement (Stealth Sales Engine).
+    - **Mode:** LIGHT REWRITE (replace dangerous phrasing, not block content).
+    - **Sales Layer:** Highlight engines used (“Based on Pulse, Evidence, AGMS…”).
+    - **UX Rule:** NO red warnings, NO legal panic language.
+    - **Label:** OFF by default; visible only in Founder Mode.
+    - **Outputs:** Rewritten copy only, no extra banners.
+    - **Legacy Ref:** B5 (Lenguaje Legal & Honesto).
+
+- [x] D36.7 — Voice/TTS MVP Reconciliation (MVP) (Optional)
+    - ↳ Seal: [`SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md`](../../outputs/seals/SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md)
+    - **Scope:** ONLY re-absorb legacy MVP references if missing.
+    - **Explicitly:** NOT the full Voice v2 engine (reserved for D35).
+    - **Outputs:** Voice-ready hooks or stubs.
+    - **UI:** Optional play buttons where legacy had them.
+    - **Legacy Ref:** Legacy MVP.
+
 
 ## PHASE 5 — merged into PHASE 6 (Feature Phase v1).
  
