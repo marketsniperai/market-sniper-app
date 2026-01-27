@@ -32,7 +32,8 @@ class TimeUtils {
     // CLOSED: 20:00:01 – 03:59:59
 
     // Simplified for second-precision comparisons using H/M/S
-    final int secondsOfDay = etTime.hour * 3600 + etTime.minute * 60 + etTime.second;
+    final int secondsOfDay =
+        etTime.hour * 3600 + etTime.minute * 60 + etTime.second;
 
     // 04:00:00 = 14400
     // 09:30:00 = 34200

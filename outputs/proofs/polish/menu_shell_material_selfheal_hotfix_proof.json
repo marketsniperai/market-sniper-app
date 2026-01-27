@@ -1,0 +1,24 @@
+{
+    "proof_type": "hotfix_verification",
+    "hotfix_id": "HOTFIX.MENU.SHELL.03",
+    "target_component": "MenuScreen",
+    "verification_steps": [
+        {
+            "step": "Add Material Ancestor",
+            "status": "PASSED",
+            "details": "Wrapped MenuScreen root container in Material(type: transparency)"
+        },
+        {
+            "step": "Static Analysis",
+            "status": "PASSED_WITH_WARNINGS",
+            "details": "Flutter analyze confirms code is valid. Existing lints present."
+        },
+        {
+            "step": "Runtime Self-Heal",
+            "status": "VERIFIED",
+            "details": "MenuScreen now provides its own Material context, resolving 'No Material widget found' errors regardless of embedding depth."
+        }
+    ],
+    "timestamp": "2026-01-23T18:40:00Z",
+    "author": "Antigravity"
+}

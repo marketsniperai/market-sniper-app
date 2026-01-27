@@ -1,0 +1,28 @@
+{
+    "audit_timestamp_utc": "2026-01-25T17:36:00Z",
+    "probe_tool": "curl (Agent CLI)",
+    "endpoints": [
+        {
+            "url": "https://marketsniper-api-3ygzdvszba-uc.a.run.app/health_ext",
+            "status_code": 403,
+            "reason": "Forbidden",
+            "headers": {
+                "server": "Google Frontend"
+            }
+        },
+        {
+            "url": "https://marketsniper-api-3ygzdvszba-uc.a.run.app/outputs/proofs/canon/pending_index_v2.json",
+            "status_code": 403,
+            "reason": "Forbidden",
+            "headers": {
+                "server": "Google Frontend"
+            }
+        },
+        {
+            "url": "https://marketsniper-api-3ygzdvszba-uc.a.run.app/lab/os/registry",
+            "status_code": 403,
+            "reason": "Forbidden"
+        }
+    ],
+    "conclusion": "Production Backend is reachable but rejecting requests (403). Localhost fallback in code was masking this true state."
+}

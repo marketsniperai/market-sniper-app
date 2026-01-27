@@ -1,0 +1,17 @@
+{
+    "timestamp": "2026-01-25T16:20:00-05:00",
+    "generated_at_utc": "2026-01-25T16:20:00-05:00",
+    "counts": {
+        "added": 1677,
+        "removed": 0,
+        "changed": 0
+    },
+    "delta": {
+        "added_sample": [
+            "PEND_INTEL_VOICE_V2",
+            "PEND_MSK_RISK_LANES"
+        ],
+        "removed_sample": []
+    },
+    "note": "Initial delta massive because baseline snapshot was stub (3 items) vs real index (1680 items). Correct behavior."
+}

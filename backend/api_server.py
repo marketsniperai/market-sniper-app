@@ -219,6 +219,7 @@ def macro_context():
     return res["data"]
 
 
+
 @app.get("/evidence_summary")
 def evidence_summary():
     """
@@ -235,6 +236,16 @@ def evidence_summary():
         return generate_evidence_summary()
         
     return res["data"]
+
+@app.get("/overlay_live")
+def overlay_live():
+    """
+    D40.04: Extended Overlay LIVE Composer.
+    Returns extended_overlay_live.json (Source: Sector Sentinel).
+    """
+    from backend.extended_overlay_live_composer import generate_overlay_live
+    return generate_overlay_live()
+
 
 
 @app.get("/voice_state")

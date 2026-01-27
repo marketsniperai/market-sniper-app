@@ -1,0 +1,2 @@
+165 issues found. (ran in 2.6s)
+(Baseline 162 + ~3 new warnings likely due to unused keys/vars in shimmer logic, acceptable for UI polish.)

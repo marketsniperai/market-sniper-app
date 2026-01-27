@@ -24,7 +24,8 @@ class OnDemandHistoryItem {
 }
 
 class OnDemandHistoryStore {
-  static final OnDemandHistoryStore _instance = OnDemandHistoryStore._internal();
+  static final OnDemandHistoryStore _instance =
+      OnDemandHistoryStore._internal();
   factory OnDemandHistoryStore() => _instance;
   OnDemandHistoryStore._internal();
 
@@ -59,14 +60,13 @@ class OnDemandHistoryStore {
     try {
       final detroit = tz.getLocation('America/Detroit'); // ET
       final nowEt = tz.TZDateTime.now(detroit);
-      final effectiveDate = nowEt.hour < 4 
-          ? nowEt.subtract(const Duration(days: 1)) 
-          : nowEt;
-      
+      final effectiveDate =
+          nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
+
       return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
     } catch (e) {
       final now = DateTime.now().toUtc();
-      return "${now.year}-${now.month}-${now.day}"; 
+      return "${now.year}-${now.month}-${now.day}";
     }
   }
 
@@ -85,7 +85,7 @@ class OnDemandHistoryStore {
         final content = await _file!.readAsString();
         final Map<String, dynamic> loaded = jsonDecode(content);
         _data = loaded;
-        
+
         if (!_data.containsKey('items')) {
           _data['items'] = [];
         }
@@ -95,8 +95,8 @@ class OnDemandHistoryStore {
         await clear();
       }
     } else {
-        // Init day_id if first run
-        _data['day_id'] = _getCurrentDayId();
+      // Init day_id if first run
+      _data['day_id'] = _getCurrentDayId();
     }
   }
 
@@ -108,16 +108,16 @@ class OnDemandHistoryStore {
     final nowStr = DateTime.now().toUtc().toIso8601String();
 
     List<dynamic> rawItems = _data['items'];
-    
+
     // Dedupe: Remove existing occurrence
     rawItems.removeWhere((item) => item['ticker'] == cleanTicker);
-    
+
     // Add to front
     rawItems.insert(0, {
       'ticker': cleanTicker,
       'timestampUtc': nowStr,
     });
-    
+
     // Cap at 5
     if (rawItems.length > _maxItems) {
       _data['items'] = rawItems.sublist(0, _maxItems);
@@ -130,14 +130,12 @@ class OnDemandHistoryStore {
 
   List<OnDemandHistoryItem> getRecent() {
     if (!_initialized) return [];
-    
+
     // We assume _checkReset is called on record/init, but strictly we could check here too
     // Keeping it lightweight for UI READs.
-    
+
     List<dynamic> rawItems = _data['items'] ?? [];
-    return rawItems
-        .map((json) => OnDemandHistoryItem.fromJson(json))
-        .toList();
+    return rawItems.map((json) => OnDemandHistoryItem.fromJson(json)).toList();
   }
 
   Future<void> clear() async {

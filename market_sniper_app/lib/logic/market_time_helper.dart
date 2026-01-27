@@ -4,9 +4,9 @@ import 'package:intl/intl.dart';
 
 // Since we saw 'timezone' in pubspec, we can attempt proper TZ usage.
 // If initialization is tricky without startup hooks, we can fallback to fixed offset.
-// Let's try simple fixed offset logic as "cleanest" given constraints, 
+// Let's try simple fixed offset logic as "cleanest" given constraints,
 // OR check if 'timezone' data is init somewhere.
-// To be safe and robust without global main() changes, I'll use a robust offset calculator 
+// To be safe and robust without global main() changes, I'll use a robust offset calculator
 // based on standard ET rules (Standard/Daylight) if possible, or just raw UTC-5/4 logic.
 // Actually, `timezone` package requires initialization. If we can't guarantee `tz.initializeTimeZones()` ran,
 // we should use a safer offset approach or try to init locally (cheap idempotent operation).
@@ -42,17 +42,18 @@ class MarketTimeHelper {
 
   static bool isMarketHours(DateTime etTime) {
     // 09:30 - 16:00 ET, Mon-Fri
-    if (etTime.weekday == DateTime.saturday || etTime.weekday == DateTime.sunday) {
+    if (etTime.weekday == DateTime.saturday ||
+        etTime.weekday == DateTime.sunday) {
       return false;
     }
-    
+
     // Time check
     final double time = etTime.hour + (etTime.minute / 60.0);
     return time >= 9.5 && time < 16.0;
   }
 
   static String getMarketDayId(DateTime etTime) {
-    // Boundary 04:00 ET. If before 4am, counts as previous day? 
+    // Boundary 04:00 ET. If before 4am, counts as previous day?
     // Usually market day is just YYYY-MM-DD.
     // If we want "trading session", we can say day starts at 4am.
     // Simple: YYYYMMDD

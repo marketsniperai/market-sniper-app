@@ -1,34 +1,44 @@
-# SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER
+# SEAL: D40.04 — EXTENDED OVERLAY LIVE COMPOSER
 
-**Authority:** STRATEGIC
-**Date:** 2026-01-17
-**Day:** 40.04
+**Date:** 2026-01-23
+**Author:** ANTIGRAVITY
+**Status:** SEALED
+**Source:** SECTOR_SENTINEL (Strict)
 
-## 1. Intent
-Create a real-time overlay composition layer derived strictly from Sector Sentinel tape, producing a truth artifact (`overlay_live_composer.json`) that feeds the Overlay Truth Metadata UI, Summary, and Freshness Monitor without inference or forecasting.
+## 1. Summary
+Implemented the **Extended Overlay LIVE Composer** logic, enforcing `SECTOR_SENTINEL` as the single source of truth for the overlay surface.
+- **Logic**: Deterministic mapping of 11 sectors to Overlay Summary.
+- **Contract**: Strict JSON schema with `status` (LIVE/PARTIAL/STALE/N_A) and `diagnostics`.
+- **Degrade Rules**:
+  - Missing Sentinel -> `N_A`
+  - Stale Sentinel (>5m) -> `STALE`
+  - Missing Sectors -> `PARTIAL`
+  - Nominal -> `LIVE`
 
-## 2. Implementation
-- **Source:** `SECTOR_SENTINEL` (Sector Sentinel Tape).
-- **Artifact:** `outputs/rt/overlay_live_composer.json`.
-- **Logic:**
-  - **State:** LIVE if fresh (<5m) and present. STALE if old. UNAVAILABLE if missing.
-  - **Confidence:** HIGH (>=9 sectors), MEDIUM (>=6), LOW (<6).
-  - **Summary:** max 3 descriptive bullets (Dispersion, Pressure Direction, Notable Sectors).
-- **Repository Wiring:** 
-  - `OverlayTruthSnapshot.fromJson` parses the `overlay_truth` section.
-  - `ExtendedOverlaySummarySnapshot.fromJson` parses the `overlay_summary` section.
+## 2. Evidence
+- **Composer**: `backend/extended_overlay_live_composer.py`
+- **Endpoint**: `GET /overlay_live`
+- **Consumer**: `lib/repositories/universe_repository.dart` (Wired to endpoint)
+- **Artifact**: `outputs/engine/extended_overlay_live.json`
 
-## 3. Proof
-- **Runtime Proof:** `outputs/runtime/day_40/day_40_04_overlay_live_composer_proof.json`.
-- **Scenarios Verified:**
-  - Active (>9 sectors) -> LIVE, HIGH Confidence, populated bullets.
-  - Stale (>5m) -> STALE state, Stale bullets.
-  - Unavailable -> UNAVAILABLE state.
+### Verification Results
+- **Scenario A (Missing Source)**: Verified `status: N_A`.
+- **Scenario B (Stale Source)**: Verified `status: STALE`.
+- **Scenario D (Live Source)**: Verified `status: LIVE` with 11/11 sectors active.
+  ```json
+  "status": "LIVE",
+  "source": "SECTOR_SENTINEL",
+  "summary_lines": [
+    "Sector Sentinel: 11/11 Active",
+    "Pressure: 5 Up, 3 Down, 3 Mixed"
+  ]
+  ```
 
-## 4. Sign-off
-- [x] No promissory language.
-- [x] No inference/forecasts.
-- [x] Fail-safe degradation (Stale/Unavailable).
-- [x] Repository wired to consume artifact structure.
+## 3. Hygiene
+- **Flutter Analyze**: 0 Errors.
+- **Zero Shadow Endpoint**: `/overlay_live` is explicitly registered in `api_server.py`.
 
-SEALED.
+## 4. Next Steps
+- Verify integration in War Room (D40.05 Global Pulse Synthesis).
+
+**SEALED BY ANTIGRAVITY**

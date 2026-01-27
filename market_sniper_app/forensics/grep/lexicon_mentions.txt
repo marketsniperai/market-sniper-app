@@ -1,0 +1,8 @@
+
+lib\logic\standard_envelope.dart:105:/// Enforces Lexicon Policy by sanitizing output.
+lib\logic\standard_envelope.dart:106:class LexiconSanitizer {
+lib\logic\standard_envelope.dart:134:        safeBullets.add("N/A — phrasing blocked by Lexicon Guard");
+lib\screens\on_demand_panel.dart:167:      // D44.07: Standard Envelope & Lexicon Guard
+lib\screens\on_demand_panel.dart:169:      final safeEnvelope = LexiconSanitizer.apply(rawEnvelope);
+lib\screens\on_demand_panel.dart:410:                      "[SANITIZED] Content flagged by Lexicon Guard", 
+

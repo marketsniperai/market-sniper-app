@@ -1,0 +1,213 @@
+﻿
+market_sniper_app\lib\
+logic\watchlist_ledger
+.dart:4:import '../rep
+ositories/watchlist_lo
+g_repository.dart';
+market_sniper_app\lib\
+logic\watchlist_ledger
+.dart:13:  final 
+_repo = WatchlistLogRe
+pository();
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:4:cla
+ss 
+DashboardRepository {
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:8:  
+// Though logic is 
+currently in model, 
+repository is the 
+fetching authority.
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:10:  
+DashboardRepository({A
+piClient? api}) : 
+_api = api ?? 
+ApiClient();
+market_sniper_app\lib\
+repositories\last_run_
+repository.dart:4:clas
+s LastRunRepository {
+market_sniper_app\lib\
+repositories\last_run_
+repository.dart:7:  La
+stRunRepository({requi
+red this.api});
+market_sniper_app\lib\
+repositories\system_he
+alth_repository.dart:6
+:class SystemHealthRep
+ository {
+market_sniper_app\lib\
+repositories\system_he
+alth_repository.dart:9
+:  SystemHealthReposit
+ory({required 
+this.api});
+market_sniper_app\lib\
+repositories\universe_
+repository.dart:789:cl
+ass 
+UniverseRepository {
+market_sniper_app\lib\
+repositories\universe_
+repository.dart:792:  
+UniverseRepository({re
+quired this.api});
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:2:impo
+rt '../repositories/sy
+stem_health_repository
+.dart';
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:8:clas
+s WarRoomRepository {
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:10:  
+final SystemHealthRepo
+sitory healthRepo;
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:12:  W
+arRoomRepository({requ
+ired this.api})
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:13:   
+   : healthRepo = Syst
+emHealthRepository(api
+: api);
+market_sniper_app\lib\
+repositories\watchlist
+_log_repository.dart:3
+:class WatchlistLogRep
+ository {
+market_sniper_app\lib\
+repositories\watchlist
+_log_repository.dart:6
+:  WatchlistLogReposit
+ory({ApiClient? api}) 
+: _api = api ?? 
+ApiClient();
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:11:import '../
+repositories/dashboard
+_repository.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:20:import '../
+repositories/system_he
+alth_repository.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:21:import '../
+repositories/last_run_
+repository.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:37:  late 
+DashboardRepository 
+_repo;
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:38:  late Syst
+emHealthRepository 
+_healthRepo;
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:39:  late 
+LastRunRepository 
+_lastRunRepo;
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:60:    _repo 
+= DashboardRepository(
+api: _api);
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:61:    
+_healthRepo = SystemHe
+althRepository(api: 
+_api);
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:62:    
+_lastRunRepo = LastRun
+Repository(api: _api);
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:108:        _a
+pi.fetchSystemHealth()
+, // TODO: Move to 
+SystemRepository
+market_sniper_app\lib\
+screens\war_room_scree
+n.dart:6:import '../re
+positories/war_room_re
+pository.dart';
+market_sniper_app\lib\
+screens\war_room_scree
+n.dart:25:  late 
+WarRoomRepository 
+_repo;
+market_sniper_app\lib\
+screens\war_room_scree
+n.dart:36:    _repo = 
+WarRoomRepository(api:
+ ApiClient());
+market_sniper_app\lib\
+screens\watchlist_scre
+en.dart:8:import '../r
+epositories/war_room_r
+epository.dart'; // 
+D44.02B
+market_sniper_app\lib\
+screens\watchlist_scre
+en.dart:42:       
+final repo = WarRoomRe
+pository(api: api);
+market_sniper_app\lib\
+screens\watchlist_scre
+en.dart:71:     final 
+repo = WarRoomReposito
+ry(api: api); // 
+Lightweight just for 
+Health check if 
+needed, or 
+SystemHealthRepo 
+direct.
+market_sniper_app\lib\
+screens\watchlist_scre
+en.dart:74:     // we 
+will check SystemHealt
+hRepository.
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:5:impo
+rt '../../repositories
+/universe_repository.d
+art';
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:18:  
+late 
+UniverseRepository 
+_repo;
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:26:   
+ _repo = UniverseRepos
+itory(api: 
+ApiClient()); // In 
+real app, inject via 
+Provider
+
+

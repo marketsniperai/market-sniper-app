@@ -8,7 +8,7 @@ class LastRunWidget extends StatelessWidget {
   final bool isFounder;
 
   const LastRunWidget({
-    super.key, 
+    super.key,
     required this.lastRun,
     this.isFounder = false,
   });
@@ -35,7 +35,8 @@ class LastRunWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface1,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AppColors.borderSubtle.withValues(alpha: 0.5)),
+        border:
+            Border.all(color: AppColors.borderSubtle.withValues(alpha: 0.5)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +70,7 @@ class LastRunWidget extends StatelessWidget {
                   ],
                 )
               else
-                 Text(
+                Text(
                   "NO DATA",
                   style: GoogleFonts.inter(
                     color: AppColors.textDisabled,
@@ -79,7 +80,7 @@ class LastRunWidget extends StatelessWidget {
                 ),
             ],
           ),
-          
+
           if (lastRun.ageSeconds >= 0) ...[
             const SizedBox(height: 8),
             // Age Line
@@ -104,21 +105,21 @@ class LastRunWidget extends StatelessWidget {
               ],
             ),
           ],
-          
+
           if (isFounder) ...[
-             const SizedBox(height: 8),
-             Container(
-               width: double.infinity,
-               padding: const EdgeInsets.all(4),
-               color: AppColors.bgPrimary.withValues(alpha: 0.5),
-               child: Text(
-                 "RUN ID: ${lastRun.runId} | TS: ${lastRun.timestamp ?? 'N/A'}",
-                 style: GoogleFonts.robotoMono(
-                   color: AppColors.accentCyanDim,
-                   fontSize: 9,
-                 ),
-               ),
-             ),
+            const SizedBox(height: 8),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(4),
+              color: AppColors.bgPrimary.withValues(alpha: 0.5),
+              child: Text(
+                "RUN ID: ${lastRun.runId} | TS: ${lastRun.timestamp ?? 'N/A'}",
+                style: GoogleFonts.robotoMono(
+                  color: AppColors.accentCyanDim,
+                  fontSize: 9,
+                ),
+              ),
+            ),
           ]
         ],
       ),
@@ -127,7 +128,8 @@ class LastRunWidget extends StatelessWidget {
 
   Widget _buildResultChip() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2), // Slimmer
+      padding:
+          const EdgeInsets.symmetric(horizontal: 8, vertical: 2), // Slimmer
       decoration: BoxDecoration(
         color: _resultColor.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(4),

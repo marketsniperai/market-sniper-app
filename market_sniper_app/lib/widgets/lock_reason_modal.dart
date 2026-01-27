@@ -6,10 +6,8 @@ import '../models/war_room_snapshot.dart'; // Canonical Model
 /// Canonical method to show Lock Reason.
 /// Ensures proper safe area and layout compliance.
 Future<void> showLockReasonModal(
-  BuildContext context, 
-  LockReasonSnapshot snapshot,
-  {String? titleOverride}
-) {
+    BuildContext context, LockReasonSnapshot snapshot,
+    {String? titleOverride}) {
   return showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -18,9 +16,7 @@ Future<void> showLockReasonModal(
       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
     ),
     builder: (context) => LockReasonModalContent(
-      snapshot: snapshot, 
-      titleOverride: titleOverride
-    ),
+        snapshot: snapshot, titleOverride: titleOverride),
   );
 }
 
@@ -29,7 +25,7 @@ class LockReasonModalContent extends StatelessWidget {
   final String? titleOverride;
 
   const LockReasonModalContent({
-    super.key, 
+    super.key,
     required this.snapshot,
     this.titleOverride,
   });
@@ -84,7 +80,8 @@ class LockReasonModalContent extends StatelessWidget {
                       const SizedBox(height: 12),
                       _buildRow(context, "CODE", snapshot.reasonCode),
                       const SizedBox(height: 12),
-                      _buildRow(context, "REASON", snapshot.description, multiline: true),
+                      _buildRow(context, "REASON", snapshot.description,
+                          multiline: true),
                       const SizedBox(height: 12),
                       _buildRow(context, "TIMESTAMP", snapshot.timestamp),
                     ],
@@ -96,12 +93,13 @@ class LockReasonModalContent extends StatelessWidget {
                 // --- Guidance ---
                 Text(
                   "OPERATIONAL GUIDANCE",
-                  style: AppTypography.label(context).copyWith(color: AppColors.textDisabled),
+                  style: AppTypography.label(context)
+                      .copyWith(color: AppColors.textDisabled),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  isLocked 
+                  isLocked
                       ? "System protections active. Resolve root cause in War Room."
                       : "Data is stale. Refresh pipeline or check connection.",
                   style: AppTypography.body(context),
@@ -128,24 +126,23 @@ class LockReasonModalContent extends StatelessWidget {
     );
   }
 
-  Widget _buildRow(BuildContext context, String label, String value, {bool multiline = false}) {
+  Widget _buildRow(BuildContext context, String label, String value,
+      {bool multiline = false}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label, 
-          style: const TextStyle(
-            fontSize: 10, 
-            color: AppColors.textDisabled, 
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.0,
-          )
-        ),
+        Text(label,
+            style: const TextStyle(
+              fontSize: 10,
+              color: AppColors.textDisabled,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.0,
+            )),
         const SizedBox(height: 4),
         Text(
           value,
           style: AppTypography.label(context).copyWith(
-            color: AppColors.textPrimary, 
+            color: AppColors.textPrimary,
             fontSize: 14,
           ),
           maxLines: multiline ? 5 : 1,

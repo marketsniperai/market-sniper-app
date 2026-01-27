@@ -18,8 +18,9 @@ class DegradeContext {
     required this.reasonCode,
     this.missingFields = const [],
   });
-  
-  static const DegradeContext ok = DegradeContext(state: DegradeState.ok, reasonCode: "NOMINAL");
+
+  static const DegradeContext ok =
+      DegradeContext(state: DegradeState.ok, reasonCode: "NOMINAL");
 }
 
 class DashboardDegradePolicy {
@@ -32,10 +33,11 @@ class DashboardDegradePolicy {
     if (fetchError != null && payload == null) {
       return DegradeContext(
         state: DegradeState.unavailable,
-        reasonCode: "FETCH_ERROR: ${fetchError.replaceAll(RegExp(r'\s+'), ' ').trim()}", // Sanitize
+        reasonCode:
+            "FETCH_ERROR: ${fetchError.replaceAll(RegExp(r'\s+'), ' ').trim()}", // Sanitize
       );
     }
-    
+
     // 2. Missing Payload
     if (payload == null) {
       return const DegradeContext(
@@ -52,7 +54,7 @@ class DashboardDegradePolicy {
         reasonCode: "DATA_STALE_${dataState.reason.name.toUpperCase()}",
       );
     }
-    
+
     // 4. Missing Canonical Fields (Partial)
     // Check critical fields. DashboardPayload usually non-nullable fields are required by structure,
     // but values might be empty or fallback defaults.
@@ -60,7 +62,7 @@ class DashboardDegradePolicy {
     final List<String> missing = [];
     if (payload.runId == "UNKNOWN") missing.add("run_id");
     if (payload.widgets.isEmpty) missing.add("widgets_manifest");
-    
+
     if (missing.isNotEmpty) {
       return DegradeContext(
         state: DegradeState.partial,

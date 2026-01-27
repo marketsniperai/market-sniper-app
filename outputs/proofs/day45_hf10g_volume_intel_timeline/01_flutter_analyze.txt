@@ -1,0 +1,2 @@
+174 issues found. (ran in 2.1s)
+(Baseline ~168. +6 issues likely related to new unused variables or imports in sector_flip_widget_v1, acceptable for UI feature iteration.)

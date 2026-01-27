@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 /// The Layout Police Guard.
-/// 
+///
 /// Intercepts Flutter errors in Founder Builds specifically to catch
 /// layout violations defined in [docs/dev/LAYOUT_POLICE.md].
 ///
@@ -13,7 +13,7 @@ class LayoutPoliceGuard {
 
     // Chain into existing error handler if present
     final originalOnError = FlutterError.onError;
-    
+
     FlutterError.onError = (FlutterErrorDetails details) {
       _analyzeError(details);
       if (originalOnError != null) {
@@ -40,13 +40,16 @@ class LayoutPoliceGuard {
     if (exceptionStr.contains("RenderFlex overflowed")) {
       violationDetected = true;
       violationName = "NAKED COLUMN OVERFLOW (Rule #2)";
-      advice = "Wrap the Column in a CanonicalScrollContainer or SingleChildScrollView.";
-    } 
+      advice =
+          "Wrap the Column in a CanonicalScrollContainer or SingleChildScrollView.";
+    }
     // Heuristic B: Unbounded Height
-    else if (exceptionStr.contains("Vertical viewport was given unbounded height")) {
+    else if (exceptionStr
+        .contains("Vertical viewport was given unbounded height")) {
       violationDetected = true;
       violationName = "UNBOUNDED HEIGHT TRAP (Illegal Pattern #2)";
-      advice = "A ScrollView (ListView/GridView) is inside a Column without Expanded/Flexible constraints.";
+      advice =
+          "A ScrollView (ListView/GridView) is inside a Column without Expanded/Flexible constraints.";
     }
     // Heuristic C: ParentDataWidget
     else if (exceptionStr.contains("Incorrect use of ParentDataWidget")) {
@@ -55,10 +58,12 @@ class LayoutPoliceGuard {
       advice = "Expanded/Flexible must be direct children of Row/Column/Flex.";
     }
     // Heuristic D: ScrollController missing
-    else if (exceptionStr.contains("ScrollController not attached to any scroll views")) {
-       violationDetected = true;
-       violationName = "GHOST CONTROLLER";
-       advice = "You created a ScrollController but didn't pass it to a ScrollView. Check DraggableScrollableSheet wiring.";
+    else if (exceptionStr
+        .contains("ScrollController not attached to any scroll views")) {
+      violationDetected = true;
+      violationName = "GHOST CONTROLLER";
+      advice =
+          "You created a ScrollController but didn't pass it to a ScrollView. Check DraggableScrollableSheet wiring.";
     }
 
     if (violationDetected) {
@@ -80,13 +85,13 @@ class LayoutPoliceGuard {
   }
 
   /// Helper to check Sheet Controller wiring explicitly
-  static void noteSheetControllerWiring({required String sheetName, required bool usesProvidedController}) {
+  static void noteSheetControllerWiring(
+      {required String sheetName, required bool usesProvidedController}) {
     if (!usesProvidedController) {
-       _logViolation(
-         "SHEET CONTROLLER DISCONNECT (Rule #4)", 
-         "The sheet '$sheetName' is not using the provided DraggableScrollableSheet controller. Dragging will be broken.", 
-         "Sheet Check"
-       );
+      _logViolation(
+          "SHEET CONTROLLER DISCONNECT (Rule #4)",
+          "The sheet '$sheetName' is not using the provided DraggableScrollableSheet controller. Dragging will be broken.",
+          "Sheet Check");
     }
   }
 }

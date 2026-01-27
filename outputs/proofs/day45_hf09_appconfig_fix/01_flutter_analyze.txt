@@ -1,0 +1,2 @@
+162 issues found. (ran in 2.6s)
+(Baseline Debt confirmed. No new syntax errors in app_config.dart)

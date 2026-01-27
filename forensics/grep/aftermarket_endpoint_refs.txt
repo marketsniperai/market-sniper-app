@@ -1,0 +1,10 @@
+﻿
+market_sniper_app\lib\
+guards\access_policy.d
+art:10:  /// 
+Determines if the 
+user can access 
+Rituals (Briefing/Afte
+rmarket).
+
+

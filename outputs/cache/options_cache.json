@@ -1,0 +1,21 @@
+{
+    "symbol": "SPY",
+    "cached_at_utc": "2026-01-23T18:00:00.000000Z",
+    "payload": {
+        "status": "LIVE",
+        "coverage": "FULL",
+        "symbol": "SPY",
+        "iv_regime": "Normal",
+        "skew": "Put Skew",
+        "expected_move": "+/- $4.20",
+        "expected_move_horizon": "1D",
+        "confidence": "HIGH",
+        "data_sources": [
+            {
+                "name": "POLYGON",
+                "state": "LIVE"
+            }
+        ],
+        "note": "Cache simulation test."
+    }
+}

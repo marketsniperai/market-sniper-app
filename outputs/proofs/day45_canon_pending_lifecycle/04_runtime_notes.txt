@@ -1,0 +1,16 @@
+# Runtime Notes - D45 Canon Pending Lifecycle
+
+**Date:** 2026-01-26
+**Verifier:** Antigravity
+
+## Observation Log
+1. **Ledger Structure:** Verified `PENDING_LEDGER.md` uses Schema-First Block format with `Status: OPEN/RESOLVED` fields.
+2. **Generator Logic:** Verified `generate_canon_index.py` correctly parses blocks and ignores heuristic inference.
+3. **Index Content:** `pending_index_v2.json` contains `status` fields and correct active counts (OPEN/IN_PROGRESS only).
+4. **Radar UI:**
+   - Default View: Shows ONLY Active Debt (OPEN/IN_PROGRESS).
+   - Toggle: "SHOW: ACTIVE DEBT" switchable to "SHOW: ALL (AUDIT)".
+   - Verified no regressions in Flutter Analyze.
+
+## Conclusion
+Canon Rules enforced. System is compliant.

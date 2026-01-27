@@ -24,7 +24,7 @@ class ShareBoosterSheet extends StatelessWidget {
       decoration: const BoxDecoration(
         color: AppColors.surface1,
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        border: Border(top: BorderSide(color: AppColors.accentCyan, width: 2)),
+        border: Border(top: BorderSide(color: AppColors.neonCyan, width: 2)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -32,15 +32,17 @@ class ShareBoosterSheet extends StatelessWidget {
         children: [
           Row(
             children: [
-               Icon(Icons.check_circle, color: AppColors.accentCyan, size: 24),
-               const SizedBox(width: 12),
-               Text("Share Ready", style: AppTypography.headline(context)),
+              const Icon(Icons.check_circle,
+                  color: AppColors.neonCyan, size: 24),
+              const SizedBox(width: 12),
+              Text("Share Ready", style: AppTypography.headline(context)),
             ],
           ),
           const SizedBox(height: 8),
           Text(
-            "Want stronger captions or deeper context framing?", 
-            style: AppTypography.body(context).copyWith(color: AppColors.textSecondary),
+            "Want stronger captions or deeper context framing?",
+            style: AppTypography.body(context)
+                .copyWith(color: AppColors.textSecondary),
           ),
           const SizedBox(height: 24),
           Row(
@@ -48,15 +50,18 @@ class ShareBoosterSheet extends StatelessWidget {
               Expanded(
                 child: OutlinedButton(
                   onPressed: onSave,
-                  style: OutlinedButton.styleFrom(side: const BorderSide(color: AppColors.borderSubtle)),
-                  child: Text("Save Image", style: AppTypography.label(context)),
+                  style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: AppColors.borderSubtle)),
+                  child:
+                      Text("Save Image", style: AppTypography.label(context)),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: OutlinedButton(
                   onPressed: onShare,
-                  style: OutlinedButton.styleFrom(side: const BorderSide(color: AppColors.borderSubtle)),
+                  style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: AppColors.borderSubtle)),
                   child: Text("Share", style: AppTypography.label(context)),
                 ),
               ),
@@ -68,8 +73,11 @@ class ShareBoosterSheet extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: onUpgrade,
-                style: ElevatedButton.styleFrom(backgroundColor: AppColors.surface2),
-                child: Text("Unlock Elite", style: AppTypography.label(context).copyWith(color: AppColors.stateStale)),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.surface2),
+                child: Text("Unlock Elite",
+                    style: AppTypography.label(context)
+                        .copyWith(color: AppColors.stateStale)),
               ),
             ),
           ]

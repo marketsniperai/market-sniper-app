@@ -1,0 +1,38 @@
+{
+    "proof_type": "architecture_verification",
+    "feature_id": "POLISH.SHELL.GLOBAL.01",
+    "verification_target": "Global Shell Persistence",
+    "components": [
+        "lib/layout/main_layout.dart",
+        "lib/screens/menu_screen.dart"
+    ],
+    "assertions": [
+        {
+            "assertion": "Single Root Scaffold",
+            "status": "PASSED",
+            "details": "MainLayout is the sole scaffold for the main authenticated flow."
+        },
+        {
+            "assertion": "Persistent Top Bar",
+            "status": "PASSED",
+            "details": "TexturedBarBackground remains in widget tree regardless of tab index or menu state."
+        },
+        {
+            "assertion": "Persistent Bottom Navigation",
+            "status": "PASSED",
+            "details": "BottomNavigationBar remains in widget tree regardless of tab index or menu state."
+        },
+        {
+            "assertion": "Menu In-Shell",
+            "status": "PASSED",
+            "details": "MenuScreen is rendered within the Expanded body, bypassing Navigator.push to disable full-screen takeover."
+        },
+        {
+            "assertion": "Core Tab Composition",
+            "status": "PASSED",
+            "details": "IndexedStack verified with 5 core tabs: Dashboard, Watchlist, News, On-Demand, Calendar."
+        }
+    ],
+    "timestamp": "2026-01-23T18:55:00Z",
+    "author": "Antigravity"
+}

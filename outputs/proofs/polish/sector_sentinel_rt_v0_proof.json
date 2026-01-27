@@ -1,0 +1,21 @@
+{
+    "timestamp": "2026-01-25T15:30:00-05:00",
+    "component": "SectorSentinelRT_V0",
+    "widget": "SectorFlipWidgetV1_2_1",
+    "features": {
+        "leader_change_detection": true,
+        "volume_spike_detection": true,
+        "ui_surface": "Caption (Neon Cyan Low Opacity)",
+        "auto_clear": "12s"
+    },
+    "logic": {
+        "leader_check": "_prevLeader != current",
+        "spike_check": "current > baseline(3) * 1.25",
+        "baseline": "Rolling 3-frame average of leader volume"
+    },
+    "verification": {
+        "compilation": "PASS",
+        "discipline": "PASS",
+        "constraints": "Zero Dependency, Body-Only"
+    }
+}

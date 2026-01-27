@@ -1,0 +1,30 @@
+29e6f13 D45.H5 — War Calendar Canon Hotfix (Phase continuity + D35 Voice v2 reserved)
+a823896 D41.05 — Founder-Gated Rollback UI (OS.R2.3)
+bc88b5a D41.06 — Replay/Rollback Failsafe & Integrity (OS.R2.2)
+1925b8d D41.04 — War Calendar Update
+3936122 D41.04 — Replay Archive + Time Machine UI (OS.R2.1)
+e0c3f65 D41.03 — Institutional Day Replay UI (OS.R2.0)
+0836271 D45.H3 — Founder Ritual Hitbox + Header De-Overlap + Android Internet Permission
+b6d302a D45.H2 — Founder Phone Hotfix (Release BaseURL Guard + Ritual Tap Reliability)
+39bdf64 D45.F1 — Founder Router Selector (War Room / Command Center)
+f42ed31 D45 MASTER CLOSE — Shell + Premium + News/Calendar + Growth/Sharing (D45.01–D45.24)
+02d583e D45.18 — Provider Status Indicator (Upstream Health Parsing)
+be14bca D45.17 — Session Awareness Micro-Panel (Institutional Time)
+76ab0a0 D45.15 — Command Center Content Spec (Final Canonical)
+7430dc9 D45.16 — Viral Teaser Share (Zero Sensitive Data)
+47c4402 D45.15 — Command Center Content Spec (WOW + Legal-safe)
+5719a56 D45.14 — Plus 5-Day Unlock (No-reset) + Elite Immediate Unlock
+83262c6 D45.13 — Command Center Secret Surface (Elite-only)
+f8e7c36 D45.12 — Share Attribution Dashboard (Founder-only Growth Bloomberg)
+be10cb1 D45 H1 — Stabilization (Clean Repo + Idempotent Elite Window Notices)
+5db4fd5 D44 FINAL CLOSE — Watchlist & On-Demand Workflow (Beast Parity + Institutional Hardening)
+3b73d60 D44 — Watchlist & On-Demand Workflow v1 (Global Canon, Cache, Tier Limits)
+27de765 Fix: Build errors D44.C (Duplicate var, Missing colors)
+087ed02 Seal: D44 Watchlist & On-Demand Workflow v1
+f154dd9 Hygiene: D42.03 artifacts closure
+0e42899 Seal: D42.03 Housekeeper Auto
+7a8a94f Seal: D42 Git Commit Checkpoint
+6f9d896 Seal: D42.01–D42.09 Self-Heal Visibility Layer
+02586f7 Seal: D42.01–D42.09 Self-Heal Visibility Layer
+7d33877 chore: pre-upgrade snapshot (D37.00.1)
+35e6f72 canon: add victory drilldown index (non-destructive)

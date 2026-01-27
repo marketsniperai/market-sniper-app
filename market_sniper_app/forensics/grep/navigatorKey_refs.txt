@@ -1,0 +1,17 @@
+
+lib\main.dart:13:final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+lib\main.dart:21:     NotificationService().setNavigatorKey(navigatorKey);
+lib\main.dart:45:      navigatorKey: navigatorKey, 
+lib\services\notification_router.dart:12:  static void route(GlobalKey<NavigatorState> navigatorKey, String? payload) {
+lib\services\notification_router.dart:15:    final context = navigatorKey.currentContext;
+lib\services\notification_router.dart:25:        navigatorKey.currentState?.pushAndRemoveUntil(
+lib\services\notification_router.dart:30:        navigatorKey.currentState?.push(
+lib\services\notification_router.dart:40:        navigatorKey.currentState?.pushAndRemoveUntil(
+lib\services\notification_router.dart:45:         navigatorKey.currentState?.push(
+lib\services\notification_router.dart:49:        navigatorKey.currentState?.push(
+lib\services\notification_service.dart:16:  GlobalKey<NavigatorState>? _navigatorKey;
+lib\services\notification_service.dart:24:  void setNavigatorKey(GlobalKey<NavigatorState> key) {
+lib\services\notification_service.dart:25:    _navigatorKey = key;
+lib\services\notification_service.dart:58:     if (_navigatorKey != null && response.payload != null) {
+lib\services\notification_service.dart:59:        NotificationRouter.route(_navigatorKey!, response.payload);
+

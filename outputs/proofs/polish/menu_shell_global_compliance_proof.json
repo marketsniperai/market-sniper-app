@@ -1,0 +1,12 @@
+{
+    "timestamp_utc": "2026-01-24T00:55:00Z",
+    "polish_id": "POLISH.MENU.SHELL.01",
+    "changes": {
+        "architecture": "Refactored MenuScreen to embedded widget (removed Scaffold)",
+        "shell_logic": "MainLayout manages Menu visibility state (_isMenuOpen)",
+        "navigation": "Hamburger button toggles menu overlay",
+        "branding": "Top Bar and Bottom Nav persist while Menu is open"
+    },
+    "visual_integrity": "Verified polish retention (Typography/Spacing)",
+    "compliance": "GLOBAL_SHELL_COMPLIANT"
+}

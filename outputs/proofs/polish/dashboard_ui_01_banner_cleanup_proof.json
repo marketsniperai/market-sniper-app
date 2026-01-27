@@ -1,0 +1,47 @@
+{
+    "founder_bar_removed": true,
+    "ssot_line_removed": true,
+    "providers_live_removed": true,
+    "live_offline_pill_present": true,
+    "live_glow_animation": {
+        "period_seconds": 4,
+        "mode": "2s_in_2s_out"
+    },
+    "module_pills_present": [
+        "Stocks",
+        "Options",
+        "News",
+        "Macro"
+    ],
+    "module_time_windows": {
+        "market_hours": {
+            "stocks": true,
+            "options": true,
+            "news": true,
+            "macro": true
+        },
+        "after_hours": {
+            "stocks": true,
+            "options": false,
+            "news": true,
+            "macro": true
+        },
+        "closed_night": {
+            "stocks": false,
+            "options": false,
+            "news": true,
+            "macro": false
+        },
+        "weekend_holiday": {
+            "stocks": false,
+            "options": false,
+            "news": true,
+            "macro": false
+        }
+    },
+    "timezone_logic": "America/New_York (package:timezone)",
+    "verification_commands": [
+        "flutter analyze",
+        "flutter run -d chrome"
+    ]
+}

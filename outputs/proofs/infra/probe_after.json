@@ -1,0 +1,11 @@
+{
+    "timestamp": "2026-01-25T17:45:00Z",
+    "endpoints": [
+        {
+            "url": "https://marketsniper-api-3ygzdvszba-uc.a.run.app/health_ext",
+            "status": 403,
+            "expected": 200
+        }
+    ],
+    "conclusion": "Access Denied. Public access blocked by Organization Policy (IAM binding failed)."
+}

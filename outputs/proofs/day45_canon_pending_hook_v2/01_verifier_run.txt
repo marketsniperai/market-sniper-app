@@ -1,0 +1,6 @@
+Initializing Antigravity Discipline Check...
+
+[!] SEALS MISSING CLOSURE HOOK (PENDING LAW)
+  - SEAL_TEST_V2_FAIL.md (V2 STRICT: Missing 'Resolved'/'New' items)
+
+>> ACTION REQUIRED: Add '## Pending Closure Hook' to these seals.

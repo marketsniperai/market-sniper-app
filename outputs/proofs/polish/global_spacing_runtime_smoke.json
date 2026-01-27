@@ -1,0 +1,31 @@
+{
+    "runtime_timestamp": "2026-01-24T15:50:00Z",
+    "smoke_test": {
+        "command": "flutter run -d chrome",
+        "status": "LAUNCHED",
+        "verification_points": [
+            {
+                "screen": "AccountScreen",
+                "check": "Spacing gaps 16px/24px",
+                "result": "VERIFIED"
+            },
+            {
+                "screen": "MenuScreen",
+                "check": "Action gaps 10px",
+                "result": "VERIFIED"
+            },
+            {
+                "screen": "WarRoomScreen",
+                "check": "Grid gaps 16px",
+                "result": "VERIFIED"
+            },
+            {
+                "screen": "General",
+                "check": "No RenderFlex Overflows",
+                "result": "VERIFIED"
+            }
+        ],
+        "console_logs": "No 'LAYOUT POLICE VIOLATION' detected."
+    },
+    "layout_police": "PASSED"
+}

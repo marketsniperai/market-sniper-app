@@ -29,7 +29,7 @@ class WatchlistStore extends ChangeNotifier {
 
   Future<bool> addTicker(String symbol) async {
     if (!_initialized) await init();
-    
+
     final normalized = symbol.trim().toUpperCase();
     if (_tickers.contains(normalized)) {
       return false; // Already exists (Dedupe)
@@ -43,7 +43,7 @@ class WatchlistStore extends ChangeNotifier {
 
   Future<void> removeTicker(String symbol) async {
     if (!_initialized) await init();
-    
+
     final normalized = symbol.trim().toUpperCase();
     _tickers.remove(normalized);
     await _save();

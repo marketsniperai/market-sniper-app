@@ -21,7 +21,8 @@ class TexturedBarBackground extends StatelessWidget {
         image: DecorationImage(
           image: const AssetImage('assets/textures/leather_midnight.png'),
           fit: BoxFit.cover,
-          scale: 1.0, // Tiling control if needed, cover is usually enough for bars
+          scale:
+              1.0, // Tiling control if needed, cover is usually enough for bars
           opacity: imageOpacity,
         ),
       ),
@@ -29,7 +30,9 @@ class TexturedBarBackground extends StatelessWidget {
         children: [
           // Overlay layer to keep it subtle and premium (not noisy)
           Container(
-            color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: overlayOpacity),
+            color: Theme.of(context)
+                .scaffoldBackgroundColor
+                .withValues(alpha: overlayOpacity),
           ),
           // Actual content (AppBar/NavBar)
           child,

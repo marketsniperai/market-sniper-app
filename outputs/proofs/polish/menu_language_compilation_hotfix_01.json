@@ -1,0 +1,10 @@
+{
+    "fixed_brace_mismatch": true,
+    "share_attribution_references": 0,
+    "neon_outline_card_param_fix": true,
+    "files_changed": [
+        "market_sniper_app/lib/screens/menu_screen.dart",
+        "market_sniper_app/lib/screens/language_screen.dart"
+    ],
+    "verification_status": "COMPILATION_PASS"
+}

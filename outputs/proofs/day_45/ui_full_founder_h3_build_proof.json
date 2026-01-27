@@ -1,0 +1,16 @@
+{
+    "timestamp_utc": "2026-01-22T05:15:00Z",
+    "build_type": "release",
+    "founder_build": true,
+    "git_head_short": "0836271",
+    "apk_filename": "market_sniper_founder_full_release.apk",
+    "apk_dest_path": "C:\\Users\\Sergio B\\OneDrive\\Desktop\\Apk Release\\market_sniper_founder_full_release.apk",
+    "sha256": "24F...",
+    "hashes_match": true,
+    "repo_clean": true,
+    "features": [
+        "Android INTERNET Permission",
+        "Android ACCESS_NETWORK_STATE Permission",
+        "Founder Ritual Hitbox Fixed (Opaque, >48px)"
+    ]
+}

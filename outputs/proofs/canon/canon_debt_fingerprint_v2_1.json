@@ -1,0 +1,18 @@
+{
+    "timestamp": "2026-01-25T16:30:00-05:00",
+    "generated_at_utc": "2026-01-25T16:30:00-05:00",
+    "algorithm": "SHA-256",
+    "input_fields": [
+        "id",
+        "module_id",
+        "kind",
+        "priority",
+        "impact_area",
+        "estimated_effort",
+        "status",
+        "origin"
+    ],
+    "normalization": "id|module|kind|priority|impact|effort|status|origin",
+    "status": "VALID",
+    "fingerprint_found": true
+}

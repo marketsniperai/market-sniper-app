@@ -21,12 +21,18 @@ class _SystemHealthChipState extends State<SystemHealthChip> {
 
   Color get _statusColor {
     switch (widget.health.status) {
-      case 'NOMINAL': return AppColors.stateLive;
-      case 'DEGRADED': return AppColors.stateStale;
-      case 'MISFIRE': return AppColors.stateLocked;
-      case 'CALIBRATING': return AppColors.textPrimary;
-      case 'UNAVAILABLE': return AppColors.stateLocked;
-      default: return AppColors.textDisabled;
+      case 'NOMINAL':
+        return AppColors.stateLive;
+      case 'DEGRADED':
+        return AppColors.stateStale;
+      case 'MISFIRE':
+        return AppColors.stateLocked;
+      case 'CALIBRATING':
+        return AppColors.textPrimary;
+      case 'UNAVAILABLE':
+        return AppColors.stateLocked;
+      default:
+        return AppColors.textDisabled;
     }
   }
 
@@ -66,16 +72,18 @@ class _SystemHealthChipState extends State<SystemHealthChip> {
                 const Spacer(),
                 if (widget.health.status != 'NOMINAL')
                   Text(
-                     widget.health.reason,
-                     style: TextStyle(color: _statusColor, fontSize: 12),
+                    widget.health.reason,
+                    style: TextStyle(color: _statusColor, fontSize: 12),
                   ),
                 if (widget.isFounder) ...[
-                   const SizedBox(width: 8),
-                   Icon(
-                     _expanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                     color: AppColors.textDisabled,
-                     size: 16,
-                   )
+                  const SizedBox(width: 8),
+                  Icon(
+                    _expanded
+                        ? Icons.keyboard_arrow_up
+                        : Icons.keyboard_arrow_down,
+                    color: AppColors.textDisabled,
+                    size: 16,
+                  )
                 ]
               ],
             ),
@@ -86,17 +94,22 @@ class _SystemHealthChipState extends State<SystemHealthChip> {
             color: AppColors.surface1,
             padding: const EdgeInsets.all(12),
             child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 const Text("FOUNDER FORENSIC VIEW", style: TextStyle(color: AppColors.textDisabled, fontSize: 10, letterSpacing: 1.5)),
-                 const SizedBox(height: 8),
-                 _row("Last Run ID", widget.health.lastRunId ?? "N/A"),
-                 _row("Artifact Age", "${widget.health.artifactAgeMinutes} mins"),
-                 _row("Rec. Action", widget.health.recommendedAction),
-                 _row("Timestamp", widget.health.timestampUtc ?? "N/A"),
-                 const Divider(color: AppColors.borderSubtle),
-                 _row("Reason", widget.health.reason),
-               ],
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("FOUNDER FORENSIC VIEW",
+                    style: TextStyle(
+                        color: AppColors.textDisabled,
+                        fontSize: 10,
+                        letterSpacing: 1.5)),
+                const SizedBox(height: 8),
+                _row("Last Run ID", widget.health.lastRunId ?? "N/A"),
+                _row(
+                    "Artifact Age", "${widget.health.artifactAgeMinutes} mins"),
+                _row("Rec. Action", widget.health.recommendedAction),
+                _row("Timestamp", widget.health.timestampUtc ?? "N/A"),
+                const Divider(color: AppColors.borderSubtle),
+                _row("Reason", widget.health.reason),
+              ],
             ),
           )
       ],
@@ -108,8 +121,17 @@ class _SystemHealthChipState extends State<SystemHealthChip> {
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
         children: [
-          SizedBox(width: 80, child: Text(label, style: const TextStyle(color: AppColors.textDisabled, fontSize: 12))),
-          Expanded(child: Text(value, style: const TextStyle(color: AppColors.textPrimary, fontSize: 12, fontFamily: 'monospace'))),
+          SizedBox(
+              width: 80,
+              child: Text(label,
+                  style: const TextStyle(
+                      color: AppColors.textDisabled, fontSize: 12))),
+          Expanded(
+              child: Text(value,
+                  style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 12,
+                      fontFamily: 'monospace'))),
         ],
       ),
     );

@@ -1,0 +1,317 @@
+diff --git a/backend/os_ops/generate_canon_index.py b/backend/os_ops/generate_canon_index.py
+new file mode 100644
+index 0000000..cd52b7f
+--- /dev/null
++++ b/backend/os_ops/generate_canon_index.py
+@@ -0,0 +1,311 @@
++
++import json
++import re
++import datetime
++import os
++import subprocess
++
++# Config
++REPO_ROOT = "c:/MSR/MarketSniperRepo"
++SCAN_FILE = "outputs/scan_raw.txt"
++OUTPUT_FILE = "outputs/proofs/canon/pending_index_v2.json"
++LEDGER_FILE = "docs/canon/PENDING_LEDGER.md"
++
++# Categories
++CAT_FEATURE = "PENDING_FEATURE"
++CAT_DEBT = "PENDING_TECH_DEBT"
++CAT_GOV = "PENDING_GOVERNANCE"
++CAT_BUG = "PENDING_BUG"
++CAT_DONE = "SEALED_DONE"
++
++# Status Enums
++STATUS_OPEN = "OPEN"
++STATUS_IN_PROGRESS = "IN_PROGRESS"
++STATUS_RESOLVED = "RESOLVED"
++STATUS_SUPERSEDED = "SUPERSEDED"
++STATUS_REJECTED = "REJECTED"
++
++# Module Mapper
++def map_module(path):
++    p = path.lower().replace('\\', '/')
++    if "market_sniper_app" in p:
++        if "dashboard" in p: return "UI.DASHBOARD"
++        if "war_room" in p: return "UI.WAR_ROOM"
++        if "widgets" in p: return "UI.WIDGETS"
++        if "screens" in p: return "UI.SCREENS"
++        if "theme" in p: return "UI.THEME"
++        return "UI.APP"
++    if "backend" in p:
++        if "api" in p: return "BACKEND.API"
++        if "pipeline" in p: return "BACKEND.PIPELINE"
++        if "verify" in p: return "OPS.DISCIPLINE"
++        return "BACKEND.CORE"
++    if "docs/canon" in p: return "GOV.CANON"
++    if "outputs/seals" in p: return "GOV.SEALS"
++    if "scripts" in p: return "OPS.SCRIPTS"
++    return "OS.GENERAL"
++
++def parse_ledger_blocks():
++    """Parses schema-first blocks from PENDING_LEDGER.md"""
++    items = []
++    if not os.path.exists(LEDGER_FILE):
++        return items
++
++    current_item = {}
++    
++    with open(LEDGER_FILE, 'r', encoding='utf-8') as f:
++        lines = f.readlines()
++        
++    for line in lines:
++        line = line.strip()
++        # Header Detection for ID
++        if line.startswith("### PEND_"):
++            # Save previous if exists
++            if current_item:
++                items.append(current_item)
++            
++            # Start new
++            current_item = {
++                "id": line.replace("### ", "").strip(),
++                "status": STATUS_OPEN, # Default
++                "kind": CAT_FEATURE, # Default, refined later
++                "impact_area": ["Reliability"],
++                "estimated_effort": "M",
++                "priority": "MED",
++                "resolved_by_seal": None,
++                "resolved_at_utc": None,
++                "proof": None
++            }
++            continue
++            
++        # Field Parsing within Item
++        if not current_item: continue
++        
++        # Key-Value Parser
++        # - **Key**: Value
++        if line.startswith("- **"):
++            parts = line.split(":", 1)
++            if len(parts) == 2:
++                key = parts[0].replace("- **", "").replace("**", "").lower().strip()
++                val = parts[1].strip()
++                
++                if key == "module": current_item["module_id"] = val
++                elif key == "description": current_item["description"] = val
++                elif key == "origin": 
++                    current_item["origins"] = [{"type": "ledger", "path": LEDGER_FILE, "snippet": val}]
++                elif key == "status": current_item["status"] = val.upper()
++                elif key == "impact area": current_item["impact_area"] = [x.strip() for x in val.split(",")]
++                elif key == "estimated effort": current_item["estimated_effort"] = val
++                elif key == "resolved by seal": current_item["resolved_by_seal"] = val
++                elif key == "resolved at utc": current_item["resolved_at_utc"] = val
++                elif key == "proof": current_item["proof"] = val
++
++    # Append last
++    if current_item:
++        items.append(current_item)
++        
++    # Validation / Refinement
++    for it in items:
++        # Kind refinement based on ID prefix or description keywords?
++        # Let's keep it simple for now or strictly map if ID has hints.
++        # Actually kind should be field? 
++        # Defaulting based on context:
++        if "INTEL" in it.get("module_id", ""): it["kind"] = CAT_FEATURE
++        elif "DEBT" in it.get("description", "").upper(): it["kind"] = CAT_DEBT
++        elif "BUG" in it.get("description", "").upper(): it["kind"] = CAT_BUG
++        
++        # Strict Status Check
++        if it["status"] == STATUS_RESOLVED:
++            if not it.get("resolved_by_seal"):
++                # Auto-revert or warn? Ledger is Source of Truth.
++                # Use what Ledger says, but flag integrity issues?
++                # For now, trust manual entry but ensure fields exist.
++                pass
++
++        if "title" not in it:
++             # Extract first sentence of description as title
++             desc = it.get("description", "")
++             it["title"] = desc.split(".")[0] if desc else it["id"]
++             
++    return items
++
++def parse_filesystem_scan():
++    # Internal Scan Implementation (Replaces rg dependency)
++    # This captures "Debt" that is NOT yet in the Ledger blocks (Code Todos)
++    items = []
++    
++    # Scope Config
++    exclude_dirs = {'.git', 'node_modules', 'dist', 'build', '.dart_tool', 'outputs', '__pycache__'}
++    patterns = ["TODO", "FIXME", "Future", "Pending"] # Removed "Next Steps" to reduce noise
++    
++    # 1. Walk
++    for root, dirs, files in os.walk(REPO_ROOT):
++        # Prune
++        dirs[:] = [d for d in dirs if d not in exclude_dirs]
++        
++        for file in files:
++            if file == "PENDING_LEDGER.md": continue
++            if file == "pending_index_v2.json": continue
++            if file.endswith(".json") or file.endswith(".lock") or file.endswith(".png"): continue
++            
++            path = os.path.join(root, file)
++            rel_path = os.path.relpath(path, REPO_ROOT).replace('\\', '/')
++            
++            try:
++                with open(path, 'r', encoding='utf-8', errors='ignore') as f:
++                    for i, line in enumerate(f, 1):
++                        content = line.strip()
++                        if not content: continue
++                        
++                        # Match
++                        matched = False
++                        for p in patterns:
++                             # Simple keyword match
++                            if p in content:
++                                matched = True
++                                break
++                        
++                        if not matched: continue
++
++                        # Classification
++                        kind = CAT_DEBT
++                        if "feature" in content.lower(): kind = CAT_FEATURE
++                        
++                        # ID Generation
++                        mod = map_module(rel_path)
++                        import hashlib
++                        slug = hashlib.md5((rel_path + str(i) + content).encode()).hexdigest()[:8].upper()
++                        id_val = f"CODE_{mod.replace('.', '_')}_{slug}"
++
++                        items.append({
++                            "id": id_val,
++                            "kind": kind,
++                            "title": content[:100],
++                            "description": content,
++                            "module_id": mod,
++                            "path": rel_path,
++                            "locator": str(i),
++                            "status": STATUS_OPEN # Code todos are always OPEN
++                        })
++            except Exception as e:
++                pass
++                
++    return items
++
++def generate_json():
++    # Merge Ledger items + Code items
++    ledger_items = parse_ledger_blocks()
++    code_items = parse_filesystem_scan()
++    
++    # Dedup? IDs should be distinct (PEND_ vs CODE_)
++    all_raw_items = ledger_items + code_items
++    
++    modules = {}
++    
++    # Aggregating
++    for it in all_raw_items:
++        m = it.get('module_id', "OS.GENERAL")
++        if m not in modules:
++            modules[m] = {"module_id": m, "pending_count": 0, "items": []}
++        
++        # Count only Active Debt
++        if it['status'] in [STATUS_OPEN, STATUS_IN_PROGRESS]:
++            modules[m]["pending_count"] += 1
++            
++        # Clean item for output
++        clean_item = {
++            "id": it['id'],
++            "module_id": m, 
++            "kind": it.get('kind', CAT_DEBT),
++            "title": it['title'],
++            "description": it.get('description', ''),
++            "impact_area": it.get('impact_area', ["Reliability"]), 
++            "estimated_effort": it.get('estimated_effort', 'M'),
++            "priority": it.get('priority', 'MED'),
++            "status": it['status'], 
++            "resolved_by_seal": it.get('resolved_by_seal'),
++            "resolved_at_utc": it.get('resolved_at_utc'),
++            "last_seen_at_utc": datetime.datetime.utcnow().isoformat(),
++             # Handle origins format difference between code/ledger
++            "origins": it.get('origins', [{
++                "type": "scan",
++                "path": it.get('path', ''),
++                "locator": it.get('locator', ''),
++                "snippet": it.get("description", "")[:140]
++            }]),
++            "needs_review": True
++        }
++        modules[m]["items"].append(clean_item)
++
++    # Convert to list
++    module_list = list(modules.values())
++    
++    # Counts
++    counts = {
++        "total_active": sum(m["pending_count"] for m in module_list),
++        "total_items": len(all_raw_items),
++        "modules": len(module_list)
++    }
++
++    final = {
++        "meta": {
++            "version": "v2",
++            "generated_at_utc": datetime.datetime.utcnow().isoformat(),
++            "repo_root": REPO_ROOT,
++            "counts": counts
++        },
++        "modules": module_list,
++        "index": {
++            "by_id": {}, 
++            "note": "Indexes implicit in modules list for this generation." 
++        }
++    }
++
++    # Fingerprint Generation (Step 1)
++    # Fields: id, module, kind, priority, impact_area, estimated_effort, status
++    canonical_items = []
++    
++    # Flatten items from modules
++    all_items = []
++    for m in module_list:
++        all_items.extend(m['items'])
++    
++    # Sort deterministically by ID
++    all_items.sort(key=lambda x: x['id'])
++
++    for it in all_items:
++        # Canonical string construction
++        # Impact sorted
++        impact = sorted(it.get('impact_area', []))
++        impact_str = ",".join(impact)
++        
++        # Origin (first one)
++        origins = it.get('origins', [])
++        origin_str = ""
++        if origins:
++            origin_str = f"{origins[0].get('path','')}:{origins[0].get('locator','')}"
++
++        # Delimiter-separated values
++        # id|module|kind|priority|impact|effort|status|origin
++        s = f"{it['id']}|{it['module_id']}|{it['kind']}|{it['priority']}|{impact_str}|{it['estimated_effort']}|{it['status']}|{origin_str}"
++        canonical_items.append(s)
++
++    # Hash
++    import hashlib
++    full_str = "\n".join(canonical_items)
++    fingerprint_hash = hashlib.sha256(full_str.encode('utf-8')).hexdigest()
++
++    final["fingerprint"] = {
++        "hash": fingerprint_hash,
++        "items_count": len(all_items),
++        "generated_at_utc": datetime.datetime.utcnow().isoformat()
++    }
++    
++    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
++    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
++        json.dump(final, f, indent=2)
++    
++    print(f"Generated {OUTPUT_FILE} with {counts['total_active']} active items.")
++
++if __name__ == "__main__":
++    generate_json()

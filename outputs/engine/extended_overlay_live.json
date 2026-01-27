@@ -1,0 +1,97 @@
+{
+  "version": "1.0",
+  "as_of_utc": "2026-01-23T19:10:20.278879",
+  "status": "LIVE",
+  "source": "SECTOR_SENTINEL",
+  "age_seconds": -279,
+  "summary_lines": [
+    "Sector Sentinel: 11/11 Active",
+    "Pressure: 5 Up, 3 Down, 3 Mixed"
+  ],
+  "sectors": [
+    {
+      "sector": "XLK",
+      "state": "ACTIVE",
+      "pressure": "UP",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLF",
+      "state": "ACTIVE",
+      "pressure": "UP",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLV",
+      "state": "ACTIVE",
+      "pressure": "DOWN",
+      "dispersion": "HIGH",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLY",
+      "state": "ACTIVE",
+      "pressure": "UP",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLP",
+      "state": "ACTIVE",
+      "pressure": "MIXED",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLE",
+      "state": "ACTIVE",
+      "pressure": "DOWN",
+      "dispersion": "HIGH",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLI",
+      "state": "ACTIVE",
+      "pressure": "UP",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLC",
+      "state": "ACTIVE",
+      "pressure": "UP",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLB",
+      "state": "ACTIVE",
+      "pressure": "MIXED",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLU",
+      "state": "ACTIVE",
+      "pressure": "DOWN",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    },
+    {
+      "sector": "XLRE",
+      "state": "ACTIVE",
+      "pressure": "MIXED",
+      "dispersion": "NORMAL",
+      "as_of_utc": "2026-01-23T19:10:20.278879"
+    }
+  ],
+  "diagnostics": {
+    "provider_result": "OK",
+    "fallback_reason": "NONE",
+    "input_artifact_path": "engine/sector_sentinel_rt.json",
+    "input_as_of_utc": "2026-01-23T19:15:00.000000",
+    "missing_sectors": []
+  }
+}

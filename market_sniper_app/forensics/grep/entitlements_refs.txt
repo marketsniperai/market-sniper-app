@@ -1,0 +1,56 @@
+
+lib\domain\universe\core20_universe.dart:58:    SymbolDefinition(symbol: 'XLI', displayLabel: 'XLI', category: 'Sectors', description: 'Industrials'),
+lib\layout\main_layout.dart:18:import '../logic/trial_engine.dart'; // D45.06 Trial Engine
+lib\layout\main_layout.dart:22:import 'dart:async'; // StreamSubscription
+lib\layout\main_layout.dart:39:  StreamSubscription<NavigationEvent>? _navSubscription;
+lib\layout\main_layout.dart:47:    // D45.06 Trial Engine Check
+lib\layout\main_layout.dart:48:    TrialEngine.checkAndIncrement(); // Fire and forget (it is async/safe)
+lib\layout\main_layout.dart:55:    _navSubscription = NavigationBus().events.listen((event) {
+lib\layout\main_layout.dart:76:    _navSubscription?.cancel();
+lib\logic\elite_access_window_controller.dart:4:import 'trial_engine.dart';
+lib\logic\elite_access_window_controller.dart:7:enum EliteAccessMode { none, trial, tryme } // Fixed casing
+lib\logic\elite_access_window_controller.dart:38:    // 3. Try-Me Window Logic
+lib\logic\elite_access_window_controller.dart:47:          notice = "5 minutes remaining in Try-Me Hour.";
+lib\logic\elite_access_window_controller.dart:53:           notice = "Try-Me Hour active. Elite FULL access temporarily unlocked.";
+lib\logic\elite_access_window_controller.dart:74:                 systemNotice: "Try-Me Hour has ended. Elite access reverted."
+lib\logic\elite_access_window_controller.dart:80:    // 5. Trial Logic
+lib\logic\elite_access_window_controller.dart:81:    if (!TrialEngine.isComplete) {
+lib\logic\elite_access_window_controller.dart:84:         mode: EliteAccessMode.trial
+lib\logic\premium_status_resolver.dart:3:import 'trial_engine.dart';
+lib\logic\premium_status_resolver.dart:10:    // Check if Trial is Complete
+lib\logic\premium_status_resolver.dart:11:    if (TrialEngine.isComplete) {
+lib\logic\premium_status_resolver.dart:12:      // If Try-Me Active, effectively Plus/Elite? 
+lib\logic\premium_status_resolver.dart:23:  static String get trialProgressString {
+lib\logic\premium_status_resolver.dart:26:    if (TrialEngine.isComplete) {
+lib\logic\premium_status_resolver.dart:27:      // Post-trial state
+lib\logic\premium_status_resolver.dart:29:        return "TRY-ME ACTIVE";
+lib\logic\premium_status_resolver.dart:31:      return "TRIAL COMPLETE";
+lib\logic\premium_status_resolver.dart:34:    // Active Trial
+lib\logic\premium_status_resolver.dart:35:    return "${TrialEngine.currentCount}/3 Market Opens";
+lib\logic\premium_status_resolver.dart:39:    return TrialEngine.isComplete;
+lib\logic\trial_engine.dart:4:import 'trial_state_store.dart';
+lib\logic\trial_engine.dart:6:class TrialEngine {
+lib\logic\trial_engine.dart:7:  static final TrialStateStore _store = TrialStateStore();
+lib\logic\trial_engine.dart:40:      debugPrint("TRIAL: Outside market hours. No count.");
+lib\logic\trial_engine.dart:54:       debugPrint("TRIAL: Incrementing count to $newCount (Day $todayId)");
+lib\logic\trial_engine.dart:60:         debugPrint("TRIAL: Status COMPLETE");
+lib\logic\trial_engine.dart:65:      debugPrint("TRIAL: Already counted for day $todayId.");
+lib\logic\trial_state_store.dart:3:class TrialStateStore {
+lib\logic\trial_state_store.dart:5:  static const String _kOpenCount = 'ms_trial_open_count';
+lib\logic\trial_state_store.dart:7:  static const String _kStatus = 'ms_trial_status';
+lib\logic\try_me_scheduler.dart:2:import 'trial_engine.dart';
+lib\logic\try_me_scheduler.dart:6:    // Only valid if trial is complete (guests only)
+lib\logic\try_me_scheduler.dart:7:    if (!TrialEngine.isComplete) return false;
+lib\models\premium\premium_matrix_model.dart:79:      _row("trial_progress", "Trial (Market Opens)", "Full OS access for 3 market opens",
+lib\models\premium\premium_matrix_model.dart:80:        {"GUEST":"INCLUDED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}, dynamicValue: "trial_opens_progress"),
+lib\models\premium\premium_matrix_model.dart:93:      _row("try_me_hour", "Try-Me Hour", "Mon 09:20–10:20 ET access window", 
+lib\screens\account_screen.dart:282:      title: const Text("Manage Subscription", style: TextStyle(color: Colors.white)),
+lib\screens\on_demand_panel.dart:12:import 'dart:async'; // StreamSubscription
+lib\screens\on_demand_panel.dart:33:  StreamSubscription<NavigationEvent>? _navSubscription;
+lib\screens\on_demand_panel.dart:41:    _navSubscription = NavigationBus().events.listen((event) {
+lib\screens\on_demand_panel.dart:85:    _navSubscription?.cancel();
+lib\screens\premium_screen.dart:167:    if (row.dynamicValueKey == "trial_opens_progress") {
+lib\screens\premium_screen.dart:168:       label = "Trial (${PremiumStatusResolver.trialProgressString} Opens)";
+lib\screens\premium_screen.dart:207:  Widget _buildStatusCell(FeatureStatus? status, String? limit, bool isTrialRow, {bool isFounder = false}) {
+lib\screens\premium_screen.dart:268:         label = "Try-Me Hour Info";
+

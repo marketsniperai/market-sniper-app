@@ -1,0 +1,13 @@
+{
+    "timestamp_utc": "2026-01-22T03:50:00Z",
+    "commit_message": "D45.F1 — Founder Router Selector (War Room / Command Center)",
+    "git_status_clean": true,
+    "changed_files": [
+        "docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md",
+        "market_sniper_app/lib/layout/main_layout.dart",
+        "market_sniper_app/lib/widgets/founder/founder_router_sheet.dart",
+        "market_sniper_app/lib/logic/founder/founder_router_store.dart",
+        "outputs/seals/SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md",
+        "outputs/proofs/day_45/ui_founder_router_selector_proof.json"
+    ]
+}

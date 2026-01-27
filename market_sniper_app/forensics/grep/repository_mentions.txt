@@ -1,0 +1,40 @@
+
+lib\logic\watchlist_ledger.dart:4:import '../repositories/watchlist_log_repository.dart';
+lib\logic\watchlist_ledger.dart:13:  final _repo = WatchlistLogRepository();
+lib\repositories\dashboard_repository.dart:4:class DashboardRepository {
+lib\repositories\dashboard_repository.dart:8:  // Though logic is currently in model, repository is the fetching authority.
+lib\repositories\dashboard_repository.dart:10:  DashboardRepository({ApiClient? api}) : _api = api ?? ApiClient();
+lib\repositories\last_run_repository.dart:4:class LastRunRepository {
+lib\repositories\last_run_repository.dart:7:  LastRunRepository({required this.api});
+lib\repositories\system_health_repository.dart:6:class SystemHealthRepository {
+lib\repositories\system_health_repository.dart:9:  SystemHealthRepository({required this.api});
+lib\repositories\universe_repository.dart:789:class UniverseRepository {
+lib\repositories\universe_repository.dart:792:  UniverseRepository({required this.api});
+lib\repositories\war_room_repository.dart:2:import '../repositories/system_health_repository.dart';
+lib\repositories\war_room_repository.dart:8:class WarRoomRepository {
+lib\repositories\war_room_repository.dart:10:  final SystemHealthRepository healthRepo;
+lib\repositories\war_room_repository.dart:12:  WarRoomRepository({required this.api})
+lib\repositories\war_room_repository.dart:13:      : healthRepo = SystemHealthRepository(api: api);
+lib\repositories\watchlist_log_repository.dart:3:class WatchlistLogRepository {
+lib\repositories\watchlist_log_repository.dart:6:  WatchlistLogRepository({ApiClient? api}) : _api = api ?? ApiClient();
+lib\screens\dashboard_screen.dart:11:import '../repositories/dashboard_repository.dart';
+lib\screens\dashboard_screen.dart:20:import '../repositories/system_health_repository.dart';
+lib\screens\dashboard_screen.dart:21:import '../repositories/last_run_repository.dart';
+lib\screens\dashboard_screen.dart:37:  late DashboardRepository _repo;
+lib\screens\dashboard_screen.dart:38:  late SystemHealthRepository _healthRepo;
+lib\screens\dashboard_screen.dart:39:  late LastRunRepository _lastRunRepo;
+lib\screens\dashboard_screen.dart:60:    _repo = DashboardRepository(api: _api);
+lib\screens\dashboard_screen.dart:61:    _healthRepo = SystemHealthRepository(api: _api);
+lib\screens\dashboard_screen.dart:62:    _lastRunRepo = LastRunRepository(api: _api);
+lib\screens\dashboard_screen.dart:108:        _api.fetchSystemHealth(), // TODO: Move to SystemRepository
+lib\screens\war_room_screen.dart:6:import '../repositories/war_room_repository.dart';
+lib\screens\war_room_screen.dart:25:  late WarRoomRepository _repo;
+lib\screens\war_room_screen.dart:36:    _repo = WarRoomRepository(api: ApiClient());
+lib\screens\watchlist_screen.dart:8:import '../repositories/war_room_repository.dart'; // D44.02B
+lib\screens\watchlist_screen.dart:42:       final repo = WarRoomRepository(api: api);
+lib\screens\watchlist_screen.dart:71:     final repo = WarRoomRepository(api: api); // Lightweight just for Health check if needed, or SystemHealthRepo direct.
+lib\screens\watchlist_screen.dart:74:     // we will check SystemHealthRepository.
+lib\screens\universe\universe_screen.dart:5:import '../../repositories/universe_repository.dart';
+lib\screens\universe\universe_screen.dart:18:  late UniverseRepository _repo;
+lib\screens\universe\universe_screen.dart:26:    _repo = UniverseRepository(api: ApiClient()); // In real app, inject via Provider
+

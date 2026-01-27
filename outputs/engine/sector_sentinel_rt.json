@@ -1,0 +1,72 @@
+{
+    "status": "ACTIVE",
+    "as_of_utc": "2026-01-23T19:15:00.000000",
+    "sectors": [
+        {
+            "sector_id": "XLK",
+            "status": "ACTIVE",
+            "pressure": "UP",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLF",
+            "status": "ACTIVE",
+            "pressure": "UP",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLV",
+            "status": "ACTIVE",
+            "pressure": "DOWN",
+            "dispersion": "HIGH"
+        },
+        {
+            "sector_id": "XLY",
+            "status": "ACTIVE",
+            "pressure": "UP",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLP",
+            "status": "ACTIVE",
+            "pressure": "MIXED",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLE",
+            "status": "ACTIVE",
+            "pressure": "DOWN",
+            "dispersion": "HIGH"
+        },
+        {
+            "sector_id": "XLI",
+            "status": "ACTIVE",
+            "pressure": "UP",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLC",
+            "status": "ACTIVE",
+            "pressure": "UP",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLB",
+            "status": "ACTIVE",
+            "pressure": "MIXED",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLU",
+            "status": "ACTIVE",
+            "pressure": "DOWN",
+            "dispersion": "NORMAL"
+        },
+        {
+            "sector_id": "XLRE",
+            "status": "ACTIVE",
+            "pressure": "MIXED",
+            "dispersion": "NORMAL"
+        }
+    ]
+}

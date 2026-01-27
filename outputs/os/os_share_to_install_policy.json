@@ -1,0 +1,19 @@
+{
+    "policy_name": "SHARE_TO_INSTALL_POLICY_V1",
+    "version": "1.0",
+    "enabled": true,
+    "config": {
+        "id_format": "MSR-SHARE-<YYYYMMDD>-<COUNTER_6CHAR>",
+        "install_hint_text": "Get the OS → MarketSniper AI",
+        "include_url": false
+    },
+    "tracking": {
+        "enabled": true,
+        "events": [
+            "SHARE_ID_CREATED",
+            "INSTALL_HINT_RENDERED",
+            "INSTALL_CTA_TAPPED"
+        ],
+        "ledger_target": "outputs/os/os_share_install_ledger.jsonl"
+    }
+}

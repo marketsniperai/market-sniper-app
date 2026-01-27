@@ -7,7 +7,7 @@ class TryMeScheduler {
     if (!TrialEngine.isComplete) return false;
 
     final nowEt = MarketTimeHelper.getNowEt();
-    
+
     // Monday?
     if (nowEt.weekday != DateTime.monday) return false;
 
@@ -17,7 +17,7 @@ class TryMeScheduler {
     // 10:20 is 10.333...
     return time >= 9.33 && time <= 10.33;
   }
-  
+
   static String getNextWindowInfo() {
     // Simple helper string
     return "Mon 09:20-10:20 ET";

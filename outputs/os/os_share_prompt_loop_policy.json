@@ -1,0 +1,33 @@
+{
+    "policy_name": "SHARE_PROMPT_LOOP_POLICY_V1",
+    "version": "1.0",
+    "enabled": true,
+    "config": {
+        "max_ctas": 3,
+        "cooldown_minutes": 10,
+        "show_for_founder": false,
+        "show_for_elite_limit_ctas": 1
+    },
+    "ctas": {
+        "SAVE": {
+            "label": "Save Image",
+            "action": "LOCAL_SAVE"
+        },
+        "SHARE_NATIVE": {
+            "label": "Share",
+            "action": "NATIVE_SHEET"
+        },
+        "UPGRADE_ELITE": {
+            "label": "Unlock Elite",
+            "action": "NAV_PREMIUM"
+        }
+    },
+    "logging": {
+        "events": [
+            "PROMPT_SHOWN",
+            "CTA_CLICKED",
+            "PROMPT_DISMISSED"
+        ],
+        "ledger_target": "outputs/os/os_share_cta_ledger.jsonl"
+    }
+}

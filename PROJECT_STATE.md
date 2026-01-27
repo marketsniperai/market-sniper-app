@@ -175,3 +175,35 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
   - **Result:** `OS_MODULES.md` v3.0, `PRINCIPIO` v45, `ATLAS` v45, `CONTEXT` v45.
   - **Status:** SEALED / CHECKPOINTED.
   - **Seal:** `outputs/seals/SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md`
+
+- [x] **DXX.WELCOME.01** Welcome Screen Integration (Mode B: Local Terms) [SEALED]
+- [x] **DXX.WELCOME.02** Invite Gate & Attribution (Local/Determ) [SEALED]
+- [x] **DXX.WELCOME.03** Welcome Screen Integrity (Guard + Hash) [SEALED]
+- [x] **POLISH.MENU.UI.01** Menu Screen UI Polish (Inter/Spacing/Density). (SEALED).
+- [x] **POLISH.MENU.SHELL.01** Menu Shell Compliance (Embedded). (SEALED).
+- [x] **HOTFIX.MENU.SHELL.02** Menu Material Ancestor Fix. (SEALED).
+- [x] **HOTFIX.MENU.SHELL.03** Menu Self-Heal Material Fix. (SEALED).
+- [x] **POLISH.SHELL.global.01** Global Shell Persistence (Single Scaffold). (SEALED).
+- [x] **POLISH.SHELL.SWEEP.01** Global Shell Compliance Sweep (Body-Only Screens). (SEALED).
+- [x] **HOTFIX.SHELL.COMPILATION.01** Compilation Repair H7 (Shell Sweep). (SEALED).
+- [x] **POLISH.HYGIENE.ANALYZE.01** Hygiene Polish (55% Issue Reduction). (SEALED).
+- [x] **HOTFIX.WARROOM.WEB.01** Web Storage Guard + Layout Fix. (SEALED).
+- [x] **POLISH.VISUAL.CYAN.01** Visual Polish: Neon Cyan Unification. (SEALED).
+- [x] **POLISH.SPACING.GLOBAL.01** Global Spacing Standardization. (SEALED).
+- [x] **POLISH.ACCOUNT.CLEAN.01** Account Screen Cleanup (Restored Minimal 3-Block Layout). (SEALED).
+- [x] **POLISH.PREMIUM.VISIBILITY.01** Premium Protocol Visibility (Founder Hidden). (SEALED).
+- [x] **POLISH.MENU.LANGUAGE.01** Language Selector (User-Facing). (SEALED).
+- [x] **HOTFIX.MENU.LANGUAGE.COMPILATION.01** Compilation Repair (Braces/API). (SEALED).
+- [x] **POLISH.DASHBOARD.UI.01** Dashboard Banner V1 (ET Timezone, Auto-Refresh). (SEALED).
+- [x] **POLISH.DASHBOARD.CLEANUP.01** Dashboard Body Cleanup (Hidden below Banner). (SEALED).
+- [x] **D45.HF02** Web Build Repair (Timezone Fallout). (SEALED).
+- [x] **D45.HF03** Sector Flip V1 Smoke (Runtime Verification). (SEALED).
+- [x] **D45.POLISH.SECTOR.FLIP.V2** (Layout, Header, Animations). (SEALED).
+- [x] **D45.POLISH.SECTOR.FLIP.V3** (Leader Micro-Wow, Haptics). (SEALED).
+- [x] **D45.SECTOR.REPLAY.V1_1** (Scrubber, 60m History, Safe ET). (SEALED).
+- [x] **D45.SECTOR.REPLAY.V1_2** (Pulse Integration, Fallback). (SEALED).
+- [x] **D45.SECTOR.SENTINEL.RT.V0** (Leader Change, Volume Spike Events). (SEALED).
+- [x] **D45.SECTOR.REPLAY.V1_3** (Pulse SSOT, Staleness Guard, Founder Src Tag). (SEALED).
+- [x] **D45.CANON.PENDING.01** (Pending Ledger Created, 10 Items). (SEALED).
+- [x] **D45.CANON.PENDING_INDEX.02** — Pending Index v2 generated (Radar-ready).
+- [x] **D45.CANON.DEBT_RADAR.V1** — War Room Debt Radar UI (Read-Only).

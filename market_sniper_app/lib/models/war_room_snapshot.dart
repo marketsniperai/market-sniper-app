@@ -29,7 +29,6 @@ class WarRoomSnapshot {
   final MacroInfoSnapshot macro; // D36.5
   final EvidenceInfoSnapshot evidence; // D36.4
 
-
   const WarRoomSnapshot({
     required this.osHealth,
     required this.autopilot,
@@ -100,7 +99,7 @@ class OptionsInfoSnapshot {
   final String expectedMove;
   final String asOfUtc;
   final bool isAvailable;
-  
+
   // v1.1.0 Fields
   final String version;
   final String expectedMoveHorizon;
@@ -181,25 +180,23 @@ class MisfireTier2Snapshot {
 }
 
 class MisfireEscalationStepSnapshot {
-    final String stepId;
-    final String description;
-    final bool attempted;
-    final bool permitted;
-    final String? gateReason;
-    final String? result;
-    final String? timestampUtc;
+  final String stepId;
+  final String description;
+  final bool attempted;
+  final bool permitted;
+  final String? gateReason;
+  final String? result;
+  final String? timestampUtc;
 
-    const MisfireEscalationStepSnapshot({
-        required this.stepId,
-        required this.description,
-        required this.attempted,
-        required this.permitted,
-        this.gateReason,
-        this.result,
-        this.timestampUtc,
-    });
-    fallbackReason: "INIT",
-  );
+  const MisfireEscalationStepSnapshot({
+    required this.stepId,
+    required this.description,
+    required this.attempted,
+    required this.permitted,
+    this.gateReason,
+    this.result,
+    this.timestampUtc,
+  });
 }
 
 class MacroInfoSnapshot {
@@ -299,13 +296,14 @@ class CooldownTransparencySnapshot {
   final bool isAvailable;
 
   const CooldownTransparencySnapshot({
-      required this.timestampUtc,
-      this.runId,
-      required this.entries,
-      required this.isAvailable,
+    required this.timestampUtc,
+    this.runId,
+    required this.entries,
+    required this.isAvailable,
   });
 
-  static const CooldownTransparencySnapshot unknown = CooldownTransparencySnapshot(
+  static const CooldownTransparencySnapshot unknown =
+      CooldownTransparencySnapshot(
     timestampUtc: "N/A",
     runId: "N/A",
     entries: [],
@@ -314,27 +312,27 @@ class CooldownTransparencySnapshot {
 }
 
 class CooldownEntrySnapshot {
-    final String engine;
-    final String actionCode;
-    final bool attempted;
-    final bool permitted;
-    final String gateReason;
-    final int? cooldownRemainingSeconds;
-    final int? throttleWindowSeconds;
-    final String? lastExecutedTimestampUtc;
-    final String? notes;
+  final String engine;
+  final String actionCode;
+  final bool attempted;
+  final bool permitted;
+  final String gateReason;
+  final int? cooldownRemainingSeconds;
+  final int? throttleWindowSeconds;
+  final String? lastExecutedTimestampUtc;
+  final String? notes;
 
-    const CooldownEntrySnapshot({
-        required this.engine,
-        required this.actionCode,
-        required this.attempted,
-        required this.permitted,
-        required this.gateReason,
-        this.cooldownRemainingSeconds,
-        this.throttleWindowSeconds,
-        this.lastExecutedTimestampUtc,
-        this.notes,
-    });
+  const CooldownEntrySnapshot({
+    required this.engine,
+    required this.actionCode,
+    required this.attempted,
+    required this.permitted,
+    required this.gateReason,
+    this.cooldownRemainingSeconds,
+    this.throttleWindowSeconds,
+    this.lastExecutedTimestampUtc,
+    this.notes,
+  });
 }
 
 class SelfHealWhatChangedSnapshot {
@@ -346,15 +344,16 @@ class SelfHealWhatChangedSnapshot {
   final bool isAvailable;
 
   const SelfHealWhatChangedSnapshot({
-      required this.timestampUtc,
-      required this.runId,
-      this.summary,
-      required this.artifactsUpdated,
-      this.stateTransition,
-      required this.isAvailable,
+    required this.timestampUtc,
+    required this.runId,
+    this.summary,
+    required this.artifactsUpdated,
+    this.stateTransition,
+    required this.isAvailable,
   });
 
-  static const SelfHealWhatChangedSnapshot unknown = SelfHealWhatChangedSnapshot(
+  static const SelfHealWhatChangedSnapshot unknown =
+      SelfHealWhatChangedSnapshot(
     timestampUtc: "N/A",
     runId: "N/A",
     artifactsUpdated: [],
@@ -363,29 +362,29 @@ class SelfHealWhatChangedSnapshot {
 }
 
 class ArtifactUpdateSnapshot {
-    final String path;
-    final String changeType;
-    final String? beforeHash;
-    final String? afterHash;
+  final String path;
+  final String changeType;
+  final String? beforeHash;
+  final String? afterHash;
 
-    const ArtifactUpdateSnapshot({
-        required this.path,
-        required this.changeType,
-        this.beforeHash,
-        this.afterHash,
-    });
+  const ArtifactUpdateSnapshot({
+    required this.path,
+    required this.changeType,
+    this.beforeHash,
+    this.afterHash,
+  });
 }
 
 class StateTransitionSnapshot {
-    final String? fromState;
-    final String? toState;
-    final bool unlocked;
+  final String? fromState;
+  final String? toState;
+  final bool unlocked;
 
-    const StateTransitionSnapshot({
-        this.fromState,
-        this.toState,
-        required this.unlocked,
-    });
+  const StateTransitionSnapshot({
+    this.fromState,
+    this.toState,
+    required this.unlocked,
+  });
 }
 
 class SelfHealConfidenceSnapshot {
@@ -483,7 +482,8 @@ class AutoFixDecisionPathSnapshot {
     required this.isAvailable,
   });
 
-  static const AutoFixDecisionPathSnapshot unknown = AutoFixDecisionPathSnapshot(
+  static const AutoFixDecisionPathSnapshot unknown =
+      AutoFixDecisionPathSnapshot(
     status: "UNAVAILABLE",
     runId: "N/A",
     context: "N/A",
@@ -497,7 +497,7 @@ class DecisionActionSnapshot {
   final String code;
   final String outcome;
   final String reason;
-  
+
   const DecisionActionSnapshot({
     required this.code,
     required this.outcome,
@@ -539,7 +539,7 @@ class AutopilotSnapshot {
   final String lastAction;
   final String lastActionTime;
   final int cooldownRemaining;
-  
+
   // Meta
   final String source;
   final bool isAvailable;
@@ -777,7 +777,6 @@ class LKGSnapshot {
   );
 }
 
-
 class DecisionPathSnapshot {
   final String timestamp;
   final String type;
@@ -961,7 +960,8 @@ class FindingsSnapshot {
   factory FindingsSnapshot.fromJson(Map<String, dynamic> json) {
     if (json.containsKey('findings')) {
       var list = json['findings'] as List;
-      List<FindingEntry> findingsList = list.map((i) => FindingEntry.fromJson(i)).toList();
+      List<FindingEntry> findingsList =
+          list.map((i) => FindingEntry.fromJson(i)).toList();
       return FindingsSnapshot(findings: findingsList);
     }
     return const FindingsSnapshot(findings: []);
@@ -994,7 +994,9 @@ class BeforeAfterDiffSnapshot {
       originatingModule: json['originating_module'],
       beforeState: json['before_state'] ?? {},
       afterState: json['after_state'] ?? {},
-      changedKeys: json['changed_keys'] != null ? List<String>.from(json['changed_keys']) : null,
+      changedKeys: json['changed_keys'] != null
+          ? List<String>.from(json['changed_keys'])
+          : null,
     );
   }
 

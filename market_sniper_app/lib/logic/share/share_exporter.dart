@@ -10,11 +10,12 @@ import 'share_prompt_loop.dart';
 class ShareExporter {
   static Future<String?> captureAndSave(GlobalKey key, String filename) async {
     try {
-      final boundary = key.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+      final boundary =
+          key.currentContext?.findRenderObject() as RenderRepaintBoundary?;
       if (boundary == null) return null;
 
       if (boundary.debugNeedsPaint) {
-         // capture usually safe if visible
+        // capture usually safe if visible
       }
 
       final image = await boundary.toImage(pixelRatio: 3.0); // High res
@@ -24,7 +25,7 @@ class ShareExporter {
       final directory = await getTemporaryDirectory();
       final file = File('${directory.path}/$filename');
       await file.writeAsBytes(pngBytes);
-      
+
       return file.path;
     } catch (e) {
       debugPrint("Share Export Error: $e");
@@ -32,15 +33,16 @@ class ShareExporter {
     }
   }
 
-  static Future<void> shareFile(BuildContext context, String path, {String text = "MarketSniper Insight"}) async {
-      // Mock / Placeholder for Share Plus
-      debugPrint("NATIVE SHARE REQUESTED FOR: $path");
-      
-      // if (hasSharePlus) {
-      //    await Share.shareXFiles([XFile(path)], text: text);
-      // }
-      
-      // D45.10 Share Prompt Loop (Post-Export Booster)
-      await SharePromptLoop.maybeShow(context);
+  static Future<void> shareFile(BuildContext context, String path,
+      {String text = "MarketSniper Insight"}) async {
+    // Mock / Placeholder for Share Plus
+    debugPrint("NATIVE SHARE REQUESTED FOR: $path");
+
+    // if (hasSharePlus) {
+    //    await Share.shareXFiles([XFile(path)], text: text);
+    // }
+
+    // D45.10 Share Prompt Loop (Post-Export Booster)
+    await SharePromptLoop.maybeShow(context);
   }
 }

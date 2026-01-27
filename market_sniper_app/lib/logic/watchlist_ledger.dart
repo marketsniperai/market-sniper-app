@@ -9,7 +9,7 @@ class WatchlistLedger {
   static final WatchlistLedger _instance = WatchlistLedger._internal();
   factory WatchlistLedger() => _instance;
   WatchlistLedger._internal();
-  
+
   final _repo = WatchlistLogRepository();
 
   Future<void> logAction({
@@ -24,7 +24,7 @@ class WatchlistLedger {
     try {
       final dir = await getApplicationSupportDirectory();
       final file = File('${dir.path}/watchlist_actions_ledger.jsonl');
-      
+
       final entry = {
         "timestamp_utc": DateTime.now().toUtc().toIso8601String(),
         "action": action,
@@ -35,48 +35,51 @@ class WatchlistLedger {
         "source_screen": sourceScreen,
       };
 
-      await file.writeAsString(jsonEncode(entry) + '\n', mode: FileMode.append);
+      await file.writeAsString('${jsonEncode(entry)}\n', mode: FileMode.append);
     } catch (e) {
       // Fail silent
     }
-    
+
     // 2. Backend Write (Fire & Forget)
     // Map 'result' to backend 'outcome'
     // result="BLOCKED" -> outcome="BLOCKED"
     // result="OPENED_RESULT" -> outcome="SUCCESS"
     // else -> "NO_OP"
-    
+
     String backendOutcome = "SUCCESS";
-    if (result == "BLOCKED") backendOutcome = "BLOCKED";
-    else if (result == "NO_OP") backendOutcome = "NO_OP";
-    
+    if (result == "BLOCKED") {
+      backendOutcome = "BLOCKED";
+    } else if (result == "NO_OP") backendOutcome = "NO_OP";
+
     // Backend action mapping if needed, or pass through
     // Backend expects: ADD, REMOVE, ANALYZE_TAP, BLOCKED_LOCKED, BLOCKED_STALE, OPENED_ON_DEMAND, RESULT_RENDERED
     // We infer from action + result
-    
+
     String backendAction = action;
     if (action == "ANALYZE_NOW") {
-        if (result == "BLOCKED") {
-           // Try to guess LOCKED vs STALE from resolvedState
-           if (resolvedState == "LOCKED") backendAction = "BLOCKED_LOCKED";
-           else if (resolvedState == "STALE") backendAction = "BLOCKED_STALE";
-           else backendAction = "BLOCKED_LOCKED"; // Fallback
-        } else {
-           backendAction = "OPENED_ON_DEMAND";
-        }
+      if (result == "BLOCKED") {
+        // Try to guess LOCKED vs STALE from resolvedState
+        if (resolvedState == "LOCKED") {
+          backendAction = "BLOCKED_LOCKED";
+        } else if (resolvedState == "STALE")
+          backendAction = "BLOCKED_STALE";
+        else
+          backendAction = "BLOCKED_LOCKED"; // Fallback
+      } else {
+        backendAction = "OPENED_ON_DEMAND";
+      }
     }
 
     try {
-        await _repo.logAction(
-            action: backendAction, 
-            ticker: ticker, 
-            outcome: backendOutcome, 
-            resolvedState: resolvedState,
-            lockReason: lockReason,
-            sourceScreen: sourceScreen
-        );
+      await _repo.logAction(
+          action: backendAction,
+          ticker: ticker,
+          outcome: backendOutcome,
+          resolvedState: resolvedState,
+          lockReason: lockReason,
+          sourceScreen: sourceScreen);
     } catch (_) {
-        // Swallow backend errors
+      // Swallow backend errors
     }
   }
 }

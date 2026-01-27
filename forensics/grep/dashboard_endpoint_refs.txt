@@ -1,0 +1,132 @@
+﻿
+market_sniper_app\lib\
+layout\main_layout.dar
+t:5:import '../screens
+/dashboard_screen.dart
+'; // Integration 
+target
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:1:import
+ '../models/dashboard_
+payload.dart';
+market_sniper_app\lib\
+logic\data_state_resol
+ver.dart:1:import '../
+models/dashboard_paylo
+ad.dart';
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:1:imp
+ort '../models/dashboa
+rd_payload.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:5:import '../m
+odels/dashboard_payloa
+d.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:9:// import '.
+./widgets/dashboard_wi
+dgets.dart'; // Moved 
+to Composer
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:11:import '../
+repositories/dashboard
+_repository.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:19:import '../
+logic/dashboard_refres
+h_controller.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:24:import '../
+logic/dashboard_degrad
+e_policy.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:26:import 'das
+hboard/dashboard_compo
+ser.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:27:import '../
+ui/tokens/dashboard_sp
+acing.dart';
+market_sniper_app\lib\
+screens\watchlist_scre
+en.dart:67:     // 
+Ideally we'd have a 
+cached 
+health/dashboard 
+state, but for now we 
+do a fresh check or 
+assume nominal for 
+speed if no cache 
+provider.
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:2:
+import '../../models/d
+ashboard_payload.dart'
+;
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:7:
+import '../../logic/da
+shboard_degrade_policy
+.dart';
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:11
+:// import '../../ui/c
+omponents/dashboard_ca
+rd.dart';
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:12
+:import '../../ui/toke
+ns/dashboard_spacing.d
+art';
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:21
+:import '../../widgets
+/dashboard_widgets.dar
+t'; // For 
+renderWidget
+market_sniper_app\lib\
+services\api_client.da
+rt:4:import '../models
+/dashboard_payload.dar
+t';
+market_sniper_app\lib\
+services\api_client.da
+rt:27:    final url = 
+Uri.parse('$baseUrl/da
+shboard');
+market_sniper_app\lib\
+services\notification_
+router.dart:4:import '
+../screens/dashboard_s
+creen.dart';
+market_sniper_app\lib\
+ui\components\dashboar
+d_card.dart:3:import '
+../tokens/dashboard_sp
+acing.dart';
+market_sniper_app\lib\
+widgets\dashboard_widg
+ets.dart:2:import '../
+models/dashboard_paylo
+ad.dart';
+market_sniper_app\lib\
+widgets\degrade_banner
+.dart:4:import '../log
+ic/dashboard_degrade_p
+olicy.dart';
+
+

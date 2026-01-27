@@ -77,7 +77,7 @@ class DashboardRefreshController {
       if (kDebugMode) print("Refresh failed: $e");
     } finally {
       _isRefreshing = false;
-      _scheduleNextAutoRefresh(); 
+      _scheduleNextAutoRefresh();
     }
   }
 
@@ -86,21 +86,22 @@ class DashboardRefreshController {
     if (_isPaused) return;
 
     int nextInterval = AppConfig.dashboardAutoRefreshSeconds;
-    
+
     // Governance: Backoff if locked (120s) OR error (120s)
     // Error takes precedence? Or Locked? Both are 120s in this spec.
     if (_lastWasLocked) {
       nextInterval = 120; // Hardcoded per D37.07 spec for Locked
-    } else if (_lastErrorTime != null && _lastSuccessTime != null && _lastErrorTime!.isAfter(_lastSuccessTime!)) {
+    } else if (_lastErrorTime != null &&
+        _lastSuccessTime != null &&
+        _lastErrorTime!.isAfter(_lastSuccessTime!)) {
       nextInterval = AppConfig.dashboardErrorBackoffSeconds;
     }
-    
+
     _timer = Timer(Duration(seconds: nextInterval), () {
       _executeRefresh(RefreshReason.auto);
     });
   }
 
-  
   // Getters for debug/UI
   DateTime? get lastRefreshTime => _lastRefreshTime;
   DateTime? get lastErrorTime => _lastErrorTime;

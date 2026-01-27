@@ -1,0 +1,12 @@
+# Proof: D45.HF10C Volume Intel Front Polish
+
+## Changes
+1. **Compact Layout**: Reduced bar height to 9px, padding to 8.0.
+2. **Premium Shimmer**:
+   - Replaced `ShaderMask` with `Stack`.
+   - Used `Positioned` + `LayoutBuilder` for exact 2px silver band.
+   - Animate left -> right over the *filled* portion only.
+
+## Verification
+- `flutter analyze`: Passed (Baseline).
+- Visual check: Shimmer travels correctly.

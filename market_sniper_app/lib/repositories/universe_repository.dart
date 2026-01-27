@@ -8,14 +8,13 @@ enum UniverseState {
   unavailable,
 }
 
-
-
 class ExtendedSector {
   final String name;
   final int count;
   final List<String> topSymbols; // Just strings for UI now
 
-  const ExtendedSector({required this.name, required this.count, required this.topSymbols});
+  const ExtendedSector(
+      {required this.name, required this.count, required this.topSymbols});
 }
 
 class ExtendedGovernanceSnapshot {
@@ -102,9 +101,11 @@ class OverlayTruthSnapshot {
       freshnessState: json['ok_state'] as String? ?? 'UNKNOWN',
       confidence: json['confidence'] as String? ?? 'UNKNOWN',
       source: "ARTIFACT",
-      state: (json['ok_state'] == 'OK' || json['ok_state'] == 'LIVE') 
-          ? UniverseState.live 
-          : ((json['ok_state'] == 'STALE') ? UniverseState.stale : UniverseState.unavailable),
+      state: (json['ok_state'] == 'OK' || json['ok_state'] == 'LIVE')
+          ? UniverseState.live
+          : ((json['ok_state'] == 'STALE')
+              ? UniverseState.stale
+              : UniverseState.unavailable),
     );
   }
 }
@@ -196,7 +197,10 @@ class ExtendedOverlaySummarySnapshot {
   factory ExtendedOverlaySummarySnapshot.fromJson(Map<String, dynamic> json) {
     // Expects the 'overlay_summary' subsection
     return ExtendedOverlaySummarySnapshot(
-      summaryPoints: (json['bullets'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
+      summaryPoints: (json['bullets'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          [],
       source: "ARTIFACT",
     );
   }
@@ -224,7 +228,8 @@ class SectorSentinelStatusSnapshot {
 }
 
 class SectorHeatmapSnapshot {
-  final Map<String, String> sectorStates; // Symbol -> HIGH/NORMAL/LOW/UNAVAILABLE
+  final Map<String, String>
+      sectorStates; // Symbol -> HIGH/NORMAL/LOW/UNAVAILABLE
   final String source; // OVERLAY, EXTENDED, UNAVAILABLE
 
   const SectorHeatmapSnapshot({
@@ -293,12 +298,17 @@ class SectorSentinelSnapshot {
   factory SectorSentinelSnapshot.fromJson(Map<String, dynamic> json) {
     return SectorSentinelSnapshot(
       state: json['status'] as String? ?? 'UNAVAILABLE',
-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
+      asOfUtc: json['as_of_utc'] != null
+          ? DateTime.tryParse(json['as_of_utc'])
+          : null,
       ageSeconds: json['age_seconds'] as int?,
-      lastIngestUtc: json['last_ingest_utc'] != null ? DateTime.tryParse(json['last_ingest_utc']) : null,
+      lastIngestUtc: json['last_ingest_utc'] != null
+          ? DateTime.tryParse(json['last_ingest_utc'])
+          : null,
       sectors: (json['sectors'] as List<dynamic>?)
-          ?.map((e) => SectorSentinelSectorStatus.fromJson(e))
-          .toList() ?? [],
+              ?.map((e) => SectorSentinelSectorStatus.fromJson(e))
+              .toList() ??
+          [],
     );
   }
 }
@@ -346,11 +356,14 @@ class SentinelHeatmapSnapshot {
   factory SentinelHeatmapSnapshot.fromJson(Map<String, dynamic> json) {
     return SentinelHeatmapSnapshot(
       state: json['status'] as String? ?? 'UNAVAILABLE',
-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
+      asOfUtc: json['as_of_utc'] != null
+          ? DateTime.tryParse(json['as_of_utc'])
+          : null,
       ageSeconds: json['age_seconds'] as int?,
       cells: (json['sectors'] as List<dynamic>?) // Consumes same sectors list
-          ?.map((e) => SentinelHeatCell.fromJson(e))
-          .toList() ?? [],
+              ?.map((e) => SentinelHeatCell.fromJson(e))
+              .toList() ??
+          [],
     );
   }
 }
@@ -399,7 +412,8 @@ class RealTimeFreshnessSnapshot {
 }
 
 class DisagreementItem {
-  final String scope; // CORE_vs_PULSE, PULSE_vs_SENTINEL, SENTINEL_vs_OVERLAY, OVERLAY_vs_SYNTHESIS
+  final String
+      scope; // CORE_vs_PULSE, PULSE_vs_SENTINEL, SENTINEL_vs_OVERLAY, OVERLAY_vs_SYNTHESIS
   final String severity; // LOW, MED, HIGH
   final String message;
   final String? evidence;
@@ -667,11 +681,14 @@ class AutoRiskActionSnapshot {
   factory AutoRiskActionSnapshot.fromJson(Map<String, dynamic> json) {
     return AutoRiskActionSnapshot(
       state: json['state'] as String? ?? 'UNAVAILABLE',
-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
+      asOfUtc: json['as_of_utc'] != null
+          ? DateTime.tryParse(json['as_of_utc'])
+          : null,
       ageSeconds: json['age_seconds'] as int?,
       actions: (json['actions'] as List<dynamic>?)
-          ?.map((e) => AutoRiskActionItem.fromJson(e))
-          .toList() ?? [],
+              ?.map((e) => AutoRiskActionItem.fromJson(e))
+              .toList() ??
+          [],
     );
   }
 }
@@ -736,7 +753,7 @@ class UniverseSnapshot {
 
 class OverlayDegradePolicy {
   // Precedence: UNAVAILABLE > STALE > DEGRADED > NOMINAL
-  
+
   static const int staleThresholdSeconds = 300; // 5 minutes
 
   static OverlayTruthSnapshot evaluate({
@@ -749,16 +766,16 @@ class OverlayDegradePolicy {
     }
 
     final age = DateTime.now().difference(timestamp).inSeconds;
-    
+
     // 2. Stale Data -> STALE (Degraded)
     if (age > staleThresholdSeconds) {
-       return OverlayTruthSnapshot(
+      return OverlayTruthSnapshot(
         mode: mode,
         ageSeconds: age,
         freshnessState: "STALE",
         confidence: "LOW",
         source: "FALLBACK",
-        state: UniverseState.stale, 
+        state: UniverseState.stale,
       );
     }
 
@@ -794,19 +811,76 @@ class UniverseRepository {
   Future<UniverseSnapshot> fetchUniverse() async {
     // Component Stubs (In D40 these will come from API)
     const coreState = UniverseState.live;
-    const extended = ExtendedUniverseSnapshot.empty; 
-    
-    // Use Policy to evaluate Overlay (Simulating unavailable for now)
-    final overlay = OverlayDegradePolicy.evaluate(mode: null, timestamp: null);
-    
-    // Stub definition for D39.05 - Defaults to UNAVAILABLE
-    const summary = ExtendedOverlaySummarySnapshot.unavailable;
-    
+    const extended = ExtendedUniverseSnapshot.empty;
+
+    // D40.04: Fetch Extended Overlay (Source: Sector Sentinel)
+    OverlayTruthSnapshot overlay;
+    ExtendedOverlaySummarySnapshot summary;
+
+    try {
+      final overlayMap = await api.fetchLiveOverlay();
+      // Check for valid data envelope
+      if (overlayMap.isNotEmpty && overlayMap['data'] != null) {
+        final data = overlayMap['data'];
+        final status = data['status'] as String? ?? 'N_A';
+        final age = data['age_seconds'] as int? ?? 0;
+
+        // Map Status -> OverlayTruth
+        if (status == 'LIVE') {
+          overlay = OverlayTruthSnapshot(
+              mode: 'LIVE',
+              ageSeconds: age,
+              freshnessState: 'OK',
+              confidence: 'HIGH',
+              source: 'SECTOR_SENTINEL',
+              state: UniverseState.live);
+        } else if (status == 'PARTIAL') {
+          overlay = OverlayTruthSnapshot(
+              mode: 'PARTIAL',
+              ageSeconds: age,
+              freshnessState: 'OK',
+              confidence: 'MEDIUM',
+              source: 'SECTOR_SENTINEL',
+              state: UniverseState.live // Functionally live but flagged
+              );
+        } else if (status == 'STALE') {
+          overlay = OverlayTruthSnapshot(
+              mode: 'LIVE', // Still live mode, just old
+              ageSeconds: age,
+              freshnessState: 'STALE',
+              confidence: 'LOW',
+              source: 'SECTOR_SENTINEL',
+              state: UniverseState.stale);
+        } else {
+          // N_A or ERROR
+          overlay = OverlayTruthSnapshot.unavailable;
+        }
+
+        // Map Summary
+        summary = ExtendedOverlaySummarySnapshot(
+            summaryPoints: (data['summary_lines'] as List<dynamic>?)
+                    ?.map((e) => e.toString())
+                    .toList() ??
+                [],
+            source: (status == 'N_A') ? 'UNAVAILABLE' : 'ARTIFACT');
+      } else {
+        // API Failed
+        overlay = OverlayTruthSnapshot.unavailable;
+        summary = ExtendedOverlaySummarySnapshot.unavailable;
+      }
+    } catch (e) {
+      // Fallback
+      overlay = OverlayTruthSnapshot.unavailable;
+      summary = ExtendedOverlaySummarySnapshot.unavailable;
+    }
+
+    // D39.05 Summary is now populated above via D40.04
+
     // Stub definition for D39.11 - Defaults to UNAVAILABLE
     const sectorSentinel = SectorSentinelStatusSnapshot.unavailable;
     // Stub definition for D40.03 - Defaults to UNAVAILABLE
     const sectorSentinelRT = SectorSentinelSnapshot.unavailable;
-    
+
     // Stub definition for D39.10 - Defaults to UNAVAILABLE
     const sectorHeatmap = SectorHeatmapSnapshot.unavailable;
     // Stub definition for D40.11 - Defaults to UNAVAILABLE
@@ -816,7 +890,7 @@ class UniverseRepository {
     const synthesis = GlobalPulseSynthesisSnapshot.unavailable;
     // Stub definition for D40.13 - Defaults to UNAVAILABLE
     const rtFreshness = RealTimeFreshnessSnapshot.unavailable;
-    
+
     // Stub definition for D40.06 - Defaults to UNAVAILABLE
     const disagreementReport = DisagreementReportSnapshot.unavailable;
     // Stub definition for D40.12 - Defaults to UNAVAILABLE
@@ -828,7 +902,7 @@ class UniverseRepository {
 
     // Stub definition for D40.01 - Defaults to UNAVAILABLE
     const coreTape = CoreUniverseTapeSnapshot.unavailable;
-    
+
     // Stub definitions for D40.02, D40.09, D40.10 - Default to UNAVAILABLE
     const pulseCore = PulseCoreSnapshot.unavailable;
     const pulseConfidence = PulseConfidenceSnapshot.unavailable;
@@ -836,14 +910,15 @@ class UniverseRepository {
 
     const propagation = UniversePropagationAuditSnapshot.unavailable;
     const drift = UniverseDriftSnapshot.unavailable;
-    
+
     // Calculate Integrity
-    final integrity = _deriveIntegrity(coreState, extended, overlay, propagation, drift);
+    final integrity =
+        _deriveIntegrity(coreState, extended, overlay, propagation, drift);
 
     return UniverseSnapshot(
       source: "LOCAL_CANON_FALLBACK",
       coreSymbols: CoreUniverse.definitions,
-      extended: extended, 
+      extended: extended,
       overlay: overlay,
       summary: summary,
       sectorSentinel: sectorSentinel,
@@ -863,7 +938,8 @@ class UniverseRepository {
       propagation: propagation,
       drift: drift,
       integrity: integrity,
-      state: UniverseState.live, // Overall system might still be live even if overlay is unavailable
+      state: UniverseState
+          .live, // Overall system might still be live even if overlay is unavailable
       asOfUtc: null,
       ageSeconds: 0,
     );
@@ -878,24 +954,28 @@ class UniverseRepository {
   ) {
     // 1. Component Statuses
     final coreStatus = coreState == UniverseState.live ? "OK" : "UNAVAILABLE";
-    
-    final extendedStatus = extended.state == UniverseState.unavailable 
-        ? "UNAVAILABLE" 
-        : "OK"; 
-        
-    final overlayStatus = overlay.state == UniverseState.unavailable 
-        ? "UNAVAILABLE" 
+
+    final extendedStatus =
+        extended.state == UniverseState.unavailable ? "UNAVAILABLE" : "OK";
+
+    final overlayStatus = overlay.state == UniverseState.unavailable
+        ? "UNAVAILABLE"
         : (overlay.freshnessState == "STALE" ? "STALE" : "OK");
 
-    final governanceStatus = extended.governance.source == "CANON" 
-        ? "POLICY_ONLY" 
-        : (extended.governance.source == "ENDPOINT" ? "TELEMETRY" : "UNAVAILABLE");
+    final governanceStatus = extended.governance.source == "CANON"
+        ? "POLICY_ONLY"
+        : (extended.governance.source == "ENDPOINT"
+            ? "TELEMETRY"
+            : "UNAVAILABLE");
 
-    final consumersStatus = propagation.status == "UNAVAILABLE" ? "UNKNOWN" : propagation.status;
+    final consumersStatus =
+        propagation.status == "UNAVAILABLE" ? "UNKNOWN" : propagation.status;
 
     // 2. Freshness from Overlay
     final freshnessAge = overlay.ageSeconds;
-    final freshnessState = overlay.state == UniverseState.unavailable ? "UNAVAILABLE" : overlay.freshnessState;
+    final freshnessState = overlay.state == UniverseState.unavailable
+        ? "UNAVAILABLE"
+        : overlay.freshnessState;
 
     // 3. Overall State derivation (Precedence: UNAVAILABLE > INCIDENT > DEGRADED > NOMINAL)
     String overall = "NOMINAL";
@@ -904,7 +984,7 @@ class UniverseRepository {
     if (overlay.state == UniverseState.unavailable) {
       overall = "UNAVAILABLE";
     }
-    
+
     // Level 3: INCIDENT (Live but Stale is dangerous)
     if (overlay.mode == "LIVE" && overlay.freshnessState == "STALE") {
       overall = "INCIDENT";
@@ -912,14 +992,12 @@ class UniverseRepository {
 
     // Level 2: DEGRADED (Partial, Sim, or component issues)
     if (overall != "UNAVAILABLE" && overall != "INCIDENT") {
-      if (
-         overlay.mode == "SIM" ||
-         overlay.mode == "PARTIAL" ||
-         governanceStatus == "POLICY_ONLY" || 
-         extendedStatus == "UNAVAILABLE" || 
-         consumersStatus == "ISSUES" ||
-         drift.status == "ISSUES"
-      ) {
+      if (overlay.mode == "SIM" ||
+          overlay.mode == "PARTIAL" ||
+          governanceStatus == "POLICY_ONLY" ||
+          extendedStatus == "UNAVAILABLE" ||
+          consumersStatus == "ISSUES" ||
+          drift.status == "ISSUES") {
         overall = "DEGRADED";
       }
     }

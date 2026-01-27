@@ -46,9 +46,8 @@ class DashboardPayload {
 
   factory DashboardPayload.fromJson(Map<String, dynamic> json) {
     var rawWidgets = json['widgets'] as List? ?? [];
-    List<DashboardWidget> parsedWidgets = rawWidgets
-        .map((w) => DashboardWidget.fromJson(w))
-        .toList();
+    List<DashboardWidget> parsedWidgets =
+        rawWidgets.map((w) => DashboardWidget.fromJson(w)).toList();
 
     return DashboardPayload(
       systemStatus: json['system_status'] ?? 'UNKNOWN',
@@ -78,8 +77,8 @@ class DashboardPayload {
 
   FreshnessState get freshnessState {
     // D37.01 Baseline: 5 minute threshold (300s)
-    const int thresholdSeconds = 300; 
-    
+    const int thresholdSeconds = 300;
+
     if (asOfUtc == null) return FreshnessState.unknown;
     if (ageSeconds <= thresholdSeconds) return FreshnessState.live;
     return FreshnessState.stale;

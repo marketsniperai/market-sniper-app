@@ -1,0 +1,6 @@
+
+lib\services\api_client.dart:5:import '../models/context_payload.dart';
+lib\services\api_client.dart:41:    final url = Uri.parse('$baseUrl/context');
+lib\services\api_client.dart:361:    final uri = Uri.parse('$baseUrl/on_demand/context').replace(queryParameters: {
+lib\widgets\elite_interaction_sheet.dart:128:         final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/context/status'));
+

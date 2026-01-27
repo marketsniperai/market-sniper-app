@@ -12,5 +12,6 @@ class OnDemandIntent {
   });
 
   @override
-  String toString() => 'OnDemandIntent(ticker: $ticker, autoTrigger: $autoTrigger, source: $source)';
+  String toString() =>
+      'OnDemandIntent(ticker: $ticker, autoTrigger: $autoTrigger, source: $source)';
 }

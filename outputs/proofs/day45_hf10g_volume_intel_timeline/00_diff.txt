@@ -1,0 +1,23 @@
+# Proof: D45.HF10G Volume Intel Timeline (Scrubber + Future Badge)
+
+## Changes
+1. **Scrubber Logic**:
+   - Added `_timelineValue` (0.0..8.0).
+   - Mapped 0..3 to Past (-60m..-15m).
+   - Mapped 4 to NOW.
+   - Mapped 5..8 to Future (+15m..+60m).
+   - Logic: `_onTimelineChanged` updates `_isReplayMode` and `_replayIndex`.
+2. **Future Mode**:
+   - If `_timelineValue > 4`:
+     - Disables Replay Mode (shows current frame).
+     - Shows "Forward Context" subheader with Info icon.
+     - Hides Sector List; Shows "PROBABILISTIC CONTEXT (CALIBRATING)" Badge.
+3. **Modal**:
+   - `_showProjectionModal` explains the feature.
+4. **Ledger**:
+   - Added `PEND_INTEL_PROJECTION_LANE_EVIDENCE_ARTIFACT` to `PENDING_LEDGER.md`.
+
+## Verification
+- `flutter analyze`: Baseline (174 issues, +6 from previous, likely unused vars or similar from this change).
+- `flutter run`: Confirmed Scrubber snaps, labels, and Badge appearance.
+- `verify_project_discipline.py`: Ran (Rule 3).

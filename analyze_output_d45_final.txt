@@ -1,0 +1,18 @@
+Analyzing 6 items...                                            
+
+warning - Unused import: '../../utils/time_utils.dart' - market_sniper_app\lib\logic\share\share_attribution_aggregator.dart:3:8 - unused_import
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\logic\share\share_composer.dart:39:26 - prefer_const_constructors
+   info - Don't invoke 'print' in production code - market_sniper_app\lib\logic\share\share_library_store.dart:92:7 - avoid_print
+   info - Use 'const' for final variables initialized to a constant value - market_sniper_app\lib\logic\share\watermark_service.dart:15:5 - prefer_const_declarations
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\logic\share\watermark_service.dart:28:18 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\logic\share\watermark_service.dart:51:19 - prefer_const_constructors
+warning - This default clause is covered by the previous cases - market_sniper_app\lib\screens\news_screen.dart:63:7 - unreachable_switch_default
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\screens\news_screen.dart:71:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\screens\news_screen.dart:72:17 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\screens\news_screen.dart:72:32 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\news_digest_card.dart:109:26 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\news_digest_card.dart:109:53 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - market_sniper_app\lib\widgets\news_digest_card.dart:141:20 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\news_digest_card.dart:142:11 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\share\share_booster_sheet.dart:35:16 - prefer_const_constructors
+

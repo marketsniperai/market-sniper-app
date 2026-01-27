@@ -1,0 +1,10 @@
+commit 29e6f130f2a4a77319cc39b4e604dcde100e1b3f
+Author: Antigravity <antigravity@google.com>
+Date:   Thu Jan 22 09:28:14 2026 -0500
+
+    D45.H5 — War Calendar Canon Hotfix (Phase continuity + D35 Voice v2 reserved)
+
+ docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md        |  7 ++++--
+ .../war_calendar_canon_hotfix_phase_d35_proof.json | 17 ++++++++++++++
+ ...AY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md | 27 ++++++++++++++++++++++
+ 3 files changed, 49 insertions(+), 2 deletions(-)

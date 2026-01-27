@@ -12,9 +12,10 @@ class DashboardSpacing {
 
   // Vertical margin between cards
   static const EdgeInsets cardMargin = EdgeInsets.only(bottom: 16.0);
-  
+
   // Specific padding for dense items (like banners)
-  static const EdgeInsets densePadding = EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0);
+  static const EdgeInsets densePadding =
+      EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0);
 
   // Standard gaps
   static const double gapSmall = 8.0;
@@ -31,8 +32,9 @@ class DashboardSpacing {
   static const EdgeInsets paddingDefault = EdgeInsets.all(gap);
   static const EdgeInsets bottomGap = EdgeInsets.only(bottom: gap);
   static const EdgeInsets bottomGapSmall = EdgeInsets.only(bottom: gapSmall);
-  
+
   // Specific
   static const EdgeInsets founderSsoT = EdgeInsets.only(bottom: 12, left: 4);
-  static const EdgeInsets chipPadding = EdgeInsets.symmetric(horizontal: 12, vertical: 6);
+  static const EdgeInsets chipPadding =
+      EdgeInsets.symmetric(horizontal: 12, vertical: 6);
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../theme/app_colors.dart';
-import '../../theme/app_typography.dart';
 import '../../models/calendar/economic_calendar_model.dart';
 import '../../widgets/calendar_event_card.dart';
 
@@ -22,17 +21,16 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.bgPrimary,
-      body: SafeArea(
+    return Container(
+      color: AppColors.bgPrimary,
+      child: SafeArea(
         child: Column(
           children: [
             _buildHeader(),
             _buildSelector(),
             Expanded(
-              child: _data.events.isEmpty
-                  ? _buildEmptyState()
-                  : _buildEventList(),
+              child:
+                  _data.events.isEmpty ? _buildEmptyState() : _buildEventList(),
             ),
           ],
         ),
@@ -44,8 +42,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
     final timeStr = DateFormat('HH:mm').format(_data.asOfUtc);
     Color freshnessColor;
     String freshnessLabel;
-    
-    switch(_data.freshness) {
+
+    switch (_data.freshness) {
       case CalendarFreshness.live:
         freshnessColor = AppColors.stateLive;
         freshnessLabel = "LIVE";
@@ -63,7 +61,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(color: AppColors.borderSubtle)),
       ),
       child: Column(
@@ -86,11 +84,15 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 decoration: BoxDecoration(
                   color: freshnessColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(4),
-                  border: Border.all(color: freshnessColor.withValues(alpha: 0.3)),
+                  border:
+                      Border.all(color: freshnessColor.withValues(alpha: 0.3)),
                 ),
                 child: Text(
-                   freshnessLabel,
-                   style: TextStyle(color: freshnessColor, fontSize: 10, fontWeight: FontWeight.bold),
+                  freshnessLabel,
+                  style: TextStyle(
+                      color: freshnessColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -143,19 +145,21 @@ class _CalendarScreenState extends State<CalendarScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (isActive) ...[
-                 Container(
-                   width: 6, height: 6,
-                   decoration: const BoxDecoration(
-                     color: AppColors.accentCyan,
-                     shape: BoxShape.circle,
-                   ),
-                 ),
-                 const SizedBox(width: 8),
+                Container(
+                  width: 6,
+                  height: 6,
+                  decoration: const BoxDecoration(
+                    color: AppColors.neonCyan,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 8),
               ],
               Text(
                 label,
                 style: GoogleFonts.inter(
-                  color: isActive ? AppColors.textPrimary : AppColors.textDisabled,
+                  color:
+                      isActive ? AppColors.textPrimary : AppColors.textDisabled,
                   fontSize: 12,
                   fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
                 ),
@@ -168,28 +172,30 @@ class _CalendarScreenState extends State<CalendarScreen> {
   }
 
   Widget _buildEmptyState() {
-     final bool isOffline = _data.freshness == CalendarFreshness.offline;
-     return Center(
-       child: Column(
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-            Icon(Icons.calendar_today, size: 48, color: AppColors.textDisabled.withValues(alpha: 0.3)),
-            const SizedBox(height: 16),
-            Text(
-              isOffline ? "Calendar unavailable" : "No high-impact events today",
-              style: GoogleFonts.inter(color: AppColors.textDisabled),
-            ),
-            if (isOffline)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(
-                  "System is offline",
-                  style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 10),
-                ),
+    final bool isOffline = _data.freshness == CalendarFreshness.offline;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.calendar_today,
+              size: 48, color: AppColors.textDisabled.withValues(alpha: 0.3)),
+          const SizedBox(height: 16),
+          Text(
+            isOffline ? "Calendar unavailable" : "No high-impact events today",
+            style: GoogleFonts.inter(color: AppColors.textDisabled),
+          ),
+          if (isOffline)
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                "System is offline",
+                style: GoogleFonts.inter(
+                    color: AppColors.textDisabled, fontSize: 10),
               ),
-         ],
-       ),
-     );
+            ),
+        ],
+      ),
+    );
   }
 
   Widget _buildEventList() {
@@ -197,7 +203,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: _data.events.length,
-      itemBuilder: (context, index) => CalendarEventCard(event: _data.events[index]),
-    ); 
+      itemBuilder: (context, index) =>
+          CalendarEventCard(event: _data.events[index]),
+    );
   }
 }

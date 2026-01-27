@@ -1,0 +1,25 @@
+
+lib\layout\main_layout.dart:5:import '../screens/dashboard_screen.dart'; // Integration target
+lib\logic\dashboard_degrade_policy.dart:1:import '../models/dashboard_payload.dart';
+lib\logic\data_state_resolver.dart:1:import '../models/dashboard_payload.dart';
+lib\repositories\dashboard_repository.dart:1:import '../models/dashboard_payload.dart';
+lib\screens\dashboard_screen.dart:5:import '../models/dashboard_payload.dart';
+lib\screens\dashboard_screen.dart:9:// import '../widgets/dashboard_widgets.dart'; // Moved to Composer
+lib\screens\dashboard_screen.dart:11:import '../repositories/dashboard_repository.dart';
+lib\screens\dashboard_screen.dart:19:import '../logic/dashboard_refresh_controller.dart';
+lib\screens\dashboard_screen.dart:24:import '../logic/dashboard_degrade_policy.dart';
+lib\screens\dashboard_screen.dart:26:import 'dashboard/dashboard_composer.dart';
+lib\screens\dashboard_screen.dart:27:import '../ui/tokens/dashboard_spacing.dart';
+lib\screens\watchlist_screen.dart:67:     // Ideally we'd have a cached health/dashboard state, but for now we do a fresh check or assume nominal for speed if no cache provider.
+lib\screens\dashboard\dashboard_composer.dart:2:import '../../models/dashboard_payload.dart';
+lib\screens\dashboard\dashboard_composer.dart:7:import '../../logic/dashboard_degrade_policy.dart';
+lib\screens\dashboard\dashboard_composer.dart:11:// import '../../ui/components/dashboard_card.dart';
+lib\screens\dashboard\dashboard_composer.dart:12:import '../../ui/tokens/dashboard_spacing.dart';
+lib\screens\dashboard\dashboard_composer.dart:21:import '../../widgets/dashboard_widgets.dart'; // For renderWidget
+lib\services\api_client.dart:4:import '../models/dashboard_payload.dart';
+lib\services\api_client.dart:27:    final url = Uri.parse('$baseUrl/dashboard');
+lib\services\notification_router.dart:4:import '../screens/dashboard_screen.dart';
+lib\ui\components\dashboard_card.dart:3:import '../tokens/dashboard_spacing.dart';
+lib\widgets\dashboard_widgets.dart:2:import '../models/dashboard_payload.dart';
+lib\widgets\degrade_banner.dart:4:import '../logic/dashboard_degrade_policy.dart';
+

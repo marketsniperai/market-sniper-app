@@ -1,0 +1,15 @@
+# Proof: D45.HF10D Volume Intel Front - Welcome Shimmer
+
+## Changes
+1. **Shimmer Technique**: Adapted exact `ShaderMask` logic from `welcome_screen.dart` (`_buildSloganWithShimmer`).
+   - `start = (t * 1.8 - 0.4).clamp(0.0, 1.0)`
+   - Used `StackFit.expand` to ensure overlay fills the bar.
+   - Tinted Silver (AppColors.textSecondary) instead of Gold.
+2. **Compactness**:
+   - Bar Height: 8px.
+   - Row Padding: 6.0.
+3. **Safety**: Removed `Positioned` usage entirely to prevent layout errors.
+
+## Verification
+- `flutter analyze`: Baseline (168 issues).
+- `flutter run`: Confirmed visual match.

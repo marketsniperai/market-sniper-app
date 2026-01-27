@@ -41,27 +41,24 @@ class AppTypography {
   static TextStyle caption(BuildContext context) {
     return _base(context, 12, FontWeight.normal, AppColors.textDisabled);
   }
-  
+
   static TextStyle label(BuildContext context) {
     return _base(context, 14, FontWeight.w500, AppColors.textPrimary);
   }
 
   static TextStyle badge(BuildContext context) {
-    return _base(context, 10, FontWeight.bold, AppColors.textPrimary, isBadge: true);
+    return _base(context, 10, FontWeight.bold, AppColors.textPrimary,
+        isBadge: true);
   }
 
   // --- Helper ---
 
   static TextStyle _base(
-    BuildContext context, 
-    double size, 
-    FontWeight weight, 
-    Color color,
-    {bool isBadge = false}
-  ) {
+      BuildContext context, double size, FontWeight weight, Color color,
+      {bool isBadge = false}) {
     double scale = getScaleFactor(context);
     if (isBadge) {
-        scale = scale.clamp(1.0, 1.2); 
+      scale = scale.clamp(1.0, 1.2);
     }
     // Use INTER for all UI elements
     return GoogleFonts.inter(

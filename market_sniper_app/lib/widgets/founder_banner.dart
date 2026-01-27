@@ -13,14 +13,15 @@ class FounderBanner extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: AppColors.accentCyanDim.withValues(alpha: 0.1),
-        border: Border.all(color: AppColors.accentCyanDim.withValues(alpha: 0.3)),
+        border:
+            Border.all(color: AppColors.accentCyanDim.withValues(alpha: 0.3)),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Center(
         child: Text(
           "FOUNDER VIEW — SYSTEM VISIBILITY ENABLED",
           style: GoogleFonts.inter(
-            color: AppColors.accentCyan,
+            color: AppColors.neonCyan,
             fontSize: 9,
             fontWeight: FontWeight.bold,
             letterSpacing: 1.0,

@@ -1,0 +1,499 @@
+﻿
+market_sniper_app\lib\
+layout\main_layout.dar
+t:154:  void _showElit
+eOverlay({String? 
+explainKey, 
+Map<String, dynamic>? 
+payload, bool 
+resetToWelcome = 
+false}) {
+market_sniper_app\lib\
+layout\main_layout.dar
+t:166:             
+initialPayload: 
+payload,
+market_sniper_app\lib\
+layout\main_layout.dar
+t:183:          _showE
+liteOverlay(explainKey
+: notification.explain
+Key, payload: 
+notification.payload);
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:1:import
+ '../models/dashboard_
+payload.dart';
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:27:    
+required 
+DashboardPayload? 
+payload,
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:32:    
+if (fetchError != 
+null && payload == 
+null) {
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:39:    
+// 2. Missing Payload
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:40:    
+if (payload == null) {
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:43:     
+   reasonCode: 
+"NO_PAYLOAD",
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:57:    
+// Check critical 
+fields. 
+DashboardPayload 
+usually non-nullable 
+fields are required 
+by structure,
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:61:    
+if (payload.runId == 
+"UNKNOWN") 
+missing.add("run_id");
+market_sniper_app\lib\
+logic\dashboard_degrad
+e_policy.dart:62:    
+if (payload.widgets.is
+Empty) missing.add("wi
+dgets_manifest");
+market_sniper_app\lib\
+logic\data_state_resol
+ver.dart:1:import '../
+models/dashboard_paylo
+ad.dart';
+market_sniper_app\lib\
+logic\data_state_resol
+ver.dart:46:    
+required 
+DashboardPayload? 
+dashboard,
+market_sniper_app\lib\
+logic\data_state_resol
+ver.dart:88:    
+DashboardPayload d,
+market_sniper_app\lib\
+logic\elite_messages.d
+art:5:  final 
+Map<String, dynamic>? 
+payload;
+market_sniper_app\lib\
+logic\elite_messages.d
+art:7:  const EliteExp
+lainNotification(this.
+explainKey, 
+{this.payload});
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:23:  // 
+Payload for raw 
+access if strictly 
+needed (discouraged)
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:24:  final 
+Map<String, dynamic> 
+rawPayload;
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:34:    
+this.rawPayload = 
+const {},
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:70:    if (rawR
+esponse["payload"] != 
+null && rawResponse["p
+ayload"]["bullets"] 
+is List) {
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:71:       
+bullets = List<String>
+.from(rawResponse["pay
+load"]["bullets"]);
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:78:       
+final globalRisk = raw
+Response["payload"]?["
+global_risk"] ?? 
+"UNKNOWN";
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:79:       
+final regime = rawResp
+onse["payload"]?["regi
+me"] ?? "UNKNOWN";
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:100:      
+rawPayload: 
+rawResponse,
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:149:        
+rawPayload: 
+envelope.rawPayload,
+market_sniper_app\lib\
+models\context_payload
+.dart:1:class 
+ContextPayload {
+market_sniper_app\lib\
+models\context_payload
+.dart:7:  
+ContextPayload({
+market_sniper_app\lib\
+models\context_payload
+.dart:14:  factory Con
+textPayload.fromJson(M
+ap<String, dynamic> 
+json) {
+market_sniper_app\lib\
+models\context_payload
+.dart:15:    return 
+ContextPayload(
+market_sniper_app\lib\
+models\dashboard_paylo
+ad.dart:30:class 
+DashboardPayload {
+market_sniper_app\lib\
+models\dashboard_paylo
+ad.dart:38:  
+DashboardPayload({
+market_sniper_app\lib\
+models\dashboard_paylo
+ad.dart:47:  factory D
+ashboardPayload.fromJs
+on(Map<String, 
+dynamic> json) {
+market_sniper_app\lib\
+models\dashboard_paylo
+ad.dart:53:    return 
+DashboardPayload(
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:1:imp
+ort '../models/dashboa
+rd_payload.dart';
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:14:  
+Future<DashboardPayloa
+d> fetchDashboard() 
+async {
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:5:import '../m
+odels/dashboard_payloa
+d.dart';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:41:  
+DashboardPayload? 
+_dashboard;
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:113:          
+_dashboard = 
+results[0] as 
+DashboardPayload;
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:170:      
+payload: _dashboard,
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:523:           
+             payload: 
+{
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:2:
+import '../../models/d
+ashboard_payload.dart'
+;
+market_sniper_app\lib\
+screens\dashboard\dash
+board_composer.dart:24
+:  final 
+DashboardPayload? 
+dashboard;
+market_sniper_app\lib\
+services\api_client.da
+rt:4:import '../models
+/dashboard_payload.dar
+t';
+market_sniper_app\lib\
+services\api_client.da
+rt:5:import '../models
+/context_payload.dart'
+;
+market_sniper_app\lib\
+services\api_client.da
+rt:26:  Future<Dashboa
+rdPayload> 
+fetchDashboard() 
+async {
+market_sniper_app\lib\
+services\api_client.da
+rt:34:      return Das
+hboardPayload.fromJson
+(data);
+market_sniper_app\lib\
+services\api_client.da
+rt:40:  Future<Context
+Payload> 
+fetchContext() async {
+market_sniper_app\lib\
+services\api_client.da
+rt:47:      return Con
+textPayload.fromJson(d
+ata);
+market_sniper_app\lib\
+services\api_client.da
+rt:376:      
+"payload": {}
+market_sniper_app\lib\
+services\notification_
+router.dart:12:  
+static void route(Glob
+alKey<NavigatorState> 
+navigatorKey, String? 
+payload) {
+market_sniper_app\lib\
+services\notification_
+router.dart:13:    if 
+(payload == null) 
+return;
+market_sniper_app\lib\
+services\notification_
+router.dart:21:    // 
+Payload routing
+market_sniper_app\lib\
+services\notification_
+router.dart:22:    if 
+(payload == 
+"ritual:briefing") {
+market_sniper_app\lib\
+services\notification_
+router.dart:37:    } 
+else if (payload == 
+"ritual:aftermarket") 
+{
+market_sniper_app\lib\
+services\notification_
+service.dart:49:      
+onDidReceiveNotificati
+onResponse: 
+_onNotificationTap,
+market_sniper_app\lib\
+services\notification_
+service.dart:57:     d
+ebugPrint("Notificatio
+nService: Tapped paylo
+ad=${response.payload}
+");
+market_sniper_app\lib\
+services\notification_
+service.dart:58:     
+if (_navigatorKey != 
+null && 
+response.payload != 
+null) {
+market_sniper_app\lib\
+services\notification_
+service.dart:59:      
+  NotificationRouter.r
+oute(_navigatorKey!, 
+response.payload);
+market_sniper_app\lib\
+services\notification_
+service.dart:121:     
+ payload: 
+"ritual:briefing",
+market_sniper_app\lib\
+services\notification_
+service.dart:130:     
+ payload: 
+"ritual:aftermarket",
+market_sniper_app\lib\
+services\notification_
+service.dart:140:    
+required String 
+payload,
+market_sniper_app\lib\
+services\notification_
+service.dart:170:     
+   payload: payload,
+market_sniper_app\lib\
+widgets\dashboard_widg
+ets.dart:2:import '../
+models/dashboard_paylo
+ad.dart';
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:20:  
+final Map<String, 
+dynamic>? 
+initialPayload;
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:27:    
+this.initialPayload,
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:378:   
+      _handleExplainRe
+quest(q['action_payloa
+d']);
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:385:   
+       SessionThreadMe
+moryStore().append("EL
+ITE", "Routing 
+explanation for ${q['a
+ction_payload']}...");
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:395:   
+   // D44.13: 
+On-Demand Payload 
+Context
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:396:   
+   if 
+(_pendingExplainKey 
+== 'EXPLAIN_ON_DEMAND_
+RESULT' && 
+widget.initialPayload 
+!= null) {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:397:   
+       final p = widge
+t.initialPayload!;
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:90:    
+// 2. Try Payload
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:91:    
+final payload = envelo
+pe.rawPayload['payload
+'] ?? 
+envelope.rawPayload;
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:92:    
+if (payload is Map && 
+payload['sector'] != 
+null) {
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:93:    
+  return payload['sect
+or'].toString().toUppe
+rCase();
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:100:   
+ // 1. Try Payload
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:101:   
+ final payload = envel
+ope.rawPayload['payloa
+d'] ?? 
+envelope.rawPayload;
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:102:   
+ if (payload is Map 
+&& payload['regime'] 
+!= null) {
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:103:   
+   return payload['reg
+ime'].toString().toUpp
+erCase();
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:109:   
+ // 1. Try Payload
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:110:   
+ final payload = envel
+ope.rawPayload['payloa
+d'] ?? 
+envelope.rawPayload;
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:111:   
+ if (payload is Map 
+&& payload['overlay'] 
+!= null) {
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:112:   
+   return payload['ove
+rlay'].toString().toUp
+perCase();
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:115:   
+ if (payload is Map 
+&& payload['overlay_st
+atus'] != null) {
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:116:   
+   return payload['ove
+rlay_status'].toString
+().toUpperCase();
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:122:   
+ // 1. Try Payload 
+(global_risk usually 
+maps to Pulse state)
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:123:   
+ final payload = envel
+ope.rawPayload['payloa
+d'] ?? 
+envelope.rawPayload;
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:124:   
+ if (payload is Map 
+&& payload['global_ris
+k'] != null) {
+market_sniper_app\lib\
+widgets\on_demand_cont
+ext_strip.dart:125:   
+   return payload['glo
+bal_risk'].toString().
+toUpperCase();
+
+

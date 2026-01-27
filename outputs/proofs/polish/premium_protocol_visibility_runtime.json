@@ -1,0 +1,13 @@
+{
+    "bannerRemoved": true,
+    "columns": [
+        "guest",
+        "plus",
+        "elite"
+    ],
+    "founderColumnPresent": false,
+    "footerHiddenForFounder": true,
+    "effectiveTierForFounder": "elite",
+    "verificationTimestamp": "2026-01-25T11:27:00Z",
+    "manualVerification": "Widget structural analysis confirms removal of _buildCurrentTierBanner and Founder column widgets."
+}

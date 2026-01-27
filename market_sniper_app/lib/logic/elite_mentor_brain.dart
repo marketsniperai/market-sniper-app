@@ -5,7 +5,7 @@ class EliteMentorBrain {
   factory EliteMentorBrain() => _instance;
   EliteMentorBrain._internal();
 
-  /// Current tone mode. 
+  /// Current tone mode.
   /// In a full implementation, this would read from user settings.
   /// For now, defaults to Institutional as per governance.
   EliteToneMode get toneMode => EliteToneMode.institutional;
@@ -25,21 +25,21 @@ class EliteMentorBrain {
     switch (toneMode) {
       case EliteToneMode.human:
         // Title Case, friendly
-        return text; 
+        return text;
       case EliteToneMode.institutional:
       default:
         // Uppercase, technical, spaced
         return text.toUpperCase();
     }
   }
-  
+
   String formatSectionTitle(String text) {
     switch (toneMode) {
       case EliteToneMode.human:
-         return text;
+        return text;
       case EliteToneMode.institutional:
       default:
-         return text.toUpperCase();
+        return text.toUpperCase();
     }
   }
 
@@ -52,9 +52,9 @@ class EliteMentorBrain {
         return "[ END TRANSMISSION ]";
     }
   }
-  
+
   String get explainLoadingStatus {
-     switch (toneMode) {
+    switch (toneMode) {
       case EliteToneMode.human:
         return "Thinking...";
       case EliteToneMode.institutional:
@@ -62,9 +62,9 @@ class EliteMentorBrain {
         return "ANALYZING CONTEXT...";
     }
   }
-  
+
   String get explainReadyStatus {
-     switch (toneMode) {
+    switch (toneMode) {
       case EliteToneMode.human:
         return "Ready.";
       case EliteToneMode.institutional:

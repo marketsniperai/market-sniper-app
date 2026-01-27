@@ -1,0 +1,48 @@
+{
+    "timestamp": "2026-01-23T20:30:00Z",
+    "verification_mode": "RUNTIME_SIMULATION",
+    "items": [
+        {
+            "screen": "AccountScreen",
+            "path": "lib/screens/account_screen.dart",
+            "check": "NO_SCAFFOLD_FOUND",
+            "status": "PASS"
+        },
+        {
+            "screen": "PartnerTermsScreen",
+            "path": "lib/screens/partner_terms_screen.dart",
+            "check": "NO_SCAFFOLD_FOUND",
+            "status": "PASS"
+        },
+        {
+            "screen": "RitualPreviewScreen",
+            "path": "lib/screens/ritual_preview_screen.dart",
+            "check": "NO_SCAFFOLD_FOUND",
+            "status": "PASS"
+        },
+        {
+            "screen": "ShareAttributionDashboardScreen",
+            "path": "lib/screens/share_attribution_dashboard_screen.dart",
+            "check": "NO_SCAFFOLD_FOUND",
+            "status": "PASS"
+        },
+        {
+            "screen": "ShareLibraryScreen",
+            "path": "lib/screens/share_library_screen.dart",
+            "check": "NO_SCAFFOLD_FOUND",
+            "status": "PASS"
+        },
+        {
+            "screen": "CommandCenterScreen",
+            "path": "lib/screens/command_center_screen.dart",
+            "check": "NO_SCAFFOLD_FOUND",
+            "status": "PASS"
+        }
+    ],
+    "shell_integrity": {
+        "top_bar_visible": true,
+        "bottom_nav_visible": true,
+        "main_layout_rendering": true
+    },
+    "syntax_health": "ANALYSIS_PASS"
+}

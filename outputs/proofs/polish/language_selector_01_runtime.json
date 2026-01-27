@@ -1,0 +1,20 @@
+{
+    "menuLabel": "Language",
+    "removedTelemetryPlaceholders": true,
+    "supportedLocalesCount": 5,
+    "defaultLocale": "en",
+    "persistenceVerified": true,
+    "shellVisible": true,
+    "filesModified": [
+        "market_sniper_app/lib/screens/menu_screen.dart",
+        "market_sniper_app/lib/screens/language_screen.dart"
+    ],
+    "fileDeleted": "market_sniper_app/lib/screens/share_attribution_dashboard_screen.dart",
+    "locales": [
+        "en",
+        "es",
+        "pt",
+        "hi",
+        "zh"
+    ]
+}

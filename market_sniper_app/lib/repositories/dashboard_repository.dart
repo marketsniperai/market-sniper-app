@@ -6,7 +6,7 @@ class DashboardRepository {
 
   // D37.01: Centralized configuration for freshness
   // Though logic is currently in model, repository is the fetching authority.
-  
+
   DashboardRepository({ApiClient? api}) : _api = api ?? ApiClient();
 
   /// Fetches the Single Source of Truth dashboard artifact.
@@ -19,5 +19,9 @@ class DashboardRepository {
       // Future scope: specific error mapping
       rethrow;
     }
+  }
+
+  Future<Map<String, dynamic>> fetchOptionsContext() async {
+    return await _api.fetchOptionsContext();
   }
 }

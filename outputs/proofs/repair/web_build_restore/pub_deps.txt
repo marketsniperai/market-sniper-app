@@ -1,0 +1,73 @@
+Dart SDK 3.10.7
+Flutter SDK 3.38.7
+market_sniper_app 1.0.0+1
+
+dependencies:
+- cupertino_icons 1.0.8
+- flutter 0.0.0 [characters collection material_color_utilities meta vector_math sky_engine]
+- flutter_local_notifications 18.0.1 [clock flutter flutter_local_notifications_linux flutter_local_notifications_platform_interface timezone]
+- flutter_localizations 0.0.0 [flutter intl path]
+- google_fonts 6.3.0 [flutter http path_provider crypto]
+- http 1.6.0 [async http_parser meta web]
+- intl 0.20.2 [clock meta path]
+- path_provider 2.1.5 [flutter path_provider_android path_provider_foundation path_provider_linux path_provider_platform_interface path_provider_windows]
+- provider 6.1.5+1 [collection flutter nested]
+- shared_preferences 2.5.4 [flutter shared_preferences_android shared_preferences_foundation shared_preferences_linux shared_preferences_platform_interface shared_preferences_web shared_preferences_windows]
+
+dev dependencies:
+- flutter_lints 4.0.0 [lints]
+- flutter_test 0.0.0 [flutter test_api matcher path fake_async clock stack_trace vector_math leak_tracker_flutter_testing collection meta stream_channel]
+
+transitive dependencies:
+- args 2.7.0
+- async 2.11.0 [collection meta]
+- boolean_selector 2.1.1 [source_span string_scanner]
+- characters 1.4.0
+- clock 1.1.2
+- collection 1.19.1
+- crypto 3.0.7 [typed_data]
+- dbus 0.7.11 [args ffi meta xml]
+- fake_async 1.3.3 [clock collection]
+- ffi 2.1.3
+- file 7.0.1 [meta path]
+- flutter_local_notifications_linux 5.0.0 [dbus ffi flutter flutter_local_notifications_platform_interface path xdg_directories]
+- flutter_local_notifications_platform_interface 8.0.0 [flutter plugin_platform_interface]
+- flutter_web_plugins 0.0.0 [flutter]
+- http_parser 4.0.2 [collection source_span string_scanner typed_data]
+- leak_tracker 11.0.2 [clock collection meta path vm_service]
+- leak_tracker_flutter_testing 3.0.10 [flutter leak_tracker leak_tracker_testing matcher meta]
+- leak_tracker_testing 3.0.2 [leak_tracker matcher meta]
+- lints 4.0.0
+- matcher 0.12.17 [async meta stack_trace term_glyph test_api]
+- material_color_utilities 0.11.1 [collection]
+- meta 1.17.0
+- nested 1.0.0 [flutter]
+- path 1.9.1
+- path_provider_android 2.2.15 [flutter path_provider_platform_interface]
+- path_provider_foundation 2.4.1 [flutter path_provider_platform_interface]
+- path_provider_linux 2.2.1 [ffi flutter path path_provider_platform_interface xdg_directories]
+- path_provider_platform_interface 2.1.2 [flutter platform plugin_platform_interface]
+- path_provider_windows 2.3.0 [ffi flutter path path_provider_platform_interface]
+- petitparser 7.0.1 [meta collection]
+- platform 3.1.6
+- plugin_platform_interface 2.1.8 [meta]
+- shared_preferences_android 2.4.18 [flutter shared_preferences_platform_interface]
+- shared_preferences_foundation 2.5.6 [flutter shared_preferences_platform_interface]
+- shared_preferences_linux 2.4.1 [file flutter path path_provider_linux path_provider_platform_interface shared_preferences_platform_interface]
+- shared_preferences_platform_interface 2.4.1 [flutter plugin_platform_interface]
+- shared_preferences_web 2.4.3 [flutter flutter_web_plugins shared_preferences_platform_interface web]
+- shared_preferences_windows 2.4.1 [file flutter path path_provider_platform_interface path_provider_windows shared_preferences_platform_interface]
+- sky_engine 0.0.0
+- source_span 1.10.0 [collection path term_glyph]
+- stack_trace 1.12.1 [path]
+- stream_channel 2.1.4 [async]
+- string_scanner 1.2.0 [source_span]
+- term_glyph 1.2.1
+- test_api 0.7.7 [async boolean_selector collection meta source_span stack_trace stream_channel string_scanner term_glyph]
+- timezone 0.10.1 [http path]
+- typed_data 1.4.0 [collection]
+- vector_math 2.2.0
+- vm_service 14.2.5
+- web 1.1.1
+- xdg_directories 1.1.0 [meta path]
+- xml 6.6.1 [collection meta petitparser]

@@ -1,0 +1,49 @@
+{
+    "timestamp": "2026-01-25T15:55:00-05:00",
+    "tooling": "git grep",
+    "patterns": [
+        "TODO",
+        "FIXME",
+        "HACK",
+        "XXX",
+        "stub",
+        "placeholder",
+        "not implemented",
+        "fallback",
+        "should handle",
+        "later",
+        "eventually",
+        "Next Steps",
+        "Next:",
+        "Future",
+        "Planned",
+        "Pending",
+        "Deferred",
+        "Upgrade",
+        "Phase",
+        "V0",
+        "V1.1",
+        "V1.2",
+        "V2",
+        "V3",
+        "SEAL:.*Next Steps",
+        "STOP CONDITION",
+        "ready for next instructions",
+        "future implementation",
+        "will be implemented",
+        "not wired yet"
+    ],
+    "totals": {
+        "generated_index_items": 1680,
+        "module_coverage": "FULL"
+    },
+    "modules_breakdown": {
+        "UI.DASHBOARD": "High Debt (Layout/Polish)",
+        "BACKEND.PIPELINE": "Future Scope (Risk Models)",
+        "GOV.CANON": "Roadmap (War Calendar)"
+    },
+    "verification": {
+        "exit_code": 0,
+        "discipline": "PASS"
+    }
+}

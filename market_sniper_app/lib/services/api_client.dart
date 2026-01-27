@@ -49,7 +49,7 @@ class ApiClient {
       throw Exception('Failed to load context: ${response.statusCode}');
     }
   }
-  
+
   Future<Map<String, dynamic>> fetchHealth() async {
     final url = Uri.parse('$baseUrl/health_ext');
     final response = await client.get(url, headers: _headers);
@@ -94,6 +94,7 @@ class ApiClient {
       return SystemHealth.unavailable(e.toString());
     }
   }
+
   Future<Map<String, dynamic>> fetchAutofixStatus() async {
     final url = Uri.parse('$baseUrl/lab/autofix/status');
     try {
@@ -192,7 +193,7 @@ class ApiClient {
     } catch (_) {}
     return {};
   }
-  
+
   Future<Map<String, dynamic>> fetchOptionsContext() async {
     final url = Uri.parse('$baseUrl/options_context');
     try {
@@ -205,25 +206,25 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchMacroContext() async {
-     final url = Uri.parse('$baseUrl/macro_context');
-     try {
-       final response = await client.get(url, headers: _headers);
-       if (response.statusCode == 200) {
-         return json.decode(response.body);
-       }
-     } catch (_) {}
-     return {'status': 'N_A'};
+    final url = Uri.parse('$baseUrl/macro_context');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {'status': 'N_A'};
   }
 
   Future<Map<String, dynamic>> fetchEvidenceSummary() async {
-     final url = Uri.parse('$baseUrl/evidence_summary');
-     try {
-       final response = await client.get(url, headers: _headers);
-       if (response.statusCode == 200) {
-         return json.decode(response.body);
-       }
-     } catch (_) {}
-     return {'status': 'N_A'};
+    final url = Uri.parse('$baseUrl/evidence_summary');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {'status': 'N_A'};
   }
 
   Future<Map<String, dynamic>> fetchHousekeeperStatus() async {
@@ -324,7 +325,7 @@ class ApiClient {
     } catch (_) {}
     return {};
   }
-  
+
   Future<Map<String, dynamic>> fetchCoverage() async {
     final url = Uri.parse('$baseUrl/lab/os/self_heal/coverage');
     try {
@@ -335,29 +336,29 @@ class ApiClient {
     } catch (_) {}
     return {};
   }
-  
+
   Future<Map<String, dynamic>> fetchFindings() async {
-     final url = Uri.parse('$baseUrl/lab/os/self_heal/findings');
-     try {
-       final response = await client.get(url, headers: _headers);
-       if (response.statusCode == 200) {
-         return json.decode(response.body);
-       }
-     } catch (_) {}
-     return {};
+    final url = Uri.parse('$baseUrl/lab/os/self_heal/findings');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
   }
 
   Future<Map<String, dynamic>> fetchBeforeAfterDiff() async {
-     final url = Uri.parse('$baseUrl/lab/os/self_heal/before_after');
-     try {
-       final response = await client.get(url, headers: _headers);
-       if (response.statusCode == 200) {
-         return json.decode(response.body);
-       }
-     } catch (_) {}
-     return {};
+    final url = Uri.parse('$baseUrl/lab/os/self_heal/before_after');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
   }
-  
+
   Future<Map<String, dynamic>> fetchUniverse() async {
     final url = Uri.parse('$baseUrl/universe');
     try {
@@ -368,6 +369,7 @@ class ApiClient {
     } catch (_) {}
     return {};
   }
+
   Future<Map<String, dynamic>> fetchMisfireStatus() async {
     final url = Uri.parse('$baseUrl/misfire');
     try {
@@ -378,20 +380,24 @@ class ApiClient {
     } catch (_) {}
     return {};
   }
+
   Future<void> postWatchlistLog(Map<String, dynamic> eventData) async {
     final url = Uri.parse('$baseUrl/lab/watchlist/log');
     try {
       // Fire and forget, but we await to ensure network transmission started
       // We don't return anything or throw on error per spec (swallow errors in repo/ledger)
       await client.post(
-        url, 
+        url,
         headers: _headers,
         body: json.encode(eventData),
       );
     } catch (_) {}
   }
-  Future<Map<String, dynamic>> fetchOnDemandContext(String ticker, {String tier = "FREE", bool allowStale = false}) async {
-    final uri = Uri.parse('$baseUrl/on_demand/context').replace(queryParameters: {
+
+  Future<Map<String, dynamic>> fetchOnDemandContext(String ticker,
+      {String tier = "FREE", bool allowStale = false}) async {
+    final uri =
+        Uri.parse('$baseUrl/on_demand/context').replace(queryParameters: {
       'ticker': ticker,
       'tier': tier,
       'allow_stale': allowStale.toString(),
@@ -403,10 +409,17 @@ class ApiClient {
         return json.decode(response.body);
       }
     } catch (_) {}
-    return {
-      "status": "UNAVAILABLE", 
-      "freshness": "UNAVAILABLE", 
-      "payload": {}
-    };
+    return {"status": "UNAVAILABLE", "freshness": "UNAVAILABLE", "payload": {}};
+  }
+
+  Future<Map<String, dynamic>> fetchLiveOverlay() async {
+    final url = Uri.parse('$baseUrl/overlay_live');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
   }
 }

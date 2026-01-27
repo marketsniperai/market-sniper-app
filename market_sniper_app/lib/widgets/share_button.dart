@@ -25,23 +25,23 @@ class _ShareButtonState extends State<ShareButton> {
 
     // Give UI a moment to be sure everything is painted if needed?
     // Actually RepaintBoundary captures what's there.
-    
+
     final filename = "msr_share_${DateTime.now().millisecondsSinceEpoch}.png";
-    final path = await ShareExporter.captureAndSave(widget.repaintBoundaryKey, filename);
-    
+    final path =
+        await ShareExporter.captureAndSave(widget.repaintBoundaryKey, filename);
+
     if (path != null) {
-       await ShareExporter.shareFile(context, path, text: widget.contentTitle);
-       if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-             const SnackBar(content: Text("Snapshot Generated for Sharing"), duration: Duration(seconds: 1))
-          );
-       }
+      await ShareExporter.shareFile(context, path, text: widget.contentTitle);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text("Snapshot Generated for Sharing"),
+            duration: Duration(seconds: 1)));
+      }
     } else {
-       if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-             const SnackBar(content: Text("Export Failed"))
-          );
-       }
+      if (mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("Export Failed")));
+      }
     }
 
     if (mounted) setState(() => _isExporting = false);
@@ -50,9 +50,13 @@ class _ShareButtonState extends State<ShareButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: _isExporting 
-        ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.accentCyan))
-        : const Icon(Icons.share, color: AppColors.accentCyan, size: 20),
+      icon: _isExporting
+          ? const SizedBox(
+              width: 16,
+              height: 16,
+              child: CircularProgressIndicator(
+                  strokeWidth: 2, color: AppColors.neonCyan))
+          : const Icon(Icons.share, color: AppColors.neonCyan, size: 20),
       tooltip: "Share Snippet",
       onPressed: _handleShare,
     );

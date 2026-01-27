@@ -1,0 +1,51 @@
+﻿
+market_sniper_app\lib\
+repositories\last_run_
+repository.dart:11:   
+   // Use health_ext 
+as canonical source 
+for RunManifest
+market_sniper_app\lib\
+repositories\system_he
+alth_repository.dart:1
+4:    // 1. Fetch 
+Primary (health_ext)
+market_sniper_app\lib\
+repositories\system_he
+alth_repository.dart:4
+7:    // health_ext 
+usually has 
+'generated_at' or 
+'timestamp'
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:501:  
+  // Priority 3: 
+Fallback to 
+/health_ext 
+(RunManifest) which 
+contains universe info
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:523:  
+       source: 
+"/health_ext 
+(fallback)",
+market_sniper_app\lib\
+screens\war_room_scree
+n.dart:368:      
+debugInfo: "Source: 
+unified 
+(health_ext+misfire)",
+market_sniper_app\lib\
+services\api_client.da
+rt:54:    final url = 
+Uri.parse('$baseUrl/he
+alth_ext');
+market_sniper_app\lib\
+services\api_client.da
+rt:63:    final url = 
+Uri.parse('$baseUrl/he
+alth_ext');
+
+

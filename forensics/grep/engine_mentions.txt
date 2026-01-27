@@ -1,0 +1,221 @@
+﻿
+market_sniper_app\lib\
+layout\main_layout.dar
+t:18:import '../logic/
+trial_engine.dart'; 
+// D45.06 Trial Engine
+market_sniper_app\lib\
+layout\main_layout.dar
+t:19:import '../logic/
+plus_unlock_engine.dar
+t'; // D45.14
+market_sniper_app\lib\
+layout\main_layout.dar
+t:47:    // D45.06 
+Trial Engine Check
+market_sniper_app\lib\
+layout\main_layout.dar
+t:48:    TrialEngine.c
+heckAndIncrement(); 
+// Fire and forget 
+(it is async/safe)
+market_sniper_app\lib\
+layout\main_layout.dar
+t:51:    PlusUnlockEng
+ine.checkAndIncrement(
+);
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:4:
+import 
+'trial_engine.dart';
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:81
+:    if (!TrialEngine.
+isComplete) {
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:26
+:class EliteContextual
+RecallEngine {
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:20:        
+return "System ready. 
+Context engine 
+active.";
+market_sniper_app\lib\
+logic\plus_unlock_engi
+ne.dart:6:class 
+PlusUnlockEngine {
+market_sniper_app\lib\
+logic\plus_unlock_stor
+e.dart:22:    // No 
+cap logic here, 
+engine handles 
+checks. Just storage.
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:3:import 
+'trial_engine.dart';
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:11:    
+if (TrialEngine.isComp
+lete) {
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:26:    
+if (TrialEngine.isComp
+lete) {
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:35:    
+return "${TrialEngine.
+currentCount}/3 
+Market Opens";
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:39:    
+return TrialEngine.isC
+omplete;
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:6:class TrialEngine 
+{
+market_sniper_app\lib\
+logic\try_me_scheduler
+.dart:2:import 
+'trial_engine.dart';
+market_sniper_app\lib\
+logic\try_me_scheduler
+.dart:7:    if (!Trial
+Engine.isComplete) 
+return false;
+market_sniper_app\lib\
+logic\watchlist_last_a
+nalyzed_resolver.dart:
+47:              // 
+Context Engine 
+usually requires 
+successful run to be 
+"Analyzed".
+market_sniper_app\lib\
+logic\watchlist_state_
+resolver.dart:6:/// 
+Reuses logic from 
+Analyze Now flow and 
+Context Engine status.
+market_sniper_app\lib\
+logic\share\caption_pr
+esets.dart:5:  static 
+const String teaser = 
+"Market state update 
+from the engine.";
+market_sniper_app\lib\
+logic\share\teaser_com
+poser.dart:3:// 
+import 
+'share_engine.dart'; 
+// D45.08 if 
+available, otherwise 
+standalone shim for 
+this step
+market_sniper_app\lib\
+models\war_room_snapsh
+ot.dart:201:    final 
+String engine;
+market_sniper_app\lib\
+models\war_room_snapsh
+ot.dart:212:        
+required this.engine,
+market_sniper_app\lib\
+models\war_room_snapsh
+ot.dart:300:  final 
+String engine;
+market_sniper_app\lib\
+models\war_room_snapsh
+ot.dart:306:    
+required this.engine,
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:582:  
+          engine: 
+e['engine'] ?? 
+'UNKNOWN',
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:633:  
+          engine: 
+e['engine'] ?? 
+'UNKNOWN',
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:7:import 
+'../logic/plus_unlock_
+engine.dart'; // 
+D45.14
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:78:      
+ unlocked = await Plus
+UnlockEngine.isUnlocke
+d();
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:79:      
+ progress = await Plus
+UnlockEngine.getProgre
+ssString();
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:319:Engineered for 
+speed, clarity, and 
+truth, Market Sniper 
+eliminates noise and 
+focuses on what 
+matters: actionable 
+data states and 
+verifiable system 
+health.
+market_sniper_app\lib\
+screens\war_room_scree
+n.dart:961:           
+  lines.add("${last.en
+gine}: 
+${last.confidence}");
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:963:  
+                   
+"Waiting for D40 
+Real-Time 
+Intelligence Engine.",
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:12:impo
+rt '../logic/elite_con
+textual_recall_engine.
+dart'; // D43.13
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:590:   
+           EliteMentor
+Brain().formatHeader("
+Elite Context 
+Engine"),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1164:  
+        final engine 
+= EliteContextualRecal
+lEngine();
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1165:  
+        final 
+snapshot = await 
+engine.build();
+
+

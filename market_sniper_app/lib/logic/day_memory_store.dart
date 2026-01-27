@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart'; // kIsWeb
 import 'package:path_provider/path_provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -15,7 +16,7 @@ class DayMemoryStore {
     'last_updated_utc': '',
     'bullets': <String>[],
   };
-  
+
   bool _initialized = false;
 
   /// Initialize the store and load data.
@@ -25,6 +26,12 @@ class DayMemoryStore {
       tz.initializeTimeZones();
     } catch (_) {
       // Ignore if already initialized
+    }
+
+    if (kIsWeb) {
+      print('MEMORY_STORE: WEB_FALLBACK_IN_MEMORY (DayMemoryStore)');
+      _initialized = true;
+      return;
     }
 
     try {
@@ -43,18 +50,18 @@ class DayMemoryStore {
       try {
         final content = await _file!.readAsString();
         // Degrade check: if already massive, nuking it is safer than trying to parse
-        if (content.length > 5000) { 
+        if (content.length > 5000) {
           await clear();
           return;
         }
         final Map<String, dynamic> loaded = jsonDecode(content);
         _data = loaded;
-        
+
         // Ensure structure matches
         if (!_data.containsKey('bullets') || _data['bullets'] is! List) {
           _data['bullets'] = <String>[];
         }
-        
+
         await _checkReset();
       } catch (e) {
         // Corrupt file -> reset
@@ -71,16 +78,15 @@ class DayMemoryStore {
       final detroit = tz.getLocation('America/Detroit'); // ET
       final nowEt = tz.TZDateTime.now(detroit);
       // If before 4AM, we are effectively in the "previous day"
-      final effectiveDate = nowEt.hour < 4 
-          ? nowEt.subtract(const Duration(days: 1)) 
-          : nowEt;
-      
+      final effectiveDate =
+          nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
+
       return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
     } catch (e) {
       // Fallback to UTC if TZ fails
       final now = DateTime.now().toUtc();
       // Rough approximation for fallback
-      return "${now.year}-${now.month}-${now.day}"; 
+      return "${now.year}-${now.month}-${now.day}";
     }
   }
 
@@ -95,12 +101,12 @@ class DayMemoryStore {
 
   Future<void> append(String bullet) async {
     if (!_initialized) await init();
-    
+
     await _checkReset(); // Ensure we are in the right day
 
     List<dynamic> bullets = _data['bullets'];
     bullets.add(bullet);
-    
+
     _data['last_updated_utc'] = DateTime.now().toUtc().toIso8601String();
     _data['day_id'] = _getCurrentDayId(); // Update day_id to be sure
 

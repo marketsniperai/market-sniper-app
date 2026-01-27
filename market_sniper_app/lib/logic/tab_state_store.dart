@@ -10,7 +10,7 @@ class TabStateStore {
     try {
       final prefs = await SharedPreferences.getInstance();
       final index = prefs.getInt(_key) ?? _defaultIndex;
-      
+
       // Safety bounds check
       if (index < 0 || index > _maxIndex) {
         return _defaultIndex;

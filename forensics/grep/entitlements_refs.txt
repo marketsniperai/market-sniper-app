@@ -1,0 +1,303 @@
+﻿
+market_sniper_app\lib\
+domain\universe\core20
+_universe.dart:58:    
+SymbolDefinition(symbo
+l: 'XLI', 
+displayLabel: 'XLI', 
+category: 'Sectors', 
+description: 
+'Industrials'),
+market_sniper_app\lib\
+layout\main_layout.dar
+t:18:import '../logic/
+trial_engine.dart'; 
+// D45.06 Trial Engine
+market_sniper_app\lib\
+layout\main_layout.dar
+t:22:import 
+'dart:async'; // 
+StreamSubscription
+market_sniper_app\lib\
+layout\main_layout.dar
+t:39:  StreamSubscript
+ion<NavigationEvent>? 
+_navSubscription;
+market_sniper_app\lib\
+layout\main_layout.dar
+t:47:    // D45.06 
+Trial Engine Check
+market_sniper_app\lib\
+layout\main_layout.dar
+t:48:    TrialEngine.c
+heckAndIncrement(); 
+// Fire and forget 
+(it is async/safe)
+market_sniper_app\lib\
+layout\main_layout.dar
+t:55:    
+_navSubscription = Nav
+igationBus().events.li
+sten((event) {
+market_sniper_app\lib\
+layout\main_layout.dar
+t:76:    _navSubscript
+ion?.cancel();
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:4:
+import 
+'trial_engine.dart';
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:7:
+enum EliteAccessMode 
+{ none, trial, tryme 
+} // Fixed casing
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:38
+:    // 3. Try-Me 
+Window Logic
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:47
+:          notice = 
+"5 minutes remaining 
+in Try-Me Hour.";
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:53
+:           notice = 
+"Try-Me Hour active. 
+Elite FULL access 
+temporarily 
+unlocked.";
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:74
+:                 
+systemNotice: "Try-Me 
+Hour has ended. Elite 
+access reverted."
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:80
+:    // 5. Trial Logic
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:81
+:    if (!TrialEngine.
+isComplete) {
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:84
+:         mode: 
+EliteAccessMode.trial
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:3:import 
+'trial_engine.dart';
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:10:    
+// Check if Trial is 
+Complete
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:11:    
+if (TrialEngine.isComp
+lete) {
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:12:      
+// If Try-Me Active, 
+effectively 
+Plus/Elite? 
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:23:  
+static String get 
+trialProgressString {
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:26:    
+if (TrialEngine.isComp
+lete) {
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:27:      
+// Post-trial state
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:29:      
+  return "TRY-ME 
+ACTIVE";
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:31:      
+return "TRIAL 
+COMPLETE";
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:34:    
+// Active Trial
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:35:    
+return "${TrialEngine.
+currentCount}/3 
+Market Opens";
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:39:    
+return TrialEngine.isC
+omplete;
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:4:import 'trial_stat
+e_store.dart';
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:6:class TrialEngine 
+{
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:7:  static final 
+TrialStateStore 
+_store = 
+TrialStateStore();
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:40:      
+debugPrint("TRIAL: 
+Outside market hours. 
+No count.");
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:54:       
+debugPrint("TRIAL: 
+Incrementing count to 
+$newCount (Day 
+$todayId)");
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:60:         
+debugPrint("TRIAL: 
+Status COMPLETE");
+market_sniper_app\lib\
+logic\trial_engine.dar
+t:65:      
+debugPrint("TRIAL: 
+Already counted for 
+day $todayId.");
+market_sniper_app\lib\
+logic\trial_state_stor
+e.dart:3:class 
+TrialStateStore {
+market_sniper_app\lib\
+logic\trial_state_stor
+e.dart:5:  static 
+const String 
+_kOpenCount = 
+'ms_trial_open_count';
+market_sniper_app\lib\
+logic\trial_state_stor
+e.dart:7:  static 
+const String _kStatus 
+= 'ms_trial_status';
+market_sniper_app\lib\
+logic\try_me_scheduler
+.dart:2:import 
+'trial_engine.dart';
+market_sniper_app\lib\
+logic\try_me_scheduler
+.dart:6:    // Only 
+valid if trial is 
+complete (guests only)
+market_sniper_app\lib\
+logic\try_me_scheduler
+.dart:7:    if (!Trial
+Engine.isComplete) 
+return false;
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:79:
+      _row("trial_prog
+ress", "Trial (Market 
+Opens)", "Full OS 
+access for 3 market 
+opens",
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:80:
+        {"GUEST":"INCL
+UDED","PLUS":"INCLUDED
+","ELITE":"INCLUDED","
+FOUNDER":"INCLUDED"}, 
+{}, dynamicValue: "tri
+al_opens_progress"),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:93:
+      
+_row("try_me_hour", 
+"Try-Me Hour", "Mon 
+09:20–10:20 ET access 
+window", 
+market_sniper_app\lib\
+screens\account_screen
+.dart:282:      
+title: const 
+Text("Manage 
+Subscription", style: 
+TextStyle(color: 
+Colors.white)),
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:12:import 
+'dart:async'; // 
+StreamSubscription
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:33:  StreamSubs
+cription<NavigationEve
+nt>? _navSubscription;
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:41:    
+_navSubscription = Nav
+igationBus().events.li
+sten((event) {
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:85:    _navSubs
+cription?.cancel();
+market_sniper_app\lib\
+screens\premium_screen
+.dart:167:    if 
+(row.dynamicValueKey 
+== "trial_opens_progre
+ss") {
+market_sniper_app\lib\
+screens\premium_screen
+.dart:168:       
+label = "Trial (${Prem
+iumStatusResolver.tria
+lProgressString} 
+Opens)";
+market_sniper_app\lib\
+screens\premium_screen
+.dart:207:  Widget _bu
+ildStatusCell(FeatureS
+tatus? status, 
+String? limit, bool 
+isTrialRow, {bool 
+isFounder = false}) {
+market_sniper_app\lib\
+screens\premium_screen
+.dart:268:         
+label = "Try-Me Hour 
+Info";
+
+

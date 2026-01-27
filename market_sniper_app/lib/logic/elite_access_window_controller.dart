@@ -50,39 +50,33 @@ class EliteAccessWindowController {
         // Unlocked Notice (Start of window)
         // If we haven't shown UNLOCKED for this day yet.
         if (await _checkAndBurnOneTimeNotice(dayId, _kKeyUnlocked)) {
-           notice = "Try-Me Hour active. Elite FULL access temporarily unlocked.";
+          notice =
+              "Try-Me Hour active. Elite FULL access temporarily unlocked.";
         }
       }
 
       return EliteAccessResult(
-        isUnlocked: true, 
-        mode: EliteAccessMode.tryme,
-        systemNotice: notice
-      );
+          isUnlocked: true, mode: EliteAccessMode.tryme, systemNotice: notice);
     }
 
     // 4. Closed Notice (Post-Window)
     // Only if it IS Monday, it IS after window, and we haven't said Closed yet.
     // AND optionally: check if we participated? (skipped for simplicity/robustness as per previous D45.07 logic)
     if (nowEt.weekday == DateTime.monday) {
-       final nowTime = nowEt.hour + (nowEt.minute / 60.0);
-       if (nowTime >= 10.333) {
-           if (await _checkAndBurnOneTimeNotice(dayId, _kKeyClosed)) {
-              return EliteAccessResult(
-                 isUnlocked: false,
-                 mode: EliteAccessMode.none,
-                 systemNotice: "Try-Me Hour has ended. Elite access reverted."
-              );
-           }
-       }
+      final nowTime = nowEt.hour + (nowEt.minute / 60.0);
+      if (nowTime >= 10.333) {
+        if (await _checkAndBurnOneTimeNotice(dayId, _kKeyClosed)) {
+          return EliteAccessResult(
+              isUnlocked: false,
+              mode: EliteAccessMode.none,
+              systemNotice: "Try-Me Hour has ended. Elite access reverted.");
+        }
+      }
     }
 
     // 5. Trial Logic
     if (!TrialEngine.isComplete) {
-       return EliteAccessResult(
-         isUnlocked: true,
-         mode: EliteAccessMode.trial
-       );
+      return EliteAccessResult(isUnlocked: true, mode: EliteAccessMode.trial);
     }
 
     // 6. Default Locked
@@ -91,28 +85,28 @@ class EliteAccessWindowController {
 
   // Idempotency: Returns true if notice should be delivered (first time).
   // Immediately marks as delivered (Burn).
-  static Future<bool> _checkAndBurnOneTimeNotice(String dayId, String noticeKey) async {
+  static Future<bool> _checkAndBurnOneTimeNotice(
+      String dayId, String noticeKey) async {
     final prefs = await SharedPreferences.getInstance();
     // Stable Event ID: ms_elite_access_ledger_2025-01-21_TRYME_UNLOCKED
-    final eventId = "${_kLedgerPrefix}${dayId}_$noticeKey";
-    
+    final eventId = "$_kLedgerPrefix${dayId}_$noticeKey";
+
     if (prefs.containsKey(eventId)) {
       return false; // Already delivered
     }
-    
+
     await prefs.setBool(eventId, true);
     return true;
   }
-  
+
   // Helper: 04:00 ET rollover
   static String _getInstitutionalDayId(DateTime et) {
-     final boundary = DateTime(et.year, et.month, et.day, 4, 0);
-     if (et.isBefore(boundary)) {
-       // Belongs to previous day
-       final prev = et.subtract(const Duration(days: 1));
-       return "${prev.year}-${prev.month.toString().padLeft(2,'0')}-${prev.day.toString().padLeft(2,'0')}";
-     }
-     return "${et.year}-${et.month.toString().padLeft(2,'0')}-${et.day.toString().padLeft(2,'0')}";
+    final boundary = DateTime(et.year, et.month, et.day, 4, 0);
+    if (et.isBefore(boundary)) {
+      // Belongs to previous day
+      final prev = et.subtract(const Duration(days: 1));
+      return "${prev.year}-${prev.month.toString().padLeft(2, '0')}-${prev.day.toString().padLeft(2, '0')}";
+    }
+    return "${et.year}-${et.month.toString().padLeft(2, '0')}-${et.day.toString().padLeft(2, '0')}";
   }
 }
-

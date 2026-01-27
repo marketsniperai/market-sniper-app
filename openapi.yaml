@@ -1,0 +1,97 @@
+swagger: '2.0'
+info:
+  title: Market Sniper API Gateway
+  description: Public ingress for Market Sniper Cloud Run backend (Org Policy Bypass).
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+securityDefinitions:
+  # Route B: API Key (X-Founder-Key logic map to query param 'key' or header 'x-api-key')
+  # Google API Gateway natively supports 'api_key' security definition checking the 'key' query parameter or 'x-api-key' header.
+  # We will use the standard 'key' query parameter or 'x-api-key' header support.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
+
+paths:
+  /health_ext:
+    get:
+      summary: Public Health Check
+      operationId: healthExt
+      x-google-backend:
+        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/health_ext
+        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+        '403':
+          description: Forbidden
+  /dashboard:
+    get:
+      summary: Main Dashboard Telemetry
+      operationId: dashboard
+      x-google-backend:
+        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/dashboard
+        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+  /context:
+    get:
+      summary: Market Context
+      operationId: context
+      x-google-backend:
+        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/context
+        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+  /briefing:
+    get:
+      summary: Daily Briefing
+      x-google-backend:
+        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/briefing
+        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+      security:
+        - api_key: []
+      responses:
+        '200':
+           description: OK
+  /canon/pending_index_v2.json:
+    get:
+      summary: Canon Index (Forwarding for Debt Radar)
+      # Must match exact path on backend or redirect
+      # Cloud Run path: /outputs/proofs/canon/pending_index_v2.json (from previous step audit)
+      # Wait, previous step used /outputs/proofs/...
+      # Let's map /canon/index to the full path for cleaner API
+      x-google-backend:
+        path_translation: CONSTANT_ADDRESS
+        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/outputs/proofs/canon/pending_index_v2.json
+        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+  /canon/snapshot_last.json:
+    get:
+      summary: Canon Snapshot
+      x-google-backend:
+        path_translation: CONSTANT_ADDRESS
+        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/outputs/proofs/canon/pending_snapshot_last.json
+        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: OK
+  # Catch-all for other lab endpoints if needed, but safer to be explicit

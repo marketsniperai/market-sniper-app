@@ -1,4 +1,3 @@
-
 /// Enum representing the standard status of an On-Demand result.
 enum EnvelopeStatus { live, stale, locked, unavailable, error }
 
@@ -40,52 +39,76 @@ class EnvelopeBuilder {
   static StandardEnvelope build(Map<String, dynamic> rawResponse) {
     // 1. Map Status
     EnvelopeStatus status;
-    final rawStatus = (rawResponse["status"] ?? "ERROR").toString().toUpperCase();
+    final rawStatus =
+        (rawResponse["status"] ?? "ERROR").toString().toUpperCase();
     switch (rawStatus) {
-      case "LIVE": status = EnvelopeStatus.live; break;
-      case "STALE": status = EnvelopeStatus.stale; break;
-      case "BLOCKED": status = EnvelopeStatus.locked; break; // Map BLOCKED -> LOCKED
-      case "OFFLINE": status = EnvelopeStatus.unavailable; break;
-      case "ERROR": 
-      default: status = EnvelopeStatus.error; break;
+      case "LIVE":
+        status = EnvelopeStatus.live;
+        break;
+      case "STALE":
+        status = EnvelopeStatus.stale;
+        break;
+      case "BLOCKED":
+        status = EnvelopeStatus.locked;
+        break; // Map BLOCKED -> LOCKED
+      case "OFFLINE":
+        status = EnvelopeStatus.unavailable;
+        break;
+      case "ERROR":
+      default:
+        status = EnvelopeStatus.error;
+        break;
     }
 
     // 2. Map Source
     EnvelopeSource source;
-    final rawSource = (rawResponse["source"] ?? "OFFLINE").toString().toUpperCase();
+    final rawSource =
+        (rawResponse["source"] ?? "OFFLINE").toString().toUpperCase();
     switch (rawSource) {
-      case "PIPELINE": source = EnvelopeSource.pipeline; break;
-      case "CACHE": source = EnvelopeSource.cache; break;
-      default: source = EnvelopeSource.offline; break;
+      case "PIPELINE":
+        source = EnvelopeSource.pipeline;
+        break;
+      case "CACHE":
+        source = EnvelopeSource.cache;
+        break;
+      default:
+        source = EnvelopeSource.offline;
+        break;
     }
 
     // 3. Map Badges (Heuristic or explicit)
     List<ConfidenceBadge> badges = [];
     if (status == EnvelopeStatus.live) badges.add(ConfidenceBadge.providerLive);
-    if (status == EnvelopeStatus.stale) badges.add(ConfidenceBadge.proxyEstimated); // Assumption for stale
+    if (status == EnvelopeStatus.stale) {
+      badges.add(ConfidenceBadge.proxyEstimated); // Assumption for stale
+    }
     // Could map more from rawResponse["badges"] if available
 
     // 4. Extract Bullets
     List<String> bullets = [];
-    if (rawResponse["payload"] != null && rawResponse["payload"]["bullets"] is List) {
-       bullets = List<String>.from(rawResponse["payload"]["bullets"]);
+    if (rawResponse["payload"] != null &&
+        rawResponse["payload"]["bullets"] is List) {
+      bullets = List<String>.from(rawResponse["payload"]["bullets"]);
     } else if (rawResponse["bullets"] is List) {
-       bullets = List<String>.from(rawResponse["bullets"]);
+      bullets = List<String>.from(rawResponse["bullets"]);
     }
-    
+
     // Fallback generation if empty but valid
-    if (bullets.isEmpty && status != EnvelopeStatus.error && status != EnvelopeStatus.locked) {
-       final globalRisk = rawResponse["payload"]?["global_risk"] ?? "UNKNOWN";
-       final regime = rawResponse["payload"]?["regime"] ?? "UNKNOWN";
-       bullets.add("Risk State: $globalRisk");
-       bullets.add("Regime: $regime");
-       bullets.add("Ticker: ${rawResponse['ticker'] ?? 'UNKNOWN'}");
+    if (bullets.isEmpty &&
+        status != EnvelopeStatus.error &&
+        status != EnvelopeStatus.locked) {
+      final globalRisk = rawResponse["payload"]?["global_risk"] ?? "UNKNOWN";
+      final regime = rawResponse["payload"]?["regime"] ?? "UNKNOWN";
+      bullets.add("Risk State: $globalRisk");
+      bullets.add("Regime: $regime");
+      bullets.add("Ticker: ${rawResponse['ticker'] ?? 'UNKNOWN'}");
     }
 
     // 5. Timestamp
     DateTime asOf;
     try {
-      asOf = DateTime.parse(rawResponse["timestamp_utc"] ?? DateTime.now().toIso8601String());
+      asOf = DateTime.parse(
+          rawResponse["timestamp_utc"] ?? DateTime.now().toIso8601String());
     } catch (_) {
       asOf = DateTime.now();
     }

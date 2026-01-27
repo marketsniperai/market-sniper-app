@@ -1,0 +1,55 @@
+On branch chore/flutter-upgrade-hygiene-d37-00-1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   market_sniper_app/lib/config/app_config.dart
+	modified:   market_sniper_app/lib/layout/main_layout.dart
+	modified:   market_sniper_app/lib/main.dart
+	modified:   market_sniper_app/lib/widgets/session_window_strip.dart
+	modified:   market_sniper_app/lib/widgets/war_room/replay_control_tile.dart
+	modified:   market_sniper_app/macos/Flutter/GeneratedPluginRegistrant.swift
+	modified:   market_sniper_app/pubspec.yaml
+	modified:   outputs/proofs/day_45/day_45_full_founder_apk_build_proof.json
+	modified:   outputs/seals/SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md
+	modified:   outputs/seals/SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md
+	modified:   outputs/seals/SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	analyze_output_d45_final.txt
+	diff_stat.txt
+	forensics/
+	git_log.txt
+	market_sniper_app/forensics/
+	market_sniper_app/lib/guards/access_policy.dart
+	market_sniper_app/lib/logic/tone.dart
+	market_sniper_app/lib/screens/account_screen.dart
+	market_sniper_app/lib/screens/menu_screen.dart
+	market_sniper_app/lib/screens/partner_terms_screen.dart
+	market_sniper_app/lib/screens/ritual_preview_screen.dart
+	market_sniper_app/lib/services/human_mode_service.dart
+	market_sniper_app/lib/services/notification_router.dart
+	market_sniper_app/lib/services/notification_service.dart
+	market_sniper_app/lib/widgets/global_back_overlay.dart
+	market_sniper_app/lib/widgets/war_room/war_room_tile_wrapper.dart
+	market_sniper_app/test/verify_config.dart
+	market_sniper_app/test/verify_menu.dart
+	outputs/os/os_share_install_ledger.jsonl
+	outputs/os/os_share_prompt_loop_policy.json
+	outputs/os/os_share_to_install_policy.json
+	outputs/proofs/day_45/d45_f1_commit_proof.json
+	outputs/proofs/day_45/ui_full_founder_h3_build_proof.json
+	outputs/proofs/day_45/ui_full_founder_hotfix_build_proof.json
+	outputs/seals/SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md
+	outputs/seals/SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md
+	outputs/seals/SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md
+	outputs/seals/SEAL_Polish_01_BaseUrlCloud_Default.md
+	outputs/seals/SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md
+	outputs/seals/SEAL_Polish_Human_01_Global_Tone_Layer.md
+	outputs/seals/SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md
+	outputs/seals/SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md
+	outputs/seals/SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md
+	outputs/seals/SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md
+	outputs/seals/SEAL_Polish_Notifications_02_TapRouting_DeepLink.md
+
+no changes added to commit (use "git add" and/or "git commit -a")

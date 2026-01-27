@@ -81,12 +81,13 @@ class WarRoomTile extends StatelessWidget {
                 _buildStatusIndicator(),
               ],
             ),
-            
+
             // Content
             Expanded(
-              child: customBody ?? Center(
-                child: _buildBody(context),
-              ),
+              child: customBody ??
+                  Center(
+                    child: _buildBody(context),
+                  ),
             ),
 
             // Footer (Debug)
@@ -113,7 +114,8 @@ class WarRoomTile extends StatelessWidget {
   Widget _buildStatusIndicator() {
     if (status == WarRoomTileStatus.loading) {
       return const SizedBox(
-        width: 8, height: 8, 
+        width: 8,
+        height: 8,
         child: CircularProgressIndicator(strokeWidth: 1),
       );
     }
@@ -124,8 +126,12 @@ class WarRoomTile extends StatelessWidget {
         color: _statusColor,
         shape: BoxShape.circle,
         boxShadow: [
-          if (status == WarRoomTileStatus.nominal || status == WarRoomTileStatus.incident)
-            BoxShadow(color: _statusColor.withValues(alpha: 0.4), blurRadius: 6, spreadRadius: 1)
+          if (status == WarRoomTileStatus.nominal ||
+              status == WarRoomTileStatus.incident)
+            BoxShadow(
+                color: _statusColor.withValues(alpha: 0.4),
+                blurRadius: 6,
+                spreadRadius: 1)
         ],
       ),
     );
@@ -133,7 +139,7 @@ class WarRoomTile extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     if (status == WarRoomTileStatus.loading) {
-       return const Text("...");
+      return const Text("...");
     }
     if (status == WarRoomTileStatus.unavailable) {
       return Text(
@@ -151,14 +157,16 @@ class WarRoomTile extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: subtitle.map((line) => Text(
-        line,
-        textAlign: TextAlign.center,
-        style: AppTypography.headline(context).copyWith(
-          fontSize: 14,
-          color: AppColors.textPrimary,
-        ),
-      )).toList(),
+      children: subtitle
+          .map((line) => Text(
+                line,
+                textAlign: TextAlign.center,
+                style: AppTypography.headline(context).copyWith(
+                  fontSize: 14,
+                  color: AppColors.textPrimary,
+                ),
+              ))
+          .toList(),
     );
   }
 }

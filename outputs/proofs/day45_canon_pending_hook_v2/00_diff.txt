@@ -1,0 +1,12 @@
+# Proof: D45.HF11 Canon Pending Hook V2
+
+## Changes
+1. **Constitution**: Clarified Hook requirements (Resolved/New items mandatory).
+2. **Verifier**: Updated `verify_seal_hooks` to enforce stricter check for seals dated >= 2026-01-27.
+
+## Verification
+- Created `SEAL_TEST_V2_FAIL.md` dated 2026-02-01.
+- Verifier Output:
+  `[!] SEALS MISSING CLOSURE HOOK (PENDING LAW)`
+  `  - SEAL_TEST_V2_FAIL.md (V2 STRICT: Missing 'Resolved'/'New' items)`
+- Confirmed enforcement works.

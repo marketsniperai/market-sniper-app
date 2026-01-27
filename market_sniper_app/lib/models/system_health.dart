@@ -27,7 +27,7 @@ class SystemHealth {
       recommendedAction: json['recommended_action'] ?? 'NONE',
     );
   }
-  
+
   // Fallback for UI when API is unreachable
   factory SystemHealth.unavailable(String error) {
     return SystemHealth(

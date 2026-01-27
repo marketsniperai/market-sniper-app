@@ -1,0 +1,1039 @@
+﻿
+market_sniper_app\lib\
+layout\main_layout.dar
+t:11:import '../widget
+s/elite_interaction_sh
+eet.dart';
+market_sniper_app\lib\
+layout\main_layout.dar
+t:12:import '../logic/
+elite_messages.dart';
+market_sniper_app\lib\
+layout\main_layout.dar
+t:121:       // 
+Non-Founder 
+(Elite/Others): Only 
+4 taps -> C.C.
+market_sniper_app\lib\
+layout\main_layout.dar
+t:154:  void _showElit
+eOverlay({String? 
+explainKey, 
+Map<String, dynamic>? 
+payload, bool 
+resetToWelcome = 
+false}) {
+market_sniper_app\lib\
+layout\main_layout.dar
+t:164:          
+return 
+EliteInteractionSheet(
+market_sniper_app\lib\
+layout\main_layout.dar
+t:181:      body: Noti
+ficationListener<Elite
+ExplainNotification>(
+market_sniper_app\lib\
+layout\main_layout.dar
+t:183:          _showE
+liteOverlay(explainKey
+: notification.explain
+Key, payload: 
+notification.payload);
+market_sniper_app\lib\
+layout\main_layout.dar
+t:229:                
+              
+onPressed: () => _show
+EliteOverlay(explainKe
+y: null, 
+resetToWelcome: true),
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:7:
+enum EliteAccessMode 
+{ none, trial, tryme 
+} // Fixed casing
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:9:
+class 
+EliteAccessResult {
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:11
+:  final 
+EliteAccessMode mode;
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:14
+:  EliteAccessResult({
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:21
+:class EliteAccessWind
+owController {
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:22
+:  static const 
+String _kLedgerPrefix 
+= 'ms_elite_access_led
+ger_';
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:28
+:  static Future<Elite
+AccessResult> 
+resolve() async {
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:31
+:      return EliteAcc
+essResult(isUnlocked: 
+true, mode: 
+EliteAccessMode.none);
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:53
+:           notice = 
+"Try-Me Hour active. 
+Elite FULL access 
+temporarily 
+unlocked.";
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:57
+:      return 
+EliteAccessResult(
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:59
+:        mode: 
+EliteAccessMode.tryme,
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:71
+:              return 
+EliteAccessResult(
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:73
+:                 
+mode: 
+EliteAccessMode.none,
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:74
+:                 
+systemNotice: "Try-Me 
+Hour has ended. Elite 
+access reverted."
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:82
+:       return 
+EliteAccessResult(
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:84
+:         mode: 
+EliteAccessMode.trial
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:89
+:    return EliteAcces
+sResult(isUnlocked: 
+false, mode: 
+EliteAccessMode.none);
+market_sniper_app\lib\
+logic\elite_access_win
+dow_controller.dart:96
+:    // Stable Event 
+ID: ms_elite_access_le
+dger_2025-01-21_TRYME_
+UNLOCKED
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:5:
+class EliteContextualR
+ecallSnapshot {
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:11
+:  EliteContextualReca
+llSnapshot({
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:26
+:class EliteContextual
+RecallEngine {
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:48
+:  Future<EliteContext
+ualRecallSnapshot> 
+build() async {
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:12
+2:          // Take 
+the last interaction 
+(User + Elite)
+market_sniper_app\lib\
+logic\elite_contextual
+_recall_engine.dart:14
+7:    return EliteCont
+extualRecallSnapshot(
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:1:enum 
+EliteToneMode { 
+institutional, human }
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:3:class 
+EliteMentorBrain {
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:4:  static 
+final 
+EliteMentorBrain 
+_instance = EliteMento
+rBrain._internal();
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:5:  factory 
+EliteMentorBrain() => 
+_instance;
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:6:  EliteMento
+rBrain._internal();
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:11:  
+EliteToneMode get 
+toneMode => EliteToneM
+ode.institutional;
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:15:      case 
+EliteToneMode.human:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:17:      case 
+EliteToneMode.institut
+ional:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:26:      case 
+EliteToneMode.human:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:29:      case 
+EliteToneMode.institut
+ional:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:38:      case 
+EliteToneMode.human:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:40:      case 
+EliteToneMode.institut
+ional:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:48:      case 
+EliteToneMode.human:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:50:      case 
+EliteToneMode.institut
+ional:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:58:      case 
+EliteToneMode.human:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:60:      case 
+EliteToneMode.institut
+ional:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:68:      case 
+EliteToneMode.human:
+market_sniper_app\lib\
+logic\elite_mentor_bra
+in.dart:70:      case 
+EliteToneMode.institut
+ional:
+market_sniper_app\lib\
+logic\elite_messages.d
+art:3:class EliteExpla
+inNotification 
+extends Notification {
+market_sniper_app\lib\
+logic\elite_messages.d
+art:7:  const EliteExp
+lainNotification(this.
+explainKey, 
+{this.payload});
+market_sniper_app\lib\
+logic\plus_unlock_engi
+ne.dart:12:    // 
+Actually, prompt says 
+"Plus unlocks... 
+Elite unlocks Day 1".
+market_sniper_app\lib\
+logic\plus_unlock_engi
+ne.dart:13:    // If 
+user is Plus, we 
+track. If Elite user? 
+market_sniper_app\lib\
+logic\plus_unlock_engi
+ne.dart:14:    // If 
+Elite, they have Day 
+1 access. 
+market_sniper_app\lib\
+logic\premium_status_r
+esolver.dart:12:      
+// If Try-Me Active, 
+effectively 
+Plus/Elite? 
+market_sniper_app\lib\
+logic\share\share_comp
+oser.dart:16:    bool 
+isElite = false,
+market_sniper_app\lib\
+logic\share\share_comp
+oser.dart:74:         
+ Positioned.fill(child
+: EvidenceGhostOverlay
+(isElite: isElite)),
+market_sniper_app\lib\
+logic\share\share_comp
+oser.dart:87:         
+isElite: isElite,
+market_sniper_app\lib\
+logic\share\share_prom
+pt_loop.dart:45:      
+     _logEvent("CTA_CL
+ICKED", {"key": 
+"UPGRADE_ELITE"});
+market_sniper_app\lib\
+logic\share\share_prom
+pt_loop.dart:49:      
+  showUpgrade: true, 
+// Assuming not Elite 
+for MVP/Guest
+market_sniper_app\lib\
+logic\share\watermark_
+service.dart:12:    
+bool isElite = false,
+market_sniper_app\lib\
+logic\share\watermark_
+service.dart:14:    
+final bool showSlogan 
+= isFounder || 
+isElite;
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:4:e
+num PremiumTier { 
+guest, plus, elite, 
+founder }
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:58:
+      case 'ELITE': 
+return 
+PremiumTier.elite;
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:80:
+        {"GUEST":"INCL
+UDED","PLUS":"INCLUDED
+","ELITE":"INCLUDED","
+FOUNDER":"INCLUDED"}, 
+{}, dynamicValue: "tri
+al_opens_progress"),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:82:
+        {"GUEST":"INCL
+UDED","PLUS":"INCLUDED
+","ELITE":"INCLUDED","
+FOUNDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:84:
+        {"GUEST":"LOCK
+ED","PLUS":"LIMITED","
+ELITE":"INCLUDED","FOU
+NDER":"INCLUDED"}, 
+{"PLUS":"10/day"}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:85:
+      
+_row("elite_overlay", 
+"Elite Overlay", 
+"Mentor surface + 
+explain protocols", 
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:86:
+        {"GUEST":"LOCK
+ED","PLUS":"LIMITED","
+ELITE":"INCLUDED","FOU
+NDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:88:
+        {"GUEST":"LOCK
+ED","PLUS":"INCLUDED",
+"ELITE":"INCLUDED","FO
+UNDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:90:
+        {"GUEST":"INCL
+UDED","PLUS":"INCLUDED
+","ELITE":"INCLUDED","
+FOUNDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:92:
+        {"GUEST":"INCL
+UDED","PLUS":"INCLUDED
+","ELITE":"INCLUDED","
+FOUNDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:94:
+        {"GUEST":"INCL
+UDED","PLUS":"INCLUDED
+","ELITE":"INCLUDED","
+FOUNDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:96:
+        {"GUEST":"LOCK
+ED","PLUS":"PROGRESS",
+"ELITE":"INCLUDED","FO
+UNDER":"INCLUDED"}, 
+{"PLUS":"Unlock at 
+Day 5 (no reset)"}),
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:98:
+        {"GUEST":"LOCK
+ED","PLUS":"INCLUDED",
+"ELITE":"INCLUDED","FO
+UNDER":"INCLUDED"}, 
+{}),
+market_sniper_app\lib\
+screens\account_screen
+.dart:79:  final 
+String plan = 
+"Elite"; 
+market_sniper_app\lib\
+screens\account_screen
+.dart:173:            
+                   if 
+(plan == 'Elite')
+market_sniper_app\lib\
+screens\account_screen
+.dart:187:            
+               if 
+(plan == 'Elite')
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:21:  
+bool _isElite = false;
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:67:    
+// Founders get Elite 
+access visually, but 
+labeled
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:71:    
+final isEliteValues = 
+(tier == 
+PremiumTier.elite || 
+isFounder);
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:77:    
+if (isPlusValues && 
+!isEliteValues) {
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:84:      
+   _isElite = 
+isEliteValues;
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:109:    
+// Elite/Founder -> 
+Full
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:114:    
+final bool hasAccess 
+= _isElite || 
+(_isPlus && 
+_isPlusUnlocked);
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:116:    
+final bool locked = 
+!_isElite && !_isPlus;
+market_sniper_app\lib\
+screens\command_center
+_screen.dart:198:     
+                      
+ Text("ELITE 
+CLEARANCE REQUIRED", 
+style: AppTypography.h
+eadline(context).copyW
+ith(color: AppColors.s
+tateLocked)),
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:334:Features 
+labeled "Founder" or 
+"Elite" are 
+experimental surfaces 
+for internal 
+validation and do not 
+represent guaranteed 
+capabilities of the 
+public release.
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:9:import '../lo
+gic/elite_messages.dar
+t'; // D44.13
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:521:           
+          EliteExplain
+Notification(
+market_sniper_app\lib\
+screens\premium_screen
+.dart:83:      case 
+PremiumTier.elite:
+market_sniper_app\lib\
+screens\premium_screen
+.dart:85:        
+tierLabel = "ELITE";
+market_sniper_app\lib\
+screens\premium_screen
+.dart:142:          _b
+uildHeaderCell("ELITE"
+, 
+AppColors.marketBull),
+market_sniper_app\lib\
+screens\premium_screen
+.dart:199:            
+_buildStatusCell(row.a
+vailability[PremiumTie
+r.elite], row.limits[P
+remiumTier.elite], 
+false),
+market_sniper_app\lib\
+screens\premium_screen
+.dart:272:         
+label = "Unlock 
+Elite";
+market_sniper_app\lib\
+screens\premium_screen
+.dart:275:       case 
+PremiumTier.elite:
+market_sniper_app\lib\
+screens\premium_screen
+.dart:276:         
+label = "You are 
+Elite";
+market_sniper_app\lib\
+screens\ritual_preview
+_screen.dart:35:      
+        "ELITE 
+RITUAL",
+market_sniper_app\lib\
+screens\share_library_
+screen.dart:77:       
+                 
+Text("Unlock Elite 
+Sharing", style: AppTy
+pography.label(context
+).copyWith(color: AppC
+olors.textPrimary)),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:21:  
+final Map<String, 
+DateTime> _lastEliteTr
+iggerTimes = {}; // 
+Session-based 
+cooldown persistence
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:41:  
+void _triggerEliteExpl
+ain(String reason, 
+String key) {
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:43:   
+ final last = _lastEli
+teTriggerTimes[key];
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:46:   
+     content: 
+Text("Elite Explain 
+on cooldown for this 
+trigger."),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:53:   
+   _lastEliteTriggerTi
+mes[key] = 
+DateTime.now();
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:56:   
+ // Mock Route to 
+Elite Router
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:61:   
+     title: 
+Text("ELITE EXPLAIN 
+ROUTER", style: AppTyp
+ography.title(context)
+),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:70:   
+         const 
+Text("[Integrating 
+D43 Elite Arc...]", 
+style: 
+TextStyle(fontStyle: 
+FontStyle.italic, 
+color: AppColors.textD
+isabled)),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:132:  
+        if (_snapshot 
+!= null) _buildEliteTr
+igger(context, 
+_snapshot!),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:1765: 
+              _buildDe
+gradeRuleItem("Synthes
+is STALE", "Elite 
+Explain Trigger (if 
+enabled)", "Elite 
+Overlay only"),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:1778: 
+ Widget _buildEliteTri
+gger(BuildContext 
+context, 
+UniverseSnapshot 
+snapshot) {
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:1790: 
+   final last = _lastE
+liteTriggerTimes[key];
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:1797: 
+            "[DEBUG] 
+Elite Trigger 
+Cooldown: $key", 
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:1807: 
+       onTap: () => _t
+riggerEliteExplain(sna
+pshot.synthesis.state,
+ key),
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:1832: 
+                
+"Elite can explain 
+this shift",
+market_sniper_app\lib\
+widgets\dashboard_widg
+ets.dart:4:import '../
+logic/elite_messages.d
+art';
+market_sniper_app\lib\
+widgets\dashboard_widg
+ets.dart:88:          
+         EliteExplainN
+otification(key).dispa
+tch(context);
+market_sniper_app\lib\
+widgets\dashboard_widg
+ets.dart:129:         
+          EliteExplain
+Notification(key).disp
+atch(context);
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:9:impor
+t '../logic/elite_ment
+or_brain.dart';
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:12:impo
+rt '../logic/elite_con
+textual_recall_engine.
+dart'; // D43.13
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:14:impo
+rt '../logic/elite_acc
+ess_window_controller.
+dart'; // D45.07
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:16:enum
+ EliteTier { free, 
+plus, elite }
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:18:clas
+s 
+EliteInteractionSheet 
+extends 
+StatefulWidget {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:24:  
+const EliteInteraction
+Sheet({
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:33:  St
+ate<EliteInteractionSh
+eet> createState() => 
+_EliteInteractionSheet
+State();
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:36:clas
+s _EliteInteractionShe
+etState extends State<
+EliteInteractionSheet>
+ {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:37:  
+EliteTier _tier = 
+EliteTier.free; // 
+Default safe, updated 
+in initState
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:56:  El
+iteContextualRecallSna
+pshot? 
+_recallSnapshot;
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:66:    
+// D45.07: Resolve 
+Elite Access 
+(Idempotent Guard)
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:87:    
+final access = await E
+liteAccessWindowContro
+ller.resolve();
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:92:    
+     _tier = 
+EliteTier.elite;
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:97:    
+     _tier = 
+EliteTier.free; 
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:105:   
+    await SessionThrea
+dMemoryStore().append(
+"ELITE", access.system
+Notice!); // System 
+as Elite
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:128:   
+      final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/context/
+status'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:143:   
+      final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/what_cha
+nged'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:160:   
+       final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/agms/rec
+all?tier=$tierStr'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:193:   
+ if (_tier == 
+EliteTier.free && key 
+!= 'MARKET_REGIME') {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:210:   
+   final url = Uri.par
+se('${AppConfig.apiBas
+eUrl}/elite/explain/st
+atus');
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:248:   
+   final response = 
+await http.get(Uri.par
+se('${AppConfig.apiBas
+eUrl}/elite/os/snapsho
+t'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:259:   
+      _statusText = El
+iteMentorBrain().expla
+inReadyStatus;
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:267:   
+    await SessionThrea
+dMemoryStore().append(
+"ELITE", "Context 
+Explained: [REGIME/RIS
+K/STATUS]");
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:286:   
+     final response = 
+await http.get(Uri.par
+se('${AppConfig.apiBas
+eUrl}/elite/script/fir
+st_interaction'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:307:   
+   // Re-reading 
+requirements: "Wire 
+EliteInteractionSheet 
+to use MentorBrain 
+for: Greeting line".
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:310:   
+   final 
+mentorGreeting = Elite
+MentorBrain().getGreet
+ing("Morning", 
+"Sniper");
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:324:   
+            final 
+bool isLocked = 
+(_tier == 
+EliteTier.free && 
+tierMin != 'free') || 
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:325:   
+                      
+            (_tier == 
+EliteTier.plus && 
+tierMin == 'elite');
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:347:   
+         if (_tier == 
+EliteTier.free)
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:350:   
+               child: 
+const Text("Upgrade 
+to Unlock Elite 
+Insights", style: 
+TextStyle(color: AppCo
+lors.stateLocked, 
+fontSize: 10, 
+fontStyle: 
+FontStyle.italic)),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:373:   
+       SessionThreadMe
+moryStore().append("EL
+ITE", 
+q['answer_template'] 
+?? "Answered.");
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:385:   
+       SessionThreadMe
+moryStore().append("EL
+ITE", "Routing 
+explanation for ${q['a
+ction_payload']}...");
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:465:   
+                      
+    child: 
+Text("ELITE HOME", 
+style: AppTypography.c
+aption(context).copyWi
+th(color: 
+AppColors.accentCyan, 
+fontWeight: 
+FontWeight.bold)),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:527:   
+  if (_tier == 
+EliteTier.free && key 
+!= 'MARKET_REGIME') {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:590:   
+           EliteMentor
+Brain().formatHeader("
+Elite Context 
+Engine"),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:731:   
+               "TONE: 
+${EliteMentorBrain().t
+oneMode.name.toUpperCa
+se()}",
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:762:   
+      future: http.get
+(Uri.parse('${AppConfi
+g.apiBaseUrl}/elite/os
+/snapshot')),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:896:   
+                      
+Text(isUser ? "YOU: " 
+: "ELITE: ", 
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:950:   
+                await 
+SessionThreadMemorySto
+re().append("ELITE", 
+"Ritual Prompt 
+Shown.");
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1078:  
+         final 
+response = await http.
+get(Uri.parse('${AppCo
+nfig.apiBaseUrl}/elite
+/micro_briefing/open')
+);
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1108:  
+     await SessionThre
+adMemoryStore().append
+("ELITE", fullText);
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1164:  
+        final engine 
+= EliteContextualRecal
+lEngine();
+market_sniper_app\lib\
+widgets\share\evidence
+_ghost_overlay.dart:6:
+  final bool isElite;
+market_sniper_app\lib\
+widgets\share\evidence
+_ghost_overlay.dart:8:
+  const EvidenceGhostO
+verlay({super.key, 
+required 
+this.isElite});
+market_sniper_app\lib\
+widgets\share\evidence
+_ghost_overlay.dart:12
+:    if (!isElite) 
+return const 
+SizedBox.shrink();
+market_sniper_app\lib\
+widgets\share\share_bo
+oster_sheet.dart:72:  
+              child: 
+Text("Unlock Elite", 
+style: AppTypography.l
+abel(context).copyWith
+(color: AppColors.stat
+eStale)),
+market_sniper_app\lib\
+widgets\share\share_pr
+eview_sheet.dart:30:  
+  final isElite = 
+currentTier == 
+PremiumTier.elite || 
+isFounder;
+market_sniper_app\lib\
+widgets\share\share_pr
+eview_sheet.dart:45:  
+     isElite: isElite,
+
+

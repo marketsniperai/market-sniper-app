@@ -1,0 +1,7 @@
+{
+    "service": "marketsniper-api",
+    "region": "us-central1",
+    "url": "https://marketsniper-api-3ygzdvszba-uc.a.run.app",
+    "ingress": "all",
+    "authentication": "required (inferred from 403)"
+}

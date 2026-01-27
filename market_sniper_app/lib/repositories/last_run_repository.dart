@@ -10,15 +10,14 @@ class LastRunRepository {
     try {
       // Use health_ext as canonical source for RunManifest
       final map = await api.fetchHealthExt();
-      
+
       final data = map['data'];
       if (data != null && map['status'] == 'VALID') {
-         return _mapFromManifest(data);
+        return _mapFromManifest(data);
       } else if (data != null && map.containsKey('data')) {
-         // Even if fallback, try to parse data if present
-         return _mapFromManifest(data);
+        // Even if fallback, try to parse data if present
+        return _mapFromManifest(data);
       }
-      
     } catch (_) {
       // Squelch for resilience
     }
@@ -30,7 +29,7 @@ class LastRunRepository {
     final statusStr = (json['status'] as String? ?? 'UNKNOWN').toUpperCase();
     final runId = json['run_id'] as String? ?? 'UNKNOWN';
     final timestampStr = json['timestamp'] as String?; // "2026-01-14T03:00:00Z"
-    
+
     // Parse Type
     LastRunType type = LastRunType.unknown;
     if (modeStr == 'FULL') {
@@ -39,7 +38,7 @@ class LastRunRepository {
     if (modeStr == 'LIGHT') {
       type = LastRunType.light;
     }
-    
+
     // Parse Result
     LastRunResult result = LastRunResult.unknown;
     if (statusStr == 'SUCCESS' || statusStr == 'OK') {
@@ -51,23 +50,22 @@ class LastRunRepository {
     } else if (statusStr == 'FAILED' || statusStr == 'FAILURE') {
       result = LastRunResult.failed;
     }
-    
+
     // Calculate Age
     int age = -1;
     if (timestampStr != null) {
       try {
         final nowUtc = DateTime.now().toUtc();
-        final runTimeUtc = DateTime.parse(timestampStr).toUtc(); 
+        final runTimeUtc = DateTime.parse(timestampStr).toUtc();
         age = nowUtc.difference(runTimeUtc).inSeconds;
       } catch (_) {}
     }
-    
+
     return LastRunSnapshot(
-      type: type,
-      result: result,
-      ageSeconds: age,
-      runId: runId,
-      timestamp: timestampStr
-    );
+        type: type,
+        result: result,
+        ageSeconds: age,
+        runId: runId,
+        timestamp: timestampStr);
   }
 }

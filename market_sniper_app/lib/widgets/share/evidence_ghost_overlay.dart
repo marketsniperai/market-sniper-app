@@ -29,7 +29,9 @@ class EvidenceGhostOverlay extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                border: Border.all(color: AppColors.textDisabled.withValues(alpha: 0.1), width: 2),
+                border: Border.all(
+                    color: AppColors.textDisabled.withValues(alpha: 0.1),
+                    width: 2),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(

@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart'; // kIsWeb
 import 'package:path_provider/path_provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 class SessionThreadMemoryStore {
-  static final SessionThreadMemoryStore _instance = SessionThreadMemoryStore._internal();
+  static final SessionThreadMemoryStore _instance =
+      SessionThreadMemoryStore._internal();
   factory SessionThreadMemoryStore() => _instance;
   SessionThreadMemoryStore._internal();
 
@@ -15,7 +17,7 @@ class SessionThreadMemoryStore {
     'last_updated_utc': '',
     'turns': <Map<String, String>>[],
   };
-  
+
   bool _initialized = false;
 
   /// Initialize the store and load data.
@@ -25,6 +27,12 @@ class SessionThreadMemoryStore {
       tz.initializeTimeZones();
     } catch (_) {
       // Ignore if already initialized
+    }
+
+    if (kIsWeb) {
+      print('MEMORY_STORE: WEB_FALLBACK_IN_MEMORY (SessionThreadMemoryStore)');
+      _initialized = true;
+      return;
     }
 
     try {
@@ -42,22 +50,23 @@ class SessionThreadMemoryStore {
       try {
         final content = await _file!.readAsString();
         // Degrade check: if massive, nuke it
-        if (content.length > 5000) { 
+        if (content.length > 5000) {
           await clear();
           return;
         }
         final Map<String, dynamic> loaded = jsonDecode(content);
         _data = loaded;
-        
+
         // Type safety for turns
         if (!_data.containsKey('turns') || _data['turns'] is! List) {
-           _data['turns'] = <Map<String, String>>[];
+          _data['turns'] = <Map<String, String>>[];
         } else {
-           // Ensure items are Map<String, String>
-           final rawList = _data['turns'] as List;
-           _data['turns'] = rawList.map((e) => Map<String, String>.from(e)).toList();
+          // Ensure items are Map<String, String>
+          final rawList = _data['turns'] as List;
+          _data['turns'] =
+              rawList.map((e) => Map<String, String>.from(e)).toList();
         }
-        
+
         await _checkReset();
       } catch (e) {
         await clear();
@@ -69,14 +78,13 @@ class SessionThreadMemoryStore {
     try {
       final detroit = tz.getLocation('America/Detroit');
       final nowEt = tz.TZDateTime.now(detroit);
-      final effectiveDate = nowEt.hour < 4 
-          ? nowEt.subtract(const Duration(days: 1)) 
-          : nowEt;
-      
+      final effectiveDate =
+          nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
+
       return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
     } catch (e) {
       final now = DateTime.now().toUtc();
-      return "${now.year}-${now.month}-${now.day}"; 
+      return "${now.year}-${now.month}-${now.day}";
     }
   }
 
@@ -97,9 +105,10 @@ class SessionThreadMemoryStore {
       'ts_utc': DateTime.now().toUtc().toIso8601String(),
     };
 
-    List<Map<String, String>> turns = _data['turns'] as List<Map<String, String>>;
+    List<Map<String, String>> turns =
+        _data['turns'] as List<Map<String, String>>;
     turns.add(turn);
-    
+
     _data['last_updated_utc'] = DateTime.now().toUtc().toIso8601String();
     _data['day_id'] = _getCurrentDayId();
 
@@ -113,12 +122,12 @@ class SessionThreadMemoryStore {
       'turns': <Map<String, String>>[],
     };
     if (_file != null) {
-       // Just overwrite with empty data to avoid file open issues if we deleted
-       // but strictly speaking deleting is fine too. Let's write empty.
-       await _save();
+      // Just overwrite with empty data to avoid file open issues if we deleted
+      // but strictly speaking deleting is fine too. Let's write empty.
+      await _save();
     }
   }
-  
+
   Future<void> _save() async {
     if (_file == null) return;
     try {
@@ -131,7 +140,8 @@ class SessionThreadMemoryStore {
   Future<void> _enforceCapsAndSave() async {
     if (_file == null) return;
 
-    List<Map<String, String>> turns = _data['turns'] as List<Map<String, String>>;
+    List<Map<String, String>> turns =
+        _data['turns'] as List<Map<String, String>>;
 
     // 1. Cap Count to 12
     while (turns.length > 12) {
@@ -155,7 +165,9 @@ class SessionThreadMemoryStore {
 
   List<Map<String, String>> getTurns() {
     if (_data['turns'] is List) {
-       return (_data['turns'] as List).map((e) => Map<String, String>.from(e)).toList();
+      return (_data['turns'] as List)
+          .map((e) => Map<String, String>.from(e))
+          .toList();
     }
     return [];
   }

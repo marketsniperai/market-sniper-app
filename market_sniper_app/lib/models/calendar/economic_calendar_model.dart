@@ -1,6 +1,9 @@
 enum CalendarFreshness { live, stale, delayed, offline }
+
 enum CalendarSource { pipeline, cache, offline }
+
 enum EventImpact { high, medium, low }
+
 enum EventCategory { macro, earnings, other }
 
 class CalendarEvent {
@@ -10,7 +13,7 @@ class CalendarEvent {
   final EventCategory category;
   final EventImpact impact;
   final String source; // e.g., "BLS", "FED", "AAPL"
-  
+
   const CalendarEvent({
     required this.id,
     required this.title,
@@ -26,7 +29,7 @@ class EconomicCalendarViewModel {
   final CalendarSource source;
   final DateTime asOfUtc;
   final List<CalendarEvent> events;
-  
+
   const EconomicCalendarViewModel({
     required this.freshness,
     required this.source,

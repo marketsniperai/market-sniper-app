@@ -1,0 +1,277 @@
+﻿
+market_sniper_app\lib\
+main.dart:8:import 'se
+rvices/notification_se
+rvice.dart'; // Polish
+market_sniper_app\lib\
+main.dart:9:import 'se
+rvices/human_mode_serv
+ice.dart'; // Polish 
+Human Mode
+market_sniper_app\lib\
+main.dart:21:     Noti
+ficationService().setN
+avigatorKey(navigatorK
+ey);
+market_sniper_app\lib\
+main.dart:22:     Noti
+ficationService().init
+();
+market_sniper_app\lib\
+main.dart:23:     Huma
+nModeService().init();
+ // Polish Human Mode
+market_sniper_app\lib\
+main.dart:50:         
+ listenable: 
+HumanModeService(),
+market_sniper_app\lib\
+domain\universe\core20
+_universe.dart:63:    
+SymbolDefinition(symbo
+l: 'XLC', 
+displayLabel: 'XLC', 
+category: 'Sectors', 
+description: 'Comm 
+Services'),
+market_sniper_app\lib\
+logic\tone.dart:2:impo
+rt '../services/human_
+mode_service.dart';
+market_sniper_app\lib\
+logic\tone.dart:11:   
+ // For reactive 
+rebuilds, the widget 
+usually listens to 
+the service 
+market_sniper_app\lib\
+logic\tone.dart:17:   
+ if (HumanModeService(
+).enabled) {
+market_sniper_app\lib\
+logic\share\caption_se
+rvice.dart:8:class 
+CaptionService {
+market_sniper_app\lib\
+logic\share\share_comp
+oser.dart:4:import 'wa
+termark_service.dart';
+market_sniper_app\lib\
+logic\share\share_comp
+oser.dart:81:       
+child: WatermarkServic
+e.applyWatermark(
+market_sniper_app\lib\
+logic\share\share_id_s
+ervice.dart:5:class 
+ShareIdService {
+market_sniper_app\lib\
+logic\share\watermark_
+service.dart:4:class 
+WatermarkService {
+market_sniper_app\lib\
+models\premium\premium
+_matrix_model.dart:2:i
+mport 'package:flutter
+/services.dart';
+market_sniper_app\lib\
+repositories\dashboard
+_repository.dart:2:imp
+ort '../services/api_c
+lient.dart';
+market_sniper_app\lib\
+repositories\last_run_
+repository.dart:1:impo
+rt '../services/api_cl
+ient.dart';
+market_sniper_app\lib\
+repositories\system_he
+alth_repository.dart:1
+:import '../services/a
+pi_client.dart';
+market_sniper_app\lib\
+repositories\universe_
+repository.dart:2:impo
+rt '../services/api_cl
+ient.dart';
+market_sniper_app\lib\
+repositories\war_room_
+repository.dart:1:impo
+rt '../services/api_cl
+ient.dart';
+market_sniper_app\lib\
+repositories\watchlist
+_log_repository.dart:1
+:import '../services/a
+pi_client.dart';
+market_sniper_app\lib\
+screens\account_screen
+.dart:4:import 'packag
+e:flutter/services.dar
+t';
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:7:import '../s
+ervices/api_client.dar
+t';
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:10:import '../servi
+ces/human_mode_service
+.dart'; // Polish
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:11:import '../servi
+ces/notification_servi
+ce.dart';
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:33:    final 
+notifs = await Notific
+ationService().isEnabl
+ed();
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:73:                
+ NotificationService()
+.setEnabled(val).then(
+(_) {
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:85:              Hu
+manModeService().enabl
+ed,
+market_sniper_app\lib\
+screens\menu_screen.da
+rt:87:                
+ HumanModeService().se
+tEnabled(val);
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:6:import '../se
+rvices/api_client.dart
+'; // D44.05
+market_sniper_app\lib\
+screens\war_room_scree
+n.dart:9:import '../se
+rvices/api_client.dart
+';
+market_sniper_app\lib\
+screens\watchlist_scre
+en.dart:9:import '../s
+ervices/api_client.dar
+t'; // D44.02B
+market_sniper_app\lib\
+screens\universe\unive
+rse_screen.dart:6:impo
+rt '../../services/api
+_client.dart';
+market_sniper_app\lib\
+services\human_mode_se
+rvice.dart:5:class 
+HumanModeService 
+extends 
+ChangeNotifier {
+market_sniper_app\lib\
+services\human_mode_se
+rvice.dart:6:  static 
+final 
+HumanModeService 
+_instance = HumanModeS
+ervice._internal();
+market_sniper_app\lib\
+services\human_mode_se
+rvice.dart:7:  
+factory 
+HumanModeService() => 
+_instance;
+market_sniper_app\lib\
+services\human_mode_se
+rvice.dart:8:  HumanMo
+deService._internal();
+market_sniper_app\lib\
+services\notification_
+service.dart:9:class 
+NotificationService {
+market_sniper_app\lib\
+services\notification_
+service.dart:10:  
+static final 
+NotificationService 
+_instance = Notificati
+onService._internal();
+market_sniper_app\lib\
+services\notification_
+service.dart:11:  
+factory 
+NotificationService() 
+=> _instance;
+market_sniper_app\lib\
+services\notification_
+service.dart:12:  Noti
+ficationService._inter
+nal();
+market_sniper_app\lib\
+services\notification_
+service.dart:35:      
+debugPrint("Notificati
+onService: Could not 
+set ET timezone, 
+trailing local time. 
+$e");
+market_sniper_app\lib\
+services\notification_
+service.dart:57:     d
+ebugPrint("Notificatio
+nService: Tapped paylo
+ad=${response.payload}
+");
+market_sniper_app\lib\
+services\notification_
+service.dart:98:      
+  debugPrint("Notifica
+tionService: 
+Permission denied, 
+but enabled in 
+prefs.");
+market_sniper_app\lib\
+services\notification_
+service.dart:113:    d
+ebugPrint("Notificatio
+nService: Scheduling 
+Rituals...");
+market_sniper_app\lib\
+services\notification_
+service.dart:172:     
+ debugPrint("Notificat
+ionService: Scheduled 
+'$title' for 
+$scheduledDate");
+market_sniper_app\lib\
+services\notification_
+service.dart:174:     
+ debugPrint("Notificat
+ionService: Failed to 
+schedule id=$id. 
+Error: $e");
+market_sniper_app\lib\
+services\notification_
+service.dart:180:    d
+ebugPrint("Notificatio
+nService: Cancelled 
+all rituals.");
+market_sniper_app\lib\
+widgets\share\share_pr
+eview_sheet.dart:5:imp
+ort '../../logic/share
+/caption_service.dart'
+;
+market_sniper_app\lib\
+widgets\share\share_pr
+eview_sheet.dart:34:  
+  final caption = Capt
+ionService.generate(_s
+electedPreset, 
+ticker: widget.title);
+
+

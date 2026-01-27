@@ -1,7 +1,7 @@
 # MAP CORE (G0.CANON_MAP)
 
 **Authority:** IMMUTABLE
-**Sync Date:** Day 31 (The Surgeon)
+**Sync Date:** Day 47 (Institutional Polish)
 
 ## Phase 0: Genesis (Day 00-02) - COMPLETED
 - Workspace & Repo Init.
@@ -45,4 +45,28 @@
 - **Elite Experience:** Overlay, Mentor tone, Explain Router, Safety Layer.
 - **Layout Police:** Infrastructure Guard for strict layout discipline.
 
-## Phase 8: Expansion (Future)
+## Phase 8: Watchlist & On-Demand (Day 44) - COMPLETED
+- **Watchlist Store:** Local persistence, live chips, easy-add.
+- **On-Demand Engine:** Universe-agnostic search (Pipeline/Cache/Offline).
+- **Institutional Guard**: Lexicon enforcement on results.
+
+## Phase 9: Feature Phase v1 (Day 45) - COMPLETED
+- **Premium Matrix**: Trial/Plus/Elite logic.
+- **Share Engine**: Watermarked institutional sharing.
+- **Command Center**: Elite-only mystery surface.
+- **News & Calendar**: High-fidelity data surfaces.
+- **Canon Debt Purge**: Pending Ledger & Closure Hook V1.
+
+## Phase 10: Institutional Polish (Day 46) - COMPLETED
+- **Regime Sentinel**: Detail view, probabilistic buckets, discipline rules.
+- **Watchlist Micro-Polish**: UX refinement, SnackBar fix, Premium typography.
+- **Widget Polish**: Breathing accents, unified headers (Neon Cyan).
+
+## Phase 11: News Engine (Day 47) - COMPLETED (ARCHITECTURE)
+- **News Demo Engine**: `LocalDemoNewsDigestSource` with deterministic data.
+- **Recall Ranker**: `Macro > Watchlist > General` bucket logic (Rules-Only).
+- **Premium UI**: Flip cards, impact tags, demo indication.
+- **Pending Integration**: Provider API debt registered.
+
+## Phase 12: Future Expansion
+

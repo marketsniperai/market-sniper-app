@@ -71,7 +71,7 @@ class RitualScheduler {
 
     final nowEt = _getNowEt();
     final dayId = _getDayId(nowEt);
-    
+
     // 1. Check Cooldown
     final lastFiredDay = _prefs?.getString('ritual_${ritual.id}_last_day');
     if (lastFiredDay == dayId) {
@@ -87,22 +87,22 @@ class RitualScheduler {
       ritual.targetHour,
       ritual.targetMinute,
     );
-    
+
     final windowEnd = targetTime.add(Duration(minutes: ritual.windowMinutes));
 
     // Eligible if: targetTime <= now <= windowEnd
     if (nowEt.isAfter(targetTime) && nowEt.isBefore(windowEnd)) {
       return RitualStatus.ready;
     }
-    
+
     // Also handle case where "isAfter(targetTime)" includes "isAt(targetTime)" logic practically
     // and strictly speaking we might want exact minute check, but "now" is granular.
-    // Ensure we handle edge cases like just opened. 
+    // Ensure we handle edge cases like just opened.
     // Actually, simple comparison is fine.
-    
+
     return RitualStatus.notInWindow;
   }
-  
+
   /// Mark a ritual as fired for today.
   Future<void> markFired(RitualDefinition ritual) async {
     if (!_initialized) await init();
@@ -120,22 +120,23 @@ class RitualScheduler {
       // Fallback to UTC if timezone fail (shouldn't happen if initialized)
       final now = DateTime.now().toUtc();
       // Mock location or just return UTC as "ET" for safety to avoid crash
-      return tz.TZDateTime.utc(now.year, now.month, now.day, now.hour, now.minute);
+      return tz.TZDateTime.utc(
+          now.year, now.month, now.day, now.hour, now.minute);
     }
   }
 
   String _getDayId(tz.TZDateTime date) {
     return "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
   }
-  
+
   /// Get next occurrence string (for UI)
   String getNextTimeString(RitualDefinition ritual) {
-     final nowEt = _getNowEt();
-     // If passed today, assume tomorrow? 
-     // UI just asks for "Next: 09:20 ET". 
-     // We can just return the static time.
-     final h = ritual.targetHour.toString().padLeft(2,'0');
-     final m = ritual.targetMinute.toString().padLeft(2,'0');
-     return "$h:$m ET";
+    final nowEt = _getNowEt();
+    // If passed today, assume tomorrow?
+    // UI just asks for "Next: 09:20 ET".
+    // We can just return the static time.
+    final h = ritual.targetHour.toString().padLeft(2, '0');
+    final m = ritual.targetMinute.toString().padLeft(2, '0');
+    return "$h:$m ET";
   }
 }

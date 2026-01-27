@@ -1,16 +1,6 @@
-enum LastRunResult {
-  ok,
-  partial,
-  misfire,
-  failed,
-  unknown
-}
+enum LastRunResult { ok, partial, misfire, failed, unknown }
 
-enum LastRunType {
-  full,
-  light,
-  unknown
-}
+enum LastRunType { full, light, unknown }
 
 class LastRunSnapshot {
   final LastRunType type;

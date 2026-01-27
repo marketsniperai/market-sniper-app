@@ -10,16 +10,16 @@ class PlusUnlockEngine {
   static Future<void> checkAndIncrement() async {
     if (AppConfig.isFounderBuild) return; // Founders bypass, no need to track?
     // Actually, prompt says "Plus unlocks... Elite unlocks Day 1".
-    // If user is Plus, we track. If Elite user? 
-    // If Elite, they have Day 1 access. 
+    // If user is Plus, we track. If Elite user?
+    // If Elite, they have Day 1 access.
     // If they downgrade to Plus? They might need progress.
     // Safest: Track for everyone? Or just track if current tier is Plus?
-    // Let's track for everyone to build history (growth). 
+    // Let's track for everyone to build history (growth).
     // And it's harmless.
 
     try {
       final nowEt = MarketTimeHelper.getNowEt();
-      
+
       // 1. Must be Market Hours (09:30 - 16:00 ET)
       if (!MarketTimeHelper.isMarketHours(nowEt)) {
         return;
@@ -39,7 +39,6 @@ class PlusUnlockEngine {
       if (kDebugMode) {
         print("[PLUS_UNLOCK] Incremented for $todayId");
       }
-
     } catch (e) {
       if (kDebugMode) print("[PLUS_UNLOCK] Error: $e");
     }

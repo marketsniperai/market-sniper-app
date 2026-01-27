@@ -1,0 +1,91 @@
+
+lib\layout\main_layout.dart:154:  void _showEliteOverlay({String? explainKey, Map<String, dynamic>? payload, bool resetToWelcome = false}) {
+lib\layout\main_layout.dart:166:             initialPayload: payload,
+lib\layout\main_layout.dart:183:          _showEliteOverlay(explainKey: notification.explainKey, payload: notification.payload);
+lib\logic\dashboard_degrade_policy.dart:1:import '../models/dashboard_payload.dart';
+lib\logic\dashboard_degrade_policy.dart:27:    required DashboardPayload? payload,
+lib\logic\dashboard_degrade_policy.dart:32:    if (fetchError != null && payload == null) {
+lib\logic\dashboard_degrade_policy.dart:39:    // 2. Missing Payload
+lib\logic\dashboard_degrade_policy.dart:40:    if (payload == null) {
+lib\logic\dashboard_degrade_policy.dart:43:        reasonCode: "NO_PAYLOAD",
+lib\logic\dashboard_degrade_policy.dart:57:    // Check critical fields. DashboardPayload usually non-nullable fields are required by structure,
+lib\logic\dashboard_degrade_policy.dart:61:    if (payload.runId == "UNKNOWN") missing.add("run_id");
+lib\logic\dashboard_degrade_policy.dart:62:    if (payload.widgets.isEmpty) missing.add("widgets_manifest");
+lib\logic\data_state_resolver.dart:1:import '../models/dashboard_payload.dart';
+lib\logic\data_state_resolver.dart:46:    required DashboardPayload? dashboard,
+lib\logic\data_state_resolver.dart:88:    DashboardPayload d,
+lib\logic\elite_messages.dart:5:  final Map<String, dynamic>? payload;
+lib\logic\elite_messages.dart:7:  const EliteExplainNotification(this.explainKey, {this.payload});
+lib\logic\standard_envelope.dart:23:  // Payload for raw access if strictly needed (discouraged)
+lib\logic\standard_envelope.dart:24:  final Map<String, dynamic> rawPayload;
+lib\logic\standard_envelope.dart:34:    this.rawPayload = const {},
+lib\logic\standard_envelope.dart:70:    if (rawResponse["payload"] != null && rawResponse["payload"]["bullets"] is List) {
+lib\logic\standard_envelope.dart:71:       bullets = List<String>.from(rawResponse["payload"]["bullets"]);
+lib\logic\standard_envelope.dart:78:       final globalRisk = rawResponse["payload"]?["global_risk"] ?? "UNKNOWN";
+lib\logic\standard_envelope.dart:79:       final regime = rawResponse["payload"]?["regime"] ?? "UNKNOWN";
+lib\logic\standard_envelope.dart:100:      rawPayload: rawResponse,
+lib\logic\standard_envelope.dart:149:        rawPayload: envelope.rawPayload,
+lib\models\context_payload.dart:1:class ContextPayload {
+lib\models\context_payload.dart:7:  ContextPayload({
+lib\models\context_payload.dart:14:  factory ContextPayload.fromJson(Map<String, dynamic> json) {
+lib\models\context_payload.dart:15:    return ContextPayload(
+lib\models\dashboard_payload.dart:30:class DashboardPayload {
+lib\models\dashboard_payload.dart:38:  DashboardPayload({
+lib\models\dashboard_payload.dart:47:  factory DashboardPayload.fromJson(Map<String, dynamic> json) {
+lib\models\dashboard_payload.dart:53:    return DashboardPayload(
+lib\repositories\dashboard_repository.dart:1:import '../models/dashboard_payload.dart';
+lib\repositories\dashboard_repository.dart:14:  Future<DashboardPayload> fetchDashboard() async {
+lib\screens\dashboard_screen.dart:5:import '../models/dashboard_payload.dart';
+lib\screens\dashboard_screen.dart:41:  DashboardPayload? _dashboard;
+lib\screens\dashboard_screen.dart:113:          _dashboard = results[0] as DashboardPayload;
+lib\screens\dashboard_screen.dart:170:      payload: _dashboard,
+lib\screens\on_demand_panel.dart:523:                        payload: {
+lib\screens\dashboard\dashboard_composer.dart:2:import '../../models/dashboard_payload.dart';
+lib\screens\dashboard\dashboard_composer.dart:24:  final DashboardPayload? dashboard;
+lib\services\api_client.dart:4:import '../models/dashboard_payload.dart';
+lib\services\api_client.dart:5:import '../models/context_payload.dart';
+lib\services\api_client.dart:26:  Future<DashboardPayload> fetchDashboard() async {
+lib\services\api_client.dart:34:      return DashboardPayload.fromJson(data);
+lib\services\api_client.dart:40:  Future<ContextPayload> fetchContext() async {
+lib\services\api_client.dart:47:      return ContextPayload.fromJson(data);
+lib\services\api_client.dart:376:      "payload": {}
+lib\services\notification_router.dart:12:  static void route(GlobalKey<NavigatorState> navigatorKey, String? payload) {
+lib\services\notification_router.dart:13:    if (payload == null) return;
+lib\services\notification_router.dart:21:    // Payload routing
+lib\services\notification_router.dart:22:    if (payload == "ritual:briefing") {
+lib\services\notification_router.dart:37:    } else if (payload == "ritual:aftermarket") {
+lib\services\notification_service.dart:49:      onDidReceiveNotificationResponse: _onNotificationTap,
+lib\services\notification_service.dart:57:     debugPrint("NotificationService: Tapped payload=${response.payload}");
+lib\services\notification_service.dart:58:     if (_navigatorKey != null && response.payload != null) {
+lib\services\notification_service.dart:59:        NotificationRouter.route(_navigatorKey!, response.payload);
+lib\services\notification_service.dart:121:      payload: "ritual:briefing",
+lib\services\notification_service.dart:130:      payload: "ritual:aftermarket",
+lib\services\notification_service.dart:140:    required String payload,
+lib\services\notification_service.dart:170:        payload: payload,
+lib\widgets\dashboard_widgets.dart:2:import '../models/dashboard_payload.dart';
+lib\widgets\elite_interaction_sheet.dart:20:  final Map<String, dynamic>? initialPayload;
+lib\widgets\elite_interaction_sheet.dart:27:    this.initialPayload,
+lib\widgets\elite_interaction_sheet.dart:378:         _handleExplainRequest(q['action_payload']);
+lib\widgets\elite_interaction_sheet.dart:385:          SessionThreadMemoryStore().append("ELITE", "Routing explanation for ${q['action_payload']}...");
+lib\widgets\elite_interaction_sheet.dart:395:      // D44.13: On-Demand Payload Context
+lib\widgets\elite_interaction_sheet.dart:396:      if (_pendingExplainKey == 'EXPLAIN_ON_DEMAND_RESULT' && widget.initialPayload != null) {
+lib\widgets\elite_interaction_sheet.dart:397:          final p = widget.initialPayload!;
+lib\widgets\on_demand_context_strip.dart:90:    // 2. Try Payload
+lib\widgets\on_demand_context_strip.dart:91:    final payload = envelope.rawPayload['payload'] ?? envelope.rawPayload;
+lib\widgets\on_demand_context_strip.dart:92:    if (payload is Map && payload['sector'] != null) {
+lib\widgets\on_demand_context_strip.dart:93:      return payload['sector'].toString().toUpperCase();
+lib\widgets\on_demand_context_strip.dart:100:    // 1. Try Payload
+lib\widgets\on_demand_context_strip.dart:101:    final payload = envelope.rawPayload['payload'] ?? envelope.rawPayload;
+lib\widgets\on_demand_context_strip.dart:102:    if (payload is Map && payload['regime'] != null) {
+lib\widgets\on_demand_context_strip.dart:103:      return payload['regime'].toString().toUpperCase();
+lib\widgets\on_demand_context_strip.dart:109:    // 1. Try Payload
+lib\widgets\on_demand_context_strip.dart:110:    final payload = envelope.rawPayload['payload'] ?? envelope.rawPayload;
+lib\widgets\on_demand_context_strip.dart:111:    if (payload is Map && payload['overlay'] != null) {
+lib\widgets\on_demand_context_strip.dart:112:      return payload['overlay'].toString().toUpperCase();
+lib\widgets\on_demand_context_strip.dart:115:    if (payload is Map && payload['overlay_status'] != null) {
+lib\widgets\on_demand_context_strip.dart:116:      return payload['overlay_status'].toString().toUpperCase();
+lib\widgets\on_demand_context_strip.dart:122:    // 1. Try Payload (global_risk usually maps to Pulse state)
+lib\widgets\on_demand_context_strip.dart:123:    final payload = envelope.rawPayload['payload'] ?? envelope.rawPayload;
+lib\widgets\on_demand_context_strip.dart:124:    if (payload is Map && payload['global_risk'] != null) {
+lib\widgets\on_demand_context_strip.dart:125:      return payload['global_risk'].toString().toUpperCase();
+

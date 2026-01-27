@@ -1,0 +1,11 @@
+{
+    "timestamp_utc": "2026-01-23T21:55:00Z",
+    "fix_type": "NON_SYNTHETIC_GENERATION",
+    "generated_files": [
+        "lib/l10n/generated/app_localizations.dart",
+        "lib/l10n/generated/app_localizations_en.dart"
+    ],
+    "l10n_yaml_removed": true,
+    "compilation_status": "SUCCESS",
+    "web_launch_status": "LAUNCHING"
+}

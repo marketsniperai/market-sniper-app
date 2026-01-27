@@ -103,3 +103,22 @@
 - **Share Engine**: Watermarked institutional sharing.
 - **Command Center**: Elite-only mystery surface.
 - **News & Calendar**: High-fidelity data surfaces.
+## 12. Pending Ledger (Day 45) - ACTIVE
+- **Pending Ledger**: Single Source of Truth for debt and roadmap.
+- **Path**: `docs/canon/PENDING_LEDGER.md`
+- **Sync**: Day 45 (Canon Debt Purge)
+- **Status**: 10+ Active Items (Voice, Risk Lanes, Procedure, Lock, News Provider, etc.)
+- **Machine Index (Radar Input)**: [`outputs/proofs/canon/pending_index_v2.json`](../../outputs/proofs/canon/pending_index_v2.json)
+- **UI Surface**: `CanonDebtRadar` (V2.1). Fingerprint Guard + Integrity Check.
+
+## 13. Institutional Polish (Day 46) - COMPLETED
+- **Regime Sentinel**: Detailed market regime analysis and discipline buckets.
+- **Watchlist 2.0**: Unrestricted memory, snappier UX, auto-clearing snackbars.
+- **Widget Standard**: Breathing status accents, unified headers (Neon Cyan).
+
+## 14. News Engine (Day 47) - ARCHITECTURE READY
+- **News Demo**: Local deterministic source acting as "Premium Demo".
+- **Ranking Engine**: `Macro > Watchlist > General` logic (Rules-Only, No ML).
+- **UI**: Flip Cards (`NewsDigestCard`) with Impact Tags.
+- **Pending**: Provider Data Pipeline (Open).
+

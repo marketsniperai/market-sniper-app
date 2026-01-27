@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:market_sniper_app/theme/app_colors.dart';
 import 'package:market_sniper_app/widgets/atoms/status_chip.dart';
-import 'package:market_sniper_app/widgets/atoms/glass_card.dart';
+import 'package:market_sniper_app/widgets/atoms/neon_outline_card.dart';
 
 /// D36.3: Options Context Widget (Options Intelligence v1).
 /// Displays safe, descriptive options data (IV Regime, Skew, Expected Move).
@@ -10,7 +9,7 @@ import 'package:market_sniper_app/widgets/atoms/glass_card.dart';
 class OptionsContextWidget extends StatelessWidget {
   final Map<String, dynamic> data;
 
-  const OptionsContextWidget({Key? key, required this.data}) : super(key: key);
+  const OptionsContextWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +22,19 @@ class OptionsContextWidget extends StatelessWidget {
     final String? notes = data['notes'];
 
     // 2. Status Color Logic
-    Color statusColor = AppColors.textDim;
-    if (status == 'LIVE') statusColor = AppColors.primary;
-    if (status == 'PROVIDER_DENIED') statusColor = AppColors.cautious;
-    if (status == 'PROXY_ESTIMATED') statusColor = AppColors.cautious;
-    // N_A stays textDim
+    Color statusColor = AppColors.textSecondary; // was textDim
+    if (status == 'LIVE') {
+      statusColor = AppColors.stateLive; // was primary (Green context)
+    }
+    if (status == 'PROVIDER_DENIED') {
+      statusColor = AppColors
+          .stateLocked; // was cautious (Red/Locked context? OR Stale?) - Locking is red. Denied implies bad.
+    }
+    if (status == 'PROXY_ESTIMATED') {
+      statusColor = AppColors.stateStale; // was cautious (Yellow/Stale)
+    }
 
-    return GlassCard(
+    return NeonOutlineCard(
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
@@ -39,14 +44,16 @@ class OptionsContextWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                const Row(
                   children: [
-                    Icon(Icons.layers_outlined, size: 14, color: AppColors.textDim),
+                    Icon(Icons.layers_outlined,
+                        size: 14,
+                        color: AppColors.textSecondary), // was textDim
                     SizedBox(width: 6),
                     Text(
                       'OPTIONS INTELLIGENCE',
                       style: TextStyle(
-                        color: AppColors.textDim,
+                        color: AppColors.textSecondary, // was textDim
                         fontSize: 11,
                         letterSpacing: 0.5,
                         fontWeight: FontWeight.w600,
@@ -61,7 +68,7 @@ class OptionsContextWidget extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 6.0),
                         child: StatusChip(
                           label: coverage,
-                          color: AppColors.textDim,
+                          color: AppColors.textSecondary, // was textDim
                           isOutline: true,
                         ),
                       ),
@@ -74,7 +81,7 @@ class OptionsContextWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
 
             // Data Grid (3 Columns)
             Row(
@@ -88,18 +95,19 @@ class OptionsContextWidget extends StatelessWidget {
 
             // Optional Note (if present and meaningful)
             if (notes != null && notes.isNotEmpty) ...[
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: AppColors.surfaceLayer,
+                  color: AppColors.surface2, // was surfaceLayer
                   borderRadius: BorderRadius.circular(4),
-                  border: Border.all(color: AppColors.borderFaint),
+                  border: Border.all(
+                      color: AppColors.borderSubtle), // was borderFaint
                 ),
                 child: Text(
                   notes,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 11,
                     fontStyle: FontStyle.italic,
@@ -116,26 +124,28 @@ class OptionsContextWidget extends StatelessWidget {
   Widget _buildMetricColumn(String label, String value) {
     // Mute value if N/A
     final bool isNA = value == 'N/A';
-    
+
     // v1.1.0: Add tiny indicator if value is EST/PROXY? For now, standard text.
-    
+
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             label,
-            style: TextStyle(
-              color: AppColors.textDim,
+            style: const TextStyle(
+              color: AppColors.textSecondary, // was textDim
               fontSize: 9,
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             value,
             style: TextStyle(
-              color: isNA ? AppColors.textDim : AppColors.textPrimary,
+              color: isNA
+                  ? AppColors.textSecondary
+                  : AppColors.textPrimary, // was textDim
               fontSize: 13,
               fontWeight: FontWeight.w500,
               fontFamily: 'RobotoMono',

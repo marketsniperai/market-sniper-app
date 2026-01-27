@@ -1,0 +1,16 @@
+
+lib\config\app_config.dart:10:  static String get apiBaseUrl {
+lib\config\app_config.dart:16:    const mode = String.fromEnvironment('API_MODE', defaultValue: 'cloud');
+lib\config\app_config.dart:19:        'API_BASE_URL',
+lib\screens\dashboard_screen.dart:78:      debugPrint("FOUNDER=true, keyInjected=true, baseUrl=${AppConfig.apiBaseUrl}");
+lib\services\api_client.dart:13:      : baseUrl = AppConfig.apiBaseUrl,
+lib\widgets\elite_interaction_sheet.dart:128:         final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/context/status'));
+lib\widgets\elite_interaction_sheet.dart:143:         final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/what_changed'));
+lib\widgets\elite_interaction_sheet.dart:160:          final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/agms/recall?tier=$tierStr'));
+lib\widgets\elite_interaction_sheet.dart:210:      final url = Uri.parse('${AppConfig.apiBaseUrl}/elite/explain/status');
+lib\widgets\elite_interaction_sheet.dart:248:      final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/os/snapshot'));
+lib\widgets\elite_interaction_sheet.dart:286:        final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/script/first_interaction'));
+lib\widgets\elite_interaction_sheet.dart:762:         future: http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/os/snapshot')),
+lib\widgets\elite_interaction_sheet.dart:1078:           final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/micro_briefing/open'));
+lib\widgets\session_window_strip.dart:204:                        AppConfig.apiBaseUrl.contains('10.0.2.2') ? "API: LOCAL" : "API: CLOUD",
+

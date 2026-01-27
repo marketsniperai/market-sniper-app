@@ -13,7 +13,8 @@ class NewsDigestCard extends StatefulWidget {
   State<NewsDigestCard> createState() => _NewsDigestCardState();
 }
 
-class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProviderStateMixin {
+class _NewsDigestCardState extends State<NewsDigestCard>
+    with SingleTickerProviderStateMixin {
   bool _isFlipped = false;
 
   void _toggleFlip() {
@@ -35,8 +36,10 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
               final isUnder = (ValueKey(_isFlipped) != child!.key);
               var tilt = ((animation.value - 0.5).abs() - 0.5) * 0.003;
               tilt *= isUnder ? -1.0 : 1.0;
-              final value = isUnder ? 3.14 * animation.value : 3.14 * (1 - animation.value); 
-              
+              final value = isUnder
+                  ? 3.14 * animation.value
+                  : 3.14 * (1 - animation.value);
+
               return Transform(
                 transform: Matrix4.rotationY(value)..setEntry(3, 0, tilt),
                 alignment: Alignment.center,
@@ -45,7 +48,8 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
             },
           );
         },
-        layoutBuilder: (widget, list) => Stack(children: [widget ?? const SizedBox(), ...list]),
+        layoutBuilder: (widget, list) =>
+            Stack(children: [widget ?? const SizedBox(), ...list]),
         switchInCurve: Curves.easeInBack,
         switchOutCurve: Curves.easeInBack.flipped,
         child: _isFlipped ? _buildBack(context) : _buildFront(context),
@@ -55,7 +59,7 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
 
   Widget _buildFront(BuildContext context) {
     final timeStr = DateFormat('HH:mm').format(widget.item.publishedUtc);
-    
+
     return Container(
       key: const ValueKey(false),
       margin: const EdgeInsets.only(bottom: 8),
@@ -85,7 +89,8 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
                 ),
               ),
               const SizedBox(width: 8),
-              Icon(Icons.touch_app, size: 14, color: AppColors.accentCyan.withValues(alpha: 0.5)),
+              Icon(Icons.touch_app,
+                  size: 14, color: AppColors.neonCyan.withValues(alpha: 0.5)),
             ],
           ),
           const SizedBox(height: 6),
@@ -94,19 +99,23 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
               Text(
                 "${widget.item.source} • $timeStr UTC",
                 style: GoogleFonts.robotoMono(
-                  color: AppColors.textDisabled, 
-                  fontSize: 10
-                ),
+                    color: AppColors.textDisabled, fontSize: 10),
               ),
               if (widget.item.impact == DigestImpact.high) ...[
                 const SizedBox(width: 8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
                   decoration: BoxDecoration(
-                    color: AppColors.marketBear.withValues(alpha: 0.2), // Red for impact
+                    color: AppColors.marketBear
+                        .withValues(alpha: 0.2), // Red for impact
                     borderRadius: BorderRadius.circular(2),
                   ),
-                  child: Text("HIGH IMPACT", style: TextStyle(color: AppColors.marketBear, fontSize: 9, fontWeight: FontWeight.bold)),
+                  child: const Text("HIGH IMPACT",
+                      style: TextStyle(
+                          color: AppColors.marketBear,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold)),
                 ),
               ]
             ],
@@ -136,9 +145,11 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: AppColors.surface1,
-        border: Border.all(color: AppColors.accentCyan.withValues(alpha: 0.3)), // Active border
+        border: Border.all(
+            color:
+                AppColors.neonCyan.withValues(alpha: 0.3)), // Active border
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(color: AppColors.glowCyan, blurRadius: 4, spreadRadius: 0),
         ],
       ),
@@ -148,7 +159,7 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
           Text(
             widget.item.title,
             style: GoogleFonts.inter(
-              color: AppColors.accentCyan, // Highlight
+              color: AppColors.neonCyan, // Highlight
               fontSize: 13,
               fontWeight: FontWeight.w700,
             ),
@@ -159,14 +170,15 @@ class _NewsDigestCardState extends State<NewsDigestCard> with SingleTickerProvid
               Text(
                 "${widget.item.source} • $timeStr UTC",
                 style: GoogleFonts.robotoMono(
-                  color: AppColors.textDisabled, 
-                  fontSize: 10
-                ),
+                    color: AppColors.textDisabled, fontSize: 10),
               ),
               const Spacer(),
               Text(
                 "Tap to flip back",
-                style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 9, fontStyle: FontStyle.italic),
+                style: GoogleFonts.inter(
+                    color: AppColors.textDisabled,
+                    fontSize: 9,
+                    fontStyle: FontStyle.italic),
               ),
             ],
           ),

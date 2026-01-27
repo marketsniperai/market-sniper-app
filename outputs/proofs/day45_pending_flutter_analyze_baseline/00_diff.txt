@@ -1,0 +1,13 @@
+# Proof: D45 Pending Flutter Analyze Baseline Registration
+
+## Changes
+1. **PENDING_LEDGER.md**:
+   - Added `PEND_OPS_FLUTTER_ANALYZE_BASELINE_CLEANUP` to Section 3 (Tech Debt).
+   - Origin: "Day 45 Governance Note".
+   - Trigger: "Release Polish".
+   
+2. **Canon Index**:
+   - Regenerated `pending_index_v2.json`.
+
+## Verification
+- `py backend/os_ops/generate_canon_index.py`: Executed successfully.

@@ -1,0 +1,85 @@
+{
+    "inventory_date": "2026-01-23",
+    "task": "POLISH.SHELL.SWEEP.01",
+    "description": "Inventory of screens violating Global Shell (Body-Only) architecture by defining internal Scaffolds.",
+    "violations": [
+        {
+            "screen": "WarRoomScreen",
+            "path": "lib/screens/war_room_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "UniverseScreen",
+            "path": "lib/screens/universe/universe_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "ShareLibraryScreen",
+            "path": "lib/screens/share_library_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "ShareAttributionDashboardScreen",
+            "path": "lib/screens/share_attribution_dashboard_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "RitualPreviewScreen",
+            "path": "lib/screens/ritual_preview_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "PremiumScreen",
+            "path": "lib/screens/premium_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "PartnerTermsScreen",
+            "path": "lib/screens/partner_terms_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "WatchlistScreen",
+            "path": "lib/screens/watchlist_screen.dart",
+            "violation": "Has Scaffold",
+            "type": "Core Tab"
+        },
+        {
+            "screen": "NewsScreen",
+            "path": "lib/screens/news_screen.dart",
+            "violation": "Has Scaffold",
+            "type": "Core Tab"
+        },
+        {
+            "screen": "CalendarScreen",
+            "path": "lib/screens/calendar_screen.dart",
+            "violation": "Has Scaffold",
+            "type": "Core Tab"
+        },
+        {
+            "screen": "OnDemandPanel",
+            "path": "lib/screens/on_demand_panel.dart",
+            "violation": "Has Scaffold",
+            "type": "Core Tab"
+        },
+        {
+            "screen": "CommandCenterScreen",
+            "path": "lib/screens/command_center_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        },
+        {
+            "screen": "AccountScreen",
+            "path": "lib/screens/account_screen.dart",
+            "violation": "Has Scaffold, AppBar",
+            "type": "Non-Tab (Pushed)"
+        }
+    ]
+}

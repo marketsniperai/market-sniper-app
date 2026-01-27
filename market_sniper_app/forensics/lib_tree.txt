@@ -1,0 +1,170 @@
+Folder PATH listing
+Volume serial number is A4FD-E415
+C:\MSR\MARKETSNIPERREPO\MARKET_SNIPER_APP\LIB
+¦   main.dart
+¦   
++---config
+¦       app_config.dart
+¦       
++---domain
+¦   +---universe
+¦           core20_universe.dart
+¦           
++---guards
+¦       access_policy.dart
+¦       layout_police.dart
+¦       
++---layout
+¦       main_layout.dart
+¦       
++---logic
+¦   ¦   dashboard_degrade_policy.dart
+¦   ¦   dashboard_refresh_controller.dart
+¦   ¦   data_state_resolver.dart
+¦   ¦   day_memory_store.dart
+¦   ¦   elite_access_window_controller.dart
+¦   ¦   elite_contextual_recall_engine.dart
+¦   ¦   elite_mentor_brain.dart
+¦   ¦   elite_messages.dart
+¦   ¦   market_time_helper.dart
+¦   ¦   navigation_bus.dart
+¦   ¦   on_demand_history_store.dart
+¦   ¦   on_demand_intent.dart
+¦   ¦   plus_unlock_engine.dart
+¦   ¦   plus_unlock_store.dart
+¦   ¦   premium_status_resolver.dart
+¦   ¦   ritual_scheduler.dart
+¦   ¦   session_thread_memory_store.dart
+¦   ¦   standard_envelope.dart
+¦   ¦   tab_state_store.dart
+¦   ¦   tone.dart
+¦   ¦   trial_engine.dart
+¦   ¦   trial_state_store.dart
+¦   ¦   try_me_scheduler.dart
+¦   ¦   war_room_degrade_policy.dart
+¦   ¦   war_room_refresh_controller.dart
+¦   ¦   watchlist_last_analyzed_resolver.dart
+¦   ¦   watchlist_ledger.dart
+¦   ¦   watchlist_state_resolver.dart
+¦   ¦   watchlist_store.dart
+¦   ¦   
+¦   +---command_center
+¦   ¦       command_center_builder.dart
+¦   ¦       
+¦   +---founder
+¦   ¦       founder_router_store.dart
+¦   ¦       
+¦   +---share
+¦           caption_presets.dart
+¦           caption_service.dart
+¦           share_attribution_aggregator.dart
+¦           share_composer.dart
+¦           share_exporter.dart
+¦           share_id_service.dart
+¦           share_library_store.dart
+¦           share_prompt_loop.dart
+¦           teaser_composer.dart
+¦           viral_teaser_store.dart
+¦           watermark_service.dart
+¦           
++---models
+¦   ¦   context_payload.dart
+¦   ¦   dashboard_payload.dart
+¦   ¦   last_run_snapshot.dart
+¦   ¦   system_health.dart
+¦   ¦   system_health_snapshot.dart
+¦   ¦   war_room_snapshot.dart
+¦   ¦   
+¦   +---calendar
+¦   ¦       economic_calendar_model.dart
+¦   ¦       
+¦   +---news
+¦   ¦       news_digest_model.dart
+¦   ¦       
+¦   +---premium
+¦           premium_matrix_model.dart
+¦           
++---repositories
+¦       dashboard_repository.dart
+¦       last_run_repository.dart
+¦       system_health_repository.dart
+¦       universe_repository.dart
+¦       war_room_repository.dart
+¦       watchlist_log_repository.dart
+¦       
++---screens
+¦   ¦   account_screen.dart
+¦   ¦   calendar_screen.dart
+¦   ¦   command_center_screen.dart
+¦   ¦   dashboard_screen.dart
+¦   ¦   menu_screen.dart
+¦   ¦   news_screen.dart
+¦   ¦   on_demand_panel.dart
+¦   ¦   partner_terms_screen.dart
+¦   ¦   premium_screen.dart
+¦   ¦   ritual_preview_screen.dart
+¦   ¦   share_attribution_dashboard_screen.dart
+¦   ¦   share_library_screen.dart
+¦   ¦   war_room_screen.dart
+¦   ¦   watchlist_screen.dart
+¦   ¦   
+¦   +---dashboard
+¦   ¦       dashboard_composer.dart
+¦   ¦       
+¦   +---universe
+¦           universe_screen.dart
+¦           
++---services
+¦       api_client.dart
+¦       human_mode_service.dart
+¦       notification_router.dart
+¦       notification_service.dart
+¦       
++---theme
+¦       app_colors.dart
+¦       app_typography.dart
+¦       textured_bar.dart
+¦       
++---ui
+¦   +---components
+¦   ¦       dashboard_card.dart
+¦   ¦       
+¦   +---tokens
+¦           dashboard_spacing.dart
+¦           
++---utils
+¦       time_utils.dart
+¦       
++---widgets
+    ¦   calendar_event_card.dart
+    ¦   canonical_scroll_container.dart
+    ¦   dashboard_widgets.dart
+    ¦   degrade_banner.dart
+    ¦   elite_interaction_sheet.dart
+    ¦   founder_banner.dart
+    ¦   global_back_overlay.dart
+    ¦   last_run_widget.dart
+    ¦   lock_reason_modal.dart
+    ¦   news_digest_card.dart
+    ¦   on_demand_context_strip.dart
+    ¦   os_health_widget.dart
+    ¦   provider_status_indicator.dart
+    ¦   session_awareness_panel.dart
+    ¦   session_window_strip.dart
+    ¦   share_button.dart
+    ¦   system_health_chip.dart
+    ¦   war_room_tile.dart
+    ¦   watchlist_add_modal.dart
+    ¦   
+    +---founder
+    ¦       founder_router_sheet.dart
+    ¦       
+    +---share
+    ¦       evidence_ghost_overlay.dart
+    ¦       share_booster_sheet.dart
+    ¦       share_preview_sheet.dart
+    ¦       
+    +---war_room
+            replay_control_tile.dart
+            war_room_tile_wrapper.dart
+            

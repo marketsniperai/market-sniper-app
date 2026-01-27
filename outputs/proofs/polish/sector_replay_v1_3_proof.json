@@ -1,0 +1,21 @@
+{
+    "timestamp": "2026-01-25T15:35:00-05:00",
+    "component": "SectorFlipWidgetV1_3",
+    "data_flow": {
+        "sources": [
+            "static: /outputs/pulse/sector_replay.json",
+            "api: /dashboard (fallback for real data)"
+        ],
+        "fallback_to_synth": true,
+        "staleness_limit": "20 minutes"
+    },
+    "state_verification": {
+        "source_tag_variable": "_sourceTag",
+        "visibility": "Founder Only (FOUNDER_BUILD or kDebugMode)",
+        "sentinel_events": "Active on both PULSE and SYNTH"
+    },
+    "runtime_result": {
+        "build": "PASS",
+        "discipline": "PASS"
+    }
+}

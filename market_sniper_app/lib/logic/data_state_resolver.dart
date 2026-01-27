@@ -55,30 +55,36 @@ class DataStateResolver {
     if (health != null) {
       final statusUpper = health.status.toUpperCase();
       if (statusUpper.contains('MISFIRE')) {
-        return _build(DataState.locked, StateReason.misfire, "Health: MISFIRE", dashboard);
+        return _build(DataState.locked, StateReason.misfire, "Health: MISFIRE",
+            dashboard);
       }
       if (statusUpper.contains('LOCKED') || statusUpper.contains('FRACTURED')) {
-        return _build(DataState.locked, StateReason.immuneLock, "Health: $statusUpper", dashboard);
+        return _build(DataState.locked, StateReason.immuneLock,
+            "Health: $statusUpper", dashboard);
       }
     }
 
     // Check SSOT Signals
     final sysStatus = dashboard.systemStatus.toUpperCase();
     if (sysStatus.contains('LOCKED')) {
-      return _build(DataState.locked, StateReason.watchdogLock, "SSOT: LOCKED", dashboard);
+      return _build(DataState.locked, StateReason.watchdogLock, "SSOT: LOCKED",
+          dashboard);
     }
     if (sysStatus.contains('SAFE_MODE')) {
-      return _build(DataState.locked, StateReason.failsafeLock, "SSOT: SAFE_MODE", dashboard);
+      return _build(DataState.locked, StateReason.failsafeLock,
+          "SSOT: SAFE_MODE", dashboard);
     }
 
     // 2. STALE
     final age = dashboard.ageSeconds;
     if (age > staleThresholdSeconds) {
-      return _build(DataState.stale, StateReason.staleAge, "Age > ${staleThresholdSeconds}s", dashboard);
+      return _build(DataState.stale, StateReason.staleAge,
+          "Age > ${staleThresholdSeconds}s", dashboard);
     }
 
     // 3. LIVE
-    return _build(DataState.live, StateReason.fresh, "Fresh (<${staleThresholdSeconds}s)", dashboard);
+    return _build(DataState.live, StateReason.fresh,
+        "Fresh (<${staleThresholdSeconds}s)", dashboard);
   }
 
   static ResolvedDataState _build(

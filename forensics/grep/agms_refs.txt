@@ -1,0 +1,107 @@
+﻿
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:57:  
+// D43.05: AGMS Recall
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:58:  
+Map<String, dynamic>? 
+_agmsRecall;
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:119:   
+ // D43.05: Fetch 
+AGMS Recall
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:120:   
+ _fetchAgmsRecall();
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:156:  
+Future<void> 
+_fetchAgmsRecall() 
+async {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:160:   
+       final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/agms/rec
+all?tier=$tierStr'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:164:   
+                   
+_agmsRecall = jsonDeco
+de(response.body);
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:614:   
+         // D43.05: 
+AGMS Recall
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:615:   
+         _buildAgmsRec
+all(context),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1188:  
+Widget _buildAgmsRecal
+l(BuildContext 
+context) {
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1189:  
+    final patterns = 
+(_agmsRecall != null 
+&& _agmsRecall!['patte
+rns'] is List) 
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1190:  
+        ? List<String>
+.from(_agmsRecall!['pa
+tterns']) 
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1193:  
+    final status = _ag
+msRecall?['status'] 
+?? "UNAVAILABLE";
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1194:  
+    final 
+isSafetyFiltered = _ag
+msRecall?['safety_filt
+ered'] == true;
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1204:  
+                      
+   Text("AGGREGATE 
+LEARNING (AGMS)", 
+style: AppTypography.c
+aption(context).copyWi
+th(fontWeight: 
+FontWeight.bold, 
+color: AppColors.textS
+econdary)),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1220:  
+                      
+           Text("• ", 
+style: 
+TextStyle(color: 
+AppColors.accentCyan, 
+fontWeight: 
+FontWeight.bold)), // 
+AGMS uses Cyan for 
+Context alignment
+
+

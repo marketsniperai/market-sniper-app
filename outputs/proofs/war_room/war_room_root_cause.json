@@ -1,0 +1,12 @@
+{
+    "classification": "ACCESS_DENIED_PROD",
+    "primary_cause": "Production API Ingress blocks public access (403 Forbidden).",
+    "contributing_factors": [
+        "Code was hardcoded to try localhost:8000 when API URL was empty (flawed logic).",
+        "Missing Authentication or Public Access configuration on Cloud Run."
+    ],
+    "recommended_fix": {
+        "immediate": "Update client code to use AppConfig.apiBaseUrl correctly and display the 403 error explicitly to the Founder.",
+        "future": "Configure Cloud Run Ingress to allow specific paths or implement Auth token injection."
+    }
+}

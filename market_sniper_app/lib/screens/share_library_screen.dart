@@ -6,7 +6,8 @@ import '../logic/share/caption_presets.dart';
 import '../logic/share/share_exporter.dart'; // Reuse exporter
 
 class ShareLibraryScreen extends StatefulWidget {
-  const ShareLibraryScreen({super.key});
+  final VoidCallback? onBack; // Shell Compliance
+  const ShareLibraryScreen({super.key, this.onBack});
 
   @override
   State<ShareLibraryScreen> createState() => _ShareLibraryScreenState();
@@ -37,70 +38,120 @@ class _ShareLibraryScreenState extends State<ShareLibraryScreen> {
     // For now getting the file again might be tricky if cleaned up.
     // If localPath exists and file exists, share it.
     if (item.localPath != null) {
-       await ShareExporter.shareFile(context, item.localPath!, text: CaptionPresets.all[item.captionKey] ?? "");
-       await ShareLibraryStore.logEvent('SHARE_RESHARE', {'hash': item.contentHash});
+      await ShareExporter.shareFile(context, item.localPath!,
+          text: CaptionPresets.all[item.captionKey] ?? "");
+      await ShareLibraryStore.logEvent(
+          'SHARE_RESHARE', {'hash': item.contentHash});
     } else {
-       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("File expired.")));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("File expired.")));
     }
   }
 
   Future<void> _handleUpgradeCta() async {
-    await ShareLibraryStore.logEvent('CTA_UPGRADE_CLICKED', {'source': 'library_footer'});
+    await ShareLibraryStore.logEvent(
+        'CTA_UPGRADE_CLICKED', {'source': 'library_footer'});
     // Mock Nav
-    if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Opening Premium Upgrade...")));
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Opening Premium Upgrade...")));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.surface1,
-      appBar: AppBar(
-        title: Text("SHARE HISTORY", style: AppTypography.headline(context).copyWith(fontSize: 16)),
-        backgroundColor: AppColors.surface1,
-        elevation: 0,
-      ),
-      body: Column(
+    return Container(
+      color: AppColors.surface1,
+      child: Column(
         children: [
-          // Banner / CTA
-          Container(
-             width: double.infinity,
-             padding: const EdgeInsets.all(16),
-             color: AppColors.surface2,
-             child: Row(
-               children: [
-                 const Icon(Icons.star, color: AppColors.accentCyan, size: 20),
-                 const SizedBox(width: 12),
-                 Expanded(
-                   child: Column(
-                     crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [
-                        Text("Unlock Elite Sharing", style: AppTypography.label(context).copyWith(color: AppColors.textPrimary)),
-                        Text("Remove watermarks & export high-res.", style: AppTypography.caption(context).copyWith(color: AppColors.textSecondary)),
-                     ],
-                   ),
-                 ),
-                 TextButton(
-                    onPressed: _handleUpgradeCta,
-                    child: Text("UPGRADE", style: AppTypography.label(context).copyWith(color: AppColors.accentCyan)),
-                 )
-               ],
-             ),
+          // Custom Header
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back_ios_new,
+                      size: 20, color: AppColors.textPrimary),
+                  onPressed: () {
+                    if (widget.onBack != null) {
+                      widget.onBack!();
+                    } else {
+                      Navigator.pop(context);
+                    }
+                  },
+                ),
+                Expanded(
+                  child: Text(
+                    "SHARE HISTORY",
+                    style:
+                        AppTypography.headline(context).copyWith(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(width: 48), // Balance
+              ],
+            ),
           ),
-          
           Expanded(
-            child: _isLoading 
-              ? const Center(child: CircularProgressIndicator(color: AppColors.accentCyan))
-              : _history.isEmpty 
-                  ? Center(child: Text("No shares yet.", style: AppTypography.body(context).copyWith(color: AppColors.textDisabled)))
-                  : ListView.separated(
-                      padding: const EdgeInsets.all(16),
-                      itemCount: _history.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 12),
-                      itemBuilder: (context, index) {
-                         final item = _history[index];
-                         return _buildHistoryItem(context, item);
-                      },
-                    ),
+            child: Column(
+              children: [
+                // Banner / CTA
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  color: AppColors.surface2,
+                  child: Row(
+                    children: [
+                      const Icon(Icons.star,
+                          color: AppColors.neonCyan, size: 20),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Unlock Elite Sharing",
+                                style: AppTypography.label(context)
+                                    .copyWith(color: AppColors.textPrimary)),
+                            Text("Remove watermarks & export high-res.",
+                                style: AppTypography.caption(context)
+                                    .copyWith(color: AppColors.textSecondary)),
+                          ],
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: _handleUpgradeCta,
+                        child: Text("UPGRADE",
+                            style: AppTypography.label(context)
+                                .copyWith(color: AppColors.neonCyan)),
+                      )
+                    ],
+                  ),
+                ),
+
+                Expanded(
+                  child: _isLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                              color: AppColors.neonCyan))
+                      : _history.isEmpty
+                          ? Center(
+                              child: Text("No shares yet.",
+                                  style: AppTypography.body(context)
+                                      .copyWith(color: AppColors.textDisabled)))
+                          : ListView.separated(
+                              padding: const EdgeInsets.all(16),
+                              itemCount: _history.length,
+                              separatorBuilder: (_, __) =>
+                                  const SizedBox(height: 12),
+                              itemBuilder: (context, index) {
+                                final item = _history[index];
+                                return _buildHistoryItem(context, item);
+                              },
+                            ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -117,27 +168,33 @@ class _ShareLibraryScreenState extends State<ShareLibraryScreen> {
       ),
       child: Row(
         children: [
-           Container(
-             width: 48, 
-             height: 48,
-             color: AppColors.surface2,
-             child: const Icon(Icons.image, color: AppColors.textDisabled, size: 24),
-           ),
-           const SizedBox(width: 12),
-           Expanded(
-             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                   Text(item.timestamp, style: AppTypography.caption(context).copyWith(color: AppColors.textSecondary)),
-                   const SizedBox(height: 4),
-                   Text(item.captionKey, style: AppTypography.label(context).copyWith(fontWeight: FontWeight.bold, fontSize: 10)),
-                ],
-             ),
-           ),
-           IconButton(
-             icon: const Icon(Icons.share, color: AppColors.accentCyan, size: 20),
-             onPressed: () => _handleReshare(item),
-           )
+          Container(
+            width: 48,
+            height: 48,
+            color: AppColors.surface2,
+            child: const Icon(Icons.image,
+                color: AppColors.textDisabled, size: 24),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(item.timestamp,
+                    style: AppTypography.caption(context)
+                        .copyWith(color: AppColors.textSecondary)),
+                const SizedBox(height: 4),
+                Text(item.captionKey,
+                    style: AppTypography.label(context)
+                        .copyWith(fontWeight: FontWeight.bold, fontSize: 10)),
+              ],
+            ),
+          ),
+          IconButton(
+            icon:
+                const Icon(Icons.share, color: AppColors.neonCyan, size: 20),
+            onPressed: () => _handleReshare(item),
+          )
         ],
       ),
     );

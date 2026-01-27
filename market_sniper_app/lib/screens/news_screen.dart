@@ -16,19 +16,19 @@ class NewsScreen extends StatefulWidget {
 class _NewsScreenState extends State<NewsScreen> {
   // Simulating Source Ladder: OFFLINE for now as no pipeline is connected
   final NewsDigestViewModel _data = NewsDigestViewModel.offline();
-  
+
   // Future: load from cache/pipeline
-  
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.bgPrimary,
-      body: SafeArea(
+    return Container(
+      color: AppColors.bgPrimary,
+      child: SafeArea(
         child: Column(
           children: [
-             _buildHeader(),
-             Expanded(
-               child: _data.items.isEmpty 
+            _buildHeader(),
+            Expanded(
+              child: _data.items.isEmpty
                   ? _buildDegradedState()
                   : ListView.builder(
                       padding: const EdgeInsets.all(16),
@@ -37,7 +37,7 @@ class _NewsScreenState extends State<NewsScreen> {
                         return NewsDigestCard(item: _data.items[index]);
                       },
                     ),
-             ),
+            ),
           ],
         ),
       ),
@@ -48,8 +48,8 @@ class _NewsScreenState extends State<NewsScreen> {
     final timeStr = DateFormat('HH:mm').format(_data.asOfUtc);
     Color freshnessColor;
     String freshnessLabel;
-    
-    switch(_data.freshness) {
+
+    switch (_data.freshness) {
       case DigestFreshness.live:
         freshnessColor = AppColors.stateLive;
         freshnessLabel = "LIVE";
@@ -68,7 +68,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(bottom: BorderSide(color: AppColors.borderSubtle)),
       ),
       child: Column(
@@ -89,11 +89,15 @@ class _NewsScreenState extends State<NewsScreen> {
                 decoration: BoxDecoration(
                   color: freshnessColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(4),
-                  border: Border.all(color: freshnessColor.withValues(alpha: 0.3)),
+                  border:
+                      Border.all(color: freshnessColor.withValues(alpha: 0.3)),
                 ),
                 child: Text(
-                   freshnessLabel,
-                   style: TextStyle(color: freshnessColor, fontSize: 10, fontWeight: FontWeight.bold),
+                  freshnessLabel,
+                  style: TextStyle(
+                      color: freshnessColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -101,13 +105,13 @@ class _NewsScreenState extends State<NewsScreen> {
           const SizedBox(height: 8),
           Row(
             children: [
-               Text(
-                 "SOURCE: ${_data.source.name.toUpperCase()} • AS OF $timeStr UTC",
-                 style: GoogleFonts.robotoMono(
-                   color: AppColors.textDisabled,
-                   fontSize: 10,
-                 ),
-               ),
+              Text(
+                "SOURCE: ${_data.source.name.toUpperCase()} • AS OF $timeStr UTC",
+                style: GoogleFonts.robotoMono(
+                  color: AppColors.textDisabled,
+                  fontSize: 10,
+                ),
+              ),
             ],
           ),
         ],
@@ -116,26 +120,28 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   Widget _buildDegradedState() {
-     return Center(
-       child: Column(
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-            Icon(Icons.inbox, size: 48, color: AppColors.textDisabled.withValues(alpha: 0.3)),
-            const SizedBox(height: 16),
-            Text(
-              "No digest available",
-              style: GoogleFonts.inter(color: AppColors.textDisabled),
-            ),
-            if (_data.freshness == DigestFreshness.offline)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(
-                  "System is offline",
-                  style: GoogleFonts.inter(color: AppColors.textDisabled, fontSize: 10),
-                ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.inbox,
+              size: 48, color: AppColors.textDisabled.withValues(alpha: 0.3)),
+          const SizedBox(height: 16),
+          Text(
+            "No digest available",
+            style: GoogleFonts.inter(color: AppColors.textDisabled),
+          ),
+          if (_data.freshness == DigestFreshness.offline)
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                "System is offline",
+                style: GoogleFonts.inter(
+                    color: AppColors.textDisabled, fontSize: 10),
               ),
-         ],
-       ),
-     );
+            ),
+        ],
+      ),
+    );
   }
 }

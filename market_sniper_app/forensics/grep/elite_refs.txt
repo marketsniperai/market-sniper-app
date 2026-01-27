@@ -1,0 +1,168 @@
+
+lib\layout\main_layout.dart:11:import '../widgets/elite_interaction_sheet.dart';
+lib\layout\main_layout.dart:12:import '../logic/elite_messages.dart';
+lib\layout\main_layout.dart:121:       // Non-Founder (Elite/Others): Only 4 taps -> C.C.
+lib\layout\main_layout.dart:154:  void _showEliteOverlay({String? explainKey, Map<String, dynamic>? payload, bool resetToWelcome = false}) {
+lib\layout\main_layout.dart:164:          return EliteInteractionSheet(
+lib\layout\main_layout.dart:181:      body: NotificationListener<EliteExplainNotification>(
+lib\layout\main_layout.dart:183:          _showEliteOverlay(explainKey: notification.explainKey, payload: notification.payload);
+lib\layout\main_layout.dart:229:                              onPressed: () => _showEliteOverlay(explainKey: null, resetToWelcome: true),
+lib\logic\elite_access_window_controller.dart:7:enum EliteAccessMode { none, trial, tryme } // Fixed casing
+lib\logic\elite_access_window_controller.dart:9:class EliteAccessResult {
+lib\logic\elite_access_window_controller.dart:11:  final EliteAccessMode mode;
+lib\logic\elite_access_window_controller.dart:14:  EliteAccessResult({
+lib\logic\elite_access_window_controller.dart:21:class EliteAccessWindowController {
+lib\logic\elite_access_window_controller.dart:22:  static const String _kLedgerPrefix = 'ms_elite_access_ledger_';
+lib\logic\elite_access_window_controller.dart:28:  static Future<EliteAccessResult> resolve() async {
+lib\logic\elite_access_window_controller.dart:31:      return EliteAccessResult(isUnlocked: true, mode: EliteAccessMode.none);
+lib\logic\elite_access_window_controller.dart:53:           notice = "Try-Me Hour active. Elite FULL access temporarily unlocked.";
+lib\logic\elite_access_window_controller.dart:57:      return EliteAccessResult(
+lib\logic\elite_access_window_controller.dart:59:        mode: EliteAccessMode.tryme,
+lib\logic\elite_access_window_controller.dart:71:              return EliteAccessResult(
+lib\logic\elite_access_window_controller.dart:73:                 mode: EliteAccessMode.none,
+lib\logic\elite_access_window_controller.dart:74:                 systemNotice: "Try-Me Hour has ended. Elite access reverted."
+lib\logic\elite_access_window_controller.dart:82:       return EliteAccessResult(
+lib\logic\elite_access_window_controller.dart:84:         mode: EliteAccessMode.trial
+lib\logic\elite_access_window_controller.dart:89:    return EliteAccessResult(isUnlocked: false, mode: EliteAccessMode.none);
+lib\logic\elite_access_window_controller.dart:96:    // Stable Event ID: ms_elite_access_ledger_2025-01-21_TRYME_UNLOCKED
+lib\logic\elite_contextual_recall_engine.dart:5:class EliteContextualRecallSnapshot {
+lib\logic\elite_contextual_recall_engine.dart:11:  EliteContextualRecallSnapshot({
+lib\logic\elite_contextual_recall_engine.dart:26:class EliteContextualRecallEngine {
+lib\logic\elite_contextual_recall_engine.dart:48:  Future<EliteContextualRecallSnapshot> build() async {
+lib\logic\elite_contextual_recall_engine.dart:122:          // Take the last interaction (User + Elite)
+lib\logic\elite_contextual_recall_engine.dart:147:    return EliteContextualRecallSnapshot(
+lib\logic\elite_mentor_brain.dart:1:enum EliteToneMode { institutional, human }
+lib\logic\elite_mentor_brain.dart:3:class EliteMentorBrain {
+lib\logic\elite_mentor_brain.dart:4:  static final EliteMentorBrain _instance = EliteMentorBrain._internal();
+lib\logic\elite_mentor_brain.dart:5:  factory EliteMentorBrain() => _instance;
+lib\logic\elite_mentor_brain.dart:6:  EliteMentorBrain._internal();
+lib\logic\elite_mentor_brain.dart:11:  EliteToneMode get toneMode => EliteToneMode.institutional;
+lib\logic\elite_mentor_brain.dart:15:      case EliteToneMode.human:
+lib\logic\elite_mentor_brain.dart:17:      case EliteToneMode.institutional:
+lib\logic\elite_mentor_brain.dart:26:      case EliteToneMode.human:
+lib\logic\elite_mentor_brain.dart:29:      case EliteToneMode.institutional:
+lib\logic\elite_mentor_brain.dart:38:      case EliteToneMode.human:
+lib\logic\elite_mentor_brain.dart:40:      case EliteToneMode.institutional:
+lib\logic\elite_mentor_brain.dart:48:      case EliteToneMode.human:
+lib\logic\elite_mentor_brain.dart:50:      case EliteToneMode.institutional:
+lib\logic\elite_mentor_brain.dart:58:      case EliteToneMode.human:
+lib\logic\elite_mentor_brain.dart:60:      case EliteToneMode.institutional:
+lib\logic\elite_mentor_brain.dart:68:      case EliteToneMode.human:
+lib\logic\elite_mentor_brain.dart:70:      case EliteToneMode.institutional:
+lib\logic\elite_messages.dart:3:class EliteExplainNotification extends Notification {
+lib\logic\elite_messages.dart:7:  const EliteExplainNotification(this.explainKey, {this.payload});
+lib\logic\plus_unlock_engine.dart:12:    // Actually, prompt says "Plus unlocks... Elite unlocks Day 1".
+lib\logic\plus_unlock_engine.dart:13:    // If user is Plus, we track. If Elite user? 
+lib\logic\plus_unlock_engine.dart:14:    // If Elite, they have Day 1 access. 
+lib\logic\premium_status_resolver.dart:12:      // If Try-Me Active, effectively Plus/Elite? 
+lib\logic\share\share_composer.dart:16:    bool isElite = false,
+lib\logic\share\share_composer.dart:74:          Positioned.fill(child: EvidenceGhostOverlay(isElite: isElite)),
+lib\logic\share\share_composer.dart:87:         isElite: isElite,
+lib\logic\share\share_prompt_loop.dart:45:           _logEvent("CTA_CLICKED", {"key": "UPGRADE_ELITE"});
+lib\logic\share\share_prompt_loop.dart:49:        showUpgrade: true, // Assuming not Elite for MVP/Guest
+lib\logic\share\watermark_service.dart:12:    bool isElite = false,
+lib\logic\share\watermark_service.dart:14:    final bool showSlogan = isFounder || isElite;
+lib\models\premium\premium_matrix_model.dart:4:enum PremiumTier { guest, plus, elite, founder }
+lib\models\premium\premium_matrix_model.dart:58:      case 'ELITE': return PremiumTier.elite;
+lib\models\premium\premium_matrix_model.dart:80:        {"GUEST":"INCLUDED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}, dynamicValue: "trial_opens_progress"),
+lib\models\premium\premium_matrix_model.dart:82:        {"GUEST":"INCLUDED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\models\premium\premium_matrix_model.dart:84:        {"GUEST":"LOCKED","PLUS":"LIMITED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {"PLUS":"10/day"}),
+lib\models\premium\premium_matrix_model.dart:85:      _row("elite_overlay", "Elite Overlay", "Mentor surface + explain protocols", 
+lib\models\premium\premium_matrix_model.dart:86:        {"GUEST":"LOCKED","PLUS":"LIMITED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\models\premium\premium_matrix_model.dart:88:        {"GUEST":"LOCKED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\models\premium\premium_matrix_model.dart:90:        {"GUEST":"INCLUDED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\models\premium\premium_matrix_model.dart:92:        {"GUEST":"INCLUDED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\models\premium\premium_matrix_model.dart:94:        {"GUEST":"INCLUDED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\models\premium\premium_matrix_model.dart:96:        {"GUEST":"LOCKED","PLUS":"PROGRESS","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {"PLUS":"Unlock at Day 5 (no reset)"}),
+lib\models\premium\premium_matrix_model.dart:98:        {"GUEST":"LOCKED","PLUS":"INCLUDED","ELITE":"INCLUDED","FOUNDER":"INCLUDED"}, {}),
+lib\screens\account_screen.dart:79:  final String plan = "Elite"; 
+lib\screens\account_screen.dart:173:                               if (plan == 'Elite')
+lib\screens\account_screen.dart:187:                           if (plan == 'Elite')
+lib\screens\command_center_screen.dart:21:  bool _isElite = false;
+lib\screens\command_center_screen.dart:67:    // Founders get Elite access visually, but labeled
+lib\screens\command_center_screen.dart:71:    final isEliteValues = (tier == PremiumTier.elite || isFounder);
+lib\screens\command_center_screen.dart:77:    if (isPlusValues && !isEliteValues) {
+lib\screens\command_center_screen.dart:84:         _isElite = isEliteValues;
+lib\screens\command_center_screen.dart:109:    // Elite/Founder -> Full
+lib\screens\command_center_screen.dart:114:    final bool hasAccess = _isElite || (_isPlus && _isPlusUnlocked);
+lib\screens\command_center_screen.dart:116:    final bool locked = !_isElite && !_isPlus;
+lib\screens\command_center_screen.dart:198:                            Text("ELITE CLEARANCE REQUIRED", style: AppTypography.headline(context).copyWith(color: AppColors.stateLocked)),
+lib\screens\menu_screen.dart:334:Features labeled "Founder" or "Elite" are experimental surfaces for internal validation and do not represent guaranteed capabilities of the public release.
+lib\screens\on_demand_panel.dart:9:import '../logic/elite_messages.dart'; // D44.13
+lib\screens\on_demand_panel.dart:521:                     EliteExplainNotification(
+lib\screens\premium_screen.dart:83:      case PremiumTier.elite:
+lib\screens\premium_screen.dart:85:        tierLabel = "ELITE";
+lib\screens\premium_screen.dart:142:          _buildHeaderCell("ELITE", AppColors.marketBull),
+lib\screens\premium_screen.dart:199:            _buildStatusCell(row.availability[PremiumTier.elite], row.limits[PremiumTier.elite], false),
+lib\screens\premium_screen.dart:272:         label = "Unlock Elite";
+lib\screens\premium_screen.dart:275:       case PremiumTier.elite:
+lib\screens\premium_screen.dart:276:         label = "You are Elite";
+lib\screens\ritual_preview_screen.dart:35:              "ELITE RITUAL",
+lib\screens\share_library_screen.dart:77:                        Text("Unlock Elite Sharing", style: AppTypography.label(context).copyWith(color: AppColors.textPrimary)),
+lib\screens\universe\universe_screen.dart:21:  final Map<String, DateTime> _lastEliteTriggerTimes = {}; // Session-based cooldown persistence
+lib\screens\universe\universe_screen.dart:41:  void _triggerEliteExplain(String reason, String key) {
+lib\screens\universe\universe_screen.dart:43:    final last = _lastEliteTriggerTimes[key];
+lib\screens\universe\universe_screen.dart:46:        content: Text("Elite Explain on cooldown for this trigger."),
+lib\screens\universe\universe_screen.dart:53:      _lastEliteTriggerTimes[key] = DateTime.now();
+lib\screens\universe\universe_screen.dart:56:    // Mock Route to Elite Router
+lib\screens\universe\universe_screen.dart:61:        title: Text("ELITE EXPLAIN ROUTER", style: AppTypography.title(context)),
+lib\screens\universe\universe_screen.dart:70:            const Text("[Integrating D43 Elite Arc...]", style: TextStyle(fontStyle: FontStyle.italic, color: AppColors.textDisabled)),
+lib\screens\universe\universe_screen.dart:132:          if (_snapshot != null) _buildEliteTrigger(context, _snapshot!),
+lib\screens\universe\universe_screen.dart:1765:               _buildDegradeRuleItem("Synthesis STALE", "Elite Explain Trigger (if enabled)", "Elite Overlay only"),
+lib\screens\universe\universe_screen.dart:1778:  Widget _buildEliteTrigger(BuildContext context, UniverseSnapshot snapshot) {
+lib\screens\universe\universe_screen.dart:1790:    final last = _lastEliteTriggerTimes[key];
+lib\screens\universe\universe_screen.dart:1797:             "[DEBUG] Elite Trigger Cooldown: $key", 
+lib\screens\universe\universe_screen.dart:1807:        onTap: () => _triggerEliteExplain(snapshot.synthesis.state, key),
+lib\screens\universe\universe_screen.dart:1832:                 "Elite can explain this shift",
+lib\widgets\dashboard_widgets.dart:4:import '../logic/elite_messages.dart';
+lib\widgets\dashboard_widgets.dart:88:                   EliteExplainNotification(key).dispatch(context);
+lib\widgets\dashboard_widgets.dart:129:                   EliteExplainNotification(key).dispatch(context);
+lib\widgets\elite_interaction_sheet.dart:9:import '../logic/elite_mentor_brain.dart';
+lib\widgets\elite_interaction_sheet.dart:12:import '../logic/elite_contextual_recall_engine.dart'; // D43.13
+lib\widgets\elite_interaction_sheet.dart:14:import '../logic/elite_access_window_controller.dart'; // D45.07
+lib\widgets\elite_interaction_sheet.dart:16:enum EliteTier { free, plus, elite }
+lib\widgets\elite_interaction_sheet.dart:18:class EliteInteractionSheet extends StatefulWidget {
+lib\widgets\elite_interaction_sheet.dart:24:  const EliteInteractionSheet({
+lib\widgets\elite_interaction_sheet.dart:33:  State<EliteInteractionSheet> createState() => _EliteInteractionSheetState();
+lib\widgets\elite_interaction_sheet.dart:36:class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
+lib\widgets\elite_interaction_sheet.dart:37:  EliteTier _tier = EliteTier.free; // Default safe, updated in initState
+lib\widgets\elite_interaction_sheet.dart:56:  EliteContextualRecallSnapshot? _recallSnapshot;
+lib\widgets\elite_interaction_sheet.dart:66:    // D45.07: Resolve Elite Access (Idempotent Guard)
+lib\widgets\elite_interaction_sheet.dart:87:    final access = await EliteAccessWindowController.resolve();
+lib\widgets\elite_interaction_sheet.dart:92:         _tier = EliteTier.elite;
+lib\widgets\elite_interaction_sheet.dart:97:         _tier = EliteTier.free; 
+lib\widgets\elite_interaction_sheet.dart:105:       await SessionThreadMemoryStore().append("ELITE", access.systemNotice!); // System as Elite
+lib\widgets\elite_interaction_sheet.dart:128:         final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/context/status'));
+lib\widgets\elite_interaction_sheet.dart:143:         final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/what_changed'));
+lib\widgets\elite_interaction_sheet.dart:160:          final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/agms/recall?tier=$tierStr'));
+lib\widgets\elite_interaction_sheet.dart:193:    if (_tier == EliteTier.free && key != 'MARKET_REGIME') {
+lib\widgets\elite_interaction_sheet.dart:210:      final url = Uri.parse('${AppConfig.apiBaseUrl}/elite/explain/status');
+lib\widgets\elite_interaction_sheet.dart:248:      final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/os/snapshot'));
+lib\widgets\elite_interaction_sheet.dart:259:         _statusText = EliteMentorBrain().explainReadyStatus;
+lib\widgets\elite_interaction_sheet.dart:267:       await SessionThreadMemoryStore().append("ELITE", "Context Explained: [REGIME/RISK/STATUS]");
+lib\widgets\elite_interaction_sheet.dart:286:        final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/script/first_interaction'));
+lib\widgets\elite_interaction_sheet.dart:307:      // Re-reading requirements: "Wire EliteInteractionSheet to use MentorBrain for: Greeting line".
+lib\widgets\elite_interaction_sheet.dart:310:      final mentorGreeting = EliteMentorBrain().getGreeting("Morning", "Sniper");
+lib\widgets\elite_interaction_sheet.dart:324:               final bool isLocked = (_tier == EliteTier.free && tierMin != 'free') || 
+lib\widgets\elite_interaction_sheet.dart:325:                                     (_tier == EliteTier.plus && tierMin == 'elite');
+lib\widgets\elite_interaction_sheet.dart:347:            if (_tier == EliteTier.free)
+lib\widgets\elite_interaction_sheet.dart:350:                  child: const Text("Upgrade to Unlock Elite Insights", style: TextStyle(color: AppColors.stateLocked, fontSize: 10, fontStyle: FontStyle.italic)),
+lib\widgets\elite_interaction_sheet.dart:373:          SessionThreadMemoryStore().append("ELITE", q['answer_template'] ?? "Answered.");
+lib\widgets\elite_interaction_sheet.dart:385:          SessionThreadMemoryStore().append("ELITE", "Routing explanation for ${q['action_payload']}...");
+lib\widgets\elite_interaction_sheet.dart:465:                             child: Text("ELITE HOME", style: AppTypography.caption(context).copyWith(color: AppColors.accentCyan, fontWeight: FontWeight.bold)),
+lib\widgets\elite_interaction_sheet.dart:527:     if (_tier == EliteTier.free && key != 'MARKET_REGIME') {
+lib\widgets\elite_interaction_sheet.dart:590:              EliteMentorBrain().formatHeader("Elite Context Engine"),
+lib\widgets\elite_interaction_sheet.dart:731:                  "TONE: ${EliteMentorBrain().toneMode.name.toUpperCase()}",
+lib\widgets\elite_interaction_sheet.dart:762:         future: http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/os/snapshot')),
+lib\widgets\elite_interaction_sheet.dart:896:                         Text(isUser ? "YOU: " : "ELITE: ", 
+lib\widgets\elite_interaction_sheet.dart:950:                   await SessionThreadMemoryStore().append("ELITE", "Ritual Prompt Shown.");
+lib\widgets\elite_interaction_sheet.dart:1078:           final response = await http.get(Uri.parse('${AppConfig.apiBaseUrl}/elite/micro_briefing/open'));
+lib\widgets\elite_interaction_sheet.dart:1108:       await SessionThreadMemoryStore().append("ELITE", fullText);
+lib\widgets\elite_interaction_sheet.dart:1164:          final engine = EliteContextualRecallEngine();
+lib\widgets\share\evidence_ghost_overlay.dart:6:  final bool isElite;
+lib\widgets\share\evidence_ghost_overlay.dart:8:  const EvidenceGhostOverlay({super.key, required this.isElite});
+lib\widgets\share\evidence_ghost_overlay.dart:12:    if (!isElite) return const SizedBox.shrink();
+lib\widgets\share\share_booster_sheet.dart:72:                child: Text("Unlock Elite", style: AppTypography.label(context).copyWith(color: AppColors.stateStale)),
+lib\widgets\share\share_preview_sheet.dart:30:    final isElite = currentTier == PremiumTier.elite || isFounder;
+lib\widgets\share\share_preview_sheet.dart:45:       isElite: isElite,
+

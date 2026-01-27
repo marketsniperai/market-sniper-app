@@ -1,0 +1,58 @@
+
+lib\main.dart:8:import 'services/notification_service.dart'; // Polish
+lib\main.dart:18:  // Polish.Notifications.01
+lib\main.dart:21:     NotificationService().setNavigatorKey(navigatorKey);
+lib\main.dart:22:     NotificationService().init();
+lib\main.dart:25:     debugPrint("Failed to init notifications: $e");
+lib\layout\main_layout.dart:181:      body: NotificationListener<EliteExplainNotification>(
+lib\layout\main_layout.dart:182:        onNotification: (notification) {
+lib\layout\main_layout.dart:183:          _showEliteOverlay(explainKey: notification.explainKey, payload: notification.payload);
+lib\logic\elite_messages.dart:3:class EliteExplainNotification extends Notification {
+lib\logic\elite_messages.dart:7:  const EliteExplainNotification(this.explainKey, {this.payload});
+lib\screens\account_screen.dart:267:            _buildSettingItem("Notifications", "Updates, Market Alerts", Icons.notifications, onTap: () => _comingSoon(context)),
+lib\screens\menu_screen.dart:11:import '../services/notification_service.dart';
+lib\screens\menu_screen.dart:23:  bool _notificationsEnabled = false; 
+lib\screens\menu_screen.dart:33:    final notifs = await NotificationService().isEnabled();
+lib\screens\menu_screen.dart:34:    if (mounted) setState(() => _notificationsEnabled = notifs);
+lib\screens\menu_screen.dart:69:              "Notifications",
+lib\screens\menu_screen.dart:70:              _notificationsEnabled,
+lib\screens\menu_screen.dart:72:                 setState(() => _notificationsEnabled = val);
+lib\screens\menu_screen.dart:73:                 NotificationService().setEnabled(val).then((_) {
+lib\screens\menu_screen.dart:75:                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Ritual Notifications Enabled (Daily 9:20 AM / 4:05 PM ET)")));
+lib\screens\menu_screen.dart:77:                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Ritual Notifications Disabled")));
+lib\screens\on_demand_panel.dart:521:                     EliteExplainNotification(
+lib\services\notification_router.dart:10:class NotificationRouter {
+lib\services\notification_service.dart:2:import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+lib\services\notification_service.dart:7:import 'notification_router.dart';
+lib\services\notification_service.dart:9:class NotificationService {
+lib\services\notification_service.dart:10:  static final NotificationService _instance = NotificationService._internal();
+lib\services\notification_service.dart:11:  factory NotificationService() => _instance;
+lib\services\notification_service.dart:12:  NotificationService._internal();
+lib\services\notification_service.dart:14:  final FlutterLocalNotificationsPlugin _notifications = FlutterLocalNotificationsPlugin();
+lib\services\notification_service.dart:35:      debugPrint("NotificationService: Could not set ET timezone, trailing local time. $e");
+lib\services\notification_service.dart:47:    await _notifications.initialize(
+lib\services\notification_service.dart:49:      onDidReceiveNotificationResponse: _onNotificationTap,
+lib\services\notification_service.dart:56:  void _onNotificationTap(NotificationResponse response) {
+lib\services\notification_service.dart:57:     debugPrint("NotificationService: Tapped payload=${response.payload}");
+lib\services\notification_service.dart:59:        NotificationRouter.route(_navigatorKey!, response.payload);
+lib\services\notification_service.dart:65:     final enabled = prefs.getBool('notifications_enabled') ?? false; 
+lib\services\notification_service.dart:74:    final android = _notifications.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
+lib\services\notification_service.dart:76:      final granted = await android.requestNotificationsPermission();
+lib\services\notification_service.dart:80:    final ios = _notifications.resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>();
+lib\services\notification_service.dart:91:    await prefs.setBool('notifications_enabled', enabled);
+lib\services\notification_service.dart:98:        debugPrint("NotificationService: Permission denied, but enabled in prefs.");
+lib\services\notification_service.dart:107:     return prefs.getBool('notifications_enabled') ?? false;
+lib\services\notification_service.dart:113:    debugPrint("NotificationService: Scheduling Rituals...");
+lib\services\notification_service.dart:150:    const androidDetails = AndroidNotificationDetails(
+lib\services\notification_service.dart:152:      'Ritual Notifications',
+lib\services\notification_service.dart:157:     const iosDetails = DarwinNotificationDetails();
+lib\services\notification_service.dart:158:     const details = NotificationDetails(android: androidDetails, iOS: iosDetails);
+lib\services\notification_service.dart:161:      await _notifications.zonedSchedule(
+lib\services\notification_service.dart:168:        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+lib\services\notification_service.dart:172:      debugPrint("NotificationService: Scheduled '$title' for $scheduledDate");
+lib\services\notification_service.dart:174:      debugPrint("NotificationService: Failed to schedule id=$id. Error: $e");
+lib\services\notification_service.dart:179:    await _notifications.cancelAll();
+lib\services\notification_service.dart:180:    debugPrint("NotificationService: Cancelled all rituals.");
+lib\widgets\dashboard_widgets.dart:88:                   EliteExplainNotification(key).dispatch(context);
+lib\widgets\dashboard_widgets.dart:129:                   EliteExplainNotification(key).dispatch(context);
+

@@ -123,8 +123,81 @@ def verify_untracked_canon():
 
     return untracked_violations
 
-def generate_report(canon_missing, ui_violations, untracked_canon):
-    passed = (len(canon_missing) == 0) and (len(ui_violations) == 0) and (len(untracked_canon) == 0)
+def verify_seal_hooks():
+    """Checks if new SEALs contain the mandatory 'Pending Closure Hook'."""
+    seal_dir = ROOT_DIR / "outputs/seals"
+    violations = []
+    
+    # Grandfathering: Enforce only for seals created/modified starting NOW (approx D45 Canon Closure).
+    # Since file times vary, we will grandfather explicit known legacy seals if needed,
+    # or just enforce for files with Date >= 2026-01-26 AND excluding today's earlier seals if strict.
+    # The rule is: "backward compatible". 
+    # Strategy: Parse "Date:" in file. If Date > 2026-01-26, enforce.
+    # If Date == 2026-01-26, we might hit the one just made. 
+    # Let's enforcing strictly for anything claiming to be SEAL_D45_CANON_PENDING_CLOSURE_HOOK or newer.
+    
+    enforcement_start_date = "2026-01-26" 
+    
+    # Exempt List (seals created today before this rule)
+    exemptions = [
+        "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+        "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+        "SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+        "SEAL_D45_HF06_INFRA_DISCOVERY.md",
+        "SEAL_UI_CANON_V1_THEME.md",
+        "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+        "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+        "SEAL_D45_POLISH_SECTOR_FLIP_V2.md", 
+        "SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+        "SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+        "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+        "SEAL_DAY_45_HF01_APP_CONFIG_SINGLETON.md",
+        "SEAL_DAY_45_HF02_FLUTTER_UPGRADE.md",
+        "SEAL_DAY_45_15_COMMAND_CENTER_INITIAL_STATE.md",
+        "SEAL_D45_CANON_DEBT_RADAR_V2.md"
+    ]
+
+    try:
+        if not seal_dir.exists(): return []
+        
+        for file in seal_dir.glob("SEAL_*.md"):
+            if file.name in exemptions: continue
+            
+            with open(file, "r", encoding="utf-8") as f:
+                content = f.read()
+                
+            # Check Date
+            date_match = re.search(r'\*\*Date:\s*\*\*\s*(\d{4}-\d{2}-\d{2})', content)
+            if not date_match:
+                 # If no date found, skip legacy
+                 continue
+                 
+            file_date = date_match.group(1)
+            
+            # Hook V2 Enforcement (Start 2026-01-27)
+            if file_date >= "2026-01-27":
+                has_header = "## Pending Closure Hook" in content
+                has_resolved = "Resolved Pending Items:" in content
+                has_new = "New Pending Items:" in content
+                
+                if not (has_header and has_resolved and has_new):
+                    violations.append(f"{file.name} (V2 STRICT: Missing 'Resolved'/'New' items)")
+                continue
+
+            # Hook V1 Enforcement (Start 2026-01-26)
+            if file_date < enforcement_start_date: continue
+            
+            if "## Pending Closure Hook" not in content:
+                violations.append(f"{file.name} (Date: {file_date}) missing '## Pending Closure Hook'")
+
+    except Exception as e:
+        print(f"Error validating seals: {e}")
+        
+    return violations
+
+
+def generate_report(canon_missing, ui_violations, untracked_canon, seal_violations):
+    passed = (len(canon_missing) == 0) and (len(ui_violations) == 0) and (len(untracked_canon) == 0) and (len(seal_violations) == 0)
     
     report = {
         "status": "PASS" if passed else "FAIL",
@@ -140,6 +213,10 @@ def generate_report(canon_missing, ui_violations, untracked_canon):
         "untracked_canon_check": {
             "status": "PASS" if not untracked_canon else "FAIL",
             "violations": untracked_canon
+        },
+        "seal_hook_check": {
+            "status": "PASS" if not seal_violations else "FAIL",
+            "violations": seal_violations
         }
     }
     
@@ -166,10 +243,16 @@ def generate_report(canon_missing, ui_violations, untracked_canon):
         for f in untracked_canon:
             print(f"  - {f}")
         print("\n>> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`")
+        
+    if seal_violations:
+        print("\n[!] SEALS MISSING CLOSURE HOOK (PENDING LAW)")
+        for f in seal_violations:
+            print(f"  - {f}")
+        print("\n>> ACTION REQUIRED: Add '## Pending Closure Hook' to these seals.")
             
     if passed:
         print("\n[+] All Systems Nominal. Discipline is maintained.")
-        print("[+] Constitution respected. UI is semantic. Canon is tracked.")
+        print("[+] Constitution respected. UI is semantic. Canon is tracked. Seals are Hooked.")
 
     # Save JSON
     out_dir = OUTPUTS_RUNTIME / "day_31_2"
@@ -184,7 +267,8 @@ if __name__ == "__main__":
     missing = verify_canon_existence()
     violations = scan_ui_hardcodes()
     untracked_canon = verify_untracked_canon()
-    success = generate_report(missing, violations, untracked_canon)
+    seal_violations = verify_seal_hooks()
+    success = generate_report(missing, violations, untracked_canon, seal_violations)
     if success:
         success = verify_dashboard_layout_discipline.scan_and_report()
     

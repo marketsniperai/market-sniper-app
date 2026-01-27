@@ -28,7 +28,6 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
   String? _errorText;
   String? _usageInfo;
 
-
   StandardEnvelope? _result;
   StreamSubscription<NavigationEvent>? _navSubscription;
   final OnDemandHistoryStore _historyStore = OnDemandHistoryStore(); // D44.15
@@ -45,25 +44,26 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
         _controller.text = ticker;
         _analyze(); // Default Auto-trigger analysis for string
       }
-      
+
       // D44.06: Intent Object Support (Prefill Only vs Auto-Trigger)
       if (event.tabIndex == 3 && event.arguments is OnDemandIntent) {
         final intent = event.arguments as OnDemandIntent;
         _controller.text = intent.ticker;
-        
+
         // Reset state to clear any old result or error when coming from watchlist
-        if (_state == OnDemandViewState.result || _state == OnDemandViewState.error) {
-             _clear();
-             _controller.text = intent.ticker; // Clear wipes text, restore it
+        if (_state == OnDemandViewState.result ||
+            _state == OnDemandViewState.error) {
+          _clear();
+          _controller.text = intent.ticker; // Clear wipes text, restore it
         }
 
         if (intent.autoTrigger) {
-           _analyze();
+          _analyze();
         } else {
-           // Prefill only - optionally indicate source
-           setState(() {
-              // We could show a "Requested from Watchlist" ephemeral message or badge here
-           });
+          // Prefill only - optionally indicate source
+          setState(() {
+            // We could show a "Requested from Watchlist" ephemeral message or badge here
+          });
         }
       }
     });
@@ -100,12 +100,11 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     // 1. Validate Pattern Only (Global Universe)
     final validTicker = RegExp(r'^[A-Z0-9._-]{1,12}$');
     if (!validTicker.hasMatch(input)) {
-       setState(() {
+      setState(() {
         _errorText = "Invalid Ticker Format. Use symbols like AAPL, BTC-USD.";
       });
       return;
     }
-
 
     // 2. Set Loading
     setState(() {
@@ -115,9 +114,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     });
 
     // 3. Real Fetch (D44.05)
-    final api = context.findAncestorWidgetOfExactType<MainLayout>() != null 
-        ? ApiClient() 
-        : ApiClient(); 
+    final api = context.findAncestorWidgetOfExactType<MainLayout>() != null
+        ? ApiClient()
+        : ApiClient();
 
     final response = await api.fetchOnDemandContext(input);
 
@@ -126,27 +125,27 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     // 4. Handle Result
     setState(() {
       if (response["status"] == "BLOCKED") {
-         _state = OnDemandViewState.error;
-         final reason = response["reason"] ?? "LIMIT_REACHED";
-         final cooldown = response["cooldown_remaining"] ?? 0;
-         
-         if (reason == "TIER_LOCKED") {
-             _errorText = "Feature Locked for this Tier. Upgrade required.";
-         } else if (reason == "COOLDOWN_ACTIVE") {
-             _errorText = "Cooling down... Wait $cooldown seconds.";
-         } else {
-             _errorText = "Daily Limit Reached (Resets 04:00 ET)";
-         }
-         
-         final usage = response["usage"] ?? 0;
-         final limit = response["limit"] ?? 0;
-         final tier = response["tier"] ?? "UNKNOWN";
-          if (limit == -1) {
-             _usageInfo = "$tier: Unlimited";
-          } else {
-             _usageInfo = "$tier: $usage/$limit Today";
-          }
-         return;
+        _state = OnDemandViewState.error;
+        final reason = response["reason"] ?? "LIMIT_REACHED";
+        final cooldown = response["cooldown_remaining"] ?? 0;
+
+        if (reason == "TIER_LOCKED") {
+          _errorText = "Feature Locked for this Tier. Upgrade required.";
+        } else if (reason == "COOLDOWN_ACTIVE") {
+          _errorText = "Cooling down... Wait $cooldown seconds.";
+        } else {
+          _errorText = "Daily Limit Reached (Resets 04:00 ET)";
+        }
+
+        final usage = response["usage"] ?? 0;
+        final limit = response["limit"] ?? 0;
+        final tier = response["tier"] ?? "UNKNOWN";
+        if (limit == -1) {
+          _usageInfo = "$tier: Unlimited";
+        } else {
+          _usageInfo = "$tier: $usage/$limit Today";
+        }
+        return;
       }
 
       // Update Usage from Meta
@@ -155,19 +154,19 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
         final tier = meta["tier"];
         final usage = meta["usage"];
         final limit = meta["limit"];
-         if (limit == -1) {
-             _usageInfo = "$tier: Unlimited";
-          } else {
-             _usageInfo = "$tier: $usage/$limit Today";
-          }
+        if (limit == -1) {
+          _usageInfo = "$tier: Unlimited";
+        } else {
+          _usageInfo = "$tier: $usage/$limit Today";
+        }
       }
 
       _state = OnDemandViewState.result;
-      
+
       // D44.07: Standard Envelope & Lexicon Guard
       final rawEnvelope = EnvelopeBuilder.build(response);
       final safeEnvelope = LexiconSanitizer.apply(rawEnvelope);
-      
+
       _result = safeEnvelope;
     });
 
@@ -190,9 +189,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     // Layout Police: Uses Safe Scroll + Padding
     final bottomPadding = 100 + MediaQuery.of(context).viewPadding.bottom;
 
-    return Scaffold(
-      backgroundColor: Colors.transparent, // Handled by MainLayout
-      body: SingleChildScrollView(
+    return Container(
+      color: Colors.transparent, // Handled by MainLayout
+      child: SingleChildScrollView(
         padding: EdgeInsets.only(
           top: 16,
           left: 16,
@@ -205,21 +204,24 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
             // --- HEADER ---
             Text(
               "ON-DEMAND",
-              style: AppTypography.headline(context).copyWith(fontSize: 24, letterSpacing: 1.2),
+              style: AppTypography.headline(context)
+                  .copyWith(fontSize: 24, letterSpacing: 1.2),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 4),
             Text(
               "Instant context snapshot",
-              style: AppTypography.body(context).copyWith(color: AppColors.textSecondary, fontSize: 12),
+              style: AppTypography.body(context)
+                  .copyWith(color: AppColors.textSecondary, fontSize: 12),
               textAlign: TextAlign.center,
             ),
-            
+
             if (_usageInfo != null) ...[
               const SizedBox(height: 8),
               Text(
                 _usageInfo!,
-                style: AppTypography.label(context).copyWith(color: AppColors.accentCyanDim, fontSize: 10),
+                style: AppTypography.label(context)
+                    .copyWith(color: AppColors.accentCyanDim, fontSize: 10),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -228,24 +230,26 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
 
             // --- HISTORY (D44.15) ---
             if (_historyItems.isNotEmpty) ...[
-               Wrap(
-                 spacing: 8,
-                 runSpacing: 8,
-                 alignment: WrapAlignment.center,
-                 children: _historyItems.map((item) {
-                   return ActionChip(
-                     label: Text(item.ticker, style: AppTypography.label(context)),
-                     backgroundColor: AppColors.surface2,
-                     side: const BorderSide(color: AppColors.borderSubtle),
-                     onPressed: () {
-                        // Prefill (No Auto-Trigger)
-                        _controller.text = item.ticker;
-                        FocusScope.of(context).requestFocus(); // Better UX, let them hit enter or Analyze
-                     },
-                   );
-                 }).toList(),
-               ),
-               const SizedBox(height: 24),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.center,
+                children: _historyItems.map((item) {
+                  return ActionChip(
+                    label:
+                        Text(item.ticker, style: AppTypography.label(context)),
+                    backgroundColor: AppColors.surface2,
+                    side: const BorderSide(color: AppColors.borderSubtle),
+                    onPressed: () {
+                      // Prefill (No Auto-Trigger)
+                      _controller.text = item.ticker;
+                      FocusScope.of(context)
+                          .requestFocus(); // Better UX, let them hit enter or Analyze
+                    },
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 24),
             ],
 
             // --- INPUT ---
@@ -257,7 +261,8 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
               maxLength: 10,
               decoration: InputDecoration(
                 hintText: "e.g., AAPL",
-                hintStyle: TextStyle(color: AppColors.textDisabled.withValues(alpha: 0.5)),
+                hintStyle: TextStyle(
+                    color: AppColors.textDisabled.withValues(alpha: 0.5)),
                 filled: true,
                 fillColor: AppColors.surface1,
                 border: OutlineInputBorder(
@@ -270,18 +275,19 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.accentCyan),
+                  borderSide: const BorderSide(color: AppColors.neonCyan),
                 ),
                 counterText: "",
               ),
               onChanged: _onChanged,
             ),
-            
+
             if (_errorText != null) ...[
               const SizedBox(height: 8),
               Text(
                 _errorText!,
-                style: AppTypography.body(context).copyWith(color: AppColors.stateLocked, fontSize: 12),
+                style: AppTypography.body(context)
+                    .copyWith(color: AppColors.stateLocked, fontSize: 12),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -292,28 +298,38 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
             Row(
               children: [
                 if (_state != OnDemandViewState.idle)
-                   Expanded(
+                  Expanded(
                     flex: 1,
                     child: TextButton(
-                      onPressed: _clear, 
-                      child: Text("CLEAR", style: AppTypography.label(context).copyWith(color: AppColors.textSecondary)),
+                      onPressed: _clear,
+                      child: Text("CLEAR",
+                          style: AppTypography.label(context)
+                              .copyWith(color: AppColors.textSecondary)),
                     ),
-                   ),
-                
+                  ),
                 Expanded(
                   flex: 3,
                   child: ElevatedButton(
-                    onPressed: _state == OnDemandViewState.loading ? null : _analyze,
+                    onPressed:
+                        _state == OnDemandViewState.loading ? null : _analyze,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.accentCyan,
+                      backgroundColor: AppColors.neonCyan,
                       foregroundColor: AppColors.bgPrimary,
                       padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
                       disabledBackgroundColor: AppColors.surface2,
                     ),
-                    child: _state == OnDemandViewState.loading 
-                        ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.textPrimary))
-                        : Text("ANALYZE NOW", style: AppTypography.label(context).copyWith(color: AppColors.bgPrimary, fontWeight: FontWeight.bold)),
+                    child: _state == OnDemandViewState.loading
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                                strokeWidth: 2, color: AppColors.textPrimary))
+                        : Text("ANALYZE NOW",
+                            style: AppTypography.label(context).copyWith(
+                                color: AppColors.bgPrimary,
+                                fontWeight: FontWeight.bold)),
                   ),
                 ),
               ],
@@ -335,27 +351,32 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
         return Center(
           child: Column(
             children: [
-              Icon(Icons.flash_on, size: 48, color: AppColors.textDisabled.withValues(alpha: 0.2)),
+              Icon(Icons.flash_on,
+                  size: 48,
+                  color: AppColors.textDisabled.withValues(alpha: 0.2)),
               const SizedBox(height: 16),
               Text(
                 "Awaiting request...",
-                style: AppTypography.body(context).copyWith(color: AppColors.textDisabled),
+                style: AppTypography.body(context)
+                    .copyWith(color: AppColors.textDisabled),
               ),
             ],
           ),
         );
-      
+
       case OnDemandViewState.loading:
-         return const Center(
-           child: Column(
-             children: [
-                SizedBox(height: 24),
-                CircularProgressIndicator(strokeWidth: 2, color: AppColors.accentCyan),
-                SizedBox(height: 16),
-                Text("Analyzing Global Market Data...", style: TextStyle(color: AppColors.accentCyan)),
-             ],
-           ),
-         );
+        return const Center(
+          child: Column(
+            children: [
+              SizedBox(height: 24),
+              CircularProgressIndicator(
+                  strokeWidth: 2, color: AppColors.neonCyan),
+              SizedBox(height: 16),
+              Text("Analyzing Global Market Data...",
+                  style: TextStyle(color: AppColors.neonCyan)),
+            ],
+          ),
+        );
 
       case OnDemandViewState.result:
       case OnDemandViewState.error:
@@ -364,8 +385,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
         // D44.16 Stale Warning Logic
         bool isStale = _result!.status == EnvelopeStatus.stale;
         if (!isStale) {
-           final ageMinutes = DateTime.now().difference(_result!.asOfUtc).inMinutes;
-           if (ageMinutes > 60) isStale = true;
+          final ageMinutes =
+              DateTime.now().difference(_result!.asOfUtc).inMinutes;
+          if (ageMinutes > 60) isStale = true;
         }
 
         return Container(
@@ -374,7 +396,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
             color: AppColors.surface1,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppColors.borderSubtle),
-             boxShadow: [
+            boxShadow: [
               BoxShadow(
                 color: AppColors.shadow.withValues(alpha: 0.2),
                 blurRadius: 8,
@@ -386,43 +408,45 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (isStale) ...[
-                 _buildStaleWarning(),
-                 const SizedBox(height: 16),
+                _buildStaleWarning(),
+                const SizedBox(height: 16),
               ],
               // D44.11 Header
-              EnvelopePreviewHeader(envelope: _result!, ticker: _controller.text.toUpperCase()),
-              
+              EnvelopePreviewHeader(
+                  envelope: _result!, ticker: _controller.text.toUpperCase()),
+
               // D44.12 Context Strip
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: OnDemandContextStrip(
-                  envelope: _result!, 
-                  ticker: _controller.text.toUpperCase()
-                ),
+                    envelope: _result!, ticker: _controller.text.toUpperCase()),
               ),
 
               const Divider(color: AppColors.borderSubtle, height: 24),
-              
+
               if (_result!.sanitized) ...[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: Text(
-                      "[SANITIZED] Content flagged by Lexicon Guard", 
-                      style: AppTypography.label(context).copyWith(color: AppColors.stateLocked),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12.0),
+                  child: Text(
+                    "[SANITIZED] Content flagged by Lexicon Guard",
+                    style: AppTypography.label(context)
+                        .copyWith(color: AppColors.stateLocked),
                   ),
+                ),
               ],
 
               ..._result!.bullets.map((b) => Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text("• ", style: TextStyle(color: AppColors.accentCyan)),
-                    Expanded(child: Text(b, style: AppTypography.body(context))),
-                  ],
-                ),
-              )),
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("• ",
+                            style: TextStyle(color: AppColors.neonCyan)),
+                        Expanded(
+                            child: Text(b, style: AppTypography.body(context))),
+                      ],
+                    ),
+                  )),
               const SizedBox(height: 8),
               // Footer timestamp removed in D44.11 (Moved to Header)
             ],
@@ -430,26 +454,31 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
         );
     }
   }
+
   Widget _buildStaleWarning() {
     final ts = _result!.asOfUtc.toUtc();
-    final timeStr = "${ts.hour.toString().padLeft(2,'0')}:${ts.minute.toString().padLeft(2,'0')} UTC";
-    
+    final timeStr =
+        "${ts.hour.toString().padLeft(2, '0')}:${ts.minute.toString().padLeft(2, '0')} UTC";
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: AppColors.stateStale.withValues(alpha: 0.1), 
-        border: Border.all(color: AppColors.stateStale.withValues(alpha: 0.5)),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Row(
-         mainAxisSize: MainAxisSize.min,
-         children: [
-            const Icon(Icons.warning_amber_rounded, size: 16, color: AppColors.stateStale),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: AppColors.stateStale.withValues(alpha: 0.1),
+          border:
+              Border.all(color: AppColors.stateStale.withValues(alpha: 0.5)),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.warning_amber_rounded,
+                size: 16, color: AppColors.stateStale),
             const SizedBox(width: 8),
-            Text("As of $timeStr · Stale", style: AppTypography.label(context).copyWith(color: AppColors.stateStale)),
-         ],
-       )
-    );
+            Text("As of $timeStr · Stale",
+                style: AppTypography.label(context)
+                    .copyWith(color: AppColors.stateStale)),
+          ],
+        ));
   }
 }
 
@@ -457,23 +486,35 @@ class EnvelopePreviewHeader extends StatelessWidget {
   final StandardEnvelope envelope;
   final String ticker;
 
-  const EnvelopePreviewHeader({super.key, required this.envelope, required this.ticker});
+  const EnvelopePreviewHeader(
+      {super.key, required this.envelope, required this.ticker});
 
   @override
   Widget build(BuildContext context) {
     // 1. Status Chip Color
     Color statusColor;
     switch (envelope.status) {
-      case EnvelopeStatus.live: statusColor = AppColors.stateLive; break;
-      case EnvelopeStatus.stale: statusColor = AppColors.stateStale; break;
-      case EnvelopeStatus.locked: statusColor = AppColors.stateLocked; break;
-      case EnvelopeStatus.unavailable: statusColor = AppColors.textDisabled; break;
-      case EnvelopeStatus.error: statusColor = AppColors.stateLocked; break;
+      case EnvelopeStatus.live:
+        statusColor = AppColors.stateLive;
+        break;
+      case EnvelopeStatus.stale:
+        statusColor = AppColors.stateStale;
+        break;
+      case EnvelopeStatus.locked:
+        statusColor = AppColors.stateLocked;
+        break;
+      case EnvelopeStatus.unavailable:
+        statusColor = AppColors.textDisabled;
+        break;
+      case EnvelopeStatus.error:
+        statusColor = AppColors.stateLocked;
+        break;
     }
 
     // 2. Format Timestamp
     final dt = envelope.asOfUtc.toUtc();
-    final timeStr = "${dt.hour.toString().padLeft(2,'0')}:${dt.minute.toString().padLeft(2,'0')} UTC";
+    final timeStr =
+        "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} UTC";
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -489,64 +530,75 @@ class EnvelopePreviewHeader extends StatelessWidget {
             Wrap(
               spacing: 6,
               children: [
-                _buildChip(context, envelope.status.name.toUpperCase(), statusColor),
-                _buildChip(context, envelope.source.name.toUpperCase(), AppColors.textSecondary),
+                _buildChip(
+                    context, envelope.status.name.toUpperCase(), statusColor),
+                _buildChip(context, envelope.source.name.toUpperCase(),
+                    AppColors.textSecondary),
               ],
             ),
             // Right: Timestamp
             Text(
               "As of $timeStr",
-              style: AppTypography.label(context).copyWith(fontSize: 10, color: AppColors.textDisabled),
+              style: AppTypography.label(context)
+                  .copyWith(fontSize: 10, color: AppColors.textDisabled),
             ),
           ],
         ),
         const SizedBox(height: 12),
         // Badges (Wrapped) + Explain Action
         Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           crossAxisAlignment: CrossAxisAlignment.start,
-           children: [
-              Expanded(
-                child: BadgeStripWidget(
-                  title: "CONFIDENCE",
-                  badges: envelope.confidenceBadges.map((e) => e.name.toUpperCase().split('.').last).toList(),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: BadgeStripWidget(
+                title: "CONFIDENCE",
+                badges: envelope.confidenceBadges
+                    .map((e) => e.name.toUpperCase().split('.').last)
+                    .toList(),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                // D44.13 Explain Trigger
+                final dt = envelope.asOfUtc.toUtc();
+                final timeStr =
+                    "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} UTC";
+
+                EliteExplainNotification("EXPLAIN_ON_DEMAND_RESULT", payload: {
+                  "ticker": ticker,
+                  "status": envelope.status.name.toUpperCase(),
+                  "source": envelope.source.name.toUpperCase(),
+                  "timestamp": timeStr,
+                  "badges": envelope.confidenceBadges
+                      .map((e) => e.name.toUpperCase().split('.').last)
+                      .toList()
+                }).dispatch(context);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      color: AppColors.neonCyan.withValues(alpha: 0.5)),
+                  borderRadius: BorderRadius.circular(16),
+                  color: AppColors.neonCyan.withValues(alpha: 0.1),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.auto_awesome,
+                        size: 12, color: AppColors.neonCyan),
+                    const SizedBox(width: 4),
+                    Text("EXPLAIN",
+                        style: AppTypography.label(context).copyWith(
+                            fontSize: 10,
+                            color: AppColors.neonCyan,
+                            fontWeight: FontWeight.bold)),
+                  ],
                 ),
               ),
-              InkWell(
-                 onTap: () {
-                     // D44.13 Explain Trigger
-                     final dt = envelope.asOfUtc.toUtc();
-                     final timeStr = "${dt.hour.toString().padLeft(2,'0')}:${dt.minute.toString().padLeft(2,'0')} UTC";
-                     
-                     EliteExplainNotification(
-                        "EXPLAIN_ON_DEMAND_RESULT",
-                        payload: {
-                           "ticker": ticker, 
-                           "status": envelope.status.name.toUpperCase(),
-                           "source": envelope.source.name.toUpperCase(),
-                           "timestamp": timeStr,
-                           "badges": envelope.confidenceBadges.map((e) => e.name.toUpperCase().split('.').last).toList()
-                        }
-                     ).dispatch(context);
-                 },
-                 child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                       border: Border.all(color: AppColors.accentCyan.withValues(alpha: 0.5)),
-                       borderRadius: BorderRadius.circular(16),
-                       color: AppColors.accentCyan.withValues(alpha: 0.1),
-                    ),
-                    child: Row(
-                       mainAxisSize: MainAxisSize.min,
-                       children: [
-                          const Icon(Icons.auto_awesome, size: 12, color: AppColors.accentCyan),
-                          const SizedBox(width: 4),
-                          Text("EXPLAIN", style: AppTypography.label(context).copyWith(fontSize: 10, color: AppColors.accentCyan, fontWeight: FontWeight.bold)),
-                       ],
-                    ),
-                 ),
-              )
-           ],
+            )
+          ],
         ),
       ],
     );
@@ -562,7 +614,8 @@ class EnvelopePreviewHeader extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: AppTypography.label(context).copyWith(fontSize: 10, color: color, fontWeight: FontWeight.bold),
+        style: AppTypography.label(context)
+            .copyWith(fontSize: 10, color: color, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -574,7 +627,7 @@ class BadgeStripWidget extends StatelessWidget {
 
   const BadgeStripWidget({
     super.key,
-    required this.title, 
+    required this.title,
     required this.badges,
   });
 
@@ -586,28 +639,34 @@ class BadgeStripWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(bottom: 4.0), // Spacing when wrapping
-          child: Text(title, style: AppTypography.label(context).copyWith(color: AppColors.textSecondary)),
+          child: Text(title,
+              style: AppTypography.label(context)
+                  .copyWith(color: AppColors.textSecondary)),
         ),
         Wrap(
           spacing: 4,
           runSpacing: 4,
           alignment: WrapAlignment.end,
-          children: badges.map((badge) => Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-            decoration: BoxDecoration(
-              color: AppColors.surface2,
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: AppColors.textDisabled),
-            ),
-            child: Text(
-              badge,
-              style: const TextStyle(fontSize: 10, color: AppColors.textDisabled, fontWeight: FontWeight.bold),
-            ),
-          )).toList(),
+          children: badges
+              .map((badge) => Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: AppColors.surface2,
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: AppColors.textDisabled),
+                    ),
+                    child: Text(
+                      badge,
+                      style: const TextStyle(
+                          fontSize: 10,
+                          color: AppColors.textDisabled,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ))
+              .toList(),
         )
       ],
     );
   }
 }
-
-

@@ -1,0 +1,38 @@
+﻿
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:105:/// 
+Enforces Lexicon 
+Policy by sanitizing 
+output.
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:106:class 
+LexiconSanitizer {
+market_sniper_app\lib\
+logic\standard_envelop
+e.dart:134:        
+safeBullets.add("N/A 
+— phrasing blocked by 
+Lexicon Guard");
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:167:      // 
+D44.07: Standard 
+Envelope & Lexicon 
+Guard
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:169:      
+final safeEnvelope = L
+exiconSanitizer.apply(
+rawEnvelope);
+market_sniper_app\lib\
+screens\on_demand_pane
+l.dart:410:           
+           
+"[SANITIZED] Content 
+flagged by Lexicon 
+Guard", 
+
+

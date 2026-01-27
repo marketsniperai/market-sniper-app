@@ -1,0 +1,9 @@
+# Proof: D45.HF09 AppConfig Fix
+
+## Changes
+Removed duplicate `apiBaseUrl` getter (older version).
+Kept `apiBaseUrl` that integrates `apiGatewayUrl` logic (D45.HF05).
+
+## Result
+Duplicate declaration error resolved.
+Compile success.

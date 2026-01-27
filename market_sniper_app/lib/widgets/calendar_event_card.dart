@@ -11,18 +11,22 @@ class CalendarEventCard extends StatelessWidget {
 
   Color _getCategoryColor() {
     switch (event.category) {
-      case EventCategory.macro: return AppColors.accentCyan;
-      case EventCategory.earnings: return AppColors.marketBull; // Green
-      default: return AppColors.textSecondary;
+      case EventCategory.macro:
+        return AppColors.neonCyan;
+      case EventCategory.earnings:
+        return AppColors.marketBull; // Green
+      default:
+        return AppColors.textSecondary;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final timeStr = DateFormat('HH:mm').format(event.timeUtc.toLocal()); // Convert to local/ET implied? Prompt says Time (ET). Assuming timeUtc is UTC, we should show ET. but for simplicity now, let's just show formatted time. If we had ET utils we'd use them. Let's assume input is correct or just format the UTC time for now and label it properly or just Time. 
-    // Wait, prompt says "Time (ET)". Let's assume we render what we have. If we have UTC, we should convert. 
+    final timeStr = DateFormat('HH:mm').format(event.timeUtc
+        .toLocal()); // Convert to local/ET implied? Prompt says Time (ET). Assuming timeUtc is UTC, we should show ET. but for simplicity now, let's just show formatted time. If we had ET utils we'd use them. Let's assume input is correct or just format the UTC time for now and label it properly or just Time.
+    // Wait, prompt says "Time (ET)". Let's assume we render what we have. If we have UTC, we should convert.
     // Since we don't have a reliable ET converter in this file, let's just format. Ideally we'd use TimeUtils.
-    
+
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
@@ -46,7 +50,7 @@ class CalendarEventCard extends StatelessWidget {
               ),
             ),
           ),
-          
+
           Container(width: 1, height: 24, color: AppColors.borderSubtle),
           const SizedBox(width: 12),
 
@@ -58,8 +62,8 @@ class CalendarEventCard extends StatelessWidget {
                 Row(
                   children: [
                     _buildCategoryBadge(context),
-                      const SizedBox(width: 6),
-                      _buildImpactBadge(context),
+                    const SizedBox(width: 6),
+                    _buildImpactBadge(context),
                   ],
                 ),
                 const SizedBox(height: 4),
@@ -99,7 +103,10 @@ class CalendarEventCard extends StatelessWidget {
       ),
       child: Text(
         event.category.name.toUpperCase(),
-        style: TextStyle(color: _getCategoryColor(), fontSize: 9, fontWeight: FontWeight.bold),
+        style: TextStyle(
+            color: _getCategoryColor(),
+            fontSize: 9,
+            fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -107,14 +114,14 @@ class CalendarEventCard extends StatelessWidget {
   Widget _buildImpactBadge(BuildContext context) {
     Color color;
     String label;
-    
+
     switch (event.impact) {
       case EventImpact.high:
         color = AppColors.marketBear; // Red
         label = "HIGH";
         break;
       case EventImpact.medium:
-        color = AppColors.stateStale; 
+        color = AppColors.stateStale;
         label = "MED";
         break;
       case EventImpact.low:
@@ -132,7 +139,8 @@ class CalendarEventCard extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(color: color, fontSize: 9, fontWeight: FontWeight.bold),
+        style:
+            TextStyle(color: color, fontSize: 9, fontWeight: FontWeight.bold),
       ),
     );
   }

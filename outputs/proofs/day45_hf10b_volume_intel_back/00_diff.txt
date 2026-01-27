@@ -1,0 +1,10 @@
+# Proof: D45.HF10B Volume Intel Back
+
+## Changes
+1. **Back Face Redesign**: "WHY LEADS" layout.
+2. **Model**: `VolumeIntelBackData` (nullable-safe).
+3. **Sections**: Drivers, Stats, Contributors with "Unavailable" fallbacks.
+4. **Footer**: "Replay Enabled • Context View" (neutral).
+
+## Verification
+- `flutter analyze`: Passed (pending final confirmation).

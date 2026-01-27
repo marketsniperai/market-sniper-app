@@ -1,0 +1,10 @@
+# Proof: D45.HF10F Volume Intel Front - Top 4 + Cyan Shimmer
+
+## Changes
+1. **Top 4 Limit**: Added `.take(4)` to both Live and Replay list generation in `_buildFrontFace`.
+2. **Cyan Shimmer**: In `_buildSectorRow`, changed `ShaderMask` gradient colors from `AppColors.textSecondary` (Silver) to `AppColors.neonCyan` (Cyan).
+   - Base opacity 0.4 maintained.
+
+## Verification
+- `flutter analyze`: Baseline (168 issues).
+- `flutter run`: Confirmed 4 rows and cyan tint.

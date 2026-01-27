@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
+import '../theme/app_spacing.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/war_room_tile.dart';
 import '../repositories/war_room_repository.dart';
@@ -12,7 +13,9 @@ import '../logic/war_room_refresh_controller.dart';
 import '../logic/war_room_degrade_policy.dart';
 import '../config/app_config.dart';
 import '../widgets/war_room/replay_control_tile.dart'; // D41.03 Replay UI
-import '../widgets/canonical_scroll_container.dart'; // Legacy but kept if needed, though replaced mostly
+// Legacy but kept if needed, though replaced mostly
+import '../widgets/war_room/invite_logic_tile.dart'; // DXX.WELCOME.02
+import '../widgets/war_room/canon_debt_radar.dart'; // D45.CANON.DEBT_RADAR.V1
 
 class WarRoomScreen extends StatefulWidget {
   const WarRoomScreen({super.key});
@@ -21,10 +24,11 @@ class WarRoomScreen extends StatefulWidget {
   State<WarRoomScreen> createState() => _WarRoomScreenState();
 }
 
-class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserver {
+class _WarRoomScreenState extends State<WarRoomScreen>
+    with WidgetsBindingObserver {
   late WarRoomRepository _repo;
   late WarRoomRefreshController _refreshController;
-  
+
   WarRoomSnapshot _snapshot = WarRoomSnapshot.initial;
   bool _loading = true; // Initial load spinner
   bool _silentRefreshing = false; // For subtle indicator
@@ -34,12 +38,12 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _repo = WarRoomRepository(api: ApiClient());
-    
+
     _refreshController = WarRoomRefreshController(onRefresh: _handleRefresh);
-    
+
     // Initial Load
     _loadData(); // This handles the first spinner
-    
+
     // Start Governance (will schedule next)
     _refreshController.start();
   }
@@ -64,11 +68,11 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
   Future<void> _loadData() async {
     // Spinner logic handled by _loading var init
     // Just force a refresh cycle
-    // Note: Controller schedules *next*, but we want one *now*. 
+    // Note: Controller schedules *next*, but we want one *now*.
     // We can manually call handleRefresh or just rely on controller start?
-    // Controller start only schedules *next*. 
+    // Controller start only schedules *next*.
     // We want immediate data.
-    
+
     await _handleRefresh(initial: true);
   }
 
@@ -82,7 +86,7 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     try {
       final data = await _repo.fetchSnapshot();
-      
+
       // Governance Check
       bool backoff = false;
       // OS Health Locked?
@@ -94,9 +98,9 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
           !data.housekeeper.isAvailable ||
           !data.iron.isAvailable ||
           !data.universe.isAvailable) {
-         backoff = true;
+        backoff = true;
       }
-      
+
       _refreshController.reportEffectiveState(backoff);
 
       if (mounted) {
@@ -127,24 +131,24 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         title: GestureDetector(
           onTap: () => _refreshController.requestManualRefresh(),
           child: Column(
-             mainAxisSize: MainAxisSize.min,
-             children: [
-               Text(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
                 "WAR ROOM",
                 style: AppTypography.headline(context).copyWith(
-                  color: AppColors.accentCyan,
+                  color: AppColors.neonCyan,
                   letterSpacing: 2.0,
                 ),
-               ),
-               if (AppConfig.isFounderBuild && _silentRefreshing)
-                 Text(
-                   "Refeshing...",
-                   style: AppTypography.caption(context).copyWith(
-                     color: AppColors.textSecondary,
-                     fontSize: 10,
-                   ),
-                 ),
-             ],
+              ),
+              if (AppConfig.isFounderBuild && _silentRefreshing)
+                Text(
+                  "Refeshing...",
+                  style: AppTypography.caption(context).copyWith(
+                    color: AppColors.textSecondary,
+                    fontSize: 10,
+                  ),
+                ),
+            ],
           ),
         ),
         bottom: PreferredSize(
@@ -159,70 +163,73 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
       body: RefreshIndicator(
         onRefresh: () async => await _refreshController.requestManualRefresh(),
         child: CustomScrollView(
-           physics: const AlwaysScrollableScrollPhysics(),
-           slivers: [
-              SliverPadding(
-                 padding: const EdgeInsets.all(16.0),
-                 sliver: SliverList(
-                    delegate: SliverChildListDelegate([
-                       _buildStatusBanner(),
-                       const SizedBox(height: 16),
-                    ]),
-                 ),
+          physics: const AlwaysScrollableScrollPhysics(),
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsets.all(16.0),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  _buildStatusBanner(),
+                  AppSpacing.gapCard,
+                ]),
               ),
-              
-              SliverPadding(
-                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                 sliver: SliverGrid.count(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 1.1,
-                    children: [
-                      _buildHealthTile(),
-                      _buildAutopilotTile(),
-                      _buildMisfireTile(),
-                      _buildHousekeeperTile(),
-                      _buildIronTile(),
-                      _buildIronTimelineTile(),
-                      _buildLKGTile(),
-                      _buildDecisionPathTile(),
-                      _buildDriftTile(),
-                      _buildReplayIntegrityTile(),
-                      _buildReplayTile(), // D41.03
-                      _buildLockReasonTile(),
-                      _buildCoverageTile(),
-                      _buildFindingsTile(),
-                      _buildBeforeAfterTile(),
-                      _buildAutoFixTier1Tile(),
-                      _buildAutoFixDecisionPathTile(),
-                      _buildMisfireRootCauseTile(),
-                      _buildSelfHealConfidenceTile(),
-                      _buildSelfHealWhatChangedTile(),
-                      _buildCooldownTransparencyTile(),
-                      _buildRedButtonTile(),
-                      _buildMisfireTier2Tile(),
-                      _buildUniverseTile(),
-                      _buildOptionsTile(), // D36.3
-                      _buildMacroTile(), // D36.5
-                      _buildEvidenceTile(), // D36.4
-                    ],
-                 ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              sliver: SliverGrid.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: AppSpacing.cardGap,
+                mainAxisSpacing: AppSpacing.cardGap,
+                childAspectRatio: 1.1,
+                children: [
+                  _buildHealthTile(),
+                  _buildAutopilotTile(),
+                  _buildMisfireTile(),
+                  _buildHousekeeperTile(),
+                  _buildIronTile(),
+                  _buildIronTimelineTile(),
+                  _buildLKGTile(),
+                  _buildDecisionPathTile(),
+                  _buildDriftTile(),
+                  _buildReplayIntegrityTile(),
+                  _buildReplayTile(), // D41.03
+                  _buildLockReasonTile(),
+                  _buildCoverageTile(),
+                  _buildFindingsTile(),
+                  _buildBeforeAfterTile(),
+                  _buildAutoFixTier1Tile(),
+                  _buildAutoFixDecisionPathTile(),
+                  _buildMisfireRootCauseTile(),
+                  _buildSelfHealConfidenceTile(),
+                  _buildSelfHealWhatChangedTile(),
+                  _buildCooldownTransparencyTile(),
+                  _buildRedButtonTile(),
+                  _buildMisfireTier2Tile(),
+                  _buildUniverseTile(),
+                  _buildOptionsTile(), // D36.3
+                  _buildMacroTile(), // D36.5
+                  _buildEvidenceTile(), // D36.4
+                  const InviteLogicTile(), // DXX.WELCOME.02
+                ],
               ),
-
-              SliverPadding(
-                 padding: const EdgeInsets.all(16.0),
-                 sliver: SliverList(
-                    delegate: SliverChildListDelegate([
-                       const SizedBox(height: 16),
-                       _buildIronHistorySection(),
-                       const SizedBox(height: 24),
-                       if (AppConfig.isFounderBuild) _buildFounderTruth(),
-                       const SizedBox(height: 32), // Bottom padding
-                    ]),
-                 ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.all(16.0),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  AppSpacing.gapCard,
+                  _buildIronHistorySection(),
+                  AppSpacing.gapSection,
+                  const CanonDebtRadar(), // D45.CANON.DEBT_RADAR.V1
+                  if (AppConfig.isFounderBuild) ...[
+                    AppSpacing.gapSection,
+                    _buildFounderTruth(),
+                  ],
+                  const SizedBox(height: 32), // Bottom padding
+                ]),
               ),
-           ],
+            ),
+          ],
         ),
       ),
     );
@@ -230,9 +237,11 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
   Widget _buildStatusBanner() {
     if (_loading) return const SizedBox.shrink();
-    
+
     final eval = WarRoomDegradePolicy.evaluate(_snapshot);
-    if (eval.state == WarRoomGlobalState.nominal) return const SizedBox.shrink();
+    if (eval.state == WarRoomGlobalState.nominal) {
+      return const SizedBox.shrink();
+    }
 
     Color bgColor = AppColors.surface1;
     Color textColor = AppColors.textPrimary;
@@ -250,7 +259,7 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         icon = Icons.error_outline;
         break;
       case WarRoomGlobalState.unavailable:
-        bgColor = AppColors.textDisabled.withValues(alpha: 0.1); 
+        bgColor = AppColors.textDisabled.withValues(alpha: 0.1);
         textColor = AppColors.stateLocked;
         icon = Icons.cloud_off;
         break;
@@ -275,12 +284,14 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
               children: [
                 Text(
                   eval.message,
-                  style: AppTypography.label(context).copyWith(color: textColor, fontWeight: FontWeight.bold),
+                  style: AppTypography.label(context)
+                      .copyWith(color: textColor, fontWeight: FontWeight.bold),
                 ),
                 if (eval.issues.isNotEmpty)
                   Text(
                     eval.issues.join(", "),
-                    style: AppTypography.caption(context).copyWith(color: textColor.withValues(alpha: 0.8)),
+                    style: AppTypography.caption(context)
+                        .copyWith(color: textColor.withValues(alpha: 0.8)),
                   ),
               ],
             ),
@@ -311,10 +322,17 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _truthRow("OS Health", _snapshot.osHealth.status.toString(), "unified"),
-                _truthRow("Misfire", _snapshot.misfire.source, _snapshot.misfire.isAvailable ? "OK" : "MISSING"),
-                _truthRow("Iron OS", _snapshot.iron.source, _snapshot.iron.isAvailable ? "OK" : "MISSING"),
-                _truthRow("Last Refresh", _refreshController.lastRefreshTime?.toIso8601String() ?? "N/A", "local"),
+                _truthRow("OS Health", _snapshot.osHealth.status.toString(),
+                    "unified"),
+                _truthRow("Misfire", _snapshot.misfire.source,
+                    _snapshot.misfire.isAvailable ? "OK" : "MISSING"),
+                _truthRow("Iron OS", _snapshot.iron.source,
+                    _snapshot.iron.isAvailable ? "OK" : "MISSING"),
+                _truthRow(
+                    "Last Refresh",
+                    _refreshController.lastRefreshTime?.toIso8601String() ??
+                        "N/A",
+                    "local"),
               ],
             ),
           ),
@@ -332,9 +350,9 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
           Text(label, style: AppTypography.caption(context)),
           Expanded(
             child: Text(
-              "$value ($status)", 
+              "$value ($status)",
               style: AppTypography.caption(context).copyWith(
-                fontSize: 10, 
+                fontSize: 10,
                 color: AppColors.textSecondary,
                 fontFamily: GoogleFonts.robotoMono().fontFamily,
               ),
@@ -351,14 +369,24 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     final h = _snapshot.osHealth;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> subtitle = [];
-    
+
     if (!_loading) {
       switch (h.status) {
-        case HealthStatus.nominal: status = WarRoomTileStatus.nominal; break;
-        case HealthStatus.degraded: status = WarRoomTileStatus.degraded; break;
-        case HealthStatus.misfire: status = WarRoomTileStatus.incident; break;
-        case HealthStatus.locked: status = WarRoomTileStatus.incident; break;
-        case HealthStatus.unknown: status = WarRoomTileStatus.unavailable; break;
+        case HealthStatus.nominal:
+          status = WarRoomTileStatus.nominal;
+          break;
+        case HealthStatus.degraded:
+          status = WarRoomTileStatus.degraded;
+          break;
+        case HealthStatus.misfire:
+          status = WarRoomTileStatus.incident;
+          break;
+        case HealthStatus.locked:
+          status = WarRoomTileStatus.incident;
+          break;
+        case HealthStatus.unknown:
+          status = WarRoomTileStatus.unavailable;
+          break;
       }
       subtitle = [h.status.toString().split('.').last.toUpperCase()];
       if (h.ageSeconds > 0) subtitle.add("${h.ageSeconds}s ago");
@@ -376,41 +404,43 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     final a = _snapshot.autopilot;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> lines = [];
-    
+
     if (!_loading) {
-       if (!a.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
-       } else {
-         // 1. Status Determination
-         if (a.mode == "SAFE_AUTOPILOT" || a.mode == "FULL_AUTOPILOT") {
-           status = WarRoomTileStatus.nominal;
-         } else if (a.mode == "SHADOW") {
-           status = WarRoomTileStatus.nominal;
-         } else if (a.mode == "OFF") {
-            // Housekeeper separate now, so OFF is degraded/inactive
-           status = WarRoomTileStatus.degraded; 
-         } else {
-           status = WarRoomTileStatus.nominal;
-         }
-         
-         if (a.mode == "UNAVAILABLE") status = WarRoomTileStatus.unavailable;
+      if (!a.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        // 1. Status Determination
+        if (a.mode == "SAFE_AUTOPILOT" || a.mode == "FULL_AUTOPILOT") {
+          status = WarRoomTileStatus.nominal;
+        } else if (a.mode == "SHADOW") {
+          status = WarRoomTileStatus.nominal;
+        } else if (a.mode == "OFF") {
+          // Housekeeper separate now, so OFF is degraded/inactive
+          status = WarRoomTileStatus.degraded;
+        } else {
+          status = WarRoomTileStatus.nominal;
+        }
 
-         // 2. Build Rows
-         lines.add("MODE: ${a.mode}");
-         lines.add("AUTOFIX: ${a.stage}");
-         
-         String lastAction = a.lastAction;
-         if (lastAction.length > 15) lastAction = "${lastAction.substring(0, 15)}...";
-         
-         String time = a.lastActionTime;
-         if (time.contains("T")) time = time.split("T").last.split(".").first;
-         lines.add("LAST: $lastAction @ $time");
+        if (a.mode == "UNAVAILABLE") status = WarRoomTileStatus.unavailable;
 
-         if (a.cooldownRemaining > 0) {
-           lines.add("COOLDOWN: ${a.cooldownRemaining}s");
-         }
-       }
+        // 2. Build Rows
+        lines.add("MODE: ${a.mode}");
+        lines.add("AUTOFIX: ${a.stage}");
+
+        String lastAction = a.lastAction;
+        if (lastAction.length > 15) {
+          lastAction = "${lastAction.substring(0, 15)}...";
+        }
+
+        String time = a.lastActionTime;
+        if (time.contains("T")) time = time.split("T").last.split(".").first;
+        lines.add("LAST: $lastAction @ $time");
+
+        if (a.cooldownRemaining > 0) {
+          lines.add("COOLDOWN: ${a.cooldownRemaining}s");
+        }
+      }
     }
 
     return WarRoomTile(
@@ -432,19 +462,19 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         lines.add("UNAVAILABLE");
       } else {
         if (m.status == "NOMINAL") {
-           status = WarRoomTileStatus.nominal;
+          status = WarRoomTileStatus.nominal;
         } else if (m.status == "MISFIRE" || m.status == "LOCKED") {
-           status = WarRoomTileStatus.incident;
+          status = WarRoomTileStatus.incident;
         } else {
-           status = WarRoomTileStatus.degraded;
+          status = WarRoomTileStatus.degraded;
         }
 
         lines.add("STATUS: ${m.status}");
-        
+
         String last = m.lastMisfire;
         if (last.contains("T")) last = last.split("T").last.split(".").first;
         lines.add("LAST: $last");
-        
+
         final recState = m.autoRecovery ? "ON" : "OFF";
         lines.add("RECOVERY: $recState (${m.recoveryState})");
 
@@ -453,17 +483,17 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         lines.add("ACT: $lastAct");
 
         if (m.cooldown > 0) {
-           lines.add("COOLDOWN: ${m.cooldown}s");
+          lines.add("COOLDOWN: ${m.cooldown}s");
         }
-        
+
         if (m.proof != "N/A" && m.proof != "UNKNOWN") {
           lines.add("PROOF: ${m.proof}");
         }
-        
+
         if (m.note.isNotEmpty) {
-           String note = m.note;
-           if (note.length > 20) note = "${note.substring(0, 20)}...";
-           lines.add("NOTE: $note");
+          String note = m.note;
+          if (note.length > 20) note = "${note.substring(0, 20)}...";
+          lines.add("NOTE: $note");
         }
       }
     }
@@ -490,19 +520,28 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         // result can be "SUCCESS (5)", "PARTIAL", "FAILED", "NOOP", "UNKNOWN"
         String res = hk.result.split(' ').first; // Extract basic status
 
-        if (res == "SUCCESS") status = WarRoomTileStatus.nominal;
-        else if (res == "NOOP") status = WarRoomTileStatus.nominal; // NOOP is fine (e.g. missing plan is safe)
-        else if (res == "PARTIAL") status = WarRoomTileStatus.degraded;
-        else if (res == "FAILED") status = WarRoomTileStatus.incident;
-        else status = WarRoomTileStatus.degraded;
+        if (res == "SUCCESS") {
+          status = WarRoomTileStatus.nominal;
+        } else if (res == "NOOP")
+          status = WarRoomTileStatus
+              .nominal; // NOOP is fine (e.g. missing plan is safe)
+        else if (res == "PARTIAL")
+          status = WarRoomTileStatus.degraded;
+        else if (res == "FAILED")
+          status = WarRoomTileStatus.incident;
+        else
+          status = WarRoomTileStatus.degraded;
 
-        if (hk.autoRun) lines.add("AUTO: ON");
-        else lines.add("AUTO: OFF"); // Legacy flag or inferred
-        
+        if (hk.autoRun) {
+          lines.add("AUTO: ON");
+        } else {
+          lines.add("AUTO: OFF"); // Legacy flag or inferred
+        }
+
         String last = hk.lastRun;
         if (last.contains("T")) last = last.split("T").last.split(".").first;
         lines.add("LAST: $last");
-        
+
         lines.add("STATUS: ${hk.result}");
       }
     }
@@ -519,32 +558,41 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     final i = _snapshot.iron;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> lines = [];
-    
+
     if (!_loading) {
       if (!i.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         // Map state to tile status (Mirror)
-         switch (i.state) {
-           case "NOMINAL": status = WarRoomTileStatus.nominal; break;
-           case "DEGRADED": status = WarRoomTileStatus.degraded; break;
-           case "INCIDENT": status = WarRoomTileStatus.incident; break;
-           case "LOCKED": status = WarRoomTileStatus.incident; break;
-           default: status = WarRoomTileStatus.nominal; // Fallback for IDLE/BOOT
-         }
-         
-         lines.add("STATE: ${i.state}");
-         
-         String tick = i.lastTick;
-         if (tick.contains("T")) tick = tick.split("T").last.split(".").first;
-         lines.add("LAST TICK: $tick");
-         
-         if (i.ageSeconds > 0) {
-            lines.add("AGE: ${i.ageSeconds}s");
-         } else {
-            lines.add("AGE: 0s");
-         }
+        // Map state to tile status (Mirror)
+        switch (i.state) {
+          case "NOMINAL":
+            status = WarRoomTileStatus.nominal;
+            break;
+          case "DEGRADED":
+            status = WarRoomTileStatus.degraded;
+            break;
+          case "INCIDENT":
+            status = WarRoomTileStatus.incident;
+            break;
+          case "LOCKED":
+            status = WarRoomTileStatus.incident;
+            break;
+          default:
+            status = WarRoomTileStatus.nominal; // Fallback for IDLE/BOOT
+        }
+
+        lines.add("STATE: ${i.state}");
+
+        String tick = i.lastTick;
+        if (tick.contains("T")) tick = tick.split("T").last.split(".").first;
+        lines.add("LAST TICK: $tick");
+
+        if (i.ageSeconds > 0) {
+          lines.add("AGE: ${i.ageSeconds}s");
+        } else {
+          lines.add("AGE: 0s");
+        }
       }
     }
 
@@ -567,26 +615,26 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         lines.add("UNAVAILABLE");
       } else {
         status = WarRoomTileStatus.nominal;
-        
+
         if (t.events.isEmpty) {
-           lines.add("No recent events.");
+          lines.add("No recent events.");
         } else {
-           // Show last 3 events as summary
-           int count = 0;
-           for (var e in t.events) {
-             if (count >= 3) break;
-             String ts = e.timestamp;
-             if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
-             
-             String type = e.type;
-             if (type.length > 8) type = type.substring(0, 8);
-             
-             lines.add("$ts [$type]");
-             count++;
-           }
-           if (t.events.length > 3) {
-             lines.add("... +${t.events.length - 3} more");
-           }
+          // Show last 3 events as summary
+          int count = 0;
+          for (var e in t.events) {
+            if (count >= 3) break;
+            String ts = e.timestamp;
+            if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
+
+            String type = e.type;
+            if (type.length > 8) type = type.substring(0, 8);
+
+            lines.add("$ts [$type]");
+            count++;
+          }
+          if (t.events.length > 3) {
+            lines.add("... +${t.events.length - 3} more");
+          }
         }
       }
     }
@@ -600,144 +648,174 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
   }
 
   Widget _buildIronHistorySection() {
-     final h = _snapshot.ironHistory;
-     if (!h.isAvailable && !AppConfig.isFounderBuild) return const SizedBox.shrink();
+    final h = _snapshot.ironHistory;
+    if (!h.isAvailable && !AppConfig.isFounderBuild) {
+      return const SizedBox.shrink();
+    }
 
-     return Column(
-       crossAxisAlignment: CrossAxisAlignment.start,
-       children: [
-          Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: [
-             Text(
-               "IRON OS — STATE HISTORY (LAST 10)",
-               style: AppTypography.label(context).copyWith(color: AppColors.textSecondary),
-             ),
-             if (!h.isAvailable)
-                Text("UNAVAILABLE", style: AppTypography.caption(context).copyWith(color: AppColors.stateLocked, fontWeight: FontWeight.bold))
-           ],
-         ),
-         const SizedBox(height: 12),
-         if (!h.isAvailable)
-            Container(
-               width: double.infinity,
-               padding: const EdgeInsets.all(12),
-               decoration: BoxDecoration(
-                 color: AppColors.stateLocked.withValues(alpha: 0.1),
-                 border: const Border(left: BorderSide(color: AppColors.stateLocked, width: 4)),
-               ),
-               child: Text("HISTORY UNAVAILABLE", style: AppTypography.caption(context).copyWith(color: AppColors.stateLocked, fontWeight: FontWeight.bold)),
-            )
-         else
-            Container(
-               height: 60,
-               decoration: BoxDecoration(
-                 color: AppColors.surface1,
-                 borderRadius: BorderRadius.circular(8),
-                 border: Border.all(color: AppColors.borderSubtle),
-               ),
-               child: ListView.separated(
-                 scrollDirection: Axis.horizontal,
-                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-                 itemCount: h.history.length,
-                 separatorBuilder: (c, i) => const SizedBox(width: 8),
-                 itemBuilder: (c, i) {
-                    final e = h.history[i];
-                    Color stateColor;
-                    switch (e.state) {
-                      case "NOMINAL": stateColor = AppColors.stateLive; break;
-                      case "DEGRADED": stateColor = AppColors.stateStale; break;
-                      case "INCIDENT": stateColor = AppColors.stateLocked; break;
-                      case "LOCKED": stateColor = AppColors.stateLocked; break;
-                      default: stateColor = AppColors.textSecondary;
-                    }
-                    
-                    String ts = e.timestamp;
-                    if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
-                    
-                    return Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                           Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: stateColor.withValues(alpha: 0.1),
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(color: stateColor.withValues(alpha: 0.3)),
-                              ),
-                              child: Text(e.state, style: AppTypography.caption(context).copyWith(fontSize: 10, color: stateColor, fontWeight: FontWeight.bold)),
-                           ),
-                           const SizedBox(height: 4),
-                           Text(ts, style: AppTypography.caption(context).copyWith(fontSize: 9, color: AppColors.textDisabled)),
-                        ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "IRON OS — STATE HISTORY (LAST 10)",
+              style: AppTypography.label(context)
+                  .copyWith(color: AppColors.textSecondary),
+            ),
+            if (!h.isAvailable)
+              Text("UNAVAILABLE",
+                  style: AppTypography.caption(context).copyWith(
+                      color: AppColors.stateLocked,
+                      fontWeight: FontWeight.bold))
+          ],
+        ),
+        const SizedBox(height: 12),
+        if (!h.isAvailable)
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: AppColors.stateLocked.withValues(alpha: 0.1),
+              border: const Border(
+                  left: BorderSide(color: AppColors.stateLocked, width: 4)),
+            ),
+            child: Text("HISTORY UNAVAILABLE",
+                style: AppTypography.caption(context).copyWith(
+                    color: AppColors.stateLocked, fontWeight: FontWeight.bold)),
+          )
+        else
+          Container(
+            height: 60,
+            decoration: BoxDecoration(
+              color: AppColors.surface1,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: AppColors.borderSubtle),
+            ),
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+              itemCount: h.history.length,
+              separatorBuilder: (c, i) => const SizedBox(width: 8),
+              itemBuilder: (c, i) {
+                final e = h.history[i];
+                Color stateColor;
+                switch (e.state) {
+                  case "NOMINAL":
+                    stateColor = AppColors.stateLive;
+                    break;
+                  case "DEGRADED":
+                    stateColor = AppColors.stateStale;
+                    break;
+                  case "INCIDENT":
+                    stateColor = AppColors.stateLocked;
+                    break;
+                  case "LOCKED":
+                    stateColor = AppColors.stateLocked;
+                    break;
+                  default:
+                    stateColor = AppColors.textSecondary;
+                }
+
+                String ts = e.timestamp;
+                if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
+
+                return Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: stateColor.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(4),
+                          border: Border.all(
+                              color: stateColor.withValues(alpha: 0.3)),
+                        ),
+                        child: Text(e.state,
+                            style: AppTypography.caption(context).copyWith(
+                                fontSize: 10,
+                                color: stateColor,
+                                fontWeight: FontWeight.bold)),
                       ),
-                    );
-                 },
-               ),
-            )
-       ],
-     );
+                      const SizedBox(height: 4),
+                      Text(ts,
+                          style: AppTypography.caption(context).copyWith(
+                              fontSize: 9, color: AppColors.textDisabled)),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
+      ],
+    );
   }
 
   Widget _buildLKGTile() {
-     final lkg = _snapshot.lkg;
-     WarRoomTileStatus status = WarRoomTileStatus.loading;
-     List<String> lines = [];
-     
-     if (!_loading) {
-       if (!lkg.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
-       } else {
-         status = lkg.valid ? WarRoomTileStatus.nominal : WarRoomTileStatus.degraded;
-         
-         String ts = lkg.timestamp;
-         if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
-         
-         String hashShort = lkg.hash;
-         if (hashShort.length > 8) hashShort = hashShort.substring(0, 8);
-         
-         lines.add("HASH: $hashShort");
-         lines.add("TIME: $ts");
-         lines.add("SIZE: ${lkg.sizeBytes} B");
-         lines.add("VALIDITY: ${lkg.valid ? 'VALID' : 'INVALID'}");
-       }
-     }
-     
-     return WarRoomTile(
-       title: "IRON LKG",
-       status: _loading ? WarRoomTileStatus.loading : status,
-       subtitle: lines,
-       debugInfo: "Source: ${lkg.source}",
-     );
+    final lkg = _snapshot.lkg;
+    WarRoomTileStatus status = WarRoomTileStatus.loading;
+    List<String> lines = [];
+
+    if (!_loading) {
+      if (!lkg.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        status =
+            lkg.valid ? WarRoomTileStatus.nominal : WarRoomTileStatus.degraded;
+
+        String ts = lkg.timestamp;
+        if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
+
+        String hashShort = lkg.hash;
+        if (hashShort.length > 8) hashShort = hashShort.substring(0, 8);
+
+        lines.add("HASH: $hashShort");
+        lines.add("TIME: $ts");
+        lines.add("SIZE: ${lkg.sizeBytes} B");
+        lines.add("VALIDITY: ${lkg.valid ? 'VALID' : 'INVALID'}");
+      }
+    }
+
+    return WarRoomTile(
+      title: "IRON LKG",
+      status: _loading ? WarRoomTileStatus.loading : status,
+      subtitle: lines,
+      debugInfo: "Source: ${lkg.source}",
+    );
   }
 
   Widget _buildDecisionPathTile() {
     final d = _snapshot.decisionPath;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> lines = [];
-    
+
     if (!_loading) {
-       if (!d.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
-       } else {
-         status = d.fallbackUsed ? WarRoomTileStatus.degraded : WarRoomTileStatus.nominal;
-         
-         String ts = d.timestamp;
-         if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
-         
-         lines.add("TIME: $ts");
-         lines.add("TYPE: ${d.type}");
-         lines.add("FALLBACK: ${d.fallbackUsed}");
-         lines.add("REASON: ${d.reason.length > 20 ? d.reason.substring(0, 17) + "..." : d.reason}");
-         if (d.actionTaken != null) {
-            lines.add("ACTION: ${d.actionTaken}");
-         }
-       }
+      if (!d.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        status = d.fallbackUsed
+            ? WarRoomTileStatus.degraded
+            : WarRoomTileStatus.nominal;
+
+        String ts = d.timestamp;
+        if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
+
+        lines.add("TIME: $ts");
+        lines.add("TYPE: ${d.type}");
+        lines.add("FALLBACK: ${d.fallbackUsed}");
+        lines.add(
+            "REASON: ${d.reason.length > 20 ? "${d.reason.substring(0, 17)}..." : d.reason}");
+        if (d.actionTaken != null) {
+          lines.add("ACTION: ${d.actionTaken}");
+        }
+      }
     }
-    
+
     return WarRoomTile(
       title: "LAST DECISION",
       status: _loading ? WarRoomTileStatus.loading : status,
@@ -750,7 +828,7 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     final d = _snapshot.drift;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> lines = [];
-    
+
     if (!_loading) {
       if (!d.isAvailable) {
         status = WarRoomTileStatus.unavailable;
@@ -762,12 +840,12 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         status = WarRoomTileStatus.degraded;
         lines.add("${d.entries.length} MISMATCHES");
         for (var i = 0; i < d.entries.length && i < 3; i++) {
-           final e = d.entries[i];
-           lines.add("${e.component}: ${e.expected} != ${e.observed}");
+          final e = d.entries[i];
+          lines.add("${e.component}: ${e.expected} != ${e.observed}");
         }
       }
     }
-    
+
     return WarRoomTile(
       title: "EXTENDED DRIFT",
       status: _loading ? WarRoomTileStatus.loading : status,
@@ -780,26 +858,28 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     final r = _snapshot.replay;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> lines = [];
-    
+
     if (!_loading) {
-       if (!r.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
-       } else {
-         bool anyIssues = r.corrupted || r.truncated || r.outOfOrder || r.duplicateEvents;
-         status = anyIssues ? WarRoomTileStatus.degraded : WarRoomTileStatus.nominal;
-         
-         if (!anyIssues) {
-            lines.add("INTEGRITY CONFIRMED");
-         } else {
-            if (r.corrupted) lines.add("CORRUPTED");
-            if (r.truncated) lines.add("TRUNCATED");
-            if (r.outOfOrder) lines.add("OUT OF ORDER");
-            if (r.duplicateEvents) lines.add("DUPLICATE EVENTS");
-         }
-       }
+      if (!r.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        bool anyIssues =
+            r.corrupted || r.truncated || r.outOfOrder || r.duplicateEvents;
+        status =
+            anyIssues ? WarRoomTileStatus.degraded : WarRoomTileStatus.nominal;
+
+        if (!anyIssues) {
+          lines.add("INTEGRITY CONFIRMED");
+        } else {
+          if (r.corrupted) lines.add("CORRUPTED");
+          if (r.truncated) lines.add("TRUNCATED");
+          if (r.outOfOrder) lines.add("OUT OF ORDER");
+          if (r.duplicateEvents) lines.add("DUPLICATE EVENTS");
+        }
+      }
     }
-    
+
     return WarRoomTile(
       title: "REPLAY INTEGRITY",
       status: _loading ? WarRoomTileStatus.loading : status,
@@ -823,30 +903,35 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         // PROVIDER_DENIED => Degraded (Yellow)
         // PROXY_ESTIMATED => Degraded
         // N_A => Degraded/Info
-        if (o.status == 'LIVE') status = WarRoomTileStatus.nominal;
-        else if (o.status == 'CACHE') status = WarRoomTileStatus.nominal; // Cache is nominal enough
-        else if (o.status == 'PROVIDER_DENIED') status = WarRoomTileStatus.degraded;
-        else if (o.status == 'PROXY_ESTIMATED') status = WarRoomTileStatus.degraded;
-        else status = WarRoomTileStatus.degraded; // N_A or others
+        if (o.status == 'LIVE') {
+          status = WarRoomTileStatus.nominal;
+        } else if (o.status == 'CACHE')
+          status = WarRoomTileStatus.nominal; // Cache is nominal enough
+        else if (o.status == 'PROVIDER_DENIED')
+          status = WarRoomTileStatus.degraded;
+        else if (o.status == 'PROXY_ESTIMATED')
+          status = WarRoomTileStatus.degraded;
+        else
+          status = WarRoomTileStatus.degraded; // N_A or others
 
         lines.add("STATUS: ${o.status}");
         // lines.add("COVERAGE: ${o.coverage}"); // Can remove to save space if needed
-        
+
         if (o.status == 'CACHE') {
-           // Maybe show cache age if passed in snapshot? Current snapshot has fallback reason but not raw age.
-           // We can infer from fallback reason or just show status.
+          // Maybe show cache age if passed in snapshot? Current snapshot has fallback reason but not raw age.
+          // We can infer from fallback reason or just show status.
         }
-        
+
         if (o.providerAttempted) {
-           lines.add("PROV: ${o.providerResult}");
+          lines.add("PROV: ${o.providerResult}");
         }
-        
+
         if (o.fallbackReason != "NONE" && o.fallbackReason != "null") {
-           String r = o.fallbackReason;
-           if (r.length > 15) r = "${r.substring(0, 15)}...";
-           lines.add("ERR: $r");
+          String r = o.fallbackReason;
+          if (r.length > 15) r = "${r.substring(0, 15)}...";
+          lines.add("ERR: $r");
         }
-        
+
         String t = o.asOfUtc;
         if (t.contains('T')) t = t.split('T').last.split('.').first;
         lines.add("TIME: $t");
@@ -872,10 +957,14 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         lines.add("UNAVAILABLE");
       } else {
         // Status mapping
-        if (m.status == 'LIVE') status = WarRoomTileStatus.nominal;
-        else if (m.status == 'PARTIAL') status = WarRoomTileStatus.degraded;
-        else if (m.status == 'N_A') status = WarRoomTileStatus.degraded; // Neutral
-        else status = WarRoomTileStatus.incident;
+        if (m.status == 'LIVE') {
+          status = WarRoomTileStatus.nominal;
+        } else if (m.status == 'PARTIAL')
+          status = WarRoomTileStatus.degraded;
+        else if (m.status == 'N_A')
+          status = WarRoomTileStatus.degraded; // Neutral
+        else
+          status = WarRoomTileStatus.incident;
 
         lines.add("STATUS: ${m.status}");
         lines.add("RATES: ${m.rates}");
@@ -903,14 +992,18 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         lines.add("UNAVAILABLE");
       } else {
         // Status mapping
-        if (e.status == 'LIVE') status = WarRoomTileStatus.nominal;
-        else if (e.status == 'PARTIAL') status = WarRoomTileStatus.degraded;
-        else if (e.status == 'N_A') status = WarRoomTileStatus.degraded; // Neutral
-        else status = WarRoomTileStatus.incident;
+        if (e.status == 'LIVE') {
+          status = WarRoomTileStatus.nominal;
+        } else if (e.status == 'PARTIAL')
+          status = WarRoomTileStatus.degraded;
+        else if (e.status == 'N_A')
+          status = WarRoomTileStatus.degraded; // Neutral
+        else
+          status = WarRoomTileStatus.incident;
 
         lines.add("STATUS: ${e.status}");
         lines.add("N: ${e.sampleSize}");
-        
+
         String h = e.headline;
         if (h.length > 25) h = "${h.substring(0, 25)}...";
         lines.add("HEAD: $h");
@@ -948,15 +1041,19 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         // PARTIAL -> DEGRADED
         // FAILED -> INCIDENT
         String s = afx.status;
-        if (s == "SUCCESS" || s == "NOOP") status = WarRoomTileStatus.nominal;
-        else if (s == "PARTIAL") status = WarRoomTileStatus.degraded;
-        else if (s == "FAILED") status = WarRoomTileStatus.incident;
-        else status = WarRoomTileStatus.degraded;
+        if (s == "SUCCESS" || s == "NOOP") {
+          status = WarRoomTileStatus.nominal;
+        } else if (s == "PARTIAL")
+          status = WarRoomTileStatus.degraded;
+        else if (s == "FAILED")
+          status = WarRoomTileStatus.incident;
+        else
+          status = WarRoomTileStatus.degraded;
 
         lines.add("STATUS: $s");
         lines.add("PLAN: ${afx.planId}");
         lines.add("EXECUTED: ${afx.actionsExecuted}");
-        
+
         String ts = afx.lastRun;
         if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
         lines.add("LAST: $ts");
@@ -978,37 +1075,43 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!dp.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         // Status Mapping
-         String overall = dp.status;
-         if (overall == "SUCCESS" || overall == "NO_OP") status = WarRoomTileStatus.nominal;
-         else if (overall == "PARTIAL") status = WarRoomTileStatus.degraded;
-         else if (overall == "FAILED" || overall == "BLOCKED") status = WarRoomTileStatus.incident;
-         else status = WarRoomTileStatus.nominal;
-         
-         lines.add("PATH: $overall");
-         lines.add("ID: ${dp.runId}");
-         lines.add("CTX: ${dp.context}");
-         
-         // Action Summary or Detail
-         // Show breakdown of outcomes if possible
-         int exec = 0;
-         int skipped = 0;
-         int blocked = 0;
-         
-         for (var a in dp.actions) {
-             if (a.outcome == "EXECUTED") exec++;
-             else if (a.outcome == "SKIPPED") skipped++;
-             else if (a.outcome == "BLOCKED" || a.outcome == "REJECTED") blocked++;
-         }
-         
-         if (dp.actionCount == 0) {
-             lines.add("ACTIONS: NONE");
-         } else {
-             lines.add("EXEC:$exec SKIP:$skipped BLK:$blocked");
-         }
+        // Status Mapping
+        String overall = dp.status;
+        if (overall == "SUCCESS" || overall == "NO_OP") {
+          status = WarRoomTileStatus.nominal;
+        } else if (overall == "PARTIAL")
+          status = WarRoomTileStatus.degraded;
+        else if (overall == "FAILED" || overall == "BLOCKED")
+          status = WarRoomTileStatus.incident;
+        else
+          status = WarRoomTileStatus.nominal;
+
+        lines.add("PATH: $overall");
+        lines.add("ID: ${dp.runId}");
+        lines.add("CTX: ${dp.context}");
+
+        // Action Summary or Detail
+        // Show breakdown of outcomes if possible
+        int exec = 0;
+        int skipped = 0;
+        int blocked = 0;
+
+        for (var a in dp.actions) {
+          if (a.outcome == "EXECUTED") {
+            exec++;
+          } else if (a.outcome == "SKIPPED")
+            skipped++;
+          else if (a.outcome == "BLOCKED" || a.outcome == "REJECTED") blocked++;
+        }
+
+        if (dp.actionCount == 0) {
+          lines.add("ACTIONS: NONE");
+        } else {
+          lines.add("EXEC:$exec SKIP:$skipped BLK:$blocked");
+        }
       }
     }
 
@@ -1027,22 +1130,26 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!rc.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         // Status Mapping
-         if (rc.outcome == "RESOLVED" || rc.outcome == "MITIGATED") status = WarRoomTileStatus.nominal;
-         else if (rc.outcome == "OPEN") status = WarRoomTileStatus.incident;
-         else if (rc.outcome == "FAILED") status = WarRoomTileStatus.degraded;
-         else status = WarRoomTileStatus.nominal;
-         
-         lines.add("TYPE: ${rc.misfireType}");
-         lines.add("OUTCOME: ${rc.outcome}");
-         lines.add("MOD: ${rc.originatingModule}");
-         
-         if (rc.primaryArtifact != null) lines.add("ART: ${rc.primaryArtifact}");
-         if (rc.fallbackUsed != null) lines.add("FALLBACK: ${rc.fallbackUsed}");
-         if (rc.actionTaken != null) lines.add("ACTION: ${rc.actionTaken}");
+        // Status Mapping
+        if (rc.outcome == "RESOLVED" || rc.outcome == "MITIGATED") {
+          status = WarRoomTileStatus.nominal;
+        } else if (rc.outcome == "OPEN")
+          status = WarRoomTileStatus.incident;
+        else if (rc.outcome == "FAILED")
+          status = WarRoomTileStatus.degraded;
+        else
+          status = WarRoomTileStatus.nominal;
+
+        lines.add("TYPE: ${rc.misfireType}");
+        lines.add("OUTCOME: ${rc.outcome}");
+        lines.add("MOD: ${rc.originatingModule}");
+
+        if (rc.primaryArtifact != null) lines.add("ART: ${rc.primaryArtifact}");
+        if (rc.fallbackUsed != null) lines.add("FALLBACK: ${rc.fallbackUsed}");
+        if (rc.actionTaken != null) lines.add("ACTION: ${rc.actionTaken}");
       }
     }
 
@@ -1061,29 +1168,33 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!conf.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         // Status Mapping
-         if (conf.overall == "HIGH") status = WarRoomTileStatus.nominal;
-         else if (conf.overall == "MED") status = WarRoomTileStatus.nominal; 
-         else if (conf.overall == "LOW") status = WarRoomTileStatus.degraded;
-         else status = WarRoomTileStatus.nominal;
-         
-         lines.add("OVERALL: ${conf.overall}");
-         // lines.add("RUN: ${conf.runId}");
-         
-         if (conf.entries.isEmpty) {
-             lines.add("NO ACTIONS RECORDED");
-         } else {
-             // Show last entry or summary
-             final last = conf.entries.last;
-             lines.add("${last.engine}: ${last.confidence}");
-             lines.add("ACT: ${last.actionCode}");
-             if (last.evidence.isNotEmpty) {
-                 lines.add("EVID: ${last.evidence.join(',')}");
-             }
-         }
+        // Status Mapping
+        if (conf.overall == "HIGH") {
+          status = WarRoomTileStatus.nominal;
+        } else if (conf.overall == "MED")
+          status = WarRoomTileStatus.nominal;
+        else if (conf.overall == "LOW")
+          status = WarRoomTileStatus.degraded;
+        else
+          status = WarRoomTileStatus.nominal;
+
+        lines.add("OVERALL: ${conf.overall}");
+        // lines.add("RUN: ${conf.runId}");
+
+        if (conf.entries.isEmpty) {
+          lines.add("NO ACTIONS RECORDED");
+        } else {
+          // Show last entry or summary
+          final last = conf.entries.last;
+          lines.add("${last.engine}: ${last.confidence}");
+          lines.add("ACT: ${last.actionCode}");
+          if (last.evidence.isNotEmpty) {
+            lines.add("EVID: ${last.evidence.join(',')}");
+          }
+        }
       }
     }
 
@@ -1102,31 +1213,31 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!wc.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         status = WarRoomTileStatus.nominal;
-         
-         if (wc.summary != null) lines.add("SUM: ${wc.summary}");
+        status = WarRoomTileStatus.nominal;
 
-         // State Transition
-         if (wc.stateTransition != null) {
-             final st = wc.stateTransition!;
-             lines.add("STATE: ${st.fromState ?? '?'} -> ${st.toState ?? '?'}");
-             if (st.unlocked) lines.add("UNLOCKED: TRUE");
-         }
+        if (wc.summary != null) lines.add("SUM: ${wc.summary}");
 
-         // Artifacts
-         if (wc.artifactsUpdated.isEmpty) {
-             lines.add("NO ARTIFACTS CHANGED");
-         } else {
-             for (var art in wc.artifactsUpdated.take(3)) {
-                 lines.add("${art.changeType}: ${art.path.split('/').last}");
-             }
-             if (wc.artifactsUpdated.length > 3) {
-                 lines.add("+${wc.artifactsUpdated.length - 3} MORE");
-             }
-         }
+        // State Transition
+        if (wc.stateTransition != null) {
+          final st = wc.stateTransition!;
+          lines.add("STATE: ${st.fromState ?? '?'} -> ${st.toState ?? '?'}");
+          if (st.unlocked) lines.add("UNLOCKED: TRUE");
+        }
+
+        // Artifacts
+        if (wc.artifactsUpdated.isEmpty) {
+          lines.add("NO ARTIFACTS CHANGED");
+        } else {
+          for (var art in wc.artifactsUpdated.take(3)) {
+            lines.add("${art.changeType}: ${art.path.split('/').last}");
+          }
+          if (wc.artifactsUpdated.length > 3) {
+            lines.add("+${wc.artifactsUpdated.length - 3} MORE");
+          }
+        }
       }
     }
 
@@ -1145,27 +1256,27 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!ct.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         status = WarRoomTileStatus.nominal;
-         
-         if (ct.entries.isEmpty) {
-             lines.add("NO GATING RECORDED");
-         } else {
-             for (var entry in ct.entries.take(3)) {
-                 String state = entry.permitted ? "PERMITTED" : "SKIPPED";
-                 String reason = entry.gateReason;
-                 if (entry.cooldownRemainingSeconds != null) {
-                     reason += " (${entry.cooldownRemainingSeconds}s)";
-                 }
-                 lines.add("$state: ${entry.actionCode}");
-                 lines.add("REASON: $reason");
-             }
-             if (ct.entries.length > 3) {
-                 lines.add("+${ct.entries.length - 3} MORE");
-             }
-         }
+        status = WarRoomTileStatus.nominal;
+
+        if (ct.entries.isEmpty) {
+          lines.add("NO GATING RECORDED");
+        } else {
+          for (var entry in ct.entries.take(3)) {
+            String state = entry.permitted ? "PERMITTED" : "SKIPPED";
+            String reason = entry.gateReason;
+            if (entry.cooldownRemainingSeconds != null) {
+              reason += " (${entry.cooldownRemainingSeconds}s)";
+            }
+            lines.add("$state: ${entry.actionCode}");
+            lines.add("REASON: $reason");
+          }
+          if (ct.entries.length > 3) {
+            lines.add("+${ct.entries.length - 3} MORE");
+          }
+        }
       }
     }
 
@@ -1185,33 +1296,33 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!rb.available) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         status = WarRoomTileStatus.nominal;
-         
-         // Capabilities
-         if (isFounder) {
-             lines.add("FOUNDER ACTIVE");
-             if (rb.capabilities.isEmpty) {
-                 lines.add("NO ACTIONS AVAILABLE");
-             } else {
-                 for (var cap in rb.capabilities) {
-                     // In a real app, these would be interactive buttons
-                     // For now, we list them as visible capabilities
-                     lines.add("[ACTION] $cap"); 
-                 }
-             }
-         } else {
-             lines.add("LOCKED (FOUNDER ONLY)");
-             lines.add("${rb.capabilities.length} ACTIONS HIDDEN");
-         }
+        status = WarRoomTileStatus.nominal;
 
-         // Last Run
-         if (rb.lastRun != null) {
-             final lr = rb.lastRun!;
-             lines.add("LAST: ${lr.action} (${lr.status})");
-         }
+        // Capabilities
+        if (isFounder) {
+          lines.add("FOUNDER ACTIVE");
+          if (rb.capabilities.isEmpty) {
+            lines.add("NO ACTIONS AVAILABLE");
+          } else {
+            for (var cap in rb.capabilities) {
+              // In a real app, these would be interactive buttons
+              // For now, we list them as visible capabilities
+              lines.add("[ACTION] $cap");
+            }
+          }
+        } else {
+          lines.add("LOCKED (FOUNDER ONLY)");
+          lines.add("${rb.capabilities.length} ACTIONS HIDDEN");
+        }
+
+        // Last Run
+        if (rb.lastRun != null) {
+          final lr = rb.lastRun!;
+          lines.add("LAST: ${lr.action} (${lr.status})");
+        }
       }
     }
 
@@ -1230,29 +1341,32 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!Tier2.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         status = WarRoomTileStatus.nominal;
-         if (Tier2.finalOutcome == "FAILED" || Tier2.finalOutcome == "ESCALATED_TO_FOUNDER") {
-             status = WarRoomTileStatus.degraded; // Or incident
-         }
-         
-         lines.add("ID: ${Tier2.incidentId} (${Tier2.finalOutcome})");
-         if (Tier2.actionTaken != null) lines.add("ACTION: ${Tier2.actionTaken}");
+        status = WarRoomTileStatus.nominal;
+        if (Tier2.finalOutcome == "FAILED" ||
+            Tier2.finalOutcome == "ESCALATED_TO_FOUNDER") {
+          status = WarRoomTileStatus.degraded; // Or incident
+        }
 
-         // Steps
-         if (Tier2.steps.isEmpty) {
-             lines.add("NO STEPS RECORDED");
-         } else {
-             for (var step in Tier2.steps.take(3)) {
-                 String res = step.result ?? (step.gateReason ?? "PENDING");
-                 lines.add("${step.stepId}: $res");
-             }
-             if (Tier2.steps.length > 3) {
-                 lines.add("+${Tier2.steps.length - 3} MORE STEPS");
-             }
-         }
+        lines.add("ID: ${Tier2.incidentId} (${Tier2.finalOutcome})");
+        if (Tier2.actionTaken != null) {
+          lines.add("ACTION: ${Tier2.actionTaken}");
+        }
+
+        // Steps
+        if (Tier2.steps.isEmpty) {
+          lines.add("NO STEPS RECORDED");
+        } else {
+          for (var step in Tier2.steps.take(3)) {
+            String res = step.result ?? (step.gateReason ?? "PENDING");
+            lines.add("${step.stepId}: $res");
+          }
+          if (Tier2.steps.length > 3) {
+            lines.add("+${Tier2.steps.length - 3} MORE STEPS");
+          }
+        }
       }
     }
 
@@ -1268,31 +1382,34 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     final lr = _snapshot.lockReason;
     WarRoomTileStatus status = WarRoomTileStatus.loading;
     List<String> lines = [];
-    
+
     if (!_loading) {
-       if (!lr.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
-       } else {
-         if (lr.lockState == "NONE") {
-            status = WarRoomTileStatus.nominal;
-            lines.add("NO ACTIVE LOCK");
-         } else {
-            // LOCKED or DEGRADED
-            status = lr.lockState == "LOCKED" ? WarRoomTileStatus.incident : WarRoomTileStatus.degraded;
-            lines.add("STATE: ${lr.lockState}");
-            lines.add("CODE: ${lr.reasonCode}");
-            lines.add("MODULE: ${lr.module}");
-            lines.add("REASON: ${lr.description}");
-         }
-       }
+      if (!lr.isAvailable) {
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
+      } else {
+        if (lr.lockState == "NONE") {
+          status = WarRoomTileStatus.nominal;
+          lines.add("NO ACTIVE LOCK");
+        } else {
+          // LOCKED or DEGRADED
+          status = lr.lockState == "LOCKED"
+              ? WarRoomTileStatus.incident
+              : WarRoomTileStatus.degraded;
+          lines.add("STATE: ${lr.lockState}");
+          lines.add("CODE: ${lr.reasonCode}");
+          lines.add("MODULE: ${lr.module}");
+          lines.add("REASON: ${lr.description}");
+        }
+      }
     }
-    
+
     return WarRoomTile(
       title: "SELF-HEAL — LOCK REASON",
       status: _loading ? WarRoomTileStatus.loading : status,
       subtitle: lines,
-      debugInfo: "Source: ${lr.isAvailable ? '/lab/os/self_heal/lock_reason' : 'MISSING'}",
+      debugInfo:
+          "Source: ${lr.isAvailable ? '/lab/os/self_heal/lock_reason' : 'MISSING'}",
     );
   }
 
@@ -1307,9 +1424,9 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         lines.add("UNAVAILABLE");
       } else {
         status = WarRoomTileStatus.nominal;
-        
+
         if (c.entries.isEmpty) {
-           lines.add("NO DATA AVAILABLE");
+          lines.add("NO DATA AVAILABLE");
         } else {
           // List entries
           // We show top 3-4? Or just list stats?
@@ -1317,16 +1434,16 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
           // In a tile we have limited space. We might show a summary count and maybe first few?
           // Or we utilize the scrollable nature if we made it a list.
           // Tile subtitle is List<String>.
-          
+
           for (var e in c.entries) {
-            String badge = "[${e.status.substring(0,1)}]";
+            String badge = "[${e.status.substring(0, 1)}]";
             if (e.status == "AVAILABLE") badge = "[OK]";
             if (e.status == "DEGRADED") badge = "[DEG]";
             if (e.status == "UNAVAILABLE") badge = "[N/A]";
-            
+
             String line = "$badge ${e.capability}";
             if (e.reason != null && e.reason!.isNotEmpty) {
-               line += " (${e.reason})";
+              line += " (${e.reason})";
             }
             lines.add(line);
           }
@@ -1350,27 +1467,27 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
     if (!_loading) {
       // f is non-nullable now, defaults to unknown/empty
       // If we want to detect "UNAVAILABLE", we might need a flag in FindingsSnapshot or check if it equals unknown?
-      // FindingsSnapshot.unknown has empty findings. 
+      // FindingsSnapshot.unknown has empty findings.
       // If findings empty, we can just say "NO FINDINGS" or "UNAVAILABLE"?
       // But missing file -> unknown -> empty list.
       // Valid empty file -> empty list.
       // We can't distinguish unless separate flag.
       // Ideally we check implicit availability.
       // Let's assume empty list = Nominal (No findings).
-      // If it was truly unavailable, we might want a Source check? 
+      // If it was truly unavailable, we might want a Source check?
       // For now, adhere to D42.08 specific: Read Only List.
-      
+
       status = WarRoomTileStatus.nominal;
       if (f.findings.isEmpty) {
-           items.add("NO FINDINGS");
+        items.add("NO FINDINGS");
       } else {
-           for (var i = 0; i < f.findings.length && i < 3; i++) {
-             final entry = f.findings[i];
-             items.add("[${entry.severity}] ${entry.findingCode}");
-           }
-           if (f.findings.length > 3) {
-             items.add("+${f.findings.length - 3} more");
-           }
+        for (var i = 0; i < f.findings.length && i < 3; i++) {
+          final entry = f.findings[i];
+          items.add("[${entry.severity}] ${entry.findingCode}");
+        }
+        if (f.findings.length > 3) {
+          items.add("+${f.findings.length - 3} more");
+        }
       }
     }
 
@@ -1389,45 +1506,47 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (diff == null) {
-          status = WarRoomTileStatus.unavailable;
-          // default body will show UNAVAILABLE
+        status = WarRoomTileStatus.unavailable;
+        // default body will show UNAVAILABLE
       } else {
-         status = WarRoomTileStatus.nominal;
-         
-         String ts = diff.timestampUtc;
-         if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
-         
-         body = SingleChildScrollView(
-           child: Column(
-             mainAxisSize: MainAxisSize.min,
-             children: [
-               Text(
-                 "TIME: $ts",
-                 style: AppTypography.caption(context).copyWith(color: AppColors.textPrimary, fontSize: 10),
-               ),
-               if (diff.operationId != null)
-                 Text(
-                   "OP: ${diff.operationId}",
-                   style: AppTypography.caption(context).copyWith(color: AppColors.textSecondary, fontSize: 9),
-                 ),
-                 
-               const SizedBox(height: 4),
-               
-               if (diff.changedKeys != null && diff.changedKeys!.isNotEmpty)
-                 Padding(
-                   padding: const EdgeInsets.only(bottom: 4.0),
-                   child: Text(
-                     "CHANGED: ${diff.changedKeys!.join(', ')}",
-                     style: AppTypography.caption(context).copyWith(color: AppColors.marketBull, fontSize: 10, fontWeight: FontWeight.bold),
-                     textAlign: TextAlign.center,
-                   ),
-                 ),
+        status = WarRoomTileStatus.nominal;
 
-               _buildDiffExpander("BEFORE", diff.beforeState),
-               _buildDiffExpander("AFTER", diff.afterState),
-             ],
-           ),
-         );
+        String ts = diff.timestampUtc;
+        if (ts.contains("T")) ts = ts.split("T").last.split(".").first;
+
+        body = SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "TIME: $ts",
+                style: AppTypography.caption(context)
+                    .copyWith(color: AppColors.textPrimary, fontSize: 10),
+              ),
+              if (diff.operationId != null)
+                Text(
+                  "OP: ${diff.operationId}",
+                  style: AppTypography.caption(context)
+                      .copyWith(color: AppColors.textSecondary, fontSize: 9),
+                ),
+              const SizedBox(height: 4),
+              if (diff.changedKeys != null && diff.changedKeys!.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4.0),
+                  child: Text(
+                    "CHANGED: ${diff.changedKeys!.join(', ')}",
+                    style: AppTypography.caption(context).copyWith(
+                        color: AppColors.marketBull,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              _buildDiffExpander("BEFORE", diff.beforeState),
+              _buildDiffExpander("AFTER", diff.afterState),
+            ],
+          ),
+        );
       }
     }
 
@@ -1442,10 +1561,10 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
   Widget _buildDiffExpander(String label, Map<String, dynamic> data) {
     if (data.isEmpty) return const SizedBox.shrink();
-    
+
     // Simple pretty print manual or truncated
     final jsonStr = data.toString();
-    
+
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -1454,16 +1573,17 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
         dense: true,
         title: Text(
           label,
-          style: AppTypography.caption(context).copyWith(fontSize: 10, fontWeight: FontWeight.bold),
+          style: AppTypography.caption(context)
+              .copyWith(fontSize: 10, fontWeight: FontWeight.bold),
         ),
         children: [
-           Text(
-             jsonStr,
-             style: GoogleFonts.robotoMono(
-               fontSize: 9,
-               color: AppColors.textSecondary,
-             ),
-           )
+          Text(
+            jsonStr,
+            style: GoogleFonts.robotoMono(
+              fontSize: 9,
+              color: AppColors.textSecondary,
+            ),
+          )
         ],
       ),
     );
@@ -1476,26 +1596,26 @@ class _WarRoomScreenState extends State<WarRoomScreen> with WidgetsBindingObserv
 
     if (!_loading) {
       if (!u.isAvailable) {
-         status = WarRoomTileStatus.unavailable;
-         lines.add("UNAVAILABLE");
+        status = WarRoomTileStatus.unavailable;
+        lines.add("UNAVAILABLE");
       } else {
-         if (u.status == "LIVE" && u.extended == "ON") {
-            status = WarRoomTileStatus.nominal;
-         } else if (u.status == "SIM") {
-            status = WarRoomTileStatus.degraded; // SIM is degraded reality
-         } else {
-            status = WarRoomTileStatus.degraded; // Partial/Off
-         }
-         
-         lines.add("CORE: ${u.core}");
-         lines.add("EXTENDED: ${u.extended}");
-         lines.add("OVERLAY: ${u.overlayState}");
-         
-         if (u.overlayAge > 0) {
-            lines.add("AGE: ${u.overlayAge}s");
-         } else {
-            lines.add("AGE: N/A");
-         }
+        if (u.status == "LIVE" && u.extended == "ON") {
+          status = WarRoomTileStatus.nominal;
+        } else if (u.status == "SIM") {
+          status = WarRoomTileStatus.degraded; // SIM is degraded reality
+        } else {
+          status = WarRoomTileStatus.degraded; // Partial/Off
+        }
+
+        lines.add("CORE: ${u.core}");
+        lines.add("EXTENDED: ${u.extended}");
+        lines.add("OVERLAY: ${u.overlayState}");
+
+        if (u.overlayAge > 0) {
+          lines.add("AGE: ${u.overlayAge}s");
+        } else {
+          lines.add("AGE: N/A");
+        }
       }
     }
 

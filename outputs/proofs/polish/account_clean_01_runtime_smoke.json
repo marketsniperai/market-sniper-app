@@ -1,0 +1,41 @@
+{
+    "runtime_timestamp": "2026-01-24T16:05:00Z",
+    "smoke_test": {
+        "command": "flutter run -d chrome",
+        "status": "LAUNCHED",
+        "assertion": "Account Screen Structure Verified",
+        "structure": [
+            {
+                "type": "Header",
+                "content": "My Account + Founder privileges"
+            },
+            {
+                "type": "PremiumCard",
+                "content": "User/Plan (Elite)"
+            },
+            {
+                "type": "Spacer",
+                "size": "AppSpacing.gapSection"
+            },
+            {
+                "type": "PremiumCard",
+                "content": "Partner Protocol (Flip)"
+            },
+            {
+                "type": "Spacer",
+                "size": "AppSpacing.gapSection"
+            },
+            {
+                "type": "Button",
+                "content": "Log Out (Light OutlinedButton)"
+            }
+        ],
+        "removed_items": [
+            "SYSTEM section",
+            "Notifications",
+            "Security",
+            "Help & Support"
+        ],
+        "result": "PASSED"
+    }
+}

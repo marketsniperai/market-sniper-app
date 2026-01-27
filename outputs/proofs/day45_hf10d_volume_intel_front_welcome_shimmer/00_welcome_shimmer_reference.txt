@@ -1,0 +1,19 @@
+# Reference: Welcome Screen Slogan Shimmer
+
+**File:** `market_sniper_app/lib/screens/welcome_screen.dart`
+**Widget:** `_buildSloganWithShimmer`
+
+## Technique
+1. **Stack**: Base text (matte) at bottom.
+2. **Overlay**: Identical Text widget wrapped in `ShaderMask`.
+3. **Animation**: `AnimationController` (repeat).
+4. **Shader Logic**:
+   - `start = (t * 1.8 - 0.4).clamp(0.0, 1.0)`
+   - `end = (start + 0.10).clamp(0.0, 1.0)`
+   - `LinearGradient` with 5 stops: `[0, start, mid, end, 1]`.
+   - Colors: Transparent -> Gold(0) -> Gold(0.55) -> Gold(0) -> Transparent.
+
+## Adaptation for Volume Intel
+- **Colors**: Replace Gold with Silver (`AppColors.textSecondary` or `AppColors.textDisabled`).
+- **Geometry**: Apply `ShaderMask` to the *gradient-filled bar container* (or an overlay container).
+- **Compaction**: Height 8px, Padding 6px.

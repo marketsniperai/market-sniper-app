@@ -18,7 +18,7 @@ class PlusUnlockStore {
   static Future<void> increment(String dateId) async {
     final prefs = await SharedPreferences.getInstance();
     final current = prefs.getInt(_kCountKey) ?? 0;
-    
+
     // No cap logic here, engine handles checks. Just storage.
     // Actually, cap is harmless.
     if (current >= _kTarget) return;

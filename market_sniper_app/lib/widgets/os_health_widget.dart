@@ -35,7 +35,8 @@ class OSHealthWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface1,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AppColors.borderSubtle.withValues(alpha: 0.5)),
+        border:
+            Border.all(color: AppColors.borderSubtle.withValues(alpha: 0.5)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +58,7 @@ class OSHealthWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          
+
           // Source + Age Line (Minimal)
           Row(
             children: [
@@ -78,8 +79,8 @@ class OSHealthWidget extends StatelessWidget {
                 ),
               ),
               if (health.ageSeconds >= 0) ...[
-                 const SizedBox(width: 12),
-                 Text(
+                const SizedBox(width: 12),
+                Text(
                   "AGE: ",
                   style: GoogleFonts.inter(
                     color: AppColors.textDisabled,
@@ -98,21 +99,21 @@ class OSHealthWidget extends StatelessWidget {
               ],
             ],
           ),
-          
+
           if (isFounder) ...[
-             const SizedBox(height: 8),
-             Container(
-               width: double.infinity,
-               padding: const EdgeInsets.all(4),
-               color: AppColors.bgPrimary.withValues(alpha: 0.5),
-               child: Text(
-                 "DEBUG: ${health.message} | TS: ${health.rawTimestamp ?? 'N/A'}",
-                 style: GoogleFonts.robotoMono(
-                   color: AppColors.accentCyanDim,
-                   fontSize: 9,
-                 ),
-               ),
-             ),
+            const SizedBox(height: 8),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(4),
+              color: AppColors.bgPrimary.withValues(alpha: 0.5),
+              child: Text(
+                "DEBUG: ${health.message} | TS: ${health.rawTimestamp ?? 'N/A'}",
+                style: GoogleFonts.robotoMono(
+                  color: AppColors.accentCyanDim,
+                  fontSize: 9,
+                ),
+              ),
+            ),
           ],
         ],
       ),

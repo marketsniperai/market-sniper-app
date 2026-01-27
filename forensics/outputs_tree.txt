@@ -1,0 +1,1021 @@
+Folder PATH listing
+Volume serial number is A4FD-E415
+C:\MSR\MARKETSNIPERREPO\OUTPUTS
+|   misfire_report.json
+|   os_kill_switches.json
+|   
++---backups
+|   \---housekeeper
+|           test_orphan_file.tmp.20260117_233448.bak
+|           
++---day_07_verification_dump
+|       context_market_sniper.json
+|       dashboard_market_sniper.json
+|       day_06_integrity_ping.txt
+|       run_manifest.json
+|       
++---full
+|       run_manifest.json
+|       
++---light
+|       run_manifest.json
+|       
++---logs
++---os
+|       os_autofix_decision_path.json
+|       os_before_after_diff.json
+|       os_bottom_nav_policy.json
+|       os_command_center_content_spec.json
+|       os_command_center_policy.json
+|       os_coverage.json
+|       os_elite_access_window_ledger.jsonl
+|       os_elite_access_window_policy.json
+|       os_elite_agms_recall_contract.json
+|       os_elite_context_safety_protocol.json
+|       os_elite_explainer_protocol.json
+|       os_elite_first_interaction_script.json
+|       os_elite_micro_briefing_protocol.json
+|       os_explain_library.json
+|       os_findings.json
+|       os_housekeeper_plan.json
+|       os_on_demand_cache_policy.json
+|       os_on_demand_history_policy.json
+|       os_on_demand_source_ladder.json
+|       os_on_demand_tier_limits.json
+|       os_plus_unlock_policy.json
+|       os_premium_feature_matrix.json
+|       os_share_attribution_dashboard_policy.json
+|       os_share_cta_ledger.jsonl
+|       os_share_engine_policy.json
+|       os_share_install_ledger.jsonl
+|       os_share_library_policy.json
+|       os_share_prompt_loop_policy.json
+|       os_share_to_install_policy.json
+|       os_standard_envelope_spec.json
+|       os_trial_tryme_policy.json
+|       os_viral_teaser_share_policy.json
+|       
++---outputs
+|   +---light
+|   |       run_manifest.json
+|   |       run_manifest.json.bak
+|   |       
+|   \---runtime
+|       \---day_30_2
+|               test_file.json
+|               
++---proofs
+|   +---day_41
+|   |       ui_founder_rollback_confirm_logging_proof.json
+|   |       ui_replay_archive_time_machine_proof.json
+|   |       ui_replay_day_surface_proof.json
+|   |       ui_replay_rollback_failsafe_states_proof.json
+|   |       
+|   +---day_42
+|   |       day_42_03_housekeeper_auto_proof.json
+|   |       day_42_04_autofix_tier1_proof.json
+|   |       day_42_05_misfire_tier2_surface_proof.json
+|   |       day_42_06_red_button_status_proof.json
+|   |       day_42_07_cooldown_transparency_proof.json
+|   |       day_42_11_misfire_root_cause_proof.json
+|   |       day_42_12_self_heal_confidence_proof.json
+|   |       day_42_13_self_heal_what_changed_proof.json
+|   |       day_42_auto_stage_patch_proof.json
+|   |       day_42_git_commit_d42_03_proof.json
+|   |       day_42_git_hygiene_fix_proof.json
+|   |       day_42_project_state_war_room_catchup_proof.json
+|   |       day_42_war_calendar_canonize_proof.json
+|   |       
+|   +---day_43
+|   |       day_43_00_elite_first_interaction_proof.json
+|   |       day_43_01_elite_overlay_shell_proof.json
+|   |       day_43_02_elite_mentor_brain_proof.json
+|   |       day_43_03_elite_os_reader_proof.json
+|   |       day_43_04_day_memory_proof.json
+|   |       day_43_05_elite_agms_recall_proof.json
+|   |       day_43_06_explain_router_proof.json
+|   |       day_43_07_explain_buttons_wiring_proof.json
+|   |       day_43_08_session_thread_memory_proof.json
+|   |       day_43_09_ritual_triggers_proof.json
+|   |       day_43_10_elite_explainer_protocol_proof.json
+|   |       day_43_11_elite_context_engine_status_proof.json
+|   |       day_43_12_elite_what_changed_proof.json
+|   |       day_43_13_elite_contextual_recall_proof.json
+|   |       day_43_14_explain_my_screen_proof.json
+|   |       day_43_15_micro_briefing_open_proof.json
+|   |       day_43_16_elite_context_safety_proof.json
+|   |       day_43_apk_release_founder_build_proof.json
+|   |       day_43_canon_sync_total_proof.json
+|   |       day_43_export_apk_to_onedrive_proof.json
+|   |       day_43_fix_release_build_warroom_snapshot_proof.json
+|   |       day_43_global_scroll_law_proof.json
+|   |       day_43_layout_police_guard_proof.json
+|   |       day_43_layout_police_hotlist_proof.json
+|   |       day_43_war_calendar_reconcile_proof.json
+|   |       day_43_x1_watchlist_universe_scroll_safe_proof.json
+|   |       day_43_x2_elite_first_interaction_default_state_proof.json
+|   |       
+|   +---day_44
+|   |       day_44_01_watchlist_store_local_proof.json
+|   |       day_44_02a_lock_reason_modal_proof.json
+|   |       day_44_02b_watchlist_analyze_flow_proof.json
+|   |       day_44_03_watchlist_action_logging_proof.json
+|   |       day_44_04a_on_demand_reabsorption_proof.json
+|   |       day_44_04b_on_demand_panel_hygiene_proof.json
+|   |       day_44_04_on_demand_screen_proof.json
+|   |       day_44_05_on_demand_cache_freshness_proof.json
+|   |       day_44_06_tier_limits_counters_proof.json
+|   |       day_44_14_watchlist_screen_basic_proof.json
+|   |       day_44_apk_build_proof.json
+|   |       day_44_c0_seal_discipline_correction_proof.json
+|   |       day_44_commit_and_apk_release_proof.json
+|   |       day_44_final_close_git_checkpoint_proof.json
+|   |       day_44_git_commit_proof.json
+|   |       day_44_x_on_demand_global_guard_cache_tiers_proof.json
+|   |       ui_layout_proof_on_demand_badge.json
+|   |       ui_on_demand_context_strip_proof.json
+|   |       ui_on_demand_elite_explain_button_proof.json
+|   |       ui_on_demand_envelope_enforcement_proof.json
+|   |       ui_on_demand_envelope_header_proof.json
+|   |       ui_on_demand_history_last5_proof.json
+|   |       ui_on_demand_prefill_proof.json
+|   |       ui_on_demand_stale_warning_proof.json
+|   |       ui_watchlist_last_analyzed_proof.json
+|   |       ui_watchlist_state_chips_proof.json
+|   |       
+|   +---day_45
+|   |       android_internet_permission_proof.json
+|   |       d45_07_abort_snapshot_proof.json
+|   |       d45_f1_commit_proof.json
+|   |       d45_h1_post_commit_repo_clean_proof.json
+|   |       d45_h1_war_calendar_consistency_proof.json
+|   |       d45_master_close_proof.json
+|   |       d45_os_modules_sync_proof.json
+|   |       d45_war_calendar_final_consistency_proof.json
+|   |       day_45_full_founder_apk_build_proof.json
+|   |       ui_api_base_url_release_guard_proof.json
+|   |       ui_bottom_nav_state_restore_proof.json
+|   |       ui_calendar_impact_badges_proof.json
+|   |       ui_command_center_access_ritual_proof.json
+|   |       ui_command_center_content_spec_proof.json
+|   |       ui_economic_calendar_daily_weekly_proof.json
+|   |       ui_elite_access_window_controller_proof.json
+|   |       ui_elite_access_window_idempotency_proof.json
+|   |       ui_founder_ritual_hitbox_no_overlap_proof.json
+|   |       ui_founder_ritual_tap_hitbox_proof.json
+|   |       ui_founder_router_selector_proof.json
+|   |       ui_full_founder_h3_build_proof.json
+|   |       ui_full_founder_hotfix_build_proof.json
+|   |       ui_news_daily_digest_proof.json
+|   |       ui_news_flip_explain_proof.json
+|   |       ui_plus_unlock_progress_proof.json
+|   |       ui_premium_matrix_screen_proof.json
+|   |       ui_premium_matrix_visual_grid_proof.json
+|   |       ui_provider_status_indicator_proof.json
+|   |       ui_session_awareness_panel_proof.json
+|   |       ui_share_attribution_dashboard_proof.json
+|   |       ui_share_engine_export_proof.json
+|   |       ui_share_library_cta_loop_proof.json
+|   |       ui_share_prompt_loop_proof.json
+|   |       ui_share_to_install_scaffold_proof.json
+|   |       ui_sharing_growth_final_pack_proof.json
+|   |       ui_system_status_panel_hygiene_proof.json
+|   |       ui_trial_tryme_scheduler_proof.json
+|   |       ui_viral_teaser_share_proof.json
+|   |       war_calendar_canon_hotfix_phase_d35_proof.json
+|   |       war_calendar_update_d45_proof.json
+|   |       
+|   \---day_46
+|           day_46_war_calendar_msk_kernel_step_added_proof.json
+|           
++---rt
+|       auto_risk_action.json
+|       
++---runtime
+|   |   canon_0_migration_report.md
+|   |   canon_tracking_check.txt
+|   |   D25_1_git_status_after_unstage.txt
+|   |   D25_1_inventory_after.txt
+|   |   D25_1_quarantine_moves.txt
+|   |   D25_1_runtime_inventory.txt
+|   |   D31_1_CANON_SYNC_DIFF.txt
+|   |   D31_1_CANON_SYNC_SUMMARY.md
+|   |   D31_1_ui_logo_fix_build.txt
+|   |   D31_1_ui_logo_fix_notes.md
+|   |   day_00_curl_dashboard.txt
+|   |   day_00_curl_health.txt
+|   |   day_00_evidence_index.md
+|   |   day_00_flutter_build.txt
+|   |   day_00_founder_trace_spec.md
+|   |   day_00_git_status.txt
+|   |   day_00_no_duplicate_api_server.txt
+|   |   day_00_request_trace.txt
+|   |   day_00_tree.txt
+|   |   day_00_ui_screenshot_path.txt
+|   |   day_00_workspace_truth.txt
+|   |   day_01_1_canon_snapshot.txt
+|   |   day_01_1_diff_proof.txt
+|   |   day_01_contract_index.md
+|   |   day_02_endpoint_proofs.txt
+|   |   day_02_schema_validation.txt
+|   |   day_03_1_lock_proof.txt
+|   |   day_03_1_publish_proof.txt
+|   |   day_03_proof_endpoints.txt
+|   |   day_03_proof_run_pipeline.txt
+|   |   day_04_proof_full.txt
+|   |   day_04_proof_light.txt
+|   |   day_05_1_gitattributes.txt
+|   |   day_05_1_lineendings_after.txt
+|   |   day_05_1_lineendings_before.txt
+|   |   day_05_api_proofs.txt
+|   |   day_05_flutter_proofs.txt
+|   |   day_06_1_build_output.txt
+|   |   day_06_1_deploy_output.txt
+|   |   day_06_1_health_ext_after.txt
+|   |   day_06_1_manifest_upgrade_note.txt
+|   |   day_06_2_bucket_artifacts_list.txt
+|   |   day_06_2_constants.txt
+|   |   day_06_2_endpoint_dashboard.txt
+|   |   day_06_2_endpoint_health_ext.txt
+|   |   day_06_2_iam_verify.txt
+|   |   day_06_2_iam_verify_fixed.txt
+|   |   day_06_2_job_execute.txt
+|   |   day_06_2_job_logs.txt
+|   |   day_06_2_job_status.txt
+|   |   day_06_2_readiness_summary.json
+|   |   day_06_2_scheduler_list.txt
+|   |   day_06_3_bucket_iam.txt
+|   |   day_06_3_bucket_list.txt
+|   |   day_06_3_cloudbuild.txt
+|   |   day_06_3_constants.txt
+|   |   day_06_3_endpoint_context.txt
+|   |   day_06_3_endpoint_dashboard.txt
+|   |   day_06_3_endpoint_health_ext.txt
+|   |   day_06_3_endpoint_pulse.txt
+|   |   day_06_3_job_after.txt
+|   |   day_06_3_job_before.txt
+|   |   day_06_3_job_execute.txt
+|   |   day_06_3_job_logs.txt
+|   |   day_06_3_job_update_mount.txt
+|   |   day_06_3_readiness_summary.json
+|   |   day_06_3_scheduler_create.txt
+|   |   day_06_3_scheduler_list.txt
+|   |   day_06_3_services_enable.txt
+|   |   day_06_3_service_after.txt
+|   |   day_06_3_service_before.txt
+|   |   day_06_3_service_update_mount.txt
+|   |   day_06_3_service_update_mount_retry.txt
+|   |   day_06_3_service_update_sequential.txt
+|   |   day_06_artifact_registry.txt
+|   |   day_06_auth_business.txt
+|   |   day_06_bucket.txt
+|   |   day_06_create_error.txt
+|   |   day_06_create_error_2.txt
+|   |   day_06_enabled_apis.txt
+|   |   day_06_enabled_apis_v2.txt
+|   |   day_06_iam.txt
+|   |   day_06_integrity_artifact_registry.txt
+|   |   day_06_integrity_billing.txt
+|   |   day_06_integrity_bucket.txt
+|   |   day_06_integrity_bucket_write.txt
+|   |   day_06_integrity_cloudbuild.txt
+|   |   day_06_integrity_cloudrun_service.txt
+|   |   day_06_integrity_constants.txt
+|   |   day_06_integrity_context.txt
+|   |   day_06_integrity_dashboard.txt
+|   |   day_06_integrity_docker_auth.txt
+|   |   day_06_integrity_enabled_apis.txt
+|   |   day_06_integrity_foundation.txt
+|   |   day_06_integrity_gcloud_identity.txt
+|   |   day_06_integrity_health_ext.txt
+|   |   day_06_integrity_iam.txt
+|   |   day_06_integrity_ping.txt
+|   |   day_06_integrity_summary.json
+|   |   day_06_manifest_verify.py
+|   |   day_06_preflight_personal.txt
+|   |   day_06_project_created.txt
+|   |   day_07_artifact_contract_scan.json
+|   |   day_07_artifact_verifier.py
+|   |   day_07_drift_policy.txt
+|   |   day_07_endpoint_contract_scan.json
+|   |   day_07_readiness_summary.json
+|   |   day_07_system_laws_audit.md
+|   |   day_08_bucket_check.txt
+|   |   day_08_build.txt
+|   |   day_08_constants.txt
+|   |   day_08_debug_manifest_content.txt
+|   |   day_08_debug_report_content.txt
+|   |   day_08_deploy_final_fix.txt
+|   |   day_08_deploy_final_prod.txt
+|   |   day_08_deploy_fix.txt
+|   |   day_08_deploy_fix_2.txt
+|   |   day_08_deploy_fix_3.txt
+|   |   day_08_deploy_logs.txt
+|   |   day_08_deploy_test.txt
+|   |   day_08_error_logs.txt
+|   |   day_08_iam_run_fix.txt
+|   |   day_08_job_logs.txt
+|   |   day_08_job_logs_detailed.txt
+|   |   day_08_job_update.txt
+|   |   day_08_proof_autoheal.txt
+|   |   day_08_proof_autoheal_final.txt
+|   |   day_08_proof_autoheal_iam_fixed.txt
+|   |   day_08_proof_autoheal_retry.txt
+|   |   day_08_proof_misfire.txt
+|   |   day_08_proof_misfire_final.txt
+|   |   day_08_proof_misfire_iam_fixed.txt
+|   |   day_08_proof_misfire_retry.txt
+|   |   day_08_readiness_summary.json
+|   |   day_08_rebuild.txt
+|   |   day_08_rebuild_2.txt
+|   |   day_08_rebuild_3.txt
+|   |   day_08_verif_1_misfire.txt
+|   |   day_08_verif_1_retry.txt
+|   |   day_08_verif_2_autoheal_trigger.txt
+|   |   day_08_verif_2_retry.txt
+|   |   day_08_verif_3_nominal.txt
+|   |   day_08_verif_3_nominal_final.txt
+|   |   day_08_verif_3_nominal_retry.txt
+|   |   day_08_verif_3_retry.txt
+|   |   day_08_verif_absolute_final.txt
+|   |   day_08_verif_final_nominal.txt
+|   |   day_09_readiness_summary.json
+|   |   day_10_constants.txt
+|   |   day_10_readiness_summary.json
+|   |   day_11_constants.txt
+|   |   day_11_endpoint_pulse.txt
+|   |   day_11_job_executions_list.txt
+|   |   day_11_job_execution_uri.txt
+|   |   day_11_readiness_summary.json
+|   |   day_11_scheduler_full_create.txt
+|   |   day_11_scheduler_light_create.txt
+|   |   day_11_service_logs.txt
+|   |   day_12_404_root_cause_note.md
+|   |   day_12_constants.txt
+|   |   day_12_rc_hash_bundle.txt
+|   |   day_12_readiness_summary.json
+|   |   day_12_scheduler_list_before.txt
+|   |   day_12_smoke_dashboard.txt
+|   |   day_12_smoke_health_ext.txt
+|   |   day_12_smoke_misfire.txt
+|   |   day_12_smoke_pulse.txt
+|   |   day_12_version_fingerprint.txt
+|   |   day_13_readiness_summary.json
+|   |   day_14_01_artifact_proof_final_4.txt
+|   |   day_14_01_autoheal_invocation.json
+|   |   day_14_01_evidence_check.txt
+|   |   day_14_01_job_describe.json
+|   |   day_14_01_job_executions_list.txt
+|   |   day_14_01_job_executions_list_poll_3.txt
+|   |   day_14_01_job_executions_list_poll_5.txt
+|   |   day_14_01_job_executions_list_poll_7.txt
+|   |   day_14_01_job_executions_list_poll_8.txt
+|   |   day_14_01_job_logs_final.txt
+|   |   day_14_01_job_logs_final_2.txt
+|   |   day_14_01_job_logs_stdout.txt
+|   |   day_14_01_service_url.txt
+|   |   day_14_01_verify_autoheal_response.txt
+|   |   day_14_01_verify_autoheal_response_final.txt
+|   |   day_14_01_verify_autoheal_response_retry.txt
+|   |   day_14_01_verify_forced_misfire.txt
+|   |   day_14_01_verify_forced_misfire_final.txt
+|   |   day_14_01_verify_forced_misfire_retry.txt
+|   |   day_14_01_verify_nominal.txt
+|   |   day_14_01_verify_recovery.txt
+|   |   day_14_01_verify_recovery_final.txt
+|   |   day_14_01_verify_recovery_success.txt
+|   |   day_14_02_calendar_after.txt
+|   |   day_14_02_calendar_before.txt
+|   |   day_14_02_calendar_diff.txt
+|   |   day_14_02_seals_inventory.txt
+|   |   day_14_artifact_stats.txt
+|   |   day_14_bucket_list.txt
+|   |   day_14_constants.txt
+|   |   day_14_endpoint_autoheal_trigger.txt
+|   |   day_14_endpoint_misfire_after_recovery.txt
+|   |   day_14_endpoint_misfire_final_check.txt
+|   |   day_14_endpoint_misfire_forced.txt
+|   |   day_14_endpoint_misfire_nominal.txt
+|   |   day_14_job_executions_list_poll_3.txt
+|   |   day_14_job_executions_list_poll_4.txt
+|   |   day_14_job_logs.txt
+|   |   day_14_job_logs_latest.txt
+|   |   day_14_misfire_force_method.txt
+|   |   day_14_misfire_report_stat.txt
+|   |   day_14_readiness_summary.json
+|   |   day_15_readiness_summary.json
+|   |   day_16_readiness_summary.json
+|   |   day_17_readiness_summary.json
+|   |   day_18_readiness_summary.json
+|   |   drilldown_diff_proof.txt
+|   |   drilldown_snapshot.txt
+|   |   EMERGENCY_env_pager_vars.txt
+|   |   EMERGENCY_git_config_dump.txt
+|   |   EMERGENCY_git_status_safe.txt
+|   |   EMERGENCY_git_status_verify_normal.txt
+|   |   EMERGENCY_git_status_verify_no_pager.txt
+|   |   EMERGENCY_GIT_WINDOW_STORM_SEAL.md
+|   |   runtime_dedupe.py
+|   |   SEAL_D25_1_RUNTIME_DEDUPE_AND_GIT_PAGER_LOCK.md
+|   |   ui_canon_v1_file_list.txt
+|   |   ui_canon_v1_grep_no_raw_colors.txt
+|   |   ui_canon_v1_screenshot_plan.txt
+|   |   ui_texture_bars_proof.md
+|   |   _quarantine_dupes.zip
+|   |   
+|   +---agms
+|   |       agms_band_ledger.jsonl
+|   |       agms_coherence_snapshot.json
+|   |       agms_delta.json
+|   |       agms_dynamic_thresholds.json
+|   |       agms_handoff.json
+|   |       agms_handoff_ledger.jsonl
+|   |       agms_ledger.jsonl
+|   |       agms_patterns.json
+|   |       agms_shadow_ledger.jsonl
+|   |       agms_shadow_suggestions.json
+|   |       agms_stability_band.json
+|   |       agms_thresholds_ledger.jsonl
+|   |       agms_weekly_summary.json
+|   |       
+|   +---autofix
+|   |   |   autofix_execute_ledger.jsonl
+|   |   |   autofix_ledger.jsonl
+|   |   |   autofix_observer_snapshot.json
+|   |   |   autofix_status.json
+|   |   |   matched_playbooks.json
+|   |   |   playbooks_loaded.json
+|   |   |   
+|   |   \---execute
+|   +---autopilot
+|   |   |   autopilot_policy_ledger.jsonl
+|   |   |   autopilot_policy_snapshot.json
+|   |   |   autopilot_shadow_decisions.jsonl
+|   |   |   
+|   |   \---votes
+|   |           policy_vote.json
+|   |           
+|   +---build_apk_release
+|   |       apk_destination.txt
+|   |       apk_sha256.txt
+|   |       apk_sha256_full.txt
+|   |       build_output.txt
+|   |       flutter_analyze.txt
+|   |       flutter_doctor.txt
+|   |       
+|   +---day_13_handover
+|   |       bucket_iam.txt
+|   |       bucket_list.txt
+|   |       bucket_name.txt
+|   |       bucket_versioning.txt
+|   |       canon_delta.md
+|   |       DEPLOY_RUNBOOK.md
+|   |       job_describe.txt
+|   |       job_iam.txt
+|   |       OPS_CHECK_60S.ps1
+|   |       OPS_CHECK_60S.sh
+|   |       scheduler_list.txt
+|   |       service_describe.txt
+|   |       service_iam.txt
+|   |       
+|   +---day_15_verify
+|   |       day_15_autofix_forced_condition.txt
+|   |       day_15_autofix_nominal.txt
+|   |       day_15_ledger_tail.txt
+|   |       day_15_tmp_scan.txt
+|   |       
+|   +---day_16_verify
+|   |       day_16_baseline_execute.txt
+|   |       day_16_cooldown_proof.txt
+|   |       day_16_execute_ledger_tail.txt
+|   |       day_16_forced_execute_response.txt
+|   |       day_16_tmp_scan.txt
+|   |       
+|   +---day_17_verify
+|   |       day_17_artifacts.txt
+|   |       day_17_baseline.txt
+|   |       day_17_drift_detection.txt
+|   |       day_17_execute_clean.txt
+|   |       day_17_forced_scan.txt
+|   |       day_17_ledger_tail.txt
+|   |       
+|   +---day_18_verify
+|   |       day_18_structure.txt
+|   |       day_18_timeline.txt
+|   |       day_18_truth_drift.txt
+|   |       
+|   +---day_19
+|   |       day_19_preflight.txt
+|   |       
+|   +---day_20
+|   |       day_20_agms_baseline.txt
+|   |       day_20_agms_forced.txt
+|   |       day_20_no_side_effects_scan.txt
+|   |       day_20_preflight_manual.txt
+|   |       day_20_start_time.txt
+|   |       
+|   +---day_21
+|   |       day_21_intelligence_baseline.txt
+|   |       day_21_intelligence_forced.txt
+|   |       
+|   +---day_22
+|   |       day_22_baseline.txt
+|   |       day_22_forced_pattern.txt
+|   |       day_22_safety_check.txt
+|   |       
+|   +---day_23
+|   |       day_23_baseline.txt
+|   |       day_23_execute_attempt.txt
+|   |       day_23_execute_no_key.txt
+|   |       day_23_handoff_generated.txt
+|   |       day_23_war_room_autopilot_lane.txt
+|   |       
+|   +---day_24
+|   |       day_24_baseline.txt
+|   |       day_24_war_room_thresholds.txt
+|   |       
+|   +---day_25
+|   |       day_25_baseline_green.txt
+|   |       day_25_forced_storm.txt
+|   |       day_25_war_room_band.txt
+|   |       
+|   +---day_26
+|   |   |   day_26_git_status_after.txt
+|   |   |   day_26_git_status_before.txt
+|   |   |   day_26_registry_verify.json
+|   |   |   
+|   |   \---task_evidence
+|   +---day_27
+|   |       day_27_diff_stat_after.txt
+|   |       day_27_diff_stat_before.txt
+|   |       day_27_git_status_after.txt
+|   |       day_27_git_status_before.txt
+|   |       day_27_registry_enforcement_report.json
+|   |       day_27_verify_output.txt
+|   |       day_27_verify_output_final.txt
+|   |       
+|   +---day_28
+|   |       day_28_allowlist_fail.txt
+|   |       day_28_allow_green_safe.txt
+|   |       day_28_baseline_shadow.txt
+|   |       day_28_deny_orange.txt
+|   |       day_28_ledger_tail.txt
+|   |       day_28_rate_limit_1.txt
+|   |       day_28_rate_limit_denied.txt
+|   |       
+|   +---day_28_01
+|   |       day_28_01_baseline_coverage.json
+|   |       day_28_01_forced_uncovered.json
+|   |       
+|   +---day_28_02
+|   +---day_29
+|   +---day_30
+|   +---day_30_1
+|   |       day_30_1_enforcer_report.json
+|   |       day_30_1_kill_switches_dump.json
+|   |       day_30_1_verify.json
+|   |       
+|   +---day_30_2
+|   |   |   consensus_decision.json
+|   |   |   day_30_2_verify.json
+|   |   |   
+|   |   \---sample_votes
+|   |           policy_vote.json
+|   |           risk_vote.json
+|   |           
+|   +---day_31
+|   +---day_31_2
+|   |       day_31_2_verify.json
+|   |       verify_output.txt
+|   |       verify_output_2.txt
+|   |       
+|   +---day_37
+|   |       day_37_00_1A_flutter_sdk_decontamination_report.json
+|   |       day_37_00_1_flutter_upgrade_hygiene_report.json
+|   |       day_37_00_2_global_shell_baseline_report.json
+|   |       day_37_00_3_premium_palette_alignment_report.json
+|   |       day_37_00_frontend_preflight_report.json
+|   |       day_37_01_dashboard_ssot_wiring_report.json
+|   |       day_37_02_1_session_strip_polish_report.json
+|   |       day_37_02_session_window_widget_report.json
+|   |       day_37_03_data_state_precedence_report.json
+|   |       day_37_04_os_health_widget_report.json
+|   |       day_37_05_last_run_widget_report.json
+|   |       day_37_06_founder_mode_always_on_report.json
+|   |       day_37_07_refresh_governance_report.json
+|   |       day_37_08_dashboard_degrade_rules_report.json
+|   |       
+|   +---day_38
+|   |       day_38_01_1_dashboard_layout_system_report.json
+|   |       day_38_01_2_dashboard_layout_verifier_report.json
+|   |       day_38_01_war_room_tiles_shell_report.json
+|   |       day_38_02_war_room_tiles_wiring_report.json
+|   |       day_38_03_autofix_control_plane_tile_report.json
+|   |       day_38_04_misfire_housekeeper_tiles_report.json
+|   |       day_38_05_misfire_monitor_recovery_tile_report.json
+|   |       day_38_06_iron_os_tile_report.json
+|   |       day_38_07_universe_tile_report.json
+|   |       day_38_08_war_room_refresh_governance_report.json
+|   |       day_38_09_war_room_truth_hardening_report.json
+|   |       
+|   +---day_39
+|   |       day_39_01D_core_universe_validator_proof.json
+|   |       day_39_01_core20_universe_surface_report.json
+|   |       
+|   +---day_40
+|   |       day_40_01_core_tape_proof.json
+|   |       day_40_02_pulse_core_proof.json
+|   |       day_40_03_sector_sentinel_surface_proof.json
+|   |       day_40_05_global_synthesis_ui_proof.json
+|   |       day_40_06_disagreement_report_proof.json
+|   |       day_40_09_pulse_confidence_proof.json
+|   |       day_40_10_pulse_drift_proof.json
+|   |       day_40_11_sentinel_heatmap_surface_proof.json
+|   |       day_40_12_global_pulse_timeline_proof.json
+|   |       day_40_13_rt_freshness_monitor_proof.json
+|   |       day_40_14_rt_degrade_rules_proof.json
+|   |       day_40_15_what_changed_proof.json
+|   |       
+|   +---day_41
+|   |       day_41_01_iron_os_status_proof.json
+|   |       day_41_02_timeline_tail_proof.json
+|   |       day_41_07_state_history_proof.json
+|   |       day_41_08_drift_surface_proof.json
+|   |       day_41_09_lkg_viewer_proof.json
+|   |       day_41_10_decision_path_proof.json
+|   |       day_41_11_replay_integrity_proof.json
+|   |       
+|   +---day_42
+|   |       day_42_01_lock_reason_proof.json
+|   |       day_42_02_coverage_proof.json
+|   |       day_42_08_findings_proof.json
+|   |       day_42_09_before_after_diff_proof.json
+|   |       day_42_auto_stage_canon_proof.json
+|   |       day_42_auto_stage_canon_report.json
+|   |       day_42_build_apk_proof.json
+|   |       day_42_git_commit_checkpoint_proof.json
+|   |       day_42_git_commit_seal_proof.json
+|   |       day_42_git_stage_untracked_proof.json
+|   |       day_42_war_room_entry_5tap_proof.json
+|   |       
+|   +---dojo
+|   |       dojo_ledger.jsonl
+|   |       dojo_recommended_thresholds.json
+|   |       dojo_simulation_report.json
+|   |       
+|   +---housekeeper
+|   |       housekeeper_scan.json
+|   |       
+|   +---playbooks
+|   |       playbook_coverage_report.json
+|   |       playbook_coverage_report.txt
+|   |       
+|   +---shadow_repair
+|   |   |   patch_proposal.diff
+|   |   |   patch_proposal.json
+|   |   |   patch_proposal_summary.txt
+|   |   |   shadow_repair_ledger.jsonl
+|   |   |   
+|   |   \---votes
+|   |           risk_vote.json
+|   |           
+|   +---tuning
+|   |   |   applied_thresholds.json
+|   |   |   tuning_ledger.jsonl
+|   |   |   
+|   |   \---votes
+|   |           policy_vote_58a5032d.json
+|   |           policy_vote_6a661647.json
+|   |           policy_vote_80e8fbe2.json
+|   |           policy_vote_909228fc.json
+|   |           policy_vote_ae612752.json
+|   |           policy_vote_beeccf59.json
+|   |           policy_vote_cd983b32.json
+|   |           policy_vote_ed691dca.json
+|   |           risk_vote_58a5032d.json
+|   |           risk_vote_6a661647.json
+|   |           risk_vote_80e8fbe2.json
+|   |           risk_vote_909228fc.json
+|   |           risk_vote_ae612752.json
+|   |           risk_vote_beeccf59.json
+|   |           risk_vote_cd983b32.json
+|   |           risk_vote_ed691dca.json
+|   |           
+|   \---_quarantine_dupes
+|           agms_dynamic_thresholds.json
+|           agms_shadow_snapshot.json
+|           agms_snapshot.json
+|           agms_stability_band.json
+|           autofix_execute_result.json
+|           day_06_2_service_describe.txt
+|           day_06_3_bucket_versioning.txt
+|           day_06_3_job_image_update.txt
+|           day_06_3_job_update_mount_retry.txt
+|           day_06_3_service_verify_sequential.txt
+|           day_06_billing_linked.txt
+|           day_06_billing_not_ready.txt
+|           day_06_preflight_config.txt
+|           day_06_serviceusage_ops.txt
+|           day_08_code_diff.txt
+|           day_08_iam_fix.txt
+|           day_11_api_url.txt
+|           day_11_endpoint_health_ext.txt
+|           day_11_job_invoker_bind.txt
+|           day_11_job_logs.txt
+|           day_11_recent_job_logs.txt
+|           day_11_scheduler_list.txt
+|           day_11_scheduler_run_full_once.txt
+|           day_11_scheduler_run_light_once.txt
+|           day_11_scheduler_sa_create.txt
+|           day_11_scheduler_sa_describe.txt
+|           day_12_bucket_list.txt
+|           day_12_scheduler_list_after.txt
+|           day_12_scheduler_pause_legacy.txt
+|           day_12_service_url.txt
+|           day_12_tmp_file_scan.txt
+|           day_14_01_artifact_proof.txt
+|           day_14_01_artifact_proof_final.txt
+|           day_14_01_artifact_proof_final_2.txt
+|           day_14_01_artifact_proof_final_3.txt
+|           day_14_01_job_executions_list_poll_2.txt
+|           day_14_01_job_executions_list_poll_4.txt
+|           day_14_01_job_executions_list_poll_6.txt
+|           day_14_01_job_executions_list_poll_final.txt
+|           day_14_01_job_executions_list_retry.txt
+|           day_14_01_job_logs_4hrsq.txt
+|           day_14_01_job_logs_snippet.txt
+|           day_14_job_executions_list.txt
+|           day_14_job_executions_list_poll.txt
+|           day_14_job_executions_list_poll_2.txt
+|           day_14_job_specific_log.txt
+|           day_14_manifest_check_final.txt
+|           day_14_service_url.txt
+|           day_24_forced_tightening.txt
+|           EMERGENCY_core_pager.txt
+|           EMERGENCY_git_aliases.txt
+|           housekeeper_ledger.jsonl
+|           ops_check_output.txt
+|           WIP_DIFF_BEFORE_COMMIT.txt
+|           
++---seals
+|       DEPRECATED__SEAL_DAY_44_02_PLACEHOLDER_WRONG_SCOPE.md
+|       SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md
+|       SEAL_CANON_0_REGISTRY.md
+|       SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md
+|       SEAL_CANON_SCOPE_HISTORICO.md
+|       SEAL_CANON_SYNC_UP_TO_DAY_08.md
+|       SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md
+|       SEAL_D44_FINAL_CLOSE.md
+|       SEAL_DAY_00_0_WORKSPACE_TRUTH.md
+|       SEAL_DAY_00_1_GIT_INIT.md
+|       SEAL_DAY_00_2_SKELETON.md
+|       SEAL_DAY_00_3_TRUTH_SURFACE.md
+|       SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md
+|       SEAL_DAY_00_5_FLUTTER_SHELL.md
+|       SEAL_DAY_00_MASTER.md
+|       SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md
+|       SEAL_DAY_01_SYSTEM_CONTRACT.md
+|       SEAL_DAY_02_SCHEMAS_AND_LENS.md
+|       SEAL_DAY_03_1_AUTONOMY_HARDENING.md
+|       SEAL_DAY_03_AUTONOMY_SPINE.md
+|       SEAL_DAY_04_PIPELINE_MIN_REAL.md
+|       SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md
+|       SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md
+|       SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md
+|       SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md
+|       SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md
+|       SEAL_DAY_06_INTEGRITY_SWEEP.md
+|       SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md
+|       SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md
+|       SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md
+|       SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md
+|       SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md
+|       SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md
+|       SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md
+|       SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md
+|       SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md
+|       SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md
+|       SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md
+|       SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md
+|       SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md
+|       SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md
+|       SEAL_DAY_19_PLAYBOOK_LAW.md
+|       SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md
+|       SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md
+|       SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md
+|       SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md
+|       SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md
+|       SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md
+|       SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md
+|       SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md
+|       SEAL_DAY_27_MODULAR_REFACTOR.md
+|       SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md
+|       SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md
+|       SEAL_DAY_28_AUTOPILOT_POLICY_V1.md
+|       SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md
+|       SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md
+|       SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md
+|       SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md
+|       SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md
+|       SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md
+|       SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md
+|       SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md
+|       SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md
+|       SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md
+|       SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md
+|       SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md
+|       SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md
+|       SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md
+|       SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md
+|       SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md
+|       SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md
+|       SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md
+|       SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md
+|       SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md
+|       SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md
+|       SEAL_DAY_37_04_OS_HEALTH_WIDGET.md
+|       SEAL_DAY_37_05_LAST_RUN_WIDGET.md
+|       SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md
+|       SEAL_DAY_37_07_REFRESH_GOVERNANCE.md
+|       SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md
+|       SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md
+|       SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md
+|       SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md
+|       SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md
+|       SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md
+|       SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md
+|       SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md
+|       SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md
+|       SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md
+|       SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md
+|       SEAL_DAY_38_07_UNIVERSE_TILE.md
+|       SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md
+|       SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md
+|       SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md
+|       SEAL_DAY_39_01A_CORE20_CANON_FIX.md
+|       SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md
+|       SEAL_DAY_39_01C_CORE20_CANON_FINAL.md
+|       SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md
+|       SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md
+|       SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md
+|       SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md
+|       SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md
+|       SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md
+|       SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md
+|       SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md
+|       SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md
+|       SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md
+|       SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md
+|       SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md
+|       SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md
+|       SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md
+|       SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md
+|       SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md
+|       SEAL_DAY_40_02_PULSE_CORE.md
+|       SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md
+|       SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md
+|       SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md
+|       SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md
+|       SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md
+|       SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md
+|       SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md
+|       SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md
+|       SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md
+|       SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md
+|       SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md
+|       SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md
+|       SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md
+|       SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md
+|       SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md
+|       SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md
+|       SEAL_DAY_41_01_IRON_OS_STATUS.md
+|       SEAL_DAY_41_02_TIMELINE_TAIL.md
+|       SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md
+|       SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md
+|       SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md
+|       SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md
+|       SEAL_DAY_41_07_IRON_STATE_HISTORY.md
+|       SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md
+|       SEAL_DAY_41_09_LKG_VIEWER.md
+|       SEAL_DAY_41_10_IRON_DECISION_PATH.md
+|       SEAL_DAY_41_11_REPLAY_INTEGRITY.md
+|       SEAL_DAY_42_01_LOCK_REASON.md
+|       SEAL_DAY_42_02_COVERAGE.md
+|       SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md
+|       SEAL_DAY_42_04_AUTOFIX_TIER1.md
+|       SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md
+|       SEAL_DAY_42_06_RED_BUTTON_SURFACES.md
+|       SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md
+|       SEAL_DAY_42_08_FINDINGS_PANEL.md
+|       SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md
+|       SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md
+|       SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md
+|       SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md
+|       SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md
+|       SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md
+|       SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md
+|       SEAL_DAY_42_BUILD_APK_SMOKE.md
+|       SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md
+|       SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md
+|       SEAL_DAY_42_GIT_HYGIENE_FIX.md
+|       SEAL_DAY_42_GIT_STAGE_UNTRACKED.md
+|       SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md
+|       SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md
+|       SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md
+|       SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md
+|       SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md
+|       SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md
+|       SEAL_DAY_43_03_ELITE_OS_READER.md
+|       SEAL_DAY_43_04_DAY_MEMORY.md
+|       SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md
+|       SEAL_DAY_43_06_EXPLAIN_ROUTER.md
+|       SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md
+|       SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md
+|       SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md
+|       SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md
+|       SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md
+|       SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md
+|       SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md
+|       SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md
+|       SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md
+|       SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md
+|       SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md
+|       SEAL_DAY_43_CANON_SYNC_TOTAL.md
+|       SEAL_DAY_43_GLOBAL_SCROLL_LAW.md
+|       SEAL_DAY_43_LAYOUT_POLICE_GUARD.md
+|       SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md
+|       SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md
+|       SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md
+|       SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md
+|       SEAL_DAY_44_02A_LOCK_REASON_MODAL.md
+|       SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md
+|       SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md
+|       SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md
+|       SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md
+|       SEAL_DAY_44_04_ON_DEMAND_SCREEN.md
+|       SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md
+|       SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md
+|       SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md
+|       SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md
+|       SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md
+|       SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md
+|       SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md
+|       SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md
+|       SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md
+|       SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md
+|       SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md
+|       SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md
+|       SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md
+|       SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md
+|       SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md
+|       SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md
+|       SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md
+|       SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md
+|       SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md
+|       SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md
+|       SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md
+|       SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md
+|       SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md
+|       SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md
+|       SEAL_DAY_45_07_ABORTED_ROLLBACK.md
+|       SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md
+|       SEAL_DAY_45_08_SHARE_ENGINE_V1.md
+|       SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md
+|       SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md
+|       SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md
+|       SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md
+|       SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md
+|       SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md
+|       SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md
+|       SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md
+|       SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md
+|       SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md
+|       SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md
+|       SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md
+|       SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md
+|       SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md
+|       SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md
+|       SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md
+|       SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md
+|       SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md
+|       SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md
+|       SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md
+|       SEAL_DAY_45_MASTER_CLOSE.md
+|       SEAL_DAY_45_WAR_CALENDAR_UPDATE.md
+|       SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md
+|       SEAL_Dxx_UI_LEATHER_BARS_ONLY.md
+|       SEAL_Polish_01_BaseUrlCloud_Default.md
+|       SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md
+|       SEAL_Polish_Human_01_Global_Tone_Layer.md
+|       SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md
+|       SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md
+|       SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md
+|       SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md
+|       SEAL_Polish_Notifications_02_TapRouting_DeepLink.md
+|       SEAL_TARGET_STATE_FROZEN.md
+|       SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md
+|       SEAL_VICTORY_DRILLDOWN_CREATED.md
+|       
+\---setup
+        USER_RULES_PAYLOAD.txt
+        

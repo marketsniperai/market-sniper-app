@@ -1,0 +1,20 @@
+{
+    "timestamp": "2026-01-25T15:15:00-05:00",
+    "component": "SectorFlipWidgetV1_2",
+    "feature": "PulseIntegration",
+    "data_flow": {
+        "primary": "GET /dashboard (MarketSnapshot)",
+        "fallback": "V1.1 Synthetic Rotation",
+        "parsing": "Robust JSON decode + Normalization"
+    },
+    "buffer_state": {
+        "capacity": 13,
+        "strategy": "RingBuffer (FIFO)",
+        "injector": "_loadFramesFromPulseArtifacts"
+    },
+    "verification": {
+        "compilation": "PASS",
+        "discipline": "PASS",
+        "runtime_safety": "Http Timeout (2s) + Try/Catch Block"
+    }
+}

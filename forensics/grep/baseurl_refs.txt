@@ -1,0 +1,101 @@
+﻿
+market_sniper_app\lib\
+config\app_config.dart
+:10:  static String 
+get apiBaseUrl {
+market_sniper_app\lib\
+config\app_config.dart
+:16:    const mode = S
+tring.fromEnvironment(
+'API_MODE', 
+defaultValue: 
+'cloud');
+market_sniper_app\lib\
+config\app_config.dart
+:19:        
+'API_BASE_URL',
+market_sniper_app\lib\
+screens\dashboard_scre
+en.dart:78:      debug
+Print("FOUNDER=true, 
+keyInjected=true, base
+Url=${AppConfig.apiBas
+eUrl}");
+market_sniper_app\lib\
+services\api_client.da
+rt:13:      : baseUrl 
+= 
+AppConfig.apiBaseUrl,
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:128:   
+      final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/context/
+status'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:143:   
+      final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/what_cha
+nged'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:160:   
+       final response 
+= await http.get(Uri.p
+arse('${AppConfig.apiB
+aseUrl}/elite/agms/rec
+all?tier=$tierStr'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:210:   
+   final url = Uri.par
+se('${AppConfig.apiBas
+eUrl}/elite/explain/st
+atus');
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:248:   
+   final response = 
+await http.get(Uri.par
+se('${AppConfig.apiBas
+eUrl}/elite/os/snapsho
+t'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:286:   
+     final response = 
+await http.get(Uri.par
+se('${AppConfig.apiBas
+eUrl}/elite/script/fir
+st_interaction'));
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:762:   
+      future: http.get
+(Uri.parse('${AppConfi
+g.apiBaseUrl}/elite/os
+/snapshot')),
+market_sniper_app\lib\
+widgets\elite_interact
+ion_sheet.dart:1078:  
+         final 
+response = await http.
+get(Uri.parse('${AppCo
+nfig.apiBaseUrl}/elite
+/micro_briefing/open')
+);
+market_sniper_app\lib\
+widgets\session_window
+_strip.dart:204:      
+                  AppC
+onfig.apiBaseUrl.conta
+ins('10.0.2.2') ? 
+"API: LOCAL" : "API: 
+CLOUD",
+
+

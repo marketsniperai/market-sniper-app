@@ -1,0 +1,144 @@
+# PENDING LEDGER (CANON DEBT PURGE)
+
+**Authority:** CANONICAL
+**Sync Date:** Day 45
+**Status:** ACTIVE
+**Validation:** `verify_project_discipline.py`
+
+This ledger is the **Single Source of Truth** for all "Planned", "Future", "Pending", and "Debt" items detected in the repository.
+Items here are **NOT** bugs; they are distinct units of future value or technical debt to be serviced.
+
+## 0. Lifecycle Rules (Canon)
+1. **No Deletion**: Pending items are never deleted, only transitioned.
+2. **Active Debt**: Status `OPEN` or `IN_PROGRESS`.
+3. **Resolution**: Status `RESOLVED` requires `Resolved By Seal` and `Resolved At UTC`.
+4. **Schema**: All items must follow the Key-Value list format below.
+5. **Closure Hook**: All Seals must include `## Pending Closure Hook` declaring resolved items or "None".
+
+## 1. Strategic Roadmap (War Calendar)
+
+### PEND_INTEL_VOICE_V2
+- **Module**: INTEL
+- **Description**: D35: The Voice v2 (Full Voice Engine). End-to-end ritual, personalization, caching, governance.
+- **Origin**: OMSR_WAR_CALENDAR (D35)
+- **Trigger**: Phase 4 Closure
+- **Status**: OPEN
+- **Impact Area**: UX, Reliability
+- **Estimated Effort**: L
+
+### PEND_MSK_RISK_LANES
+- **Module**: MSK
+- **Description**: D46.01: Kernel Risk Lanes. Define READ-ONLY, WRITE-SAFE, FOUNDER-HIGH-PRIV, NETWORK lanes.
+- **Origin**: OMSR_WAR_CALENDAR (D46.01)
+- **Trigger**: Day 46 Start
+- **Status**: OPEN
+
+### PEND_MSK_PROC_RECEIPT
+- **Module**: MSK
+- **Description**: D46.02: Procedure Planner Receipt. Emit `os_kernel_receipt.json` after procedures.
+- **Origin**: OMSR_WAR_CALENDAR (D46.02)
+- **Trigger**: Day 46 Start
+- **Status**: OPEN
+
+### PEND_MSK_ABUSE_SCORE
+- **Module**: MSK
+- **Description**: D46.03: Intent-Aware AbuseScore. No-ML scoring of request patterns.
+- **Origin**: OMSR_WAR_CALENDAR (D46.03)
+- **Trigger**: Day 46 Start
+- **Status**: OPEN
+
+### PEND_MSK_GLOBAL_LOCK
+- **Module**: MSK
+- **Description**: D46.04: Global Execution Lock. Prevent concurrent hazards (e.g. Housekeeper vs Autofix).
+- **Origin**: OMSR_WAR_CALENDAR (D46.04)
+- **Trigger**: Day 46 Start
+- **Status**: OPEN
+
+## 2. Feature Stubs & Deferred Scope
+
+### PEND_UI_OPTIONS_L3
+- **Module**: UI
+- **Description**: Flow Concentration (Context-only). Aggregated premium snapshot (Tenor/Side).
+- **Origin**: SEAL_DAY_45_15 (Command Center)
+- **Trigger**: Data Availability
+- **Status**: OPEN
+
+### PEND_INTEL_PROJECTION_LANE_EVIDENCE_ARTIFACT
+- **Module**: INTEL.VOLUME
+- **Description**: Probabilistic context model for +15m..+60m projection lane. Currently in CALIBRATING state.
+- **Origin**: D45.HF10G.VOLUME_INTEL.TIMELINE
+- **Trigger**: Model Availability
+- **Status**: OPEN
+
+### PEND_BACK_VOICE_MVP
+- **Module**: BACKEND
+- **Description**: Legacy Voice MVP stubbed in `voice_mvp_engine.py`. Needs full implementation.
+- **Origin**: backend/voice_mvp_engine.py
+- **Trigger**: PEND_INTEL_VOICE_V2
+- **Status**: OPEN
+
+###- [ ] PEND_INTEL_REGIME_SENTINEL_EVIDENCE_ARTIFACT (Evidence Schema)
+- [ ] PEND_DATA_INTRADAY_5M_PROVIDER (High-Res Data Source)_BOOTSTRAP
+
+### PEND_INFRA_PROVIDER_APIS_BOOTSTRAP
+- **Module**: OS.DATA
+- **Description**: No provider APIs integrated yet; any provider-live surfaces must remain N/A/Replay/CALIBRATING until provider integration sprint is sealed.
+- **Origin**: Day 45 Founder Note
+- **Trigger**: UI Copy
+- **Status**: OPEN
+- **Impact Area**: Reliability, UX, Governance
+
+### PEND_UI_WATCHLIST_MSG
+- **Module**: UI
+- **Description**: Hardcoded string "Extended Universe unlocks in D39.02" in `watchlist_add_modal.dart`.
+- **Origin**: lib/widgets/watchlist_add_modal.dart
+- **Trigger**: Cleanup Polish
+- **Status**: OPEN
+
+### PEND_UI_SESSION_LOGIC
+- **Module**: UI
+- **Description**: Weekend logic comment "Days until Mon = 7; Should be handled but explicit safety".
+- **Origin**: lib/widgets/session_awareness_panel.dart
+- **Trigger**: Robustness Audit
+- **Status**: OPEN
+
+## 3. Tech Debt & Optimization
+
+### PEND_REGISTRY_PATH
+- **Module**: OPS
+- **Description**: `verify_day_26_registry.py` flag: Check if PATH part starts with /.
+- **Origin**: backend/verify_day_26_registry.py
+- **Trigger**: Registry Audit
+- **Status**: OPEN
+
+### PEND_INTEL_SECTOR_SPIKE_BASELINE
+- **Module**: INTEL.SECTOR
+- **Description**: Sector Sentinel spike baseline upgrade to median(13).
+- **Origin**: SEAL_D45_SECTOR_SENTINEL_RT_V0.md
+- **Trigger**: D45 Closure
+- **Status**: OPEN
+
+### PEND_OPS_FLUTTER_ANALYZE_BASELINE_CLEANUP
+- **Module**: OPS.FRONTEND
+- **Description**: Flutter analyze baseline currently ~170+ issues (lints/style/null-safety). Non-blocking in building phase but required for release polish. Dedicated cleanup sprint needed to reduce noise and prevent future regressions.
+- **Origin**: Day 45 Governance Note
+- **Trigger**: Release Polish
+- **Status**: OPEN
+
+## 4. Pending Auth / Infra (HF08+)
+
+### PEND_INFRA_API_GATEWAY_DEPLOY
+- **Module**: OS.INFRA
+- **Description**: Provision API Gateway + API Key to front Private Cloud Run.
+- **Origin**: D45.HF05.AUTH.GATEWAY
+- **Trigger**: Deployment Script Run
+- **Status**: OPEN
+- **Note**: Manual script `outputs/scripts/deploy_auth_gateway.ps1` generated.
+
+### PEND_AUTH_FIREBASE_FULL
+- **Module**: OS.AUTH
+- **Description**: Migrate from API Key (Route B) to Firebase JWT (Route A) for public clients.
+- **Origin**: D45.HF05.AUTH.GATEWAY
+- **Trigger**: Security Hardening
+- **Status**: OPEN
+

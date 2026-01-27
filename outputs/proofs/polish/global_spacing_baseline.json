@@ -1,0 +1,49 @@
+{
+    "audit_timestamp": "2026-01-24T15:30:00Z",
+    "screens_audited": [
+        {
+            "name": "AccountScreen",
+            "status": "REFERENCE",
+            "current_spacing": {
+                "card_gap": "Mixed (16px, 24px)",
+                "section_gap": "Inconsistent (24px vs 32px)",
+                "action_gap": "16px (heavy)"
+            },
+            "heaviness": {
+                "primary_cards": [
+                    "Compact Plan Card",
+                    "Partner Protocol Card",
+                    "Subscription Card"
+                ],
+                "heavy_actions": [
+                    "Settings Card (Heavy)",
+                    "Help Card (Heavy)",
+                    "Logout (Heavy)"
+                ],
+                "verdict": "Too many heavy cards. Actions should be lighter."
+            }
+        },
+        {
+            "name": "MenuScreen",
+            "status": "NEEDS_ALIGNMENT",
+            "current_spacing": {
+                "card_gap": "8px (Tight)",
+                "section_gap": "32px (Loose)",
+                "action_gap": "8px"
+            },
+            "heaviness": {
+                "primary_cards": [],
+                "heavy_actions": [
+                    "All Menu Items are NeonOutlineCard (Medium Weight)"
+                ],
+                "verdict": "Consistent but slightly tight. Could benefit from standard 10px action gap."
+            }
+        }
+    ],
+    "proposed_tokens": {
+        "AppSpacing.cardGap": 16,
+        "AppSpacing.sectionGap": 24,
+        "AppSpacing.actionGap": 10,
+        "AppSpacing.cardInnerPadding": 16
+    }
+}

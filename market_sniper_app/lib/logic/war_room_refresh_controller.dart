@@ -50,7 +50,9 @@ class WarRoomRefreshController {
     if (_lastRefreshTime != null) {
       final sinceLast = DateTime.now().difference(_lastRefreshTime!);
       if (sinceLast.inSeconds < AppConfig.warRoomManualRefreshCooldownSeconds) {
-        if (kDebugMode) print("War Room manual refresh ignored due to cooldown");
+        if (kDebugMode) {
+          print("War Room manual refresh ignored due to cooldown");
+        }
         return;
       }
     }
@@ -77,7 +79,7 @@ class WarRoomRefreshController {
       if (kDebugMode) print("War Room Refresh failed: $e");
     } finally {
       _isRefreshing = false;
-      _scheduleNextAutoRefresh(); 
+      _scheduleNextAutoRefresh();
     }
   }
 
@@ -86,20 +88,21 @@ class WarRoomRefreshController {
     if (_isPaused) return;
 
     int nextInterval = AppConfig.warRoomAutoRefreshSeconds;
-    
+
     // Governance: Backoff if backoff required (120s) OR error (120s)
     if (_shouldBackoff) {
       nextInterval = AppConfig.warRoomBackoffSeconds;
-    } else if (_lastErrorTime != null && _lastSuccessTime != null && _lastErrorTime!.isAfter(_lastSuccessTime!)) {
+    } else if (_lastErrorTime != null &&
+        _lastSuccessTime != null &&
+        _lastErrorTime!.isAfter(_lastSuccessTime!)) {
       nextInterval = AppConfig.warRoomBackoffSeconds;
     }
-    
+
     _timer = Timer(Duration(seconds: nextInterval), () {
       _executeRefresh(RefreshReason.auto);
     });
   }
 
-  
   // Getters for debug/UI
   DateTime? get lastRefreshTime => _lastRefreshTime;
   DateTime? get lastErrorTime => _lastErrorTime;

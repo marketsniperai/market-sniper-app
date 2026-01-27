@@ -1,0 +1,10 @@
+
+lib\repositories\last_run_repository.dart:11:      // Use health_ext as canonical source for RunManifest
+lib\repositories\system_health_repository.dart:14:    // 1. Fetch Primary (health_ext)
+lib\repositories\system_health_repository.dart:47:    // health_ext usually has 'generated_at' or 'timestamp'
+lib\repositories\war_room_repository.dart:501:    // Priority 3: Fallback to /health_ext (RunManifest) which contains universe info
+lib\repositories\war_room_repository.dart:523:         source: "/health_ext (fallback)",
+lib\screens\war_room_screen.dart:368:      debugInfo: "Source: unified (health_ext+misfire)",
+lib\services\api_client.dart:54:    final url = Uri.parse('$baseUrl/health_ext');
+lib\services\api_client.dart:63:    final url = Uri.parse('$baseUrl/health_ext');
+

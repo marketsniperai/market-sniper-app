@@ -14,7 +14,7 @@ class FounderRouterStore {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_kKey, destination);
   }
-  
+
   static String get warRoom => _valWarRoom;
   static String get commandCenter => _valCommandCenter;
 }

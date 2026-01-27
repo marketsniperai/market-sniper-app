@@ -33,17 +33,19 @@ class DashboardScreen extends StatefulWidget {
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingObserver {
+class _DashboardScreenState extends State<DashboardScreen>
+    with WidgetsBindingObserver {
   late DashboardRepository _repo;
   late SystemHealthRepository _healthRepo;
   late LastRunRepository _lastRunRepo;
-  late ApiClient _api; // Kept for health (separate concern for now, or move to repo later)
+  late ApiClient
+      _api; // Kept for health (separate concern for now, or move to repo later)
   DashboardPayload? _dashboard;
   SystemHealth? _health; // Legacy
   SystemHealthSnapshot _healthSnapshot = SystemHealthSnapshot.unknown;
   LastRunSnapshot _lastRunSnapshot = LastRunSnapshot.unknown;
   Map<String, dynamic>? _optionsContext; // D36.3
-  
+
   bool _loading = true;
   String? _error;
   late DashboardRefreshController _refreshController;
@@ -53,7 +55,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    
+
     // D37.02: Initialize Timezones
     TimeUtils.init();
 
@@ -68,15 +70,16 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
 
     // Initial load
     _loadData().then((_) {
-       // Start auto-refresh after initial load
-       _refreshController.start();
+      // Start auto-refresh after initial load
+      _refreshController.start();
     });
-    
+
     // _startTimer(); // Removed
-    
+
     // Forensic Trace
     if (AppConfig.isFounderBuild) {
-      debugPrint("FOUNDER=true, keyInjected=true, baseUrl=${AppConfig.apiBaseUrl}");
+      debugPrint(
+          "FOUNDER=true, keyInjected=true, baseUrl=${AppConfig.apiBaseUrl}");
     }
   }
 
@@ -101,48 +104,53 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
 
   Future<void> _loadData({bool silent = false}) async {
     if (!silent) {
-       setState(() { _loading = true; _error = null; });
+      setState(() {
+        _loading = true;
+        _error = null;
+      });
     }
     try {
       final results = await Future.wait([
         _repo.fetchDashboard(),
         _api.fetchSystemHealth(), // TODO: Move to SystemRepository
       ]);
-      
+
       if (mounted) {
         setState(() {
           _dashboard = results[0] as DashboardPayload;
           _health = results[1] as SystemHealth; // Legacy
-          
+
           // D37.04: Fetch Unified Health logic (integrated here for now to ensure data availability)
           // Ideally this should participate in the Future.wait, but we need _dashboard first for resolver override if possible.
           // However, repo.fetchUnifiedHealth accepts override.
-          
+
           final d = _dashboard!;
-          final resolved = DataStateResolver.resolve(dashboard: d, health: _health);
-          
+          final resolved =
+              DataStateResolver.resolve(dashboard: d, health: _health);
+
           // D37.07: Report Locked State to Controller
-          _refreshController.reportLockedState(resolved.state == DataState.locked);
-          
+          _refreshController
+              .reportLockedState(resolved.state == DataState.locked);
+
           // We trigger the unified fetch NOW, using the resolved state
           _healthRepo.fetchUnifiedHealth(dataState: resolved).then((h) {
-             if (mounted) setState(() => _healthSnapshot = h);
+            if (mounted) setState(() => _healthSnapshot = h);
           });
 
           // Fetch Last Run (D37.05)
           _lastRunRepo.fetchLastRun().then((lr) {
-             if (mounted) setState(() => _lastRunSnapshot = lr);
+            if (mounted) setState(() => _lastRunSnapshot = lr);
           });
-          
+
           // D36.3: Fetch Options Context (Async, non-blocking)
           _repo.fetchOptionsContext().then((opts) {
-             if (mounted) {
-               setState(() {
-                 // We need to pass this to composer. 
-                 // Storing in state for now, will add variable.
-                 _optionsContext = opts;
-               });
-             }
+            if (mounted) {
+              setState(() {
+                // We need to pass this to composer.
+                // Storing in state for now, will add variable.
+                _optionsContext = opts;
+              });
+            }
           });
 
           _loading = false;
@@ -152,8 +160,8 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
       if (mounted) {
         setState(() {
           _error = e.toString();
-          // Even on error, try to show whatever health we got if possible, 
-          // but Future.wait fails all. 
+          // Even on error, try to show whatever health we got if possible,
+          // but Future.wait fails all.
           // For resilience, fetching health could be separate, but strict error handling is okay.
           _loading = false;
         });
@@ -165,7 +173,7 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
   Widget build(BuildContext context) {
     // V1 Integration: No inner Scaffold. Inner AppBar content moved/suppressed.
     // Main shell handles the Scaffold/AppBar.
-    
+
     return RefreshIndicator(
       onRefresh: () async {
         await _refreshController.requestManualRefresh();
@@ -176,14 +184,15 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
 
   Widget _buildBody(BuildContext context) {
     // D37.08: Degrade Policy
-    final resolvedState = DataStateResolver.resolve(dashboard: _dashboard, health: _health);
-    
+    final resolvedState =
+        DataStateResolver.resolve(dashboard: _dashboard, health: _health);
+
     final degradeContext = DashboardDegradePolicy.evaluate(
       payload: _dashboard,
       dataState: resolvedState,
       fetchError: _error,
     );
-    
+
     // -- Dashboard Composer (D38.01.1) --
     // Orchestrates the list of widgets
     final composer = DashboardComposer(
@@ -200,8 +209,8 @@ class _DashboardScreenState extends State<DashboardScreen> with WidgetsBindingOb
     final widgets = composer.buildList(context);
 
     if (_loading && _dashboard == null) {
-       // Show loading indicator only if we have no data at all
-       return const Center(child: CircularProgressIndicator());
+      // Show loading indicator only if we have no data at all
+      return const Center(child: CircularProgressIndicator());
     }
 
     return ListView(

@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "slogan": "Institutional Grade\nIntelligence",
+  "termsIntro": "By initiating system, you agree to ",
+  "termsLink": "Protocol Terms",
+  "btnInit": "INITIALIZE SYSTEM",
+  "legalTitle": "Protocol Terms & Conditions",
+  "legalClose": "CLOSE",
+  "invitationLabel": "FOUNDER KEY",
+  "invitationHint": "Enter Key",
+  "labelUsername": "USER ID",
+  "hintUsername": "Enter ID",
+  "labelPassword": "PASSWORD",
+  "hintPassword": "••••••••",
+  "selectLanguage": "Select Language"
+}

@@ -27,8 +27,10 @@ class OnDemandContextStrip extends StatelessWidget {
     // 2. Filter available
     final items = [
       if (sector != null) _ContextItem("SECTOR", sector, AppColors.textPrimary),
-      if (regime != null) _ContextItem("REGIME", regime, _mapRegimeColor(regime)),
-      if (overlay != null) _ContextItem("OVERLAY", overlay, _mapOverlayColor(overlay)),
+      if (regime != null)
+        _ContextItem("REGIME", regime, _mapRegimeColor(regime)),
+      if (overlay != null)
+        _ContextItem("OVERLAY", overlay, _mapOverlayColor(overlay)),
       if (pulse != null) _ContextItem("PULSE", pulse, _mapPulseColor(pulse)),
     ];
 
@@ -59,18 +61,14 @@ class OnDemandContextStrip extends StatelessWidget {
           Text(
             "${item.label}: ",
             style: AppTypography.label(context).copyWith(
-              fontSize: 10, 
-              color: AppColors.textSecondary,
-              fontWeight: FontWeight.bold
-            ),
+                fontSize: 10,
+                color: AppColors.textSecondary,
+                fontWeight: FontWeight.bold),
           ),
           Text(
             item.value,
             style: AppTypography.label(context).copyWith(
-              fontSize: 10,
-              color: item.color,
-              fontWeight: FontWeight.bold
-            ),
+                fontSize: 10, color: item.color, fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -86,7 +84,7 @@ class OnDemandContextStrip extends StatelessWidget {
       if (def.category == "Sectors") return def.displayLabel; // e.g. XLK
       return def.category; // e.g. Indices, Crypto
     }
-    
+
     // 2. Try Payload
     final payload = envelope.rawPayload['payload'] ?? envelope.rawPayload;
     if (payload is Map && payload['sector'] != null) {
@@ -137,7 +135,7 @@ class OnDemandContextStrip extends StatelessWidget {
 
   Color _mapOverlayColor(String val) {
     if (val.contains("LIVE")) return AppColors.stateLive;
-    if (val.contains("SIM")) return AppColors.accentCyan;
+    if (val.contains("SIM")) return AppColors.neonCyan;
     return AppColors.textDisabled;
   }
 

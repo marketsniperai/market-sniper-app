@@ -299,7 +299,7 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md`](../../outputs/seals/SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md)
 
   OVERLAY LIVE
-  - [ ] D40.04 — Extended Overlay LIVE Composer surface (source: SECTOR_SENTINEL)
+  - [x] D40.04 — Extended Overlay LIVE Composer surface (source: SECTOR_SENTINEL) - Implemented deterministic composer and /overlay_live endpoint. (SEALED).
 
   GLOBAL SYNTHESIS
   - [x] D40.05 — Global Pulse Synthesis UI (global_risk_state.json)
@@ -588,10 +588,75 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: [`SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md`](../../outputs/seals/SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md)
   - [x] D45.H3 — Founder Ritual Hitbox + Network Permissions
     - ↳ Seal: [`SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md`](../../outputs/seals/SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md)
+  - [x] D45.H4 — Compilation Repair (Atoms/L10n/Wiring)
+    - ↳ Seal: [`SEAL_DAY_45_H4_COMPILATION_REPAIR.md`](../../outputs/seals/SEAL_DAY_45_H4_COMPILATION_REPAIR.md)
+  - [x] D45.H6 — Flutter Web L10n Fix (Non-Synthetic)
+    - ↳ Seal: [`SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md`](../../outputs/seals/SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md)
 
 DAY 45 COMPLETE (SEALED)
 - [x] **D45 MASTER CLOSE — Shell + Premium + News/Calendar + Growth/Sharing**
   - ↳ Seal: [`SEAL_DAY_45_MASTER_CLOSE.md`](../../outputs/seals/SEAL_DAY_45_MASTER_CLOSE.md)
+
+- [x] **D45.POLISH.01** — Visual Polish: Neon Cyan Unification (Canonical Tokens + NeonOutlineCard)
+  - ↳ Seal: [`SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md`](../../outputs/seals/SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md)
+- [x] **D45.POLISH.SPACING.01** — Global Spacing: AppSpacing Tokens & Visual Weight Unification.
+  - ↳ Seal: [`SEAL_POLISH_GLOBAL_SPACING_01.md`](../../outputs/seals/SEAL_POLISH_GLOBAL_SPACING_01.md)
+- [x] **D45.POLISH.ACCOUNT.CLEAN.01** — Account Screen Cleanup (Restored Minimal 3-Block Layout).
+  - ↳ Seal: [`SEAL_POLISH_ACCOUNT_CLEAN_01.md`](../../outputs/seals/SEAL_POLISH_ACCOUNT_CLEAN_01.md)
+- [x] **D45.POLISH.PREMIUM_VISIBILITY.01** — Restrict Founder Visibility in Premium Screen (Internalized status).
+  - ↳ Seal: [`SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md`](../../outputs/seals/SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md)
+- [x] **D45.POLISH.MENU.LANGUAGE.01** — Implement Language Selector (Replaced Share Attribution).
+  - ↳ Seal: [`SEAL_POLISH_MENU_LANGUAGE_01.md`](../../outputs/seals/SEAL_POLISH_MENU_LANGUAGE_01.md)
+- [x] **HOTFIX.MENU.LANGUAGE.COMPILATION.01** — Compilation Repair (Braces/API).
+  - ↳ Seal: [`SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md`](../../outputs/seals/SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md)
+- [x] **D45.POLISH.DASHBOARD.UI.01** — Dashboard Body Cleanup + Banner v1.
+  - ↳ Seal: [`SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md`](../../outputs/seals/SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md)
+- [x] **D45.POLISH.DASHBOARD.CLEANUP.01** — Dashboard Body Cleanup (UI-Only, Hidden Widgets).
+  - ↳ Seal: [`SEAL_POLISH_DASHBOARD_CLEANUP_01.md`](../../outputs/seals/SEAL_POLISH_DASHBOARD_CLEANUP_01.md)
+- [x] **D45.HF02** — Web Build Repair (Timezone Fallout)
+  - ↳ Seal: [`SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md`](../../outputs/seals/SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md)
+- [x] **D45.HF03** — Sector Flip V1 Smoke (Runtime Verification)
+  - ↳ Seal: [`SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md`](../../outputs/seals/SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md)
+- [x] **D45.POLISH.SECTOR.FLIP.V2** — Layout & Animation Polish (Wicks/Glow)
+  - ↳ Seal: [`SEAL_D45_POLISH_SECTOR_FLIP_V2.md`](../../outputs/seals/SEAL_D45_POLISH_SECTOR_FLIP_V2.md)
+- [x] **D45.POLISH.SECTOR.FLIP.V3** — Leader Change Micro-Wow (Haptics/Anim)
+  - ↳ Seal: [`SEAL_D45_POLISH_SECTOR_FLIP_V3.md`](../../outputs/seals/SEAL_D45_POLISH_SECTOR_FLIP_V3.md)
+- [x] **D45.SECTOR.REPLAY.V1_1** — Client-Side Scrubber (60m History)
+  - ↳ Seal: [`SEAL_D45_SECTOR_REPLAY_V1_1.md`](../../outputs/seals/SEAL_D45_SECTOR_REPLAY_V1_1.md)
+- [x] **D45.SECTOR.REPLAY.V1_2** — Pulse Integration (Real Data Consumer)
+  - ↳ Seal: [`SEAL_D45_SECTOR_REPLAY_V1_2.md`](../../outputs/seals/SEAL_D45_SECTOR_REPLAY_V1_2.md)
+- [x] **D45.SECTOR.SENTINEL.RT.V0** — Real-time Context (Leader/Volume Events)
+  - ↳ Seal: [`SEAL_D45_SECTOR_SENTINEL_RT_V0.md`](../../outputs/seals/SEAL_D45_SECTOR_SENTINEL_RT_V0.md)
+- [x] **D45.SECTOR.REPLAY.V1_3** — Pulse SSOT (Dedicated Artifact & Staleness Guard)
+  - ↳ Seal: [`SEAL_D45_SECTOR_REPLAY_V1_3.md`](../../outputs/seals/SEAL_D45_SECTOR_REPLAY_V1_3.md)
+- [x] **D45.CANON.PENDING.01** — Canon Debt Purge (Pending Ledger SSOT)
+  - ↳ Seal: [`SEAL_D45_CANON_PENDING_01.md`](../../outputs/seals/SEAL_D45_CANON_PENDING_01.md)
+- [x] **D45.CANON.PENDING_INDEX.02** — Pending Index V2 (Machine Debt Radar)
+  - ↳ Seal: [`SEAL_D45_CANON_PENDING_INDEX_02.md`](../../outputs/seals/SEAL_D45_CANON_PENDING_INDEX_02.md)
+- [x] **D45.CANON.DEBT_RADAR.V2** — War Room Debt Radar V2 (Delta + Trends + Sorting)
+  - ↳ Seal: [`SEAL_D45_CANON_DEBT_RADAR_V2.md`](../../outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2.md)
+- [x] **D45.CANON.DEBT_RADAR.V2.1** — War Room Debt Radar V2.1 (Fingerprint Guard)
+  - ↳ Seal: [`SEAL_D45_CANON_DEBT_RADAR_V2.1.md`](../../outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2_1.md)
+- [x] **D45.HF04.BUILD_RESTORE** — SectorFlip + CanonRadar Repair
+  - ↳ Seal: [`SEAL_D45_HF04_BUILD_RESTORE.md`](../../outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md)
+- [x] **D45.HF04.BUILD_RESTORE** — SectorFlip + CanonRadar Repair
+  - ↳ Seal: [`SEAL_D45_HF04_BUILD_RESTORE.md`](../../outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md)
+- [x] **D45.HF04.BUILD_RESTORE** — SectorFlip + CanonRadar Repair
+  - ↳ Seal: [`SEAL_D45_HF04_BUILD_RESTORE.md`](../../outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md)
+  - ↳ Fix: [`SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md`](../../outputs/seals/SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md)
+  - ↳ Polish (Scrubber): [`SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md`](../../outputs/seals/SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md)
+  - ↳ Polish (Scrubber): [`SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md`](../../outputs/seals/SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md)
+  - ↳ Polish (Header): [`SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md`](../../outputs/seals/SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md)
+  - ↳ Audit (War Room): [`SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md`](../../outputs/seals/SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md)
+  - ↳ Infra (403): [`SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md`](../../outputs/seals/SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md)
+  - ↳ Auth (Gateway): [`SEAL_D45_HF05_AUTH_GATEWAY.md`](../../outputs/seals/SEAL_D45_HF05_AUTH_GATEWAY.md)
+  - ↳ Discovery (Infra): [`SEAL_D45_HF06_INFRA_DISCOVERY.md`](../../outputs/seals/SEAL_D45_HF06_INFRA_DISCOVERY.md)
+  - ↳ Deploy (Gateway): [`SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md`](../../outputs/seals/SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md)
+  - ↳ Auto (Gateway): [`SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md`](../../outputs/seals/SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md)
+
+  - ↳ Auto (Gateway): [`SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md`](../../outputs/seals/SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md)
+  - ↳ Canon (Pending Lifecycle): [`SEAL_D45_CANON_PENDING_LIFECYCLE.md`](../../outputs/seals/SEAL_D45_CANON_PENDING_LIFECYCLE.md)
+  - ↳ Canon (Closure Hook): [`SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md`](../../outputs/seals/SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md)
 
   
   - [ ] D46.MSK.01 — Kernel Risk Lanes (Mode by Risk Class)

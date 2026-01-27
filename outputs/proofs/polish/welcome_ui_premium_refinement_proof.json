@@ -1,0 +1,13 @@
+{
+    "timestamp_utc": "2026-01-23T23:00:00Z",
+    "polish_id": "POLISH.WELCOME.UI.01",
+    "changes": {
+        "copy": "Renamed ACCESS CODE -> FOUNDER KEY",
+        "typography": "Logo upgraded to Sora font",
+        "layout": "Centered constrained box (max-width: 380px)",
+        "styling": "Premium inputs & spacing refinement"
+    },
+    "logic_check": "NO_LOGIC_MODIFIED",
+    "compilation_status": "SUCCESS",
+    "web_launch": "VERIFIED"
+}

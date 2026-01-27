@@ -1,0 +1,48 @@
+# Diagnosis: Incorrect use of ParentDataWidget
+
+## Symptom
+"LAYOUT POLICE VIOLATION DETECTED" during `flutter run`.
+Typical cause: `Positioned` widget is used, but it's not a direct child of `Stack`.
+
+## Root Cause Analysis
+In `sector_flip_widget_v1.dart` (modified in HF10C), the following structure was introduced:
+
+```dart
+Stack(
+  children: [
+    // ...
+    AnimatedBuilder( // <--- Intermediate Widget
+      builder: (context, child) {
+        return LayoutBuilder( // <--- Intermediate Widget
+          builder: (context, constraints) {
+             return Positioned(...) // <--- FAIL: Positioned looks for StackParentData, but parent is LayoutBuilder
+          }
+        )
+      }
+    )
+  ]
+)
+```
+
+## Fix Strategy
+Invert the hierarchy. `Stack` must be the parent of `Positioned` directly.
+Since `Positioned` needs layout constraints (width) and animation values (left), `LayoutBuilder` and `AnimatedBuilder` must wrap the `Stack`.
+
+```dart
+LayoutBuilder(
+  builder: (context, constraints) {
+    return AnimatedBuilder(
+      animation: controller,
+      child: BaseBar(),
+      builder: (context, child) {
+        return Stack(
+          children: [
+             child!,
+             Positioned(...) // Correct: Direct child of Stack
+          ]
+        )
+      }
+    )
+  }
+)
+```

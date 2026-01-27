@@ -1,0 +1,12 @@
+{
+  "version": "MVP",
+  "as_of_utc": "2026-01-23T18:25:02.279231Z",
+  "status": "DISABLED",
+  "mode": "LEGACY_MVP",
+  "capabilities": [],
+  "note": "Legacy Voice MVP code not found in current repo. Stubbed for completeness.",
+  "diagnostics": {
+    "legacy_refs_found": false,
+    "fallback_reason": "NO_CODE_FOUND"
+  }
+}

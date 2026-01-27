@@ -1,0 +1,12 @@
+{
+    "timestamp_utc": "2026-01-24T01:15:00Z",
+    "hotfix_id": "HOTFIX.MENU.SHELL.02",
+    "target": "Running MenuScreen within MainLayout",
+    "issue": "Missing Material ancestor for InkWell/Switch widgets",
+    "resolution": "Wrapped MenuScreen in Material(type: transparency)",
+    "verification": {
+        "structure": "MainLayout > Expanded >_isMenuOpen ? Material > MenuScreen",
+        "runtime_check": "Widgets render without ancestor error",
+        "visuals": "Transparency preserved, visuals unchanged"
+    }
+}

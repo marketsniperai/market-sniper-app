@@ -1,0 +1,41 @@
+
+lib\layout\main_layout.dart:18:import '../logic/trial_engine.dart'; // D45.06 Trial Engine
+lib\layout\main_layout.dart:19:import '../logic/plus_unlock_engine.dart'; // D45.14
+lib\layout\main_layout.dart:47:    // D45.06 Trial Engine Check
+lib\layout\main_layout.dart:48:    TrialEngine.checkAndIncrement(); // Fire and forget (it is async/safe)
+lib\layout\main_layout.dart:51:    PlusUnlockEngine.checkAndIncrement();
+lib\logic\elite_access_window_controller.dart:4:import 'trial_engine.dart';
+lib\logic\elite_access_window_controller.dart:81:    if (!TrialEngine.isComplete) {
+lib\logic\elite_contextual_recall_engine.dart:26:class EliteContextualRecallEngine {
+lib\logic\elite_mentor_brain.dart:20:        return "System ready. Context engine active.";
+lib\logic\plus_unlock_engine.dart:6:class PlusUnlockEngine {
+lib\logic\plus_unlock_store.dart:22:    // No cap logic here, engine handles checks. Just storage.
+lib\logic\premium_status_resolver.dart:3:import 'trial_engine.dart';
+lib\logic\premium_status_resolver.dart:11:    if (TrialEngine.isComplete) {
+lib\logic\premium_status_resolver.dart:26:    if (TrialEngine.isComplete) {
+lib\logic\premium_status_resolver.dart:35:    return "${TrialEngine.currentCount}/3 Market Opens";
+lib\logic\premium_status_resolver.dart:39:    return TrialEngine.isComplete;
+lib\logic\trial_engine.dart:6:class TrialEngine {
+lib\logic\try_me_scheduler.dart:2:import 'trial_engine.dart';
+lib\logic\try_me_scheduler.dart:7:    if (!TrialEngine.isComplete) return false;
+lib\logic\watchlist_last_analyzed_resolver.dart:47:              // Context Engine usually requires successful run to be "Analyzed".
+lib\logic\watchlist_state_resolver.dart:6:/// Reuses logic from Analyze Now flow and Context Engine status.
+lib\logic\share\caption_presets.dart:5:  static const String teaser = "Market state update from the engine.";
+lib\logic\share\teaser_composer.dart:3:// import 'share_engine.dart'; // D45.08 if available, otherwise standalone shim for this step
+lib\models\war_room_snapshot.dart:201:    final String engine;
+lib\models\war_room_snapshot.dart:212:        required this.engine,
+lib\models\war_room_snapshot.dart:300:  final String engine;
+lib\models\war_room_snapshot.dart:306:    required this.engine,
+lib\repositories\war_room_repository.dart:582:            engine: e['engine'] ?? 'UNKNOWN',
+lib\repositories\war_room_repository.dart:633:            engine: e['engine'] ?? 'UNKNOWN',
+lib\screens\command_center_screen.dart:7:import '../logic/plus_unlock_engine.dart'; // D45.14
+lib\screens\command_center_screen.dart:78:       unlocked = await PlusUnlockEngine.isUnlocked();
+lib\screens\command_center_screen.dart:79:       progress = await PlusUnlockEngine.getProgressString();
+lib\screens\menu_screen.dart:319:Engineered for speed, clarity, and truth, Market Sniper eliminates noise and focuses on what matters: actionable data states and verifiable system health.
+lib\screens\war_room_screen.dart:961:             lines.add("${last.engine}: ${last.confidence}");
+lib\screens\universe\universe_screen.dart:963:                     "Waiting for D40 Real-Time Intelligence Engine.",
+lib\widgets\elite_interaction_sheet.dart:12:import '../logic/elite_contextual_recall_engine.dart'; // D43.13
+lib\widgets\elite_interaction_sheet.dart:590:              EliteMentorBrain().formatHeader("Elite Context Engine"),
+lib\widgets\elite_interaction_sheet.dart:1164:          final engine = EliteContextualRecallEngine();
+lib\widgets\elite_interaction_sheet.dart:1165:          final snapshot = await engine.build();
+

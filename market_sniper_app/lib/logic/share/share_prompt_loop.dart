@@ -10,13 +10,15 @@ class SharePromptLoop {
 
   static Future<void> maybeShow(BuildContext context) async {
     // 1. Policy Checks
-    if (AppConfig.isFounderBuild) return; // Prompt: "Must not appear if ... FOUNDER"
+    if (AppConfig.isFounderBuild) {
+      return; // Prompt: "Must not appear if ... FOUNDER"
+    }
 
     // Cooldown
     final prefs = await SharedPreferences.getInstance();
     final lastTime = prefs.getInt(_kLastPromptTimeKey) ?? 0;
     final now = DateTime.now().millisecondsSinceEpoch;
-    
+
     if (now - lastTime < _kCooldownMinutes * 60 * 1000) {
       // In cooldown
       return;
@@ -34,28 +36,30 @@ class SharePromptLoop {
       backgroundColor: Colors.transparent,
       builder: (_) => ShareBoosterSheet(
         onSave: () {
-           _logEvent("CTA_CLICKED", {"key": "SAVE"});
-           Navigator.pop(context);
+          _logEvent("CTA_CLICKED", {"key": "SAVE"});
+          Navigator.pop(context);
         },
         onShare: () {
-           _logEvent("CTA_CLICKED", {"key": "SHARE_NATIVE"});
-           Navigator.pop(context); // It's just a booster, actual share was already attempted or is re-triggerable
+          _logEvent("CTA_CLICKED", {"key": "SHARE_NATIVE"});
+          Navigator.pop(
+              context); // It's just a booster, actual share was already attempted or is re-triggerable
         },
         onUpgrade: () {
-           _logEvent("CTA_CLICKED", {"key": "UPGRADE_ELITE"});
-           Navigator.pop(context);
-           // Nav logic would go here
+          _logEvent("CTA_CLICKED", {"key": "UPGRADE_ELITE"});
+          Navigator.pop(context);
+          // Nav logic would go here
         },
         showUpgrade: true, // Assuming not Elite for MVP/Guest
       ),
     ).then((_) {
-       // On Dismiss
-       _logEvent("PROMPT_DISMISSED", {});
+      // On Dismiss
+      _logEvent("PROMPT_DISMISSED", {});
     });
   }
 
-  static Future<void> _logEvent(String event, Map<String, dynamic> extras) async {
-     // Reusing D45.09 Store logging for consistency locally
-     await ShareLibraryStore.logEvent(event, extras);
+  static Future<void> _logEvent(
+      String event, Map<String, dynamic> extras) async {
+    // Reusing D45.09 Store logging for consistency locally
+    await ShareLibraryStore.logEvent(event, extras);
   }
 }

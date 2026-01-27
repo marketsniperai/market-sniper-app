@@ -37,10 +37,15 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.1.0
   http: ^1.6.0
-  timezone: ^0.11.0
+  # timezone: any # Removed for Web Compat
   intl: ^0.20.2
   path_provider: ^2.1.2
   shared_preferences: ^2.3.5
+  flutter_local_notifications: ^18.0.1
+  provider: ^6.1.2
+  flutter_localizations:
+    sdk: flutter
+  crypto: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +68,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:

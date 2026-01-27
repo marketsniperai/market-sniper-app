@@ -27,7 +27,7 @@ class SystemHealthSnapshot {
     required this.ageSeconds,
     required this.message,
     this.rawTimestamp,
-    this.providers = const {}, 
+    this.providers = const {},
   });
 
   static const SystemHealthSnapshot unknown = SystemHealthSnapshot(

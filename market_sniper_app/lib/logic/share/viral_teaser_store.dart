@@ -24,7 +24,7 @@ class ViralTeaserStore {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_kLastShareKey, DateTime.now().toIso8601String());
   }
-  
+
   static Future<bool> canShare() async {
     final last = await getLastShareTime();
     if (last == null) return true;

@@ -1,12 +1,8 @@
-enum CaptionPreset {
-  institutional,
-  minimal,
-  human,
-  teaser
-}
+enum CaptionPreset { institutional, minimal, human, teaser }
 
 class CaptionService {
-  static String generate(CaptionPreset preset, {String? ticker, String? change}) {
+  static String generate(CaptionPreset preset,
+      {String? ticker, String? change}) {
     switch (preset) {
       case CaptionPreset.institutional:
         return "MarketSniper Intelligence: Context snapshot for ${ticker ?? 'Market'}. No inference.";

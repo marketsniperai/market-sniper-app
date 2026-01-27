@@ -35,42 +35,37 @@ class CommandCenterData {
 }
 
 class CommandCenterBuilder {
-  
   static Future<CommandCenterData> build() async {
     // 1. OS Focus — Today’s Key Moves
     final focusCards = [
       CommandCenterCard(
-        title: "Rates Sensitivity Repricing",
-        drivers: [
-           "Drivers: 10Y Yield Velocity > 2σ",
-           "Sector Sensitivity: Utilities / Real Estate Lagging"
-        ],
-        evidenceBadges: ["PULSE", "OVERLAY", "PROVIDER_LIVE"],
-        osFocus: "Monitoring cross-asset confirmation for persistence."
-      ),
+          title: "Rates Sensitivity Repricing",
+          drivers: [
+            "Drivers: 10Y Yield Velocity > 2σ",
+            "Sector Sensitivity: Utilities / Real Estate Lagging"
+          ],
+          evidenceBadges: ["PULSE", "OVERLAY", "PROVIDER_LIVE"],
+          osFocus: "Monitoring cross-asset confirmation for persistence."),
       CommandCenterCard(
-        title: "Volatility Compression Watch",
-        drivers: [
-           "Drivers: VIX Term Structure Flattening",
-           "Gamma: Dealer Long Bias increasing"
-        ],
-        evidenceBadges: ["EVIDENCE MEMORY", "PROXY_ESTIMATED"],
-        osFocus: "Tracking regime stability near key thresholds."
-      ),
+          title: "Volatility Compression Watch",
+          drivers: [
+            "Drivers: VIX Term Structure Flattening",
+            "Gamma: Dealer Long Bias increasing"
+          ],
+          evidenceBadges: ["EVIDENCE MEMORY", "PROXY_ESTIMATED"],
+          osFocus: "Tracking regime stability near key thresholds."),
     ];
 
     // 2. Confidence
     final confidence = [
       CommandCenterCard(
-        title: "Sector Coverage Integrity",
-        badges: ["COVERAGE", "PROVIDER_LIVE"],
-        descriptionBullets: ["11/11 Sectors active", "Data freshness > 98%"]
-      ),
-       CommandCenterCard(
-        title: "Volatility Proxy",
-        badges: ["PROXY_ESTIMATED"],
-        descriptionBullets: ["VIX implied derived from spot correlation"]
-      ),
+          title: "Sector Coverage Integrity",
+          badges: ["COVERAGE", "PROVIDER_LIVE"],
+          descriptionBullets: ["11/11 Sectors active", "Data freshness > 98%"]),
+      CommandCenterCard(
+          title: "Volatility Proxy",
+          badges: ["PROXY_ESTIMATED"],
+          descriptionBullets: ["VIX implied derived from spot correlation"]),
     ];
 
     // 3. Learnings

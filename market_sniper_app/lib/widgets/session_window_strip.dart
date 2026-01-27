@@ -2,133 +2,150 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:timezone/standalone.dart' as tz;
 import '../theme/app_colors.dart';
 import '../logic/data_state_resolver.dart';
-import '../utils/time_utils.dart';
 import '../models/system_health_snapshot.dart'; // D45.18
-import 'provider_status_indicator.dart'; // D45.18
-import '../config/app_config.dart'; // Founder Check
 
 class SessionWindowStrip extends StatefulWidget {
   final ResolvedDataState dataState;
-  final SystemHealthSnapshot? healthSnapshot; // D45.18
+  final SystemHealthSnapshot? healthSnapshot; // Managed but unused visually in V1
 
   const SessionWindowStrip({
     super.key,
     required this.dataState,
-    this.healthSnapshot, // Optional for backward/layout safety
+    this.healthSnapshot,
   });
 
   @override
   State<SessionWindowStrip> createState() => _SessionWindowStripState();
 }
 
-class _SessionWindowStripState extends State<SessionWindowStrip> {
-  Timer? _ticker;
-  late DateTime _currentTimeEt;
-  late SessionState _currentSession;
+class _SessionWindowStripState extends State<SessionWindowStrip>
+    with SingleTickerProviderStateMixin {
+  late Timer _timer;
+  late AnimationController _glowController;
+  late Animation<double> _glowAnimation;
+
+  // State
+  late tz.TZDateTime _nowEt;
+  String _marketLabel = "LOADING...";
+  
+  // Module States
+  bool _stocksOn = false;
+  bool _optionsOn = false;
+  bool _newsOn = true; // Always ON
+  bool _macroOn = false;
 
   @override
   void initState() {
     super.initState();
-    _updateTime();
-    // Tick every second to keep clock live
-    _ticker = Timer.periodic(const Duration(seconds: 1), (_) => _updateTime());
+    // Animation: Breath 2s in, 2s out
+    _glowController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat(reverse: true);
+    
+    _glowAnimation = Tween<double>(begin: 0.2, end: 1.0).animate(
+      CurvedAnimation(parent: _glowController, curve: Curves.easeInOut),
+    );
+
+    _updateState();
+    // Auto-refresh every 30s as per spec (or tighter for smoothness, spec said 30s)
+    _timer = Timer.periodic(const Duration(seconds: 30), (_) => _updateState());
   }
 
   @override
   void dispose() {
-    _ticker?.cancel();
+    _timer.cancel();
+    _glowController.dispose();
     super.dispose();
   }
 
-  void _updateTime() {
-    // Uses TimeUtils for strict ET conversion
-    final nowEt = TimeUtils.getNowEt();
-    if (mounted) {
-      setState(() {
-        _currentTimeEt = nowEt;
-        _currentSession = TimeUtils.getSessionState(nowEt);
-      });
-    }
-  }
+  void _updateState() {
+    // TIMEZONE LAW: America/New_York
+    final ny = tz.getLocation('America/New_York');
+    _nowEt = tz.TZDateTime.now(ny);
 
-  Color get _sessionColor {
-    switch (_currentSession) {
-      case SessionState.pre:
-        return AppColors.accentCyanDim;
-      case SessionState.market:
-        return AppColors.stateLive; // Green
-      case SessionState.after:
-        return AppColors.accentCyanDim;
-      case SessionState.closed:
-        return AppColors.textDisabled;
-    }
-  }
+    final hour = _nowEt.hour;
+    // final minute = _nowEt.minute; // Unused depending on granularity
 
-  Color get _freshnessColor {
-    switch (widget.dataState.state) {
-      case DataState.live:
-        return AppColors.stateLive;
-      case DataState.stale:
-        return AppColors.stateStale;
-      case DataState.locked:
-        return AppColors.stateLocked;
-      case DataState.unknown:
-        return AppColors.textDisabled;
+    // WEEKEND OVERRIDE
+    final isWeekend = _nowEt.weekday == DateTime.saturday ||
+        _nowEt.weekday == DateTime.sunday;
+
+    if (isWeekend) {
+      _marketLabel = "MARKETS CLOSED";
+      _stocksOn = false;
+      _optionsOn = false;
+      _newsOn = true;
+      _macroOn = false;
+    } else {
+      // Weekday Logic
+      // 04:00 - 09:30 -> PRE-MARKET
+      // 09:30 - 16:00 -> MARKET HOURS
+      // 16:00 - 20:00 -> AFTER HOURS
+      // 20:00 - 04:00 -> MARKETS CLOSED
+
+      // Simplify using minutes from midnight
+      final minutesOfDay = hour * 60 + _nowEt.minute;
+      const preStart = 4 * 60; // 04:00
+      const marketStart = 9 * 60 + 30; // 09:30
+      const afterStart = 16 * 60; // 16:00
+      const closeStart = 20 * 60; // 20:00
+
+      if (minutesOfDay >= closeStart || minutesOfDay < preStart) {
+        _marketLabel = "MARKETS CLOSED";
+        _stocksOn = false;
+        _optionsOn = false;
+        _newsOn = true;
+        _macroOn = false;
+      } else if (minutesOfDay >= afterStart) {
+        _marketLabel = "AFTER HOURS";
+         _stocksOn = true;
+        _optionsOn = false; // Options OFF in After Hours per rules
+        _newsOn = true;
+        _macroOn = true;
+      } else if (minutesOfDay >= marketStart) {
+        _marketLabel = "MARKET HOURS";
+        _stocksOn = true;
+        _optionsOn = true;
+        _newsOn = true;
+        _macroOn = true;
+      } else {
+        // >= preStart && < marketStart
+        _marketLabel = "PRE-MARKET";
+        _stocksOn = true;
+        _optionsOn = false; 
+        _newsOn = true;
+        _macroOn = true;
+      }
     }
+
+    if (mounted) setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    // Formatting: Institutional (hh:mm a ET)
-    final dateFormat = DateFormat('EEE MM/dd/yyyy'); 
-    final timeFormat = DateFormat('hh:mm a'); // 12:26 PM
-    
-    final dateStr = dateFormat.format(_currentTimeEt).toUpperCase();
-    final timeStr = timeFormat.format(_currentTimeEt);
+    // Connectivity Check
+    // If widget.dataState is unknown or disconnected, force OFFLINE
+    final bool isOffline = widget.dataState.state == DataState.unknown; 
+    // Spec says: LIVE unless OS detects no connectivity. 
+    // DataState.live/stale/locked implies connectivity. unknown implies maybe offline?
+    // Let's rely on DataState != unknown for LIVE.
+    final bool isLive = !isOffline;
 
-    // D45.01 Copy Hygiene
-    String sessionLabel;
-    switch (_currentSession) {
-      case SessionState.pre: sessionLabel = "PREMARKET"; break;
-      case SessionState.market: sessionLabel = "MARKET HOURS"; break;
-      case SessionState.after: sessionLabel = "AFTER HOURS"; break;
-      case SessionState.closed: sessionLabel = "MARKET CLOSED"; break;
-    }
-    
-    // Status Chip Logic
-    Color statusColor = AppColors.textDisabled; // Default offline
-    String statusLabel = "OFFLINE"; // Default offline
-
-    switch (widget.dataState.state) {
-       case DataState.live:
-          statusColor = AppColors.stateLive;
-          statusLabel = "LIVE";
-          break;
-       case DataState.stale:
-          statusColor = AppColors.stateStale;
-          statusLabel = "DATA DELAYED";
-          break;
-       case DataState.locked:
-          statusColor = AppColors.stateLocked;
-          statusLabel = "LOCKED";
-          break;
-       case DataState.unknown:
-       default:
-          statusColor = AppColors.textDisabled;
-          statusLabel = "OFFLINE";
-          break;
-    }
+    final dateFormat = DateFormat('EEE MM/dd/yyyy');
+    final dateStr = dateFormat.format(_nowEt).toUpperCase();
 
     return Container(
-      height: 42, // Tighter height (Bestia)
+      // Removed fixed height to accomodate modules
       margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.symmetric(horizontal: 16), // More breathing room on sides
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: AppColors.surface1, // Deep card bg
+        color: AppColors.surface1,
         border: Border.all(color: AppColors.borderSubtle.withValues(alpha: 0.5)),
-        borderRadius: BorderRadius.circular(6), // Slightly tighter radius
+        borderRadius: BorderRadius.circular(6),
         boxShadow: [
           BoxShadow(
             color: AppColors.bgDeepVoid.withValues(alpha: 0.5),
@@ -137,129 +154,180 @@ class _SessionWindowStripState extends State<SessionWindowStrip> {
           ),
         ],
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          // LEFT: Session Indicator (No Label)
-          Expanded(
-            flex: 3,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: _sessionColor.withValues(alpha: 0.1),
-                    borderRadius: BorderRadius.circular(4),
-                    border: Border.all(color: _sessionColor.withValues(alpha: 0.3), width: 0.5),
+          // Row 1: Banner V1
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // LEFT: Market Status
+              Expanded(
+                flex: 4,
+                child: Text(
+                  _marketLabel,
+                  style: GoogleFonts.inter(
+                    color: AppColors.accentCyanDim, // Or dynamic? Spec didn't specify color, assuming standard label style
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.5,
                   ),
+                ),
+              ),
+
+              // CENTER: Date pill
+              Expanded(
+                flex: 4,
+                child: Center(
                   child: Text(
-                    sessionLabel,
+                    dateStr,
                     style: GoogleFonts.inter(
-                      color: _sessionColor,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
+                      color: AppColors.textSecondary,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
                       letterSpacing: 0.5,
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-
-          // CENTER: Date (Hidden on very small screens? Use Flexible)
-          // On mobile, this might get tight. Let's allow shrinking.
-          Expanded(
-            flex: 4,
-            child: Center(
-              child: Text(
-                dateStr,
-                overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.inter(
-                  color: AppColors.textSecondary,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
-                ),
               ),
-            ),
-          ),
 
-          // RIGHT: Time + Status Chip
-          Expanded(
-            flex: 4,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                 // D45.H2 Founder API Mode Label
-                 if (AppConfig.isFounderBuild) ...[
-                    Container(
-                      margin: const EdgeInsets.only(right: 8),
-                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.stateLive.withValues(alpha: 0.5)),
-                        borderRadius: BorderRadius.circular(4),
+              // RIGHT: LIVE/OFFLINE
+              Expanded(
+                flex: 4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    if (isLive) ...[
+                      // Breathing text or just chip? Spec: "LIVE" appears... LIVE uses breathing glow animation.
+                      AnimatedBuilder(
+                        animation: _glowAnimation,
+                        builder: (context, child) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.stateLive.withOpacity(0.6 * _glowAnimation.value),
+                                  blurRadius: 8 * _glowAnimation.value,
+                                  spreadRadius: 2 * _glowAnimation.value,
+                                )
+                              ]
+                            ),
+                            child: Container(
+                              width: 6, height: 6,
+                              decoration: const BoxDecoration(
+                                color: AppColors.stateLive,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          );
+                        },
                       ),
-                      child: Text(
-                        AppConfig.apiBaseUrl.contains('run.app') ? "API: PROD" : "API: LOCAL",
-                        style: GoogleFonts.robotoMono(fontSize: 9, color: AppColors.stateLive, fontWeight: FontWeight.bold),
+                      const SizedBox(width: 6),
+                      Text("LIVE", 
+                        style: GoogleFonts.inter(
+                          color: AppColors.stateLive, 
+                          fontSize: 11, 
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.0 
+                        )
                       ),
-                    ),
-                 ],
-
-                 Text(
-                  "$timeStr ET",
-                  style: GoogleFonts.robotoMono( // Code/tabular feel for time
-                    color: AppColors.textPrimary,
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 8), // Tighter GAP
-
-                // D45.18 Provider Status Indicator
-                if (widget.healthSnapshot != null)
-                   Padding(
-                     padding: const EdgeInsets.only(right: 8),
-                     child: ProviderStatusIndicator(snapshot: widget.healthSnapshot!),
-                   ),
-
-                // Status Chip (Pill)
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: statusColor.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(12), // Pill shape
-                    border: Border.all(color: statusColor.withValues(alpha: 0.4), width: 0.5),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Little dot for "Live" feel
+                    ] else ...[
+                      // OFFLINE
                       Container(
-                        width: 4, height: 4,
-                        decoration: BoxDecoration(
-                          color: statusColor,
+                        width: 6, height: 6,
+                        decoration: const BoxDecoration(
+                          color: AppColors.textDisabled,
                           shape: BoxShape.circle,
                         ),
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                        statusLabel,
+                      const SizedBox(width: 6),
+                      Text("OFFLINE", 
                         style: GoogleFonts.inter(
-                          color: statusColor,
-                          fontSize: 9,
+                          color: AppColors.textDisabled, 
+                          fontSize: 11, 
                           fontWeight: FontWeight.bold,
-                          letterSpacing: 0.5,
-                        ),
+                          letterSpacing: 1.0 
+                        )
                       ),
-                    ],
-                  ),
+                    ]
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
+
+          const SizedBox(height: 12),
+          
+          // Divider
+          Divider(
+            height: 1, 
+            thickness: 1, 
+            color: AppColors.neonCyan.withOpacity(0.3)
+          ),
+
+          const SizedBox(height: 12),
+
+          // Modules Strip
+          // Stocks / Options / News / Macro
+          Row(
+            children: [
+              _buildModulePill("Stocks", _stocksOn),
+              const SizedBox(width: 8),
+              _buildModulePill("Options", _optionsOn),
+              const SizedBox(width: 8),
+              _buildModulePill("News", _newsOn),
+              const SizedBox(width: 8),
+              _buildModulePill("Macro", _macroOn),
+            ],
+          )
         ],
+      ),
+    );
+  }
+
+  Widget _buildModulePill(String label, bool isOn) {
+    // Flexible wrapper for small screens
+    return Expanded(
+      child: Container(
+        height: 28,
+        decoration: BoxDecoration(
+          color: isOn ? AppColors.neonCyan.withValues(alpha: 0.05) : AppColors.bgDeepVoid.withValues(alpha: 0.3),
+          borderRadius: BorderRadius.circular(14), // Oval
+          border: Border.all(
+            color: isOn ? AppColors.neonCyan.withValues(alpha: 0.3) : AppColors.borderSubtle.withValues(alpha: 0.3),
+            width: 0.5
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 6, 
+              height: 6,
+              decoration: BoxDecoration(
+                color: isOn ? AppColors.neonCyan : AppColors.textDisabled,
+                shape: BoxShape.circle,
+                boxShadow: isOn ? [
+                  BoxShadow(
+                    color: AppColors.neonCyan.withOpacity(0.6),
+                    blurRadius: 4,
+                  )
+                ] : null
+              ),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              label.toUpperCase(),
+              style: GoogleFonts.inter(
+                color: isOn ? AppColors.textPrimary : AppColors.textDisabled,
+                fontSize: 9,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5
+              )
+            )
+          ],
+        ),
       ),
     );
   }
