@@ -725,6 +725,8 @@ DAY 45 COMPLETE (SEALED)
     - ↳ Seal: [`SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md`](../../outputs/seals/SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md)
   - [x] D47.HF33 — On-Demand Area Seal (Capstone)
     - ↳ Seal: [`SEAL_D47_ON_DEMAND_AREA_SEALED.md`](../../outputs/seals/SEAL_D47_ON_DEMAND_AREA_SEALED.md)
+  - [x] D47.HF34 — On-Demand Capstone Doc + Canon Sync
+    - ↳ Seal: [`SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md`](../../outputs/seals/SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md)
 
   AUDIT FINDINGS (NEW)
   - [x] D47.FIX.01 — News Backend Unification
