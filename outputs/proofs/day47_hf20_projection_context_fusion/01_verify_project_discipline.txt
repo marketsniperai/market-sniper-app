@@ -1,0 +1,12 @@
+Initializing Antigravity Discipline Check...
+
+============================================================
+ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
+============================================================
+
+[!] CRITICAL: UNTRACKED CANON OUTPUTS DETECTED
+  - outputs/proofs/day47_hf17_projection_orchestrator_v0/05_flutter_build_web.txt
+  - outputs/proofs/day47_hf19_projection_inputs_wiring/
+  - outputs/proofs/day47_hf20_projection_context_fusion/
+
+>> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`

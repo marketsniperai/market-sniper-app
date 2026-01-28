@@ -1,5 +1,5 @@
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 import 'package:intl/intl.dart';
 
 // Since we saw 'timezone' in pubspec, we can attempt proper TZ usage.
@@ -13,29 +13,27 @@ import 'package:intl/intl.dart';
 
 class MarketTimeHelper {
   static bool _initialized = false;
-  static late tz.Location _etLocation;
+  // static late tz.Location _etLocation;
 
   static void _ensureInit() {
+    // Web Compat No-Op
     if (_initialized) return;
     try {
-      tz.initializeTimeZones();
-      _etLocation = tz.getLocation('America/New_York');
+      // tz.initializeTimeZones();
+      // _etLocation = tz.getLocation('America/New_York');
       _initialized = true;
     } catch (e) {
-      // Fallback if data loading fails (e.g. assets missing)
-      // Use basic offset approximation or just default to local/UTC logic if desperate.
-      // But for MSR, let's assume valid env or use a manual offset fallback.
+      // Fallback
     }
   }
 
   static DateTime getNowEt() {
     _ensureInit();
+    /*
     if (_initialized) {
       return tz.TZDateTime.now(_etLocation);
     }
-    // Fallback: UTC-4 (safe assumption for "market hours" broadly, or simplistic)
-    // Actually, let's just use UTC-5 (Standard) if init fails, better than crash.
-    // Or better: manual DST check.
+    */
     // For D45 Proof: Fixed offset UTC-5 is acceptable if TZ fails.
     return DateTime.now().toUtc().subtract(const Duration(hours: 5));
   }

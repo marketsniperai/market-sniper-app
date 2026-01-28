@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:timezone/standalone.dart' as tz;
 import '../theme/app_colors.dart';
 import '../logic/data_state_resolver.dart';
 import '../models/system_health_snapshot.dart'; // D45.18
@@ -28,7 +27,7 @@ class _SessionWindowStripState extends State<SessionWindowStrip>
   late Animation<double> _glowAnimation;
 
   // State
-  late tz.TZDateTime _nowEt;
+  late DateTime _nowEt;
   String _marketLabel = "LOADING...";
   
   // Module States
@@ -63,9 +62,12 @@ class _SessionWindowStripState extends State<SessionWindowStrip>
   }
 
   void _updateState() {
-    // TIMEZONE LAW: America/New_York
-    final ny = tz.getLocation('America/New_York');
-    _nowEt = tz.TZDateTime.now(ny);
+    // TIMEZONE LAW: America/New_York (EST = UTC-5)
+    // Jan is Winter, so Standard Time (UTC-5).
+    // In Summer it would be UTC-4. 
+    // For V1 Polish, fixed Offset is acceptable fallback for Web stability.
+    final nowUtc = DateTime.now().toUtc();
+    _nowEt = nowUtc.subtract(const Duration(hours: 5));
 
     final hour = _nowEt.hour;
     // final minute = _nowEt.minute; // Unused depending on granularity

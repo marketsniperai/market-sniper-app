@@ -1,0 +1,7 @@
+C:\MSR\MarketSniperRepo\backend\os_ops\generate_canon_index.py:228: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "last_seen_at_utc": datetime.datetime.utcnow().isoformat(),
+C:\MSR\MarketSniperRepo\backend\os_ops\generate_canon_index.py:253: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at_utc": datetime.datetime.utcnow().isoformat(),
+C:\MSR\MarketSniperRepo\backend\os_ops\generate_canon_index.py:301: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at_utc": datetime.datetime.utcnow().isoformat()
+Generated outputs/proofs/canon/pending_index_v2.json with 303 active items.

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_on_demand_projection_simple.py", line 2, in <module>
+    from backend.api_server import get_on_demand_context
+  File "C:\MSR\MarketSniperRepo\backend\api_server.py", line 35, in <module>
+    from backend.os_ops.on_demand_cache import OnDemandCache # D44.05
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MSR\MarketSniperRepo\backend\os_ops\on_demand_cache.py", line 201
+    """
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 301)

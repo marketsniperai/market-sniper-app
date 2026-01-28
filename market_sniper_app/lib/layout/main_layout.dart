@@ -148,6 +148,9 @@ class _MainLayoutState extends State<MainLayout> {
   ];
 
   void _onTabTapped(int index) {
+    if (_currentIndex != index) {
+      ScaffoldMessenger.maybeOf(context)?.hideCurrentSnackBar(); // D46 Polish: Clear snacks on nav
+    }
     setState(() {
       _currentIndex = index;
       _activeOverlay = null; // Close any overlay on nav

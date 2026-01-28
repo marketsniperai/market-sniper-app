@@ -1,0 +1,16 @@
+[LINK CHECK]
+Target: docs/canon/ON_DEMAND_AREA_SEAL.md
+Status: Verified Exists
+
+[MODULE CHECK]
+Target: backend/os_ops/computation_ledger.py
+Status: Verified Exists
+
+Target: lib/logic/on_demand_tier_resolver.dart
+Status: Verified Exists
+
+Target: backend/os_ops/hf_cache_server.py
+Status: Verified Exists
+
+Target: backend/os_ops/global_cache_server.py
+Status: Verified Exists

@@ -1,0 +1,12 @@
+--- VERIFYING HF CACHE SERVER ---
+Cleaned previous cache artifact.
+
+1. Running Orchestrator (Expected MISS)...
+Orchestrator Result Type: <class 'dict'>
+[PASS] Cache artifact created.
+
+2. Running Orchestrator (Expected HIT)...
+[PASS] Cache hit confirmed.
+[PASS] Timestamps match (Source Truth preserved).
+
+--- HF CACHE VERIFIED ---

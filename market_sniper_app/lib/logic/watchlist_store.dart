@@ -19,6 +19,10 @@ class WatchlistStore extends ChangeNotifier {
       final list = prefs.getStringList(_storageKey);
       if (list != null) {
         _tickers = list;
+      } else {
+        // First run (no key in prefs) -> Pre-seed
+        _tickers = ["SPY", "QQQ", "AAPL", "MSFT", "TLT"];
+        await _save();
       }
       _initialized = true;
       notifyListeners();

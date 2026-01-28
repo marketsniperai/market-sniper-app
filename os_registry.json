@@ -869,6 +869,173 @@
                 "playbooks": "N/A",
                 "war_room_visibility": []
             }
+        },
+        {
+            "module_id": "OS.OnDemand.Cache",
+            "name": "On-Demand Cache",
+            "type": "DATA",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/hf_cache_server.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "ticker",
+                    "timeframe",
+                    "payload"
+                ],
+                "outputs": [
+                    "outputs/cache/on_demand/*.json"
+                ],
+                "ports": [
+                    "(Internal)"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Intel.Projection"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.OnDemand.Global",
+            "name": "Global Cache Server",
+            "type": "DATA",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/global_cache_server.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "ticker",
+                    "timeframe",
+                    "payload"
+                ],
+                "outputs": [
+                    "outputs/on_demand_public/*.json"
+                ],
+                "ports": [
+                    "(Internal)"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Intel.Projection"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.OnDemand.Ledger",
+            "name": "Computation Ledger",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "backend/os_ops/computation_ledger.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "ticker",
+                    "timeframe"
+                ],
+                "outputs": [
+                    "outputs/os/ledger/computation_ledger.json"
+                ],
+                "ports": [
+                    "(Internal)"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Intel.Projection"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.OnDemand.Resolver",
+            "name": "Tier Resolver",
+            "type": "LOGIC",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "lib/logic/on_demand_tier_resolver.dart"
+            ],
+            "wiring": {
+                "inputs": [
+                    "Founder",
+                    "EliteAccess",
+                    "PlusUnlock"
+                ],
+                "outputs": [
+                    "OnDemandTier"
+                ],
+                "ports": [
+                    "(Internal)"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.UI.OnDemandPanel"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.OnDemand.Recent",
+            "name": "Recent Dossier Store",
+            "type": "DATA",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "lib/logic/recent_dossier_store.dart"
+            ],
+            "wiring": {
+                "inputs": [
+                    "StandardEnvelope"
+                ],
+                "outputs": [
+                    "Local Persistence"
+                ],
+                "ports": [
+                    "(Internal)"
+                ],
+                "dependencies": {
+                    "upstream": [
+                        "OS.UI.OnDemandPanel"
+                    ],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
         }
     ]
 }

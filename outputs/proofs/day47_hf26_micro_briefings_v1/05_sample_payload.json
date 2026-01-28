@@ -1,0 +1,32 @@
+{
+    "version": "0.1.0",
+    "symbol": "SPY",
+    "state": "OK",
+    "inputs": {
+        "evidence": {
+            "status": "LIVE",
+            "sample_size": 45,
+            "metrics": {
+                "win_rate": 0.65,
+                "avg_return": 0.012
+            }
+        },
+        "news": {
+            "status": "LIVE",
+            "headlines": [
+                "Fed Interest Rate Decision Looming",
+                "Tech Sector Earnings Beat Expectations"
+            ]
+        },
+        "macro": {
+            "status": "N_A"
+        }
+    },
+    "contextTags": {
+        "macro": {
+            "tags": [
+                "MACRO_STUB_NEUTRAL"
+            ]
+        }
+    }
+}

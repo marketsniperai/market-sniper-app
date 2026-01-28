@@ -21,6 +21,7 @@ import '../../widgets/session_window_strip.dart';
 // import '../../widgets/dashboard_widgets.dart'; // For renderWidget
 // import '../../widgets/options_context_widget.dart'; // D36.3
 import '../../widgets/dashboard/sector_flip_widget_v1.dart'; // D45.DASH.W2
+import '../../widgets/dashboard/regime_sentinel_widget.dart'; // D46.REGIME.SENTINEL
 
 class DashboardComposer {
   final DashboardPayload? dashboard;
@@ -70,6 +71,12 @@ class DashboardComposer {
       items.add(Padding(
          padding: DashboardSpacing.bottomGap,
          child: const SectorFlipWidgetV1(),
+      ));
+
+      // D46.REGIME.SENTINEL: Index Detail / Regime Sentinel (Widget #2)
+      items.add(Padding(
+         padding: DashboardSpacing.bottomGap,
+         child: const RegimeSentinelWidget(),
       ));
 
     }

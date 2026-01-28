@@ -1,0 +1,18 @@
+RUNNING PROOF...
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_on_demand_projection_simple.py", line 23, in <module>
+    loop.run_until_complete(check())
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\MSR\MarketSniperRepo\backend\verify_on_demand_projection_simple.py", line 7, in check
+    res = await get_on_demand_context(ticker="SPY")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MSR\MarketSniperRepo\backend\api_server.py", line 977, in get_on_demand_context
+    allowed, usage, limit, reason, cooldown_rem = OnDemandTierEnforcer.check_and_log(ticker, tier, x_founder_key)
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\MSR\MarketSniperRepo\backend\os_ops\on_demand_tier_enforcer.py", line 175, in check_and_log
+    if founder_key and len(founder_key) > 0:
+                       ~~~^^^^^^^^^^^^^
+TypeError: object of type 'Header' has no len()

@@ -1,0 +1,6 @@
+Flutter Build Web Result (D47.HF31)
+Status: Failed
+Exit Code: 1
+Error: Failed to throw (Truncated log indicates async suspension error)
+Investigation: Likely syntax error in defining default values or switch cases for the new Enum.
+Action: Re-checking `on_demand_panel.dart` and `on_demand_tier_resolver.dart`.

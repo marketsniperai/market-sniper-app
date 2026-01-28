@@ -1,6 +1,6 @@
 PRINCIPIO OPERATIVO — MADRE NODRIZA
 
-OMSR (Operational Market Sniper Runtime)
+OMSR — Operational Market Sniper Runtime
 Authority: SUPREME
 Status: CANONICAL
 Last Sync: Day 45 — Feature Phase & Governance Sync
@@ -8,15 +8,15 @@ Supersedes: G0.CANON_0 (Bestia Era)
 
 0. DECLARACIÓN FUNDACIONAL
 
-Este documento NO es marketing.
-NO es una wishlist.
-NO es aspiracional.
+Este documento no es marketing.
+No es una wishlist.
+No es aspiracional.
 
 Este documento es el sistema nervioso operativo de OMSR.
 
 Aquí se define:
 
-lo que el sistema ES
+lo que el sistema es
 
 cómo opera
 
@@ -26,128 +26,116 @@ cómo evoluciona
 
 cómo se presenta al humano
 
-Todo lo que no esté alineado con este documento no puede ser sellado.
+Nada puede ser sellado si no está alineado con este principio.
 
 1. IDENTIDAD DEL SISTEMA (EL ALMA)
-OMSR es:
 
-Un Sistema Operativo de Contexto de Mercado
+OMSR es un Sistema Operativo Institucional de Contexto de Mercado.
 
-Un motor institucional de:
+Un OS diseñado para:
 
-descripción
+describir la realidad del mercado con precisión estructural
 
-clasificación
+clasificar estados y regímenes de forma coherente
 
-memoria (Iron OS & Elite)
+acumular memoria verificable (Iron OS & Elite)
 
-coherencia
+mantener consistencia semántica a lo largo del tiempo
 
-Un OS que aprende de la realidad, no de hipótesis
+operar con disciplina, no con hipótesis
 
-Un sistema donde:
+OMSR aprende de la realidad observable, no de suposiciones.
 
-honestidad > hype
+Sus valores fundamentales son:
 
-N/A > guessing
+honestidad estructural
 
-arquitectura > promesas
+claridad semántica
 
-OMSR NO es:
+rigor arquitectónico
 
-Un bot de trading
+valor sostenido en el tiempo
 
-Un sistema de señales
-
-Un asesor financiero
-
-Un motor de predicciones
-
-Un generador de “ideas accionables”
-
-Esto no se repite obsesivamente al usuario.
-Esto está embebido en la arquitectura.
+La confianza no se promete: emerge del diseño.
 
 2. FILOSOFÍA CANÓNICA — LEGALIDAD POR DISEÑO
-Principio clave (SELLADO):
+
+Principio sellado:
 
 Cuando la legalidad está embebida en la arquitectura, no necesita dominar la conversación.
 
-OMSR no se define por lo que no hace.
-OMSR se define por el valor real que sí entrega.
+OMSR se define por el valor real que entrega.
 
-Por lo tanto:
-
-No “vendemos miedo”
-
-No saturamos la UI con disclaimers
-
-No repetimos “no es consejo” como muleta psicológica
-
-La legalidad vive en:
+La seguridad y la legalidad viven en el sistema mismo, a través de:
 
 separación estricta entre contexto y acción
 
-Lexicon Guard (Stealth)
+Lexicon Guard (stealth, no performativo)
 
 N/A como protección cognitiva
 
 SAFE MODE
 
-Watchdog
+Watchdog y Autopilot Governance
 
-Autopilot governance
+Truth Surfaces verificables
 
-Truth Surfaces
-
-El usuario siente que el sistema es seguro
-porque el sistema lo es, no porque se lo gritamos.
+El usuario percibe seguridad
+porque el sistema es seguro,
+no porque se lo repita.
 
 3. CANON SEMÁNTICO (INMUTABLE)
 
 Estas definiciones son ley:
 
 CORE_UNIVERSE (Canonical)
-Formerly "CORE20". Renamed to resolve semantic conflict (21 symbols required).
-Definition: The minimum viable set of financial instruments required to determine global risk state.
-Size: 21 Symbols (Strict).
-NOTE: "CORE20" is a historical legacy name retained for code continuity. It must NEVER be interpreted numerically (e.g. "count must be 20"). The canonical count is 21.
+
+Conjunto mínimo de instrumentos necesarios para determinar el estado global de riesgo.
+Tamaño: 21 símbolos (estricto).
+Nota histórica: “CORE20” es un alias heredado por continuidad técnica, no semántica.
 
 Context
-Descripción estructurada del entorno. Nunca una instrucción.
+
+Descripción estructurada del entorno.
 
 Regime
-Clasificación del estado del mercado. Nunca dirección futura.
+
+Clasificación del estado del mercado.
 
 Evidence
-Memoria estadística descriptiva. Nunca predicción.
+
+Memoria estadística descriptiva basada en datos históricos comparables.
 
 Confidence
-Calidad del contexto. Nunca probabilidad de ganar.
+
+Calidad y cobertura del contexto disponible.
 
 N/A
+
 Protección cognitiva ante data insuficiente o inconsistente.
 
 SAFE MODE
-Protección operacional ante inconsistencia sistémica.
+
+Protección operacional ante degradación sistémica.
 
 4. LEY DEL FUNDADOR
 
-El Founder es la autoridad suprema.
+El Founder es la autoridad suprema del sistema.
 
-Cualquier:
+Cualquier mecanismo de:
 
-bloqueo
+control
 
-gate
+protección
 
-ocultamiento
+gobernanza
 
-cooldown
+automatismo
 
-safeguard
+fricción
 
-DEBE tener bypass Founder explícito (X-Founder-Key o Founder Build).
+debe tener bypass explícito para Founder
+(X-Founder-Key o Founder Build).
 
 No existe seguridad basada en oscuridad para el Founder.
 
@@ -157,65 +145,61 @@ La verdad solo existe en Artifacts.
 
 El backend no inventa
 
-El API no calcula
+El API no asume
 
-El frontend no asume
+El frontend no interpreta
 
 El API es un Lens.
 Los Artifacts son la realidad.
 
 6. AUTONOMÍA CONTROLADA (AUTONOMY DIAL)
 
-OMSR opera bajo el Autonomy Dial:
+OMSR opera bajo un dial explícito de autonomía:
 
-OFF
-Solo observación.
+OFF — observación pura
 
-SHADOW (Default)
-Piensa, analiza, propone. No actúa.
+SHADOW (Default) — análisis y propuesta
 
-SAFE_AUTOPILOT
-Puede actuar solo en estabilidad GREEN y riesgo bajo.
+SAFE_AUTOPILOT — acción solo en estabilidad GREEN
 
-THE SURGEON
-Puede reparar runtime artifacts si:
+THE SURGEON — reparación controlada, reversible y auditada
 
-el riesgo es bajo
+Toda acción crea evidencia.
 
-la acción es reversible
+7. TITANIUM LAW — SEPARACIÓN ABSOLUTA
 
-se crea backup
-
-7. TITANIUM LAW (SEPARACIÓN ABSOLUTA)
-
-AGMS Thinks. Autofix Acts. Policy Decides.
+AGMS piensa.
+Autofix ejecuta.
+Policy arbitra.
 
 AGMS no ejecuta
 
 Autofix no razona
 
-Policy arbitra
-
-Handoff Tokens firman decisiones
+Policy decide
 
 No hay atajos.
 No hay mezcla de roles.
 
 8. LEY DE REFORMA
 
-Source Code es sagrado
+El código fuente es sagrado.
 
-OMSR nunca modifica código fuente autónomamente
+OMSR:
 
-Solo propone diffs
+propone diffs
 
-Runtime es regenerable
+no modifica código autónomamente
 
-OMSR puede reparar artifacts runtime
+El runtime es regenerable.
 
-Siempre con backup
+Los artifacts pueden ser reparados solo si:
 
-Siempre auditado
+existe backup
+
+hay auditoría
+
+el riesgo es controlado
 
 9. ARQUITECTURA POR CAPAS (OS LAYERS)
 Layer A — SNAPSHOT (SELLADO)
@@ -224,41 +208,45 @@ Batch 08:30 ET
 
 Single Source of Truth
 
-C1/C2/C3/C4
-
 Contexto institucional del día
 
 Layer B — PULSE
 
 Early AM + intraday
 
-Contexto vivo (Sentinel, Sector Heatmap)
+Contexto vivo
 
 Nunca reemplaza Snapshot
 
-Layer C — REAL-TIME EVENTS
+Layer C — PROJECTION (SINAPSIS)
 
-News → Impact → Context
+Orquestador central de probabilidad
 
-Event-driven, no signal-driven
+Synthesis de inputs (News, Options, Macro)
 
-Layer D — IRON (THE MIRROR)
+Salida: Context tags + Scenarios (No predicción)
 
-State History (Time Machine)
+Layer D — REAL-TIME EVENTS
+
+Eventos → Impacto → Contexto
+
+Event-driven
+
+Layer E — IRON (THE MIRROR)
+
+Historia de estados
 
 Replay & Rollback
 
-Forensic Indestructibility
+Indestructibilidad forense
 
-Layer META — WATCHDOG
+Layer F — META WATCHDOG
 
 Supervisor global
 
 SAFE MODE
 
-Capabilities matrix
-
-Provider health
+Salud de capacidades y providers
 
 Drift detection
 
@@ -270,78 +258,80 @@ Regla atómica:
 
 Write .tmp
 
-Validate schema + hash + lexicon
+Validar schema, hash y lexicon
 
 Promote atomic
 
 Serve
 
-Si falla → último válido + degrade
+Si falla → último válido + degrade seguro.
 
-11. TRUST SURFACES (PRODUCTO = TRANSPARENCIA)
+11. TRUST SURFACES
+
+Producto = Transparencia
+
 T1 — How It Works
 
-Qué es
+Qué es el sistema
 
 Cómo leerlo
 
 Qué significa N/A
 
-Sin hype
-
-Sin miedo
-
 T2 — System Integrity
 
 Freshness
 
-Capabilities
+Capacidades
 
 Providers
 
 SAFE MODE
 
-Run lineage (Iron OS)
+Lineage (Iron OS)
+
+Sin hype.
+Sin miedo.
 
 12. WAR ROOM (FOUNDER COMMAND CENTER)
 
-El War Room:
+El War Room es:
 
-Es operacional
+operacional
 
-Es verdad cruda
+verdad cruda
 
-Es Founder-only
+Founder-only
 
-No es UI bonita.
-Es tablero de mando.
+No es estética.
+Es mando.
 
 13. HUMAN MODE (ACCESIBILIDAD)
 
-Human Mode (via Elite):
+Human Mode:
 
-No cambia hechos
+no cambia hechos
 
-No suaviza incertidumbre
+no suaviza incertidumbre
 
-No agrega emoción
+no agrega emoción
 
-Solo traduce
+Solo traduce:
 
 Institucional → Claro
-Nunca → Promisorio
+Claro → Honesto
 
 14. MONETIZACIÓN (SHADOW FIRST)
 
-Monetización:
+La monetización:
 
-No precede al valor
+no precede al valor
 
-No bloquea seguridad
+no bloquea seguridad
 
-No rompe confianza
+no rompe confianza
 
-Primero:
+Secuencia natural:
 
 hábito
 
@@ -349,13 +339,11 @@ necesidad
 
 confianza
 
-Luego:
-
-paywall
+monetización
 
 15. LEY DE SELLADO
 
-Nada está SELLADO si no hay:
+Nada está sellado sin:
 
 Artifact
 
@@ -373,20 +361,14 @@ Implementado ≠ Sellado.
 
 OMSR queda definido como:
 
-Un OS institucional de contexto
+Un Sistema Operativo institucional de contexto de mercado
+con memoria acumulativa
+autonomía gobernada
+verdad auditable
+y orgullo de su valor
 
-Con memoria acumulativa
-
-Con autonomía gobernada
-
-Con legalidad por diseño
-
-Con orgullo de su valor
-
-Sin promesas
-
-Sin miedo
-
-Con verdad auditable
+Sin promesas.
+Sin miedo.
+Con diseño.
 
 FIN CANÓNICO.

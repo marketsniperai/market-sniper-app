@@ -1,0 +1,32 @@
+{
+    "OFFLINE": {
+        "source": "OFFLINE",
+        "_meta": {
+            "tier": "FREE",
+            "usage": 2,
+            "limit": 3,
+            "cooldown_remaining": 0,
+            "pipeline_note": "MISSING"
+        }
+    },
+    "CACHE": {
+        "source": "CACHE",
+        "_meta": {
+            "tier": "FREE",
+            "usage": 3,
+            "limit": 3,
+            "cooldown_remaining": 0,
+            "pipeline_note": "MISSING"
+        }
+    },
+    "PIPELINE": {
+        "source": "PIPELINE",
+        "_meta": {
+            "tier": "FREE",
+            "usage": 1,
+            "limit": 3,
+            "cooldown_remaining": 0,
+            "pipeline_note": "OK"
+        }
+    }
+}

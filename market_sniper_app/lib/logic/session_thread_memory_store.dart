@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart'; // kIsWeb
 import 'package:path_provider/path_provider.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 
 class SessionThreadMemoryStore {
   static final SessionThreadMemoryStore _instance =
@@ -24,7 +24,7 @@ class SessionThreadMemoryStore {
   Future<void> init() async {
     if (_initialized) return;
     try {
-      tz.initializeTimeZones();
+      // tz.initializeTimeZones();
     } catch (_) {
       // Ignore if already initialized
     }
@@ -76,8 +76,10 @@ class SessionThreadMemoryStore {
 
   String _getCurrentDayId() {
     try {
-      final detroit = tz.getLocation('America/Detroit');
-      final nowEt = tz.TZDateTime.now(detroit);
+      // final detroit = tz.getLocation('America/Detroit');
+      // final nowEt = tz.TZDateTime.now(detroit);
+      final nowEt = DateTime.now().toUtc().subtract(const Duration(hours: 5));
+
       final effectiveDate =
           nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
 

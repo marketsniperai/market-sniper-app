@@ -1,0 +1,15 @@
+{
+    "version": "0.1.0",
+    "symbol": "SPY",
+    "tactical": {
+        "watch": [
+            "High historical resolution probability (> 65%).",
+            "Price action respect of volatility envelope.",
+            "Catalyst event monitoring active."
+        ],
+        "invalidate": [
+            "Volatility expansion beyond expected move.",
+            "Structural break of current regime."
+        ]
+    }
+}

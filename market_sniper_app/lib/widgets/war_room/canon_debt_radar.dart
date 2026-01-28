@@ -697,12 +697,12 @@ class _CanonDebtRadarState extends State<CanonDebtRadar> {
 
     Color kindColor = AppColors.textSecondary;
     if (kind == "PENDING_FEATURE") kindColor = AppColors.neonCyan; // Was neonBlue
-    if (kind == "PENDING_TECH_DEBT") kindColor = Colors.purpleAccent; // Was neonPurple (missing)
+    if (kind == "PENDING_TECH_DEBT") kindColor = AppColors.stateStale; // Was purpleAccent
     if (kind == "PENDING_BUG") kindColor = AppColors.stateLocked;
     
     
     // Fallback colors if tokens missing
-    if (kindColor == Colors.transparent) kindColor = Colors.purpleAccent; // Fallback for purple
+    if (kindColor == Colors.transparent) kindColor = AppColors.stateStale; // Fallback
 
     // Delta highlight
     final bool isAdded = (_delta['added'] as List?)?.any((x) => x['id'] == id) ?? false;

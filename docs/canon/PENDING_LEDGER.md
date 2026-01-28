@@ -142,3 +142,77 @@ Items here are **NOT** bugs; they are distinct units of future value or technica
 - **Trigger**: Security Hardening
 - **Status**: OPEN
 
+## 5. Audit Fixes (D47.FIX)
+
+### PEND_FIX_NEWS_UNIFICATION
+- **Module**: INTEL.NEWS
+- **Description**: D47.FIX.01: News Backend Unification. Resolve "Ghost Dependency" split brain.
+- **Origin**: OMSR_WAR_CALENDAR (D47.FIX.01)
+- **Trigger**: Day 47 Post-Audit
+- **Status**: OPEN
+
+### PEND_FIX_AGMS_RELIABILITY
+- **Module**: AGMS
+- **Description**: D47.FIX.02: AGMS Reliability Scoreboard. Track Projection Uptime/Accuracy.
+- **Origin**: OMSR_WAR_CALENDAR (D47.FIX.02)
+- **Trigger**: Day 47 Post-Audit
+- **Status**: OPEN
+
+## 6. Brains Inevitables (D48.BRAIN)
+
+### PEND_BRAIN_SCHEMA_AUTHORITY
+- **Module**: GOV
+- **Description**: D48.BRAIN.01: Centralized JSON Schema Authority.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.01)
+- **Trigger**: Maturity Check
+- **Status**: OPEN
+
+### PEND_BRAIN_ATTRIBUTION
+- **Module**: INTEL
+- **Description**: D48.BRAIN.02: Attribution Engine. Chain-of-Thought explainability.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.02)
+- **Trigger**: Maturity Check
+- **Status**: OPEN
+
+### PEND_BRAIN_SURFACE_ADAPTERS
+- **Module**: UI
+- **Description**: D48.BRAIN.03: Surface Adapters. Standardized JSON->Widget mapping.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.03)
+- **Trigger**: Maturity Check
+- **Status**: OPEN
+
+### PEND_BRAIN_RELIABILITY_LEDGER
+- **Module**: GOV
+- **Description**: D48.BRAIN.04: Reliability Ledger. Calibration & Trust tracking.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.04)
+- **Trigger**: Maturity Check
+- **Status**: OPEN
+
+### PEND_BRAIN_DATAMUX
+- **Module**: DATA
+- **Description**: D48.BRAIN.05: Provider DataMux. Multi-provider abstraction.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.05)
+- **Trigger**: Scaling
+- **Status**: OPEN
+
+### PEND_BRAIN_EVENT_ROUTER
+- **Module**: OPS
+- **Description**: D48.BRAIN.06: Event Router. Centralized event bus.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.06)
+- **Trigger**: Real-Time Needs
+- **Status**: OPEN
+
+### PEND_BRAIN_SCENARIO
+- **Module**: TEST
+- **Description**: D48.BRAIN.07: Scenario Library. Pre-canned "Deep Dreaming" states.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.07)
+- **Trigger**: Validation Needs
+- **Status**: OPEN
+
+### PEND_BRAIN_LLM_BOUNDARY
+- **Module**: OPS
+- **Description**: D48.BRAIN.08: LLM Boundary Wrapper. Cost guard & PII scrub.
+- **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.08)
+- **Trigger**: LLM Integration
+- **Status**: OPEN
+

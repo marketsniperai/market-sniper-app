@@ -4,6 +4,8 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../../models/news/news_digest_model.dart';
 import '../../widgets/news_digest_card.dart';
+import '../../logic/news/news_digest_source.dart'; // D47.HF13
+import '../../logic/watchlist_store.dart'; // D47.HF13 Watchlist Integration
 import 'package:intl/intl.dart';
 
 class NewsScreen extends StatefulWidget {
@@ -14,10 +16,29 @@ class NewsScreen extends StatefulWidget {
 }
 
 class _NewsScreenState extends State<NewsScreen> {
-  // Simulating Source Ladder: OFFLINE for now as no pipeline is connected
-  final NewsDigestViewModel _data = NewsDigestViewModel.offline();
+  // D47.HF13: Source Abstraction
+  final NewsDigestSource _source = LocalDemoNewsDigestSource();
+  
+  // State
+  late Future<NewsDigestViewModel> _digestFuture;
 
-  // Future: load from cache/pipeline
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  void _loadData() {
+    final watchlist = WatchlistStore().tickers; // Simple sync access from store singleton
+    _digestFuture = _source.loadDigest(watchlistSymbols: watchlist);
+  }
+
+  Future<void> _refresh() async {
+    setState(() {
+      _loadData();
+    });
+    await _digestFuture;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +47,45 @@ class _NewsScreenState extends State<NewsScreen> {
       child: SafeArea(
         child: Column(
           children: [
-            _buildHeader(),
+            FutureBuilder<NewsDigestViewModel>(
+                future: _digestFuture,
+                builder: (context, snapshot) {
+                  // While loading or if we have data, we show the header.
+                  // If loading, we use a placeholder or previous data if available?
+                  // Simple: render header with empty/loading state if no data yet.
+                  
+                  final data = snapshot.data;
+                  return _buildHeader(data);
+                }),
             Expanded(
-              child: _data.items.isEmpty
-                  ? _buildDegradedState()
-                  : ListView.builder(
+              child: FutureBuilder<NewsDigestViewModel>(
+                future: _digestFuture,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                        child: CircularProgressIndicator(
+                            color: AppColors.neonCyan));
+                  } else if (snapshot.hasError) {
+                     return _buildDegradedState(error: snapshot.error.toString());
+                  } else if (!snapshot.hasData || snapshot.data!.items.isEmpty) {
+                    return _buildDegradedState();
+                  }
+
+                  final data = snapshot.data!;
+                  return RefreshIndicator(
+                    onRefresh: _refresh,
+                    color: AppColors.neonCyan,
+                    backgroundColor: AppColors.surface2,
+                    child: ListView.builder(
                       padding: const EdgeInsets.all(16),
-                      itemCount: _data.items.length,
+                      itemCount: data.items.length,
                       itemBuilder: (context, index) {
-                        return NewsDigestCard(item: _data.items[index]);
+                        return NewsDigestCard(item: data.items[index]);
                       },
                     ),
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -44,26 +93,37 @@ class _NewsScreenState extends State<NewsScreen> {
     );
   }
 
-  Widget _buildHeader() {
-    final timeStr = DateFormat('HH:mm').format(_data.asOfUtc);
-    Color freshnessColor;
-    String freshnessLabel;
+  Widget _buildHeader(NewsDigestViewModel? data) {
+    // defaults
+    var timeStr = "--:--";
+    Color freshnessColor = AppColors.textDisabled;
+    String freshnessLabel = "LOADING...";
+    String sourceName = "---";
 
-    switch (_data.freshness) {
-      case DigestFreshness.live:
-        freshnessColor = AppColors.stateLive;
-        freshnessLabel = "LIVE";
-        break;
-      case DigestFreshness.delayed:
-      case DigestFreshness.stale:
-        freshnessColor = AppColors.stateStale;
-        freshnessLabel = "DATA DELAYED";
-        break;
-      case DigestFreshness.offline:
-      default:
-        freshnessColor = AppColors.textDisabled;
-        freshnessLabel = "OFFLINE";
-        break;
+    if (data != null) {
+        timeStr = DateFormat('HH:mm').format(data.asOfUtc);
+        sourceName = data.source.name.toUpperCase();
+        
+        switch (data.freshness) {
+          case DigestFreshness.live:
+            freshnessColor = AppColors.stateLive;
+            freshnessLabel = "LIVE";
+            break;
+          case DigestFreshness.stale:
+          case DigestFreshness.delayed:
+            freshnessColor = AppColors.stateStale;
+            freshnessLabel = "DELAYED";
+            break;
+          case DigestFreshness.demo: // D47
+            freshnessColor = AppColors.neonCyan; // Premium
+            freshnessLabel = "DEMO MODE";
+            break;
+          case DigestFreshness.offline:
+          default:
+            freshnessColor = AppColors.textDisabled;
+            freshnessLabel = "OFFLINE";
+            break;
+        }
     }
 
     return Container(
@@ -106,7 +166,7 @@ class _NewsScreenState extends State<NewsScreen> {
           Row(
             children: [
               Text(
-                "SOURCE: ${_data.source.name.toUpperCase()} • AS OF $timeStr UTC",
+                "SOURCE: $sourceName • AS OF $timeStr UTC",
                 style: GoogleFonts.robotoMono(
                   color: AppColors.textDisabled,
                   fontSize: 10,
@@ -119,7 +179,7 @@ class _NewsScreenState extends State<NewsScreen> {
     );
   }
 
-  Widget _buildDegradedState() {
+  Widget _buildDegradedState({String? error}) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -128,18 +188,15 @@ class _NewsScreenState extends State<NewsScreen> {
               size: 48, color: AppColors.textDisabled.withValues(alpha: 0.3)),
           const SizedBox(height: 16),
           Text(
-            "No digest available",
+            error ?? "No digest available",
             style: GoogleFonts.inter(color: AppColors.textDisabled),
+            textAlign: TextAlign.center,
           ),
-          if (_data.freshness == DigestFreshness.offline)
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Text(
-                "System is offline",
-                style: GoogleFonts.inter(
-                    color: AppColors.textDisabled, fontSize: 10),
-              ),
-            ),
+          if (error != null) 
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Text("Error: $error", style: const TextStyle(color: AppColors.marketBear, fontSize: 10)),
+             )
         ],
       ),
     );

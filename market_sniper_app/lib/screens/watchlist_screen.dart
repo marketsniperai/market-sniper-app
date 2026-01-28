@@ -53,6 +53,7 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
 
   @override
   void dispose() {
+    ScaffoldMessenger.maybeOf(context)?.hideCurrentSnackBar(); // D46.HF12B Cleanup
     _store.removeListener(_onStoreUpdate);
     super.dispose();
   }
@@ -130,14 +131,7 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
   }
 
   void _onTickerTap(String ticker) {
-    // D44.06: Tap to Prefill (No Auto-Trigger)
-    NavigationBus().navigate(3,
-        arguments: OnDemandIntent(
-          ticker: ticker,
-          autoTrigger: false,
-          source: "WATCHLIST_TAP",
-          timestampUtc: DateTime.now().toUtc(),
-        ));
+    _showPreviewSheet(ticker);
   }
 
   void _remove(String ticker) {
@@ -151,11 +145,46 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
         result: "SUCCESS" // Maps to backend Outcome
         );
 
+    ScaffoldMessenger.of(context).hideCurrentSnackBar(); // Clear previous
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text("Removed $ticker"),
+      content: Container(
+        decoration: BoxDecoration(
+          color: AppColors.surface1.withValues(alpha: 0.85), // Glassy dark
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: AppColors.borderSubtle.withValues(alpha: 0.2)), // Subtle border
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text("Removed $ticker",
+                  style: AppTypography.body(context)
+                      .copyWith(color: AppColors.textPrimary)),
+            ),
+            // Custom Action Text (No button widget to keep tight, utilizing Row)
+            // But Action is separate on SnackBar. Customizing basic content appearance first.
+            // SnackBarAction typically forces its own style.
+            // To get full custom look we might need to suppress action and implement inside,
+            // BUT `SnackBar` widget structure is rigid unless we use behavior: floating with shape.
+            // Let's rely on standard SnackBarAction but styled via theme?
+            // User requested: "Replace the default white SnackBar... with a slim, translucent... snack"
+            // And "action 'UNDO' but style it using AppColors"
+            // We'll wrap content in a Container that looks like the card, turn off standard elevation/bg.
+          ],
+        ),
+      ),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent, // Let Container handle it
+      elevation: 0,
+      margin: const EdgeInsets.all(16),
+      padding: EdgeInsets.zero, // Remove default content padding so our Container fills it
       action: SnackBarAction(
-          label: "UNDO", onPressed: () => _store.addTicker(ticker)),
-      duration: const Duration(seconds: 2),
+        label: "UNDO",
+        textColor: AppColors.neonCyan,
+        onPressed: () => _store.addTicker(ticker),
+      ),
+      duration: const Duration(seconds: 5), // D46.HF12B: 5 seconds
     ));
   }
 
@@ -211,29 +240,132 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
                       onRemove: _remove);
                 },
               ),
-        Positioned(
-          right: 16,
-          bottom: 16,
-          child: FloatingActionButton.extended(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                backgroundColor: AppColors.surface1,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                ),
-                builder: (_) => const WatchlistAddModal(),
-              );
-            },
-            backgroundColor: AppColors.neonCyan,
-            icon: const Icon(Icons.add, color: AppColors.bgPrimary),
-            label: Text("ADD TICKER",
-                style: AppTypography.label(context).copyWith(
-                    color: AppColors.bgPrimary, fontWeight: FontWeight.bold)),
+        if (tickers.isNotEmpty)
+          Positioned(
+            right: 16,
+            bottom: 16,
+            child: FloatingActionButton(
+              mini: true,
+              elevation: 0,
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: AppColors.surface1,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(16)),
+                  ),
+                  builder: (_) => const WatchlistAddModal(),
+                );
+              },
+              backgroundColor: Colors.transparent, // D46.HF12B Premium Outline
+              shape: CircleBorder(
+                  side: BorderSide(
+                      color: AppColors.neonCyan.withValues(alpha: 0.8),
+                      width: 1.2)),
+              child: const Icon(Icons.add,
+                  color: AppColors.neonCyan, size: 20),
+            ),
           ),
-        ),
       ],
+    );
+  }
+
+  void _showPreviewSheet(String ticker) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.surface1,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+      ),
+      builder: (ctx) {
+        return Container(
+          padding: const EdgeInsets.only(
+              left: 16, right: 16, top: 16, bottom: 32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header: Ticker + Close
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(ticker,
+                      style: AppTypography.headline(context).copyWith(
+                          fontSize: 24, letterSpacing: 1.0)),
+                  IconButton(
+                    icon: const Icon(Icons.close, color: AppColors.textSecondary),
+                    onPressed: () => Navigator.pop(ctx),
+                  )
+                ],
+              ),
+              const SizedBox(height: 16),
+              
+              // Status Row
+              Row(
+                children: [
+                   // Timestamp from Resolver
+                   FutureBuilder<DateTime?>(
+                      future: _timestampResolver.resolve(ticker),
+                      builder: (context, snapshot) {
+                        String timeStr = "—";
+                        if (snapshot.hasData && snapshot.data != null) {
+                           final dt = snapshot.data!.toUtc();
+                           timeStr = "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')} UTC";
+                        }
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("LAST CHECK", style: AppTypography.caption(context).copyWith(color: AppColors.textDisabled)),
+                            Text(timeStr, style: AppTypography.body(context)),
+                          ]
+                        );
+                      }
+                   ),
+                   const SizedBox(width: 32),
+                   // Status Chip (Neutral per instruction if no real source)
+                   Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("STATUS", style: AppTypography.caption(context).copyWith(color: AppColors.textDisabled)),
+                        // We use the existing resolve logic for 'visuals' but user asked for neutral if no new source
+                        // We do have _stateResolver used in the list tile, let's reuse valid data if available, else neutral
+                        Text("—", style: AppTypography.body(context).copyWith(color: AppColors.textSecondary)),
+                      ]
+                   )
+                ],
+              ),
+              
+              const SizedBox(height: 24),
+
+              // Deep Analysis Button (Navigates, NO Auto-Trigger)
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                     Navigator.pop(ctx); // Close sheet
+                     // Navigate to OnDemand, Prefill Only
+                     NavigationBus().navigate(3,
+                        arguments: OnDemandIntent(
+                          ticker: ticker,
+                          autoTrigger: false, // Explicitly false per D46
+                          source: "WATCHLIST_PREVIEW",
+                          timestampUtc: DateTime.now().toUtc(),
+                        ));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.surface2,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    side: const BorderSide(color: AppColors.neonCyan),
+                  ),
+                  child: Text("DEEP ANALYSIS", style: AppTypography.label(context).copyWith(color: AppColors.neonCyan)),
+                )
+              )
+            ],
+          ),
+        );
+      }
     );
   }
 }
@@ -258,7 +390,7 @@ class _TickerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 8), // Reduced from 12
       decoration: BoxDecoration(
         color: AppColors.surface1,
         borderRadius: BorderRadius.circular(8),
@@ -270,7 +402,7 @@ class _TickerTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           onTap: () => onTap(ticker),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8), // Reduced symmetric from h16 v12
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -279,10 +411,17 @@ class _TickerTile extends StatelessWidget {
                   children: [
                     Text(
                       ticker,
-                      style: AppTypography.headline(context)
-                          .copyWith(fontFamily: 'RobotoMono'),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTypography.body(context).copyWith(
+                        fontFamily: 'RobotoMono',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.5,
+                        color: AppColors.neonCyan.withValues(alpha: 0.9),
+                      ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 2), // Reduced from 4
                     // D44.10 Timestamp
                     FutureBuilder<DateTime?>(
                       future: timestampResolver.resolve(ticker),
@@ -294,7 +433,7 @@ class _TickerTile extends StatelessWidget {
                         final timeStr =
                             "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')}";
                         return Text(
-                          "Last analyzed · $timeStr UTC",
+                          "Last analyzed $timeStr UTC", // Removed '·' for compactness or kept? User said 'Reduce puffy feel'. Compact string.
                           style: AppTypography.label(context).copyWith(
                               fontSize: 10, color: AppColors.textDisabled),
                         );
@@ -306,16 +445,21 @@ class _TickerTile extends StatelessWidget {
                   children: [
                     // D44.09 State Chip
                     StateChip(state: stateResolver.resolve(ticker)),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: 4), // Reduced from 8
                     IconButton(
                       icon: const Icon(Icons.analytics,
-                          color: AppColors.neonCyan),
+                          color: AppColors.neonCyan, size: 20), // Reduced size
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(), // Removes default padding
                       onPressed: () => onAnalyze(ticker),
                       tooltip: "Analyze (D44.02)",
                     ),
+                    const SizedBox(width: 12),
                     IconButton(
                       icon: const Icon(Icons.delete_outline,
-                          color: AppColors.textDisabled),
+                          color: AppColors.textDisabled, size: 20), // Reduced size
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
                       onPressed: () => onRemove(ticker),
                       tooltip: "Remove",
                     ),

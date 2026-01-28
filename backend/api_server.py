@@ -986,12 +986,21 @@ async def get_on_demand_context(
     
     # ... Helper to inject usage headers ...
     def with_meta(resp_dict):
-        resp_dict["_meta"] = {
+        # Extract internal debug note if present
+        pipe_note = resp_dict.pop("_pipeline_note", None)
+        
+        meta = {
             "tier": tier,
             "usage": usage,
             "limit": limit,
             "cooldown_remaining": 0
         }
+        
+        # Attach observability note if meaningful (not None)
+        if pipe_note:
+            meta["pipeline_note"] = pipe_note
+            
+        resp_dict["_meta"] = meta
         return resp_dict
     
     # 2. Return Result

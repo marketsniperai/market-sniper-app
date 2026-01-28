@@ -692,6 +692,95 @@ DAY 45 COMPLETE (SEALED)
       - LOCK:ROLLBACK
     - Explicitly prevent “half-written reads” scenarios (e.g., housekeeper modifying files while autofix regenerates and UI reads).
 
+- [ ] D47 — News & Projection Arc (Audit & Fixes)
+  - [x] D47.01 — **Projection Orchestrator** (Central Brain) — SEALED
+  - [x] D47.02 — **Intraday Series** (Demonstration) — SEALED
+  - [x] D47.03 — **News Engine Backend** (Demo/Stub) — SEALED
+  - [x] D47.04 — **On-Demand Consumption** — SEALED
+  - [x] D47.HF23 — On-Demand Timeframe Control (DAILY/WEEKLY)
+    - ↳ Seal: [`SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md`](../../outputs/seals/SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md)
+  - [x] D47.HF24 — Time-Traveller Chart v1 (On-Demand)
+    - ↳ Seal: [`SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md`](../../outputs/seals/SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md)
+  - [x] D47.HF25 — Reliability Meter (On-Demand)
+    - ↳ Seal: [`SEAL_D47_HF25_RELIABILITY_METER.md`](../../outputs/seals/SEAL_D47_HF25_RELIABILITY_METER.md)
+  - [x] D47.HF26 — Intel Cards v1 (On-Demand)
+    - ↳ Seal: [`SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md`](../../outputs/seals/SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md)
+  - [x] D47.HF27 — Tactical Playbook (On-Demand)
+    - ↳ Seal: [`SEAL_D47_HF27_TACTICAL_PLAYBOOK.md`](../../outputs/seals/SEAL_D47_HF27_TACTICAL_PLAYBOOK.md)
+  - [x] D47.HF-RECENT-LOCAL — Recent Dossiers (Local Snapshot)
+    - ↳ Seal: [`SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md`](../../outputs/seals/SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md)
+  - [x] D47.HF28 — Elite Mentor Bridge (On-Demand)
+    - ↳ Seal: [`SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md`](../../outputs/seals/SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md)
+  - [x] D47.HF29 — Share Mini-Card (Ultra-Light)
+    - ↳ Seal: [`SEAL_D47_HF29_SHARE_MINI_CARD.md`](../../outputs/seals/SEAL_D47_HF29_SHARE_MINI_CARD.md)
+  - [x] D47.HF30 — Blurred Truth Gating (UI-Only)
+    - ↳ Seal: [`SEAL_D47_HF30_BLURRED_TRUTH_GATING.md`](../../outputs/seals/SEAL_D47_HF30_BLURRED_TRUTH_GATING.md)
+  - [x] D47.HF-CACHE-SERVER — Hourly Bucket Cache (Server-Side)
+    - ↳ Seal: [`SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md`](../../outputs/seals/SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md)
+  - [x] D47.HF-DEDUPE-GLOBAL — Global Shared Dossiers (Public GCS)
+    - ↳ Seal: [`SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md`](../../outputs/seals/SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md)
+  - [x] D47.HF31 — Tier Resolver V1 (Unified + Gating)
+    - ↳ Seal: [`SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md`](../../outputs/seals/SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md)
+  - [x] D47.HF32 — On-Demand Cost Policy (Per-Ticker Daily Run)
+    - ↳ Seal: [`SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md`](../../outputs/seals/SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md)
+  - [x] D47.HF33 — On-Demand Area Seal (Capstone)
+    - ↳ Seal: [`SEAL_D47_ON_DEMAND_AREA_SEALED.md`](../../outputs/seals/SEAL_D47_ON_DEMAND_AREA_SEALED.md)
+
+  AUDIT FINDINGS (NEW)
+  - [x] D47.FIX.01 — News Backend Unification
+    - ↳ Seal: [`SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md`](../../outputs/seals/SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md)
+    - **Issue:** “Ghost Dependency” — Frontend implements NewsDigestSource, Backend Projection expects `news_digest.json`, but no backend producer exists. Split brain risk.
+    - **Plan:**
+      - Move `NewsDigestSource` logic to `backend/news_engine.py` (Backend Truth).
+      - Create `outputs/engine/news_digest.json` (canonical producer).
+      - Wire Frontend to consume JSON artifact or API endpoint.
+      - Wire Projection to consume JSON artifact (already wired, now valid).
+    - **Deliverables:** `news_engine.py`, `news_digest.json`, `api_server.py`.
+  - [ ] D47.FIX.02 — AGMS Reliability Scoreboard (Update Only)
+    - **Issue:** No centralized view of “Projection Uptime” or “Calibration Accuracy” over time.
+    - **Plan:**
+      - Update `AGMSFoundation` to observe `ProjectionState` (Live/Calibrating) -> append to Ledger.
+      - Update `AGMSIntelligence` to compute `% Uptime` and `Accuracy Score` from ledgers.
+      - Append metrics to `agms_coherence_snapshot.json`.
+    - **Constraint:** NO new module `ReliabilityScoreboard`. Update AGMS only.
+    - **Deliverables:** Updated `agms_intelligence.py`.
+
+- [ ] D48 — "Brains Inevitables" (The Maturity Check)
+
+  - [ ] D48.BRAIN.01 — Schema Authority (Unique Contracts)
+    - **What:** Centralized JSON schema definitions for all major artifacts (Contract-First).
+    - **Why:** Prevent drift between Python producer and Flutter consumer.
+    - **Deliverables:** `outputs/schemas/*.schema.json`, `verify_schema.py`.
+  - [ ] D48.BRAIN.02 — Attribution Engine (Real Explainability)
+    - **What:** Chain-of-Thought tracking for *why* the OS showed a specific card/signal.
+    - **Why:** "Black Box" signals destroy trust. Institutional users need "Show Work".
+    - **Deliverables:** `attribution_ledger.jsonl`, `ExplainButton` wiring updates.
+  - [ ] D48.BRAIN.03 — Surface Adapters (UI Consistency)
+    - **What:** Standardized adapters mapping raw backend JSON to Flutter Widget Models.
+    - **Why:** Removes logic from `build()` methods. Ensures testability.
+    - **Deliverables:** `lib/adapters/*.dart`, Unit Tests.
+  - [ ] D48.BRAIN.04 — Reliability Ledger (Calibration & Trust)
+    - **What:** Permanent record of System Accuracy (Predicted vs Actual).
+    - **Why:** Prove the system works.
+    - **Deliverables:** `reliability_ledger.jsonl`, `calibration_report.json`.
+    - **Note:** Closely related to D47.FIX.02 but broader (multi-engine).
+  - [ ] D48.BRAIN.05 — Provider DataMux (Scaling)
+    - **What:** Abstracted Data Layer handling multiple providers (Polygon/Alpaca/Yahoo) with failover.
+    - **Why:** Single-provider dependency is a critical risk.
+    - **Deliverables:** `backend/os_data/datamux.py`, `provider_config.json`.
+  - [ ] D48.BRAIN.06 — Event Router (Notifications + Real Time)
+    - **What:** Centralized Event Bus for push notifications and toast alerts.
+    - **Why:** Currently disparate widgets poll randomly. Needs coordination.
+    - **Deliverables:** `backend/os_ops/event_router.py`, `system_events.jsonl`.
+  - [ ] D48.BRAIN.07 — Scenario Library / Stress Harness
+    - **What:** Pre-canned market scenarios (Crash, Melt-up, Chop) for "Deep Dreaming" / Testing.
+    - **Why:** Validate logic against edge cases without waiting for them to happen.
+    - **Deliverables:** `outputs/scenarios/*.json`, `run_scenario.py`.
+  - [ ] D48.BRAIN.08 — LLM Boundary Wrapper
+    - **What:** Strict interface for LLM calls (Gemini/OpenAI) ensuring PII scrubbing and Cost Guard.
+    - **Why:** Prevent prompt injection and runaway bills.
+    - **Deliverables:** `backend/os_llm/boundary.py`, `llm_cost_ledger.jsonl`.
+
 ---
 
 ## Governance Footnote (D14.02)

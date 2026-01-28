@@ -1,0 +1,34 @@
+{
+    "timestamp": "2026-01-27T11:15:00-05:00",
+    "component": "RegimeSentinelSkeleton",
+    "widget": "RegimeSentinelWidget",
+    "features": {
+        "index_selector": {
+            "options": [
+                "SPY",
+                "QQQ"
+            ],
+            "interaction": "tap_toggle"
+        },
+        "timeline_slider": {
+            "range": "-60m to +60m",
+            "gating_rule": "10:30 AM ET",
+            "lock_behavior": "snap_back_to_0_with_toast"
+        },
+        "visuals": {
+            "base_scenario": "ghost_opacity_0.3",
+            "stress_scenario": "ghost_stress_text",
+            "chart_placeholder": "grid_painter"
+        },
+        "discipline": {
+            "no_backend": true,
+            "no_mock_data": true,
+            "no_hardcoded_signals": true
+        }
+    },
+    "verification": {
+        "flutter_analyze": "PASS (Baseline Compliance)",
+        "flutter_build_web": "PASS",
+        "visual_check": "MANUAL_VERIFIED"
+    }
+}

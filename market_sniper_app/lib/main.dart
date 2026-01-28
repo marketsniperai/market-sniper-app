@@ -14,7 +14,7 @@ import 'guards/layout_police.dart';
 import 'guards/startup_guard.dart'; // Integrity
 import 'widgets/global_back_overlay.dart'; // Polish Overlay
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Synthetic (Broken)
-import 'package:timezone/data/latest.dart' as tz; // Timezone Data
+// import 'package:timezone/data/latest.dart' as tz; // Removed for Web Config
 import 'l10n/generated/app_localizations.dart'; // Non-Synthetic (Fixed)
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -26,7 +26,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Timezone Initialization (Dashboard Banner V1)
-  tz.initializeTimeZones();
+  // tz.initializeTimeZones(); // Removed for Web Compatibility (D45)
 
   try {
     NotificationService().setNavigatorKey(navigatorKey);

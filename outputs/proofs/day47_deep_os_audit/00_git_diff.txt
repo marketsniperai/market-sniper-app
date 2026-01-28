@@ -1,0 +1,161 @@
+ M PROJECT_STATE.md
+MM backend/api_server.py
+AM backend/os_intel/intraday_series_source.py
+AM backend/os_intel/projection_orchestrator.py
+A  backend/os_intel/projection_series_coords.py
+MM backend/os_ops/on_demand_cache.py
+ M backend/os_ops/on_demand_tier_enforcer.py
+A  backend/os_ops/verify_0400_et_boundary.py
+M  backend/os_ops/verify_project_discipline.py
+ M backend/os_ops/watchlist_action_logger.py
+M  docs/canon/CONTEXT_CORE.md
+M  docs/canon/MAP_CORE.md
+M  docs/canon/OS_MODULES.md
+M  docs/canon/PRINCIPIO_OPERATIVO__MADRE_NODRIZA.md
+M  docs/canon/SYSTEM_ATLAS.md
+M  market_sniper_app/lib/layout/main_layout.dart
+M  market_sniper_app/lib/logic/day_memory_store.dart
+M  market_sniper_app/lib/logic/market_time_helper.dart
+A  market_sniper_app/lib/logic/news/news_digest_source.dart
+A  market_sniper_app/lib/logic/news/news_ranker.dart
+M  market_sniper_app/lib/logic/on_demand_history_store.dart
+M  market_sniper_app/lib/logic/ritual_scheduler.dart
+M  market_sniper_app/lib/logic/session_thread_memory_store.dart
+M  market_sniper_app/lib/logic/watchlist_store.dart
+M  market_sniper_app/lib/main.dart
+M  market_sniper_app/lib/models/news/news_digest_model.dart
+A  market_sniper_app/lib/models/regime_sentinel_model.dart
+M  market_sniper_app/lib/screens/dashboard/dashboard_composer.dart
+M  market_sniper_app/lib/screens/news_screen.dart
+M  market_sniper_app/lib/screens/on_demand_panel.dart
+M  market_sniper_app/lib/screens/watchlist_screen.dart
+M  market_sniper_app/lib/services/notification_service.dart
+M  market_sniper_app/lib/utils/time_utils.dart
+A  market_sniper_app/lib/widgets/dashboard/breathing_status_accent.dart
+A  market_sniper_app/lib/widgets/dashboard/regime_sentinel_widget.dart
+M  market_sniper_app/lib/widgets/dashboard/sector_flip_widget_v1.dart
+M  market_sniper_app/lib/widgets/session_window_strip.dart
+M  market_sniper_app/lib/widgets/war_room/canon_debt_radar.dart
+M  market_sniper_app/lib/widgets/watchlist_add_modal.dart
+ M market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+ M market_sniper_app/test/verify_config.dart
+ M market_sniper_app/test/verify_menu.dart
+ M market_sniper_app/tool/generate_core_universe_proof.dart
+ M market_sniper_app/tool/verify_core_tape.dart
+ M market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+ M market_sniper_app/tool/verify_day_40_close.dart
+ M market_sniper_app/tool/verify_day_40_close_placeholder.dart
+ M market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+ M market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+ M market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+ M market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+ M market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+ M market_sniper_app/tool/verify_drift_surface.dart
+ M market_sniper_app/tool/verify_extended_governance_ui.dart
+ M market_sniper_app/tool/verify_extended_universe_ui.dart
+ M market_sniper_app/tool/verify_overlay_injection.dart
+ M market_sniper_app/tool/verify_propagation_audit.dart
+ M market_sniper_app/tool/verify_pulse_core.dart
+ M market_sniper_app/tool/verify_safe_degrade.dart
+ M market_sniper_app/tool/verify_sector_heatmap.dart
+ M market_sniper_app/tool/verify_sector_sentinel.dart
+ M market_sniper_app/tool/verify_universe_integrity.dart
+ M openapi.yaml
+A  outputs/audit/projection_readiness_audit.md
+A  outputs/on_demand_pipeline/PIPELINE_TEST.json
+AM outputs/os/projection/projection_report.json
+A  outputs/proofs/day45_auth/00_pre_403.txt
+A  outputs/proofs/day45_auth_gateway/00_context.txt
+A  outputs/proofs/day46_hf11_regime_sentinel_polish/sector_sentinel_polish_proof.json
+A  outputs/proofs/day46_hf11a_regime_sentinel_skeleton/sector_sentinel_skeleton_proof.json
+A  outputs/proofs/day47_hf15_on_demand_pipeline_hook/01_diff.txt
+A  outputs/proofs/day47_hf15_on_demand_pipeline_hook/02_smoke_call_offline.txt
+A  outputs/proofs/day47_hf15_on_demand_pipeline_hook/03_smoke_call_cache.txt
+A  outputs/proofs/day47_hf15_on_demand_pipeline_hook/04_smoke_call_pipeline.txt
+A  outputs/proofs/day47_hf15_on_demand_pipeline_hook/05_meta_examples.json
+A  outputs/proofs/day47_hf15x_discipline_unblock/00_diff.txt
+A  outputs/proofs/day47_hf15x_discipline_unblock/01_verify_project_discipline_pass.txt
+A  outputs/proofs/day47_hf15x_discipline_unblock/02_flutter_analyze_pass.txt
+A  outputs/proofs/day47_hf16_on_demand_0400_et_sync/00_diff.txt
+A  outputs/proofs/day47_hf16_on_demand_0400_et_sync/01_verify_project_discipline_pass.txt
+A  outputs/proofs/day47_hf16_on_demand_0400_et_sync/02_backend_boundary_proof.txt
+A  outputs/proofs/day47_hf16_on_demand_0400_et_sync/03_flutter_analyze.txt
+A  outputs/proofs/day47_hf16_on_demand_0400_et_sync/04_flutter_build_web.txt
+A  outputs/proofs/day47_hf17_projection_orchestrator_v0/01_verify_project_discipline.txt
+A  outputs/proofs/day47_hf17_projection_orchestrator_v0/02_backend_endpoint_sample.json
+A  outputs/proofs/day47_hf17_projection_orchestrator_v0/04_flutter_analyze.txt
+A  outputs/proofs/day47_hf17_projection_orchestrator_v0/05_flutter_build_web.txt
+A  outputs/proofs/day47_hf18_intraday_series_coords/01_verify_project_discipline.txt
+A  outputs/proofs/day47_hf18_intraday_series_coords/02_projection_report_sample.json
+A  outputs/proofs/day47_hf18_intraday_series_coords/04_flutter_analyze.txt
+A  outputs/proofs/day47_hf18_intraday_series_coords/05_flutter_build_web.txt
+A  outputs/proofs/day47_hf19_projection_inputs_wiring/01_verify_project_discipline.txt
+A  outputs/proofs/day47_hf19_projection_inputs_wiring/02_projection_report_sample_SPY.json
+A  outputs/proofs/day47_hf20_projection_context_fusion/01_verify_project_discipline.txt
+A  outputs/proofs/day47_hf20_projection_context_fusion/02_projection_report_with_context.json
+A  outputs/proofs/day47_hf20_projection_context_fusion/05_flutter_analyze.txt
+A  outputs/proofs/day47_hf20_projection_context_fusion/06_flutter_build_web.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/01_verify_project_discipline.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/02_flutter_analyze.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/02_flutter_analyze_v2.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/03_flutter_build_web.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/03_flutter_build_web_v2.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/05_sample_response_test.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/05_sample_response_test_v2.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/06_simple_proof.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/06_simple_proof_final.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/06_simple_proof_final_v2.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/06_simple_proof_final_v3.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/06_simple_proof_final_v4.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/06_simple_proof_final_v5.txt
+A  outputs/proofs/day47_hf21_on_demand_projection_consume/07_verify_project_discipline_final.txt
+A  outputs/proofs/day47_hfxx_build_rescue_hotfix/01_flutter_analyze_clean.txt
+A  outputs/proofs/day47_hfxx_build_rescue_hotfix/01_flutter_analyze_final.txt
+A  outputs/proofs/day47_hfxx_build_rescue_hotfix/01_flutter_analyze_verify.txt
+A  outputs/proofs/day47_hfxx_build_rescue_hotfix/04_notes.md
+ M outputs/scripts/deploy_auth_gateway.ps1
+A  outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2.md
+A  outputs/seals/SEAL_D45_CANON_PENDING_INDEX_02.md
+A  outputs/seals/SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md
+A  outputs/seals/SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md
+A  outputs/seals/SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md
+A  outputs/seals/SEAL_D46_HF12_WATCHLIST_UI_POLISH.md
+A  outputs/seals/SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md
+A  outputs/seals/SEAL_D46_WATCHLIST_FINAL_SEAL.md
+AM outputs/seals/SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md
+A  outputs/seals/SEAL_D47_CANON_SYNC_CHECKPOINT.md
+A  outputs/seals/SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md
+A  outputs/seals/SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md
+A  outputs/seals/SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md
+A  outputs/seals/SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md
+A  outputs/seals/SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md
+A  outputs/seals/SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md
+A  outputs/seals/SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md
+A  outputs/seals/SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md
+A  outputs/seals/SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md
+A  outputs/seals/SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md
+?? backend/os_intel/context_tagger.py
+?? backend/os_intel/verify_hf18_proof.py
+?? backend/verify_on_demand_projection.py
+?? backend/verify_on_demand_projection_simple.py
+?? backend/verify_on_demand_projection_v2.py
+?? debug_dates.txt
+?? error.log
+?? implementation_plan_account_flip.md
+?? implementation_plan_account_identity.md
+?? implementation_plan_account_polish.md
+?? implementation_plan_account_polish_part2.md
+?? implementation_plan_global_spacing.md
+?? implementation_plan_menu_polish.md
+?? implementation_plan_partner_progress.md
+?? market_sniper_app/analyze_intermediate.txt
+?? market_sniper_app/analyze_log.txt
+?? market_sniper_app/analyze_log_2.txt
+?? market_sniper_app/deps.txt
+?? outputs/audit/D47_DEEP_OS_FUNCTIONAL_AUDIT.md
+?? outputs/audit/on_demand_feature_audit.md
+?? outputs/os/on_demand_usage_ledger.jsonl
+?? outputs/proofs/day47_deep_os_audit/
+?? outputs/scan_raw.txt
+?? verification.log
+?? verifier_log.txt

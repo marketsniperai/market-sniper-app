@@ -93,10 +93,11 @@
 - **Automation**:
     - **Ritual Scheduler**: Local time-based triggers (Morning, Afternoon, Setup).
 
-## 10. Watchlist & On-Demand (Day 44) - COMPLETED
+## 10. Watchlist & On-Demand (Day 44-47) - FROZEN
 - **Watchlist Store**: Local persistence, live chips, easy-add.
 - **On-Demand Engine**: Universe-agnostic search (Pipeline/Cache/Offline).
 - **Institutional Guard**: Lexicon enforcement on results.
+- **Area Capstone**: `docs/canon/ON_DEMAND_AREA_SEAL.md`.
 
 ## 11. Feature Phase v1 (Day 45) - COMPLETED
 - **Premium Matrix**: Trial/Plus/Elite logic.
@@ -121,4 +122,10 @@
 - **Ranking Engine**: `Macro > Watchlist > General` logic (Rules-Only, No ML).
 - **UI**: Flip Cards (`NewsDigestCard`) with Impact Tags.
 - **Pending**: Provider Data Pipeline (Open).
+
+## 15. Projection & Context Arc (Day 47 HF17-21) - COMPLETED
+- **Projection Orchestrator**: Central mixing engine for probabilistic context.
+- **Inputs**: Options (Vol Scale), News (Tags), Macro (Stub).
+- **Intraday Series**: Deterministic demo series generator for UI painters.
+- **On-Demand Consumption**: Injects projection block into analysis results.
 

@@ -1,0 +1,22 @@
+Analyzing 4 items...                                            
+
+  error - Undefined class 'StreamSubscription' - lib\screens\on_demand_panel.dart:48:3 - undefined_class
+  error - The getter 'watchBullets' isn't defined for the type 'StandardEnvelope' - lib\screens\on_demand_panel.dart:853:18 - undefined_getter
+  error - The getter 'invalidateBullets' isn't defined for the type 'StandardEnvelope' - lib\screens\on_demand_panel.dart:853:51 - undefined_getter
+  error - The getter 'watchBullets' isn't defined for the type 'StandardEnvelope' - lib\screens\on_demand_panel.dart:856:28 - undefined_getter
+  error - The getter 'invalidateBullets' isn't defined for the type 'StandardEnvelope' - lib\screens\on_demand_panel.dart:857:33 - undefined_getter
+warning - The declaration '_buildTacticalPlaybook' isn't referenced - lib\screens\on_demand_panel.dart:1062:10 - unused_element
+  error - The name '_buildTacticalPlaybook' is already defined - lib\screens\on_demand_panel.dart:1062:10 - duplicate_definition
+warning - Unused import: 'elite_mentor_bridge_button.dart' - lib\widgets\blurred_truth_overlay.dart:5:8 - unused_import
+  error - Expected to find ']' - lib\widgets\tactical_playbook_block.dart:56:11 - expected_token
+  error - Expected an identifier - lib\widgets\tactical_playbook_block.dart:93:9 - missing_identifier
+  error - Expected to find ')' - lib\widgets\tactical_playbook_block.dart:93:9 - expected_token
+  error - Expected to find ';' - lib\widgets\tactical_playbook_block.dart:94:7 - expected_token
+warning - Dead code - lib\widgets\tactical_playbook_block.dart:94:8 - dead_code
+  error - Expected an identifier - lib\widgets\tactical_playbook_block.dart:94:8 - missing_identifier
+  error - Expected to find ';' - lib\widgets\tactical_playbook_block.dart:94:8 - expected_token
+  error - Unexpected text ';' - lib\widgets\tactical_playbook_block.dart:94:8 - unexpected_token
+  error - Expected an identifier - lib\widgets\tactical_playbook_block.dart:95:5 - missing_identifier
+  error - Unexpected text ';' - lib\widgets\tactical_playbook_block.dart:95:5 - unexpected_token
+   info - Unnecessary empty statement - lib\widgets\tactical_playbook_block.dart:95:6 - empty_statements
+

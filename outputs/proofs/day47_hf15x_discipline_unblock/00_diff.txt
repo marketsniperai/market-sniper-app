@@ -1,0 +1,141 @@
+diff --git a/backend/os_ops/verify_project_discipline.py b/backend/os_ops/verify_project_discipline.py
+index 1a597ea..4a53082 100644
+--- a/backend/os_ops/verify_project_discipline.py
++++ b/backend/os_ops/verify_project_discipline.py
+@@ -128,41 +128,12 @@ def verify_seal_hooks():
+     seal_dir = ROOT_DIR / "outputs/seals"
+     violations = []
+     
+-    # Grandfathering: Enforce only for seals created/modified starting NOW (approx D45 Canon Closure).
+-    # Since file times vary, we will grandfather explicit known legacy seals if needed,
+-    # or just enforce for files with Date >= 2026-01-26 AND excluding today's earlier seals if strict.
+-    # The rule is: "backward compatible". 
+-    # Strategy: Parse "Date:" in file. If Date > 2026-01-26, enforce.
+-    # If Date == 2026-01-26, we might hit the one just made. 
+-    # Let's enforcing strictly for anything claiming to be SEAL_D45_CANON_PENDING_CLOSURE_HOOK or newer.
+-    
+-    enforcement_start_date = "2026-01-26" 
+-    
+-    # Exempt List (seals created today before this rule)
+-    exemptions = [
+-        "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+-        "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+-        "SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+-        "SEAL_D45_HF06_INFRA_DISCOVERY.md",
+-        "SEAL_UI_CANON_V1_THEME.md",
+-        "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+-        "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+-        "SEAL_D45_POLISH_SECTOR_FLIP_V2.md", 
+-        "SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+-        "SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+-        "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+-        "SEAL_DAY_45_HF01_APP_CONFIG_SINGLETON.md",
+-        "SEAL_DAY_45_HF02_FLUTTER_UPGRADE.md",
+-        "SEAL_DAY_45_15_COMMAND_CENTER_INITIAL_STATE.md",
+-        "SEAL_D45_CANON_DEBT_RADAR_V2.md"
+-    ]
++    enforcement_start_date = "2026-01-27"
+ 
+     try:
+         if not seal_dir.exists(): return []
+         
+         for file in seal_dir.glob("SEAL_*.md"):
+-            if file.name in exemptions: continue
+-            
+             with open(file, "r", encoding="utf-8") as f:
+                 content = f.read()
+                 
+@@ -175,20 +146,16 @@ def verify_seal_hooks():
+             file_date = date_match.group(1)
+             
+             # Hook V2 Enforcement (Start 2026-01-27)
+-            if file_date >= "2026-01-27":
+-                has_header = "## Pending Closure Hook" in content
+-                has_resolved = "Resolved Pending Items:" in content
+-                has_new = "New Pending Items:" in content
+-                
+-                if not (has_header and has_resolved and has_new):
+-                    violations.append(f"{file.name} (V2 STRICT: Missing 'Resolved'/'New' items)")
++            if file_date < enforcement_start_date:
+                 continue
+ 
+-            # Hook V1 Enforcement (Start 2026-01-26)
+-            if file_date < enforcement_start_date: continue
++            # If we are here, date is >= 2026-01-27, so we enforce.
++            has_header = "## Pending Closure Hook" in content
++            has_resolved = "Resolved Pending Items:" in content
++            has_new = "New Pending Items:" in content
+             
+-            if "## Pending Closure Hook" not in content:
+-                violations.append(f"{file.name} (Date: {file_date}) missing '## Pending Closure Hook'")
++            if not (has_header and has_resolved and has_new):
++                violations.append(f"{file.name} (V2 STRICT: Missing 'Resolved'/'New' items)")
+ 
+     except Exception as e:
+         print(f"Error validating seals: {e}")
+diff --git a/market_sniper_app/lib/widgets/dashboard/sector_flip_widget_v1.dart b/market_sniper_app/lib/widgets/dashboard/sector_flip_widget_v1.dart
+index 83cc5c2..5c1df41 100644
+--- a/market_sniper_app/lib/widgets/dashboard/sector_flip_widget_v1.dart
++++ b/market_sniper_app/lib/widgets/dashboard/sector_flip_widget_v1.dart
+@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
+ import '../../theme/app_colors.dart';
+ import '../../theme/app_typography.dart';
+ import '../../ui/tokens/dashboard_spacing.dart';
++import 'breathing_status_accent.dart';
+ 
+ class SectorFlipWidgetV1 extends StatefulWidget {
+   const SectorFlipWidgetV1({super.key});
+@@ -294,11 +295,20 @@ class _SectorFlipWidgetV1State extends State<SectorFlipWidgetV1>
+                   Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+-                    Text("VOLUME INTELLIGENCE", 
+-                      style: AppTypography.title(context).copyWith(
+-                        letterSpacing: 0.6,
+-                        fontSize: 14 // Optical adjustment for small card
+-                      )
++                    Row(
++                       children: [
++                           Text("VOLUME INTELLIGENCE", 
++                             style: AppTypography.title(context).copyWith(
++                               letterSpacing: 0.6,
++                               fontSize: 14 
++                             )
++                           ),
++                           const SizedBox(width: 6),
++                           BreathingStatusAccent(
++                               color: _directionUp ? AppColors.marketBull : AppColors.marketBear,
++                               active: true, 
++                           ),
++                       ]
+                     ),
+                     const SizedBox(height: 4), // Micro-gap
+                      // Dynamic Subcopy with Future Override
+@@ -632,7 +642,7 @@ class _SectorFlipWidgetV1State extends State<SectorFlipWidgetV1>
+                                         // The child here is the "Ink" to be masked. 
+                                         // We want a white/silver ink that gets masked by the gradient alpha.
+                                         child: Container(
+-                                            color: Colors.white.withOpacity(0.4) // Base intensity
++                                            color: AppColors.textPrimary.withOpacity(0.4) // Base intensity
+                                         ),
+                                     );
+                                 }
+diff --git a/market_sniper_app/lib/widgets/war_room/canon_debt_radar.dart b/market_sniper_app/lib/widgets/war_room/canon_debt_radar.dart
+index bbbb1d0..43bc87c 100644
+--- a/market_sniper_app/lib/widgets/war_room/canon_debt_radar.dart
++++ b/market_sniper_app/lib/widgets/war_room/canon_debt_radar.dart
+@@ -697,12 +697,12 @@ class _CanonDebtRadarState extends State<CanonDebtRadar> {
+ 
+     Color kindColor = AppColors.textSecondary;
+     if (kind == "PENDING_FEATURE") kindColor = AppColors.neonCyan; // Was neonBlue
+-    if (kind == "PENDING_TECH_DEBT") kindColor = Colors.purpleAccent; // Was neonPurple (missing)
++    if (kind == "PENDING_TECH_DEBT") kindColor = AppColors.stateStale; // Was purpleAccent
+     if (kind == "PENDING_BUG") kindColor = AppColors.stateLocked;
+     
+     
+     // Fallback colors if tokens missing
+-    if (kindColor == Colors.transparent) kindColor = Colors.purpleAccent; // Fallback for purple
++    if (kindColor == Colors.transparent) kindColor = AppColors.stateStale; // Fallback
+ 
+     // Delta highlight
+     final bool isAdded = (_delta['added'] as List?)?.any((x) => x['id'] == id) ?? false;

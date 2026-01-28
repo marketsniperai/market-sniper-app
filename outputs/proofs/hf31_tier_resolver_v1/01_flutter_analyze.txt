@@ -1,0 +1,6 @@
+Flutter Analyze Results (D47.HF31)
+Status: Completed
+Issues: 229 found (mostly info/style).
+No errors related to `on_demand_panel.dart` or `tier_resolver.dart`.
+Execution time: 5.0s
+Exit code: 1 (Lint warnings)

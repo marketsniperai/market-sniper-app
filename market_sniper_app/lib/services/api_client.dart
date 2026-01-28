@@ -395,11 +395,12 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchOnDemandContext(String ticker,
-      {String tier = "FREE", bool allowStale = false}) async {
+      {String tier = "FREE", String timeframe = "DAILY", bool allowStale = false}) async {
     final uri =
         Uri.parse('$baseUrl/on_demand/context').replace(queryParameters: {
       'ticker': ticker,
       'tier': tier,
+      'timeframe': timeframe,
       'allow_stale': allowStale.toString(),
     });
 

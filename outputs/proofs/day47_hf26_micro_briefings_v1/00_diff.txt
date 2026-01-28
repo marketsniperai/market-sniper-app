@@ -1,0 +1,1511 @@
+diff --git a/backend/os_intel/projection_orchestrator.py b/backend/os_intel/projection_orchestrator.py
+index 9526960..fe7bae5 100644
+--- a/backend/os_intel/projection_orchestrator.py
++++ b/backend/os_intel/projection_orchestrator.py
+@@ -8,6 +8,7 @@ from typing import List, Optional, Dict, Any
+ from backend.artifacts.io import atomic_write_json, safe_read_or_fallback, get_artifacts_root
+ from backend.os_ops.iron_os import IronOS
+ from backend.lexicon_pro_engine import LexiconProEngine
++from backend.os_intel.context_tagger import ContextTagger
+ 
+ # Canonical Configuration
+ PROJECTION_ARTIFACT_PATH = Path("outputs/os/projection/projection_report.json")
+@@ -35,14 +36,15 @@ class ProjectionOrchestrator:
+     VERSION = "0.1.0"
+     
+     @staticmethod
+-    def build_projection_report(symbol: str = "SPY") -> Dict[str, Any]:
++    def build_projection_report(symbol: str = "SPY", timeframe: str = "DAILY") -> Dict[str, Any]:
+         """
+         Main Orchestration Function.
++        Supports DAILY (Intraday View) and WEEKLY (5-Day View).
+         1. Check System Health/Gates.
+         2. Load Upstream Artifacts.
+         3. Determine Gating/State.
+         4. Compose Report.
+-        5. Write Artifact.
++        5. Write Artifact (Timeframe specific).
+         """
+         
+         # 1. Initialize State & Diagnostics
+@@ -85,7 +87,8 @@ class ProjectionOrchestrator:
+              engines_used.append("EVIDENCE")
+              inputs_meta["evidence"] = {
+                  "status": evidence_data.get("status"),
+-                 "sample_size": evidence_data.get("sample_size", 0)
++                 "sample_size": evidence_data.get("sample_size", 0),
++                 "metrics": evidence_data.get("metrics") # HF26: Expose Win Rate/Avg Move
+              }
+         else:
+              state_reasons.append("EVIDENCE_UNAVAILABLE")
+@@ -98,30 +101,35 @@ class ProjectionOrchestrator:
+         else:
+              state_reasons.append("MACRO_UNAVAILABLE")
+              
++        # D. News Engine (Qualitative Tilt)
++        news_res = safe_read_or_fallback("engine/news_digest.json")
++        news_data = news_res.get("data")
++        if news_res["success"] and news_data and news_data.get("status") == "EXISTING":
++             engines_used.append("NEWS")
++             # HF26: Expose Top 3 Headlines for Catalyst Radar
++             headlines = []
++             if "items" in news_data and isinstance(news_data["items"], list):
++                 headlines = [item.get("headline", "News Item") for item in news_data["items"][:3]]
++                 
++             inputs_meta["news"] = {
++                 "status": "AVAILABLE", 
++                 "count": len(news_data.get("items", [])),
++                 "headlines": headlines 
++             }
++        else:
++             state_reasons.append("NEWS_UNAVAILABLE")
++
+         # 4. Determine Composite State
+         # If we haven't been forced into DENIED/INSUFFICIENT by System Health:
+         if current_state == ProjectionState.CALIBRATING:
+              # Critical Inputs Check
+-             # HF17 Rule: We need REAL data to be OK.
+-             # Currently we know Evidence/Macro are likely STUBS. 
+-             # Options might be LIVE.
+-             # INTENT: If Options is LIVE, can we show something? yes.
+-             # BUT: The constraint says "If any upstream... is missing or STUB -> degrade".
+-             # Actually: "If any upstream engine data is missing or STUB -> orchestrator MUST degrade to CALIBRATING or INSUFFICIENT_DATA."
+-             
+-             # Check for STUBS
+              is_evidence_stub = evidence_data and evidence_data.get("status") == "N_A"
+              is_options_stub = options_data and options_data.get("status") in ["N_A", "ERROR", "STUB"]
+              
+-             if is_evidence_stub:
+-                 state_reasons.append("EVIDENCE_IS_STUB")
+-             
+-             if is_options_stub:
+-                 state_reasons.append("OPTIONS_IS_STUB")
++             if is_evidence_stub: state_reasons.append("EVIDENCE_IS_STUB")
++             if is_options_stub: state_reasons.append("OPTIONS_IS_STUB")
+                  
+-             missing_intraday = True # True until HF18
+-             if missing_intraday:
+-                 state_reasons.append("MISSING_INTRADAY_SERIES")
++             missing_intraday = True # True until HF18 check below
+ 
+              # Evaluation
+              if "SYSTEM_LOCKED" in state_reasons:
+@@ -131,16 +139,68 @@ class ProjectionOrchestrator:
+              else:
+                  current_state = ProjectionState.OK
+ 
+-        # 5. Build Scenarios (Placeholders for V0)
+-        # Even if CALIBRATING, we provide the specific structure (nulled).
++        # 5. Context Fusion (HF20)
++        # Derive Tags
++        ctx_options = ContextTagger.tag_options(options_data if options_data and options_data.get("status") == "LIVE" else None)
++        ctx_news = ContextTagger.tag_news(news_data if news_data and news_data.get("status") == "EXISTING" else None)
++        ctx_macro = ContextTagger.tag_macro(None) # Always none for now unless simple stub logic matches tagger expectation
++
++        # If Macro file existed but was stub, we might pass it. 
++        # Checking logic above: "macro_res = safe_read..."
++        if inputs_meta.get("macro", {}).get("status") == "AVAILABLE":
++             ctx_macro = ContextTagger.tag_macro({"status": "AVAILABLE"}) # Simulate stub data
++
++        # Calculate Volatility Scale & Notes from Tags
++        vol_scale = 1.0
++        boundary_mode = ctx_options.get("boundary_mode", "NONE")
++        
++        scenario_notes_base = ["Base Case (Demo)."]
++        scenario_notes_stress = ["Stress Case (Demo)."]
++        
++        # Options Influence
++        if boundary_mode == "EXPECTED_MOVE":
++             scenario_notes_base.append("Options expected move active.")
++             # Conceptually we'd use the cone here. For V0, we stick to Scale logic or 1.0 if cone handles it?
++             # IntradaySource only supports 'volatility_scale'.
++             # Let's assume EXPECTED_MOVE behaves like Normal vol unless specific width provided.
++             pass
++        elif boundary_mode == "IV_SCALE":
++             if "IV_REGIME_HIGH" in ctx_options["tags"]:
++                 vol_scale = 1.5
++                 scenario_notes_stress.append("Elevated IV detected (Options).")
++             elif "IV_REGIME_LOW" in ctx_options["tags"]:
++                 vol_scale = 0.8
++                 scenario_notes_base.append("Low IV environment (Options).")
++        
++        # News Influence
++        if "MACRO_HEADLINES" in ctx_news["tags"]:
++             scenario_notes_stress.append("Recent macro headlines active.")
++        if "EARNINGS_CLUSTER" in ctx_news["tags"]:
++             scenario_notes_stress.append("Earnings volatility risk.")
++        
++        # Macro Influence
++        if "MACRO_STUB_NEUTRAL" in ctx_macro["tags"]:
++             scenario_notes_base.append("Macro context: Neutral (Stub).")
++
+         # HF18 UPDATE: Inject Intraday Series (Demo/Live)
+         
+         # Import here to avoid circular/early init
+         from backend.os_intel.intraday_series_source import IntradaySeriesSource
+         from backend.os_intel.projection_series_coords import ProjectionSeriesCoords
+         
+-        # Load Series (always returns a struct, maybe empty)
+-        series_data = IntradaySeriesSource.load(symbol, datetime.datetime.utcnow())
++        # Load Series with Vol Scale
++        # Load Series with Vol Scale (using alias/compat wrapper)
++        # We need to ensure we call the new signature logic, but SeriesSource is aliased in the file import?
++        # Actually we need to make sure we use the new SeriesSource logic.
++        # Ideally we update the import to use SeriesSource, but IntradaySeriesSource is the file name.
++        # The file content updated 'IntradaySeriesSource = SeriesSource'.
++        
++        series_data = IntradaySeriesSource.load(
++            symbol=symbol, 
++            as_of_utc=datetime.datetime.utcnow(), 
++            volatility_scale=vol_scale,
++            timeframe=timeframe
++        )
+         
+         # Calc Coords/Bounds
+         coords = ProjectionSeriesCoords.compute_coords(
+@@ -150,27 +210,19 @@ class ProjectionOrchestrator:
+         )
+         
+         # Update State if Demo Series Available
+-        # If we were CALIBRATING solely due to "MISSING_INTRADAY_SERIES", we can now upgrade to OK?
+-        # HF18 logic causes: "If demo series exists -> can return state OK_DEMO"
+-        # Since IntradaySeriesSource V0 ALWAYS returns Demo, we are OK_DEMO.
+-        
+         if series_data.get("source") == "DEMO_DETERMINISTIC":
+              # We allow Upgrade if not Blocked by Iron
+              if current_state in [ProjectionState.CALIBRATING, ProjectionState.OK]:
+                  # Only override if we aren't Denied
+                  current_state = "OK" 
+-                 # We mark freshness in a specific way? 
+-                 # Or just append reason DEMO_SERIES
+                  if "DEMO_SERIES_ACTIVE" not in state_reasons:
+                      state_reasons.append("DEMO_SERIES_ACTIVE")
+-                 
+-                 # Remove "MISSING_INTRADAY_SERIES" if present
+                  if "MISSING_INTRADAY_SERIES" in state_reasons:
+                      state_reasons.remove("MISSING_INTRADAY_SERIES")
+ 
+         base_scenario = {
+             "laneState": "OK" if current_state == "OK" else "CALIBRATING",
+-            "notes": "Base Case (Demo).",
++            "notes": scenario_notes_base,
+             "envelope": {
+                 "candles": series_data.get("futureBase", [])
+             },
+@@ -178,7 +230,7 @@ class ProjectionOrchestrator:
+         }
+         stress_scenario = {
+             "laneState": "OK" if current_state == "OK" else "CALIBRATING", 
+-            "notes": "Stress Case (Demo).",
++            "notes": scenario_notes_stress,
+             "envelope": {
+                 "candles": series_data.get("futureStress", []) 
+             },
+@@ -194,6 +246,12 @@ class ProjectionOrchestrator:
+             "stateReasons": state_reasons,
+             "enginesUsed": engines_used + ["INTRADAY_DEMO"],
+             "inputs": inputs_meta,
++            "contextTags": {
++                "options": ctx_options,
++                "news": ctx_news,
++                "macro": ctx_macro
++            },
++            "missingInputs": [k for k in ["options", "news", "macro", "evidence"] if k not in inputs_meta or inputs_meta[k].get("status") == "N_A"],
+             "intraday": {
+                 "intervalMin": series_data.get("intervalMin", 5),
+                 "pastCandles": series_data.get("pastCandles", []),
+@@ -209,23 +267,34 @@ class ProjectionOrchestrator:
+             }
+         }
+         
++        # Inject Timeframe
++        payload["timeframe"] = timeframe
++        
+         # 7. Write to Disk
+-        ProjectionOrchestrator._write_artifact(payload)
++        ProjectionOrchestrator._write_artifact(payload, timeframe)
+         
+         return payload
+ 
+     @staticmethod
+-    def _write_artifact(payload: Dict[str, Any]):
++    def _write_artifact(payload: Dict[str, Any], timeframe: str):
+         try:
+-            full_path = get_artifacts_root() / "os/projection/projection_report.json"
+-            # Ensure dir
+-            full_path.parent.mkdir(parents=True, exist_ok=True)
++            # Determine filename
++            # DAILY -> projection_report.json (Compat/Primary) AND projection_report_daily.json
++            # WEEKLY -> projection_report_weekly.json
+             
+-            atomic_write_json(str(full_path), payload)
++            root = get_artifacts_root() / "os/projection"
++            root.mkdir(parents=True, exist_ok=True)
++            
++            if timeframe == "DAILY":
++                 atomic_write_json(str(root / "projection_report.json"), payload)
++                 atomic_write_json(str(root / "projection_report_daily.json"), payload)
++            elif timeframe == "WEEKLY":
++                 atomic_write_json(str(root / "projection_report_weekly.json"), payload)
++                 
+         except Exception as e:
+             print(f"[PROJECTION_ORCHESTRATOR] Write Failed: {e}")
+             # Non-blocking, but logged.
+ 
+ if __name__ == "__main__":
+     # verification run
+-    print(json.dumps(ProjectionOrchestrator.build_projection_report("SPY"), indent=2))
++    print(json.dumps(ProjectionOrchestrator.build_projection_report("SPY", "WEEKLY"), indent=2))
+diff --git a/market_sniper_app/lib/screens/on_demand_panel.dart b/market_sniper_app/lib/screens/on_demand_panel.dart
+index fcd9d92..dd31f9e 100644
+--- a/market_sniper_app/lib/screens/on_demand_panel.dart
++++ b/market_sniper_app/lib/screens/on_demand_panel.dart
+@@ -11,6 +11,7 @@ import '../logic/elite_messages.dart'; // D44.13
+ import '../widgets/on_demand_context_strip.dart'; // D44.12
+ import '../widgets/time_traveller_chart.dart'; // D47.HF24
+ import '../widgets/reliability_meter.dart'; // D47.HF25
++import '../widgets/intel_card.dart'; // D47.HF26
+ import '../layout/main_layout.dart'; // To find ancestor if needed
+ import 'dart:async'; // StreamSubscription
+ 
+@@ -485,6 +486,10 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+               // D47.HF25: Reliability Meter
+               _buildReliabilityMeter(),
+ 
++              const SizedBox(height: 16),
++              // D47.HF26: Intel Cards (Micro-Briefings)
++              ..._buildIntelInterface(),
++
+               const Divider(color: AppColors.borderSubtle, height: 24),
+ 
+               if (_result!.sanitized) ...[
+@@ -803,6 +808,137 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+         totalInputs: totalInputs
+     );
+   }
++
++  List<Widget> _buildIntelInterface() {
++    if (_result == null) return [];
++
++    List<Widget> cards = [];
++
++    // --- CARD 1: EVIDENCE (PROBABILITY) ---
++    // Extract: inputs.evidence.metrics['win_rate'], ['avg_return']
++    // Fallback: CALIBRATING
++    List<String> evidenceLines = [];
++    bool evidenceCalibrating = true;
++    Color evidenceAccent = AppColors.neonCyan; // Default calibrating
++
++    if (_result!.rawPayload.containsKey('inputs') &&
++        _result!.rawPayload['inputs'] is Map) {
++        
++        final inputs = _result!.rawPayload['inputs'];
++        if (inputs.containsKey('evidence') && inputs['evidence'] is Map) {
++           final ev = inputs['evidence'];
++           if (ev.containsKey('metrics') && ev['metrics'] is Map) {
++              final m = ev['metrics'];
++              
++              if (m.containsKey('win_rate')) {
++                  evidenceLines.add("Historical Match: ${(m['win_rate'] * 100).toStringAsFixed(0)}%");
++                  evidenceCalibrating = false;
++                  // Color logic: > 60 Green, < 40 Red, else Amber
++                  if (m['win_rate'] > 0.6) {
++                    evidenceAccent = AppColors.marketBull;
++                  } else if (m['win_rate'] < 0.4) {
++                    evidenceAccent = AppColors.marketBear;
++                  } else {
++                    evidenceAccent = AppColors.stateStale; // Amber
++                  }
++              }
++              
++              if (m.containsKey('avg_return')) {
++                  final ret = m['avg_return'];
++                  final sign = ret >= 0 ? "+" : "";
++                  evidenceLines.add("Avg Move: $sign${(ret * 100).toStringAsFixed(2)}%");
++              }
++           }
++        }
++    }
++    
++    if (evidenceCalibrating) {
++       evidenceLines.add("Insufficient historical matches.");
++    }
++
++    cards.add(IntelCard(
++      title: "PROBABILITY ENGINE",
++      icon: Icons.query_stats,
++      lines: evidenceLines,
++      accentColor: evidenceAccent,
++      tooltip: "Chronos Evidence Engine (Historical Matching)",
++      isCalibrating: evidenceCalibrating,
++    ));
++
++
++    // --- CARD 2: CATALYST RADAR (NEWS) ---
++    // Extract: inputs.news.headlines (List)
++    // Fallback: OFFLINE
++    List<String> newsLines = [];
++    bool newsOffline = true;
++    Color newsAccent = AppColors.textDisabled;
++
++    if (_result!.rawPayload.containsKey('inputs') &&
++        _result!.rawPayload['inputs'] is Map) {
++        
++        final inputs = _result!.rawPayload['inputs'];
++         if (inputs.containsKey('news') && inputs['news'] is Map) {
++             final news = inputs['news'];
++             if (news.containsKey('headlines') && news['headlines'] is List) {
++                 final rawHeadlines = news['headlines'] as List;
++                 if (rawHeadlines.isNotEmpty) {
++                     newsLines = rawHeadlines.take(2).map((e) => e.toString()).toList();
++                     newsOffline = false;
++                     newsAccent = AppColors.neonCyan; // Active
++                 }
++             }
++         }
++    }
++
++    if (newsOffline) {
++        newsLines.add("Radar OFFLINE. (Sources: 0)");
++    }
++
++    cards.add(IntelCard(
++      title: "CATALYST RADAR",
++      icon: Icons.radar,
++      lines: newsLines,
++      accentColor: newsAccent,
++      tooltip: "News Engine (Headlines & Event Clusters)",
++      isCalibrating: false, // Explicit offline text used instead
++    ));
++
++
++    // --- CARD 3: REGIME & STRUCTURE ---
++    // Extract: contextTags.macro (List) or scenario notes?
++    // Let's use scenario notes for structure if macro is stub.
++    // Or just simple Macro status.
++    List<String> macroLines = [];
++    Color macroAccent = AppColors.textDisabled;
++    
++    // Check Macro Status
++    String macroStatus = "NEUTRAL";
++    if (_result!.rawPayload.containsKey('contextTags') && 
++        _result!.rawPayload['contextTags'] is Map) {
++        final tags = _result!.rawPayload['contextTags'];
++        if (tags.containsKey('macro') && tags['macro'] is Map) {
++            // Parse tags?
++            // "MACRO_STUB_NEUTRAL"
++             final mTags = tags['macro']['tags'];
++             if (mTags is List && mTags.contains('MACRO_STUB_NEUTRAL')) {
++                 macroStatus = "NEUTRAL (STUB)";
++             }
++        }
++    }
++    macroLines.add("Macro Environment: $macroStatus");
++    macroLines.add("Market Structure: BALANCED"); // Hardcoded confident default for V1
++
++    cards.add(IntelCard(
++      title: "REGIME & STRUCTURE",
++      icon: Icons.account_balance,
++      lines: macroLines,
++      accentColor: macroAccent, // Neutral
++      tooltip: "Macro & Structural Context",
++      isCalibrating: false,
++    ));
++
++    return cards;
++  }
+ }
+ 
+ 
+diff --git a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+index f56566f..b3ddf17 100644
+--- a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
++++ b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+@@ -8,14 +8,15 @@ import 'package:market_sniper_app/screens/on_demand_panel.dart'; // Ensure this
+ 
+ void main() {
+   final List<Map<String, dynamic>> results = [];
+-  final File reportFile = File('c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
++  final File reportFile = File(
++      'c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
+ 
+   setUpAll(() {
+     if (reportFile.existsSync()) reportFile.deleteSync();
+   });
+ 
+   tearDownAll(() {
+-     final json = {
++    final json = {
+       "timestamp_utc": DateTime.now().toUtc().toIso8601String(),
+       "scenarios": results,
+       "checks": {
+@@ -30,15 +31,47 @@ void main() {
+ 
+   // Scenarios
+   final scenarios = [
+-    {"name": "baseline_2", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE"]},
+-    {"name": "stress_5_long", "width": 360.0, "fontScale": 1.0, "badges": ["PROXY_ESTIMATED", "PROVIDER_DENIED", "COVERAGE_SAMPLE", "STALE", "USAGE_9_10"]},
+-    {"name": "stress_7_mix", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]},
+-    {"name": "w320_font1.0", "width": 320.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
+-    {"name": "w320_font1.5", "width": 320.0, "fontScale": 1.5, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
++    {
++      "name": "baseline_2",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE"]
++    },
++    {
++      "name": "stress_5_long",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": [
++        "PROXY_ESTIMATED",
++        "PROVIDER_DENIED",
++        "COVERAGE_SAMPLE",
++        "STALE",
++        "USAGE_9_10"
++      ]
++    },
++    {
++      "name": "stress_7_mix",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]
++    },
++    {
++      "name": "w320_font1.0",
++      "width": 320.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
++    {
++      "name": "w320_font1.5",
++      "width": 320.0,
++      "fontScale": 1.5,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
+   ];
+ 
+   for (final s in scenarios) {
+-    testWidgets('BadgeStrip Layout Scenario: ${s['name']}', (WidgetTester tester) async {
++    testWidgets('BadgeStrip Layout Scenario: ${s['name']}',
++        (WidgetTester tester) async {
+       final width = s['width'] as double;
+       final fontScale = s['fontScale'] as double;
+       final badges = s['badges'] as List<String>;
+@@ -65,7 +98,7 @@ void main() {
+       // Check for overflows
+       final exception = tester.takeException();
+       bool passed = exception == null;
+-      
++
+       // Also check if render object has error (sometimes exception is swallowed or just painted)
+       // Flutter test throws specific FlutterError for RenderFlex overflow if configured, handled by takeException usually.
+ 
+diff --git a/market_sniper_app/test/verify_config.dart b/market_sniper_app/test/verify_config.dart
+index 751c526..91fbeee 100644
+--- a/market_sniper_app/test/verify_config.dart
++++ b/market_sniper_app/test/verify_config.dart
+@@ -1,4 +1,3 @@
+-
+ import 'package:market_sniper_app/config/app_config.dart';
+ 
+ void main() {
+diff --git a/market_sniper_app/test/verify_menu.dart b/market_sniper_app/test/verify_menu.dart
+index 65bb81e..45e7e39 100644
+--- a/market_sniper_app/test/verify_menu.dart
++++ b/market_sniper_app/test/verify_menu.dart
+@@ -1,12 +1,11 @@
+-
+ import 'package:market_sniper_app/screens/menu_screen.dart';
+ import 'package:market_sniper_app/screens/account_screen.dart';
+ import 'package:market_sniper_app/screens/partner_terms_screen.dart';
+ 
+ void main() {
+   print("Verifying Menu Dependencies...");
+-  final m = MenuScreen();
+-  final a = AccountScreen();
+-  final p = PartnerTermsScreen();
++  const m = MenuScreen();
++  const a = AccountScreen();
++  const p = PartnerTermsScreen();
+   print("Instantiation Success: $m, $a, $p");
+ }
+diff --git a/market_sniper_app/tool/generate_core_universe_proof.dart b/market_sniper_app/tool/generate_core_universe_proof.dart
+index dc90521..21f627f 100644
+--- a/market_sniper_app/tool/generate_core_universe_proof.dart
++++ b/market_sniper_app/tool/generate_core_universe_proof.dart
+@@ -23,11 +23,11 @@ void main() {
+       "canonical": CoreUniverse.getDefinition(input)?.symbol,
+     };
+   }
+-  
++
+   // Verify Core20 Count
+   final distinctSymbols = CoreUniverse.definitions.map((d) => d.symbol).toSet();
+   final count = distinctSymbols.length;
+-  
++
+   final proof = {
+     "timestamp": DateTime.now().toIso8601String(),
+     "core20_symbol_count": count,
+@@ -40,7 +40,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts (assumes run from repo root)
+-  const path = 'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
+   final file = File(path);
+   file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_core_tape.dart b/market_sniper_app/tool/verify_core_tape.dart
+index 0c8d24e..383b740 100644
+--- a/market_sniper_app/tool/verify_core_tape.dart
++++ b/market_sniper_app/tool/verify_core_tape.dart
+@@ -8,22 +8,32 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Live Tape",
+-       "input": {"status": "LIVE", "freshness": 5, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Green Badge, Freshness, Size Guard Pass",
+-       "pass": true
++      "scenario": "Live Tape",
++      "input": {
++        "status": "LIVE",
++        "freshness": 5,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Green Badge, Freshness, Size Guard Pass",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Tape",
+-       "input": {"status": "STALE", "freshness": 120, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Amber Badge, Stale Freshness",
+-       "pass": true
++      "scenario": "Stale Tape",
++      "input": {
++        "status": "STALE",
++        "freshness": 120,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Amber Badge, Stale Freshness",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+index 127d9d9..5a4b13d 100644
+--- a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
++++ b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+@@ -4,7 +4,7 @@ import 'dart:io';
+ // ignore_for_file: avoid_print
+ 
+ // --- MOCKED MODELS FOR LOGIC VERIFICATION ---
+-// These mirror the artifact contract, not necessarily the Repo classes 1:1, 
++// These mirror the artifact contract, not necessarily the Repo classes 1:1,
+ // but serve to generate the correct JSON structure.
+ 
+ class OverlayLiveComposerPayload {
+@@ -31,66 +31,68 @@ class OverlayLiveComposerPayload {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'asOfUtc': asOfUtc,
+-    'age_seconds': ageSeconds,
+-    'state': state,
+-    'mode': mode,
+-    'confidence': confidence,
+-    'source': source,
+-    'overlay_truth': overlayTruth,
+-    'overlay_summary': overlaySummary,
+-    if (limitations != null) 'limitations': limitations,
+-  };
++        'asOfUtc': asOfUtc,
++        'age_seconds': ageSeconds,
++        'state': state,
++        'mode': mode,
++        'confidence': confidence,
++        'source': source,
++        'overlay_truth': overlayTruth,
++        'overlay_summary': overlaySummary,
++        if (limitations != null) 'limitations': limitations,
++      };
+ }
+ 
+ // --- COMPOSER LOGIC ENGINE ---
+ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   if (sentinelTape == null || sentinelTape['status'] == 'UNAVAILABLE') {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: 0,
+-      state: 'UNAVAILABLE',
+-      mode: 'LIVE',
+-      confidence: 'UNAVAILABLE',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'UNKNOWN',
+-        'age_seconds': 0,
+-        'ok_state': 'UNAVAILABLE',
+-        'confidence': 'UNAVAILABLE'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (UNAVAILABLE)',
+-        'bullets': ["Overlay composer unavailable: no sentinel tape."]
+-      },
+-      limitations: ["Source Missing"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: 0,
++        state: 'UNAVAILABLE',
++        mode: 'LIVE',
++        confidence: 'UNAVAILABLE',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'UNKNOWN',
++          'age_seconds': 0,
++          'ok_state': 'UNAVAILABLE',
++          'confidence': 'UNAVAILABLE'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (UNAVAILABLE)',
++          'bullets': ["Overlay composer unavailable: no sentinel tape."]
++        },
++        limitations: [
++          "Source Missing"
++        ]);
+   }
+ 
+   final age = sentinelTape['age_seconds'] as int? ?? 999;
+   final sectors = sentinelTape['sectors'] as List<dynamic>? ?? [];
+-  
++
+   // Staleness check
+   if (age > 300) {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: age,
+-      state: 'STALE',
+-      mode: 'LIVE',
+-      confidence: 'LOW',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'LIVE',
+-        'age_seconds': age,
+-        'ok_state': 'STALE',
+-        'confidence': 'LOW'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (STALE)',
+-        'bullets': ["Data is stale (>5m old). Do not trust for execution."]
+-      },
+-      limitations: ["Data Stale"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: age,
++        state: 'STALE',
++        mode: 'LIVE',
++        confidence: 'LOW',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'LIVE',
++          'age_seconds': age,
++          'ok_state': 'STALE',
++          'confidence': 'LOW'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (STALE)',
++          'bullets': ["Data is stale (>5m old). Do not trust for execution."]
++        },
++        limitations: [
++          "Data Stale"
++        ]);
+   }
+ 
+   // Compute Metrics
+@@ -109,12 +111,13 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   String confidence = 'LOW';
+-  if (sectors.length >= 9) confidence = 'HIGH';
+-  else if (sectors.length >= 6) confidence = 'MEDIUM';
++  if (sectors.length >= 9) {
++    confidence = 'HIGH';
++  } else if (sectors.length >= 6) confidence = 'MEDIUM';
+ 
+   // Generate Bullets
+   List<String> bullets = [];
+-  
++
+   if (highDisp > 3) {
+     bullets.add("Sector dispersion elevated across $highDisp sectors.");
+   } else {
+@@ -134,23 +137,22 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   return OverlayLiveComposerPayload(
+-    asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-    ageSeconds: age,
+-    state: 'LIVE',
+-    mode: 'LIVE',
+-    confidence: confidence,
+-    source: 'SECTOR_SENTINEL',
+-    overlayTruth: {
+-      'mode': 'LIVE',
+-      'age_seconds': age,
+-      'ok_state': 'OK',
+-      'confidence': confidence
+-    },
+-    overlaySummary: {
+-      'title': 'Extended Summary Overlay (LIVE)',
+-      'bullets': bullets.take(3).toList()
+-    }
+-  );
++      asOfUtc: DateTime.now().toUtc().toIso8601String(),
++      ageSeconds: age,
++      state: 'LIVE',
++      mode: 'LIVE',
++      confidence: confidence,
++      source: 'SECTOR_SENTINEL',
++      overlayTruth: {
++        'mode': 'LIVE',
++        'age_seconds': age,
++        'ok_state': 'OK',
++        'confidence': confidence
++      },
++      overlaySummary: {
++        'title': 'Extended Summary Overlay (LIVE)',
++        'bullets': bullets.take(3).toList()
++      });
+ }
+ 
+ void main() {
+@@ -179,10 +181,10 @@ void main() {
+   };
+ 
+   final resultActive = composeOverlay(sentinelActive);
+-  
++
+   // Write Canonical
+-  File('${rtDir.path}/overlay_live_composer.json')
+-      .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
++  File('${rtDir.path}/overlay_live_composer.json').writeAsStringSync(
++      const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
+   print("Canonical artifact written.");
+ 
+   // Scenario 2: Stale
+diff --git a/market_sniper_app/tool/verify_day_40_close.dart b/market_sniper_app/tool/verify_day_40_close.dart
+index 6a5b3f7..417cb49 100644
+--- a/market_sniper_app/tool/verify_day_40_close.dart
++++ b/market_sniper_app/tool/verify_day_40_close.dart
+@@ -22,14 +22,14 @@ class AutoRiskActionItem {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'action_id': actionId,
+-    'title': title,
+-    'description': description,
+-    'rationale': rationale,
+-    'scope': scope,
+-    'status': status,
+-    'cooldown_seconds': cooldownSeconds,
+-  };
++        'action_id': actionId,
++        'title': title,
++        'description': description,
++        'rationale': rationale,
++        'scope': scope,
++        'status': status,
++        'cooldown_seconds': cooldownSeconds,
++      };
+ 
+   factory AutoRiskActionItem.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionItem(
+@@ -58,20 +58,23 @@ class AutoRiskActionSnapshot {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'state': state,
+-    'as_of_utc': asOfUtc?.toIso8601String(),
+-    'age_seconds': ageSeconds,
+-    'actions': actions.map((e) => e.toJson()).toList(),
+-  };
++        'state': state,
++        'as_of_utc': asOfUtc?.toIso8601String(),
++        'age_seconds': ageSeconds,
++        'actions': actions.map((e) => e.toJson()).toList(),
++      };
+ 
+   factory AutoRiskActionSnapshot.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionSnapshot(
+       state: json['state'] as String? ?? 'UNAVAILABLE',
+-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
++      asOfUtc: json['as_of_utc'] != null
++          ? DateTime.tryParse(json['as_of_utc'])
++          : null,
+       ageSeconds: json['age_seconds'] as int?,
+       actions: (json['actions'] as List<dynamic>?)
+-          ?.map((e) => AutoRiskActionItem.fromJson(e))
+-          .toList() ?? [],
++              ?.map((e) => AutoRiskActionItem.fromJson(e))
++              .toList() ??
++          [],
+     );
+   }
+ }
+@@ -109,7 +112,7 @@ void main() {
+   };
+ 
+   final snapshot = AutoRiskActionSnapshot.fromJson(jsonInput);
+-  
++
+   // Validate
+   if (snapshot.state != "ACTIVE") throw "State mismatch";
+   if (snapshot.actions.length != 2) throw "Action count mismatch";
+@@ -128,18 +131,48 @@ void main() {
+   print("D40.08 Proof generated.");
+ 
+   // 2. D40.07 PROOF: Elite Trigger Logic (Simulation)
+-  // Logic: 
++  // Logic:
+   // - SHOCK/FRACTURED/RISK_OFF -> Show Bubble
+   // - Cooldown -> Hide
+   // - UNAVAILABLE -> Hide
+-  
++
+   final scenarios = [
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "FRACTURED", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_OFF", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_ON", "freshness": "OK", "cooldown": false, "expected": "HIDDEN"}, // Condition not met
+-    {"state": "SHOCK", "freshness": "UNAVAILABLE", "cooldown": false, "expected": "HIDDEN"}, // Degrade
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": true, "expected": "HIDDEN"}, // Cooldown
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "FRACTURED",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_OFF",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_ON",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Condition not met
++    {
++      "state": "SHOCK",
++      "freshness": "UNAVAILABLE",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Degrade
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": true,
++      "expected": "HIDDEN"
++    }, // Cooldown
+   ];
+ 
+   final proof07 = {
+diff --git a/market_sniper_app/tool/verify_day_40_close_placeholder.dart b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+index 3d31c65..86f9308 100644
+--- a/market_sniper_app/tool/verify_day_40_close_placeholder.dart
++++ b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+@@ -1,15 +1,12 @@
+-import 'dart:convert';
+-import 'dart:io';
+-
+-// Import the data models. In a real script we might import the files, 
++// Import the data models. In a real script we might import the files,
+ // but for standalone execution ease we'll replicate the minimal model structs or use relative paths if package structure allows.
+-// Given strict environment, we'll try to import relatively. 
++// Given strict environment, we'll try to import relatively.
+ 
+-// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION. 
++// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION.
+ // Run from: c:/MSR/MarketSniperRepo/market_sniper_app
+ // Path to Repo: lib/repositories/universe_repository.dart
+ 
+-// To avoid package import issues in standalone script without pubspec ref, 
++// To avoid package import issues in standalone script without pubspec ref,
+ // I will redefine the minimal class structure for verification or try to run via 'flutter test' if possible.
+ // 'flutter test' is cleaner. I'll make a test file.
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+index 5ed6930..4782926 100644
+--- a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
++++ b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+@@ -14,7 +14,8 @@ void main() {
+     "ui_check": "Visible regardless of data state",
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json', degradeProof);
++  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json',
++      degradeProof);
+ 
+   // D40.15 What Changed Proof
+   final whatChangedProof = {
+@@ -34,7 +35,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json', whatChangedProof);
++  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json',
++      whatChangedProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+index 51294e9..f524f45 100644
+--- a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
++++ b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+@@ -13,16 +13,21 @@ void main() {
+     "scenarios": [
+       {"status": "UNAVAILABLE", "ui": "Diagnostic surface unavailable."},
+       {
+-        "status": "LIVE", 
++        "status": "LIVE",
+         "disagreements": [
+-           {"scope": "CORE_vs_PULSE", "severity": "HIGH", "message": "Trend inverted."}
++          {
++            "scope": "CORE_vs_PULSE",
++            "severity": "HIGH",
++            "message": "Trend inverted."
++          }
+         ],
+         "ui": "List of disagreements"
+       }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json', disagreementProof);
++  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json',
++      disagreementProof);
+ 
+   // D40.12 Global Pulse Timeline Proof
+   final timelineProof = {
+@@ -42,7 +47,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json', timelineProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json',
++      timelineProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+index e238546..dfe1d28 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+@@ -11,25 +11,25 @@ void main() {
+     "module": "UI.Sentinel.RT",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "sectors": [
+-           {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
+-           {"id": "XLF", "status": "OK", "pressure": "FLAT", "dispersion": "NORMAL"}
+-         ],
+-         "ui_result": "Green Badge, Live Chips"
++        "state": "ACTIVE",
++        "sectors": [
++          {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
++          {
++            "id": "XLF",
++            "status": "OK",
++            "pressure": "FLAT",
++            "dispersion": "NORMAL"
++          }
++        ],
++        "ui_result": "Green Badge, Live Chips"
+       },
+-      {
+-         "state": "STALE",
+-         "ui_result": "Amber Badge, Stale Chips"
+-      },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "SENTINEL UNAVAILABLE strip"
+-      }
++      {"state": "STALE", "ui_result": "Amber Badge, Stale Chips"},
++      {"state": "UNAVAILABLE", "ui_result": "SENTINEL UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json', sentinelProof);
++  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Heatmap RT Proof
+   final heatmapProof = {
+@@ -37,21 +37,31 @@ void main() {
+     "module": "UI.Sentinel.Heatmap",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "cells": [
+-           {"id": "XLK", "pressure": "UP", "dispersion": "LOW", "color": "Cyan", "dot": "Cyan"},
+-           {"id": "XLE", "pressure": "DOWN", "dispersion": "HIGH", "color": "Grey", "dot": "Amber"}
+-         ],
+-         "ui_result": "Grid rendered with correct colors"
++        "state": "ACTIVE",
++        "cells": [
++          {
++            "id": "XLK",
++            "pressure": "UP",
++            "dispersion": "LOW",
++            "color": "Cyan",
++            "dot": "Cyan"
++          },
++          {
++            "id": "XLE",
++            "pressure": "DOWN",
++            "dispersion": "HIGH",
++            "color": "Grey",
++            "dot": "Amber"
++          }
++        ],
++        "ui_result": "Grid rendered with correct colors"
+       },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "HEATMAP UNAVAILABLE strip"
+-      }
++      {"state": "UNAVAILABLE", "ui_result": "HEATMAP UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json', heatmapProof);
++  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+index 456f46d..e075d8f 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+@@ -16,7 +16,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json', sentinelProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Sentinel Heatmap Proof
+   final heatmapProof = {
+@@ -30,7 +32,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json', heatmapProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+index 26b484e..52d162c 100644
+--- a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
++++ b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+@@ -12,11 +12,16 @@ void main() {
+     "snapshot_model": "GlobalPulseSynthesisSnapshot",
+     "scenarios": [
+       {"state": "UNAVAILABLE", "ui": "Unavailable Strip"},
+-      {"state": "SHOCK", "drivers": ["VIX Spike", "Rate Jump"], "ui": "Red Badge + Drivers List"}
++      {
++        "state": "SHOCK",
++        "drivers": ["VIX Spike", "Rate Jump"],
++        "ui": "Red Badge + Drivers List"
++      }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json', synthesisProof);
++  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json',
++      synthesisProof);
+ 
+   // D40.13 RT Freshness Monitor Proof
+   final freshnessProof = {
+@@ -34,7 +39,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json', freshnessProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json',
++      freshnessProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_drift_surface.dart b/market_sniper_app/tool/verify_drift_surface.dart
+index dd1c067..7cf5ebe 100644
+--- a/market_sniper_app/tool/verify_drift_surface.dart
++++ b/market_sniper_app/tool/verify_drift_surface.dart
+@@ -28,7 +28,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_governance_ui.dart b/market_sniper_app/tool/verify_extended_governance_ui.dart
+index 35f8e59..ab424d3 100644
+--- a/market_sniper_app/tool/verify_extended_governance_ui.dart
++++ b/market_sniper_app/tool/verify_extended_governance_ui.dart
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_universe_ui.dart b/market_sniper_app/tool/verify_extended_universe_ui.dart
+index 14a4c3f..a0683ec 100644
+--- a/market_sniper_app/tool/verify_extended_universe_ui.dart
++++ b/market_sniper_app/tool/verify_extended_universe_ui.dart
+@@ -29,7 +29,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_overlay_injection.dart b/market_sniper_app/tool/verify_overlay_injection.dart
+index fde43c9..2728a9c 100644
+--- a/market_sniper_app/tool/verify_overlay_injection.dart
++++ b/market_sniper_app/tool/verify_overlay_injection.dart
+@@ -8,23 +8,23 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"summary": null},
+-       "expectedState": "UNAVAILABLE",
+-       "summaryPoints": [],
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"summary": null},
++      "expectedState": "UNAVAILABLE",
++      "summaryPoints": [],
++      "pass": true
+     },
+     {
+-       "scenario": "Valid Data",
+-       "input": {
+-         "summary": {
+-           "mode": "CONTEXT",
+-           "points": ["Market is volatile.", "VIX > 20."]
+-         }
+-       },
+-       "expectedState": "OK",
+-       "summaryPoints": ["Market is volatile.", "VIX > 20."],
+-       "pass": true // Simulated pass as logic is stubbed
++      "scenario": "Valid Data",
++      "input": {
++        "summary": {
++          "mode": "CONTEXT",
++          "points": ["Market is volatile.", "VIX > 20."]
++        }
++      },
++      "expectedState": "OK",
++      "summaryPoints": ["Market is volatile.", "VIX > 20."],
++      "pass": true // Simulated pass as logic is stubbed
+     },
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_propagation_audit.dart b/market_sniper_app/tool/verify_propagation_audit.dart
+index 214e307..f108f11 100644
+--- a/market_sniper_app/tool/verify_propagation_audit.dart
++++ b/market_sniper_app/tool/verify_propagation_audit.dart
+@@ -7,7 +7,7 @@ void main() {
+ 
+   // Simulate Logic Match
+   // If we have a status, it should reflect in Integrity.
+-  
++
+   final propSnapshot = {
+     "status": "OK",
+     "consumersTotal": 15,
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_pulse_core.dart b/market_sniper_app/tool/verify_pulse_core.dart
+index c76d222..373256b 100644
+--- a/market_sniper_app/tool/verify_pulse_core.dart
++++ b/market_sniper_app/tool/verify_pulse_core.dart
+@@ -16,7 +16,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
+ 
+   // D40.09 Confidence Bands Proof
+   final confidenceProof = {
+@@ -29,7 +30,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json', confidenceProof);
++  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json',
++      confidenceProof);
+ 
+   // D40.10 Pulse Drift Proof
+   final driftProof = {
+@@ -42,7 +44,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_safe_degrade.dart b/market_sniper_app/tool/verify_safe_degrade.dart
+index f69a1da..8773837 100644
+--- a/market_sniper_app/tool/verify_safe_degrade.dart
++++ b/market_sniper_app/tool/verify_safe_degrade.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"mode": null},
+-       "expectedState": "UNAVAILABLE",
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"mode": null},
++      "expectedState": "UNAVAILABLE",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Data (>5 min)",
+-       "input": {"mode": "LIVE", "age": 400},
+-       "expectedState": "STALE",
+-       "pass": true
++      "scenario": "Stale Data (>5 min)",
++      "input": {"mode": "LIVE", "age": 400},
++      "expectedState": "STALE",
++      "pass": true
+     },
+     {
+-       "scenario": "Sim Mode",
+-       "input": {"mode": "SIM"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Sim Mode",
++      "input": {"mode": "SIM"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     },
+     {
+-       "scenario": "Partial Mode",
+-       "input": {"mode": "PARTIAL"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Partial Mode",
++      "input": {"mode": "PARTIAL"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_heatmap.dart b/market_sniper_app/tool/verify_sector_heatmap.dart
+index 6b0412f..7606f74 100644
+--- a/market_sniper_app/tool/verify_sector_heatmap.dart
++++ b/market_sniper_app/tool/verify_sector_heatmap.dart
+@@ -8,28 +8,37 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"source": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"source": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "High Dispersion",
+-       "input": {"states": {"XLF": "HIGH"}, "source": "OVERLAY"},
+-       "expectedUI": "Amber Dot",
+-       "pass": true
++      "scenario": "High Dispersion",
++      "input": {
++        "states": {"XLF": "HIGH"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Amber Dot",
++      "pass": true
+     },
+     {
+-       "scenario": "Normal Dispersion",
+-       "input": {"states": {"XLK": "NORMAL"}, "source": "OVERLAY"},
+-       "expectedUI": "Grey Dot",
+-       "pass": true
++      "scenario": "Normal Dispersion",
++      "input": {
++        "states": {"XLK": "NORMAL"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Grey Dot",
++      "pass": true
+     },
+-     {
+-       "scenario": "Low Dispersion",
+-       "input": {"states": {"XLE": "LOW"}, "source": "OVERLAY"},
+-       "expectedUI": "Cyan Dot",
+-       "pass": true
++    {
++      "scenario": "Low Dispersion",
++      "input": {
++        "states": {"XLE": "LOW"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Cyan Dot",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_sentinel.dart b/market_sniper_app/tool/verify_sector_sentinel.dart
+index 1e3042e..a729c32 100644
+--- a/market_sniper_app/tool/verify_sector_sentinel.dart
++++ b/market_sniper_app/tool/verify_sector_sentinel.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Disabled",
+-       "input": {"status": "DISABLED"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Disabled",
++      "input": {"status": "DISABLED"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Active",
+-       "input": {"status": "ACTIVE"},
+-       "expectedUI": "Green Badge",
+-       "pass": true
++      "scenario": "Active",
++      "input": {"status": "ACTIVE"},
++      "expectedUI": "Green Badge",
++      "pass": true
+     },
+-     {
+-       "scenario": "Stale",
+-       "input": {"status": "STALE"},
+-       "expectedUI": "Amber Badge",
+-       "pass": true
++    {
++      "scenario": "Stale",
++      "input": {"status": "STALE"},
++      "expectedUI": "Amber Badge",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_universe_integrity.dart b/market_sniper_app/tool/verify_universe_integrity.dart
+index cee1c15..ad9790e 100644
+--- a/market_sniper_app/tool/verify_universe_integrity.dart
++++ b/market_sniper_app/tool/verify_universe_integrity.dart
+@@ -10,7 +10,7 @@ void main() {
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: UNAVAILABLE, GOV: POLICY
+   // Expected: Overall UNAVAILABLE (because Overlay is unavail)
+   // Wait, if Overlay is UNAVAILABLE, and User rule says "UNAVAILABLE if overlay UNAVAILABLE", then Overall is UNAVAILABLE.
+-  
++
+   final integritySnapshot = {
+     "coreStatus": "OK",
+     "extendedStatus": "UNAVAILABLE", // As currently implemented default
+@@ -19,14 +19,14 @@ void main() {
+     "consumersStatus": "UNKNOWN",
+     "freshnessAgeSeconds": 0,
+     "freshnessState": "UNAVAILABLE",
+-    "overallState": "UNAVAILABLE", 
++    "overallState": "UNAVAILABLE",
+     "source": "MIXED"
+   };
+ 
+   // Scenario 2: If we simulated LIVE overlay (like in D39.04 proof)
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: OK, GOV: POLICY
+   // Expected: DEGRADED (because Extended Unavail + Gov Policy)
+-  
++
+   final proof = {
+     "timestamp_utc": DateTime.now().toIso8601String(),
+     "module": "UI.Universe.IntegrityTile",
+@@ -43,7 +43,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);

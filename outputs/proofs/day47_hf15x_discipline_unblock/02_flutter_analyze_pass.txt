@@ -1,0 +1,53 @@
+Analyzing 2 items...                                            
+
+warning - Unused import: 'dart:convert' - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:2:8 - unused_import
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:3:8 - unnecessary_import
+   info - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:6:8 - unnecessary_import
+warning - Unused import: 'package:http/http.dart' - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:7:8 - unused_import
+warning - The value of the field '_leaderVersion' isn't used - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:35:7 - unused_field
+warning - The value of the field '_sourceTag' isn't used - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:53:16 - unused_field
+warning - The declaration '_finalizeFrame' isn't referenced - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:160:8 - unused_element
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:279:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:282:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:333:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:344:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:405:48 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:409:26 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:425:64 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:471:17 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:472:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:476:17 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:477:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:492:31 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:558:67 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:578:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:596:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:598:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:628:72 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:629:72 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:630:72 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:645:74 - deprecated_member_use
+   info - Use 'const' for final variables initialized to a constant value - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:676:5 - prefer_const_declarations
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:689:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:692:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:718:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:804:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:809:84 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:917:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:920:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:944:90 - deprecated_member_use
+   info - Don't invoke 'print' in production code - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:116:12 - avoid_print
+   info - Unnecessary braces in a string interpolation - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:198:88 - unnecessary_brace_in_string_interps
+warning - The declaration '_handleError' isn't referenced - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:229:8 - unused_element
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:405:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:407:77 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:463:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:497:76 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:535:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:673:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:675:70 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:712:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:713:73 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:769:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:771:41 - deprecated_member_use
+

@@ -21,19 +21,21 @@ class _WatchlistAddModalState extends State<WatchlistAddModal> {
   void _validate() {
     setState(() {
       _error = null;
-      // _isValid = false;
     });
 
     final input = _controller.text.trim().toUpperCase();
     if (input.isEmpty) return;
 
-    if (CoreUniverse.isCore20(input)) {
+    // Strict Regex: A-Z, 0-9, . , -  (1-10 chars)
+    final validFormat = RegExp(r'^[A-Z0-9.\-]{1,10}$');
+
+    if (validFormat.hasMatch(input)) {
       final store = WatchlistStore();
 
       // Dedupe Check
       if (store.contains(input)) {
         setState(() {
-          _error = "Symbol already in watchlist."; // Subtle feedback
+          _error = "Symbol already in watchlist.";
         });
         return;
       }
@@ -44,15 +46,14 @@ class _WatchlistAddModalState extends State<WatchlistAddModal> {
         WatchlistLedger().logAction(
             action: "ADD",
             ticker: input,
-            resolvedState:
-                "LIVE", // Assume live for add context (validated vs universe)
+            resolvedState: "LIVE",
             result: "SUCCESS",
             sourceScreen: "WatchlistAddModal");
 
         if (mounted) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text("Added $input to Watchlist"),
+            content: Text("Added to Watchlist."),
             backgroundColor: AppColors.stateLive,
             duration: const Duration(seconds: 2),
           ));
@@ -60,9 +61,7 @@ class _WatchlistAddModalState extends State<WatchlistAddModal> {
       });
     } else {
       setState(() {
-        // Institutional Guard Language
-        _error =
-            "Institutional Guard: Symbol not in CORE20 universe yet.\nExtended Universe unlocks in D39.02.";
+        _error = "Invalid format. Use A-Z, digits, dot, or dash.";
       });
     }
   }
@@ -127,14 +126,16 @@ class _WatchlistAddModalState extends State<WatchlistAddModal> {
                 ),
                 if (_error != null)
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: TextButton(
-                      onPressed: _viewCore20,
-                      child: Text("VIEW CORE20 UNIVERSE >",
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(_error!,
                           style: AppTypography.label(context)
-                              .copyWith(color: AppColors.neonCyan)),
-                    ),
-                  ),
+                              .copyWith(color: AppColors.stateLocked))),
+                const SizedBox(height: 8),
+                Text(
+                  "Coverage depends on data availability.",
+                  style: AppTypography.caption(context)
+                      .copyWith(color: AppColors.textDisabled),
+                ),
                 const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,

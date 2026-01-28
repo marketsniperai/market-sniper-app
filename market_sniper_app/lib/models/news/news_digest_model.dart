@@ -1,4 +1,4 @@
-enum DigestFreshness { live, stale, delayed, offline }
+enum DigestFreshness { live, stale, delayed, offline, demo }
 
 enum DigestSource { pipeline, cache, offline }
 
@@ -12,6 +12,8 @@ class NewsDigestItem {
   final DigestImpact impact;
   final String summaryBrief; // Max 200 chars
   final String summaryExpand; // Max 600 chars
+  final List<String> symbols; // D47.HF14: For watchlist matching
+  final String? rankingReason; // D47.HF14: Debug/Explainability
 
   const NewsDigestItem({
     required this.id,
@@ -21,6 +23,8 @@ class NewsDigestItem {
     required this.impact,
     required this.summaryBrief,
     required this.summaryExpand,
+    this.symbols = const [], // Default empty to avoid breaking legacy
+    this.rankingReason,
   });
 }
 

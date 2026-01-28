@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 
 class OnDemandHistoryItem {
   final String ticker;
@@ -41,7 +41,7 @@ class OnDemandHistoryStore {
   Future<void> init() async {
     if (_initialized) return;
     try {
-      tz.initializeTimeZones();
+      // tz.initializeTimeZones();
     } catch (_) {}
 
     try {
@@ -56,18 +56,62 @@ class OnDemandHistoryStore {
 
   /// Calculates the current "Day ID" based on 04:00 ET boundary.
   /// (Replicated from DayMemoryStore for canonical consistency)
+  /// Calculates the current "Day ID" based on 04:00 ET boundary.
+  /// Uses manual DST logic to match Backend ZoneInfo without adding external deps.
   String _getCurrentDayId() {
-    try {
-      final detroit = tz.getLocation('America/Detroit'); // ET
-      final nowEt = tz.TZDateTime.now(detroit);
-      final effectiveDate =
-          nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
+    final nowUtc = DateTime.now().toUtc();
+    final isDst = _isUSDaylightSavings(nowUtc);
+    
+    // ET is UTC-5 (STD) or UTC-4 (DST)
+    final offset = isDst ? const Duration(hours: 4) : const Duration(hours: 5);
+    final nowEt = nowUtc.subtract(offset);
 
-      return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
-    } catch (e) {
-      final now = DateTime.now().toUtc();
-      return "${now.year}-${now.month}-${now.day}";
-    }
+    // Business Day Rule: Day starts at 04:00 ET.
+    // If < 04:00, it belongs to previous calendar day.
+    final effectiveDate =
+        nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
+
+    return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
+  }
+
+  /// Determines if US Daylight Savings Time is active for a given UTC time.
+  /// Rule: Starts 2nd Sunday in March @ 02:00 Local (07:00 UTC Std).
+  ///       Ends 1st Sunday in November @ 02:00 Local (06:00 UTC Dst / 07:00 UTC Std? No, 2am DST becomes 1am STD).
+  ///       DST is UTC-4. STD is UTC-5.
+  ///       Transition forward: 2am ET (Std) -> 3am ET (Dst). Occurs at 07:00 UTC.
+  ///       Transition back: 2am ET (Dst) -> 1am ET (Std). Occurs at 06:00 UTC.
+  bool _isUSDaylightSavings(DateTime utcTime) {
+    final year = utcTime.year;
+
+    // DST Start: 2nd Sunday in March
+    // Find March 1st weekday
+    // 1st Sunday will be 1 + (7-weekday)%7 ? No.
+    // DateTime.sunday is 7.
+    final mar1 = DateTime.utc(year, 3, 1);
+    // days to first sunday = (7 - mar1.weekday + 7) % 7 ?
+    // If Mar 1 is Sun(7) -> 0 days ? No, if Mar 1 is Sunday, it is the First Sunday.
+    // daysToAdd = (DateTime.sunday - mar1.weekday + 7) % 7.
+    // If Sun(7): (7-7)%7 = 0. Correct.
+    // If Mon(1): (7-1)%7 = 6. Mar 1 + 6 = Mar 7. Correct.
+    int daysToFirstSunMar = (DateTime.sunday - mar1.weekday + 7) % 7;
+    int firstSunMarDay = 1 + daysToFirstSunMar;
+    int secondSunMarDay = firstSunMarDay + 7;
+    
+    // DST Starts at 07:00 UTC (2am EST)
+    final dstStart = DateTime.utc(year, 3, secondSunMarDay, 7);
+
+    // DST End: 1st Sunday in November
+    final nov1 = DateTime.utc(year, 11, 1);
+    int daysToFirstSunNov = (DateTime.sunday - nov1.weekday + 7) % 7;
+    int firstSunNovDay = 1 + daysToFirstSunNov;
+    
+    // DST Ends at 06:00 UTC (2am EDT becomes 1am EST)
+    // Wait. 2am EDT is 6am UTC. 
+    // At that moment, clocks fall back to 1am EST.
+    // So any time BEFORE 06:00 UTC on that day is DST.
+    final dstEnd = DateTime.utc(year, 11, firstSunNovDay, 6);
+
+    return utcTime.isAfter(dstStart) && utcTime.isBefore(dstEnd);
   }
 
   Future<void> _checkReset() async {

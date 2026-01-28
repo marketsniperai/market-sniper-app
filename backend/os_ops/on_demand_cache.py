@@ -137,6 +137,58 @@ class OnDemandCache:
         except Exception as e:
             return OnDemandCacheGetResult(status="ERROR", cache_hit=False, freshness="UNAVAILABLE", reason=str(e))
 
+            return OnDemandCacheGetResult(status="ERROR", cache_hit=False, freshness="UNAVAILABLE", reason=str(e))
+
+    @staticmethod
+    def _try_load_pipeline_envelope(ticker: str) -> 'Tuple[Optional[Dict], str]':
+        """
+        D47.HF15: Pipeline Artifact Reader.
+        Path: outputs/on_demand_pipeline/{ticker}.json
+        Returns: (envelope_dict or None, status_note)
+        Notes: OK | MISSING | CORRUPT | SCHEMA_FAIL
+        """
+        # Canonical Path
+        # We assume ticker is safe (Enforcer checks it), but good to be safe again for filesystem.
+        safe_ticker = ticker.replace("..", "").replace("/", "").replace("\\", "").upper()
+        path = f"outputs/on_demand_pipeline/{safe_ticker}.json"
+        
+        if not os.path.exists(path):
+            return (None, "MISSING")
+            
+        try:
+            with open(path, 'r') as f:
+                data = json.load(f)
+                
+            # Quick Schema Validation
+            # Minimal requirements for a valid PIPELINE source envelope
+            if not isinstance(data, dict):
+                return (None, "SCHEMA_FAIL")
+                
+            # Must minimally allow EnvelopeBuilder to work or be pre-built.
+            # We look for critical fields.
+            # If it's a raw artifact, EnvelopeBuilder might need to adapt it. 
+            # But the contract said "Artifact must contain a StandardEnvelope-compatible payload".
+            
+            # Check 1: Ticker match (Safety)
+            # If data has "ticker", it should match. If missing, maybe okay if filename matches.
+            # Let's enforce it if present.
+            if "ticker" in data and data["ticker"] != safe_ticker:
+                 return (None, "SCHEMA_FAIL_TICKER_MISMATCH")
+                 
+            # Check 2: Payload or Bullets
+            # If it's a StandardEnvelope, it has 'bullets'. If raw, maybe different.
+            # We assume it follows StandardEnvelope shape or roughly close.
+            # Let's just check it's not empty.
+            if not data:
+                return (None, "CORRUPT_EMPTY")
+                
+            return (data, "OK")
+            
+        except json.JSONDecodeError:
+            return (None, "CORRUPT_JSON")
+        except Exception:
+            return (None, "CORRUPT_READ")
+
     @staticmethod
     def resolve_source(ticker: str, tier: str = "FREE", allow_stale: bool = False) -> Dict:
         """
@@ -146,9 +198,19 @@ class OnDemandCache:
         3. OFFLINE_FALLBACK
         """
         
-        # 1. Pipeline Artifact (Stub)
-        # TODO: Implement when pipeline artifacts are standardized for tickers
-        # if pipeline_hit: return ...
+        """
+        
+        # 1. Pipeline Artifact (D47.HF15 Hook)
+        pipe_env, pipe_note = OnDemandCache._try_load_pipeline_envelope(ticker)
+        if pipe_env and pipe_note == "OK":
+             return {
+                 "source": "PIPELINE",
+                 "freshness": "LIVE", # Pipeline artifacts are source truth
+                 "status": "AVAILABLE",
+                 "payload": pipe_env,
+                 "timestamp_utc": pipe_env.get("timestamp_utc", datetime.now(timezone.utc).isoformat()),
+                 "_pipeline_note": pipe_note # Internal debug
+             }
         
         # 2. Cache
         cache_res = OnDemandCache.get(ticker, tier, allow_stale)
@@ -158,7 +220,8 @@ class OnDemandCache:
                  "freshness": cache_res.freshness,
                  "status": "AVAILABLE",
                  "payload": cache_res.entry.payload,
-                 "timestamp_utc": cache_res.entry.created_utc
+                 "timestamp_utc": cache_res.entry.created_utc,
+                 "_pipeline_note": pipe_note # Carry forward miss reason
              }
              
         # 3. Offline / Live Provider (Not integrated)
@@ -175,7 +238,8 @@ class OnDemandCache:
                 "regime": "UNKNOWN",
                 "note": "Market data providers are not connected."
             },
-            "timestamp_utc": datetime.now(timezone.utc).isoformat()
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "_pipeline_note": pipe_note # Carry forward miss reason
         }
 
     @staticmethod

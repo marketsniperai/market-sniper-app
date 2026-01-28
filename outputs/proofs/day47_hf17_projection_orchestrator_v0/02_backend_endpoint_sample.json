@@ -1,0 +1,46 @@
+{
+  "version": "0.1.0",
+  "symbol": "SPY",
+  "asOfUtc": "2026-01-27T19:26:22.432199Z",
+  "state": "INSUFFICIENT_DATA",
+  "stateReasons": [
+    "SYSTEM_HEALTH_UNKNOWN"
+  ],
+  "enginesUsed": [
+    "IRON_OS",
+    "OPTIONS",
+    "EVIDENCE",
+    "MACRO"
+  ],
+  "inputs": {
+    "options": {
+      "status": "PROVIDER_DENIED",
+      "as_of": "2026-01-23T18:23:38.108351Z"
+    },
+    "evidence": {
+      "status": "N_A",
+      "sample_size": 0
+    },
+    "macro": {
+      "status": "AVAILABLE"
+    }
+  },
+  "scenarios": {
+    "base": {
+      "laneState": "CALIBRATING",
+      "notes": "Waiting for Engine Calibration.",
+      "envelope": null,
+      "bounds": null
+    },
+    "stress": {
+      "laneState": "CALIBRATING",
+      "notes": "Waiting for Engine Calibration.",
+      "envelope": null,
+      "bounds": null
+    }
+  },
+  "safety": {
+    "lexiconSafe": true,
+    "noPredictionClaims": true
+  }
+}

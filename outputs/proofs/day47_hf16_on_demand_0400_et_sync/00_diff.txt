@@ -1,0 +1,185 @@
+diff --git a/backend/os_ops/on_demand_tier_enforcer.py b/backend/os_ops/on_demand_tier_enforcer.py
+index c910c92..997a9d0 100644
+--- a/backend/os_ops/on_demand_tier_enforcer.py
++++ b/backend/os_ops/on_demand_tier_enforcer.py
+@@ -25,37 +25,60 @@ class OnDemandTierEnforcer:
+         return {"limits": DEFAULT_LIMITS, "reset_config": {"reset_time_et": "04:00"}}
+ 
+     @staticmethod
+-    def _get_current_bucket_et() -> str:
++    def _get_start_of_us_dst(year: int) -> datetime:
++        # 2nd Sunday in March
++        # Quick calc: March 1st. 
++        # weekday(): Mon=0, Sun=6.
++        # If Mar 1 is Sun(6) -> +7 days = Mar 8 (2nd Sun)
++        # If Mar 1 is Sat(5) -> 1st Sun is Mar 2 -> +7 = Mar 9.
++        # offset = (6 - d.weekday() + 7) % 7 ? No.
++        # first_sun_day = 1 + (6 - mar1.weekday() + 1) % 7? No.
++        # Let's rely on dateutil or simple iteration if pure stdlib without complex helpers.
++        # Actually, we have ZoneInfo now! We don't need manual DST math in Python.
++        pass
++
++    @staticmethod
++    def _compute_bucket_for_dt(dt: datetime) -> str:
+         """
+-        Calculates the 'Business Day' bucket for US/Eastern.
+-        Reset is 04:00 ET.
+-        If Usage Time < 04:00 ET, it belongs to Previous Day.
++        Pure logic helper.
++        Input: datetime (aware or naive assumed UTC if naive, though strictly we want aware).
++        Algo:
++          1. Convert to America/New_York
++          2. If Hour < 4: count as Previous Day
+         """
+-        # UTC Current
+-        now_utc = datetime.now(timezone.utc)
+-        
+-        # Approximate ET (Standard -5, Daylight -4). 
+-        # For strict determinism without pytz, we can use a fixed offset of -5 (EST) 
+-        # or implement a simple DST switch. 
+-        # Given this is "Agentic", let's be reasonably precise or safe.
+-        # US/Eastern is UTC-5 (EST) and UTC-4 (EDT).
+-        # We will assume UTC-5 for safety/simplicity unless pytz is guaranteed.
+-        # This keeps the 'reset' roughly correct.
+-        
+-        offset = timedelta(hours=-5)
+-        now_et = now_utc + offset
++        try:
++            from zoneinfo import ZoneInfo
++        except ImportError:
++            # Fallback for very old generic python if absolute must, but we verified 3.14.
++            from backports.zoneinfo import ZoneInfo
++            
++        tz_et = ZoneInfo("America/New_York")
+         
+-        # Reset check
+-        # If now_et.hour < 4, it counts as yesterday's business day.
+-        # Format YYYY-MM-DD
++        # Ensure dt is aware
++        if dt.tzinfo is None:
++            dt = dt.replace(tzinfo=timezone.utc)
++            
++        # Convert to ET
++        dt_et = dt.astimezone(tz_et)
+         
+-        if now_et.hour < 4:
+-            bucket_date = (now_et - timedelta(days=1)).date()
++        # Reset Logic: 04:00 ET
++        if dt_et.hour < 4:
++            bucket_date = (dt_et - timedelta(days=1)).date()
+         else:
+-            bucket_date = now_et.date()
++            bucket_date = dt_et.date()
+             
+         return bucket_date.isoformat()
+ 
++    @staticmethod
++    def _get_current_bucket_et() -> str:
++        """
++        Calculates the 'Business Day' bucket for US/Eastern.
++        Reset is 04:00 ET.
++        If Usage Time < 04:00 ET, it belongs to Previous Day.
++        """
++        now_utc = datetime.now(timezone.utc)
++        return OnDemandTierEnforcer._compute_bucket_for_dt(now_utc)
++            
+     @staticmethod
+     def _count_usage_for_bucket(ticker: str, bucket: str, tier: str) -> int:
+         if not os.path.exists(LEDGER_FILE):
+diff --git a/market_sniper_app/lib/logic/on_demand_history_store.dart b/market_sniper_app/lib/logic/on_demand_history_store.dart
+index b90979a..c713016 100644
+--- a/market_sniper_app/lib/logic/on_demand_history_store.dart
++++ b/market_sniper_app/lib/logic/on_demand_history_store.dart
+@@ -1,8 +1,8 @@
+ import 'dart:convert';
+ import 'dart:io';
+ import 'package:path_provider/path_provider.dart';
+-import 'package:timezone/data/latest.dart' as tz;
+-import 'package:timezone/timezone.dart' as tz;
++// import 'package:timezone/data/latest.dart' as tz;
++// import 'package:timezone/timezone.dart' as tz;
+ 
+ class OnDemandHistoryItem {
+   final String ticker;
+@@ -41,7 +41,7 @@ class OnDemandHistoryStore {
+   Future<void> init() async {
+     if (_initialized) return;
+     try {
+-      tz.initializeTimeZones();
++      // tz.initializeTimeZones();
+     } catch (_) {}
+ 
+     try {
+@@ -56,18 +56,62 @@ class OnDemandHistoryStore {
+ 
+   /// Calculates the current "Day ID" based on 04:00 ET boundary.
+   /// (Replicated from DayMemoryStore for canonical consistency)
++  /// Calculates the current "Day ID" based on 04:00 ET boundary.
++  /// Uses manual DST logic to match Backend ZoneInfo without adding external deps.
+   String _getCurrentDayId() {
+-    try {
+-      final detroit = tz.getLocation('America/Detroit'); // ET
+-      final nowEt = tz.TZDateTime.now(detroit);
+-      final effectiveDate =
+-          nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
++    final nowUtc = DateTime.now().toUtc();
++    final isDst = _isUSDaylightSavings(nowUtc);
++    
++    // ET is UTC-5 (STD) or UTC-4 (DST)
++    final offset = isDst ? const Duration(hours: 4) : const Duration(hours: 5);
++    final nowEt = nowUtc.subtract(offset);
++
++    // Business Day Rule: Day starts at 04:00 ET.
++    // If < 04:00, it belongs to previous calendar day.
++    final effectiveDate =
++        nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;
++
++    return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
++  }
+ 
+-      return "${effectiveDate.year}-${effectiveDate.month.toString().padLeft(2, '0')}-${effectiveDate.day.toString().padLeft(2, '0')}";
+-    } catch (e) {
+-      final now = DateTime.now().toUtc();
+-      return "${now.year}-${now.month}-${now.day}";
+-    }
++  /// Determines if US Daylight Savings Time is active for a given UTC time.
++  /// Rule: Starts 2nd Sunday in March @ 02:00 Local (07:00 UTC Std).
++  ///       Ends 1st Sunday in November @ 02:00 Local (06:00 UTC Dst / 07:00 UTC Std? No, 2am DST becomes 1am STD).
++  ///       DST is UTC-4. STD is UTC-5.
++  ///       Transition forward: 2am ET (Std) -> 3am ET (Dst). Occurs at 07:00 UTC.
++  ///       Transition back: 2am ET (Dst) -> 1am ET (Std). Occurs at 06:00 UTC.
++  bool _isUSDaylightSavings(DateTime utcTime) {
++    final year = utcTime.year;
++
++    // DST Start: 2nd Sunday in March
++    // Find March 1st weekday
++    // 1st Sunday will be 1 + (7-weekday)%7 ? No.
++    // DateTime.sunday is 7.
++    final mar1 = DateTime.utc(year, 3, 1);
++    // days to first sunday = (7 - mar1.weekday + 7) % 7 ?
++    // If Mar 1 is Sun(7) -> 0 days ? No, if Mar 1 is Sunday, it is the First Sunday.
++    // daysToAdd = (DateTime.sunday - mar1.weekday + 7) % 7.
++    // If Sun(7): (7-7)%7 = 0. Correct.
++    // If Mon(1): (7-1)%7 = 6. Mar 1 + 6 = Mar 7. Correct.
++    int daysToFirstSunMar = (DateTime.sunday - mar1.weekday + 7) % 7;
++    int firstSunMarDay = 1 + daysToFirstSunMar;
++    int secondSunMarDay = firstSunMarDay + 7;
++    
++    // DST Starts at 07:00 UTC (2am EST)
++    final dstStart = DateTime.utc(year, 3, secondSunMarDay, 7);
++
++    // DST End: 1st Sunday in November
++    final nov1 = DateTime.utc(year, 11, 1);
++    int daysToFirstSunNov = (DateTime.sunday - nov1.weekday + 7) % 7;
++    int firstSunNovDay = 1 + daysToFirstSunNov;
++    
++    // DST Ends at 06:00 UTC (2am EDT becomes 1am EST)
++    // Wait. 2am EDT is 6am UTC. 
++    // At that moment, clocks fall back to 1am EST.
++    // So any time BEFORE 06:00 UTC on that day is DST.
++    final dstEnd = DateTime.utc(year, 11, firstSunNovDay, 6);
++
++    return utcTime.isAfter(dstStart) && utcTime.isBefore(dstEnd);
+   }
+ 
+   Future<void> _checkReset() async {

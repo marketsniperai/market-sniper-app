@@ -1,0 +1,1890 @@
+diff --git a/market_sniper_app/lib/screens/on_demand_panel.dart b/market_sniper_app/lib/screens/on_demand_panel.dart
+index a753df5..f5ad204 100644
+--- a/market_sniper_app/lib/screens/on_demand_panel.dart
++++ b/market_sniper_app/lib/screens/on_demand_panel.dart
+@@ -13,6 +13,8 @@ import '../widgets/time_traveller_chart.dart'; // D47.HF24
+ import '../widgets/reliability_meter.dart'; // D47.HF25
+ import '../widgets/intel_card.dart'; // D47.HF26
+ import '../widgets/tactical_playbook_block.dart'; // D47.HF27
++import '../logic/recent_dossier_store.dart'; // D47.HF-RECENT
++import '../widgets/recent_dossier_rail.dart'; // D47.HF-RECENT
+ import '../layout/main_layout.dart'; // To find ancestor if needed
+ import 'dart:async'; // StreamSubscription
+ 
+@@ -38,11 +40,18 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+   StandardEnvelope? _result;
+   StreamSubscription<NavigationEvent>? _navSubscription;
+   final OnDemandHistoryStore _historyStore = OnDemandHistoryStore(); // D44.15
+-  List<OnDemandHistoryItem> _historyItems = []; // D44.15 Cache
++  List<OnDemandHistoryItem> _historyItems = [];
++  bool _isAnalyzing = false;
++
++  // Recent Dossiers
++  final RecentDossierStore _recentStore = RecentDossierStore();
++  List<RecentDossierEntry> _recentEntries = [];
++  bool _loadedFromSnapshot = false;
+ 
+   @override
+   void initState() {
+     super.initState();
++    _loadRecents();
+     _initHistory(); // D44.15
+     _navSubscription = NavigationBus().events.listen((event) {
+       // D44: Basic String Argument Support
+@@ -76,6 +85,13 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     });
+   }
+ 
++  Future<void> _loadRecents() async {
++    await _recentStore.init();
++    setState(() {
++      _recentEntries = _recentStore.getRecent();
++    });
++  }
++
+   Future<void> _initHistory() async {
+     await _historyStore.init();
+     if (mounted) _refreshHistory();
+@@ -103,7 +119,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+   void _analyze() async {
+     final input = _controller.text.trim().toUpperCase();
+     if (input.isEmpty) return;
+-    
++
+     // HF23: 10:30 AM Rule (Manual UTC Offset)
+     // Jan 2026 is Standard Time (UTC-5)
+     // 09:30 ET = 14:30 UTC. 10:30 ET = 15:30 UTC.
+@@ -112,23 +128,23 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     final nowUtc = DateTime.now().toUtc();
+     // Convert to ET (Manual -5)
+     final nowEt = nowUtc.subtract(const Duration(hours: 5));
+-    
++
+     // Check range: 09:30 <= now < 10:30
+     final startLock = DateTime(nowEt.year, nowEt.month, nowEt.day, 9, 30);
+     final endLock = DateTime(nowEt.year, nowEt.month, nowEt.day, 10, 30);
+-    
++
+     if (_timeframe == "DAILY" && nowEt.isAfter(startLock) && nowEt.isBefore(endLock)) {
+-        locked = true;
++      locked = true;
+     }
+     // Also logic: "After 10:30 ET: UNLOCKED". Before 09:30? Usually pre-market.
+     // Spec says "From 09:30 to 10:30 ET: display LOCKED". Implicitly others OK.
+-    
++
+     if (locked) {
+-        // Just show banner? Or force state?
+-        // Spec: "Force 'projection locked' mode for forward-looking visuals... Still allow showing past/now".
+-        // The API might return projection anyway.
+-        // We will just show the banner for now as the 'projection locked' visuals are part of the result rendering (HF24).
+-        // For HF23, we simply identify the state.
++      // Just show banner? Or force state?
++      // Spec: "Force 'projection locked' mode for forward-looking visuals... Still allow showing past/now".
++      // The API might return projection anyway.
++      // We will just show the banner for now as the 'projection locked' visuals are part of the result rendering (HF24).
++      // For HF23, we simply identify the state.
+     }
+ 
+     // 1. Validate Pattern Only (Global Universe)
+@@ -144,6 +160,8 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     setState(() {
+       _state = OnDemandViewState.loading;
+       _errorText = null;
++      _isAnalyzing = true; // Set analyzing state
++      _loadedFromSnapshot = false; // Clear snapshot flag
+       FocusScope.of(context).unfocus(); // Dismiss keyboard
+     });
+ 
+@@ -161,6 +179,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+       setState(() {
+         _state = OnDemandViewState.error;
+         _errorText = "Signal lost during decryption.";
++        _isAnalyzing = false;
+       });
+       return;
+     }
+@@ -188,6 +207,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+         } else {
+           _usageInfo = "$tier: $usage/$limit Today";
+         }
++        _isAnalyzing = false;
+         return;
+       }
+ 
+@@ -211,11 +231,27 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+       final safeEnvelope = LexiconSanitizer.apply(rawEnvelope);
+ 
+       _result = safeEnvelope;
++      _isAnalyzing = false;
++      _loadedFromSnapshot = false; // Fresh run
+     });
+ 
+     // D44.15: Record Record Success
+     await _historyStore.record(ticker: input);
+     if (mounted) _refreshHistory();
++
++    // HF-RECENT: Save Snapshot on Success
++    if (_result != null && (_result!.status == EnvelopeStatus.live || _result!.status == EnvelopeStatus.stale)) { // Save invalidates too? Let's save anything that produced a result.
++      await _recentStore.record(
++          ticker: input,
++          timeframe: _timeframe,
++          asOfUtc: _result!.asOfUtc.toIso8601String(),
++          reliabilityState: _deriveReliabilityState(_result!), // Helper needed or parse payload? helper exists from ReliabilityMeter logic but it's buried in build.
++          // We'll parse the reliability state from the envelope or re-derive securely.
++          // Actually, ReliabilityMeter logic is view-only. Let's peek at payload 'state'.
++          rawPayload: _result!.rawPayload
++      );
++      await _loadRecents(); // Refresh UI
++    }
+   }
+ 
+   void _clear() {
+@@ -224,6 +260,8 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+       _state = OnDemandViewState.idle;
+       _result = null;
+       _errorText = null;
++      _isAnalyzing = false;
++      _loadedFromSnapshot = false;
+     });
+   }
+ 
+@@ -264,14 +302,14 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+             Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+-                 _buildTimeframeTab("DAILY", AppColors.neonCyan),
+-                 const SizedBox(width: 12),
+-                 _buildTimeframeTab("WEEKLY", AppColors.stateStale), // Gold
++                _buildTimeframeTab("DAILY", AppColors.neonCyan),
++                const SizedBox(width: 12),
++                _buildTimeframeTab("WEEKLY", AppColors.stateStale), // Gold
+               ],
+             ),
+-            
++
+             // HF23: 10:30 AM Lock Banner
+-             ..._buildLockBannerIfNeeded(),
++            ..._buildLockBannerIfNeeded(),
+ 
+             if (_usageInfo != null) ...[
+               const SizedBox(height: 8),
+@@ -294,7 +332,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+                 children: _historyItems.map((item) {
+                   return ActionChip(
+                     label:
+-                        Text(item.ticker, style: AppTypography.label(context)),
++                    Text(item.ticker, style: AppTypography.label(context)),
+                     backgroundColor: AppColors.surface2,
+                     side: const BorderSide(color: AppColors.borderSubtle),
+                     onPressed: () {
+@@ -368,7 +406,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+                   flex: 3,
+                   child: ElevatedButton(
+                     onPressed:
+-                        _state == OnDemandViewState.loading ? null : _analyze,
++                    _state == OnDemandViewState.loading ? null : _analyze,
+                     style: ElevatedButton.styleFrom(
+                       backgroundColor: AppColors.neonCyan,
+                       foregroundColor: AppColors.bgPrimary,
+@@ -379,14 +417,14 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+                     ),
+                     child: _state == OnDemandViewState.loading
+                         ? const SizedBox(
+-                            width: 20,
+-                            height: 20,
+-                            child: CircularProgressIndicator(
+-                                strokeWidth: 2, color: AppColors.textPrimary))
++                        width: 20,
++                        height: 20,
++                        child: CircularProgressIndicator(
++                            strokeWidth: 2, color: AppColors.textPrimary))
+                         : Text("ANALYZE NOW",
+-                            style: AppTypography.label(context).copyWith(
+-                                color: AppColors.bgPrimary,
+-                                fontWeight: FontWeight.bold)),
++                        style: AppTypography.label(context).copyWith(
++                            color: AppColors.bgPrimary,
++                            fontWeight: FontWeight.bold)),
+                   ),
+                 ),
+               ],
+@@ -468,6 +506,15 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+                 _buildStaleWarning(),
+                 const SizedBox(height: 16),
+               ],
++              // HF-RECENT: Recent Dossier Rail
++              if (!_isAnalyzing && _recentEntries.isNotEmpty) ...[
++                RecentDossierRail(
++                    entries: _recentEntries,
++                    onTap: _loadFromSnapshot
++                ),
++                const SizedBox(height: 16),
++              ],
++
+               // D44.11 Header
+               EnvelopePreviewHeader(
+                   envelope: _result!, ticker: _controller.text.toUpperCase()),
+@@ -478,11 +525,24 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+                 child: OnDemandContextStrip(
+                     envelope: _result!, ticker: _controller.text.toUpperCase()),
+               ),
++              if (_loadedFromSnapshot)
++                Padding(
++                  padding: const EdgeInsets.only(top: 8),
++                  child: Center(
++                    child: Text(
++                      "LOADED FROM LOCAL SNAPSHOT",
++                      style: AppTypography.caption(context).copyWith(
++                          color: AppColors.stateStale,
++                          fontStyle: FontStyle.italic
++                      ),
++                    ),
++                  ),
++                ),
+ 
+               const SizedBox(height: 16),
+               // D47.HF24: Time-Traveller Chart
+               _buildTimeTravellerChart(),
+-              
++
+               const SizedBox(height: 12),
+               // D47.HF25: Reliability Meter
+               _buildReliabilityMeter(),
+@@ -509,24 +569,24 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+               ],
+ 
+               ..._result!.bullets.map((b) => Padding(
+-                    padding: const EdgeInsets.only(bottom: 8.0),
+-                    child: Row(
+-                      crossAxisAlignment: CrossAxisAlignment.start,
+-                      children: [
+-                        const Text("• ",
+-                            style: TextStyle(color: AppColors.neonCyan)),
+-                        Expanded(
+-                            child: Text(b, style: AppTypography.body(context))),
+-                      ],
+-                    ),
+-                  )),
++                padding: const EdgeInsets.only(bottom: 8.0),
++                child: Row(
++                  crossAxisAlignment: CrossAxisAlignment.start,
++                  children: [
++                    const Text("• ",
++                        style: TextStyle(color: AppColors.neonCyan)),
++                    Expanded(
++                        child: Text(b, style: AppTypography.body(context))),
++                  ],
++                ),
++              )),
+               const SizedBox(height: 8),
+               // Footer timestamp removed in D44.11 (Moved to Header)
+ 
+               // HF21: Provabilistic Context
+               if (_result!.rawPayload.containsKey("projection")) ...[
+-                 const Divider(color: AppColors.borderSubtle, height: 24),
+-                 _buildProbabilisticContext(context, _result!.rawPayload["projection"]),
++                const Divider(color: AppColors.borderSubtle, height: 24),
++                _buildProbabilisticContext(context, _result!.rawPayload["projection"]),
+               ],
+             ],
+           ),
+@@ -535,60 +595,60 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+   }
+ 
+   Widget _buildProbabilisticContext(BuildContext context, Map<String, dynamic> proj) {
+-     final state = proj["state"] ?? "UNKNOWN";
+-     final scenarios = proj["scenarios"] ?? {};
+-     final inputs = proj["inputs"] ?? {};
+-     final missing = proj["missingInputs"] ?? [];
+-     
+-     Color stateColor = AppColors.textDisabled;
+-     if (state == "OK") stateColor = AppColors.stateLive;
+-     if (state == "CALIBRATING") stateColor = AppColors.stateStale;
+-     
+-     return Column(
+-       crossAxisAlignment: CrossAxisAlignment.start,
+-       children: [
+-         // Header
+-         Row(
+-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-           children: [
+-             Text("PROBABILISTIC CONTEXT", 
+-               style: AppTypography.label(context).copyWith(color: AppColors.textSecondary, letterSpacing: 1.1)),
+-             Container(
+-               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+-               decoration: BoxDecoration(
+-                 color: stateColor.withValues(alpha: 0.1),
+-                 borderRadius: BorderRadius.circular(4),
+-                 border: Border.all(color: stateColor.withValues(alpha: 0.3)),
+-               ),
+-               child: Text(state, 
+-                 style: AppTypography.label(context).copyWith(color: stateColor, fontSize: 10)),
+-             )
+-           ],
+-         ),
+-         const SizedBox(height: 12),
+-         
+-         // Scenarios
+-         if (scenarios.containsKey("base"))
+-           _buildScenarioRow(context, "BASE", scenarios["base"]),
+-         const SizedBox(height: 8),
+-         if (scenarios.containsKey("stress"))
+-           _buildScenarioRow(context, "STRESS", scenarios["stress"]),
+-           
+-         const SizedBox(height: 16),
+-         
+-         // Inputs Chips
+-         Wrap(
+-           spacing: 6,
+-           runSpacing: 4,
+-           children: [
+-             for (var k in inputs.keys)
+-               _buildInputChip(context, k, inputs[k]["status"], missing.contains(k)),
+-           ],
+-         )
+-       ],
+-     );
++    final state = proj["state"] ?? "UNKNOWN";
++    final scenarios = proj["scenarios"] ?? {};
++    final inputs = proj["inputs"] ?? {};
++    final missing = proj["missingInputs"] ?? [];
++
++    Color stateColor = AppColors.textDisabled;
++    if (state == "OK") stateColor = AppColors.stateLive;
++    if (state == "CALIBRATING") stateColor = AppColors.stateStale;
++
++    return Column(
++      crossAxisAlignment: CrossAxisAlignment.start,
++      children: [
++        // Header
++        Row(
++          mainAxisAlignment: MainAxisAlignment.spaceBetween,
++          children: [
++            Text("PROBABILISTIC CONTEXT",
++                style: AppTypography.label(context).copyWith(color: AppColors.textSecondary, letterSpacing: 1.1)),
++            Container(
++              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
++              decoration: BoxDecoration(
++                color: stateColor.withValues(alpha: 0.1),
++                borderRadius: BorderRadius.circular(4),
++                border: Border.all(color: stateColor.withValues(alpha: 0.3)),
++              ),
++              child: Text(state,
++                  style: AppTypography.label(context).copyWith(color: stateColor, fontSize: 10)),
++            )
++          ],
++        ),
++        const SizedBox(height: 12),
++
++        // Scenarios
++        if (scenarios.containsKey("base"))
++          _buildScenarioRow(context, "BASE", scenarios["base"]),
++        const SizedBox(height: 8),
++        if (scenarios.containsKey("stress"))
++          _buildScenarioRow(context, "STRESS", scenarios["stress"]),
++
++        const SizedBox(height: 16),
++
++        // Inputs Chips
++        Wrap(
++          spacing: 6,
++          runSpacing: 4,
++          children: [
++            for (var k in inputs.keys)
++              _buildInputChip(context, k, inputs[k]["status"], missing.contains(k)),
++          ],
++        )
++      ],
++    );
+   }
+-  
++
+   Widget _buildScenarioRow(BuildContext context, String label, Map<String, dynamic> data) {
+     final notes = (data["notes"] as List?)?.map((e) => e.toString()).toList() ?? [];
+     return Column(
+@@ -599,12 +659,12 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+       ],
+     );
+   }
+-  
++
+   Widget _buildInputChip(BuildContext context, String label, String status, bool isMissing) {
+     Color color = AppColors.textDisabled;
+     if (status == "LIVE" || status == "AVAILABLE") color = AppColors.accentCyanDim;
+     if (isMissing) color = AppColors.stateLocked;
+-    
++
+     return Container(
+       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+       decoration: BoxDecoration(
+@@ -626,7 +686,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+         decoration: BoxDecoration(
+           color: AppColors.stateStale.withValues(alpha: 0.1),
+           border:
+-              Border.all(color: AppColors.stateStale.withValues(alpha: 0.5)),
++          Border.all(color: AppColors.stateStale.withValues(alpha: 0.5)),
+           borderRadius: BorderRadius.circular(4),
+         ),
+         child: Row(
+@@ -727,13 +787,13 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     if (_result != null && _result!.rawPayload.containsKey('series')) {
+       final series = _result!.rawPayload['series'];
+       if (series is Map) {
+-         if (series['past'] is List) {
+-           past = (series['past'] as List).map((e) => ChartCandle.fromJson(e)).toList();
+-         }
+-         if (series['future'] is List) {
+-            future = (series['future'] as List).map((e) => ChartCandle.fromJson(e)).toList();
+-         }
+-         isCalibrating = false; // We have data
++        if (series['past'] is List) {
++          past = (series['past'] as List).map((e) => ChartCandle.fromJson(e)).toList();
++        }
++        if (series['future'] is List) {
++          future = (series['future'] as List).map((e) => ChartCandle.fromJson(e)).toList();
++        }
++        isCalibrating = false; // We have data
+       }
+     }
+ 
+@@ -754,55 +814,55 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     int totalInputs = 4;
+     int missingCount = 0;
+     if (_result!.rawPayload.containsKey('missingInputs')) {
+-       final missing = _result!.rawPayload['missingInputs'];
+-       if (missing is List) missingCount = missing.length;
++      final missing = _result!.rawPayload['missingInputs'];
++      if (missing is List) missingCount = missing.length;
+     }
+     int activeInputs = totalInputs - missingCount;
+     if (activeInputs < 0) activeInputs = 0;
+ 
+     // 2. Sample Size Logic
+     int? sampleSize;
+-    if (_result!.rawPayload.containsKey('inputs') && 
++    if (_result!.rawPayload.containsKey('inputs') &&
+         _result!.rawPayload['inputs'] is Map &&
+         _result!.rawPayload['inputs'].containsKey('evidence')) {
+-        
+-        final ev = _result!.rawPayload['inputs']['evidence'];
+-        if (ev is Map && ev.containsKey('sample_size')) {
+-           sampleSize = ev['sample_size'];
+-        }
++
++      final ev = _result!.rawPayload['inputs']['evidence'];
++      if (ev is Map && ev.containsKey('sample_size')) {
++        sampleSize = ev['sample_size'];
++      }
+     }
+ 
+     // 3. State Logic
+     String state = "CALIBRATING";
+-    
++
+     // Priority 1: Market Lock
+     if (_isDailyLocked()) {
+-       state = "CALIBRATING"; 
+-    } 
++      state = "CALIBRATING";
++    }
+     // Priority 2: Backend State
+     else if (_result!.rawPayload.containsKey('state')) {
+-       final backendState = _result!.rawPayload['state'];
+-       
+-       if (backendState == "OK") {
+-           // Refine OK based on Samples
+-           if (sampleSize != null) {
+-              if (sampleSize > 30) {
+-                state = "HIGH";
+-              } else if (sampleSize > 10) {
+-                state = "MED";
+-              } else {
+-                state = "LOW";
+-              }
+-           } else {
+-              state = "MED"; // OK but no samples? 
+-           }
+-       } else if (backendState == "INSUFFICIENT_DATA") {
+-           state = "LOW";
+-       } else if (backendState == "PROVIDER_DENIED") {
+-           state = "LOW";
+-       } else {
+-           state = "CALIBRATING";
+-       }
++      final backendState = _result!.rawPayload['state'];
++
++      if (backendState == "OK") {
++        // Refine OK based on Samples
++        if (sampleSize != null) {
++          if (sampleSize > 30) {
++            state = "HIGH";
++          } else if (sampleSize > 10) {
++            state = "MED";
++          } else {
++            state = "LOW";
++          }
++        } else {
++          state = "MED"; // OK but no samples?
++        }
++      } else if (backendState == "INSUFFICIENT_DATA") {
++        state = "LOW";
++      } else if (backendState == "PROVIDER_DENIED") {
++        state = "LOW";
++      } else {
++        state = "CALIBRATING";
++      }
+     }
+ 
+     return ReliabilityMeter(
+@@ -828,37 +888,37 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+ 
+     if (_result!.rawPayload.containsKey('inputs') &&
+         _result!.rawPayload['inputs'] is Map) {
+-        
+-        final inputs = _result!.rawPayload['inputs'];
+-        if (inputs.containsKey('evidence') && inputs['evidence'] is Map) {
+-           final ev = inputs['evidence'];
+-           if (ev.containsKey('metrics') && ev['metrics'] is Map) {
+-              final m = ev['metrics'];
+-              
+-              if (m.containsKey('win_rate')) {
+-                  evidenceLines.add("Historical Match: ${(m['win_rate'] * 100).toStringAsFixed(0)}%");
+-                  evidenceCalibrating = false;
+-                  // Color logic: > 60 Green, < 40 Red, else Amber
+-                  if (m['win_rate'] > 0.6) {
+-                    evidenceAccent = AppColors.marketBull;
+-                  } else if (m['win_rate'] < 0.4) {
+-                    evidenceAccent = AppColors.marketBear;
+-                  } else {
+-                    evidenceAccent = AppColors.stateStale; // Amber
+-                  }
+-              }
+-              
+-              if (m.containsKey('avg_return')) {
+-                  final ret = m['avg_return'];
+-                  final sign = ret >= 0 ? "+" : "";
+-                  evidenceLines.add("Avg Move: $sign${(ret * 100).toStringAsFixed(2)}%");
+-              }
+-           }
++
++      final inputs = _result!.rawPayload['inputs'];
++      if (inputs.containsKey('evidence') && inputs['evidence'] is Map) {
++        final ev = inputs['evidence'];
++        if (ev.containsKey('metrics') && ev['metrics'] is Map) {
++          final m = ev['metrics'];
++
++          if (m.containsKey('win_rate')) {
++            evidenceLines.add("Historical Match: ${(m['win_rate'] * 100).toStringAsFixed(0)}%");
++            evidenceCalibrating = false;
++            // Color logic: > 60 Green, < 40 Red, else Amber
++            if (m['win_rate'] > 0.6) {
++              evidenceAccent = AppColors.marketBull;
++            } else if (m['win_rate'] < 0.4) {
++              evidenceAccent = AppColors.marketBear;
++            } else {
++              evidenceAccent = AppColors.stateStale; // Amber
++            }
++          }
++
++          if (m.containsKey('avg_return')) {
++            final ret = m['avg_return'];
++            final sign = ret >= 0 ? "+" : "";
++            evidenceLines.add("Avg Move: $sign${(ret * 100).toStringAsFixed(2)}%");
++          }
+         }
++      }
+     }
+-    
++
+     if (evidenceCalibrating) {
+-       evidenceLines.add("Insufficient historical matches.");
++      evidenceLines.add("Insufficient historical matches.");
+     }
+ 
+     cards.add(IntelCard(
+@@ -880,23 +940,23 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+ 
+     if (_result!.rawPayload.containsKey('inputs') &&
+         _result!.rawPayload['inputs'] is Map) {
+-        
+-        final inputs = _result!.rawPayload['inputs'];
+-         if (inputs.containsKey('news') && inputs['news'] is Map) {
+-             final news = inputs['news'];
+-             if (news.containsKey('headlines') && news['headlines'] is List) {
+-                 final rawHeadlines = news['headlines'] as List;
+-                 if (rawHeadlines.isNotEmpty) {
+-                     newsLines = rawHeadlines.take(2).map((e) => e.toString()).toList();
+-                     newsOffline = false;
+-                     newsAccent = AppColors.neonCyan; // Active
+-                 }
+-             }
+-         }
++
++      final inputs = _result!.rawPayload['inputs'];
++      if (inputs.containsKey('news') && inputs['news'] is Map) {
++        final news = inputs['news'];
++        if (news.containsKey('headlines') && news['headlines'] is List) {
++          final rawHeadlines = news['headlines'] as List;
++          if (rawHeadlines.isNotEmpty) {
++            newsLines = rawHeadlines.take(2).map((e) => e.toString()).toList();
++            newsOffline = false;
++            newsAccent = AppColors.neonCyan; // Active
++          }
++        }
++      }
+     }
+ 
+     if (newsOffline) {
+-        newsLines.add("Radar OFFLINE. (Sources: 0)");
++      newsLines.add("Radar OFFLINE. (Sources: 0)");
+     }
+ 
+     cards.add(IntelCard(
+@@ -915,20 +975,20 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     // Or just simple Macro status.
+     List<String> macroLines = [];
+     Color macroAccent = AppColors.textDisabled;
+-    
++
+     // Check Macro Status
+     String macroStatus = "NEUTRAL";
+-    if (_result!.rawPayload.containsKey('contextTags') && 
++    if (_result!.rawPayload.containsKey('contextTags') &&
+         _result!.rawPayload['contextTags'] is Map) {
+-        final tags = _result!.rawPayload['contextTags'];
+-        if (tags.containsKey('macro') && tags['macro'] is Map) {
+-            // Parse tags?
+-            // "MACRO_STUB_NEUTRAL"
+-             final mTags = tags['macro']['tags'];
+-             if (mTags is List && mTags.contains('MACRO_STUB_NEUTRAL')) {
+-                 macroStatus = "NEUTRAL (STUB)";
+-             }
++      final tags = _result!.rawPayload['contextTags'];
++      if (tags.containsKey('macro') && tags['macro'] is Map) {
++        // Parse tags?
++        // "MACRO_STUB_NEUTRAL"
++        final mTags = tags['macro']['tags'];
++        if (mTags is List && mTags.contains('MACRO_STUB_NEUTRAL')) {
++          macroStatus = "NEUTRAL (STUB)";
+         }
++      }
+     }
+     macroLines.add("Macro Environment: $macroStatus");
+     macroLines.add("Market Structure: BALANCED"); // Hardcoded confident default for V1
+@@ -946,50 +1006,84 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+   }
+ 
+   Widget _buildTacticalPlaybook() {
+-      if (_result == null) return const SizedBox.shrink();
+-
+-      List<String> watch = [];
+-      List<String> invalidate = [];
+-      bool isCalibrationMode = false;
+-
+-      // 1. Check Lock (Override)
+-      if (_isDailyLocked()) {
+-          isCalibrationMode = true;
+-          watch = [
+-              "Initial balance forming; wait for structure confirmation.",
+-              "Volume profile development vs overnight range."
+-          ];
+-          invalidate = [
+-              "Regime flip risk-off during open window.",
+-              "Institutional order flow contradictions."
+-          ];
+-      } else {
+-          // 2. Parse Backend Payload
+-          if (_result!.rawPayload.containsKey('tactical') && 
+-              _result!.rawPayload['tactical'] is Map) {
+-              
+-              final tactical = _result!.rawPayload['tactical'];
+-              if (tactical['watch'] is List) {
+-                  watch = (tactical['watch'] as List).map((e) => e.toString()).toList();
+-              }
+-              if (tactical['invalidate'] is List) {
+-                  invalidate = (tactical['invalidate'] as List).map((e) => e.toString()).toList();
+-              }
+-          }
++    if (_result == null) return const SizedBox.shrink();
++
++    List<String> watch = [];
++    List<String> invalidate = [];
++    bool isCalibrationMode = false;
++
++    // 1. Check Lock (Override)
++    if (_isDailyLocked()) {
++      isCalibrationMode = true;
++      watch = [
++        "Initial balance forming; wait for structure confirmation.",
++        "Volume profile development vs overnight range."
++      ];
++      invalidate = [
++        "Regime flip risk-off during open window.",
++        "Institutional order flow contradictions."
++      ];
++    } else {
++      // 2. Parse Backend Payload
++      if (_result!.rawPayload.containsKey('tactical') &&
++          _result!.rawPayload['tactical'] is Map) {
++
++        final tactical = _result!.rawPayload['tactical'];
++        if (tactical['watch'] is List) {
++          watch = (tactical['watch'] as List).map((e) => e.toString()).toList();
++        }
++        if (tactical['invalidate'] is List) {
++          invalidate = (tactical['invalidate'] as List).map((e) => e.toString()).toList();
++        }
+       }
++    }
+ 
+-      // Fallback if empty (shouldn't happen given backend defaults, but safety first)
+-      if (watch.isEmpty) watch.add("Standard deviation mechanics.");
+-      if (invalidate.isEmpty) invalidate.add("Volatility expansion vs forecast.");
++    // Fallback if empty (shouldn't happen given backend defaults, but safety first)
++    if (watch.isEmpty) watch.add("Standard deviation mechanics.");
++    if (invalidate.isEmpty) invalidate.add("Volatility expansion vs forecast.");
+ 
+-      return TacticalPlaybookBlock(
+-          watchItems: watch,
+-          invalidateItems: invalidate,
+-          isCalibrationMode: isCalibrationMode,
+-      );
++    return TacticalPlaybookBlock(
++      watchItems: watch,
++      invalidateItems: invalidate,
++      isCalibrationMode: isCalibrationMode,
++    );
+   }
+-}
+ 
++  // Helper to re-derive reliability state string for storage
++  String _deriveReliabilityState(StandardEnvelope env) {
++    if (env.rawPayload.containsKey('state')) {
++      final s = env.rawPayload['state'];
++      if (s == "OK") {
++        // We could check sample size but for the snippet "HIGH/MED" is fine.
++        // Let's simple-map or dig deeper.
++        // Only reliable way is to replicate the logic or store what was rendered.
++        // For now, let's trust "OK" -> "MED" (Default) unless sample size tells us more.
++        // Or better, check the payload input.
++        if (env.rawPayload['inputs']?['evidence']?['status'] == "LIVE") return "HIGH"; // Approximation
++        return "MED";
++      }
++      if (s == "CALIBRATING") return "CALIBRATING";
++      if (s == "INSUFFICIENT_DATA") return "LOW";
++    }
++    return "N/A";
++  }
++
++  void _loadFromSnapshot(RecentDossierEntry entry) {
++    // Load raw payload into Envelope
++    final env = EnvelopeBuilder.build(entry.rawPayload);
++
++    setState(() {
++      _controller.text = entry.ticker;
++      // Set View based on timeframe string
++      _timeframe = entry.timeframe; // Use the timeframe from the snapshot
++      _state = OnDemandViewState.result; // Assume result state
++      _result = env;
++      _loadedFromSnapshot = true;
++      _errorText = null; // Clear any previous errors
++      _isAnalyzing = false; // Not actively analyzing
++    });
++  }
++}
+ 
+ 
+ class EnvelopePreviewHeader extends StatelessWidget {
+diff --git a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+index f56566f..b3ddf17 100644
+--- a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
++++ b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+@@ -8,14 +8,15 @@ import 'package:market_sniper_app/screens/on_demand_panel.dart'; // Ensure this
+ 
+ void main() {
+   final List<Map<String, dynamic>> results = [];
+-  final File reportFile = File('c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
++  final File reportFile = File(
++      'c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
+ 
+   setUpAll(() {
+     if (reportFile.existsSync()) reportFile.deleteSync();
+   });
+ 
+   tearDownAll(() {
+-     final json = {
++    final json = {
+       "timestamp_utc": DateTime.now().toUtc().toIso8601String(),
+       "scenarios": results,
+       "checks": {
+@@ -30,15 +31,47 @@ void main() {
+ 
+   // Scenarios
+   final scenarios = [
+-    {"name": "baseline_2", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE"]},
+-    {"name": "stress_5_long", "width": 360.0, "fontScale": 1.0, "badges": ["PROXY_ESTIMATED", "PROVIDER_DENIED", "COVERAGE_SAMPLE", "STALE", "USAGE_9_10"]},
+-    {"name": "stress_7_mix", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]},
+-    {"name": "w320_font1.0", "width": 320.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
+-    {"name": "w320_font1.5", "width": 320.0, "fontScale": 1.5, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
++    {
++      "name": "baseline_2",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE"]
++    },
++    {
++      "name": "stress_5_long",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": [
++        "PROXY_ESTIMATED",
++        "PROVIDER_DENIED",
++        "COVERAGE_SAMPLE",
++        "STALE",
++        "USAGE_9_10"
++      ]
++    },
++    {
++      "name": "stress_7_mix",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]
++    },
++    {
++      "name": "w320_font1.0",
++      "width": 320.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
++    {
++      "name": "w320_font1.5",
++      "width": 320.0,
++      "fontScale": 1.5,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
+   ];
+ 
+   for (final s in scenarios) {
+-    testWidgets('BadgeStrip Layout Scenario: ${s['name']}', (WidgetTester tester) async {
++    testWidgets('BadgeStrip Layout Scenario: ${s['name']}',
++        (WidgetTester tester) async {
+       final width = s['width'] as double;
+       final fontScale = s['fontScale'] as double;
+       final badges = s['badges'] as List<String>;
+@@ -65,7 +98,7 @@ void main() {
+       // Check for overflows
+       final exception = tester.takeException();
+       bool passed = exception == null;
+-      
++
+       // Also check if render object has error (sometimes exception is swallowed or just painted)
+       // Flutter test throws specific FlutterError for RenderFlex overflow if configured, handled by takeException usually.
+ 
+diff --git a/market_sniper_app/test/verify_config.dart b/market_sniper_app/test/verify_config.dart
+index 751c526..91fbeee 100644
+--- a/market_sniper_app/test/verify_config.dart
++++ b/market_sniper_app/test/verify_config.dart
+@@ -1,4 +1,3 @@
+-
+ import 'package:market_sniper_app/config/app_config.dart';
+ 
+ void main() {
+diff --git a/market_sniper_app/test/verify_menu.dart b/market_sniper_app/test/verify_menu.dart
+index 65bb81e..45e7e39 100644
+--- a/market_sniper_app/test/verify_menu.dart
++++ b/market_sniper_app/test/verify_menu.dart
+@@ -1,12 +1,11 @@
+-
+ import 'package:market_sniper_app/screens/menu_screen.dart';
+ import 'package:market_sniper_app/screens/account_screen.dart';
+ import 'package:market_sniper_app/screens/partner_terms_screen.dart';
+ 
+ void main() {
+   print("Verifying Menu Dependencies...");
+-  final m = MenuScreen();
+-  final a = AccountScreen();
+-  final p = PartnerTermsScreen();
++  const m = MenuScreen();
++  const a = AccountScreen();
++  const p = PartnerTermsScreen();
+   print("Instantiation Success: $m, $a, $p");
+ }
+diff --git a/market_sniper_app/tool/generate_core_universe_proof.dart b/market_sniper_app/tool/generate_core_universe_proof.dart
+index dc90521..21f627f 100644
+--- a/market_sniper_app/tool/generate_core_universe_proof.dart
++++ b/market_sniper_app/tool/generate_core_universe_proof.dart
+@@ -23,11 +23,11 @@ void main() {
+       "canonical": CoreUniverse.getDefinition(input)?.symbol,
+     };
+   }
+-  
++
+   // Verify Core20 Count
+   final distinctSymbols = CoreUniverse.definitions.map((d) => d.symbol).toSet();
+   final count = distinctSymbols.length;
+-  
++
+   final proof = {
+     "timestamp": DateTime.now().toIso8601String(),
+     "core20_symbol_count": count,
+@@ -40,7 +40,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts (assumes run from repo root)
+-  const path = 'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
+   final file = File(path);
+   file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_core_tape.dart b/market_sniper_app/tool/verify_core_tape.dart
+index 0c8d24e..383b740 100644
+--- a/market_sniper_app/tool/verify_core_tape.dart
++++ b/market_sniper_app/tool/verify_core_tape.dart
+@@ -8,22 +8,32 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Live Tape",
+-       "input": {"status": "LIVE", "freshness": 5, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Green Badge, Freshness, Size Guard Pass",
+-       "pass": true
++      "scenario": "Live Tape",
++      "input": {
++        "status": "LIVE",
++        "freshness": 5,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Green Badge, Freshness, Size Guard Pass",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Tape",
+-       "input": {"status": "STALE", "freshness": 120, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Amber Badge, Stale Freshness",
+-       "pass": true
++      "scenario": "Stale Tape",
++      "input": {
++        "status": "STALE",
++        "freshness": 120,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Amber Badge, Stale Freshness",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+index 127d9d9..5a4b13d 100644
+--- a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
++++ b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+@@ -4,7 +4,7 @@ import 'dart:io';
+ // ignore_for_file: avoid_print
+ 
+ // --- MOCKED MODELS FOR LOGIC VERIFICATION ---
+-// These mirror the artifact contract, not necessarily the Repo classes 1:1, 
++// These mirror the artifact contract, not necessarily the Repo classes 1:1,
+ // but serve to generate the correct JSON structure.
+ 
+ class OverlayLiveComposerPayload {
+@@ -31,66 +31,68 @@ class OverlayLiveComposerPayload {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'asOfUtc': asOfUtc,
+-    'age_seconds': ageSeconds,
+-    'state': state,
+-    'mode': mode,
+-    'confidence': confidence,
+-    'source': source,
+-    'overlay_truth': overlayTruth,
+-    'overlay_summary': overlaySummary,
+-    if (limitations != null) 'limitations': limitations,
+-  };
++        'asOfUtc': asOfUtc,
++        'age_seconds': ageSeconds,
++        'state': state,
++        'mode': mode,
++        'confidence': confidence,
++        'source': source,
++        'overlay_truth': overlayTruth,
++        'overlay_summary': overlaySummary,
++        if (limitations != null) 'limitations': limitations,
++      };
+ }
+ 
+ // --- COMPOSER LOGIC ENGINE ---
+ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   if (sentinelTape == null || sentinelTape['status'] == 'UNAVAILABLE') {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: 0,
+-      state: 'UNAVAILABLE',
+-      mode: 'LIVE',
+-      confidence: 'UNAVAILABLE',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'UNKNOWN',
+-        'age_seconds': 0,
+-        'ok_state': 'UNAVAILABLE',
+-        'confidence': 'UNAVAILABLE'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (UNAVAILABLE)',
+-        'bullets': ["Overlay composer unavailable: no sentinel tape."]
+-      },
+-      limitations: ["Source Missing"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: 0,
++        state: 'UNAVAILABLE',
++        mode: 'LIVE',
++        confidence: 'UNAVAILABLE',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'UNKNOWN',
++          'age_seconds': 0,
++          'ok_state': 'UNAVAILABLE',
++          'confidence': 'UNAVAILABLE'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (UNAVAILABLE)',
++          'bullets': ["Overlay composer unavailable: no sentinel tape."]
++        },
++        limitations: [
++          "Source Missing"
++        ]);
+   }
+ 
+   final age = sentinelTape['age_seconds'] as int? ?? 999;
+   final sectors = sentinelTape['sectors'] as List<dynamic>? ?? [];
+-  
++
+   // Staleness check
+   if (age > 300) {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: age,
+-      state: 'STALE',
+-      mode: 'LIVE',
+-      confidence: 'LOW',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'LIVE',
+-        'age_seconds': age,
+-        'ok_state': 'STALE',
+-        'confidence': 'LOW'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (STALE)',
+-        'bullets': ["Data is stale (>5m old). Do not trust for execution."]
+-      },
+-      limitations: ["Data Stale"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: age,
++        state: 'STALE',
++        mode: 'LIVE',
++        confidence: 'LOW',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'LIVE',
++          'age_seconds': age,
++          'ok_state': 'STALE',
++          'confidence': 'LOW'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (STALE)',
++          'bullets': ["Data is stale (>5m old). Do not trust for execution."]
++        },
++        limitations: [
++          "Data Stale"
++        ]);
+   }
+ 
+   // Compute Metrics
+@@ -109,12 +111,13 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   String confidence = 'LOW';
+-  if (sectors.length >= 9) confidence = 'HIGH';
+-  else if (sectors.length >= 6) confidence = 'MEDIUM';
++  if (sectors.length >= 9) {
++    confidence = 'HIGH';
++  } else if (sectors.length >= 6) confidence = 'MEDIUM';
+ 
+   // Generate Bullets
+   List<String> bullets = [];
+-  
++
+   if (highDisp > 3) {
+     bullets.add("Sector dispersion elevated across $highDisp sectors.");
+   } else {
+@@ -134,23 +137,22 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   return OverlayLiveComposerPayload(
+-    asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-    ageSeconds: age,
+-    state: 'LIVE',
+-    mode: 'LIVE',
+-    confidence: confidence,
+-    source: 'SECTOR_SENTINEL',
+-    overlayTruth: {
+-      'mode': 'LIVE',
+-      'age_seconds': age,
+-      'ok_state': 'OK',
+-      'confidence': confidence
+-    },
+-    overlaySummary: {
+-      'title': 'Extended Summary Overlay (LIVE)',
+-      'bullets': bullets.take(3).toList()
+-    }
+-  );
++      asOfUtc: DateTime.now().toUtc().toIso8601String(),
++      ageSeconds: age,
++      state: 'LIVE',
++      mode: 'LIVE',
++      confidence: confidence,
++      source: 'SECTOR_SENTINEL',
++      overlayTruth: {
++        'mode': 'LIVE',
++        'age_seconds': age,
++        'ok_state': 'OK',
++        'confidence': confidence
++      },
++      overlaySummary: {
++        'title': 'Extended Summary Overlay (LIVE)',
++        'bullets': bullets.take(3).toList()
++      });
+ }
+ 
+ void main() {
+@@ -179,10 +181,10 @@ void main() {
+   };
+ 
+   final resultActive = composeOverlay(sentinelActive);
+-  
++
+   // Write Canonical
+-  File('${rtDir.path}/overlay_live_composer.json')
+-      .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
++  File('${rtDir.path}/overlay_live_composer.json').writeAsStringSync(
++      const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
+   print("Canonical artifact written.");
+ 
+   // Scenario 2: Stale
+diff --git a/market_sniper_app/tool/verify_day_40_close.dart b/market_sniper_app/tool/verify_day_40_close.dart
+index 6a5b3f7..417cb49 100644
+--- a/market_sniper_app/tool/verify_day_40_close.dart
++++ b/market_sniper_app/tool/verify_day_40_close.dart
+@@ -22,14 +22,14 @@ class AutoRiskActionItem {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'action_id': actionId,
+-    'title': title,
+-    'description': description,
+-    'rationale': rationale,
+-    'scope': scope,
+-    'status': status,
+-    'cooldown_seconds': cooldownSeconds,
+-  };
++        'action_id': actionId,
++        'title': title,
++        'description': description,
++        'rationale': rationale,
++        'scope': scope,
++        'status': status,
++        'cooldown_seconds': cooldownSeconds,
++      };
+ 
+   factory AutoRiskActionItem.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionItem(
+@@ -58,20 +58,23 @@ class AutoRiskActionSnapshot {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'state': state,
+-    'as_of_utc': asOfUtc?.toIso8601String(),
+-    'age_seconds': ageSeconds,
+-    'actions': actions.map((e) => e.toJson()).toList(),
+-  };
++        'state': state,
++        'as_of_utc': asOfUtc?.toIso8601String(),
++        'age_seconds': ageSeconds,
++        'actions': actions.map((e) => e.toJson()).toList(),
++      };
+ 
+   factory AutoRiskActionSnapshot.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionSnapshot(
+       state: json['state'] as String? ?? 'UNAVAILABLE',
+-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
++      asOfUtc: json['as_of_utc'] != null
++          ? DateTime.tryParse(json['as_of_utc'])
++          : null,
+       ageSeconds: json['age_seconds'] as int?,
+       actions: (json['actions'] as List<dynamic>?)
+-          ?.map((e) => AutoRiskActionItem.fromJson(e))
+-          .toList() ?? [],
++              ?.map((e) => AutoRiskActionItem.fromJson(e))
++              .toList() ??
++          [],
+     );
+   }
+ }
+@@ -109,7 +112,7 @@ void main() {
+   };
+ 
+   final snapshot = AutoRiskActionSnapshot.fromJson(jsonInput);
+-  
++
+   // Validate
+   if (snapshot.state != "ACTIVE") throw "State mismatch";
+   if (snapshot.actions.length != 2) throw "Action count mismatch";
+@@ -128,18 +131,48 @@ void main() {
+   print("D40.08 Proof generated.");
+ 
+   // 2. D40.07 PROOF: Elite Trigger Logic (Simulation)
+-  // Logic: 
++  // Logic:
+   // - SHOCK/FRACTURED/RISK_OFF -> Show Bubble
+   // - Cooldown -> Hide
+   // - UNAVAILABLE -> Hide
+-  
++
+   final scenarios = [
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "FRACTURED", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_OFF", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_ON", "freshness": "OK", "cooldown": false, "expected": "HIDDEN"}, // Condition not met
+-    {"state": "SHOCK", "freshness": "UNAVAILABLE", "cooldown": false, "expected": "HIDDEN"}, // Degrade
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": true, "expected": "HIDDEN"}, // Cooldown
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "FRACTURED",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_OFF",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_ON",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Condition not met
++    {
++      "state": "SHOCK",
++      "freshness": "UNAVAILABLE",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Degrade
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": true,
++      "expected": "HIDDEN"
++    }, // Cooldown
+   ];
+ 
+   final proof07 = {
+diff --git a/market_sniper_app/tool/verify_day_40_close_placeholder.dart b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+index 3d31c65..86f9308 100644
+--- a/market_sniper_app/tool/verify_day_40_close_placeholder.dart
++++ b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+@@ -1,15 +1,12 @@
+-import 'dart:convert';
+-import 'dart:io';
+-
+-// Import the data models. In a real script we might import the files, 
++// Import the data models. In a real script we might import the files,
+ // but for standalone execution ease we'll replicate the minimal model structs or use relative paths if package structure allows.
+-// Given strict environment, we'll try to import relatively. 
++// Given strict environment, we'll try to import relatively.
+ 
+-// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION. 
++// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION.
+ // Run from: c:/MSR/MarketSniperRepo/market_sniper_app
+ // Path to Repo: lib/repositories/universe_repository.dart
+ 
+-// To avoid package import issues in standalone script without pubspec ref, 
++// To avoid package import issues in standalone script without pubspec ref,
+ // I will redefine the minimal class structure for verification or try to run via 'flutter test' if possible.
+ // 'flutter test' is cleaner. I'll make a test file.
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+index 5ed6930..4782926 100644
+--- a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
++++ b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+@@ -14,7 +14,8 @@ void main() {
+     "ui_check": "Visible regardless of data state",
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json', degradeProof);
++  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json',
++      degradeProof);
+ 
+   // D40.15 What Changed Proof
+   final whatChangedProof = {
+@@ -34,7 +35,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json', whatChangedProof);
++  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json',
++      whatChangedProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+index 51294e9..f524f45 100644
+--- a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
++++ b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+@@ -13,16 +13,21 @@ void main() {
+     "scenarios": [
+       {"status": "UNAVAILABLE", "ui": "Diagnostic surface unavailable."},
+       {
+-        "status": "LIVE", 
++        "status": "LIVE",
+         "disagreements": [
+-           {"scope": "CORE_vs_PULSE", "severity": "HIGH", "message": "Trend inverted."}
++          {
++            "scope": "CORE_vs_PULSE",
++            "severity": "HIGH",
++            "message": "Trend inverted."
++          }
+         ],
+         "ui": "List of disagreements"
+       }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json', disagreementProof);
++  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json',
++      disagreementProof);
+ 
+   // D40.12 Global Pulse Timeline Proof
+   final timelineProof = {
+@@ -42,7 +47,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json', timelineProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json',
++      timelineProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+index e238546..dfe1d28 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+@@ -11,25 +11,25 @@ void main() {
+     "module": "UI.Sentinel.RT",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "sectors": [
+-           {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
+-           {"id": "XLF", "status": "OK", "pressure": "FLAT", "dispersion": "NORMAL"}
+-         ],
+-         "ui_result": "Green Badge, Live Chips"
++        "state": "ACTIVE",
++        "sectors": [
++          {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
++          {
++            "id": "XLF",
++            "status": "OK",
++            "pressure": "FLAT",
++            "dispersion": "NORMAL"
++          }
++        ],
++        "ui_result": "Green Badge, Live Chips"
+       },
+-      {
+-         "state": "STALE",
+-         "ui_result": "Amber Badge, Stale Chips"
+-      },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "SENTINEL UNAVAILABLE strip"
+-      }
++      {"state": "STALE", "ui_result": "Amber Badge, Stale Chips"},
++      {"state": "UNAVAILABLE", "ui_result": "SENTINEL UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json', sentinelProof);
++  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Heatmap RT Proof
+   final heatmapProof = {
+@@ -37,21 +37,31 @@ void main() {
+     "module": "UI.Sentinel.Heatmap",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "cells": [
+-           {"id": "XLK", "pressure": "UP", "dispersion": "LOW", "color": "Cyan", "dot": "Cyan"},
+-           {"id": "XLE", "pressure": "DOWN", "dispersion": "HIGH", "color": "Grey", "dot": "Amber"}
+-         ],
+-         "ui_result": "Grid rendered with correct colors"
++        "state": "ACTIVE",
++        "cells": [
++          {
++            "id": "XLK",
++            "pressure": "UP",
++            "dispersion": "LOW",
++            "color": "Cyan",
++            "dot": "Cyan"
++          },
++          {
++            "id": "XLE",
++            "pressure": "DOWN",
++            "dispersion": "HIGH",
++            "color": "Grey",
++            "dot": "Amber"
++          }
++        ],
++        "ui_result": "Grid rendered with correct colors"
+       },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "HEATMAP UNAVAILABLE strip"
+-      }
++      {"state": "UNAVAILABLE", "ui_result": "HEATMAP UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json', heatmapProof);
++  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+index 456f46d..e075d8f 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+@@ -16,7 +16,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json', sentinelProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Sentinel Heatmap Proof
+   final heatmapProof = {
+@@ -30,7 +32,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json', heatmapProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+index 26b484e..52d162c 100644
+--- a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
++++ b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+@@ -12,11 +12,16 @@ void main() {
+     "snapshot_model": "GlobalPulseSynthesisSnapshot",
+     "scenarios": [
+       {"state": "UNAVAILABLE", "ui": "Unavailable Strip"},
+-      {"state": "SHOCK", "drivers": ["VIX Spike", "Rate Jump"], "ui": "Red Badge + Drivers List"}
++      {
++        "state": "SHOCK",
++        "drivers": ["VIX Spike", "Rate Jump"],
++        "ui": "Red Badge + Drivers List"
++      }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json', synthesisProof);
++  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json',
++      synthesisProof);
+ 
+   // D40.13 RT Freshness Monitor Proof
+   final freshnessProof = {
+@@ -34,7 +39,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json', freshnessProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json',
++      freshnessProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_drift_surface.dart b/market_sniper_app/tool/verify_drift_surface.dart
+index dd1c067..7cf5ebe 100644
+--- a/market_sniper_app/tool/verify_drift_surface.dart
++++ b/market_sniper_app/tool/verify_drift_surface.dart
+@@ -28,7 +28,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_governance_ui.dart b/market_sniper_app/tool/verify_extended_governance_ui.dart
+index 35f8e59..ab424d3 100644
+--- a/market_sniper_app/tool/verify_extended_governance_ui.dart
++++ b/market_sniper_app/tool/verify_extended_governance_ui.dart
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_universe_ui.dart b/market_sniper_app/tool/verify_extended_universe_ui.dart
+index 14a4c3f..a0683ec 100644
+--- a/market_sniper_app/tool/verify_extended_universe_ui.dart
++++ b/market_sniper_app/tool/verify_extended_universe_ui.dart
+@@ -29,7 +29,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_overlay_injection.dart b/market_sniper_app/tool/verify_overlay_injection.dart
+index fde43c9..2728a9c 100644
+--- a/market_sniper_app/tool/verify_overlay_injection.dart
++++ b/market_sniper_app/tool/verify_overlay_injection.dart
+@@ -8,23 +8,23 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"summary": null},
+-       "expectedState": "UNAVAILABLE",
+-       "summaryPoints": [],
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"summary": null},
++      "expectedState": "UNAVAILABLE",
++      "summaryPoints": [],
++      "pass": true
+     },
+     {
+-       "scenario": "Valid Data",
+-       "input": {
+-         "summary": {
+-           "mode": "CONTEXT",
+-           "points": ["Market is volatile.", "VIX > 20."]
+-         }
+-       },
+-       "expectedState": "OK",
+-       "summaryPoints": ["Market is volatile.", "VIX > 20."],
+-       "pass": true // Simulated pass as logic is stubbed
++      "scenario": "Valid Data",
++      "input": {
++        "summary": {
++          "mode": "CONTEXT",
++          "points": ["Market is volatile.", "VIX > 20."]
++        }
++      },
++      "expectedState": "OK",
++      "summaryPoints": ["Market is volatile.", "VIX > 20."],
++      "pass": true // Simulated pass as logic is stubbed
+     },
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_propagation_audit.dart b/market_sniper_app/tool/verify_propagation_audit.dart
+index 214e307..f108f11 100644
+--- a/market_sniper_app/tool/verify_propagation_audit.dart
++++ b/market_sniper_app/tool/verify_propagation_audit.dart
+@@ -7,7 +7,7 @@ void main() {
+ 
+   // Simulate Logic Match
+   // If we have a status, it should reflect in Integrity.
+-  
++
+   final propSnapshot = {
+     "status": "OK",
+     "consumersTotal": 15,
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_pulse_core.dart b/market_sniper_app/tool/verify_pulse_core.dart
+index c76d222..373256b 100644
+--- a/market_sniper_app/tool/verify_pulse_core.dart
++++ b/market_sniper_app/tool/verify_pulse_core.dart
+@@ -16,7 +16,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
+ 
+   // D40.09 Confidence Bands Proof
+   final confidenceProof = {
+@@ -29,7 +30,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json', confidenceProof);
++  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json',
++      confidenceProof);
+ 
+   // D40.10 Pulse Drift Proof
+   final driftProof = {
+@@ -42,7 +44,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_safe_degrade.dart b/market_sniper_app/tool/verify_safe_degrade.dart
+index f69a1da..8773837 100644
+--- a/market_sniper_app/tool/verify_safe_degrade.dart
++++ b/market_sniper_app/tool/verify_safe_degrade.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"mode": null},
+-       "expectedState": "UNAVAILABLE",
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"mode": null},
++      "expectedState": "UNAVAILABLE",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Data (>5 min)",
+-       "input": {"mode": "LIVE", "age": 400},
+-       "expectedState": "STALE",
+-       "pass": true
++      "scenario": "Stale Data (>5 min)",
++      "input": {"mode": "LIVE", "age": 400},
++      "expectedState": "STALE",
++      "pass": true
+     },
+     {
+-       "scenario": "Sim Mode",
+-       "input": {"mode": "SIM"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Sim Mode",
++      "input": {"mode": "SIM"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     },
+     {
+-       "scenario": "Partial Mode",
+-       "input": {"mode": "PARTIAL"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Partial Mode",
++      "input": {"mode": "PARTIAL"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_heatmap.dart b/market_sniper_app/tool/verify_sector_heatmap.dart
+index 6b0412f..7606f74 100644
+--- a/market_sniper_app/tool/verify_sector_heatmap.dart
++++ b/market_sniper_app/tool/verify_sector_heatmap.dart
+@@ -8,28 +8,37 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"source": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"source": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "High Dispersion",
+-       "input": {"states": {"XLF": "HIGH"}, "source": "OVERLAY"},
+-       "expectedUI": "Amber Dot",
+-       "pass": true
++      "scenario": "High Dispersion",
++      "input": {
++        "states": {"XLF": "HIGH"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Amber Dot",
++      "pass": true
+     },
+     {
+-       "scenario": "Normal Dispersion",
+-       "input": {"states": {"XLK": "NORMAL"}, "source": "OVERLAY"},
+-       "expectedUI": "Grey Dot",
+-       "pass": true
++      "scenario": "Normal Dispersion",
++      "input": {
++        "states": {"XLK": "NORMAL"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Grey Dot",
++      "pass": true
+     },
+-     {
+-       "scenario": "Low Dispersion",
+-       "input": {"states": {"XLE": "LOW"}, "source": "OVERLAY"},
+-       "expectedUI": "Cyan Dot",
+-       "pass": true
++    {
++      "scenario": "Low Dispersion",
++      "input": {
++        "states": {"XLE": "LOW"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Cyan Dot",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_sentinel.dart b/market_sniper_app/tool/verify_sector_sentinel.dart
+index 1e3042e..a729c32 100644
+--- a/market_sniper_app/tool/verify_sector_sentinel.dart
++++ b/market_sniper_app/tool/verify_sector_sentinel.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Disabled",
+-       "input": {"status": "DISABLED"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Disabled",
++      "input": {"status": "DISABLED"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Active",
+-       "input": {"status": "ACTIVE"},
+-       "expectedUI": "Green Badge",
+-       "pass": true
++      "scenario": "Active",
++      "input": {"status": "ACTIVE"},
++      "expectedUI": "Green Badge",
++      "pass": true
+     },
+-     {
+-       "scenario": "Stale",
+-       "input": {"status": "STALE"},
+-       "expectedUI": "Amber Badge",
+-       "pass": true
++    {
++      "scenario": "Stale",
++      "input": {"status": "STALE"},
++      "expectedUI": "Amber Badge",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_universe_integrity.dart b/market_sniper_app/tool/verify_universe_integrity.dart
+index cee1c15..ad9790e 100644
+--- a/market_sniper_app/tool/verify_universe_integrity.dart
++++ b/market_sniper_app/tool/verify_universe_integrity.dart
+@@ -10,7 +10,7 @@ void main() {
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: UNAVAILABLE, GOV: POLICY
+   // Expected: Overall UNAVAILABLE (because Overlay is unavail)
+   // Wait, if Overlay is UNAVAILABLE, and User rule says "UNAVAILABLE if overlay UNAVAILABLE", then Overall is UNAVAILABLE.
+-  
++
+   final integritySnapshot = {
+     "coreStatus": "OK",
+     "extendedStatus": "UNAVAILABLE", // As currently implemented default
+@@ -19,14 +19,14 @@ void main() {
+     "consumersStatus": "UNKNOWN",
+     "freshnessAgeSeconds": 0,
+     "freshnessState": "UNAVAILABLE",
+-    "overallState": "UNAVAILABLE", 
++    "overallState": "UNAVAILABLE",
+     "source": "MIXED"
+   };
+ 
+   // Scenario 2: If we simulated LIVE overlay (like in D39.04 proof)
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: OK, GOV: POLICY
+   // Expected: DEGRADED (because Extended Unavail + Gov Policy)
+-  
++
+   final proof = {
+     "timestamp_utc": DateTime.now().toIso8601String(),
+     "module": "UI.Universe.IntegrityTile",
+@@ -43,7 +43,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);

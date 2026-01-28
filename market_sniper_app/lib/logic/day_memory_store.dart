@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart'; // kIsWeb
 import 'package:path_provider/path_provider.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 
 class DayMemoryStore {
   static final DayMemoryStore _instance = DayMemoryStore._internal();
@@ -23,7 +23,7 @@ class DayMemoryStore {
   Future<void> init() async {
     if (_initialized) return;
     try {
-      tz.initializeTimeZones();
+      // tz.initializeTimeZones(); // Web Compat
     } catch (_) {
       // Ignore if already initialized
     }
@@ -75,8 +75,10 @@ class DayMemoryStore {
   /// If now is 2026-01-20 04:01 ET, day_id is 2026-01-20.
   String _getCurrentDayId() {
     try {
-      final detroit = tz.getLocation('America/Detroit'); // ET
-      final nowEt = tz.TZDateTime.now(detroit);
+      // final detroit = tz.getLocation('America/Detroit'); // ET
+      // final nowEt = tz.TZDateTime.now(detroit);
+      final nowEt = DateTime.now().toUtc().subtract(const Duration(hours: 5));
+
       // If before 4AM, we are effectively in the "previous day"
       final effectiveDate =
           nowEt.hour < 4 ? nowEt.subtract(const Duration(days: 1)) : nowEt;

@@ -50,11 +50,19 @@
 | **OS.Intel.Options** | Options Intelligence | INTELLIGENCE | Descriptive IV/Skew/Move context (N/A Safe). | `GET /options_context` | `backend/options_engine.py` |
 | **OS.Intel.Macro** | Macro Layer | INTELLIGENCE | Rates/USD/Oil context + degradation. | `GET /macro_context` | `backend/macro_engine.py` |
 | **OS.Intel.Evidence** | Evidence Engine | INTELLIGENCE | Regime matching + Sample Size guard. | `GET /evidence_summary` | `backend/evidence_engine.py` |
+| **OS.Intel.Projection** | Projection Orchestrator | INTELLIGENCE | Central mixing engine (Options/News/Macro/Intraday). | `GET /projection/report` | `backend/os_intel/projection_orchestrator.py` |
+| **OS.Intel.News** | News Engine | INTELLIGENCE | Unified News Truth (Pipeline/Demo/Source Ladder). | `GET /news_digest` | `backend/news_engine.py` |
+| **OS.Intel.IntradaySeries** | Intraday Series | INTELLIGENCE | Demo-deterministic 5m candle generator. | (Internal) | `backend/os_intel/intraday_series_source.py` |
+| **OS.Intel.ContextTagger** | Context Tagger | INTELLIGENCE | Semantic tagging for projection inputs. | (Internal) | `backend/os_intel/context_tagger.py` |
 | **OS.Ops.Voice** | Voice MVP Stub | OPS | Governance stub for future Voice Engine. | `GET /voice_state` | `backend/voice_mvp_engine.py` |
 | **OS.Elite.Reader** | Elite OS Reader | OPS | Elite Context Aggregator. | (Internal) | `backend/os_ops/elite_os_reader.py` |
 | **OS.Elite.Recall** | Elite Recall | INTELLIGENCE | Contextual memory retrieval. | (Internal) | `backend/os_ops/elite_agms_recall_reader.py` |
 | **OS.Elite.Safety** | Elite Safety | OPS | Institutional tone & claim enforcement. | (Internal) | `backend/os_ops/elite_context_safety_validator.py` |
-| **OS.OnDemand.Cache** | On-Demand Cache | DATA | Universe-agnostic analysis cache. | (Internal) | `backend/os_ops/on_demand_cache.py` |
+| **OS.OnDemand.Cache** | On-Demand Cache | DATA | Universe-agnostic analysis cache. | (Internal) | `backend/os_ops/hf_cache_server.py` |
+| **OS.OnDemand.Global** | Global Cache Server | DATA | Shared dossier deduplication (Public). | (Internal) | `backend/os_ops/global_cache_server.py` |
+| **OS.OnDemand.Ledger** | Computation Ledger | OPS | Daily Cost Policy Enforcer. | (Internal) | `backend/os_ops/computation_ledger.py` |
+| **OS.OnDemand.Resolver** | Tier Resolver | LOGIC | Founder/Elite/Plus/Free Resolution. | (Internal) | `lib/logic/on_demand_tier_resolver.dart` |
+| **OS.OnDemand.Recent** | Recent Dossier Store | DATA | Local offline snapshot persistence. | (Internal) | `lib/logic/recent_dossier_store.dart` |
 | **OS.Biz.Dashboard** | Dashboard | FEATURE | Main user interface data payload. | `GET /dashboard` | `backend/schemas/dashboard_schema.py` |
 | **OS.Biz.Context** | Context | FEATURE | Narrative context and market status. | `GET /context` | `backend/schemas/context_schema.py` |
 | **OS.Biz.Efficacy** | Efficacy Engine | FEATURE | Tracks prediction accuracy. | `GET /efficacy` | `backend/schemas/efficacy_schema.py` |

@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../../ui/tokens/dashboard_spacing.dart';
+import 'breathing_status_accent.dart';
 
 class SectorFlipWidgetV1 extends StatefulWidget {
   const SectorFlipWidgetV1({super.key});
@@ -294,11 +295,20 @@ class _SectorFlipWidgetV1State extends State<SectorFlipWidgetV1>
                   Column(
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
-                    Text("VOLUME INTELLIGENCE", 
-                      style: AppTypography.title(context).copyWith(
-                        letterSpacing: 0.6,
-                        fontSize: 14 // Optical adjustment for small card
-                      )
+                    Row(
+                       children: [
+                           Text("VOLUME INTELLIGENCE", 
+                             style: AppTypography.title(context).copyWith(
+                               letterSpacing: 0.6,
+                               fontSize: 14 
+                             )
+                           ),
+                           const SizedBox(width: 6),
+                           BreathingStatusAccent(
+                               color: _directionUp ? AppColors.marketBull : AppColors.marketBear,
+                               active: true, 
+                           ),
+                       ]
                     ),
                     const SizedBox(height: 4), // Micro-gap
                      // Dynamic Subcopy with Future Override
@@ -632,7 +642,7 @@ class _SectorFlipWidgetV1State extends State<SectorFlipWidgetV1>
                                         // The child here is the "Ink" to be masked. 
                                         // We want a white/silver ink that gets masked by the gradient alpha.
                                         child: Container(
-                                            color: Colors.white.withOpacity(0.4) // Base intensity
+                                            color: AppColors.textPrimary.withOpacity(0.4) // Base intensity
                                         ),
                                     );
                                 }

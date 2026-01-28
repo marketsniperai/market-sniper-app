@@ -1,0 +1,5 @@
+Image generation skipped in headless mode.
+Estimated size: < 50KB (PNG).
+Target: 4-10KB (Requires JPEG 0.7 or lower resolution).
+Current implementation uses PNG for text clarity.
+Optimized pixelRatio=2.0.

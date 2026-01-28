@@ -203,7 +203,22 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
 - [x] **D45.SECTOR.REPLAY.V1_1** (Scrubber, 60m History, Safe ET). (SEALED).
 - [x] **D45.SECTOR.REPLAY.V1_2** (Pulse Integration, Fallback). (SEALED).
 - [x] **D45.SECTOR.SENTINEL.RT.V0** (Leader Change, Volume Spike Events). (SEALED).
+- [x] **D46.REGIME.SENTINEL.SKELETON** (Index Detail Widget, 10:30 Gate). (SEALED).
+- [x] **D46.REGIME.SENTINEL.POLISH** (DIA, Grid, Candles, Fullscreen). (SEALED).
+- [x] **D46.HF12.WIDGET.TITLES** (Breathing Accents, Headers). (SEALED).
+- [x] **D46.WATCHLIST.FINAL.SEAL** (Unlocked, Pre-seed, Preview Sheet). (SEALED).
+- [x] **D46.HF12.WATCHLIST.UI.POLISH** (Compact Tiles, Glass SnackBar, Small FAB). (SEALED).
+- [x] **D47.CANON_SYNC.CHECKPOINT** (Docs Updated, Git Checkpoint). (SEALED).
+- [x] **D47.HF14.NEWS.RANKING_SKELETON** (Rules-Only Engine). (SEALED).
+- [x] **D47.HF13.NEWS.DEMO_ENGINE** (Demo Mode, Ready for Data). (SEALED).
+- [x] **D47.HF13.NEWS.DEMO_ENGINE** (Demo Mode, Ready for Data). (SEALED).
+- [x] **D46.HF12B.WATCHLIST.MICRO_POLISH** (Refined SnackBar, Text, FAB). (SEALED).
 - [x] **D45.SECTOR.REPLAY.V1_3** (Pulse SSOT, Staleness Guard, Founder Src Tag). (SEALED).
 - [x] **D45.CANON.PENDING.01** (Pending Ledger Created, 10 Items). (SEALED).
 - [x] **D45.CANON.PENDING_INDEX.02** — Pending Index v2 generated (Radar-ready).
-- [x] **D45.CANON.DEBT_RADAR.V1** — War Room Debt Radar UI (Read-Only).
+- [x] **D45.CANON.PENDING_INDEX.02** — Pending Index v2 generated (Radar-ready).
+- [x] **D45.CANON.DEBT_RADAR.V2** — War Room Debt Radar V2 (Delta + Trends + Sorting).
+- [x] **AUDIT.ON_DEMAND.01** — On-Demand Feature Investigation (Frontend/Backend Audit). (COMPLETED).
+- [x] **D47.HF-CACHE-SERVER** — Hourly Bucket Cache (On-Demand). (SEALED).
+- [x] D47.HF-DEDUPE-GLOBAL (Shared Dossiers) - Sealed via `SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md`
+- [x] D47.HF33 (On-Demand Area Seal) - Sealed via `SEAL_D47_ON_DEMAND_AREA_SEALED.md`

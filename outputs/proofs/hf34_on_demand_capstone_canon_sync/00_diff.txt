@@ -1,0 +1,176 @@
+diff --git a/docs/canon/CONTEXT_CORE.md b/docs/canon/CONTEXT_CORE.md
+index 8eeb11e..ec20d38 100644
+--- a/docs/canon/CONTEXT_CORE.md
++++ b/docs/canon/CONTEXT_CORE.md
+@@ -1,6 +1,6 @@
+ CONTEXT CORE — MarketSniper AI
+ 
+-Last Updated: 2026-01-26 (Day 45)
++Last Updated: 2026-01-28 (Day 47 HF34)
+ Status: SEALED / CANONICAL
+ Owner: Founder (Sergio)
+ Primary Objective: Massive revenue fast, without sacrificing legality, honesty, or long-term scalability.
+@@ -156,7 +156,7 @@ Phase 6 — Institutional Polish (Day 46) ✅ COMPLETED
+ 
+ Phase 11 — Projection & News (Day 47) ✅ COMPLETED
+ 
+-Central Brain (Projection Orchestrator), News Engine, On-Demand Fusion.
++Central Brain (Projection Orchestrator), News Engine, On-Demand Area (FROZEN/SEALED).
+ 
+ Phase 12 — Transcendence (Future)
+ 
+diff --git a/docs/canon/MAP_CORE.md b/docs/canon/MAP_CORE.md
+index 21e6575..0c23fd3 100644
+--- a/docs/canon/MAP_CORE.md
++++ b/docs/canon/MAP_CORE.md
+@@ -66,7 +66,6 @@
+ - **News Engine**: `LocalDemoNewsDigestSource`, Ranking, Flip Cards.
+ - **Projection Orchestrator**: Central brain for signals-free context synthesis.
+ - **Intraday Series**: Deterministic demo series for high-res charting.
+-- **On-Demand Consumption**: Probabilistic context injection.
++- **On-Demand Area (SEALED)**: Full Source Ladder, 3-Tier Gating, Cost Policy.
+ 
+ ## Phase 12: Future Expansion
+-
+diff --git a/docs/canon/OS_MODULES.md b/docs/canon/OS_MODULES.md
+index af0fd45..00e72cb 100644
+--- a/docs/canon/OS_MODULES.md
++++ b/docs/canon/OS_MODULES.md
+@@ -60,6 +60,9 @@
+ | **OS.Elite.Safety** | Elite Safety | OPS | Institutional tone & claim enforcement. | (Internal) | `backend/os_ops/elite_context_safety_validator.py` |
+ | **OS.OnDemand.Cache** | On-Demand Cache | DATA | Universe-agnostic analysis cache. | (Internal) | `backend/os_ops/hf_cache_server.py` |
+ | **OS.OnDemand.Global** | Global Cache Server | DATA | Shared dossier deduplication (Public). | (Internal) | `backend/os_ops/global_cache_server.py` |
++| **OS.OnDemand.Ledger** | Computation Ledger | OPS | Daily Cost Policy Enforcer. | (Internal) | `backend/os_ops/computation_ledger.py` |
++| **OS.OnDemand.Resolver** | Tier Resolver | LOGIC | Founder/Elite/Plus/Free Resolution. | (Internal) | `lib/logic/on_demand_tier_resolver.dart` |
++| **OS.OnDemand.Recent** | Recent Dossier Store | DATA | Local offline snapshot persistence. | (Internal) | `lib/logic/recent_dossier_store.dart` |
+ | **OS.Biz.Dashboard** | Dashboard | FEATURE | Main user interface data payload. | `GET /dashboard` | `backend/schemas/dashboard_schema.py` |
+ | **OS.Biz.Context** | Context | FEATURE | Narrative context and market status. | `GET /context` | `backend/schemas/context_schema.py` |
+ | **OS.Biz.Efficacy** | Efficacy Engine | FEATURE | Tracks prediction accuracy. | `GET /efficacy` | `backend/schemas/efficacy_schema.py` |
+diff --git a/docs/canon/SYSTEM_ATLAS.md b/docs/canon/SYSTEM_ATLAS.md
+index 65cd85b..60638bb 100644
+--- a/docs/canon/SYSTEM_ATLAS.md
++++ b/docs/canon/SYSTEM_ATLAS.md
+@@ -93,10 +93,11 @@
+ - **Automation**:
+     - **Ritual Scheduler**: Local time-based triggers (Morning, Afternoon, Setup).
+ 
+-## 10. Watchlist & On-Demand (Day 44) - COMPLETED
++## 10. Watchlist & On-Demand (Day 44-47) - FROZEN
+ - **Watchlist Store**: Local persistence, live chips, easy-add.
+ - **On-Demand Engine**: Universe-agnostic search (Pipeline/Cache/Offline).
+ - **Institutional Guard**: Lexicon enforcement on results.
++- **Area Capstone**: `docs/canon/ON_DEMAND_AREA_SEAL.md`.
+ 
+ ## 11. Feature Phase v1 (Day 45) - COMPLETED
+ - **Premium Matrix**: Trial/Plus/Elite logic.
+diff --git a/os_registry.json b/os_registry.json
+index a2ed02e..ac7dc9f 100644
+--- a/os_registry.json
++++ b/os_registry.json
+@@ -937,6 +937,105 @@
+                 "playbooks": "N/A",
+                 "war_room_visibility": []
+             }
++        },
++        {
++            "module_id": "OS.OnDemand.Ledger",
++            "name": "Computation Ledger",
++            "type": "OPS",
++            "owner": "FOUNDER",
++            "status": "ACTIVE",
++            "primary_files": [
++                "backend/os_ops/computation_ledger.py"
++            ],
++            "wiring": {
++                "inputs": [
++                    "ticker",
++                    "timeframe"
++                ],
++                "outputs": [
++                    "outputs/os/ledger/computation_ledger.json"
++                ],
++                "ports": [
++                    "(Internal)"
++                ],
++                "dependencies": {
++                    "upstream": [],
++                    "downstream": [
++                        "OS.Intel.Projection"
++                    ]
++                }
++            },
++            "governance": {
++                "contracts": [],
++                "playbooks": "N/A",
++                "war_room_visibility": []
++            }
++        },
++        {
++            "module_id": "OS.OnDemand.Resolver",
++            "name": "Tier Resolver",
++            "type": "LOGIC",
++            "owner": "FOUNDER",
++            "status": "ACTIVE",
++            "primary_files": [
++                "lib/logic/on_demand_tier_resolver.dart"
++            ],
++            "wiring": {
++                "inputs": [
++                    "Founder",
++                    "EliteAccess",
++                    "PlusUnlock"
++                ],
++                "outputs": [
++                    "OnDemandTier"
++                ],
++                "ports": [
++                    "(Internal)"
++                ],
++                "dependencies": {
++                    "upstream": [],
++                    "downstream": [
++                        "OS.UI.OnDemandPanel"
++                    ]
++                }
++            },
++            "governance": {
++                "contracts": [],
++                "playbooks": "N/A",
++                "war_room_visibility": []
++            }
++        },
++        {
++            "module_id": "OS.OnDemand.Recent",
++            "name": "Recent Dossier Store",
++            "type": "DATA",
++            "owner": "FOUNDER",
++            "status": "ACTIVE",
++            "primary_files": [
++                "lib/logic/recent_dossier_store.dart"
++            ],
++            "wiring": {
++                "inputs": [
++                    "StandardEnvelope"
++                ],
++                "outputs": [
++                    "Local Persistence"
++                ],
++                "ports": [
++                    "(Internal)"
++                ],
++                "dependencies": {
++                    "upstream": [
++                        "OS.UI.OnDemandPanel"
++                    ],
++                    "downstream": []
++                }
++            },
++            "governance": {
++                "contracts": [],
++                "playbooks": "N/A",
++                "war_room_visibility": []
++            }
+         }
+     ]
+ }
+\ No newline at end of file

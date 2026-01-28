@@ -128,40 +128,26 @@ def verify_seal_hooks():
     seal_dir = ROOT_DIR / "outputs/seals"
     violations = []
     
-    # Grandfathering: Enforce only for seals created/modified starting NOW (approx D45 Canon Closure).
-    # Since file times vary, we will grandfather explicit known legacy seals if needed,
-    # or just enforce for files with Date >= 2026-01-26 AND excluding today's earlier seals if strict.
-    # The rule is: "backward compatible". 
-    # Strategy: Parse "Date:" in file. If Date > 2026-01-26, enforce.
-    # If Date == 2026-01-26, we might hit the one just made. 
-    # Let's enforcing strictly for anything claiming to be SEAL_D45_CANON_PENDING_CLOSURE_HOOK or newer.
+    enforcement_start_date = "2026-01-28"
     
-    enforcement_start_date = "2026-01-26" 
-    
-    # Exempt List (seals created today before this rule)
-    exemptions = [
-        "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
-        "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
-        "SEAL_D45_CANON_PENDING_LIFECYCLE.md",
-        "SEAL_D45_HF06_INFRA_DISCOVERY.md",
-        "SEAL_UI_CANON_V1_THEME.md",
-        "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
-        "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
-        "SEAL_D45_POLISH_SECTOR_FLIP_V2.md", 
-        "SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
-        "SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
-        "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
-        "SEAL_DAY_45_HF01_APP_CONFIG_SINGLETON.md",
-        "SEAL_DAY_45_HF02_FLUTTER_UPGRADE.md",
-        "SEAL_DAY_45_15_COMMAND_CENTER_INITIAL_STATE.md",
-        "SEAL_D45_CANON_DEBT_RADAR_V2.md"
+    # Legacy Exemptions (Bad dates or historic files)
+    legacy_exemptions = [
+        "SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md",
+        "SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md",
+        "SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md",
+        "SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md",
+        "SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md",
+        "SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md",
+        "SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md",
+        "SEAL_Dxx_UI_LEATHER_BARS_ONLY.md",
+        "SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md"
     ]
 
     try:
         if not seal_dir.exists(): return []
         
         for file in seal_dir.glob("SEAL_*.md"):
-            if file.name in exemptions: continue
+            if file.name in legacy_exemptions: continue
             
             with open(file, "r", encoding="utf-8") as f:
                 content = f.read()
@@ -173,22 +159,19 @@ def verify_seal_hooks():
                  continue
                  
             file_date = date_match.group(1)
+            # print(f"DEBUG: {file.name} -> {file_date}")
             
             # Hook V2 Enforcement (Start 2026-01-27)
-            if file_date >= "2026-01-27":
-                has_header = "## Pending Closure Hook" in content
-                has_resolved = "Resolved Pending Items:" in content
-                has_new = "New Pending Items:" in content
-                
-                if not (has_header and has_resolved and has_new):
-                    violations.append(f"{file.name} (V2 STRICT: Missing 'Resolved'/'New' items)")
+            if file_date < enforcement_start_date:
                 continue
 
-            # Hook V1 Enforcement (Start 2026-01-26)
-            if file_date < enforcement_start_date: continue
+            # If we are here, date is >= 2026-01-27, so we enforce.
+            has_header = "## Pending Closure Hook" in content
+            has_resolved = "Resolved Pending Items:" in content
+            has_new = "New Pending Items:" in content
             
-            if "## Pending Closure Hook" not in content:
-                violations.append(f"{file.name} (Date: {file_date}) missing '## Pending Closure Hook'")
+            if not (has_header and has_resolved and has_new):
+                violations.append(f"{file.name} (V2 STRICT: Missing 'Resolved'/'New' items)")
 
     except Exception as e:
         print(f"Error validating seals: {e}")

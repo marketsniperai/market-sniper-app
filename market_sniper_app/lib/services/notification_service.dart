@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:timezone/data/latest_all.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest_all.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'notification_router.dart';
 
@@ -28,13 +28,13 @@ class NotificationService {
   Future<void> init() async {
     if (_isInitialized) return;
 
-    tz.initializeTimeZones();
-    try {
-      tz.setLocalLocation(tz.getLocation('America/New_York'));
-    } catch (e) {
-      debugPrint(
-          "NotificationService: Could not set ET timezone, trailing local time. $e");
-    }
+    // tz.initializeTimeZones(); // Web Compat Disable
+    // try {
+    //   tz.setLocalLocation(tz.getLocation('America/New_York'));
+    // } catch (e) {
+    //   debugPrint(
+    //       "NotificationService: Could not set ET timezone, trailing local time. $e");
+    // }
 
     const androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -117,8 +117,10 @@ class NotificationService {
   Future<void> scheduleDailyRituals() async {
     await cancelAllRituals();
 
-    debugPrint("NotificationService: Scheduling Rituals...");
-
+    debugPrint("NotificationService: Scheduling Rituals (Disabled for Web V1)...");
+    
+    // Stubbed for Web Compatibility
+    /*
     await _scheduleDaily(
       id: 1,
       title: "Morning Briefing Ready",
@@ -136,8 +138,10 @@ class NotificationService {
       minute: aftermarketClosureMinute,
       payload: "ritual:aftermarket",
     );
+    */
   }
 
+  /*
   Future<void> _scheduleDaily({
     required int id,
     required String title,
@@ -183,6 +187,7 @@ class NotificationService {
       debugPrint("NotificationService: Failed to schedule id=$id. Error: $e");
     }
   }
+  */
 
   Future<void> cancelAllRituals() async {
     await _notifications.cancelAll();

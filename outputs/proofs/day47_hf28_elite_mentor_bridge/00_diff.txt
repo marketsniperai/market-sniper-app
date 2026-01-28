@@ -1,0 +1,1201 @@
+diff --git a/market_sniper_app/lib/screens/on_demand_panel.dart b/market_sniper_app/lib/screens/on_demand_panel.dart
+index f5ad204..54b1a47 100644
+--- a/market_sniper_app/lib/screens/on_demand_panel.dart
++++ b/market_sniper_app/lib/screens/on_demand_panel.dart
+@@ -13,9 +13,12 @@ import '../widgets/time_traveller_chart.dart'; // D47.HF24
+ import '../widgets/reliability_meter.dart'; // D47.HF25
+ import '../widgets/intel_card.dart'; // D47.HF26
+ import '../widgets/tactical_playbook_block.dart'; // D47.HF27
++import '../widgets/elite_mentor_bridge_button.dart'; // D47.HF28
+ import '../logic/recent_dossier_store.dart'; // D47.HF-RECENT
+ import '../widgets/recent_dossier_rail.dart'; // D47.HF-RECENT
+ import '../layout/main_layout.dart'; // To find ancestor if needed
++import '../logic/elite_access_window_controller.dart'; // D45.07
++import '../widgets/elite_interaction_sheet.dart'; // D43.XX
+ import 'dart:async'; // StreamSubscription
+ 
+ enum OnDemandViewState { idle, loading, result, error }
+@@ -42,6 +45,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+   final OnDemandHistoryStore _historyStore = OnDemandHistoryStore(); // D44.15
+   List<OnDemandHistoryItem> _historyItems = [];
+   bool _isAnalyzing = false;
++  bool _isEliteUnlocked = false; // D47.HF28
+ 
+   // Recent Dossiers
+   final RecentDossierStore _recentStore = RecentDossierStore();
+@@ -90,6 +94,17 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+     setState(() {
+       _recentEntries = _recentStore.getRecent();
+     });
++    // D47.HF28: Check Tier on init for UI state
++    _checkEliteStatus();
++  }
++
++  Future<void> _checkEliteStatus() async {
++      final access = await EliteAccessWindowController.resolve();
++      if (mounted) {
++          setState(() {
++              _isEliteUnlocked = access.isUnlocked;
++          });
++      }
+   }
+ 
+   Future<void> _initHistory() async {
+@@ -555,6 +570,13 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+               // D47.HF27: Tactical Playbook
+               _buildTacticalPlaybook(),
+ 
++              const SizedBox(height: 16),
++              // D47.HF28: Elite Mentor Bridge
++              EliteMentorBridgeButton(
++                  isLocked: !_isEliteUnlocked,
++                  onTap: _openMentorBridge
++              ),
++
+               const Divider(color: AppColors.borderSubtle, height: 24),
+ 
+               if (_result!.sanitized) ...[
+@@ -1083,6 +1105,51 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
+       _isAnalyzing = false; // Not actively analyzing
+     });
+   }
++  
++  void _openMentorBridge() {
++      if (!_isEliteUnlocked) {
++          ScaffoldMessenger.of(context).showSnackBar(
++              const SnackBar(
++                  content: Text("Elite unlocks institutional mentoring on every dossier."),
++                  backgroundColor: AppColors.surface2,
++                  duration: Duration(seconds: 3),
++              )
++          );
++          return;
++      }
++      
++      final payload = _buildContextPayload();
++      
++      showModalBottomSheet(
++          context: context,
++          isScrollControlled: true,
++          backgroundColor: Colors.transparent,
++          builder: (context) => EliteInteractionSheet(
++              initialExplainKey: 'EXPLAIN_ON_DEMAND_RESULT',
++              initialPayload: payload,
++          )
++      );
++  }
++  
++  Map<String, dynamic> _buildContextPayload() {
++      if (_result == null) return {};
++      
++      return {
++          'ticker': _controller.text.toUpperCase(),
++          'timeframe': _timeframe,
++          'status': _result!.status.toString().split('.').last.toUpperCase(),
++          'source': _result!.source.toString().split('.').last.toUpperCase(),
++          'timestamp': _result!.asOfUtc.toIso8601String(),
++          'badges': _result!.confidenceBadges.map((e) => e.toString().split('.').last.toUpperCase()).toList(),
++          'reliability': _deriveReliabilityState(_result!), // Re-use helper
++          // Add bullets for context?
++          'top_bullet': _result!.bullets.isNotEmpty ? _result!.bullets.first : "N/A",
++          // Add raw summary?
++          'summary_bullets': _result!.bullets,
++          // Extract tactical if present?
++          // We pass raw payload subsets if needed, but let's keep it clean.
++      };
++  }
+ }
+ 
+ 
+diff --git a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+index f56566f..b3ddf17 100644
+--- a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
++++ b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+@@ -8,14 +8,15 @@ import 'package:market_sniper_app/screens/on_demand_panel.dart'; // Ensure this
+ 
+ void main() {
+   final List<Map<String, dynamic>> results = [];
+-  final File reportFile = File('c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
++  final File reportFile = File(
++      'c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
+ 
+   setUpAll(() {
+     if (reportFile.existsSync()) reportFile.deleteSync();
+   });
+ 
+   tearDownAll(() {
+-     final json = {
++    final json = {
+       "timestamp_utc": DateTime.now().toUtc().toIso8601String(),
+       "scenarios": results,
+       "checks": {
+@@ -30,15 +31,47 @@ void main() {
+ 
+   // Scenarios
+   final scenarios = [
+-    {"name": "baseline_2", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE"]},
+-    {"name": "stress_5_long", "width": 360.0, "fontScale": 1.0, "badges": ["PROXY_ESTIMATED", "PROVIDER_DENIED", "COVERAGE_SAMPLE", "STALE", "USAGE_9_10"]},
+-    {"name": "stress_7_mix", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]},
+-    {"name": "w320_font1.0", "width": 320.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
+-    {"name": "w320_font1.5", "width": 320.0, "fontScale": 1.5, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
++    {
++      "name": "baseline_2",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE"]
++    },
++    {
++      "name": "stress_5_long",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": [
++        "PROXY_ESTIMATED",
++        "PROVIDER_DENIED",
++        "COVERAGE_SAMPLE",
++        "STALE",
++        "USAGE_9_10"
++      ]
++    },
++    {
++      "name": "stress_7_mix",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]
++    },
++    {
++      "name": "w320_font1.0",
++      "width": 320.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
++    {
++      "name": "w320_font1.5",
++      "width": 320.0,
++      "fontScale": 1.5,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
+   ];
+ 
+   for (final s in scenarios) {
+-    testWidgets('BadgeStrip Layout Scenario: ${s['name']}', (WidgetTester tester) async {
++    testWidgets('BadgeStrip Layout Scenario: ${s['name']}',
++        (WidgetTester tester) async {
+       final width = s['width'] as double;
+       final fontScale = s['fontScale'] as double;
+       final badges = s['badges'] as List<String>;
+@@ -65,7 +98,7 @@ void main() {
+       // Check for overflows
+       final exception = tester.takeException();
+       bool passed = exception == null;
+-      
++
+       // Also check if render object has error (sometimes exception is swallowed or just painted)
+       // Flutter test throws specific FlutterError for RenderFlex overflow if configured, handled by takeException usually.
+ 
+diff --git a/market_sniper_app/test/verify_config.dart b/market_sniper_app/test/verify_config.dart
+index 751c526..91fbeee 100644
+--- a/market_sniper_app/test/verify_config.dart
++++ b/market_sniper_app/test/verify_config.dart
+@@ -1,4 +1,3 @@
+-
+ import 'package:market_sniper_app/config/app_config.dart';
+ 
+ void main() {
+diff --git a/market_sniper_app/test/verify_menu.dart b/market_sniper_app/test/verify_menu.dart
+index 65bb81e..45e7e39 100644
+--- a/market_sniper_app/test/verify_menu.dart
++++ b/market_sniper_app/test/verify_menu.dart
+@@ -1,12 +1,11 @@
+-
+ import 'package:market_sniper_app/screens/menu_screen.dart';
+ import 'package:market_sniper_app/screens/account_screen.dart';
+ import 'package:market_sniper_app/screens/partner_terms_screen.dart';
+ 
+ void main() {
+   print("Verifying Menu Dependencies...");
+-  final m = MenuScreen();
+-  final a = AccountScreen();
+-  final p = PartnerTermsScreen();
++  const m = MenuScreen();
++  const a = AccountScreen();
++  const p = PartnerTermsScreen();
+   print("Instantiation Success: $m, $a, $p");
+ }
+diff --git a/market_sniper_app/tool/generate_core_universe_proof.dart b/market_sniper_app/tool/generate_core_universe_proof.dart
+index dc90521..21f627f 100644
+--- a/market_sniper_app/tool/generate_core_universe_proof.dart
++++ b/market_sniper_app/tool/generate_core_universe_proof.dart
+@@ -23,11 +23,11 @@ void main() {
+       "canonical": CoreUniverse.getDefinition(input)?.symbol,
+     };
+   }
+-  
++
+   // Verify Core20 Count
+   final distinctSymbols = CoreUniverse.definitions.map((d) => d.symbol).toSet();
+   final count = distinctSymbols.length;
+-  
++
+   final proof = {
+     "timestamp": DateTime.now().toIso8601String(),
+     "core20_symbol_count": count,
+@@ -40,7 +40,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts (assumes run from repo root)
+-  const path = 'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
+   final file = File(path);
+   file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_core_tape.dart b/market_sniper_app/tool/verify_core_tape.dart
+index 0c8d24e..383b740 100644
+--- a/market_sniper_app/tool/verify_core_tape.dart
++++ b/market_sniper_app/tool/verify_core_tape.dart
+@@ -8,22 +8,32 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Live Tape",
+-       "input": {"status": "LIVE", "freshness": 5, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Green Badge, Freshness, Size Guard Pass",
+-       "pass": true
++      "scenario": "Live Tape",
++      "input": {
++        "status": "LIVE",
++        "freshness": 5,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Green Badge, Freshness, Size Guard Pass",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Tape",
+-       "input": {"status": "STALE", "freshness": 120, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Amber Badge, Stale Freshness",
+-       "pass": true
++      "scenario": "Stale Tape",
++      "input": {
++        "status": "STALE",
++        "freshness": 120,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Amber Badge, Stale Freshness",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+index 127d9d9..5a4b13d 100644
+--- a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
++++ b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+@@ -4,7 +4,7 @@ import 'dart:io';
+ // ignore_for_file: avoid_print
+ 
+ // --- MOCKED MODELS FOR LOGIC VERIFICATION ---
+-// These mirror the artifact contract, not necessarily the Repo classes 1:1, 
++// These mirror the artifact contract, not necessarily the Repo classes 1:1,
+ // but serve to generate the correct JSON structure.
+ 
+ class OverlayLiveComposerPayload {
+@@ -31,66 +31,68 @@ class OverlayLiveComposerPayload {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'asOfUtc': asOfUtc,
+-    'age_seconds': ageSeconds,
+-    'state': state,
+-    'mode': mode,
+-    'confidence': confidence,
+-    'source': source,
+-    'overlay_truth': overlayTruth,
+-    'overlay_summary': overlaySummary,
+-    if (limitations != null) 'limitations': limitations,
+-  };
++        'asOfUtc': asOfUtc,
++        'age_seconds': ageSeconds,
++        'state': state,
++        'mode': mode,
++        'confidence': confidence,
++        'source': source,
++        'overlay_truth': overlayTruth,
++        'overlay_summary': overlaySummary,
++        if (limitations != null) 'limitations': limitations,
++      };
+ }
+ 
+ // --- COMPOSER LOGIC ENGINE ---
+ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   if (sentinelTape == null || sentinelTape['status'] == 'UNAVAILABLE') {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: 0,
+-      state: 'UNAVAILABLE',
+-      mode: 'LIVE',
+-      confidence: 'UNAVAILABLE',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'UNKNOWN',
+-        'age_seconds': 0,
+-        'ok_state': 'UNAVAILABLE',
+-        'confidence': 'UNAVAILABLE'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (UNAVAILABLE)',
+-        'bullets': ["Overlay composer unavailable: no sentinel tape."]
+-      },
+-      limitations: ["Source Missing"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: 0,
++        state: 'UNAVAILABLE',
++        mode: 'LIVE',
++        confidence: 'UNAVAILABLE',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'UNKNOWN',
++          'age_seconds': 0,
++          'ok_state': 'UNAVAILABLE',
++          'confidence': 'UNAVAILABLE'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (UNAVAILABLE)',
++          'bullets': ["Overlay composer unavailable: no sentinel tape."]
++        },
++        limitations: [
++          "Source Missing"
++        ]);
+   }
+ 
+   final age = sentinelTape['age_seconds'] as int? ?? 999;
+   final sectors = sentinelTape['sectors'] as List<dynamic>? ?? [];
+-  
++
+   // Staleness check
+   if (age > 300) {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: age,
+-      state: 'STALE',
+-      mode: 'LIVE',
+-      confidence: 'LOW',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'LIVE',
+-        'age_seconds': age,
+-        'ok_state': 'STALE',
+-        'confidence': 'LOW'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (STALE)',
+-        'bullets': ["Data is stale (>5m old). Do not trust for execution."]
+-      },
+-      limitations: ["Data Stale"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: age,
++        state: 'STALE',
++        mode: 'LIVE',
++        confidence: 'LOW',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'LIVE',
++          'age_seconds': age,
++          'ok_state': 'STALE',
++          'confidence': 'LOW'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (STALE)',
++          'bullets': ["Data is stale (>5m old). Do not trust for execution."]
++        },
++        limitations: [
++          "Data Stale"
++        ]);
+   }
+ 
+   // Compute Metrics
+@@ -109,12 +111,13 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   String confidence = 'LOW';
+-  if (sectors.length >= 9) confidence = 'HIGH';
+-  else if (sectors.length >= 6) confidence = 'MEDIUM';
++  if (sectors.length >= 9) {
++    confidence = 'HIGH';
++  } else if (sectors.length >= 6) confidence = 'MEDIUM';
+ 
+   // Generate Bullets
+   List<String> bullets = [];
+-  
++
+   if (highDisp > 3) {
+     bullets.add("Sector dispersion elevated across $highDisp sectors.");
+   } else {
+@@ -134,23 +137,22 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   return OverlayLiveComposerPayload(
+-    asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-    ageSeconds: age,
+-    state: 'LIVE',
+-    mode: 'LIVE',
+-    confidence: confidence,
+-    source: 'SECTOR_SENTINEL',
+-    overlayTruth: {
+-      'mode': 'LIVE',
+-      'age_seconds': age,
+-      'ok_state': 'OK',
+-      'confidence': confidence
+-    },
+-    overlaySummary: {
+-      'title': 'Extended Summary Overlay (LIVE)',
+-      'bullets': bullets.take(3).toList()
+-    }
+-  );
++      asOfUtc: DateTime.now().toUtc().toIso8601String(),
++      ageSeconds: age,
++      state: 'LIVE',
++      mode: 'LIVE',
++      confidence: confidence,
++      source: 'SECTOR_SENTINEL',
++      overlayTruth: {
++        'mode': 'LIVE',
++        'age_seconds': age,
++        'ok_state': 'OK',
++        'confidence': confidence
++      },
++      overlaySummary: {
++        'title': 'Extended Summary Overlay (LIVE)',
++        'bullets': bullets.take(3).toList()
++      });
+ }
+ 
+ void main() {
+@@ -179,10 +181,10 @@ void main() {
+   };
+ 
+   final resultActive = composeOverlay(sentinelActive);
+-  
++
+   // Write Canonical
+-  File('${rtDir.path}/overlay_live_composer.json')
+-      .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
++  File('${rtDir.path}/overlay_live_composer.json').writeAsStringSync(
++      const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
+   print("Canonical artifact written.");
+ 
+   // Scenario 2: Stale
+diff --git a/market_sniper_app/tool/verify_day_40_close.dart b/market_sniper_app/tool/verify_day_40_close.dart
+index 6a5b3f7..417cb49 100644
+--- a/market_sniper_app/tool/verify_day_40_close.dart
++++ b/market_sniper_app/tool/verify_day_40_close.dart
+@@ -22,14 +22,14 @@ class AutoRiskActionItem {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'action_id': actionId,
+-    'title': title,
+-    'description': description,
+-    'rationale': rationale,
+-    'scope': scope,
+-    'status': status,
+-    'cooldown_seconds': cooldownSeconds,
+-  };
++        'action_id': actionId,
++        'title': title,
++        'description': description,
++        'rationale': rationale,
++        'scope': scope,
++        'status': status,
++        'cooldown_seconds': cooldownSeconds,
++      };
+ 
+   factory AutoRiskActionItem.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionItem(
+@@ -58,20 +58,23 @@ class AutoRiskActionSnapshot {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'state': state,
+-    'as_of_utc': asOfUtc?.toIso8601String(),
+-    'age_seconds': ageSeconds,
+-    'actions': actions.map((e) => e.toJson()).toList(),
+-  };
++        'state': state,
++        'as_of_utc': asOfUtc?.toIso8601String(),
++        'age_seconds': ageSeconds,
++        'actions': actions.map((e) => e.toJson()).toList(),
++      };
+ 
+   factory AutoRiskActionSnapshot.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionSnapshot(
+       state: json['state'] as String? ?? 'UNAVAILABLE',
+-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
++      asOfUtc: json['as_of_utc'] != null
++          ? DateTime.tryParse(json['as_of_utc'])
++          : null,
+       ageSeconds: json['age_seconds'] as int?,
+       actions: (json['actions'] as List<dynamic>?)
+-          ?.map((e) => AutoRiskActionItem.fromJson(e))
+-          .toList() ?? [],
++              ?.map((e) => AutoRiskActionItem.fromJson(e))
++              .toList() ??
++          [],
+     );
+   }
+ }
+@@ -109,7 +112,7 @@ void main() {
+   };
+ 
+   final snapshot = AutoRiskActionSnapshot.fromJson(jsonInput);
+-  
++
+   // Validate
+   if (snapshot.state != "ACTIVE") throw "State mismatch";
+   if (snapshot.actions.length != 2) throw "Action count mismatch";
+@@ -128,18 +131,48 @@ void main() {
+   print("D40.08 Proof generated.");
+ 
+   // 2. D40.07 PROOF: Elite Trigger Logic (Simulation)
+-  // Logic: 
++  // Logic:
+   // - SHOCK/FRACTURED/RISK_OFF -> Show Bubble
+   // - Cooldown -> Hide
+   // - UNAVAILABLE -> Hide
+-  
++
+   final scenarios = [
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "FRACTURED", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_OFF", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_ON", "freshness": "OK", "cooldown": false, "expected": "HIDDEN"}, // Condition not met
+-    {"state": "SHOCK", "freshness": "UNAVAILABLE", "cooldown": false, "expected": "HIDDEN"}, // Degrade
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": true, "expected": "HIDDEN"}, // Cooldown
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "FRACTURED",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_OFF",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_ON",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Condition not met
++    {
++      "state": "SHOCK",
++      "freshness": "UNAVAILABLE",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Degrade
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": true,
++      "expected": "HIDDEN"
++    }, // Cooldown
+   ];
+ 
+   final proof07 = {
+diff --git a/market_sniper_app/tool/verify_day_40_close_placeholder.dart b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+index 3d31c65..86f9308 100644
+--- a/market_sniper_app/tool/verify_day_40_close_placeholder.dart
++++ b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+@@ -1,15 +1,12 @@
+-import 'dart:convert';
+-import 'dart:io';
+-
+-// Import the data models. In a real script we might import the files, 
++// Import the data models. In a real script we might import the files,
+ // but for standalone execution ease we'll replicate the minimal model structs or use relative paths if package structure allows.
+-// Given strict environment, we'll try to import relatively. 
++// Given strict environment, we'll try to import relatively.
+ 
+-// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION. 
++// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION.
+ // Run from: c:/MSR/MarketSniperRepo/market_sniper_app
+ // Path to Repo: lib/repositories/universe_repository.dart
+ 
+-// To avoid package import issues in standalone script without pubspec ref, 
++// To avoid package import issues in standalone script without pubspec ref,
+ // I will redefine the minimal class structure for verification or try to run via 'flutter test' if possible.
+ // 'flutter test' is cleaner. I'll make a test file.
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+index 5ed6930..4782926 100644
+--- a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
++++ b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+@@ -14,7 +14,8 @@ void main() {
+     "ui_check": "Visible regardless of data state",
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json', degradeProof);
++  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json',
++      degradeProof);
+ 
+   // D40.15 What Changed Proof
+   final whatChangedProof = {
+@@ -34,7 +35,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json', whatChangedProof);
++  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json',
++      whatChangedProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+index 51294e9..f524f45 100644
+--- a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
++++ b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+@@ -13,16 +13,21 @@ void main() {
+     "scenarios": [
+       {"status": "UNAVAILABLE", "ui": "Diagnostic surface unavailable."},
+       {
+-        "status": "LIVE", 
++        "status": "LIVE",
+         "disagreements": [
+-           {"scope": "CORE_vs_PULSE", "severity": "HIGH", "message": "Trend inverted."}
++          {
++            "scope": "CORE_vs_PULSE",
++            "severity": "HIGH",
++            "message": "Trend inverted."
++          }
+         ],
+         "ui": "List of disagreements"
+       }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json', disagreementProof);
++  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json',
++      disagreementProof);
+ 
+   // D40.12 Global Pulse Timeline Proof
+   final timelineProof = {
+@@ -42,7 +47,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json', timelineProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json',
++      timelineProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+index e238546..dfe1d28 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+@@ -11,25 +11,25 @@ void main() {
+     "module": "UI.Sentinel.RT",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "sectors": [
+-           {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
+-           {"id": "XLF", "status": "OK", "pressure": "FLAT", "dispersion": "NORMAL"}
+-         ],
+-         "ui_result": "Green Badge, Live Chips"
++        "state": "ACTIVE",
++        "sectors": [
++          {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
++          {
++            "id": "XLF",
++            "status": "OK",
++            "pressure": "FLAT",
++            "dispersion": "NORMAL"
++          }
++        ],
++        "ui_result": "Green Badge, Live Chips"
+       },
+-      {
+-         "state": "STALE",
+-         "ui_result": "Amber Badge, Stale Chips"
+-      },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "SENTINEL UNAVAILABLE strip"
+-      }
++      {"state": "STALE", "ui_result": "Amber Badge, Stale Chips"},
++      {"state": "UNAVAILABLE", "ui_result": "SENTINEL UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json', sentinelProof);
++  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Heatmap RT Proof
+   final heatmapProof = {
+@@ -37,21 +37,31 @@ void main() {
+     "module": "UI.Sentinel.Heatmap",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "cells": [
+-           {"id": "XLK", "pressure": "UP", "dispersion": "LOW", "color": "Cyan", "dot": "Cyan"},
+-           {"id": "XLE", "pressure": "DOWN", "dispersion": "HIGH", "color": "Grey", "dot": "Amber"}
+-         ],
+-         "ui_result": "Grid rendered with correct colors"
++        "state": "ACTIVE",
++        "cells": [
++          {
++            "id": "XLK",
++            "pressure": "UP",
++            "dispersion": "LOW",
++            "color": "Cyan",
++            "dot": "Cyan"
++          },
++          {
++            "id": "XLE",
++            "pressure": "DOWN",
++            "dispersion": "HIGH",
++            "color": "Grey",
++            "dot": "Amber"
++          }
++        ],
++        "ui_result": "Grid rendered with correct colors"
+       },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "HEATMAP UNAVAILABLE strip"
+-      }
++      {"state": "UNAVAILABLE", "ui_result": "HEATMAP UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json', heatmapProof);
++  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+index 456f46d..e075d8f 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+@@ -16,7 +16,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json', sentinelProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Sentinel Heatmap Proof
+   final heatmapProof = {
+@@ -30,7 +32,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json', heatmapProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+index 26b484e..52d162c 100644
+--- a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
++++ b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+@@ -12,11 +12,16 @@ void main() {
+     "snapshot_model": "GlobalPulseSynthesisSnapshot",
+     "scenarios": [
+       {"state": "UNAVAILABLE", "ui": "Unavailable Strip"},
+-      {"state": "SHOCK", "drivers": ["VIX Spike", "Rate Jump"], "ui": "Red Badge + Drivers List"}
++      {
++        "state": "SHOCK",
++        "drivers": ["VIX Spike", "Rate Jump"],
++        "ui": "Red Badge + Drivers List"
++      }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json', synthesisProof);
++  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json',
++      synthesisProof);
+ 
+   // D40.13 RT Freshness Monitor Proof
+   final freshnessProof = {
+@@ -34,7 +39,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json', freshnessProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json',
++      freshnessProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_drift_surface.dart b/market_sniper_app/tool/verify_drift_surface.dart
+index dd1c067..7cf5ebe 100644
+--- a/market_sniper_app/tool/verify_drift_surface.dart
++++ b/market_sniper_app/tool/verify_drift_surface.dart
+@@ -28,7 +28,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_governance_ui.dart b/market_sniper_app/tool/verify_extended_governance_ui.dart
+index 35f8e59..ab424d3 100644
+--- a/market_sniper_app/tool/verify_extended_governance_ui.dart
++++ b/market_sniper_app/tool/verify_extended_governance_ui.dart
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_universe_ui.dart b/market_sniper_app/tool/verify_extended_universe_ui.dart
+index 14a4c3f..a0683ec 100644
+--- a/market_sniper_app/tool/verify_extended_universe_ui.dart
++++ b/market_sniper_app/tool/verify_extended_universe_ui.dart
+@@ -29,7 +29,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_overlay_injection.dart b/market_sniper_app/tool/verify_overlay_injection.dart
+index fde43c9..2728a9c 100644
+--- a/market_sniper_app/tool/verify_overlay_injection.dart
++++ b/market_sniper_app/tool/verify_overlay_injection.dart
+@@ -8,23 +8,23 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"summary": null},
+-       "expectedState": "UNAVAILABLE",
+-       "summaryPoints": [],
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"summary": null},
++      "expectedState": "UNAVAILABLE",
++      "summaryPoints": [],
++      "pass": true
+     },
+     {
+-       "scenario": "Valid Data",
+-       "input": {
+-         "summary": {
+-           "mode": "CONTEXT",
+-           "points": ["Market is volatile.", "VIX > 20."]
+-         }
+-       },
+-       "expectedState": "OK",
+-       "summaryPoints": ["Market is volatile.", "VIX > 20."],
+-       "pass": true // Simulated pass as logic is stubbed
++      "scenario": "Valid Data",
++      "input": {
++        "summary": {
++          "mode": "CONTEXT",
++          "points": ["Market is volatile.", "VIX > 20."]
++        }
++      },
++      "expectedState": "OK",
++      "summaryPoints": ["Market is volatile.", "VIX > 20."],
++      "pass": true // Simulated pass as logic is stubbed
+     },
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_propagation_audit.dart b/market_sniper_app/tool/verify_propagation_audit.dart
+index 214e307..f108f11 100644
+--- a/market_sniper_app/tool/verify_propagation_audit.dart
++++ b/market_sniper_app/tool/verify_propagation_audit.dart
+@@ -7,7 +7,7 @@ void main() {
+ 
+   // Simulate Logic Match
+   // If we have a status, it should reflect in Integrity.
+-  
++
+   final propSnapshot = {
+     "status": "OK",
+     "consumersTotal": 15,
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_pulse_core.dart b/market_sniper_app/tool/verify_pulse_core.dart
+index c76d222..373256b 100644
+--- a/market_sniper_app/tool/verify_pulse_core.dart
++++ b/market_sniper_app/tool/verify_pulse_core.dart
+@@ -16,7 +16,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
+ 
+   // D40.09 Confidence Bands Proof
+   final confidenceProof = {
+@@ -29,7 +30,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json', confidenceProof);
++  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json',
++      confidenceProof);
+ 
+   // D40.10 Pulse Drift Proof
+   final driftProof = {
+@@ -42,7 +44,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_safe_degrade.dart b/market_sniper_app/tool/verify_safe_degrade.dart
+index f69a1da..8773837 100644
+--- a/market_sniper_app/tool/verify_safe_degrade.dart
++++ b/market_sniper_app/tool/verify_safe_degrade.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"mode": null},
+-       "expectedState": "UNAVAILABLE",
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"mode": null},
++      "expectedState": "UNAVAILABLE",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Data (>5 min)",
+-       "input": {"mode": "LIVE", "age": 400},
+-       "expectedState": "STALE",
+-       "pass": true
++      "scenario": "Stale Data (>5 min)",
++      "input": {"mode": "LIVE", "age": 400},
++      "expectedState": "STALE",
++      "pass": true
+     },
+     {
+-       "scenario": "Sim Mode",
+-       "input": {"mode": "SIM"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Sim Mode",
++      "input": {"mode": "SIM"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     },
+     {
+-       "scenario": "Partial Mode",
+-       "input": {"mode": "PARTIAL"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Partial Mode",
++      "input": {"mode": "PARTIAL"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_heatmap.dart b/market_sniper_app/tool/verify_sector_heatmap.dart
+index 6b0412f..7606f74 100644
+--- a/market_sniper_app/tool/verify_sector_heatmap.dart
++++ b/market_sniper_app/tool/verify_sector_heatmap.dart
+@@ -8,28 +8,37 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"source": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"source": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "High Dispersion",
+-       "input": {"states": {"XLF": "HIGH"}, "source": "OVERLAY"},
+-       "expectedUI": "Amber Dot",
+-       "pass": true
++      "scenario": "High Dispersion",
++      "input": {
++        "states": {"XLF": "HIGH"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Amber Dot",
++      "pass": true
+     },
+     {
+-       "scenario": "Normal Dispersion",
+-       "input": {"states": {"XLK": "NORMAL"}, "source": "OVERLAY"},
+-       "expectedUI": "Grey Dot",
+-       "pass": true
++      "scenario": "Normal Dispersion",
++      "input": {
++        "states": {"XLK": "NORMAL"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Grey Dot",
++      "pass": true
+     },
+-     {
+-       "scenario": "Low Dispersion",
+-       "input": {"states": {"XLE": "LOW"}, "source": "OVERLAY"},
+-       "expectedUI": "Cyan Dot",
+-       "pass": true
++    {
++      "scenario": "Low Dispersion",
++      "input": {
++        "states": {"XLE": "LOW"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Cyan Dot",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_sentinel.dart b/market_sniper_app/tool/verify_sector_sentinel.dart
+index 1e3042e..a729c32 100644
+--- a/market_sniper_app/tool/verify_sector_sentinel.dart
++++ b/market_sniper_app/tool/verify_sector_sentinel.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Disabled",
+-       "input": {"status": "DISABLED"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Disabled",
++      "input": {"status": "DISABLED"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Active",
+-       "input": {"status": "ACTIVE"},
+-       "expectedUI": "Green Badge",
+-       "pass": true
++      "scenario": "Active",
++      "input": {"status": "ACTIVE"},
++      "expectedUI": "Green Badge",
++      "pass": true
+     },
+-     {
+-       "scenario": "Stale",
+-       "input": {"status": "STALE"},
+-       "expectedUI": "Amber Badge",
+-       "pass": true
++    {
++      "scenario": "Stale",
++      "input": {"status": "STALE"},
++      "expectedUI": "Amber Badge",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_universe_integrity.dart b/market_sniper_app/tool/verify_universe_integrity.dart
+index cee1c15..ad9790e 100644
+--- a/market_sniper_app/tool/verify_universe_integrity.dart
++++ b/market_sniper_app/tool/verify_universe_integrity.dart
+@@ -10,7 +10,7 @@ void main() {
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: UNAVAILABLE, GOV: POLICY
+   // Expected: Overall UNAVAILABLE (because Overlay is unavail)
+   // Wait, if Overlay is UNAVAILABLE, and User rule says "UNAVAILABLE if overlay UNAVAILABLE", then Overall is UNAVAILABLE.
+-  
++
+   final integritySnapshot = {
+     "coreStatus": "OK",
+     "extendedStatus": "UNAVAILABLE", // As currently implemented default
+@@ -19,14 +19,14 @@ void main() {
+     "consumersStatus": "UNKNOWN",
+     "freshnessAgeSeconds": 0,
+     "freshnessState": "UNAVAILABLE",
+-    "overallState": "UNAVAILABLE", 
++    "overallState": "UNAVAILABLE",
+     "source": "MIXED"
+   };
+ 
+   // Scenario 2: If we simulated LIVE overlay (like in D39.04 proof)
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: OK, GOV: POLICY
+   // Expected: DEGRADED (because Extended Unavail + Gov Policy)
+-  
++
+   final proof = {
+     "timestamp_utc": DateTime.now().toIso8601String(),
+     "module": "UI.Universe.IntegrityTile",
+@@ -43,7 +43,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);

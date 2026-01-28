@@ -1,0 +1,8 @@
+HTTP/1.1 403 Forbidden
+Server: Google Frontend
+Date: Sun, 26 Jan 2026 14:40:00 GMT
+Content-Type: text/html
+Content-Length: 1234
+
+<html><head><title>Error 403 (Forbidden)!!1</title></head>
+<body><p>Client does not have access to the service.</p></body></html>

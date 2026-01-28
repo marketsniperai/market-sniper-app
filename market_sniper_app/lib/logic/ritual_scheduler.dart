@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
 
 enum RitualStatus {
   ready,
@@ -57,7 +57,7 @@ class RitualScheduler {
   Future<void> init() async {
     if (_initialized) return;
     try {
-      tz.initializeTimeZones();
+      // tz.initializeTimeZones();
     } catch (_) {
       // Ignore if already initialized
     }
@@ -79,26 +79,26 @@ class RitualScheduler {
     }
 
     // 2. Check Window
-    final targetTime = tz.TZDateTime(
-      nowEt.location,
+    final targetTime = DateTime.utc( // Using UTC as base for ET object calc
       nowEt.year,
       nowEt.month,
       nowEt.day,
       ritual.targetHour,
       ritual.targetMinute,
-    );
+    ).subtract(const Duration(hours: 0)); // No shift needed if nowEt is already shifted? 
+    // Wait. nowEt is DateTIme with hour shifted.
+    // So targetTime should be constructed with same "local" components.
+    
+    final targetTimeConstructed = DateTime(
+       nowEt.year, nowEt.month, nowEt.day, ritual.targetHour, ritual.targetMinute
+    ); // Treated as local comparison object
 
-    final windowEnd = targetTime.add(Duration(minutes: ritual.windowMinutes));
+    final windowEnd = targetTimeConstructed.add(Duration(minutes: ritual.windowMinutes));
 
     // Eligible if: targetTime <= now <= windowEnd
-    if (nowEt.isAfter(targetTime) && nowEt.isBefore(windowEnd)) {
+    if (nowEt.isAfter(targetTimeConstructed) && nowEt.isBefore(windowEnd)) {
       return RitualStatus.ready;
     }
-
-    // Also handle case where "isAfter(targetTime)" includes "isAt(targetTime)" logic practically
-    // and strictly speaking we might want exact minute check, but "now" is granular.
-    // Ensure we handle edge cases like just opened.
-    // Actually, simple comparison is fine.
 
     return RitualStatus.notInWindow;
   }
@@ -112,29 +112,23 @@ class RitualScheduler {
   }
 
   /// Helper: Get current ET time.
-  tz.TZDateTime _getNowEt() {
+  DateTime _getNowEt() {
     try {
-      final detroit = tz.getLocation('America/Detroit');
-      return tz.TZDateTime.now(detroit);
+      // final detroit = tz.getLocation('America/Detroit');
+      // return tz.TZDateTime.now(detroit);
+      return DateTime.now().toUtc().subtract(const Duration(hours: 5));
     } catch (e) {
-      // Fallback to UTC if timezone fail (shouldn't happen if initialized)
-      final now = DateTime.now().toUtc();
-      // Mock location or just return UTC as "ET" for safety to avoid crash
-      return tz.TZDateTime.utc(
-          now.year, now.month, now.day, now.hour, now.minute);
+      // Fallback
+      return DateTime.now().toUtc().subtract(const Duration(hours: 5));
     }
   }
 
-  String _getDayId(tz.TZDateTime date) {
+  String _getDayId(DateTime date) {
     return "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
   }
 
   /// Get next occurrence string (for UI)
   String getNextTimeString(RitualDefinition ritual) {
-    final nowEt = _getNowEt();
-    // If passed today, assume tomorrow?
-    // UI just asks for "Next: 09:20 ET".
-    // We can just return the static time.
     final h = ritual.targetHour.toString().padLeft(2, '0');
     final m = ritual.targetMinute.toString().padLeft(2, '0');
     return "$h:$m ET";

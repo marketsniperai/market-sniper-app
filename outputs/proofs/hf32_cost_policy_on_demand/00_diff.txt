@@ -1,0 +1,156 @@
+diff --git a/backend/os_intel/projection_orchestrator.py b/backend/os_intel/projection_orchestrator.py
+index 24d49bc..2ac86b7 100644
+--- a/backend/os_intel/projection_orchestrator.py
++++ b/backend/os_intel/projection_orchestrator.py
+@@ -58,10 +58,36 @@ class ProjectionOrchestrator:
+              return global_cached
+ 
+         # B. Local Cache (Pod Local)
+-        cached = OnDemandCacheServer.get(symbol, timeframe)
+         if cached:
+             return cached
+ 
++        # 0C. HF32: COST POLICY ENFORCEMENT
++        # "One Compute Per Ticker Per Day (ET)"
++        # Check Ledger
++        from backend.os_ops.computation_ledger import ComputationLedger
++        
++        if ComputationLedger.has_run_today(symbol, timeframe):
++            # Already computed today? Try hard to find existing cache.
++            # 1. Try Global Latest
++            fallback_global = GlobalCacheServer.get_latest_for_day(symbol, timeframe)
++            if fallback_global:
++                fallback_global["policy_block"] = True
++                fallback_global["managed_by_policy"] = "HF32_DAILY_LIMIT"
++                return fallback_global
++            
++            # 2. Try Local Latest
++            fallback_local = OnDemandCacheServer.get_latest_for_day(symbol, timeframe)
++            if fallback_local:
++                 fallback_local["policy_block"] = True
++                 fallback_local["managed_by_policy"] = "HF32_DAILY_LIMIT"
++                 return fallback_local
++                 
++            # 3. If NO cache found (e.g. wiped), we MUST re-compute to produce truth.
++            # We do NOT block if we cannot serve data. "Source Ladder is Sacred."
++            print(f"[POLICY] HF32 Limit hit for {symbol}, but no cache found. Computing.")
++        
++        # If we proceed to compute, we will record it in the ledger at the end.
++
+         # 1. Initialize State & Diagnostics
+         current_state = ProjectionState.CALIBRATING # Default start
+         state_reasons = [] # List[str]
+@@ -327,6 +353,9 @@ class ProjectionOrchestrator:
+         # 8B. HF-DEDUPE-GLOBAL: Populate Global Cache (Public)
+         GlobalCacheServer.put(symbol, timeframe, payload)
+         
++        # 9. HF32: Update Computation Ledger
++        ComputationLedger.record(symbol, timeframe)
++        
+         return payload
+ 
+     @staticmethod
+diff --git a/backend/os_ops/global_cache_server.py b/backend/os_ops/global_cache_server.py
+index b25f731..6344ed3 100644
+--- a/backend/os_ops/global_cache_server.py
++++ b/backend/os_ops/global_cache_server.py
+@@ -90,3 +90,45 @@ class GlobalCacheServer:
+         
+         # Nested structure for better GCS performance/browsability
+         return f"{ticker.upper()}/{timeframe.upper()}/{ts_str}.json"
++
++    @staticmethod
++    def get_latest_for_day(ticker: str, timeframe: str) -> Optional[Dict[str, Any]]:
++        """
++        HF32: Retrieve *any* valid cache file found for 'TODAY' (ET) in Global Cache.
++        """
++        try:
++            # Construct glob pattern for finding today's files in the hierarchy.
++            # outputs/on_demand_public/{TICKER}/{TIMEFRAME}/{YYYYMMDD_HH}.json
++            # We need to find valid HH files.
++            
++            # Since Global cache uses nested folders, we just scan that folder.
++            cache_folder = GlobalCacheServer.GLOBAL_CACHE_DIR / ticker.upper() / timeframe.upper()
++            
++            if not cache_folder.exists():
++                return None
++                
++            candidates = []
++            for entry in cache_folder.iterdir():
++                 if entry.name.endswith(".json"):
++                     candidates.append(entry)
++                     
++            if not candidates:
++                 return None
++                 
++            # Sort by name (YYYYMMDD_HH) -> Latest is last
++            candidates.sort(key=lambda p: p.name)
++            latest = candidates[-1]
++            
++            with open(latest, "r") as f:
++                data = json.load(f)
++            
++            if not data.get("public"):
++                 return None
++                 
++            data["cache_hit"] = True
++            data["cache_source"] = "GLOBAL_LATEST_FALLBACK"
++            return data
++            
++        except Exception as e:
++             print(f"[GLOBAL_CACHE] Fallback Search Failed: {e}")
++             return None
+diff --git a/backend/os_ops/hf_cache_server.py b/backend/os_ops/hf_cache_server.py
+index e8700ae..95f749b 100644
+--- a/backend/os_ops/hf_cache_server.py
++++ b/backend/os_ops/hf_cache_server.py
+@@ -79,3 +79,49 @@ class OnDemandCacheServer:
+         # Hourly granularity
+         ts_str = now.strftime("%Y%m%d_%H") 
+         return f"{ticker.upper()}_{timeframe.upper()}_{ts_str}.json"
++
++    @staticmethod
++    def get_latest_for_day(ticker: str, timeframe: str) -> Optional[Dict[str, Any]]:
++        """
++        HF32: Retrieve *any* valid cache file found for 'TODAY' (ET).
++        Scans strictly for files matching TICKER_TIMEFRAME_YYYYMMDD_*.json
++        Returns the one with the latest modification time (or highest hour).
++        """
++        try:
++            # Determine Today STRING prefix (in UTC usually, but filenames are UTC based on _generate_key)
++            # wait, _generate_key uses UTC.
++            # So "Today ET" might span two UTC dates if late at night?
++            # Ledger uses "Today ET".
++            # If I analyzed at 09:00 UTC (04:00 ET), file is YYYYMMDD_09.
++            # If I analyze again at 10:00 UTC (05:00 ET), file is YYYYMMDD_10.
++            # Simplest approach: Hunt for files matching Key Prefix in the target directory using glob.
++            
++            prefix = f"{ticker.upper()}_{timeframe.upper()}_"
++            candidates = []
++            
++            if not OnDemandCacheServer.CACHE_DIR.exists():
++                return None
++
++            for entry in OnDemandCacheServer.CACHE_DIR.iterdir():
++                if entry.name.startswith(prefix) and entry.name.endswith(".json"):
++                     candidates.append(entry)
++            
++            if not candidates:
++                return None
++            
++            # Sort by Name (which contains YYYYMMDD_HH) -> Logic: Latest hour is last.
++            # This is robust enough for hourly buckets.
++            candidates.sort(key=lambda p: p.name) 
++            latest = candidates[-1]
++            
++            # Load and Return
++            with open(latest, "r") as f:
++                data = json.load(f)
++            
++            data["cache_hit"] = True
++            data["cache_source"] = "LATEST_FALLBACK"
++            return data
++            
++        except Exception as e:
++            print(f"[CACHE] Fallback Search Failed: {e}")
++            return None

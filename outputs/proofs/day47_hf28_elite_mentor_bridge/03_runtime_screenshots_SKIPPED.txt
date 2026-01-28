@@ -1,0 +1,2 @@
+Screenshots skipped due to headless environment.
+Refer to 05_runtime_note.md for logic verification coverage.

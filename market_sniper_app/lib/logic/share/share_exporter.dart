@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
-// import 'package:share_plus/share_plus.dart'; // Uncomment when dependency added
+import 'package:share_plus/share_plus.dart'; 
 
 import 'share_prompt_loop.dart';
 
@@ -18,7 +18,7 @@ class ShareExporter {
         // capture usually safe if visible
       }
 
-      final image = await boundary.toImage(pixelRatio: 3.0); // High res
+      final image = await boundary.toImage(pixelRatio: 2.0); // optimized ratio
       final byteData = await image.toByteData(format: ui.ImageByteFormat.png);
       final pngBytes = byteData!.buffer.asUint8List();
 
@@ -35,14 +35,18 @@ class ShareExporter {
 
   static Future<void> shareFile(BuildContext context, String path,
       {String text = "MarketSniper Insight"}) async {
-    // Mock / Placeholder for Share Plus
-    debugPrint("NATIVE SHARE REQUESTED FOR: $path");
+    
+    // Native Share
+    try {
+       // ignore: deprecated_member_use
+       await Share.shareXFiles([XFile(path)], text: text);
+    } catch (e) {
+       debugPrint("Native Share Failed: $e");
+    }
 
-    // if (hasSharePlus) {
-    //    await Share.shareXFiles([XFile(path)], text: text);
-    // }
-
-    // D45.10 Share Prompt Loop (Post-Export Booster)
-    await SharePromptLoop.maybeShow(context);
+    if (context.mounted) {
+      // D45.10 Share Prompt Loop (Post-Export Booster)
+      await SharePromptLoop.maybeShow(context);
+    }
   }
 }

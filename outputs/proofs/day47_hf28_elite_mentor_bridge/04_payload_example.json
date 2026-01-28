@@ -1,0 +1,18 @@
+{
+    "ticker": "SPY",
+    "timeframe": "DAILY",
+    "status": "LIVE",
+    "source": "PIPELINE",
+    "timestamp": "2026-01-28T16:00:00.000Z",
+    "badges": [
+        "PROVIDERLIVE",
+        "COVERAGE"
+    ],
+    "reliability": "HIGH",
+    "top_bullet": "Bullish divergence on RSI.",
+    "summary_bullets": [
+        "Bullish divergence on RSI.",
+        "Volume profile indicates accumulation.",
+        "Key level held at 450."
+    ]
+}

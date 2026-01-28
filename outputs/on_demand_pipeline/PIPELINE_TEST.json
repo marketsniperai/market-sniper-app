@@ -1,0 +1,10 @@
+{
+    "ticker": "PIPELINE_TEST",
+    "status": "AVAILABLE",
+    "source": "PIPELINE_ARTIFACT",
+    "timestamp_utc": "2026-01-27T12:00:00Z",
+    "bullets": [
+        "This is a test artifact from the pipeline.",
+        "It should take precedence over cache."
+    ]
+}

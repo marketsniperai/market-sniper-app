@@ -62,11 +62,10 @@
 - **Watchlist Micro-Polish**: UX refinement, SnackBar fix, Premium typography.
 - **Widget Polish**: Breathing accents, unified headers (Neon Cyan).
 
-## Phase 11: News Engine (Day 47) - COMPLETED (ARCHITECTURE)
-- **News Demo Engine**: `LocalDemoNewsDigestSource` with deterministic data.
-- **Recall Ranker**: `Macro > Watchlist > General` bucket logic (Rules-Only).
-- **Premium UI**: Flip cards, impact tags, demo indication.
-- **Pending Integration**: Provider API debt registered.
+## Phase 11: News & Projection Arc (Day 47) - COMPLETED
+- **News Engine**: `LocalDemoNewsDigestSource`, Ranking, Flip Cards.
+- **Projection Orchestrator**: Central brain for signals-free context synthesis.
+- **Intraday Series**: Deterministic demo series for high-res charting.
+- **On-Demand Area (SEALED)**: Full Source Ladder, 3-Tier Gating, Cost Policy.
 
 ## Phase 12: Future Expansion
-
