@@ -33,6 +33,10 @@ def verify():
         # 1. Identity & Files
         if not m.get("primary_files"):
             errors.append(f"Module {mid}: Missing primary_files")
+        else:
+             for fpath in m["primary_files"]:
+                 if not fpath.startswith("/"):
+                     errors.append(f"Module {mid}: primary_file '{fpath}' must start with /")
         
         # 2. Wiring Fields
         wiring = m.get("wiring")

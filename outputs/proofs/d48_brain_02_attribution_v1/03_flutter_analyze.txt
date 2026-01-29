@@ -1,0 +1,5 @@
+Analyzing 2 items...                                            
+
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\attribution_sheet.dart:83:9 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - market_sniper_app\lib\widgets\attribution_sheet.dart:142:18 - prefer_const_constructors
+

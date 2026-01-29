@@ -1,0 +1,65 @@
+diff --git a/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md b/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
+index ff86dc9..59504e9 100644
+--- a/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
++++ b/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
+@@ -809,11 +809,56 @@ DAY 45 COMPLETE (SEALED)
+     - **Why:** Prevent prompt injection and runaway bills.
+     - **Deliverables:** `backend/os_llm/boundary.py`, `llm_cost_ledger.jsonl`.
+ 
+-- [ ] D49 — Elite Shell v2 (Institutional Glass)
+-  - [x] D49.01 — Elite Interaction Sheet Refactor (Glass Ritual Panel)
++- [x] D49 — Elite Arc (Ritual, Chat, Authority)
++  - [x] D49.SHELL.01 — Elite Shell v2 (Glass Ritual Panel)
+     - ↳ Seal: [`SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md`](../../outputs/seals/SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md)
+-    - **Structure:** Top Bar + Ritual Strip + Glass Chat Area.
+-    - **Logic:** Wired to existing ritual engine; no backend changes.
++    - **What:** High-fidelity 70% height overlay with glassmorphism and Ritual Grid.
++  - [x] D49.POLICY.01 — Ritual Policy Engine v1 (Windows + Countdown)
++    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md)
++    - **What:** Deterministic windows for Morning/Aftermarket rituals (09:00-09:45, 16:00-16:45).
++  - [x] D49.CONTRACTS.01 — Ritual Contracts v1 (6 Schemas)
++    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md)
++    - **What:** Formal JSON contracts for ritual payloads (Briefing, Summary, etc.).
++  - [x] D49.OPS.01 — OS Knowledge Index v1
++    - ↳ Seal: [`SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md`](../../outputs/seals/SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md)
++    - **What:** Machine-readable index of all OS capabilities/modules.
++  - [x] D49.OPS.02 — OS State Snapshot v1
++    - ↳ Seal: [`SEAL_D49_OS_STATE_SNAPSHOT_V1.md`](../../outputs/seals/SEAL_D49_OS_STATE_SNAPSHOT_V1.md)
++    - **What:** Real-time system health snapshot for Elite context.
++  - [x] D49.ENGINES.01 — Ritual Engines v1 (Artifact-First)
++    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md)
++    - **What:** Backend engines generating ritual content via artifacts.
++  - [x] D49.API.01 — Ritual API Router v1
++    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md)
++    - **What:** API endpoints serving ritual artifacts to frontend.
++  - [x] D49.UI.01 — Ritual Modals Wiring v1
++    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md)
++    - **What:** Connecting frontend grid taps to backend content.
++  - [x] D49.CHAT.01 — Elite Chat Core v1 (OS Authority + safe LLM)
++    - ↳ Seal: [`SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md`](../../outputs/seals/SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md)
++    - **What:** Hybrid chat engine preferring deterministic OS tools over LLM.
++  - [x] D49.WINDOW.02 — Monday Free Window v2
++    - ↳ Seal: [`SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md`](../../outputs/seals/SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md)
++    - **What:** Special access rules for Monday free window.
++  - [x] D49.NOTIFY.01 — Notifications + Badges v1
++    - ↳ Seal: [`SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md`](../../outputs/seals/SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md)
++    - **What:** Event-driven badge system for ritual availability.
++  - [x] D49.MEMORY.01 — User Reflection Memory v1
++    - ↳ Seal: [`SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md`](../../outputs/seals/SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md)
++    - **What:** Local user memory layer with optional cloud sync.
++  - [x] D49.SEAL.01 — Elite Area Seal + Canon Sync
++    - ↳ Seal: [`SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md`](../../outputs/seals/SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md)
++    - **What:** Final area seal for Elite Arc.
++  - [x] D49.BUILD.01 — Founder Release APK Build (SUCCESS)
++    - ↳ Seal: [`SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md`](../../outputs/seals/SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md)
++    - **What:** Validated release build with AGP 8.7/Kotlin 2.1 upgrades.
++
++**D49 — Elite Arc (Institutional Completion Summary)**
++- **Shell**: Glass Ritual Panel (70% Sheet).
++- **Policy**: Strict Windows + Countdown logic.
++- **Engines**: Artifact-first Ritual generation.
++- **Chat**: Safe hybrid (OS Tools + LLM fallback).
++- **Memory**: Local reflection + opt-in cloud.
+ 
+ ---
+ 

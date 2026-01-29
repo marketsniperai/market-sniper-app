@@ -1,0 +1,49 @@
+diff --git a/docs/canon/OS_MODULES.md b/docs/canon/OS_MODULES.md
+index 8888bbb..4395afe 100644
+--- a/docs/canon/OS_MODULES.md
++++ b/docs/canon/OS_MODULES.md
+@@ -43,7 +43,9 @@
+ | **OS.Ops.TuningGate** | Tuning Gate | OPS | Governance for Runtime Tuning (2-Vote). | `POST /lab/tuning/apply` | `backend/os_ops/tuning_gate.py` |
+ | **OS.Ops.ReliabilityLedgerGlobal** | Reliability Ledger | OPS | Append-only record of projections. | (Internal) | `backend/os_ops/reliability_ledger_global.py` |
+ | **OS.Ops.ReliabilityReconciler** | Reliability Reconciler | OPS | Closes the loop with realized outcomes. | (Internal) | `backend/os_ops/reliability_reconciler.py` |
++| **OS.Ops.KnowledgeIndex** | Knowledge Index Generator | OPS | Generates SSOT map of OS capabilities. | (Artifact) | `backend/os_ops/generate_os_knowledge_index.py` |
+ | **OS.Ops.CalibrationReport** | Calibration Report | OPS | Generates accuracy artifacts. | (Artifact) | `backend/os_ops/calibration_report_engine.py` |
++| **OS.Ops.StateSnapshot** | State Snapshot Engine | OPS | Real-time system status for Elite. | `GET /os/state_snapshot` | `backend/os_ops/state_snapshot_engine.py` |
+ | **OS.Ops.EventRouter** | Event Router | OPS | Central System Event Bus. | `GET /events/latest` | `backend/os_ops/event_router.py` |
+ | **OS.Intel.Foundation** | AGMS Foundation | INTELLIGENCE | Memory, Truth Mirror, and Base Truth. | `GET /agms/foundation` | `backend/os_intel/agms_foundation.py` |
+ | **OS.Intel.Intel** | AGMS Intelligence | INTELLIGENCE | Pattern recognition and coherence analysis. | `GET /agms/intelligence` | `backend/os_intel/agms_intelligence.py` |
+@@ -73,6 +75,13 @@
+ | **OS.Biz.Dashboard** | Dashboard | FEATURE | Main user interface data payload. | `GET /dashboard` | `backend/schemas/dashboard_schema.py` |
+ | **OS.Biz.Context** | Context | FEATURE | Narrative context and market status. | `GET /context` | `backend/schemas/context_schema.py` |
+ | **OS.Biz.Efficacy** | Efficacy Engine | FEATURE | Tracks prediction accuracy. | `GET /efficacy` | `backend/schemas/efficacy_schema.py` |
++| **OS.Ops.KnowledgeIndex** | Knowledge Index | OPS | SSOT of all OS modules. | (Artifact) | `backend/generate_os_knowledge_index.py` |
++| **OS.Ops.StateSnapshot** | State Snapshot | OPS | Real-time system health for Elite. | `GET /os/state_snapshot` | `backend/os_ops/state_snapshot_engine.py` |
++| **OS.Intel.RitualRouter** | Ritual API Router | INTELLIGENCE | Router for ritual artifacts. | `GET /elite/ritual/*` | `backend/os_intel/elite_ritual_router.py` |
++| **OS.Intel.ChatCore** | Elite Chat Core | INTELLIGENCE | Hybrid Chat + Tool Router. | `POST /elite/chat` | `backend/os_intel/elite_chat_router.py` |
++| **OS.Intel.UserMemory** | User Memory | INTELLIGENCE | Longitudinal user reflection. | (Internal) | `backend/os_intel/elite_user_memory_engine.py` |
++| **OS.Intel.LLMBoundary** | LLM Boundary | INTELLIGENCE | Safe LLM wrapper with cost/PII guards. | (Internal) | `backend/os_llm/elite_llm_boundary.py` |
++
+ 
+ ## UI Module Inventory
+ 
+@@ -100,6 +109,10 @@
+ | **OS.UI.TacticalPlaybook** | Tactical Playbook | UI | AI Strategy & Setup visualization. | `lib/widgets/tactical_playbook_card.dart` | D47 |
+ | **OS.UI.IntelCards** | Intel Cards | UI | Carousel of synthesis briefings. | `lib/widgets/intel_cards_carousel.dart` | D47 |
+ | **OS.Infra.LayoutPolice** | Layout Police | OPS | Runtime Layout Guard. | `lib/guards/layout_police.dart` | D43 |
++| **OS.Elite.ShellV2** | Elite Shell V2 | UI | Glass Ritual Panel Overlay. | `lib/widgets/elite_interaction_sheet.dart` | D49 |
++| **OS.Elite.RitualGrid** | Ritual Grid | UI | 2x3 Ritual Selection Grid. | `lib/widgets/elite/ritual_grid.dart` | D49 |
++| **OS.Elite.BadgeController** | Badge Controller | UI | Notification Badge Logic. | `lib/controllers/elite_badge_controller.dart` | D49 |
++
+ 
+ ## Logic & Governance Modules
+ 
+@@ -109,6 +122,9 @@
+ | **OS.Logic.TabState** | Tab State Store | Logic | Bottom nav persistence. | `lib/logic/tab_state_store.dart` | D45 |
+ | **OS.Logic.Ritual** | Ritual Scheduler | Logic | Local notification triggers. | `lib/logic/ritual_scheduler.dart` | D43 |
+ | **OS.Domain.Universe** | Universe Domain | Logic | `Core20` Definitions. | `lib/domain/core20_universe.dart` | Canon |
++| **OS.Logic.RitualPolicy** | Ritual Policy Engine | Logic | Windows + Countdown Logic. | `backend/os_ops/elite_ritual_policy.py` | D49 |
++| **OS.Logic.FreeWindow** | Free Window Ledger | Logic | Monday Free Window Tracking. | `backend/os_intel/elite_free_window_ledger.py` | D49 |
++
+ 
+ ## Legacy Content Modules (Reconciled)
+ *   **Briefing**: `GET /briefing` (Active)

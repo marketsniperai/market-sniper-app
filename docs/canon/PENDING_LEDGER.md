@@ -79,13 +79,16 @@ Items here are **NOT** bugs; they are distinct units of future value or technica
 
 ###- [ ] PEND_INTEL_REGIME_SENTINEL_EVIDENCE_ARTIFACT (Evidence Schema)
 - [ ] PEND_DATA_INTRADAY_5M_PROVIDER (High-Res Data Source)_BOOTSTRAP
+- [ ] PEND_INTEL_CALENDAR_PROVIDER (Economic Calendar Real-Time Feed)_BOOTSTRAP
 
 ### PEND_INFRA_PROVIDER_APIS_BOOTSTRAP
 - **Module**: OS.DATA
 - **Description**: No provider APIs integrated yet; any provider-live surfaces must remain N/A/Replay/CALIBRATING until provider integration sprint is sealed.
 - **Origin**: Day 45 Founder Note
 - **Trigger**: UI Copy
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md
+- **Evidence**: backend/os_data/datamux.py
 - **Impact Area**: Reliability, UX, Governance
 
 ### PEND_UI_WATCHLIST_MSG
@@ -109,7 +112,9 @@ Items here are **NOT** bugs; they are distinct units of future value or technica
 - **Description**: `verify_day_26_registry.py` flag: Check if PATH part starts with /.
 - **Origin**: backend/verify_day_26_registry.py
 - **Trigger**: Registry Audit
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_OPS_PEND_REGISTRY_PATH.md
+- **Evidence**: outputs/proofs/d48_ops_pend_registry_path/02_after_pass.txt
 
 ### PEND_INTEL_SECTOR_SPIKE_BASELINE
 - **Module**: INTEL.SECTOR
@@ -149,14 +154,16 @@ Items here are **NOT** bugs; they are distinct units of future value or technica
 - **Description**: D47.FIX.01: News Backend Unification. Resolve "Ghost Dependency" split brain.
 - **Origin**: OMSR_WAR_CALENDAR (D47.FIX.01)
 - **Trigger**: Day 47 Post-Audit
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md
 
 ### PEND_FIX_AGMS_RELIABILITY
 - **Module**: AGMS
 - **Description**: D47.FIX.02: AGMS Reliability Scoreboard. Track Projection Uptime/Accuracy.
 - **Origin**: OMSR_WAR_CALENDAR (D47.FIX.02)
 - **Trigger**: Day 47 Post-Audit
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md
 
 ## 6. Brains Inevitables (D48.BRAIN)
 
@@ -165,42 +172,48 @@ Items here are **NOT** bugs; they are distinct units of future value or technica
 - **Description**: D48.BRAIN.01: Centralized JSON Schema Authority.
 - **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.01)
 - **Trigger**: Maturity Check
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md
 
 ### PEND_BRAIN_ATTRIBUTION
 - **Module**: INTEL
 - **Description**: D48.BRAIN.02: Attribution Engine. Chain-of-Thought explainability.
 - **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.02)
 - **Trigger**: Maturity Check
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md
 
 ### PEND_BRAIN_SURFACE_ADAPTERS
 - **Module**: UI
 - **Description**: D48.BRAIN.03: Surface Adapters. Standardized JSON->Widget mapping.
 - **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.03)
 - **Trigger**: Maturity Check
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md
 
 ### PEND_BRAIN_RELIABILITY_LEDGER
 - **Module**: GOV
 - **Description**: D48.BRAIN.04: Reliability Ledger. Calibration & Trust tracking.
 - **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.04)
 - **Trigger**: Maturity Check
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md
 
 ### PEND_BRAIN_DATAMUX
 - **Module**: DATA
 - **Description**: D48.BRAIN.05: Provider DataMux. Multi-provider abstraction.
 - **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.05)
 - **Trigger**: Scaling
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md
 
 ### PEND_BRAIN_EVENT_ROUTER
 - **Module**: OPS
 - **Description**: D48.BRAIN.06: Event Router. Centralized event bus.
 - **Origin**: OMSR_WAR_CALENDAR (D48.BRAIN.06)
 - **Trigger**: Real-Time Needs
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md
 
 ### PEND_BRAIN_SCENARIO
 - **Module**: TEST

@@ -11,9 +11,13 @@ from backend.lexicon_pro_engine import LexiconProEngine
 from backend.os_intel.context_tagger import ContextTagger
 from backend.os_ops.hf_cache_server import OnDemandCacheServer # HF-CACHE-SERVER
 from backend.os_ops.global_cache_server import GlobalCacheServer # HF-DEDUPE-GLOBAL
+from backend.os_ops.global_cache_server import GlobalCacheServer # HF-DEDUPE-GLOBAL
+from backend.os_intel.agms_foundation import AGMSFoundation # FIX.02 Reliability
+from backend.os_ops.reliability_ledger_global import ReliabilityLedgerGlobal # D48.BRAIN.04 Ledger
+from backend.os_ops.event_router import EventRouter # D48.BRAIN.06 Events
 
 # Canonical Configuration
-PROJECTION_ARTIFACT_PATH = Path("outputs/os/projection/projection_report.json")
+PROJECTION_ARTIFACT_PATH = Path("os/projection/projection_report.json")
 
 class ProjectionState:
     OK = "OK"
@@ -55,10 +59,49 @@ class ProjectionOrchestrator:
         if global_cached:
              # Populate Local Cache for next time (Read-Through)
              OnDemandCacheServer.put(symbol, timeframe, global_cached)
+             AGMSFoundation.record_projection_health(symbol, timeframe, "OK", "GLOBAL_CACHE")
+             # D48.BRAIN.02: Attribution Injection (Cache)
+             if "attribution" in global_cached:
+                 global_cached["attribution"]["source_ladder_used"] = "GLOBAL_CACHE"
+             else:
+                 # Legacy Cache Support
+                 global_cached["attribution"] = {
+                     "generatedAtUtc": global_cached.get("asOfUtc", "UNKNOWN"),
+                     "ticker": symbol,
+                     "timeframe": timeframe,
+                     "source_ladder_used": "GLOBAL_CACHE (LEGACY)",
+                     "inputs_consulted": [],
+                     "rules_fired": ["LegacyCacheHit"],
+                     "derived_facts": [],
+                     "blur_reasons": []
+                 }
+             try: ReliabilityLedgerGlobal.record_entry(global_cached)
+             except: pass
+             EventRouter.emit("CACHE_HIT_GLOBAL", "INFO", {"source": "GLOBAL"}, symbol, timeframe)
              return global_cached
 
         # B. Local Cache (Pod Local)
+        cached = OnDemandCacheServer.get(symbol, timeframe)
         if cached:
+            AGMSFoundation.record_projection_health(symbol, timeframe, "OK", "LOCAL_CACHE")
+            # D48.BRAIN.02: Attribution Injection (Cache)
+            if "attribution" in cached:
+                 cached["attribution"]["source_ladder_used"] = "LOCAL_CACHE"
+            else:
+                 # Legacy Cache Support
+                 cached["attribution"] = {
+                     "generatedAtUtc": cached.get("asOfUtc", "UNKNOWN"),
+                     "ticker": symbol,
+                     "timeframe": timeframe,
+                     "source_ladder_used": "LOCAL_CACHE (LEGACY)",
+                     "inputs_consulted": [],
+                     "rules_fired": ["LegacyCacheHit"],
+                     "derived_facts": [],
+                     "blur_reasons": []
+                 }
+            try: ReliabilityLedgerGlobal.record_entry(cached)
+            except: pass
+            EventRouter.emit("CACHE_HIT_LOCAL", "INFO", {"source": "LOCAL"}, symbol, timeframe)
             return cached
 
         # 0C. HF32: COST POLICY ENFORCEMENT
@@ -73,6 +116,23 @@ class ProjectionOrchestrator:
             if fallback_global:
                 fallback_global["policy_block"] = True
                 fallback_global["managed_by_policy"] = "HF32_DAILY_LIMIT"
+                AGMSFoundation.record_projection_health(symbol, timeframe, "OK", "GLOBAL_CACHE_POLICY_FALLBACK")
+                if "attribution" in fallback_global:
+                    fallback_global["attribution"]["source_ladder_used"] = "GLOBAL_CACHE_POLICY"
+                else:
+                    fallback_global["attribution"] = {
+                     "generatedAtUtc": fallback_global.get("asOfUtc", "UNKNOWN"),
+                     "ticker": symbol,
+                     "timeframe": timeframe,
+                     "source_ladder_used": "GLOBAL_CACHE_POLICY (LEGACY)",
+                     "inputs_consulted": [],
+                     "rules_fired": ["LegacyPolicyFallback"],
+                     "derived_facts": [],
+                     "blur_reasons": []
+                    }
+                try: ReliabilityLedgerGlobal.record_entry(fallback_global)
+                except: pass
+                EventRouter.emit("POLICY_BLOCK", "WARN", {"source": "GLOBAL_FAILOVER"}, symbol, timeframe)
                 return fallback_global
             
             # 2. Try Local Latest
@@ -80,6 +140,23 @@ class ProjectionOrchestrator:
             if fallback_local:
                  fallback_local["policy_block"] = True
                  fallback_local["managed_by_policy"] = "HF32_DAILY_LIMIT"
+                 AGMSFoundation.record_projection_health(symbol, timeframe, "OK", "LOCAL_CACHE_POLICY_FALLBACK")
+                 if "attribution" in fallback_local:
+                    fallback_local["attribution"]["source_ladder_used"] = "LOCAL_CACHE_POLICY"
+                 else:
+                     fallback_local["attribution"] = {
+                     "generatedAtUtc": fallback_local.get("asOfUtc", "UNKNOWN"),
+                     "ticker": symbol,
+                     "timeframe": timeframe,
+                     "source_ladder_used": "LOCAL_CACHE_POLICY (LEGACY)",
+                     "inputs_consulted": [],
+                     "rules_fired": ["LegacyPolicyFallback"],
+                     "derived_facts": [],
+                     "blur_reasons": []
+                     }
+                 try: ReliabilityLedgerGlobal.record_entry(fallback_local)
+                 except: pass
+                 EventRouter.emit("POLICY_BLOCK", "WARN", {"source": "LOCAL_FAILOVER"}, symbol, timeframe)
                  return fallback_local
                  
             # 3. If NO cache found (e.g. wiped), we MUST re-compute to produce truth.
@@ -340,6 +417,68 @@ class ProjectionOrchestrator:
             }
         }
         
+        # D48.BRAIN.02: Attribution Construction
+        # Descriptive explanation of generation.
+        attribution = {
+             "generatedAtUtc": payload["asOfUtc"],
+             "ticker": symbol,
+             "timeframe": timeframe,
+             "source_ladder_used": "PIPELINE", # Computed
+             "inputs_consulted": [],
+             "rules_fired": [],
+             "derived_facts": [],
+             "blur_reasons": []
+        }
+        
+        # Populate Inputs
+        for eng in engines_used:
+             status = "UNKNOWN"
+             if eng == "OPTIONS": status = inputs_meta.get("options", {}).get("status", "UNKNOWN")
+             elif eng == "EVIDENCE": status = inputs_meta.get("evidence", {}).get("status", "UNKNOWN")
+             elif eng == "NEWS": status = inputs_meta.get("news", {}).get("status", "UNKNOWN")
+             elif eng == "MACRO": status = inputs_meta.get("macro", {}).get("status", "UNKNOWN")
+             elif eng == "IRON_OS": status = iron_status.get("status", "UNKNOWN") if iron_status else "UNKNOWN"
+             
+             attribution["inputs_consulted"].append({"engine": eng, "status": status})
+             
+        # Populate Rules
+        if current_state == ProjectionState.CALIBRATING:
+             attribution["rules_fired"].append("ProjectionStateCalibrating")
+        if "policy_block" in payload: # HF32
+             attribution["rules_fired"].append("PolicyBlockActive")
+        
+        # Derived Facts
+        if inputs_meta.get("evidence", {}).get("sample_size", 0) > 10:
+             attribution["derived_facts"].append("Evidence sample size sufficient")
+        if ctx_options.get("boundary_mode") == "IV_SCALE":
+            attribution["derived_facts"].append("IV Regime detected")
+            
+        # Blur Policies (Static Description of Gating)
+        attribution["blur_reasons"] = [
+             {
+                 "surface": "Future Projection",
+                 "reason": "TierGate",
+                 "explanation": "Future probabilistic projections are restricted to Elite tier."
+             },
+             {
+                 "surface": "Tactical Playbook",
+                 "reason": "TierGate",
+                 "explanation": "Watch/Invalidate logic is restricted to Elite (or Plus partial)."
+             },
+             {
+                 "surface": "Mentor Access",
+                 "reason": "TierGate",
+                 "explanation": "Mentor interaction requires Elite access."
+             },
+             {
+                 "surface": "Calibration Lock",
+                 "reason": "TimeGate",
+                 "explanation": "09:30-10:30 ET calibration window is active."
+             }
+        ]
+        
+        payload["attribution"] = attribution
+        
         # Inject Timeframe
         payload["timeframe"] = timeframe
         
@@ -356,6 +495,18 @@ class ProjectionOrchestrator:
         # 9. HF32: Update Computation Ledger
         ComputationLedger.record(symbol, timeframe)
         
+        # AGMS Instrumentation: Computed Result
+        AGMSFoundation.record_projection_health(symbol, timeframe, current_state, "COMPUTED_PIPELINE")
+
+        # D48.BRAIN.06: Emit Event
+        EventRouter.emit("PROJECTION_COMPUTED", "INFO", {"state": current_state}, symbol, timeframe)
+        
+        # D48.BRAIN.04: Log to Reliability Ledger
+        try:
+            ReliabilityLedgerGlobal.record_entry(payload)
+        except Exception as e:
+            print(f"[WARN] Failed to write reliability ledger: {e}")
+            
         return payload
 
     @staticmethod

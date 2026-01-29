@@ -1,0 +1,24 @@
+=== D48.BRAIN.05 Verification: Provider DataMux ===
+[1] Fetching SPY (Expect yahoo_stub)...
+    Result: LIVE via yahoo_stub
+[2] Fetching FAIL (Expect Failover to DEMO)...
+    Result: DEMO via demo
+[3] Fetching DENY (Expect Failover to DEMO)...
+    Result: DEMO via demo
+[4] Checking Health Artifact...
+    Health Data: {
+  "yahoo_stub": {
+    "last_success_utc": "2026-01-28T20:37:00.635015",
+    "failures": 2,
+    "denied": true,
+    "last_error_code": "DENIED"
+  },
+  "demo": {
+    "last_success_utc": "2026-01-28T20:37:00.641170",
+    "failures": 0,
+    "denied": false
+  }
+}
+[PASS] Health verified.
+
+=== SYSTEM ONLINE ===

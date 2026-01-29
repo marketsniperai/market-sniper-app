@@ -1,0 +1,13 @@
+[
+  "lib/widgets/elite_interaction_sheet.dart",
+  "lib/widgets/elite_mentor_bridge_button.dart",
+  "lib/widgets/share/share_preview_sheet.dart",
+  "lib/widgets/share/share_booster_sheet.dart",
+  "lib/widgets/share/evidence_ghost_overlay.dart",
+  "lib/logic/elite_access_window_controller.dart",
+  "lib/logic/elite_contextual_recall_engine.dart",
+  "lib/logic/elite_mentor_brain.dart",
+  "lib/screens/premium_teaser_screen.dart",
+  "lib/widgets/tactical_playbook_block.dart",
+  "lib/widgets/time_traveller_chart.dart"
+]

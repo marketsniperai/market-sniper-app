@@ -13,7 +13,7 @@
             "owner": "FOUNDER",
             "status": "DISABLED",
             "primary_files": [
-                "backend/voice_mvp_engine.py"
+                "/backend/voice_mvp_engine.py"
             ],
             "wiring": {
                 "inputs": [],
@@ -43,7 +43,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/lexicon_pro_engine.py"
+                "/backend/lexicon_pro_engine.py"
             ],
             "wiring": {
                 "inputs": [
@@ -77,7 +77,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/evidence_engine.py"
+                "/backend/evidence_engine.py"
             ],
             "wiring": {
                 "inputs": [],
@@ -103,13 +103,43 @@
             }
         },
         {
+            "module_id": "OS.Intel.Calendar",
+            "name": "Economic Calendar Engine",
+            "type": "INTELLIGENCE",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "/backend/os_intel/economic_calendar_engine.py"
+            ],
+            "wiring": {
+                "inputs": [],
+                "outputs": [
+                    "economic_calendar.json"
+                ],
+                "ports": [
+                    "GET /economic_calendar"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [
+                    "economic_calendar.json"
+                ],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
             "module_id": "OS.Intel.Macro",
             "name": "Macro Engine",
             "type": "INTELLIGENCE",
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/macro_engine.py"
+                "/backend/macro_engine.py"
             ],
             "wiring": {
                 "inputs": [],
@@ -139,7 +169,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/api_server.py"
+                "/backend/api_server.py"
             ],
             "wiring": {
                 "inputs": [],
@@ -167,7 +197,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/gates/core_gates.py"
+                "/backend/gates/core_gates.py"
             ],
             "wiring": {
                 "inputs": [
@@ -199,8 +229,8 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/pipeline_controller.py",
-                "backend/pipeline_premarket.py"
+                "/backend/pipeline_controller.py",
+                "/backend/pipeline_premarket.py"
             ],
             "wiring": {
                 "inputs": [
@@ -235,7 +265,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/misfire_monitor.py"
+                "/backend/os_ops/misfire_monitor.py"
             ],
             "wiring": {
                 "inputs": [
@@ -270,7 +300,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/autofix_control_plane.py"
+                "/backend/os_ops/autofix_control_plane.py"
             ],
             "wiring": {
                 "inputs": [
@@ -306,7 +336,7 @@
             "owner": "HOUSEKEEPER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/housekeeper.py"
+                "/backend/os_ops/housekeeper.py"
             ],
             "wiring": {
                 "inputs": [
@@ -340,7 +370,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/war_room.py"
+                "/backend/os_ops/war_room.py"
             ],
             "wiring": {
                 "inputs": [
@@ -373,8 +403,8 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/immune_system.py",
-                "os_immune_system_contract.json"
+                "/backend/os_ops/immune_system.py",
+                "/os_immune_system_contract.json"
             ],
             "wiring": {
                 "inputs": [
@@ -415,8 +445,8 @@
             "owner": "FOUNDER",
             "status": "ACTIVE_ALWAYS_ON",
             "primary_files": [
-                "backend/os_ops/black_box.py",
-                "os_black_box_contract.json"
+                "/backend/os_ops/black_box.py",
+                "/os_black_box_contract.json"
             ],
             "wiring": {
                 "inputs": [
@@ -462,7 +492,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/shadow_repair.py"
+                "/backend/os_ops/shadow_repair.py"
             ],
             "wiring": {
                 "inputs": [],
@@ -488,8 +518,8 @@
             "owner": "FOUNDER",
             "status": "ACTIVE_RUNTIME",
             "primary_files": [
-                "backend/os_ops/tuning_gate.py",
-                "os_tuning_gate_contract.json"
+                "/backend/os_ops/tuning_gate.py",
+                "/os_tuning_gate_contract.json"
             ],
             "wiring": {
                 "inputs": [
@@ -532,7 +562,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_intel/agms_foundation.py"
+                "/backend/os_intel/agms_foundation.py"
             ],
             "wiring": {
                 "inputs": [
@@ -568,7 +598,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_intel/agms_intelligence.py"
+                "/backend/os_intel/agms_intelligence.py"
             ],
             "wiring": {
                 "inputs": [
@@ -604,8 +634,8 @@
             "owner": "FOUNDER",
             "status": "ACTIVE_OFFLINE",
             "primary_files": [
-                "backend/os_intel/dojo_simulator.py",
-                "os_dojo_contract.json"
+                "/backend/os_intel/dojo_simulator.py",
+                "/os_dojo_contract.json"
             ],
             "wiring": {
                 "inputs": [
@@ -649,7 +679,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_intel/agms_shadow_recommender.py"
+                "/backend/os_intel/agms_shadow_recommender.py"
             ],
             "wiring": {
                 "inputs": [
@@ -685,7 +715,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_intel/agms_autopilot_handoff.py"
+                "/backend/os_intel/agms_autopilot_handoff.py"
             ],
             "wiring": {
                 "inputs": [
@@ -721,7 +751,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_intel/agms_dynamic_thresholds.py"
+                "/backend/os_intel/agms_dynamic_thresholds.py"
             ],
             "wiring": {
                 "inputs": [
@@ -755,7 +785,7 @@
             "owner": "AGMS",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_intel/agms_stability_bands.py"
+                "/backend/os_intel/agms_stability_bands.py"
             ],
             "wiring": {
                 "inputs": [
@@ -787,7 +817,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/schemas/dashboard_schema.py"
+                "/backend/schemas/dashboard_schema.py"
             ],
             "wiring": {
                 "inputs": [
@@ -817,7 +847,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/schemas/context_schema.py"
+                "/backend/schemas/context_schema.py"
             ],
             "wiring": {
                 "inputs": [
@@ -847,7 +877,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/schemas/efficacy_schema.py"
+                "/backend/schemas/efficacy_schema.py"
             ],
             "wiring": {
                 "inputs": [
@@ -877,7 +907,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/hf_cache_server.py"
+                "/backend/os_ops/hf_cache_server.py"
             ],
             "wiring": {
                 "inputs": [
@@ -911,7 +941,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/global_cache_server.py"
+                "/backend/os_ops/global_cache_server.py"
             ],
             "wiring": {
                 "inputs": [
@@ -945,7 +975,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "backend/os_ops/computation_ledger.py"
+                "/backend/os_ops/computation_ledger.py"
             ],
             "wiring": {
                 "inputs": [
@@ -978,7 +1008,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "lib/logic/on_demand_tier_resolver.dart"
+                "/lib/logic/on_demand_tier_resolver.dart"
             ],
             "wiring": {
                 "inputs": [
@@ -1012,7 +1042,7 @@
             "owner": "FOUNDER",
             "status": "ACTIVE",
             "primary_files": [
-                "lib/logic/recent_dossier_store.dart"
+                "/lib/logic/recent_dossier_store.dart"
             ],
             "wiring": {
                 "inputs": [

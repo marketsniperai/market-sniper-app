@@ -4,7 +4,7 @@
     "generated_at_utc": "2026-01-28T01:41:38.485395",
     "repo_root": "c:/MSR/MarketSniperRepo",
     "counts": {
-      "total_active": 303,
+      "total_active": 296,
       "total_items": 303,
       "modules": 26
     }
@@ -50,9 +50,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md",
+          "resolved_at_utc": "2026-01-28T20:42:06.897621",
           "last_seen_at_utc": "2026-01-28T01:41:38.484777",
           "origins": [
             {
@@ -254,9 +254,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md",
+          "resolved_at_utc": "2026-01-28T20:42:06.897621",
           "last_seen_at_utc": "2026-01-28T01:41:38.484779",
           "origins": [
             {
@@ -346,9 +346,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+          "resolved_at_utc": "2026-01-28T20:42:06.897621",
           "last_seen_at_utc": "2026-01-28T01:41:38.484753",
           "origins": [
             {
@@ -376,9 +376,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_OPS_PEND_REGISTRY_PATH.md",
+          "resolved_at_utc": "2026-01-28T20:49:39.094385",
           "last_seen_at_utc": "2026-01-28T01:41:38.484759",
           "origins": [
             {
@@ -400,9 +400,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md",
+          "resolved_at_utc": "2026-01-28T20:42:06.897621",
           "last_seen_at_utc": "2026-01-28T01:41:38.484786",
           "origins": [
             {
@@ -658,9 +658,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md",
+          "resolved_at_utc": "2026-01-28T20:42:06.897621",
           "last_seen_at_utc": "2026-01-28T01:41:38.484782",
           "origins": [
             {
@@ -688,9 +688,9 @@
           ],
           "estimated_effort": "M",
           "priority": "MED",
-          "status": "OPEN",
-          "resolved_by_seal": null,
-          "resolved_at_utc": null,
+          "status": "RESOLVED",
+          "resolved_by_seal": "SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+          "resolved_at_utc": "2026-01-28T20:42:06.897621",
           "last_seen_at_utc": "2026-01-28T01:41:38.484784",
           "origins": [
             {

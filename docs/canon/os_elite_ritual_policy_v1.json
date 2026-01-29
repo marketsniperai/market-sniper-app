@@ -1,0 +1,76 @@
+{
+    "authority": "STRATEGIC",
+    "version": "1.0.0",
+    "timezone": "US/Eastern",
+    "rituals": [
+        {
+            "id": "morning_briefing",
+            "label": "Morning Briefing",
+            "schedule": {
+                "type": "daily_start_time",
+                "start_time": "09:20",
+                "end_time": "09:50"
+            },
+            "visibility": "always_visible",
+            "enabled_rule": "in_window"
+        },
+        {
+            "id": "mid_day_report",
+            "label": "Mid-Day Report",
+            "schedule": {
+                "type": "daily_start_time",
+                "start_time": "12:30",
+                "end_time": "13:00"
+            },
+            "visibility": "always_visible",
+            "enabled_rule": "in_window"
+        },
+        {
+            "id": "market_resumed",
+            "label": "Market Resumed",
+            "schedule": {
+                "type": "daily_start_time",
+                "start_time": "16:05",
+                "end_time": "16:35"
+            },
+            "visibility": "always_visible",
+            "enabled_rule": "in_window"
+        },
+        {
+            "id": "how_i_did_today",
+            "label": "How I Did Today",
+            "schedule": {
+                "type": "daily_start_time",
+                "start_time": "16:10",
+                "end_time": "16:40"
+            },
+            "visibility": "always_visible",
+            "enabled_rule": "in_window"
+        },
+        {
+            "id": "how_you_did_today",
+            "label": "How You Did Today",
+            "schedule": {
+                "type": "daily_start_time",
+                "start_time": "16:15",
+                "end_time": "16:45"
+            },
+            "visibility": "always_visible",
+            "enabled_rule": "in_window"
+        },
+        {
+            "id": "sunday_setup",
+            "label": "Sunday Setup",
+            "schedule": {
+                "type": "weekly_window",
+                "start_day": "Sunday",
+                "start_time": "20:00",
+                "end_day": "Monday",
+                "end_time": "09:00"
+            },
+            "visibility": "window_only",
+            "enabled_rule": "in_window",
+            "countdown_trigger_minutes": 60
+        }
+    ]
+}

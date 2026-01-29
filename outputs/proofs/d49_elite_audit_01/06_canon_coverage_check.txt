@@ -1,0 +1,16 @@
+OK: OS_MODULES.md contains OS.Elite.* modules.
+OK: os_registry.json contains OS.Elite modules.
+OK: api_server.py endpoints are consistent with OS_MODULES.
+OK: UI inventory in OS_MODULES lists Elite widgets.
+NOTE: `backend/os_ops/elite_micro_briefing_engine.py` is missing from OS_MODULES.md (Gap).
+NOTE: `backend/os_ops/explain_router.py` listed as `OS.Elite.Router` in UI inventory? No, backend module `OS.Elite.Router` missing or it's `OS.Elite.Reader`?
+CHECK: `OS.Elite.Reader` maps to `elite_os_reader.py`.
+CHECK: `Explain Router` listed under "Elite Arc (The Voice)" in OS_MODULES header, but module table?
+Found `OS.Elite.Context` (Reader) but `Explain Router` might be missing formal ID in table or listed under different name.
+Actually `OS_MODULES` line 19: `Elite Context` → `Explain Router` → `Interactive Shell`.
+But where is `Explain Router` in the table?
+Scan...
+Line 64: `OS.Elite.Reader` (Elite Context Aggregator).
+Line 97: `OS.Elite.Router` (UI, `lib/logic/elite_explain_router.dart`).
+Backend `explain_router.py` seems unmapped in Backend Modules section.
+Recommendation: Add `OS.Elite.BackendRouter` to OS_MODULES.

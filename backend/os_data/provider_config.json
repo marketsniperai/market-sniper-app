@@ -1,0 +1,15 @@
+{
+    "candles": [
+        "yahoo_stub",
+        "demo"
+    ],
+    "options": [
+        "demo"
+    ],
+    "news": [
+        "demo"
+    ],
+    "macro": [
+        "demo"
+    ]
+}

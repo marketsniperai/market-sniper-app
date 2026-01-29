@@ -53,6 +53,11 @@ class RecentDossierStore {
 
   Future<void> init() async {
     if (_initialized) return;
+    // Web Compat: No file IO
+    if (kIsWeb) {
+      _initialized = true;
+      return;
+    }
     try {
       final directory = await getApplicationSupportDirectory();
       _file = File('${directory.path}/recent_dossiers_v1.json');
@@ -121,6 +126,7 @@ class RecentDossierStore {
   }
 
   Future<void> _save() async {
+    if (kIsWeb) return; // Web Compat
     if (_file == null) return;
     try {
       final jsonList = _entries.map((e) => e.toJson()).toList();

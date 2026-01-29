@@ -1,0 +1,177 @@
+{
+  "Weekday_Morning_Open": {
+    "timestamp_et": "2026-01-29 09:30:00-05:00",
+    "state": {
+      "morning_briefing": {
+        "enabled": true,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "mid_day_report": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "market_resumed": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_i_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_you_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "sunday_setup": {
+        "enabled": false,
+        "visible": false,
+        "countdown_minutes": null
+      }
+    }
+  },
+  "Weekday_Noon_Open": {
+    "timestamp_et": "2026-01-29 12:45:00-05:00",
+    "state": {
+      "morning_briefing": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "mid_day_report": {
+        "enabled": true,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "market_resumed": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_i_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_you_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "sunday_setup": {
+        "enabled": false,
+        "visible": false,
+        "countdown_minutes": null
+      }
+    }
+  },
+  "Weekday_Closed_Night": {
+    "timestamp_et": "2026-01-29 23:00:00-05:00",
+    "state": {
+      "morning_briefing": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "mid_day_report": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "market_resumed": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_i_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_you_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "sunday_setup": {
+        "enabled": false,
+        "visible": false,
+        "countdown_minutes": null
+      }
+    }
+  },
+  "Sunday_Night_Setup": {
+    "timestamp_et": "2026-01-25 21:00:00-05:00",
+    "state": {
+      "morning_briefing": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "mid_day_report": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "market_resumed": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_i_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_you_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "sunday_setup": {
+        "enabled": true,
+        "visible": true,
+        "countdown_minutes": null
+      }
+    }
+  },
+  "Monday_Morning_Countdown": {
+    "timestamp_et": "2026-01-26 08:55:00-05:00",
+    "state": {
+      "morning_briefing": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "mid_day_report": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "market_resumed": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_i_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "how_you_did_today": {
+        "enabled": false,
+        "visible": true,
+        "countdown_minutes": null
+      },
+      "sunday_setup": {
+        "enabled": true,
+        "visible": true,
+        "countdown_minutes": 5
+      }
+    }
+  }
+}

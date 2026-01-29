@@ -1,0 +1,11 @@
+00:04 +0: OnDemandAdapter Smoke Test
+Chart Calibrating: true
+Past Candles: 0
+Future Candles: 0
+Reliability State: AdapterReliabilityState.medium
+Active Inputs: 4/4
+Evidence Title: PROBABILITY ENGINE
+News Lines: 2
+Tactical Watch: [Monitoring structure...]
+00:04 +2: ... passed!
+exit code: 0

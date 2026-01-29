@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'package:timezone/data/latest_all.dart' as tz;
 // import 'package:timezone/timezone.dart' as tz;
@@ -27,6 +28,10 @@ class NotificationService {
 
   Future<void> init() async {
     if (_isInitialized) return;
+    if (kIsWeb) { 
+        _isInitialized = true; 
+        return; 
+    }
 
     // tz.initializeTimeZones(); // Web Compat Disable
     // try {
@@ -74,6 +79,7 @@ class NotificationService {
   }
 
   Future<bool> requestPermissions() async {
+    if (kIsWeb) return false;
     final android = _notifications.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
     if (android != null) {
@@ -190,6 +196,7 @@ class NotificationService {
   */
 
   Future<void> cancelAllRituals() async {
+    if (kIsWeb) return;
     await _notifications.cancelAll();
     debugPrint("NotificationService: Cancelled all rituals.");
   }

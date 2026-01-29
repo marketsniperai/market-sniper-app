@@ -694,9 +694,25 @@ DAY 45 COMPLETE (SEALED)
 
 - [ ] D47 — News & Projection Arc (Audit & Fixes)
   - [x] D47.01 — **Projection Orchestrator** (Central Brain) — SEALED
+    - ↳ Seal: [`SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md`](../../outputs/seals/SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md)
   - [x] D47.02 — **Intraday Series** (Demonstration) — SEALED
+    - ↳ Seal: [`SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md`](../../outputs/seals/SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md)
   - [x] D47.03 — **News Engine Backend** (Demo/Stub) — SEALED
+    - ↳ Seal: [`SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md`](../../outputs/seals/SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md)
   - [x] D47.04 — **On-Demand Consumption** — SEALED
+    - ↳ Seal: [`SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md`](../../outputs/seals/SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md)
+  - [x] D47.HF14 — News Ranking Skeleton (Rules Only)
+    - ↳ Seal: [`SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md`](../../outputs/seals/SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md)
+  - [x] D47.HF15X — Discipline Unblock (Hardening)
+    - ↳ Seal: [`SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md`](../../outputs/seals/SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md)
+  - [x] D47.HF16 — On-Demand 04:00 ET Sync
+    - ↳ Seal: [`SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md`](../../outputs/seals/SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md)
+  - [x] D47.HF19 — Projection Inputs Wiring
+    - ↳ Seal: [`SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md`](../../outputs/seals/SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md)
+  - [x] D47.HF20 — Projection Context Fusion
+    - ↳ Seal: [`SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md`](../../outputs/seals/SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md)
+  - [x] D47.HF22 — On-Demand Decryption Ritual
+    - ↳ Seal: [`SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md`](../../outputs/seals/SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md)
   - [x] D47.HF23 — On-Demand Timeframe Control (DAILY/WEEKLY)
     - ↳ Seal: [`SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md`](../../outputs/seals/SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md)
   - [x] D47.HF24 — Time-Traveller Chart v1 (On-Demand)
@@ -726,7 +742,10 @@ DAY 45 COMPLETE (SEALED)
   - [x] D47.HF33 — On-Demand Area Seal (Capstone)
     - ↳ Seal: [`SEAL_D47_ON_DEMAND_AREA_SEALED.md`](../../outputs/seals/SEAL_D47_ON_DEMAND_AREA_SEALED.md)
   - [x] D47.HF34 — On-Demand Capstone Doc + Canon Sync
+  - [x] D47.HF34 — On-Demand Capstone Doc + Canon Sync
     - ↳ Seal: [`SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md`](../../outputs/seals/SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md)
+  - [x] D47.HF35 — Calendar Activation V1 (Artifact-First)
+    - ↳ Seal: [`SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md`](../../outputs/seals/SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md)
 
   AUDIT FINDINGS (NEW)
   - [x] D47.FIX.01 — News Backend Unification
@@ -738,7 +757,8 @@ DAY 45 COMPLETE (SEALED)
       - Wire Frontend to consume JSON artifact or API endpoint.
       - Wire Projection to consume JSON artifact (already wired, now valid).
     - **Deliverables:** `news_engine.py`, `news_digest.json`, `api_server.py`.
-  - [ ] D47.FIX.02 — AGMS Reliability Scoreboard (Update Only)
+  - [x] D47.FIX.02 — AGMS Reliability Scoreboard (Update Only)
+    - ↳ Seal: [`SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md`](../../outputs/seals/SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md)
     - **Issue:** No centralized view of “Projection Uptime” or “Calibration Accuracy” over time.
     - **Plan:**
       - Update `AGMSFoundation` to observe `ProjectionState` (Live/Calibrating) -> append to Ledger.
@@ -749,28 +769,34 @@ DAY 45 COMPLETE (SEALED)
 
 - [ ] D48 — "Brains Inevitables" (The Maturity Check)
 
-  - [ ] D48.BRAIN.01 — Schema Authority (Unique Contracts)
+  - [x] D48.BRAIN.01 — Schema Authority (Unique Contracts)
+    - ↳ Seal: [`SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md`](../../outputs/seals/SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md)
     - **What:** Centralized JSON schema definitions for all major artifacts (Contract-First).
     - **Why:** Prevent drift between Python producer and Flutter consumer.
-    - **Deliverables:** `outputs/schemas/*.schema.json`, `verify_schema.py`.
-  - [ ] D48.BRAIN.02 — Attribution Engine (Real Explainability)
+    - **Deliverables:** `outputs/schemas/*.schema.json`, `verify_schema_authority_v1.py`.
+  - [x] D48.BRAIN.02 — Attribution Engine V1 (Real Explainability)
+    - ↳ Seal: [`SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md`](../../outputs/seals/SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md)
     - **What:** Chain-of-Thought tracking for *why* the OS showed a specific card/signal.
     - **Why:** "Black Box" signals destroy trust. Institutional users need "Show Work".
     - **Deliverables:** `attribution_ledger.jsonl`, `ExplainButton` wiring updates.
-  - [ ] D48.BRAIN.03 — Surface Adapters (UI Consistency)
+  - [x] D48.BRAIN.03 — Surface Adapters V1 (On-Demand)
+    - ↳ Seal: [`SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md`](../../outputs/seals/SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md)
     - **What:** Standardized adapters mapping raw backend JSON to Flutter Widget Models.
     - **Why:** Removes logic from `build()` methods. Ensures testability.
     - **Deliverables:** `lib/adapters/*.dart`, Unit Tests.
-  - [ ] D48.BRAIN.04 — Reliability Ledger (Calibration & Trust)
+  - [x] D48.BRAIN.04 — Reliability Ledger (Global Truth)
+    - ↳ Seal: [`SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md`](../../outputs/seals/SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md)
     - **What:** Permanent record of System Accuracy (Predicted vs Actual).
     - **Why:** Prove the system works.
-    - **Deliverables:** `reliability_ledger.jsonl`, `calibration_report.json`.
+    - **Deliverables:** `reliability_ledger_global.jsonl`, `calibration_report.json`.
     - **Note:** Closely related to D47.FIX.02 but broader (multi-engine).
-  - [ ] D48.BRAIN.05 — Provider DataMux (Scaling)
+  - [x] D48.BRAIN.05 — Provider DataMux (Scaling)
+    - ↳ Seal: [`SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md`](../../outputs/seals/SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md)
     - **What:** Abstracted Data Layer handling multiple providers (Polygon/Alpaca/Yahoo) with failover.
     - **Why:** Single-provider dependency is a critical risk.
     - **Deliverables:** `backend/os_data/datamux.py`, `provider_config.json`.
-  - [ ] D48.BRAIN.06 — Event Router (Notifications + Real Time)
+  - [x] D48.BRAIN.06 — Event Router (Notifications + Real Time)
+    - ↳ Seal: [`SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md`](../../outputs/seals/SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md)
     - **What:** Centralized Event Bus for push notifications and toast alerts.
     - **Why:** Currently disparate widgets poll randomly. Needs coordination.
     - **Deliverables:** `backend/os_ops/event_router.py`, `system_events.jsonl`.
@@ -782,6 +808,57 @@ DAY 45 COMPLETE (SEALED)
     - **What:** Strict interface for LLM calls (Gemini/OpenAI) ensuring PII scrubbing and Cost Guard.
     - **Why:** Prevent prompt injection and runaway bills.
     - **Deliverables:** `backend/os_llm/boundary.py`, `llm_cost_ledger.jsonl`.
+
+- [x] D49 — Elite Arc (Ritual, Chat, Authority)
+  - [x] D49.SHELL.01 — Elite Shell v2 (Glass Ritual Panel)
+    - ↳ Seal: [`SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md`](../../outputs/seals/SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md)
+    - **What:** High-fidelity 70% height overlay with glassmorphism and Ritual Grid.
+  - [x] D49.POLICY.01 — Ritual Policy Engine v1 (Windows + Countdown)
+    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md)
+    - **What:** Deterministic windows for Morning/Aftermarket rituals (09:00-09:45, 16:00-16:45).
+  - [x] D49.CONTRACTS.01 — Ritual Contracts v1 (6 Schemas)
+    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md)
+    - **What:** Formal JSON contracts for ritual payloads (Briefing, Summary, etc.).
+  - [x] D49.OPS.01 — OS Knowledge Index v1
+    - ↳ Seal: [`SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md`](../../outputs/seals/SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md)
+    - **What:** Machine-readable index of all OS capabilities/modules.
+  - [x] D49.OPS.02 — OS State Snapshot v1
+    - ↳ Seal: [`SEAL_D49_OS_STATE_SNAPSHOT_V1.md`](../../outputs/seals/SEAL_D49_OS_STATE_SNAPSHOT_V1.md)
+    - **What:** Real-time system health snapshot for Elite context.
+  - [x] D49.ENGINES.01 — Ritual Engines v1 (Artifact-First)
+    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md)
+    - **What:** Backend engines generating ritual content via artifacts.
+  - [x] D49.API.01 — Ritual API Router v1
+    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md)
+    - **What:** API endpoints serving ritual artifacts to frontend.
+  - [x] D49.UI.01 — Ritual Modals Wiring v1
+    - ↳ Seal: [`SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md`](../../outputs/seals/SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md)
+    - **What:** Connecting frontend grid taps to backend content.
+  - [x] D49.CHAT.01 — Elite Chat Core v1 (OS Authority + safe LLM)
+    - ↳ Seal: [`SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md`](../../outputs/seals/SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md)
+    - **What:** Hybrid chat engine preferring deterministic OS tools over LLM.
+  - [x] D49.WINDOW.02 — Monday Free Window v2
+    - ↳ Seal: [`SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md`](../../outputs/seals/SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md)
+    - **What:** Special access rules for Monday free window.
+  - [x] D49.NOTIFY.01 — Notifications + Badges v1
+    - ↳ Seal: [`SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md`](../../outputs/seals/SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md)
+    - **What:** Event-driven badge system for ritual availability.
+  - [x] D49.MEMORY.01 — User Reflection Memory v1
+    - ↳ Seal: [`SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md`](../../outputs/seals/SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md)
+    - **What:** Local user memory layer with optional cloud sync.
+  - [x] D49.SEAL.01 — Elite Area Seal + Canon Sync
+    - ↳ Seal: [`SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md`](../../outputs/seals/SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md)
+    - **What:** Final area seal for Elite Arc.
+  - [x] D49.BUILD.01 — Founder Release APK Build (SUCCESS)
+    - ↳ Seal: [`SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md`](../../outputs/seals/SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md)
+    - **What:** Validated release build with AGP 8.7/Kotlin 2.1 upgrades.
+
+**D49 — Elite Arc (Institutional Completion Summary)**
+- **Shell**: Glass Ritual Panel (70% Sheet).
+- **Policy**: Strict Windows + Countdown logic.
+- **Engines**: Artifact-first Ritual generation.
+- **Chat**: Safe hybrid (OS Tools + LLM fallback).
+- **Memory**: Local reflection + opt-in cloud.
 
 ---
 

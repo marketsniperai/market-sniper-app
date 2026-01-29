@@ -1,0 +1,16 @@
+Running ProjectionOrchestrator.build_projection_report directly...
+[WARN] No TierGate blur reasons found. (Is this right?)
+
+[SUCCESS] Attribution Payload Verified.
+{
+  "generatedAtUtc": "2026-01-28T18:16:07.430532Z",
+  "ticker": "SPY",
+  "timeframe": "DAILY",
+  "source_ladder_used": "GLOBAL_CACHE_POLICY (LEGACY)",
+  "inputs_consulted": [],
+  "rules_fired": [
+    "LegacyPolicyFallback"
+  ],
+  "derived_facts": [],
+  "blur_reasons": []
+}

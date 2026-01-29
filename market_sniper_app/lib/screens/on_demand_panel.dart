@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async'; // HFxx Fix
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
 import '../logic/navigation_bus.dart'; // D44.02B
@@ -18,10 +19,13 @@ import '../widgets/share_modal.dart'; // D47.HF29
 import '../logic/recent_dossier_store.dart'; // D47.HF-RECENT
 import '../widgets/recent_dossier_rail.dart'; // D47.HF-RECENT
 import '../layout/main_layout.dart'; // To find ancestor if needed
-import '../logic/elite_access_window_controller.dart'; // D45.07
+
 import '../widgets/elite_interaction_sheet.dart'; // D43.XX
 
 import '../logic/on_demand_tier_resolver.dart'; // D47.HF31
+import '../adapters/on_demand/models.dart';
+import '../adapters/on_demand/on_demand_adapter.dart';
+import '../widgets/attribution_sheet.dart';
 
 // D47.HF30 Tier Definitions
 // Removed local definition in favor of centralized Resolver
@@ -497,6 +501,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
       case OnDemandViewState.error:
         if (_result == null) return const SizedBox.shrink();
 
+        // D48 Adapter
+        final vm = OnDemandAdapter.fromEnvelope(_result);
+
         // D44.16 Stale Warning Logic
         bool isStale = _result!.status == EnvelopeStatus.stale;
         if (!isStale) {
@@ -521,7 +528,6 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
             children: [
               if (isStale) ...[
                 _buildStaleWarning(),
@@ -586,6 +592,17 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
                             constraints: const BoxConstraints(),
                             tooltip: "Share Insight",
                         ),
+                        // D48.BRAIN.02 Attribution
+                        if (vm.attribution != null) ...[
+                           const SizedBox(width: 12),
+                           IconButton(
+                                icon: const Icon(Icons.account_tree_outlined, size: 18, color: AppColors.textSecondary),
+                                onPressed: () => _openAttribution(vm.attribution!),
+                                padding: EdgeInsets.zero,
+                                constraints: const BoxConstraints(),
+                                tooltip: "Show Work",
+                            ),
+                        ],
                     ],
                 ),
               ),
@@ -606,20 +623,20 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
               const SizedBox(height: 16),
               // D47.HF24: Time-Traveller Chart
               // HF30: Blur Future if FREE. PLUS/ELITE see clearly.
-              _buildTimeTravellerChart(blurFuture: _currentTier == OnDemandTier.free),
+              _buildTimeTravellerChart(vm.chart, blurFuture: _currentTier == OnDemandTier.free),
 
               const SizedBox(height: 12),
               // D47.HF25: Reliability Meter
-              _buildReliabilityMeter(),
+              _buildReliabilityMeter(vm.reliability),
 
               const SizedBox(height: 16),
               // D47.HF26: Intel Cards (Micro-Briefings)
-              ..._buildIntelInterface(),
+              ..._buildIntelInterface(vm.intel),
 
               const SizedBox(height: 16),
               // D47.HF27: Tactical Playbook
               // HF30: Blur Tactical if FREE. PLUS/ELITE see clearly.
-              _buildTacticalPlaybook(isBlurred: _currentTier == OnDemandTier.free),
+              _buildTacticalPlaybook(vm.tactical),
 
               const SizedBox(height: 16),
               // D47.HF28: Elite Mentor Bridge
@@ -851,286 +868,113 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     ];
   }
 
-  Widget _buildTimeTravellerChart({required bool blurFuture}) {
-    // Extract series from rawPayload if available.
-    // Expected structure: result.rawPayload['series'] -> { 'past': [...], 'future': [...] }
-    List<ChartCandle> past = [];
-    List<ChartCandle> future = [];
-    bool isCalibrating = true;
-
-    if (_result != null && _result!.rawPayload.containsKey('series')) {
-      final series = _result!.rawPayload['series'];
-      if (series is Map) {
-        if (series['past'] is List) {
-          past = (series['past'] as List).map((e) => ChartCandle.fromJson(e)).toList();
-        }
-        if (series['future'] is List) {
-          future = (series['future'] as List).map((e) => ChartCandle.fromJson(e)).toList();
-        }
-        isCalibrating = false; // We have data
-      }
-    }
+  Widget _buildTimeTravellerChart(TimeTravellerModel model, {required bool blurFuture}) {
+    // Adapter to ChartCandle mapping for UI compatibility
+    final past = model.past.map((e) => ChartCandle(
+        o: e.o, h: e.h, l: e.l, c: e.c, isGhost: e.isGhost)).toList();
+    final future = model.future.map((e) => ChartCandle(
+        o: e.o, h: e.h, l: e.l, c: e.c, isGhost: e.isGhost)).toList();
 
     return TimeTravellerChart(
       pastCandles: past,
       futureCandles: future,
       isLocked: _isDailyLocked(),
-      isCalibrating: isCalibrating,
+      isCalibrating: model.isCalibrating,
       height: 200,
       blurFuture: blurFuture, // HF30: Gated Logic
     );
   }
 
-  // D47.HF27: Tactical Playbook
-  Widget _buildTacticalPlaybook() {
-    if (_result == null) return const SizedBox.shrink();
-    if (_result!.watchBullets.isEmpty && _result!.invalidateBullets.isEmpty) return const SizedBox.shrink();
 
-    return TacticalPlaybookBlock(
-      watchItems: _result!.watchBullets,
-      invalidateItems: _result!.invalidateBullets,
-      isCalibrationMode: _timeframe == "INTRADAY",
-      isBlurred: _resolveTier() != OnDemandTier.elite, // HF30: Gate Tactics
-    );
-  }
-
-  Widget _buildReliabilityMeter() {
+  Widget _buildReliabilityMeter(ReliabilityModel model) {
     if (_result == null) return const SizedBox.shrink();
 
-    // 1. Inputs Logic
-    // Total 4: Options, News, Macro, Evidence
-    int totalInputs = 4;
-    int missingCount = 0;
-    if (_result!.rawPayload.containsKey('missingInputs')) {
-      final missing = _result!.rawPayload['missingInputs'];
-      if (missing is List) missingCount = missing.length;
-    }
-    int activeInputs = totalInputs - missingCount;
-    if (activeInputs < 0) activeInputs = 0;
-
-    // 2. Sample Size Logic
-    int? sampleSize;
-    if (_result!.rawPayload.containsKey('inputs') &&
-        _result!.rawPayload['inputs'] is Map &&
-        _result!.rawPayload['inputs'].containsKey('evidence')) {
-
-      final ev = _result!.rawPayload['inputs']['evidence'];
-      if (ev is Map && ev.containsKey('sample_size')) {
-        sampleSize = ev['sample_size'];
-      }
+    // Map Adapter State to String
+    String stateStr = "CALIBRATING";
+    switch (model.state) {
+      case AdapterReliabilityState.high:
+        stateStr = "HIGH";
+        break;
+      case AdapterReliabilityState.medium:
+        stateStr = "MED";
+        break;
+      case AdapterReliabilityState.low:
+        stateStr = "LOW";
+        break;
+      case AdapterReliabilityState.calibrating:
+        stateStr = "CALIBRATING";
+        break;
     }
 
-    // 3. State Logic
-    String state = "CALIBRATING";
-
-    // Priority 1: Market Lock
+    // Lock Override
     if (_isDailyLocked()) {
-      state = "CALIBRATING";
-    }
-    // Priority 2: Backend State
-    else if (_result!.rawPayload.containsKey('state')) {
-      final backendState = _result!.rawPayload['state'];
-
-      if (backendState == "OK") {
-        // Refine OK based on Samples
-        if (sampleSize != null) {
-          if (sampleSize > 30) {
-            state = "HIGH";
-          } else if (sampleSize > 10) {
-            state = "MED";
-          } else {
-            state = "LOW";
-          }
-        } else {
-          state = "MED"; // OK but no samples?
-        }
-      } else if (backendState == "INSUFFICIENT_DATA") {
-        state = "LOW";
-      } else if (backendState == "PROVIDER_DENIED") {
-        state = "LOW";
-      } else {
-        state = "CALIBRATING";
-      }
+      stateStr = "CALIBRATING";
     }
 
     return ReliabilityMeter(
-        state: state,
-        sampleSize: sampleSize,
-        driftState: "N/A", // Not yet in payload
-        activeInputs: activeInputs,
-        totalInputs: totalInputs
+        state: stateStr,
+        sampleSize: model.sampleSize,
+        driftState: model.driftState,
+        activeInputs: model.activeInputs,
+        totalInputs: model.totalInputs
     );
   }
 
-  List<Widget> _buildIntelInterface() {
+  List<Widget> _buildIntelInterface(IntelDeckModel deck) {
     if (_result == null) return [];
 
     List<Widget> cards = [];
 
-    // --- CARD 1: EVIDENCE (PROBABILITY) ---
-    // Extract: inputs.evidence.metrics['win_rate'], ['avg_return']
-    // Fallback: CALIBRATING
-    List<String> evidenceLines = [];
-    bool evidenceCalibrating = true;
-    Color evidenceAccent = AppColors.neonCyan; // Default calibrating
-
-    if (_result!.rawPayload.containsKey('inputs') &&
-        _result!.rawPayload['inputs'] is Map) {
-
-      final inputs = _result!.rawPayload['inputs'];
-      if (inputs.containsKey('evidence') && inputs['evidence'] is Map) {
-        final ev = inputs['evidence'];
-        if (ev.containsKey('metrics') && ev['metrics'] is Map) {
-          final m = ev['metrics'];
-
-          if (m.containsKey('win_rate')) {
-            evidenceLines.add("Historical Match: ${(m['win_rate'] * 100).toStringAsFixed(0)}%");
-            evidenceCalibrating = false;
-            // Color logic: > 60 Green, < 40 Red, else Amber
-            if (m['win_rate'] > 0.6) {
-              evidenceAccent = AppColors.marketBull;
-            } else if (m['win_rate'] < 0.4) {
-              evidenceAccent = AppColors.marketBear;
-            } else {
-              evidenceAccent = AppColors.stateStale; // Amber
-            }
-          }
-
-          if (m.containsKey('avg_return')) {
-            final ret = m['avg_return'];
-            final sign = ret >= 0 ? "+" : "";
-            evidenceLines.add("Avg Move: $sign${(ret * 100).toStringAsFixed(2)}%");
-          }
-        }
-      }
-    }
-
-    if (evidenceCalibrating) {
-      evidenceLines.add("Insufficient historical matches.");
-    }
-
+    // Probability
     cards.add(IntelCard(
-      title: "PROBABILITY ENGINE",
+      title: deck.evidence.title,
       icon: Icons.query_stats,
-      lines: evidenceLines,
-      accentColor: evidenceAccent,
+      lines: deck.evidence.lines,
+      accentColor: _mapSentimentToColor(deck.evidence.sentiment),
       tooltip: "Chronos Evidence Engine (Historical Matching)",
-      isCalibrating: evidenceCalibrating,
+      isCalibrating: deck.evidence.state == AdapterActivityState.calibrating,
     ));
 
-
-    // --- CARD 2: CATALYST RADAR (NEWS) ---
-    // Extract: inputs.news.headlines (List)
-    // Fallback: OFFLINE
-    List<String> newsLines = [];
-    bool newsOffline = true;
-    Color newsAccent = AppColors.textDisabled;
-
-    if (_result!.rawPayload.containsKey('inputs') &&
-        _result!.rawPayload['inputs'] is Map) {
-
-      final inputs = _result!.rawPayload['inputs'];
-      if (inputs.containsKey('news') && inputs['news'] is Map) {
-        final news = inputs['news'];
-        if (news.containsKey('headlines') && news['headlines'] is List) {
-          final rawHeadlines = news['headlines'] as List;
-          if (rawHeadlines.isNotEmpty) {
-            newsLines = rawHeadlines.take(2).map((e) => e.toString()).toList();
-            newsOffline = false;
-            newsAccent = AppColors.neonCyan; // Active
-          }
-        }
-      }
-    }
-
-    if (newsOffline) {
-      newsLines.add("Radar OFFLINE. (Sources: 0)");
-    }
-
+    // News
     cards.add(IntelCard(
-      title: "CATALYST RADAR",
+      title: deck.news.title,
       icon: Icons.radar,
-      lines: newsLines,
-      accentColor: newsAccent,
+      lines: deck.news.lines,
+      accentColor: _mapSentimentToColor(deck.news.sentiment),
       tooltip: "News Engine (Headlines & Event Clusters)",
-      isCalibrating: false, // Explicit offline text used instead
+      isCalibrating: deck.news.state == AdapterActivityState.calibrating, 
     ));
 
-
-    // --- CARD 3: REGIME & STRUCTURE ---
-    // Extract: contextTags.macro (List) or scenario notes?
-    // Let's use scenario notes for structure if macro is stub.
-    // Or just simple Macro status.
-    List<String> macroLines = [];
-    Color macroAccent = AppColors.textDisabled;
-
-    // Check Macro Status
-    String macroStatus = "NEUTRAL";
-    if (_result!.rawPayload.containsKey('contextTags') &&
-        _result!.rawPayload['contextTags'] is Map) {
-      final tags = _result!.rawPayload['contextTags'];
-      if (tags.containsKey('macro') && tags['macro'] is Map) {
-        // Parse tags?
-        // "MACRO_STUB_NEUTRAL"
-        final mTags = tags['macro']['tags'];
-        if (mTags is List && mTags.contains('MACRO_STUB_NEUTRAL')) {
-          macroStatus = "NEUTRAL (STUB)";
-        }
-      }
-    }
-    macroLines.add("Macro Environment: $macroStatus");
-    macroLines.add("Market Structure: BALANCED"); // Hardcoded confident default for V1
-
+    // Regime
     cards.add(IntelCard(
-      title: "REGIME & STRUCTURE",
+      title: deck.regime.title,
       icon: Icons.account_balance,
-      lines: macroLines,
-      accentColor: macroAccent, // Neutral
+      lines: deck.regime.lines,
+      accentColor: _mapSentimentToColor(deck.regime.sentiment),
       tooltip: "Macro & Structural Context",
-      isCalibrating: false,
+      isCalibrating: deck.regime.state == AdapterActivityState.calibrating,
     ));
 
     return cards;
   }
 
-  Widget _buildTacticalPlaybook() {
-    if (_result == null) return const SizedBox.shrink();
-
-    List<String> watch = [];
-    List<String> invalidate = [];
-    bool isCalibrationMode = false;
-
-    // 1. Check Lock (Override)
-    if (_isDailyLocked()) {
-      isCalibrationMode = true;
-      watch = [
-        "Initial balance forming; wait for structure confirmation.",
-        "Volume profile development vs overnight range."
-      ];
-    bool isCalibrating = true;
-
-    if (_result != null && _result!.rawPayload.containsKey('tactical')) {
-      final tac = _result!.rawPayload['tactical'];
-      if (tac is Map) {
-        if (tac['watch'] is List) {
-          watch = (tac['watch'] as List).map((e) => e.toString()).toList();
-        }
-        if (tac['invalidate'] is List) {
-          invalidate = (tac['invalidate'] as List).map((e) => e.toString()).toList();
-        }
-        isCalibrating = false;
-      }
+  Color _mapSentimentToColor(AdapterSentiment s) {
+    switch (s) {
+      case AdapterSentiment.bullish: return AppColors.marketBull;
+      case AdapterSentiment.bearish: return AppColors.marketBear;
+      case AdapterSentiment.neutral: return AppColors.stateStale; // Amber
+      case AdapterSentiment.unknown: return AppColors.neonCyan; // Default Active
     }
+  }
 
-    // Fallback if empty
-    if (watch.isEmpty) watch = ["Calibration in progress..."];
-    if (invalidate.isEmpty) invalidate = ["--"];
+  Widget _buildTacticalPlaybook(TacticalModel model) {
+     if (_result == null) return const SizedBox.shrink();
 
     return TacticalPlaybookBlock(
-      watchItems: watch,
-      invalidateItems: invalidate,
-      isCalibrationMode: isCalibrating,
-      isBlurred: isBlurred, // HF30: Gated Logic
+      watchItems: model.watch,
+      invalidateItems: model.invalidate,
+      isCalibrationMode: model.isCalibrating,
+      isBlurred: _currentTier == OnDemandTier.free, // HF30: Gated Logic (Free = Blurred)
     );
   }
 
@@ -1170,7 +1014,7 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
   }
   
   void _openMentorBridge() {
-      if (!_isEliteUnlocked) {
+      if (_currentTier != OnDemandTier.elite) {
           ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                   content: Text("Elite unlocks institutional mentoring on every dossier."),
@@ -1236,6 +1080,26 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
               // So no extra flag needed here if MiniCardWidget always blurs.
           )
       );
+  }
+
+  void _openAttribution(AttributionModel attr) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.6,
+        maxChildSize: 0.9,
+        minChildSize: 0.4,
+        builder: (_, controller) => SingleChildScrollView(
+          controller: controller,
+          child: AttributionSheet(
+              attribution: attr, 
+              userTier: _currentTier 
+          ),
+        ),
+      ),
+    );
   }
 }
 

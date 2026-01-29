@@ -216,6 +216,17 @@ class ApiClient {
     return {'status': 'N_A'};
   }
 
+  Future<Map<String, dynamic>> fetchEconomicCalendar() async {
+    final url = Uri.parse('$baseUrl/economic_calendar');
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {'source': 'OFFLINE', 'events': []};
+  }
+
   Future<Map<String, dynamic>> fetchEvidenceSummary() async {
     final url = Uri.parse('$baseUrl/evidence_summary');
     try {

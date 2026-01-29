@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, Request, BackgroundTasks, Header, HTTPException
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import json
@@ -34,6 +34,8 @@ from backend.os_ops.watchlist_action_logger import (
 )
 from backend.os_ops.on_demand_cache import OnDemandCache # D44.05
 from backend.os_ops.on_demand_tier_enforcer import OnDemandTierEnforcer # D44.06
+from backend.os_intel.economic_calendar_engine import EconomicCalendarEngine # HF35
+from backend.os_ops.event_router import EventRouter # D48.BRAIN.06
 
 app = FastAPI()
 
@@ -201,6 +203,30 @@ def options_context():
         
     return res["data"]
 
+@app.get("/economic_calendar")
+def get_economic_calendar():
+    """
+    D47.HF35: Economic Calendar V1.
+    Source Ladder: Pipeline Artifact -> Demo Engine -> Error.
+    """
+    # 1. Try Artifact (Primary Truth)
+    # Using safe_read pattern but manually for "engine" dir which might vary
+    res = safe_read_or_fallback("engine/economic_calendar.json")
+    
+    if res["success"]:
+        return res["data"]
+        
+    # 2. Demo Engine (Fallback/Boot)
+    # If missing, we generate it now (JIT).
+    try:
+        return EconomicCalendarEngine.generate_and_persist()
+    except Exception as e:
+        return {
+            "status": "ERROR",
+            "reason": str(e),
+            "events": []
+        }
+
 @app.get("/macro_context")
 def macro_context():
     """
@@ -265,6 +291,16 @@ def voice_state():
         res = safe_read_or_fallback("engine/voice_state.json") # Re-read
         
     return res["data"] if res["success"] else {"status": "ERROR"}
+
+@app.get("/news_digest")
+def news_digest():
+    """
+    D47.HF-A: News Backend Unification.
+    Unifies truth surface via Source Ladder: Pipeline -> Demo -> 200 OK.
+    """
+    from backend.news_engine import NewsEngine
+    return NewsEngine.get_news_digest()
+
 
 
 # AUTOFIX ENDPOINTS (DAY 15)
@@ -658,10 +694,22 @@ def autopilot_execute(payload: Dict[str, Any], x_founder_key: Optional[str] = He
     """
     Day 23: Autopilot Execution Bridge.
     Requires Handoff Payload + Founder Key (or Autopilot Mode ON).
-    """
-    # In a real app we'd validate x_founder_key hash too, but AutoFixControlPlane 
+    """    # In a real app we'd validate x_founder_key hash too, but AutoFixControlPlane 
     # handles authorization logic (checking existence of key or env var).
     return AutoFixControlPlane.execute_from_handoff(payload, founder_key=x_founder_key)
+
+# EVENT ROUTER (D48.BRAIN.06)
+@app.get("/events/latest", response_model=FallbackEnvelope[List[Dict[str, Any]]])
+def events_latest(limit: int = 50):
+    """
+    D48.BRAIN.06: System Event Bus.
+    Returns tail of system events (INFO, WARN, ERROR, CRITICAL).
+    """
+    try:
+        data = EventRouter.get_latest(limit=limit)
+        return FallbackEnvelope.create_valid(data)
+    except Exception as e:
+        return FallbackEnvelope.create_fallback("EVENT_ROUTER_ERROR", [str(e)])
 
 @app.get("/agms/thresholds")
 def agms_thresholds_active():
@@ -675,6 +723,20 @@ def agms_thresholds_active():
 
 
 
+
+
+
+# PROJECTION ORCHESTRATOR (DAY 47.HF17)
+from backend.os_intel.projection_orchestrator import ProjectionOrchestrator
+
+@app.get("/projection/report")
+def projection_report(symbol: str = "SPY", timeframe: str = "DAILY"):
+    """
+    D47.HF17/HF-B: Central Brain Projection Report.
+    D47.HF-B: Added timeframe=DAILY|WEEKLY
+    """
+    # Just run the orchestrator (it handles artifacts itself)
+    return ProjectionOrchestrator.build_projection_report(symbol, timeframe)
 
 
 # IMMUNE SYSTEM (DAY 32)
@@ -950,10 +1012,12 @@ async def get_watchlist_log_tail(lines: int = 50):
 async def get_on_demand_context(
     ticker: str, 
     tier: str = "FREE", 
+    timeframe: str = "DAILY", # D47.HF-B
     allow_stale: bool = False,
     x_founder_key: Optional[str] = Header(None)
 ):
     """
+    D47.HF-B (Update): Added timeframe pass-through to projection.
     D44.05: On-Demand Context with Cache & Freshness Discipline.
     D44.06: Tier Limits Enforcement.
     D44.X: Global Universe + Source Ladder + Cooldowns.
@@ -970,9 +1034,8 @@ async def get_on_demand_context(
         return JSONResponse(
             status_code=status_code,
             content={
-                "status": "BLOCKED",
+                "status": "DENIED",
                 "reason": reason,
-                "tier": tier,
                 "usage": usage,
                 "limit": limit,
                 "cooldown_remaining": cooldown_rem,
@@ -1004,25 +1067,25 @@ async def get_on_demand_context(
         return resp_dict
     
     # 2. Return Result
+    # HF21: Inject Projection Context (Probabilistic Context)
+    from backend.os_intel.projection_orchestrator import ProjectionOrchestrator
+    
+    # We always fetch projection, even if N/A, because Orchestrator handles safety.
+    proj_report = ProjectionOrchestrator.build_projection_report(ticker, timeframe)
+    
+    # Inject into envelope data if success, or top level?
+    # The envelope structure usually has 'payload'. Let's look at resolve_source return.
+    # It returns a Dict which is the envelope (status, source, payload...).
+    # We should add 'projection' to the payload if possible, or alongside it.
+    # If payload is the EliteContext, we can add it there if schema allows, 
+    # OR we add it as a sibling to 'payload' in the envelope?
+    # Schema safety: The client expects a specific structure. 
+    # If we add to 'result_envelope', it modifies the top level JSON.
+    result_envelope["projection"] = proj_report
+    
     return with_meta(result_envelope)
-    
-    # NOTE: EliteOSReader fallback is now handled inside resolve_source (via OFFLINE path) 
-    # or should be handled if resolve_source returns OFFLINE?
-    # Actually, resolve_source returns the full envelope including OFFLINE status.
-    # So we just return what it gives us + meta.
-        "generated_at": datetime.now().isoformat()
-    }
-    
-    # 3. Put to Cache
-    OnDemandCache.put(ticker=ticker, tier=tier, payload=payload)
-    
-    return with_headers({
-        "source": "LIVE_FETCH",
-        "freshness": "LIVE",
-        "status": "AVAILABLE",
-        "payload": payload,
-        "timestamp_utc": datetime.now().isoformat()
-    })
+
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

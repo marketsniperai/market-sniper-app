@@ -1,0 +1,13 @@
+[
+  "backend/os_ops/explain_router.py",
+  "backend/os_ops/elite_what_changed_reader.py",
+  "backend/os_ops/elite_os_reader.py",
+  "backend/os_ops/elite_explainer_protocol_reader.py",
+  "backend/os_ops/elite_micro_briefing_engine.py",
+  "backend/os_ops/elite_context_safety_validator.py",
+  "backend/os_ops/elite_context_engine_status_reader.py",
+  "backend/os_ops/elite_agms_recall_reader.py",
+  "backend/os_ops/on_demand_tier_enforcer.py",
+  "backend/os_ops/watchlist_action_logger.py",
+  "backend/api_server.py"
+]

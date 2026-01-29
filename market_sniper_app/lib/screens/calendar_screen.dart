@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import '../../theme/app_colors.dart';
 import '../../models/calendar/economic_calendar_model.dart';
 import '../../widgets/calendar_event_card.dart';
+import '../../services/api_client.dart'; // HF35
+import '../../theme/app_colors.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
@@ -16,8 +18,44 @@ class _CalendarScreenState extends State<CalendarScreen> {
   // Mode state
   bool _isWeekly = false; // default false -> Daily
 
-  // Simulated Data (Source Ladder: Offline default)
-  final EconomicCalendarViewModel _data = EconomicCalendarViewModel.offline();
+  // Data State
+  EconomicCalendarViewModel _data = EconomicCalendarViewModel.offline();
+  bool _isLoading = true;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    try {
+      if (mounted) setState(() => _isLoading = true);
+      // Use ApiClient (Service Locator or direct import)
+      // Assuming simple instantiation for now or provider if available.
+      // In this codebase, we often see ApiClient().fetch... or similar.
+      // Let's import ApiClient.
+      final payload = await ApiClient().fetchEconomicCalendar(); 
+      final vm = EconomicCalendarViewModel.fromJson(payload);
+      
+      if (mounted) {
+        setState(() {
+          _data = vm;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _error = e.toString();
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  @override
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +67,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
             _buildHeader(),
             _buildSelector(),
             Expanded(
-              child:
-                  _data.events.isEmpty ? _buildEmptyState() : _buildEventList(),
+              child: _isLoading 
+                  ? const Center(child: CircularProgressIndicator(color: AppColors.neonCyan))
+                  : _data.events.isEmpty 
+                      ? _buildEmptyState() 
+                      : _buildEventList(),
             ),
           ],
         ),
@@ -138,7 +179,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color: isActive ? AppColors.surface2 : Colors.transparent,
+            color: isActive ? AppColors.surface2 : AppColors.transparent,
             borderRadius: BorderRadius.circular(6),
           ),
           child: Row(
