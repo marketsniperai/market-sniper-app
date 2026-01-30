@@ -1,0 +1,5188 @@
+[
+  {
+    "sku": "D0.Master",
+    "description": "Workspace, Git, Skeleton, Truth Surface, Founder Flags, Shell",
+    "source": "WAR_CALENDAR",
+    "line": 21,
+    "day": "D0"
+  },
+  {
+    "sku": "D1",
+    "description": "Canon Versioning & System Contract",
+    "source": "WAR_CALENDAR",
+    "line": 23,
+    "day": "D1"
+  },
+  {
+    "sku": "D2",
+    "description": "Schemas & Lens Endpoints",
+    "source": "WAR_CALENDAR",
+    "line": 25,
+    "day": "D2"
+  },
+  {
+    "sku": "D3",
+    "description": "Autonomy Spine & Hardening (Locks)",
+    "source": "WAR_CALENDAR",
+    "line": 27,
+    "day": "D3"
+  },
+  {
+    "sku": "D4",
+    "description": "Pipeline Logic v0 (Real Data)",
+    "source": "WAR_CALENDAR",
+    "line": 29,
+    "day": "D4"
+  },
+  {
+    "sku": "D5",
+    "description": "Flutter Dashboard v0 (Founder APK)",
+    "source": "WAR_CALENDAR",
+    "line": 31,
+    "day": "D5"
+  },
+  {
+    "sku": "D6",
+    "description": "GCSFuse Persistence, Hydration & Scheduler",
+    "source": "WAR_CALENDAR",
+    "line": 37,
+    "day": "D6"
+  },
+  {
+    "sku": "D7",
+    "description": "Canon Truth & Contract Hardening",
+    "source": "WAR_CALENDAR",
+    "line": 39,
+    "day": "D7"
+  },
+  {
+    "sku": "D8",
+    "description": "Misfire Monitor & Founder Autoheal",
+    "source": "WAR_CALENDAR",
+    "line": 41,
+    "day": "D8"
+  },
+  {
+    "sku": "D9",
+    "description": "Frontend System Health Integration (API -> UI)",
+    "source": "WAR_CALENDAR",
+    "line": 47,
+    "day": "D9"
+  },
+  {
+    "sku": "D10",
+    "description": "Dual Pipeline (Full/Light) + Cooldowns",
+    "source": "WAR_CALENDAR",
+    "line": 49,
+    "day": "D10"
+  },
+  {
+    "sku": "D11",
+    "description": "Scheduler Dual Cadence",
+    "source": "WAR_CALENDAR",
+    "line": 51,
+    "day": "D11"
+  },
+  {
+    "sku": "D12",
+    "description": "Release Candidate Pack",
+    "source": "WAR_CALENDAR",
+    "line": 53,
+    "day": "D12"
+  },
+  {
+    "sku": "D13",
+    "description": "Deployment & Handover Pack (Cloud Run)",
+    "source": "WAR_CALENDAR",
+    "line": 55,
+    "day": "D13"
+  },
+  {
+    "sku": "D14",
+    "description": "Misfire Resilience & Autoheal Fix (Red Button)",
+    "source": "WAR_CALENDAR",
+    "line": 57,
+    "day": "D14"
+  },
+  {
+    "sku": "D15",
+    "description": "AutoFix Control Plane (Observe/Recommend)",
+    "source": "WAR_CALENDAR",
+    "line": 59,
+    "day": "D15"
+  },
+  {
+    "sku": "D16",
+    "description": "AutoFix Execute (Tier 1 Cooldowns)",
+    "source": "WAR_CALENDAR",
+    "line": 65,
+    "day": "D16"
+  },
+  {
+    "sku": "D17",
+    "description": "Housekeeper (Autoclean)",
+    "source": "WAR_CALENDAR",
+    "line": 67,
+    "day": "D17"
+  },
+  {
+    "sku": "D18",
+    "description": "War Room Command Center",
+    "source": "WAR_CALENDAR",
+    "line": 69,
+    "day": "D18"
+  },
+  {
+    "sku": "D19",
+    "description": "Titanium Playbooks (Registry + Autofix v2 + Shadow Repair)",
+    "source": "WAR_CALENDAR",
+    "line": 71,
+    "day": "D19"
+  },
+  {
+    "sku": "D20",
+    "description": "AGMS Foundation (Memory + Mirror + Truth)",
+    "source": "WAR_CALENDAR",
+    "line": 73,
+    "day": "D20"
+  },
+  {
+    "sku": "D21",
+    "description": "AGMS Intelligence (Shadow Mode)",
+    "source": "WAR_CALENDAR",
+    "line": 75,
+    "day": "D21"
+  },
+  {
+    "sku": "D22",
+    "description": "AGMS Shadow Recommender (Suggest-Only)",
+    "source": "WAR_CALENDAR",
+    "line": 77,
+    "day": "D22"
+  },
+  {
+    "sku": "D23",
+    "description": "AGMS Autopilot Handoff (Think vs Act)",
+    "source": "WAR_CALENDAR",
+    "line": 79,
+    "day": "D23"
+  },
+  {
+    "sku": "D24",
+    "description": "Dynamic Thresholds & Self-Tuning (Intelligence-Driven)",
+    "source": "WAR_CALENDAR",
+    "line": 81,
+    "day": "D24"
+  },
+  {
+    "sku": "D25",
+    "description": "Confidence & Stability Bands (Green/Yellow/Orange/Red)",
+    "source": "WAR_CALENDAR",
+    "line": 83,
+    "day": "D25"
+  },
+  {
+    "sku": "D26",
+    "description": "Modular Coherence Wiring (Refactor Law)",
+    "source": "WAR_CALENDAR",
+    "line": 85,
+    "day": "D26"
+  },
+  {
+    "sku": "D27",
+    "description": "Modular Refactor & Enforcement (Code Migration)",
+    "source": "WAR_CALENDAR",
+    "line": 87,
+    "day": "D27"
+  },
+  {
+    "sku": "D28",
+    "description": "Autopilot Policy v1 (Autonomy Dial)",
+    "source": "WAR_CALENDAR",
+    "line": 89,
+    "day": "D28"
+  },
+  {
+    "sku": "D28.1",
+    "description": "Playbook Expansion & Coverage",
+    "source": "WAR_CALENDAR",
+    "line": 91,
+    "day": "D28"
+  },
+  {
+    "sku": "D28.2",
+    "description": "Shadow Repair v1.5 (Propose Only)",
+    "source": "WAR_CALENDAR",
+    "line": 93,
+    "day": "D28"
+  },
+  {
+    "sku": "D29",
+    "description": "Shadow Observation Sprint",
+    "source": "WAR_CALENDAR",
+    "line": 95,
+    "day": "D29"
+  },
+  {
+    "sku": "D30",
+    "description": "SAFE_AUTOPILOT Activation",
+    "source": "WAR_CALENDAR",
+    "line": 97,
+    "day": "D30"
+  },
+  {
+    "sku": "D30.1",
+    "description": "Core OS Freeze & Kill Switches",
+    "source": "WAR_CALENDAR",
+    "line": 99,
+    "day": "D30"
+  },
+  {
+    "sku": "D30.2",
+    "description": "Surgeon 2-Vote Consensus",
+    "source": "WAR_CALENDAR",
+    "line": 101,
+    "day": "D30"
+  },
+  {
+    "sku": "D31",
+    "description": "The Surgeon (Runtime Self-Repair)",
+    "source": "WAR_CALENDAR",
+    "line": 103,
+    "day": "D31"
+  },
+  {
+    "sku": "D31.1",
+    "description": "Canon Sync (Post-Surgeon)",
+    "source": "WAR_CALENDAR",
+    "line": 109,
+    "day": "D31"
+  },
+  {
+    "sku": "D31.2",
+    "description": "Antigravity Constitution & Discipline Verifier",
+    "source": "WAR_CALENDAR",
+    "line": 110,
+    "day": "D31"
+  },
+  {
+    "sku": "D32",
+    "description": "The Immune System (Shadow Sanitize v1)",
+    "source": "WAR_CALENDAR",
+    "line": 112,
+    "day": "D32"
+  },
+  {
+    "sku": "D33",
+    "description": "The Dojo (Offline Simulation / Deep Dreaming)",
+    "source": "WAR_CALENDAR",
+    "line": 114,
+    "day": "D33"
+  },
+  {
+    "sku": "D33.1",
+    "description": "Tuning Gate (Runtime Tuning 2-Vote)",
+    "source": "WAR_CALENDAR",
+    "line": 116,
+    "day": "D33"
+  },
+  {
+    "sku": "D34",
+    "description": "The Black Box (Forensic Indestructibility)",
+    "source": "WAR_CALENDAR",
+    "line": 118,
+    "day": "D34"
+  },
+  {
+    "sku": "D36",
+    "description": "System Language Normalization (100% English)",
+    "source": "WAR_CALENDAR",
+    "line": 122,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.1",
+    "description": "Forensic Language Audit (Zero Spanish)",
+    "source": "WAR_CALENDAR",
+    "line": 124,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.2",
+    "description": "Engine Reconciliation Backlog Insert (Repo viejo \u2192 OMSR)",
+    "source": "WAR_CALENDAR",
+    "line": 129,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.3",
+    "description": "Options Intelligence v1 (Descriptive / N/A Safe / UI wiring)",
+    "source": "WAR_CALENDAR",
+    "line": 131,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.3",
+    "description": "A \u2014 Options Intelligence v1.1 (Provider Ready)",
+    "source": "WAR_CALENDAR",
+    "line": 140,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.4",
+    "description": "Evidence & Backtesting Engine v1 (regime match + sample size + horizons)",
+    "source": "WAR_CALENDAR",
+    "line": 143,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.5",
+    "description": "Macro Layer v1 (Rates/USD/Oil + fallbacks + contract)",
+    "source": "WAR_CALENDAR",
+    "line": 153,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.6",
+    "description": "Lexicon Pro v1 (Light Rewrite + Stealth; Founder-only label)",
+    "source": "WAR_CALENDAR",
+    "line": 162,
+    "day": "D36"
+  },
+  {
+    "sku": "D36.7",
+    "description": "Voice/TTS MVP Reconciliation (MVP) (Optional)",
+    "source": "WAR_CALENDAR",
+    "line": 172,
+    "day": "D36"
+  },
+  {
+    "sku": "D37.00",
+    "description": "Frontend Pre-flight (AppColors Import + Token Alignment)",
+    "source": "WAR_CALENDAR",
+    "line": 194,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.00",
+    "description": ".1A \u2014 Flutter SDK Decontamination & Upgrade (3.24.5 -> 3.38.7)",
+    "source": "WAR_CALENDAR",
+    "line": 196,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.00",
+    "description": ".2 \u2014 Global Shell Baseline (Persistent Top Bar + Bottom Nav)",
+    "source": "WAR_CALENDAR",
+    "line": 198,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.00",
+    "description": ".3 \u2014 Premium Palette Alignment (AppColors Upgrade)",
+    "source": "WAR_CALENDAR",
+    "line": 200,
+    "day": "D37"
+  },
+  {
+    "sku": "D38.01",
+    "description": ".1 \u2014 Dashboard Layout System - Enforced Spacing Tokens, Card Wrapper, and Composer (No Stacks).",
+    "source": "WAR_CALENDAR",
+    "line": 202,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.01",
+    "description": ".2 \u2014 Dashboard Layout Discipline Verifier (Hard Gate)",
+    "source": "WAR_CALENDAR",
+    "line": 204,
+    "day": "D38"
+  },
+  {
+    "sku": "D37.01",
+    "description": "Dashboard SSOT wiring (dashboard_market_sniper.json + freshness states)",
+    "source": "WAR_CALENDAR",
+    "line": 206,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.02",
+    "description": "Session Window widget (PRE/MARKET/AFTER/CLOSED)",
+    "source": "WAR_CALENDAR",
+    "line": 208,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.02",
+    "description": ".1 \u2014 Session Strip Polish (Institutional Header Fit & Finish)",
+    "source": "WAR_CALENDAR",
+    "line": 210,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.03",
+    "description": "Live/Stale/Locked chip discipline (sources + precedence)",
+    "source": "WAR_CALENDAR",
+    "line": 212,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.04",
+    "description": "OS Health widget (health_ext + os/health + Misfire integration)",
+    "source": "WAR_CALENDAR",
+    "line": 214,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.05",
+    "description": "Last Run widget (FULL/LIGHT + result + age_seconds)",
+    "source": "WAR_CALENDAR",
+    "line": 216,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.06",
+    "description": "Founder Mode always-on (founder-only chips + debug banners)",
+    "source": "WAR_CALENDAR",
+    "line": 218,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.07",
+    "description": "Auto-refresh + pull-to-refresh governance (cooldowns + UX)",
+    "source": "WAR_CALENDAR",
+    "line": 220,
+    "day": "D37"
+  },
+  {
+    "sku": "D37.08",
+    "description": "Dashboard degrade rules (missing artifacts, stale, partial)",
+    "source": "WAR_CALENDAR",
+    "line": 222,
+    "day": "D37"
+  },
+  {
+    "sku": "D38.01",
+    "description": "OS Health tile (NOMINAL/DEGRADED/MISFIRE/LOCKED)",
+    "source": "WAR_CALENDAR",
+    "line": 226,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.02",
+    "description": "War Room Tiles Wiring - Wired real OS data (Health/Autopilot/Iron/Universe) with strict color canon.",
+    "source": "WAR_CALENDAR",
+    "line": 228,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.03",
+    "description": "War Room Tile \u2014 Autofix Control Plane Summary (Status/Mode/Cooldown).",
+    "source": "WAR_CALENDAR",
+    "line": 230,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.04",
+    "description": "Housekeeper tile (auto status + last run + ledger tail)",
+    "source": "WAR_CALENDAR",
+    "line": 232,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.05",
+    "description": "Misfire Monitor / Auto-Recovery tile (proof + cooldown)",
+    "source": "WAR_CALENDAR",
+    "line": 234,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.06",
+    "description": "Iron OS tile (state + last rollback + last replay)",
+    "source": "WAR_CALENDAR",
+    "line": 236,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.07",
+    "description": "Universe tile (CORE20/Extended/Overlay LIVE-SIM-PARTIAL)",
+    "source": "WAR_CALENDAR",
+    "line": 238,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.08",
+    "description": "War Room Refresh Governance",
+    "source": "WAR_CALENDAR",
+    "line": 240,
+    "day": "D38"
+  },
+  {
+    "sku": "D38.09",
+    "description": "War Room Truth & Degrade Hardening (Final)",
+    "source": "WAR_CALENDAR",
+    "line": 242,
+    "day": "D38"
+  },
+  {
+    "sku": "D39.01",
+    "description": "CORE_UNIVERSE Canon Defined - Renamed from CORE20 to resolve semantic conflict without loss of information.",
+    "source": "WAR_CALENDAR",
+    "line": 247,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.01",
+    "description": "C \u2014 CORE20 Canon Final - Restored US2Y, Count 21 (Strict Canon Preservation).",
+    "source": "WAR_CALENDAR",
+    "line": 251,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.02",
+    "description": "Extended Universe UI: sector badges + breakdown panel",
+    "source": "WAR_CALENDAR",
+    "line": 253,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.03",
+    "description": "Extended Governance visibility (cooldown 10m, cap 100/day, ledger/proof surface)",
+    "source": "WAR_CALENDAR",
+    "line": 254,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.04",
+    "description": "Overlay truth metadata UI (LIVE/SIM/PARTIAL + age_seconds + OK/STALE + confidence)",
+    "source": "WAR_CALENDAR",
+    "line": 257,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.05",
+    "description": "Extended Summary Overlay injection surface (context_market_sniper.json)",
+    "source": "WAR_CALENDAR",
+    "line": 259,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.06",
+    "description": "Universe Propagation Audit surface (consumer detection results)",
+    "source": "WAR_CALENDAR",
+    "line": 263,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.07",
+    "description": "Safe degrade rules when overlay missing or stale",
+    "source": "WAR_CALENDAR",
+    "line": 265,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.08",
+    "description": "Universe Integrity Tile (CORE20 + EXTENDED + OVERLAY + GOVERNANCE + Consumers + Freshness)",
+    "source": "WAR_CALENDAR",
+    "line": 269,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.09",
+    "description": "Universe Drift Surface (missing / orphan / duplicate / unknown symbols)",
+    "source": "WAR_CALENDAR",
+    "line": 271,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.10",
+    "description": "Sector Heatmap Mini (11 sectors, dispersion-coded) (Optional)",
+    "source": "WAR_CALENDAR",
+    "line": 273,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.11",
+    "description": "Sector Sentinel Status (ACTIVE/STALE/DISABLED + last ingest + freshness) (Placeholder until D40)",
+    "source": "WAR_CALENDAR",
+    "line": 275,
+    "day": "D39"
+  },
+  {
+    "sku": "D39.HF01",
+    "description": "Web Shell Visibility Hotfix - Fixed blank body on web via explicit constraints. (SEALED).",
+    "source": "WAR_CALENDAR",
+    "line": 278,
+    "day": "D39"
+  },
+  {
+    "sku": "D40.01",
+    "description": "CORE_UNIVERSE Realtime Tape surface",
+    "source": "WAR_CALENDAR",
+    "line": 284,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.02",
+    "description": "Pulse Core surface (Risk On / Risk Off / Shock)",
+    "source": "WAR_CALENDAR",
+    "line": 288,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.09",
+    "description": "Pulse Confidence Bands UI (confidence + stability + regime)",
+    "source": "WAR_CALENDAR",
+    "line": 290,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.10",
+    "description": "Pulse Drift Surface (CORE vs Sentinel vs Overlay)",
+    "source": "WAR_CALENDAR",
+    "line": 292,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.03",
+    "description": "Sector Sentinel RT surface",
+    "source": "WAR_CALENDAR",
+    "line": 296,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.11",
+    "description": "Sentinel Sector Heatmap (RT)",
+    "source": "WAR_CALENDAR",
+    "line": 298,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.04",
+    "description": "Extended Overlay LIVE Composer surface (source: SECTOR_SENTINEL) - Implemented deterministic composer and /overlay_live endpoint. (SEALED).",
+    "source": "WAR_CALENDAR",
+    "line": 302,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.05",
+    "description": "Global Pulse Synthesis UI (global_risk_state.json)",
+    "source": "WAR_CALENDAR",
+    "line": 305,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.06",
+    "description": "Disagreement Report UI (global_disagreement_report.json)",
+    "source": "WAR_CALENDAR",
+    "line": 307,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.12",
+    "description": "Global Pulse Timeline (last 5 states)",
+    "source": "WAR_CALENDAR",
+    "line": 309,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.13",
+    "description": "Real-Time Freshness Monitor",
+    "source": "WAR_CALENDAR",
+    "line": 313,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.14",
+    "description": "Real-Time Degrade Rules Surface",
+    "source": "WAR_CALENDAR",
+    "line": 315,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.07",
+    "description": "Elite Explain Trigger bubble wiring (SHOCK/FRACTURED/RISK_OFF, 30m cooldown)",
+    "source": "WAR_CALENDAR",
+    "line": 319,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.15",
+    "description": "\u201cWhat Changed?\u201d RT Micro-Panel",
+    "source": "WAR_CALENDAR",
+    "line": 321,
+    "day": "D40"
+  },
+  {
+    "sku": "D40.08",
+    "description": "Auto-Risk Actions (UI-only)",
+    "source": "WAR_CALENDAR",
+    "line": 325,
+    "day": "D40"
+  },
+  {
+    "sku": "D41.01",
+    "description": "Iron OS status surface (os_state.json + last tick)",
+    "source": "WAR_CALENDAR",
+    "line": 332,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.02",
+    "description": "Timeline tail viewer (bounded, 8KB/event guard visibility)",
+    "source": "WAR_CALENDAR",
+    "line": 334,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.03",
+    "description": "Institutional Day Replay UI (OS.R2.0 surface)",
+    "source": "WAR_CALENDAR",
+    "line": 336,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.04",
+    "description": "Replay Archive + Time Machine UI (OS.R2.1 surface)",
+    "source": "WAR_CALENDAR",
+    "line": 338,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.05",
+    "description": "Founder-gated rollback UI action (confirm + logging)",
+    "source": "WAR_CALENDAR",
+    "line": 340,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.06",
+    "description": "Replay/rollback failsafe states + integrity indicators",
+    "source": "WAR_CALENDAR",
+    "line": 342,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.07",
+    "description": "Iron State History Strip (last 10 states + timestamps + cause if present)",
+    "source": "WAR_CALENDAR",
+    "line": 346,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.08",
+    "description": "Iron Drift Surface (state/timeline/LKG mismatch)",
+    "source": "WAR_CALENDAR",
+    "line": 348,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.09",
+    "description": "LKG Snapshot Viewer (hash + timestamp + size + validity)",
+    "source": "WAR_CALENDAR",
+    "line": 350,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.10",
+    "description": "Iron Decision Path (last decision + reason + fallback + skipped action)",
+    "source": "WAR_CALENDAR",
+    "line": 352,
+    "day": "D41"
+  },
+  {
+    "sku": "D41.11",
+    "description": "Replay Integrity Report (corruption/truncation/ordering/dup/out-of-order)",
+    "source": "WAR_CALENDAR",
+    "line": 354,
+    "day": "D41"
+  },
+  {
+    "sku": "D42.01",
+    "description": "Lock Reason Engine surface (lock_reason.json + suggested action)",
+    "source": "WAR_CALENDAR",
+    "line": 358,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.02",
+    "description": "Lock Reason coverage surface (lock_reason_coverage_report.json)",
+    "source": "WAR_CALENDAR",
+    "line": 360,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.03",
+    "description": "Housekeeper Auto surface (status + run + ledger tail)",
+    "source": "WAR_CALENDAR",
+    "line": 362,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.04",
+    "description": "AutoFix Execute Tier 1 UI surface (cooldown visibility + ledger tail)",
+    "source": "WAR_CALENDAR",
+    "line": 364,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.05",
+    "description": "Misfire Auto-Recovery Tier 2 UI surface (proof + escalation logic visibility)",
+    "source": "WAR_CALENDAR",
+    "line": 366,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.06",
+    "description": "\u201cRed Button\u201d manual action surfaces (Founder override alignment)",
+    "source": "WAR_CALENDAR",
+    "line": 368,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.07",
+    "description": "Cooldown/throttle transparency surfaces (why action is skipped)",
+    "source": "WAR_CALENDAR",
+    "line": 370,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.08",
+    "description": "Housekeeper Findings Panel (findings_panel.json)",
+    "source": "WAR_CALENDAR",
+    "line": 374,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.09",
+    "description": "Housekeeper Before/After Diff (before_after_diff.json)",
+    "source": "WAR_CALENDAR",
+    "line": 376,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.10",
+    "description": "AutoFix Decision Path (reason + fallback + skip reason + cooldown visibility)",
+    "source": "WAR_CALENDAR",
+    "line": 378,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.11",
+    "description": "Misfire Root Cause Panel (artifact + pipeline + fallback + action taken)",
+    "source": "WAR_CALENDAR",
+    "line": 380,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.12",
+    "description": "Self-Heal Confidence Indicator (HIGH/MED/LOW per action)",
+    "source": "WAR_CALENDAR",
+    "line": 382,
+    "day": "D42"
+  },
+  {
+    "sku": "D42.13",
+    "description": "Self-Heal \u201cWhat Changed?\u201d Panel (after repair: artifacts updated + state unlocked)",
+    "source": "WAR_CALENDAR",
+    "line": 384,
+    "day": "D42"
+  },
+  {
+    "sku": "D43.00",
+    "description": "Elite First Interaction Script (30\u201345s, voice/text)",
+    "source": "WAR_CALENDAR",
+    "line": 388,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.01",
+    "description": "Elite overlay shell (~70%) with 30% dashboard visibility",
+    "source": "WAR_CALENDAR",
+    "line": 403,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.02",
+    "description": "Elite Mentor Brain tone adaptation (Human/Institutional) + positive institutional stance",
+    "source": "WAR_CALENDAR",
+    "line": 405,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.03",
+    "description": "Elite OS Reader (run_manifest, context_market_sniper, global_risk_state, overlays)",
+    "source": "WAR_CALENDAR",
+    "line": 407,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.04",
+    "description": "Day Memory bounded file (4KB, resets 04:00 ET) + degrade rules",
+    "source": "WAR_CALENDAR",
+    "line": 409,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.05",
+    "description": "Elite AGMS Recall Reader (top 3 patterns, 4KB bound, degrade rules)",
+    "source": "WAR_CALENDAR",
+    "line": 411,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.06",
+    "description": "Explain Library + Router (\"Explain [KEY]\" + safe fallback + stale handling)",
+    "source": "WAR_CALENDAR",
+    "line": 413,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.07",
+    "description": "\u201c?\u201d Buttons Wiring \u2192 Explain Router (no new logic, just routing)",
+    "source": "WAR_CALENDAR",
+    "line": 415,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.08",
+    "description": "Session Thread Memory v2 (12 turns / 4KB, reset 04:00 ET, Clear History)",
+    "source": "WAR_CALENDAR",
+    "line": 417,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.09",
+    "description": "Daily Ritual triggers (Morning Briefing 09:20, Market Summary 16:05, How I Did Today 16:10 ET) + cooldowns",
+    "source": "WAR_CALENDAR",
+    "line": 419,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.10",
+    "description": "Institutional Explainer Protocol template (Drivers / What to watch / What OS is doing / No advice)",
+    "source": "WAR_CALENDAR",
+    "line": 421,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.11",
+    "description": "Elite Context Engine Status (LIVE/STALE + artifacts + degrade)",
+    "source": "WAR_CALENDAR",
+    "line": 425,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.12",
+    "description": "Elite \u201cWhat Changed?\u201d (last 5 minutes: market + OS + overlay)",
+    "source": "WAR_CALENDAR",
+    "line": 427,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.14",
+    "description": "Explain My Screen (contextual dashboard explain)",
+    "source": "WAR_CALENDAR",
+    "line": 436,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.15",
+    "description": "Elite Micro-Briefing on Open (context snapshot)",
+    "source": "WAR_CALENDAR",
+    "line": 438,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.X",
+    "description": "Layout Police (Doc + Debug Guard)",
+    "source": "WAR_CALENDAR",
+    "line": 447,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.Y",
+    "description": "Layout Police Hotlist (3 Target Fixes)",
+    "source": "WAR_CALENDAR",
+    "line": 450,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.X1",
+    "description": "Scroll Safe Fixes (Watchlist/Universe/Modal)",
+    "source": "WAR_CALENDAR",
+    "line": 453,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.X2",
+    "description": "Elite First Interaction (Default State + Home Button)",
+    "source": "WAR_CALENDAR",
+    "line": 456,
+    "day": "D43"
+  },
+  {
+    "sku": "D44",
+    "description": "Watchlist & On-Demand Workflow (Beast Parity + Institutional Hardening)",
+    "source": "WAR_CALENDAR",
+    "line": 459,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.01",
+    "description": "Watchlist AddTickerModal (Universe validation + dedupe)",
+    "source": "WAR_CALENDAR",
+    "line": 467,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.02",
+    "description": "Watchlist Analyze Now flow (LOCKED -> LockReasonModal + ledger; LIVE -> analyze result)",
+    "source": "WAR_CALENDAR",
+    "line": 469,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.03",
+    "description": "Watchlist action logging endpoint wiring (/lab/watchlist/log) + jsonl ledger",
+    "source": "WAR_CALENDAR",
+    "line": 472,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.04",
+    "description": "On-Demand screen (ticker input + results modal/screen)",
+    "source": "WAR_CALENDAR",
+    "line": 474,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.04",
+    "description": "On-Demand screen (ticker input + results modal/screen)",
+    "source": "WAR_CALENDAR",
+    "line": 475,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.05",
+    "description": "On-Demand cache + freshness (live/stale labels)",
+    "source": "WAR_CALENDAR",
+    "line": 479,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.06",
+    "description": "Watchlist <-> On-Demand Integration (Tap ticker -> populate OD)",
+    "source": "WAR_CALENDAR",
+    "line": 481,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.07",
+    "description": "Lexicon Guard + Standard Envelope enforcement for On-Demand outputs (institutional safe response shape)",
+    "source": "WAR_CALENDAR",
+    "line": 483,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.08",
+    "description": "BadgeStrip No-Overlap Layout Proof",
+    "source": "WAR_CALENDAR",
+    "line": 485,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.09",
+    "description": "Watchlist State Chips (LIVE/STALE/LOCKED)",
+    "source": "WAR_CALENDAR",
+    "line": 489,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.10",
+    "description": "Watchlist Last Analyzed Timestamp",
+    "source": "WAR_CALENDAR",
+    "line": 491,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.11",
+    "description": "On-Demand Envelope Preview Header (institutional header)",
+    "source": "WAR_CALENDAR",
+    "line": 493,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.12",
+    "description": "On-Demand Context Strip (sector + regime + overlay + pulse)",
+    "source": "WAR_CALENDAR",
+    "line": 495,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.13",
+    "description": "On-Demand \u2192 Elite Explain Button",
+    "source": "WAR_CALENDAR",
+    "line": 497,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.14",
+    "description": "Watchlist Quick Actions (Analyze / Remove)",
+    "source": "WAR_CALENDAR",
+    "line": 499,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.15",
+    "description": "On-Demand History (last 5)",
+    "source": "WAR_CALENDAR",
+    "line": 502,
+    "day": "D44"
+  },
+  {
+    "sku": "D44.16",
+    "description": "On-Demand Stale Warning (if source=CACHE/OFFLINE or age>threshold)",
+    "source": "WAR_CALENDAR",
+    "line": 504,
+    "day": "D44"
+  },
+  {
+    "sku": "D45.01",
+    "description": "System Status Panel Hygiene (session, time, global state)",
+    "source": "WAR_CALENDAR",
+    "line": 508,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.02",
+    "description": "Bottom Nav Hygiene + Persistence",
+    "source": "WAR_CALENDAR",
+    "line": 510,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.03",
+    "description": "News tab surface (Daily Digest + Flip, safe degrade)",
+    "source": "WAR_CALENDAR",
+    "line": 512,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.04",
+    "description": "Economic Calendar tab surface (Daily/Weekly, impact events)",
+    "source": "WAR_CALENDAR",
+    "line": 514,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.05",
+    "description": "Premium Feature Matrix (with Trial 0/3)",
+    "source": "WAR_CALENDAR",
+    "line": 516,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.06",
+    "description": "Trial (3 Market Opens) + Try-Me Scheduler",
+    "source": "WAR_CALENDAR",
+    "line": 518,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.07",
+    "description": "Elite Access Window Controller (Try-Me/Trial/Locks)",
+    "source": "WAR_CALENDAR",
+    "line": 520,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.08",
+    "description": "Share Engine v1 surfaces (Range Map + watermark + share image export)",
+    "source": "WAR_CALENDAR",
+    "line": 522,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.09",
+    "description": "Share Library + CTA Loop surfaces (history, captions, telemetry)",
+    "source": "WAR_CALENDAR",
+    "line": 524,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.10",
+    "description": "Share Prompt Loop (post-share booster sheet + CTA clicks tracked)",
+    "source": "WAR_CALENDAR",
+    "line": 526,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.11",
+    "description": "Share-to-Install loop scaffold (deterministic URLs + install banner + tracking)",
+    "source": "WAR_CALENDAR",
+    "line": 528,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.12",
+    "description": "Share Attribution Dashboard (Founder-only Growth Bloomberg) surface (KPIs/heatmap/tier breakdown)",
+    "source": "WAR_CALENDAR",
+    "line": 530,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.13",
+    "description": "Command Center Secret Surface (Elite-only)",
+    "source": "WAR_CALENDAR",
+    "line": 532,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.14",
+    "description": "5-Day Unlock (Plus) + Immediate Unlock (Elite) + No-reset Progress",
+    "source": "WAR_CALENDAR",
+    "line": 537,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.15",
+    "description": "Command Center Content Spec (WOW + legal-safe)",
+    "source": "WAR_CALENDAR",
+    "line": 543,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.16",
+    "description": "Viral Teaser Share (No sensitive data)",
+    "source": "WAR_CALENDAR",
+    "line": 554,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.17",
+    "description": "Session Awareness Micro-Panel (countdown + canon color)",
+    "source": "WAR_CALENDAR",
+    "line": 560,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.18",
+    "description": "Provider Status Indicator (LIVE/DEGRADED/DOWN)",
+    "source": "WAR_CALENDAR",
+    "line": 562,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.19",
+    "description": "Premium Feature Matrix (visual grid)",
+    "source": "WAR_CALENDAR",
+    "line": 567,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.20",
+    "description": "News Flip Card Interaction (summary \u2192 explain \u2192 summary)",
+    "source": "WAR_CALENDAR",
+    "line": 571,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.21",
+    "description": "Calendar Impact Badges (HIGH/MED/LOW)",
+    "source": "WAR_CALENDAR",
+    "line": 573,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.22",
+    "description": "Evidence Ghost Overlay (Elite-only)",
+    "source": "WAR_CALENDAR",
+    "line": 577,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.23",
+    "description": "Persona Caption Presets (4 styles)",
+    "source": "WAR_CALENDAR",
+    "line": 579,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.24",
+    "description": "Watermark Modes (Elite/Preview/Founder)",
+    "source": "WAR_CALENDAR",
+    "line": 581,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.F1",
+    "description": "Founder Router Selector (War Room / Command Center)",
+    "source": "WAR_CALENDAR",
+    "line": 585,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.H2",
+    "description": "Founder Phone Hotfix (BaseURL Release Guard + Ritual Reliability)",
+    "source": "WAR_CALENDAR",
+    "line": 587,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.H3",
+    "description": "Founder Ritual Hitbox + Network Permissions",
+    "source": "WAR_CALENDAR",
+    "line": 589,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.H4",
+    "description": "Compilation Repair (Atoms/L10n/Wiring)",
+    "source": "WAR_CALENDAR",
+    "line": 591,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.H6",
+    "description": "Flutter Web L10n Fix (Non-Synthetic)",
+    "source": "WAR_CALENDAR",
+    "line": 593,
+    "day": "D45"
+  },
+  {
+    "sku": "D47.01",
+    "description": "**Projection Orchestrator** (Central Brain) \u2014 SEALED",
+    "source": "WAR_CALENDAR",
+    "line": 696,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.02",
+    "description": "**Intraday Series** (Demonstration) \u2014 SEALED",
+    "source": "WAR_CALENDAR",
+    "line": 698,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.03",
+    "description": "**News Engine Backend** (Demo/Stub) \u2014 SEALED",
+    "source": "WAR_CALENDAR",
+    "line": 700,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.04",
+    "description": "**On-Demand Consumption** \u2014 SEALED",
+    "source": "WAR_CALENDAR",
+    "line": 702,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF14",
+    "description": "News Ranking Skeleton (Rules Only)",
+    "source": "WAR_CALENDAR",
+    "line": 704,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF15X",
+    "description": "Discipline Unblock (Hardening)",
+    "source": "WAR_CALENDAR",
+    "line": 706,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF16",
+    "description": "On-Demand 04:00 ET Sync",
+    "source": "WAR_CALENDAR",
+    "line": 708,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF19",
+    "description": "Projection Inputs Wiring",
+    "source": "WAR_CALENDAR",
+    "line": 710,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF20",
+    "description": "Projection Context Fusion",
+    "source": "WAR_CALENDAR",
+    "line": 712,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF22",
+    "description": "On-Demand Decryption Ritual",
+    "source": "WAR_CALENDAR",
+    "line": 714,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF23",
+    "description": "On-Demand Timeframe Control (DAILY/WEEKLY)",
+    "source": "WAR_CALENDAR",
+    "line": 716,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF24",
+    "description": "Time-Traveller Chart v1 (On-Demand)",
+    "source": "WAR_CALENDAR",
+    "line": 718,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF25",
+    "description": "Reliability Meter (On-Demand)",
+    "source": "WAR_CALENDAR",
+    "line": 720,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF26",
+    "description": "Intel Cards v1 (On-Demand)",
+    "source": "WAR_CALENDAR",
+    "line": 722,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF27",
+    "description": "Tactical Playbook (On-Demand)",
+    "source": "WAR_CALENDAR",
+    "line": 724,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF-RECENT-LOCAL",
+    "description": "Recent Dossiers (Local Snapshot)",
+    "source": "WAR_CALENDAR",
+    "line": 726,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF28",
+    "description": "Elite Mentor Bridge (On-Demand)",
+    "source": "WAR_CALENDAR",
+    "line": 728,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF29",
+    "description": "Share Mini-Card (Ultra-Light)",
+    "source": "WAR_CALENDAR",
+    "line": 730,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF30",
+    "description": "Blurred Truth Gating (UI-Only)",
+    "source": "WAR_CALENDAR",
+    "line": 732,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF-CACHE-SERVER",
+    "description": "Hourly Bucket Cache (Server-Side)",
+    "source": "WAR_CALENDAR",
+    "line": 734,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF-DEDUPE-GLOBAL",
+    "description": "Global Shared Dossiers (Public GCS)",
+    "source": "WAR_CALENDAR",
+    "line": 736,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF31",
+    "description": "Tier Resolver V1 (Unified + Gating)",
+    "source": "WAR_CALENDAR",
+    "line": 738,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF32",
+    "description": "On-Demand Cost Policy (Per-Ticker Daily Run)",
+    "source": "WAR_CALENDAR",
+    "line": 740,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF33",
+    "description": "On-Demand Area Seal (Capstone)",
+    "source": "WAR_CALENDAR",
+    "line": 742,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF34",
+    "description": "On-Demand Capstone Doc + Canon Sync",
+    "source": "WAR_CALENDAR",
+    "line": 744,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF34",
+    "description": "On-Demand Capstone Doc + Canon Sync",
+    "source": "WAR_CALENDAR",
+    "line": 745,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF35",
+    "description": "Calendar Activation V1 (Artifact-First)",
+    "source": "WAR_CALENDAR",
+    "line": 747,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.FIX.01",
+    "description": "News Backend Unification",
+    "source": "WAR_CALENDAR",
+    "line": 751,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.FIX.02",
+    "description": "AGMS Reliability Scoreboard (Update Only)",
+    "source": "WAR_CALENDAR",
+    "line": 760,
+    "day": "D47"
+  },
+  {
+    "sku": "D48.BRAIN.01",
+    "description": "Schema Authority (Unique Contracts)",
+    "source": "WAR_CALENDAR",
+    "line": 772,
+    "day": "D48"
+  },
+  {
+    "sku": "D48.BRAIN.02",
+    "description": "Attribution Engine V1 (Real Explainability)",
+    "source": "WAR_CALENDAR",
+    "line": 777,
+    "day": "D48"
+  },
+  {
+    "sku": "D48.BRAIN.03",
+    "description": "Surface Adapters V1 (On-Demand)",
+    "source": "WAR_CALENDAR",
+    "line": 782,
+    "day": "D48"
+  },
+  {
+    "sku": "D48.BRAIN.04",
+    "description": "Reliability Ledger (Global Truth)",
+    "source": "WAR_CALENDAR",
+    "line": 787,
+    "day": "D48"
+  },
+  {
+    "sku": "D48.BRAIN.05",
+    "description": "Provider DataMux (Scaling)",
+    "source": "WAR_CALENDAR",
+    "line": 793,
+    "day": "D48"
+  },
+  {
+    "sku": "D48.BRAIN.06",
+    "description": "Event Router (Notifications + Real Time)",
+    "source": "WAR_CALENDAR",
+    "line": 798,
+    "day": "D48"
+  },
+  {
+    "sku": "D49",
+    "description": "Elite Arc (Ritual, Chat, Authority)",
+    "source": "WAR_CALENDAR",
+    "line": 812,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.SHELL.01",
+    "description": "Elite Shell v2 (Glass Ritual Panel)",
+    "source": "WAR_CALENDAR",
+    "line": 813,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.POLICY.01",
+    "description": "Ritual Policy Engine v1 (Windows + Countdown)",
+    "source": "WAR_CALENDAR",
+    "line": 816,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.CONTRACTS.01",
+    "description": "Ritual Contracts v1 (6 Schemas)",
+    "source": "WAR_CALENDAR",
+    "line": 819,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.OPS.01",
+    "description": "OS Knowledge Index v1",
+    "source": "WAR_CALENDAR",
+    "line": 822,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.OPS.02",
+    "description": "OS State Snapshot v1",
+    "source": "WAR_CALENDAR",
+    "line": 825,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.ENGINES.01",
+    "description": "Ritual Engines v1 (Artifact-First)",
+    "source": "WAR_CALENDAR",
+    "line": 828,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.API.01",
+    "description": "Ritual API Router v1",
+    "source": "WAR_CALENDAR",
+    "line": 831,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.UI.01",
+    "description": "Ritual Modals Wiring v1",
+    "source": "WAR_CALENDAR",
+    "line": 834,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.CHAT.01",
+    "description": "Elite Chat Core v1 (OS Authority + safe LLM)",
+    "source": "WAR_CALENDAR",
+    "line": 837,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.WINDOW.02",
+    "description": "Monday Free Window v2",
+    "source": "WAR_CALENDAR",
+    "line": 840,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.NOTIFY.01",
+    "description": "Notifications + Badges v1",
+    "source": "WAR_CALENDAR",
+    "line": 843,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.MEMORY.01",
+    "description": "User Reflection Memory v1",
+    "source": "WAR_CALENDAR",
+    "line": 846,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.SEAL.01",
+    "description": "Elite Area Seal + Canon Sync",
+    "source": "WAR_CALENDAR",
+    "line": 849,
+    "day": "D49"
+  },
+  {
+    "sku": "D49.BUILD.01",
+    "description": "Founder Release APK Build (SUCCESS)",
+    "source": "WAR_CALENDAR",
+    "line": 852,
+    "day": "D49"
+  },
+  {
+    "sku": "D43.13",
+    "description": "Elite Contextual Recall (Bounded)",
+    "source": "PROJECT_STATE",
+    "line": 128,
+    "day": "D43"
+  },
+  {
+    "sku": "D43.16",
+    "description": "Elite Context Safety Layer - Implemented transversal validator and UI indicator. .",
+    "source": "PROJECT_STATE",
+    "line": 131,
+    "day": "D43"
+  },
+  {
+    "sku": "D45.HF02",
+    "description": "[x] D45.HF02 Web Build Repair (Timezone Fallout). .",
+    "source": "PROJECT_STATE",
+    "line": 199,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.HF03",
+    "description": "[x] D45.HF03 Sector Flip V1 Smoke (Runtime Verification). .",
+    "source": "PROJECT_STATE",
+    "line": 200,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.POLISH.SECTOR.FLIP.V2",
+    "description": "[x] D45.POLISH.SECTOR.FLIP.V2 (Layout, Header, Animations). .",
+    "source": "PROJECT_STATE",
+    "line": 201,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.POLISH.SECTOR.FLIP.V3",
+    "description": "[x] D45.POLISH.SECTOR.FLIP.V3 (Leader Micro-Wow, Haptics). .",
+    "source": "PROJECT_STATE",
+    "line": 202,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.SECTOR.REPLAY.V1_1",
+    "description": "[x] D45.SECTOR.REPLAY.V1_1 (Scrubber, 60m History, Safe ET). .",
+    "source": "PROJECT_STATE",
+    "line": 203,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.SECTOR.REPLAY.V1_2",
+    "description": "[x] D45.SECTOR.REPLAY.V1_2 (Pulse Integration, Fallback). .",
+    "source": "PROJECT_STATE",
+    "line": 204,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.SECTOR.SENTINEL.RT.V0",
+    "description": "[x] D45.SECTOR.SENTINEL.RT.V0 (Leader Change, Volume Spike Events). .",
+    "source": "PROJECT_STATE",
+    "line": 205,
+    "day": "D45"
+  },
+  {
+    "sku": "D46.REGIME.SENTINEL.SKELETON",
+    "description": "[x] D46.REGIME.SENTINEL.SKELETON (Index Detail Widget, 10:30 Gate). .",
+    "source": "PROJECT_STATE",
+    "line": 206,
+    "day": "D46"
+  },
+  {
+    "sku": "D46.REGIME.SENTINEL.POLISH",
+    "description": "[x] D46.REGIME.SENTINEL.POLISH (DIA, Grid, Candles, Fullscreen). .",
+    "source": "PROJECT_STATE",
+    "line": 207,
+    "day": "D46"
+  },
+  {
+    "sku": "D46.HF12.WIDGET.TITLES",
+    "description": "[x] D46.HF12.WIDGET.TITLES (Breathing Accents, Headers). .",
+    "source": "PROJECT_STATE",
+    "line": 208,
+    "day": "D46"
+  },
+  {
+    "sku": "D46.WATCHLIST.FINAL.SEAL",
+    "description": "[x] D46.WATCHLIST.FINAL.SEAL (Unlocked, Pre-seed, Preview Sheet). .",
+    "source": "PROJECT_STATE",
+    "line": 209,
+    "day": "D46"
+  },
+  {
+    "sku": "D46.HF12.WATCHLIST.UI.POLISH",
+    "description": "[x] D46.HF12.WATCHLIST.UI.POLISH (Compact Tiles, Glass SnackBar, Small FAB). .",
+    "source": "PROJECT_STATE",
+    "line": 210,
+    "day": "D46"
+  },
+  {
+    "sku": "D47.CANON_SYNC.CHECKPOINT",
+    "description": "[x] D47.CANON_SYNC.CHECKPOINT (Docs Updated, Git Checkpoint). .",
+    "source": "PROJECT_STATE",
+    "line": 211,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF14.NEWS.RANKING_SKELETON",
+    "description": "[x] D47.HF14.NEWS.RANKING_SKELETON (Rules-Only Engine). .",
+    "source": "PROJECT_STATE",
+    "line": 212,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF13.NEWS.DEMO_ENGINE",
+    "description": "[x] D47.HF13.NEWS.DEMO_ENGINE (Demo Mode, Ready for Data). .",
+    "source": "PROJECT_STATE",
+    "line": 213,
+    "day": "D47"
+  },
+  {
+    "sku": "D47.HF13.NEWS.DEMO_ENGINE",
+    "description": "[x] D47.HF13.NEWS.DEMO_ENGINE (Demo Mode, Ready for Data). .",
+    "source": "PROJECT_STATE",
+    "line": 214,
+    "day": "D47"
+  },
+  {
+    "sku": "D46.HF12B.WATCHLIST.MICRO_POLISH",
+    "description": "[x] D46.HF12B.WATCHLIST.MICRO_POLISH (Refined SnackBar, Text, FAB). .",
+    "source": "PROJECT_STATE",
+    "line": 215,
+    "day": "D46"
+  },
+  {
+    "sku": "D45.SECTOR.REPLAY.V1_3",
+    "description": "[x] D45.SECTOR.REPLAY.V1_3 (Pulse SSOT, Staleness Guard, Founder Src Tag). .",
+    "source": "PROJECT_STATE",
+    "line": 216,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.CANON.PENDING.01",
+    "description": "[x] D45.CANON.PENDING.01 (Pending Ledger Created, 10 Items). .",
+    "source": "PROJECT_STATE",
+    "line": 217,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.CANON.PENDING_INDEX.02",
+    "description": "[x] D45.CANON.PENDING_INDEX.02 \u2014 Pending Index v2 generated (Radar-ready).",
+    "source": "PROJECT_STATE",
+    "line": 218,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.CANON.PENDING_INDEX.02",
+    "description": "[x] D45.CANON.PENDING_INDEX.02 \u2014 Pending Index v2 generated (Radar-ready).",
+    "source": "PROJECT_STATE",
+    "line": 219,
+    "day": "D45"
+  },
+  {
+    "sku": "D45.CANON.DEBT_RADAR.V2",
+    "description": "[x] D45.CANON.DEBT_RADAR.V2 \u2014 War Room Debt Radar V2 (Delta + Trends + Sorting).",
+    "source": "PROJECT_STATE",
+    "line": 220,
+    "day": "D45"
+  },
+  {
+    "sku": "D49.01",
+    "description": "[2026-01-29] D49.01 Elite Shell v2 Refactor",
+    "source": "PROJECT_STATE",
+    "line": 226,
+    "day": "D49"
+  },
+  {
+    "sku": "D50.EWIMS.AUDIT",
+    "description": "[2026-01-29] D50.EWIMS.AUDIT Operation Truth",
+    "source": "PROJECT_STATE",
+    "line": 230,
+    "day": "D50"
+  },
+  {
+    "sku": "D50.EWIMS.GOLD",
+    "description": "[2026-01-29] D50.EWIMS.GOLD Institutional Truth Seal",
+    "source": "PROJECT_STATE",
+    "line": 234,
+    "day": "D50"
+  },
+  {
+    "sku": "SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE",
+    "description": "Seal Artifact: SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md"
+  },
+  {
+    "sku": "SEAL_CANON_0_REGISTRY",
+    "description": "Seal Artifact: SEAL_CANON_0_REGISTRY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_0_REGISTRY.md"
+  },
+  {
+    "sku": "SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST",
+    "description": "Seal Artifact: SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md"
+  },
+  {
+    "sku": "SEAL_CANON_SCOPE_HISTORICO",
+    "description": "Seal Artifact: SEAL_CANON_SCOPE_HISTORICO.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_SCOPE_HISTORICO.md"
+  },
+  {
+    "sku": "SEAL_CANON_SYNC_UP_TO_DAY_08",
+    "description": "Seal Artifact: SEAL_CANON_SYNC_UP_TO_DAY_08.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D08",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_SYNC_UP_TO_DAY_08.md"
+  },
+  {
+    "sku": "SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY",
+    "description": "Seal Artifact: SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D31",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md"
+  },
+  {
+    "sku": "SEAL_D44_FINAL_CLOSE",
+    "description": "Seal Artifact: SEAL_D44_FINAL_CLOSE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D44_FINAL_CLOSE.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_DEBT_RADAR_V1",
+    "description": "Seal Artifact: SEAL_D45_CANON_DEBT_RADAR_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_DEBT_RADAR_V1.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_DEBT_RADAR_V2",
+    "description": "Seal Artifact: SEAL_D45_CANON_DEBT_RADAR_V2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_DEBT_RADAR_V2.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_DEBT_RADAR_V2_1",
+    "description": "Seal Artifact: SEAL_D45_CANON_DEBT_RADAR_V2_1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_DEBT_RADAR_V2_1.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_PENDING_01",
+    "description": "Seal Artifact: SEAL_D45_CANON_PENDING_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_01.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK",
+    "description": "Seal Artifact: SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2",
+    "description": "Seal Artifact: SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_PENDING_INDEX_02",
+    "description": "Seal Artifact: SEAL_D45_CANON_PENDING_INDEX_02.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_INDEX_02.md"
+  },
+  {
+    "sku": "SEAL_D45_CANON_PENDING_LIFECYCLE",
+    "description": "Seal Artifact: SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_LIFECYCLE.md"
+  },
+  {
+    "sku": "SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01",
+    "description": "Seal Artifact: SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md"
+  },
+  {
+    "sku": "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01",
+    "description": "Seal Artifact: SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md"
+  },
+  {
+    "sku": "SEAL_D45_HF04_BUILD_RESTORE",
+    "description": "Seal Artifact: SEAL_D45_HF04_BUILD_RESTORE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF04_BUILD_RESTORE.md"
+  },
+  {
+    "sku": "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX",
+    "description": "Seal Artifact: SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md"
+  },
+  {
+    "sku": "SEAL_D45_HF05_AUTH_GATEWAY",
+    "description": "Seal Artifact: SEAL_D45_HF05_AUTH_GATEWAY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF05_AUTH_GATEWAY.md"
+  },
+  {
+    "sku": "SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS",
+    "description": "Seal Artifact: SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md"
+  },
+  {
+    "sku": "SEAL_D45_HF06_INFRA_DISCOVERY",
+    "description": "Seal Artifact: SEAL_D45_HF06_INFRA_DISCOVERY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF06_INFRA_DISCOVERY.md"
+  },
+  {
+    "sku": "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY",
+    "description": "Seal Artifact: SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md"
+  },
+  {
+    "sku": "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY",
+    "description": "Seal Artifact: SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md"
+  },
+  {
+    "sku": "SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX",
+    "description": "Seal Artifact: SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE",
+    "description": "Seal Artifact: SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL",
+    "description": "Seal Artifact: SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH",
+    "description": "Seal Artifact: SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT",
+    "description": "Seal Artifact: SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX",
+    "description": "Seal Artifact: SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN",
+    "description": "Seal Artifact: SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md"
+  },
+  {
+    "sku": "SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE",
+    "description": "Seal Artifact: SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md"
+  },
+  {
+    "sku": "SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED",
+    "description": "Seal Artifact: SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md"
+  },
+  {
+    "sku": "SEAL_D45_POLISH_ACCOUNT_IDENTITY_01",
+    "description": "Seal Artifact: SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md"
+  },
+  {
+    "sku": "SEAL_D45_POLISH_MENU_ENTRY_01",
+    "description": "Seal Artifact: SEAL_D45_POLISH_MENU_ENTRY_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_MENU_ENTRY_01.md"
+  },
+  {
+    "sku": "SEAL_D45_POLISH_PARTNER_PROGRESS_01",
+    "description": "Seal Artifact: SEAL_D45_POLISH_PARTNER_PROGRESS_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_PARTNER_PROGRESS_01.md"
+  },
+  {
+    "sku": "SEAL_D45_POLISH_SECTOR_FLIP_V2",
+    "description": "Seal Artifact: SEAL_D45_POLISH_SECTOR_FLIP_V2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_SECTOR_FLIP_V2.md"
+  },
+  {
+    "sku": "SEAL_D45_POLISH_SECTOR_FLIP_V3",
+    "description": "Seal Artifact: SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_SECTOR_FLIP_V3.md"
+  },
+  {
+    "sku": "SEAL_D45_POLISH_SECTOR_HEADER_COPY_01",
+    "description": "Seal Artifact: SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md"
+  },
+  {
+    "sku": "SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01",
+    "description": "Seal Artifact: SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md"
+  },
+  {
+    "sku": "SEAL_D45_SECTOR_REPLAY_V1_1",
+    "description": "Seal Artifact: SEAL_D45_SECTOR_REPLAY_V1_1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_V1_1.md"
+  },
+  {
+    "sku": "SEAL_D45_SECTOR_REPLAY_V1_2",
+    "description": "Seal Artifact: SEAL_D45_SECTOR_REPLAY_V1_2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_V1_2.md"
+  },
+  {
+    "sku": "SEAL_D45_SECTOR_REPLAY_V1_3",
+    "description": "Seal Artifact: SEAL_D45_SECTOR_REPLAY_V1_3.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_V1_3.md"
+  },
+  {
+    "sku": "SEAL_D45_SECTOR_SENTINEL_RT_V0",
+    "description": "Seal Artifact: SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_SENTINEL_RT_V0.md"
+  },
+  {
+    "sku": "SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON",
+    "description": "Seal Artifact: SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md"
+  },
+  {
+    "sku": "SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN",
+    "description": "Seal Artifact: SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md"
+  },
+  {
+    "sku": "SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH",
+    "description": "Seal Artifact: SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md"
+  },
+  {
+    "sku": "SEAL_D46_HF12_WATCHLIST_UI_POLISH",
+    "description": "Seal Artifact: SEAL_D46_HF12_WATCHLIST_UI_POLISH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF12_WATCHLIST_UI_POLISH.md"
+  },
+  {
+    "sku": "SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT",
+    "description": "Seal Artifact: SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md"
+  },
+  {
+    "sku": "SEAL_D46_WATCHLIST_FINAL_SEAL",
+    "description": "Seal Artifact: SEAL_D46_WATCHLIST_FINAL_SEAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_WATCHLIST_FINAL_SEAL.md"
+  },
+  {
+    "sku": "SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT",
+    "description": "Seal Artifact: SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md"
+  },
+  {
+    "sku": "SEAL_D47_CALENDAR_AUDIT",
+    "description": "Seal Artifact: SEAL_D47_CALENDAR_AUDIT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_CALENDAR_AUDIT.md"
+  },
+  {
+    "sku": "SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND",
+    "description": "Seal Artifact: SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md"
+  },
+  {
+    "sku": "SEAL_D47_CANON_SYNC_CHECKPOINT",
+    "description": "Seal Artifact: SEAL_D47_CANON_SYNC_CHECKPOINT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_CANON_SYNC_CHECKPOINT.md"
+  },
+  {
+    "sku": "SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT",
+    "description": "Seal Artifact: SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md"
+  },
+  {
+    "sku": "SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD",
+    "description": "Seal Artifact: SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md"
+  },
+  {
+    "sku": "SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA",
+    "description": "Seal Artifact: SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md"
+  },
+  {
+    "sku": "SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY",
+    "description": "Seal Artifact: SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md"
+  },
+  {
+    "sku": "SEAL_D47_HF15X_DISCIPLINE_UNBLOCK",
+    "description": "Seal Artifact: SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md"
+  },
+  {
+    "sku": "SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC",
+    "description": "Seal Artifact: SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md"
+  },
+  {
+    "sku": "SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0",
+    "description": "Seal Artifact: SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md"
+  },
+  {
+    "sku": "SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO",
+    "description": "Seal Artifact: SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md"
+  },
+  {
+    "sku": "SEAL_D47_HF19_PROJECTION_INPUTS_WIRING",
+    "description": "Seal Artifact: SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md"
+  },
+  {
+    "sku": "SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION",
+    "description": "Seal Artifact: SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md"
+  },
+  {
+    "sku": "SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME",
+    "description": "Seal Artifact: SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md"
+  },
+  {
+    "sku": "SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL",
+    "description": "Seal Artifact: SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md"
+  },
+  {
+    "sku": "SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL",
+    "description": "Seal Artifact: SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md"
+  },
+  {
+    "sku": "SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1",
+    "description": "Seal Artifact: SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md"
+  },
+  {
+    "sku": "SEAL_D47_HF25_RELIABILITY_METER",
+    "description": "Seal Artifact: SEAL_D47_HF25_RELIABILITY_METER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF25_RELIABILITY_METER.md"
+  },
+  {
+    "sku": "SEAL_D47_HF26_MICRO_BRIEFINGS_V1",
+    "description": "Seal Artifact: SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md"
+  },
+  {
+    "sku": "SEAL_D47_HF27_TACTICAL_PLAYBOOK",
+    "description": "Seal Artifact: SEAL_D47_HF27_TACTICAL_PLAYBOOK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF27_TACTICAL_PLAYBOOK.md"
+  },
+  {
+    "sku": "SEAL_D47_HF28_ELITE_MENTOR_BRIDGE",
+    "description": "Seal Artifact: SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md"
+  },
+  {
+    "sku": "SEAL_D47_HF29_SHARE_MINI_CARD",
+    "description": "Seal Artifact: SEAL_D47_HF29_SHARE_MINI_CARD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF29_SHARE_MINI_CARD.md"
+  },
+  {
+    "sku": "SEAL_D47_HF30_BLURRED_TRUTH_GATING",
+    "description": "Seal Artifact: SEAL_D47_HF30_BLURRED_TRUTH_GATING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF30_BLURRED_TRUTH_GATING.md"
+  },
+  {
+    "sku": "SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE",
+    "description": "Seal Artifact: SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY",
+    "description": "Seal Artifact: SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md"
+  },
+  {
+    "sku": "SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC",
+    "description": "Seal Artifact: SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md"
+  },
+  {
+    "sku": "SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST",
+    "description": "Seal Artifact: SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md"
+  },
+  {
+    "sku": "SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK",
+    "description": "Seal Artifact: SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md"
+  },
+  {
+    "sku": "SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX",
+    "description": "Seal Artifact: SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md"
+  },
+  {
+    "sku": "SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND",
+    "description": "Seal Artifact: SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md"
+  },
+  {
+    "sku": "SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION",
+    "description": "Seal Artifact: SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md"
+  },
+  {
+    "sku": "SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE",
+    "description": "Seal Artifact: SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md"
+  },
+  {
+    "sku": "SEAL_D47_HF_CACHE_SERVER_ON_DEMAND",
+    "description": "Seal Artifact: SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md"
+  },
+  {
+    "sku": "SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS",
+    "description": "Seal Artifact: SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md"
+  },
+  {
+    "sku": "SEAL_D47_ON_DEMAND_AREA_SEALED",
+    "description": "Seal Artifact: SEAL_D47_ON_DEMAND_AREA_SEALED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_ON_DEMAND_AREA_SEALED.md"
+  },
+  {
+    "sku": "SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION",
+    "description": "Seal Artifact: SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D47",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md"
+  },
+  {
+    "sku": "SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1",
+    "description": "Seal Artifact: SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md"
+  },
+  {
+    "sku": "SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1",
+    "description": "Seal Artifact: SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md"
+  },
+  {
+    "sku": "SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND",
+    "description": "Seal Artifact: SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md"
+  },
+  {
+    "sku": "SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH",
+    "description": "Seal Artifact: SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md"
+  },
+  {
+    "sku": "SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1",
+    "description": "Seal Artifact: SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md"
+  },
+  {
+    "sku": "SEAL_D48_BRAIN_06_EVENT_ROUTER_V1",
+    "description": "Seal Artifact: SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md"
+  },
+  {
+    "sku": "SEAL_D48_OPS_PEND_REGISTRY_PATH",
+    "description": "Seal Artifact: SEAL_D48_OPS_PEND_REGISTRY_PATH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_OPS_PEND_REGISTRY_PATH.md"
+  },
+  {
+    "sku": "SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE",
+    "description": "Seal Artifact: SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D48",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC",
+    "description": "Seal Artifact: SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY",
+    "description": "Seal Artifact: SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT",
+    "description": "Seal Artifact: SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV",
+    "description": "Seal Artifact: SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS",
+    "description": "Seal Artifact: SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED",
+    "description": "Seal Artifact: SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS",
+    "description": "Seal Artifact: SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2",
+    "description": "Seal Artifact: SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API",
+    "description": "Seal Artifact: SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI",
+    "description": "Seal Artifact: SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1",
+    "description": "Seal Artifact: SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_RITUAL_API_ROUTER_V1",
+    "description": "Seal Artifact: SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_RITUAL_CONTRACTS_V1",
+    "description": "Seal Artifact: SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST",
+    "description": "Seal Artifact: SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1",
+    "description": "Seal Artifact: SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN",
+    "description": "Seal Artifact: SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL",
+    "description": "Seal Artifact: SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md"
+  },
+  {
+    "sku": "SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1",
+    "description": "Seal Artifact: SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_FOUNDER_RELEASE_APK_BUILD",
+    "description": "Seal Artifact: SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md"
+  },
+  {
+    "sku": "SEAL_D49_OS_KNOWLEDGE_INDEX_V1",
+    "description": "Seal Artifact: SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_OS_STATE_SNAPSHOT_V1",
+    "description": "Seal Artifact: SEAL_D49_OS_STATE_SNAPSHOT_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_OS_STATE_SNAPSHOT_V1.md"
+  },
+  {
+    "sku": "SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT",
+    "description": "Seal Artifact: SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D49",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md"
+  },
+  {
+    "sku": "SEAL_D50_EWIMS_AUDIT_COMPLETE",
+    "description": "Seal Artifact: SEAL_D50_EWIMS_AUDIT_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D50",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_EWIMS_AUDIT_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE",
+    "description": "Seal Artifact: SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D50",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP",
+    "description": "Seal Artifact: SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D50",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_0_WORKSPACE_TRUTH",
+    "description": "Seal Artifact: SEAL_DAY_00_0_WORKSPACE_TRUTH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_0_WORKSPACE_TRUTH.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_1_GIT_INIT",
+    "description": "Seal Artifact: SEAL_DAY_00_1_GIT_INIT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_1_GIT_INIT.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_2_SKELETON",
+    "description": "Seal Artifact: SEAL_DAY_00_2_SKELETON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_2_SKELETON.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_3_TRUTH_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_00_3_TRUTH_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_3_TRUTH_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_4_FOUNDER_ALWAYS_ON",
+    "description": "Seal Artifact: SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_5_FLUTTER_SHELL",
+    "description": "Seal Artifact: SEAL_DAY_00_5_FLUTTER_SHELL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_5_FLUTTER_SHELL.md"
+  },
+  {
+    "sku": "SEAL_DAY_00_MASTER",
+    "description": "Seal Artifact: SEAL_DAY_00_MASTER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D00",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_MASTER.md"
+  },
+  {
+    "sku": "SEAL_DAY_01_1_CANON_VERSION_GLOSSARY",
+    "description": "Seal Artifact: SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D01",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md"
+  },
+  {
+    "sku": "SEAL_DAY_01_SYSTEM_CONTRACT",
+    "description": "Seal Artifact: SEAL_DAY_01_SYSTEM_CONTRACT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D01",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_01_SYSTEM_CONTRACT.md"
+  },
+  {
+    "sku": "SEAL_DAY_02_SCHEMAS_AND_LENS",
+    "description": "Seal Artifact: SEAL_DAY_02_SCHEMAS_AND_LENS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D02",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_02_SCHEMAS_AND_LENS.md"
+  },
+  {
+    "sku": "SEAL_DAY_03_1_AUTONOMY_HARDENING",
+    "description": "Seal Artifact: SEAL_DAY_03_1_AUTONOMY_HARDENING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D03",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_03_1_AUTONOMY_HARDENING.md"
+  },
+  {
+    "sku": "SEAL_DAY_03_AUTONOMY_SPINE",
+    "description": "Seal Artifact: SEAL_DAY_03_AUTONOMY_SPINE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D03",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_03_AUTONOMY_SPINE.md"
+  },
+  {
+    "sku": "SEAL_DAY_04_PIPELINE_MIN_REAL",
+    "description": "Seal Artifact: SEAL_DAY_04_PIPELINE_MIN_REAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D04",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_04_PIPELINE_MIN_REAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_05_1_LINE_ENDINGS_POLICY",
+    "description": "Seal Artifact: SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D05",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md"
+  },
+  {
+    "sku": "SEAL_DAY_05_FLUTTER_DASHBOARD_LENS",
+    "description": "Seal Artifact: SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D05",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md"
+  },
+  {
+    "sku": "SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT",
+    "description": "Seal Artifact: SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D06",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md"
+  },
+  {
+    "sku": "SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER",
+    "description": "Seal Artifact: SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D06",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md"
+  },
+  {
+    "sku": "SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER",
+    "description": "Seal Artifact: SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D06",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md"
+  },
+  {
+    "sku": "SEAL_DAY_06_INTEGRITY_SWEEP",
+    "description": "Seal Artifact: SEAL_DAY_06_INTEGRITY_SWEEP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D06",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_INTEGRITY_SWEEP.md"
+  },
+  {
+    "sku": "SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING",
+    "description": "Seal Artifact: SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D07",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md"
+  },
+  {
+    "sku": "SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL",
+    "description": "Seal Artifact: SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D08",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D09",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS",
+    "description": "Seal Artifact: SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D10",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md"
+  },
+  {
+    "sku": "SEAL_DAY_11_SCHEDULER_DUAL_CADENCE",
+    "description": "Seal Artifact: SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D11",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_12_RELEASE_CANDIDATE_PACK",
+    "description": "Seal Artifact: SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D12",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md"
+  },
+  {
+    "sku": "SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK",
+    "description": "Seal Artifact: SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D13",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md"
+  },
+  {
+    "sku": "SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY",
+    "description": "Seal Artifact: SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D14",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md"
+  },
+  {
+    "sku": "SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT",
+    "description": "Seal Artifact: SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D14",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md"
+  },
+  {
+    "sku": "SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY",
+    "description": "Seal Artifact: SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D14",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md"
+  },
+  {
+    "sku": "SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER",
+    "description": "Seal Artifact: SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D15",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md"
+  },
+  {
+    "sku": "SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT",
+    "description": "Seal Artifact: SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D16",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md"
+  },
+  {
+    "sku": "SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT",
+    "description": "Seal Artifact: SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D17",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md"
+  },
+  {
+    "sku": "SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER",
+    "description": "Seal Artifact: SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D18",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md"
+  },
+  {
+    "sku": "SEAL_DAY_19_PLAYBOOK_LAW",
+    "description": "Seal Artifact: SEAL_DAY_19_PLAYBOOK_LAW.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D19",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_19_PLAYBOOK_LAW.md"
+  },
+  {
+    "sku": "SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR",
+    "description": "Seal Artifact: SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D19",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md"
+  },
+  {
+    "sku": "SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH",
+    "description": "Seal Artifact: SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D20",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md"
+  },
+  {
+    "sku": "SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE",
+    "description": "Seal Artifact: SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D21",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md"
+  },
+  {
+    "sku": "SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY",
+    "description": "Seal Artifact: SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D22",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md"
+  },
+  {
+    "sku": "SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX",
+    "description": "Seal Artifact: SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D23",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md"
+  },
+  {
+    "sku": "SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING",
+    "description": "Seal Artifact: SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D24",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md"
+  },
+  {
+    "sku": "SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS",
+    "description": "Seal Artifact: SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D25",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md"
+  },
+  {
+    "sku": "SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING",
+    "description": "Seal Artifact: SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D26",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md"
+  },
+  {
+    "sku": "SEAL_DAY_27_MODULAR_REFACTOR",
+    "description": "Seal Artifact: SEAL_DAY_27_MODULAR_REFACTOR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D27",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_27_MODULAR_REFACTOR.md"
+  },
+  {
+    "sku": "SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1",
+    "description": "Seal Artifact: SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D28",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS",
+    "description": "Seal Artifact: SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D28",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md"
+  },
+  {
+    "sku": "SEAL_DAY_28_AUTOPILOT_POLICY_V1",
+    "description": "Seal Artifact: SEAL_DAY_28_AUTOPILOT_POLICY_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D28",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_28_AUTOPILOT_POLICY_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION",
+    "description": "Seal Artifact: SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D29",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md"
+  },
+  {
+    "sku": "SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST",
+    "description": "Seal Artifact: SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D30",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md"
+  },
+  {
+    "sku": "SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS",
+    "description": "Seal Artifact: SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D30",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md"
+  },
+  {
+    "sku": "SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION",
+    "description": "Seal Artifact: SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D30",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md"
+  },
+  {
+    "sku": "SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON",
+    "description": "Seal Artifact: SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D31",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md"
+  },
+  {
+    "sku": "SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE",
+    "description": "Seal Artifact: SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D31",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md"
+  },
+  {
+    "sku": "SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR",
+    "description": "Seal Artifact: SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D31",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md"
+  },
+  {
+    "sku": "SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE",
+    "description": "Seal Artifact: SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D32",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md"
+  },
+  {
+    "sku": "SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY",
+    "description": "Seal Artifact: SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D33",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md"
+  },
+  {
+    "sku": "SEAL_DAY_33_DOJO_OFFLINE_SIMULATION",
+    "description": "Seal Artifact: SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D33",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md"
+  },
+  {
+    "sku": "SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY",
+    "description": "Seal Artifact: SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D34",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION",
+    "description": "Seal Artifact: SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT",
+    "description": "Seal Artifact: SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1",
+    "description": "Seal Artifact: SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1",
+    "description": "Seal Artifact: SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1",
+    "description": "Seal Artifact: SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_5_MACRO_LAYER_V1",
+    "description": "Seal Artifact: SEAL_DAY_36_5_MACRO_LAYER_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_5_MACRO_LAYER_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_6_LEXICON_PRO_V1",
+    "description": "Seal Artifact: SEAL_DAY_36_6_LEXICON_PRO_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_6_LEXICON_PRO_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_7_VOICE_MVP_REABSORPTION",
+    "description": "Seal Artifact: SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION",
+    "description": "Seal Artifact: SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D36",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY",
+    "description": "Seal Artifact: SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE",
+    "description": "Seal Artifact: SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT",
+    "description": "Seal Artifact: SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS",
+    "description": "Seal Artifact: SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING",
+    "description": "Seal Artifact: SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_02_1_SESSION_STRIP_POLISH",
+    "description": "Seal Artifact: SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_02_SESSION_WINDOW_WIDGET",
+    "description": "Seal Artifact: SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE",
+    "description": "Seal Artifact: SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_04_OS_HEALTH_WIDGET",
+    "description": "Seal Artifact: SEAL_DAY_37_04_OS_HEALTH_WIDGET.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_04_OS_HEALTH_WIDGET.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_05_LAST_RUN_WIDGET",
+    "description": "Seal Artifact: SEAL_DAY_37_05_LAST_RUN_WIDGET.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_05_LAST_RUN_WIDGET.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON",
+    "description": "Seal Artifact: SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_07_REFRESH_GOVERNANCE",
+    "description": "Seal Artifact: SEAL_DAY_37_07_REFRESH_GOVERNANCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_07_REFRESH_GOVERNANCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES",
+    "description": "Seal Artifact: SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION",
+    "description": "Seal Artifact: SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md"
+  },
+  {
+    "sku": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL",
+    "description": "Seal Artifact: SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D37",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP",
+    "description": "Seal Artifact: SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER",
+    "description": "Seal Artifact: SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL",
+    "description": "Seal Artifact: SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING",
+    "description": "Seal Artifact: SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE",
+    "description": "Seal Artifact: SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES",
+    "description": "Seal Artifact: SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE",
+    "description": "Seal Artifact: SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY",
+    "description": "Seal Artifact: SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_07_UNIVERSE_TILE",
+    "description": "Seal Artifact: SEAL_DAY_38_07_UNIVERSE_TILE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_07_UNIVERSE_TILE.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE",
+    "description": "Seal Artifact: SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING",
+    "description": "Seal Artifact: SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md"
+  },
+  {
+    "sku": "SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE",
+    "description": "Seal Artifact: SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D38",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_01A_CORE20_CANON_FIX",
+    "description": "Seal Artifact: SEAL_DAY_39_01A_CORE20_CANON_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01A_CORE20_CANON_FIX.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_01B_CORE20_CANON_CORRECTION",
+    "description": "Seal Artifact: SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_01C_CORE20_CANON_FINAL",
+    "description": "Seal Artifact: SEAL_DAY_39_01C_CORE20_CANON_FINAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01C_CORE20_CANON_FINAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION",
+    "description": "Seal Artifact: SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE",
+    "description": "Seal Artifact: SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI",
+    "description": "Seal Artifact: SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY",
+    "description": "Seal Artifact: SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI",
+    "description": "Seal Artifact: SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION",
+    "description": "Seal Artifact: SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT",
+    "description": "Seal Artifact: SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_07_SAFE_DEGRADE_RULES",
+    "description": "Seal Artifact: SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE",
+    "description": "Seal Artifact: SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL",
+    "description": "Seal Artifact: SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI",
+    "description": "Seal Artifact: SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY",
+    "description": "Seal Artifact: SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_UNIVERSE_V3_COMPLETE",
+    "description": "Seal Artifact: SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND",
+    "description": "Seal Artifact: SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D39",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE",
+    "description": "Seal Artifact: SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_02_PULSE_CORE",
+    "description": "Seal Artifact: SEAL_DAY_40_02_PULSE_CORE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_02_PULSE_CORE.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT",
+    "description": "Seal Artifact: SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER",
+    "description": "Seal Artifact: SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI",
+    "description": "Seal Artifact: SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI",
+    "description": "Seal Artifact: SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING",
+    "description": "Seal Artifact: SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY",
+    "description": "Seal Artifact: SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS",
+    "description": "Seal Artifact: SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_10_PULSE_DRIFT_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_11_SENTINEL_HEATMAP_RT",
+    "description": "Seal Artifact: SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT",
+    "description": "Seal Artifact: SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI",
+    "description": "Seal Artifact: SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR",
+    "description": "Seal Artifact: SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_14_REALTIME_DEGRADE_RULES",
+    "description": "Seal Artifact: SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL",
+    "description": "Seal Artifact: SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md"
+  },
+  {
+    "sku": "SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE",
+    "description": "Seal Artifact: SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D40",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_01_IRON_OS_STATUS",
+    "description": "Seal Artifact: SEAL_DAY_41_01_IRON_OS_STATUS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_01_IRON_OS_STATUS.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_02_TIMELINE_TAIL",
+    "description": "Seal Artifact: SEAL_DAY_41_02_TIMELINE_TAIL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_02_TIMELINE_TAIL.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI",
+    "description": "Seal Artifact: SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI",
+    "description": "Seal Artifact: SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING",
+    "description": "Seal Artifact: SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES",
+    "description": "Seal Artifact: SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_07_IRON_STATE_HISTORY",
+    "description": "Seal Artifact: SEAL_DAY_41_07_IRON_STATE_HISTORY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_07_IRON_STATE_HISTORY.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_08_IRON_DRIFT_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_09_LKG_VIEWER",
+    "description": "Seal Artifact: SEAL_DAY_41_09_LKG_VIEWER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_09_LKG_VIEWER.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_10_IRON_DECISION_PATH",
+    "description": "Seal Artifact: SEAL_DAY_41_10_IRON_DECISION_PATH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_10_IRON_DECISION_PATH.md"
+  },
+  {
+    "sku": "SEAL_DAY_41_11_REPLAY_INTEGRITY",
+    "description": "Seal Artifact: SEAL_DAY_41_11_REPLAY_INTEGRITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D41",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_11_REPLAY_INTEGRITY.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_01_LOCK_REASON",
+    "description": "Seal Artifact: SEAL_DAY_42_01_LOCK_REASON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_01_LOCK_REASON.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_02_COVERAGE",
+    "description": "Seal Artifact: SEAL_DAY_42_02_COVERAGE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_02_COVERAGE.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_03_HOUSEKEEPER_AUTO",
+    "description": "Seal Artifact: SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_04_AUTOFIX_TIER1",
+    "description": "Seal Artifact: SEAL_DAY_42_04_AUTOFIX_TIER1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_04_AUTOFIX_TIER1.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY",
+    "description": "Seal Artifact: SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_06_RED_BUTTON_SURFACES",
+    "description": "Seal Artifact: SEAL_DAY_42_06_RED_BUTTON_SURFACES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_06_RED_BUTTON_SURFACES.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY",
+    "description": "Seal Artifact: SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_08_FINDINGS_PANEL",
+    "description": "Seal Artifact: SEAL_DAY_42_08_FINDINGS_PANEL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_08_FINDINGS_PANEL.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_09_BEFORE_AFTER_DIFF",
+    "description": "Seal Artifact: SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_10_AUTOFIX_DECISION_PATH",
+    "description": "Seal Artifact: SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE",
+    "description": "Seal Artifact: SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE",
+    "description": "Seal Artifact: SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED",
+    "description": "Seal Artifact: SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS",
+    "description": "Seal Artifact: SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH",
+    "description": "Seal Artifact: SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_BUILD_APK_SMOKE",
+    "description": "Seal Artifact: SEAL_DAY_42_BUILD_APK_SMOKE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_BUILD_APK_SMOKE.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_GIT_COMMIT_CHECKPOINT",
+    "description": "Seal Artifact: SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED",
+    "description": "Seal Artifact: SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_GIT_HYGIENE_FIX",
+    "description": "Seal Artifact: SEAL_DAY_42_GIT_HYGIENE_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_HYGIENE_FIX.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_GIT_STAGE_UNTRACKED",
+    "description": "Seal Artifact: SEAL_DAY_42_GIT_STAGE_UNTRACKED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_STAGE_UNTRACKED.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP",
+    "description": "Seal Artifact: SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_WAR_CALENDAR_CANONIZED",
+    "description": "Seal Artifact: SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md"
+  },
+  {
+    "sku": "SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX",
+    "description": "Seal Artifact: SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D42",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_00_ELITE_FIRST_INTERACTION",
+    "description": "Seal Artifact: SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_01_ELITE_OVERLAY_SHELL",
+    "description": "Seal Artifact: SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_02_ELITE_MENTOR_BRAIN",
+    "description": "Seal Artifact: SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_03_ELITE_OS_READER",
+    "description": "Seal Artifact: SEAL_DAY_43_03_ELITE_OS_READER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_03_ELITE_OS_READER.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_04_DAY_MEMORY",
+    "description": "Seal Artifact: SEAL_DAY_43_04_DAY_MEMORY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_04_DAY_MEMORY.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER",
+    "description": "Seal Artifact: SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_06_EXPLAIN_ROUTER",
+    "description": "Seal Artifact: SEAL_DAY_43_06_EXPLAIN_ROUTER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_06_EXPLAIN_ROUTER.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING",
+    "description": "Seal Artifact: SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2",
+    "description": "Seal Artifact: SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS",
+    "description": "Seal Artifact: SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL",
+    "description": "Seal Artifact: SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS",
+    "description": "Seal Artifact: SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_12_ELITE_WHAT_CHANGED",
+    "description": "Seal Artifact: SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL",
+    "description": "Seal Artifact: SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_14_EXPLAIN_MY_SCREEN",
+    "description": "Seal Artifact: SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN",
+    "description": "Seal Artifact: SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER",
+    "description": "Seal Artifact: SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD",
+    "description": "Seal Artifact: SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_CANON_SYNC_TOTAL",
+    "description": "Seal Artifact: SEAL_DAY_43_CANON_SYNC_TOTAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_CANON_SYNC_TOTAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_GLOBAL_SCROLL_LAW",
+    "description": "Seal Artifact: SEAL_DAY_43_GLOBAL_SCROLL_LAW.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_GLOBAL_SCROLL_LAW.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_LAYOUT_POLICE_GUARD",
+    "description": "Seal Artifact: SEAL_DAY_43_LAYOUT_POLICE_GUARD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_LAYOUT_POLICE_GUARD.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_LAYOUT_POLICE_HOTLIST",
+    "description": "Seal Artifact: SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE",
+    "description": "Seal Artifact: SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md"
+  },
+  {
+    "sku": "SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE",
+    "description": "Seal Artifact: SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D43",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL",
+    "description": "Seal Artifact: SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_02A_LOCK_REASON_MODAL",
+    "description": "Seal Artifact: SEAL_DAY_44_02A_LOCK_REASON_MODAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_02A_LOCK_REASON_MODAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW",
+    "description": "Seal Artifact: SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING",
+    "description": "Seal Artifact: SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION",
+    "description": "Seal Artifact: SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE",
+    "description": "Seal Artifact: SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_04_ON_DEMAND_SCREEN",
+    "description": "Seal Artifact: SEAL_DAY_44_04_ON_DEMAND_SCREEN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_04_ON_DEMAND_SCREEN.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS",
+    "description": "Seal Artifact: SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_06_TIER_LIMITS_COUNTERS",
+    "description": "Seal Artifact: SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER",
+    "description": "Seal Artifact: SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT",
+    "description": "Seal Artifact: SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF",
+    "description": "Seal Artifact: SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS",
+    "description": "Seal Artifact: SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP",
+    "description": "Seal Artifact: SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER",
+    "description": "Seal Artifact: SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP",
+    "description": "Seal Artifact: SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON",
+    "description": "Seal Artifact: SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB",
+    "description": "Seal Artifact: SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC",
+    "description": "Seal Artifact: SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5",
+    "description": "Seal Artifact: SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING",
+    "description": "Seal Artifact: SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_COMMIT_AND_APK_RELEASE",
+    "description": "Seal Artifact: SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES",
+    "description": "Seal Artifact: SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1",
+    "description": "Seal Artifact: SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON",
+    "description": "Seal Artifact: SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D44",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE",
+    "description": "Seal Artifact: SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE",
+    "description": "Seal Artifact: SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP",
+    "description": "Seal Artifact: SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY",
+    "description": "Seal Artifact: SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX",
+    "description": "Seal Artifact: SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER",
+    "description": "Seal Artifact: SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_07_ABORTED_ROLLBACK",
+    "description": "Seal Artifact: SEAL_DAY_45_07_ABORTED_ROLLBACK.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_07_ABORTED_ROLLBACK.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER",
+    "description": "Seal Artifact: SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_08_SHARE_ENGINE_V1",
+    "description": "Seal Artifact: SEAL_DAY_45_08_SHARE_ENGINE_V1.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_08_SHARE_ENGINE_V1.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP",
+    "description": "Seal Artifact: SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_10_SHARE_PROMPT_LOOP",
+    "description": "Seal Artifact: SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD",
+    "description": "Seal Artifact: SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD",
+    "description": "Seal Artifact: SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE",
+    "description": "Seal Artifact: SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE",
+    "description": "Seal Artifact: SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC",
+    "description": "Seal Artifact: SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_16_VIRAL_TEASER_SHARE",
+    "description": "Seal Artifact: SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL",
+    "description": "Seal Artifact: SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR",
+    "description": "Seal Artifact: SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID",
+    "description": "Seal Artifact: SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH",
+    "description": "Seal Artifact: SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL",
+    "description": "Seal Artifact: SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR",
+    "description": "Seal Artifact: SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR",
+    "description": "Seal Artifact: SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_FULL_FOUNDER_APK_BUILD",
+    "description": "Seal Artifact: SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES",
+    "description": "Seal Artifact: SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL",
+    "description": "Seal Artifact: SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION",
+    "description": "Seal Artifact: SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H4_COMPILATION_REPAIR",
+    "description": "Seal Artifact: SEAL_DAY_45_H4_COMPILATION_REPAIR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H4_COMPILATION_REPAIR.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35",
+    "description": "Seal Artifact: SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX",
+    "description": "Seal Artifact: SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP",
+    "description": "Seal Artifact: SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE",
+    "description": "Seal Artifact: SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_MASTER_CLOSE",
+    "description": "Seal Artifact: SEAL_DAY_45_MASTER_CLOSE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_MASTER_CLOSE.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN",
+    "description": "Seal Artifact: SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION",
+    "description": "Seal Artifact: SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_45_WAR_CALENDAR_UPDATE",
+    "description": "Seal Artifact: SEAL_DAY_45_WAR_CALENDAR_UPDATE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D45",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_WAR_CALENDAR_UPDATE.md"
+  },
+  {
+    "sku": "SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED",
+    "description": "Seal Artifact: SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "D46",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md"
+  },
+  {
+    "sku": "SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION",
+    "description": "Seal Artifact: SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "DXX",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md"
+  },
+  {
+    "sku": "SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY",
+    "description": "Seal Artifact: SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "DXX",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md"
+  },
+  {
+    "sku": "SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION",
+    "description": "Seal Artifact: SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "DXX",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md"
+  },
+  {
+    "sku": "SEAL_Dxx_UI_LEATHER_BARS_ONLY",
+    "description": "Seal Artifact: SEAL_Dxx_UI_LEATHER_BARS_ONLY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Dxx_UI_LEATHER_BARS_ONLY.md"
+  },
+  {
+    "sku": "SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE",
+    "description": "Seal Artifact: SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS",
+    "description": "Seal Artifact: SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md"
+  },
+  {
+    "sku": "SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01",
+    "description": "Seal Artifact: SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md"
+  },
+  {
+    "sku": "SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR",
+    "description": "Seal Artifact: SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md"
+  },
+  {
+    "sku": "SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL",
+    "description": "Seal Artifact: SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md"
+  },
+  {
+    "sku": "SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL",
+    "description": "Seal Artifact: SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md"
+  },
+  {
+    "sku": "SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE",
+    "description": "Seal Artifact: SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md"
+  },
+  {
+    "sku": "SEAL_Polish_01_BaseUrlCloud_Default",
+    "description": "Seal Artifact: SEAL_Polish_01_BaseUrlCloud_Default.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_01_BaseUrlCloud_Default.md"
+  },
+  {
+    "sku": "SEAL_POLISH_ACCOUNT_CLEAN_01",
+    "description": "Seal Artifact: SEAL_POLISH_ACCOUNT_CLEAN_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_CLEAN_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL",
+    "description": "Seal Artifact: SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md"
+  },
+  {
+    "sku": "SEAL_POLISH_ACCOUNT_UI_01",
+    "description": "Seal Artifact: SEAL_POLISH_ACCOUNT_UI_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_UI_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY",
+    "description": "Seal Artifact: SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md"
+  },
+  {
+    "sku": "SEAL_POLISH_DASHBOARD_CLEANUP_01",
+    "description": "Seal Artifact: SEAL_POLISH_DASHBOARD_CLEANUP_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_DASHBOARD_CLEANUP_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP",
+    "description": "Seal Artifact: SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md"
+  },
+  {
+    "sku": "SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01",
+    "description": "Seal Artifact: SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md"
+  },
+  {
+    "sku": "SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating",
+    "description": "Seal Artifact: SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md"
+  },
+  {
+    "sku": "SEAL_POLISH_GLOBAL_SPACING_01",
+    "description": "Seal Artifact: SEAL_POLISH_GLOBAL_SPACING_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_GLOBAL_SPACING_01.md"
+  },
+  {
+    "sku": "SEAL_Polish_Human_01_Global_Tone_Layer",
+    "description": "Seal Artifact: SEAL_Polish_Human_01_Global_Tone_Layer.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Human_01_Global_Tone_Layer.md"
+  },
+  {
+    "sku": "SEAL_POLISH_HYGIENE_ANALYZE_01",
+    "description": "Seal Artifact: SEAL_POLISH_HYGIENE_ANALYZE_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_HYGIENE_ANALYZE_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_HYGIENE_FLUTTER_WEB_01",
+    "description": "Seal Artifact: SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md"
+  },
+  {
+    "sku": "SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer",
+    "description": "Seal Artifact: SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md"
+  },
+  {
+    "sku": "SEAL_Polish_Menu_02_Account_Terms_Modals_Wired",
+    "description": "Seal Artifact: SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md"
+  },
+  {
+    "sku": "SEAL_POLISH_MENU_LANGUAGE_01",
+    "description": "Seal Artifact: SEAL_POLISH_MENU_LANGUAGE_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_MENU_LANGUAGE_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_MENU_SHELL_01",
+    "description": "Seal Artifact: SEAL_POLISH_MENU_SHELL_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_MENU_SHELL_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_MENU_UI_01",
+    "description": "Seal Artifact: SEAL_POLISH_MENU_UI_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_MENU_UI_01.md"
+  },
+  {
+    "sku": "SEAL_Polish_NavBack_Overlay_01_Global_Back_Button",
+    "description": "Seal Artifact: SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md"
+  },
+  {
+    "sku": "SEAL_Polish_Notifications_01_Ritual_Local_Scheduled",
+    "description": "Seal Artifact: SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md"
+  },
+  {
+    "sku": "SEAL_Polish_Notifications_02_TapRouting_DeepLink",
+    "description": "Seal Artifact: SEAL_Polish_Notifications_02_TapRouting_DeepLink.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Notifications_02_TapRouting_DeepLink.md"
+  },
+  {
+    "sku": "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01",
+    "description": "Seal Artifact: SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS",
+    "description": "Seal Artifact: SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md"
+  },
+  {
+    "sku": "SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS",
+    "description": "Seal Artifact: SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md"
+  },
+  {
+    "sku": "SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON",
+    "description": "Seal Artifact: SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md"
+  },
+  {
+    "sku": "SEAL_POLISH_WARROOM_RESTORE_02",
+    "description": "Seal Artifact: SEAL_POLISH_WARROOM_RESTORE_02.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_WARROOM_RESTORE_02.md"
+  },
+  {
+    "sku": "SEAL_POLISH_WELCOME_UI_01",
+    "description": "Seal Artifact: SEAL_POLISH_WELCOME_UI_01.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_WELCOME_UI_01.md"
+  },
+  {
+    "sku": "SEAL_POLISH_WELCOME_UI_01_V2",
+    "description": "Seal Artifact: SEAL_POLISH_WELCOME_UI_01_V2.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_WELCOME_UI_01_V2.md"
+  },
+  {
+    "sku": "SEAL_TARGET_STATE_FROZEN",
+    "description": "Seal Artifact: SEAL_TARGET_STATE_FROZEN.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_TARGET_STATE_FROZEN.md"
+  },
+  {
+    "sku": "SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL",
+    "description": "Seal Artifact: SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md"
+  },
+  {
+    "sku": "SEAL_VICTORY_DRILLDOWN_CREATED",
+    "description": "Seal Artifact: SEAL_VICTORY_DRILLDOWN_CREATED.md",
+    "source": "SEAL_FILE",
+    "line": 0,
+    "day": "Unknown",
+    "file_path": "C:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_VICTORY_DRILLDOWN_CREATED.md"
+  }
+]

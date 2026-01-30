@@ -1,0 +1,1658 @@
+[
+  {
+    "name": "SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md"
+  },
+  {
+    "name": "SEAL_CANON_0_REGISTRY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_0_REGISTRY.md"
+  },
+  {
+    "name": "SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md"
+  },
+  {
+    "name": "SEAL_CANON_SCOPE_HISTORICO.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_SCOPE_HISTORICO.md"
+  },
+  {
+    "name": "SEAL_CANON_SYNC_UP_TO_DAY_08.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_CANON_SYNC_UP_TO_DAY_08.md"
+  },
+  {
+    "name": "SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md"
+  },
+  {
+    "name": "SEAL_D44_FINAL_CLOSE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D44_FINAL_CLOSE.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_DEBT_RADAR_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_DEBT_RADAR_V1.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_DEBT_RADAR_V2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_DEBT_RADAR_V2.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_DEBT_RADAR_V2_1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_DEBT_RADAR_V2_1.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_PENDING_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_01.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_PENDING_INDEX_02.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_INDEX_02.md"
+  },
+  {
+    "name": "SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_CANON_PENDING_LIFECYCLE.md"
+  },
+  {
+    "name": "SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md"
+  },
+  {
+    "name": "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md"
+  },
+  {
+    "name": "SEAL_D45_HF04_BUILD_RESTORE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF04_BUILD_RESTORE.md"
+  },
+  {
+    "name": "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md"
+  },
+  {
+    "name": "SEAL_D45_HF05_AUTH_GATEWAY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF05_AUTH_GATEWAY.md"
+  },
+  {
+    "name": "SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md"
+  },
+  {
+    "name": "SEAL_D45_HF06_INFRA_DISCOVERY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF06_INFRA_DISCOVERY.md"
+  },
+  {
+    "name": "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md"
+  },
+  {
+    "name": "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md"
+  },
+  {
+    "name": "SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md"
+  },
+  {
+    "name": "SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md"
+  },
+  {
+    "name": "SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md"
+  },
+  {
+    "name": "SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md"
+  },
+  {
+    "name": "SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md"
+  },
+  {
+    "name": "SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md"
+  },
+  {
+    "name": "SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md"
+  },
+  {
+    "name": "SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md"
+  },
+  {
+    "name": "SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md"
+  },
+  {
+    "name": "SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md"
+  },
+  {
+    "name": "SEAL_D45_POLISH_MENU_ENTRY_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_MENU_ENTRY_01.md"
+  },
+  {
+    "name": "SEAL_D45_POLISH_PARTNER_PROGRESS_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_PARTNER_PROGRESS_01.md"
+  },
+  {
+    "name": "SEAL_D45_POLISH_SECTOR_FLIP_V2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_SECTOR_FLIP_V2.md"
+  },
+  {
+    "name": "SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_SECTOR_FLIP_V3.md"
+  },
+  {
+    "name": "SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md"
+  },
+  {
+    "name": "SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md"
+  },
+  {
+    "name": "SEAL_D45_SECTOR_REPLAY_V1_1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_V1_1.md"
+  },
+  {
+    "name": "SEAL_D45_SECTOR_REPLAY_V1_2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_V1_2.md"
+  },
+  {
+    "name": "SEAL_D45_SECTOR_REPLAY_V1_3.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_REPLAY_V1_3.md"
+  },
+  {
+    "name": "SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D45_SECTOR_SENTINEL_RT_V0.md"
+  },
+  {
+    "name": "SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md"
+  },
+  {
+    "name": "SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md"
+  },
+  {
+    "name": "SEAL_D46_HF12_WATCHLIST_UI_POLISH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF12_WATCHLIST_UI_POLISH.md"
+  },
+  {
+    "name": "SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md"
+  },
+  {
+    "name": "SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md"
+  },
+  {
+    "name": "SEAL_D46_WATCHLIST_FINAL_SEAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D46_WATCHLIST_FINAL_SEAL.md"
+  },
+  {
+    "name": "SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md"
+  },
+  {
+    "name": "SEAL_D47_CALENDAR_AUDIT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_CALENDAR_AUDIT.md"
+  },
+  {
+    "name": "SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md"
+  },
+  {
+    "name": "SEAL_D47_CANON_SYNC_CHECKPOINT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_CANON_SYNC_CHECKPOINT.md"
+  },
+  {
+    "name": "SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md"
+  },
+  {
+    "name": "SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md"
+  },
+  {
+    "name": "SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md"
+  },
+  {
+    "name": "SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md"
+  },
+  {
+    "name": "SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md"
+  },
+  {
+    "name": "SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md"
+  },
+  {
+    "name": "SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md"
+  },
+  {
+    "name": "SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md"
+  },
+  {
+    "name": "SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md"
+  },
+  {
+    "name": "SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md"
+  },
+  {
+    "name": "SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md"
+  },
+  {
+    "name": "SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md"
+  },
+  {
+    "name": "SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md"
+  },
+  {
+    "name": "SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md"
+  },
+  {
+    "name": "SEAL_D47_HF25_RELIABILITY_METER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF25_RELIABILITY_METER.md"
+  },
+  {
+    "name": "SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md"
+  },
+  {
+    "name": "SEAL_D47_HF27_TACTICAL_PLAYBOOK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF27_TACTICAL_PLAYBOOK.md"
+  },
+  {
+    "name": "SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md"
+  },
+  {
+    "name": "SEAL_D47_HF29_SHARE_MINI_CARD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF29_SHARE_MINI_CARD.md"
+  },
+  {
+    "name": "SEAL_D47_HF30_BLURRED_TRUTH_GATING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF30_BLURRED_TRUTH_GATING.md"
+  },
+  {
+    "name": "SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md"
+  },
+  {
+    "name": "SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md"
+  },
+  {
+    "name": "SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md"
+  },
+  {
+    "name": "SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md"
+  },
+  {
+    "name": "SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md"
+  },
+  {
+    "name": "SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md"
+  },
+  {
+    "name": "SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md"
+  },
+  {
+    "name": "SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md"
+  },
+  {
+    "name": "SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md"
+  },
+  {
+    "name": "SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md"
+  },
+  {
+    "name": "SEAL_D47_ON_DEMAND_AREA_SEALED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_ON_DEMAND_AREA_SEALED.md"
+  },
+  {
+    "name": "SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md"
+  },
+  {
+    "name": "SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md"
+  },
+  {
+    "name": "SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md"
+  },
+  {
+    "name": "SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md"
+  },
+  {
+    "name": "SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md"
+  },
+  {
+    "name": "SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md"
+  },
+  {
+    "name": "SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md"
+  },
+  {
+    "name": "SEAL_D48_OPS_PEND_REGISTRY_PATH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_OPS_PEND_REGISTRY_PATH.md"
+  },
+  {
+    "name": "SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md"
+  },
+  {
+    "name": "SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md"
+  },
+  {
+    "name": "SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md"
+  },
+  {
+    "name": "SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md"
+  },
+  {
+    "name": "SEAL_D49_OS_STATE_SNAPSHOT_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_OS_STATE_SNAPSHOT_V1.md"
+  },
+  {
+    "name": "SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md"
+  },
+  {
+    "name": "SEAL_D50_EWIMS_AUDIT_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_EWIMS_AUDIT_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_D50_EWIMS_DETERMINISTIC_ATOMIC.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_EWIMS_DETERMINISTIC_ATOMIC.md"
+  },
+  {
+    "name": "SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_D50_EWIMS_NO_FALSE_GOLD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_EWIMS_NO_FALSE_GOLD.md"
+  },
+  {
+    "name": "SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md"
+  },
+  {
+    "name": "SEAL_DAY_00_0_WORKSPACE_TRUTH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_0_WORKSPACE_TRUTH.md"
+  },
+  {
+    "name": "SEAL_DAY_00_1_GIT_INIT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_1_GIT_INIT.md"
+  },
+  {
+    "name": "SEAL_DAY_00_2_SKELETON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_2_SKELETON.md"
+  },
+  {
+    "name": "SEAL_DAY_00_3_TRUTH_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_3_TRUTH_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md"
+  },
+  {
+    "name": "SEAL_DAY_00_5_FLUTTER_SHELL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_5_FLUTTER_SHELL.md"
+  },
+  {
+    "name": "SEAL_DAY_00_MASTER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_00_MASTER.md"
+  },
+  {
+    "name": "SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md"
+  },
+  {
+    "name": "SEAL_DAY_01_SYSTEM_CONTRACT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_01_SYSTEM_CONTRACT.md"
+  },
+  {
+    "name": "SEAL_DAY_02_SCHEMAS_AND_LENS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_02_SCHEMAS_AND_LENS.md"
+  },
+  {
+    "name": "SEAL_DAY_03_1_AUTONOMY_HARDENING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_03_1_AUTONOMY_HARDENING.md"
+  },
+  {
+    "name": "SEAL_DAY_03_AUTONOMY_SPINE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_03_AUTONOMY_SPINE.md"
+  },
+  {
+    "name": "SEAL_DAY_04_PIPELINE_MIN_REAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_04_PIPELINE_MIN_REAL.md"
+  },
+  {
+    "name": "SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md"
+  },
+  {
+    "name": "SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md"
+  },
+  {
+    "name": "SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md"
+  },
+  {
+    "name": "SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md"
+  },
+  {
+    "name": "SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md"
+  },
+  {
+    "name": "SEAL_DAY_06_INTEGRITY_SWEEP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_06_INTEGRITY_SWEEP.md"
+  },
+  {
+    "name": "SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md"
+  },
+  {
+    "name": "SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md"
+  },
+  {
+    "name": "SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md"
+  },
+  {
+    "name": "SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md"
+  },
+  {
+    "name": "SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md"
+  },
+  {
+    "name": "SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md"
+  },
+  {
+    "name": "SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md"
+  },
+  {
+    "name": "SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md"
+  },
+  {
+    "name": "SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md"
+  },
+  {
+    "name": "SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md"
+  },
+  {
+    "name": "SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md"
+  },
+  {
+    "name": "SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md"
+  },
+  {
+    "name": "SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md"
+  },
+  {
+    "name": "SEAL_DAY_19_PLAYBOOK_LAW.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_19_PLAYBOOK_LAW.md"
+  },
+  {
+    "name": "SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md"
+  },
+  {
+    "name": "SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md"
+  },
+  {
+    "name": "SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md"
+  },
+  {
+    "name": "SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md"
+  },
+  {
+    "name": "SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md"
+  },
+  {
+    "name": "SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md"
+  },
+  {
+    "name": "SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md"
+  },
+  {
+    "name": "SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md"
+  },
+  {
+    "name": "SEAL_DAY_27_MODULAR_REFACTOR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_27_MODULAR_REFACTOR.md"
+  },
+  {
+    "name": "SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md"
+  },
+  {
+    "name": "SEAL_DAY_28_AUTOPILOT_POLICY_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_28_AUTOPILOT_POLICY_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md"
+  },
+  {
+    "name": "SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md"
+  },
+  {
+    "name": "SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md"
+  },
+  {
+    "name": "SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md"
+  },
+  {
+    "name": "SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md"
+  },
+  {
+    "name": "SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md"
+  },
+  {
+    "name": "SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md"
+  },
+  {
+    "name": "SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md"
+  },
+  {
+    "name": "SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md"
+  },
+  {
+    "name": "SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md"
+  },
+  {
+    "name": "SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md"
+  },
+  {
+    "name": "SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md"
+  },
+  {
+    "name": "SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md"
+  },
+  {
+    "name": "SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md"
+  },
+  {
+    "name": "SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_36_5_MACRO_LAYER_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_5_MACRO_LAYER_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_36_6_LEXICON_PRO_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_6_LEXICON_PRO_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md"
+  },
+  {
+    "name": "SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md"
+  },
+  {
+    "name": "SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md"
+  },
+  {
+    "name": "SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md"
+  },
+  {
+    "name": "SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md"
+  },
+  {
+    "name": "SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md"
+  },
+  {
+    "name": "SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md"
+  },
+  {
+    "name": "SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md"
+  },
+  {
+    "name": "SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md"
+  },
+  {
+    "name": "SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md"
+  },
+  {
+    "name": "SEAL_DAY_37_04_OS_HEALTH_WIDGET.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_04_OS_HEALTH_WIDGET.md"
+  },
+  {
+    "name": "SEAL_DAY_37_05_LAST_RUN_WIDGET.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_05_LAST_RUN_WIDGET.md"
+  },
+  {
+    "name": "SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md"
+  },
+  {
+    "name": "SEAL_DAY_37_07_REFRESH_GOVERNANCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_07_REFRESH_GOVERNANCE.md"
+  },
+  {
+    "name": "SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md"
+  },
+  {
+    "name": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md"
+  },
+  {
+    "name": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md"
+  },
+  {
+    "name": "SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md"
+  },
+  {
+    "name": "SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md"
+  },
+  {
+    "name": "SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md"
+  },
+  {
+    "name": "SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md"
+  },
+  {
+    "name": "SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md"
+  },
+  {
+    "name": "SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md"
+  },
+  {
+    "name": "SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md"
+  },
+  {
+    "name": "SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md"
+  },
+  {
+    "name": "SEAL_DAY_38_07_UNIVERSE_TILE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_07_UNIVERSE_TILE.md"
+  },
+  {
+    "name": "SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md"
+  },
+  {
+    "name": "SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md"
+  },
+  {
+    "name": "SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md"
+  },
+  {
+    "name": "SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md"
+  },
+  {
+    "name": "SEAL_DAY_39_01A_CORE20_CANON_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01A_CORE20_CANON_FIX.md"
+  },
+  {
+    "name": "SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md"
+  },
+  {
+    "name": "SEAL_DAY_39_01C_CORE20_CANON_FINAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01C_CORE20_CANON_FINAL.md"
+  },
+  {
+    "name": "SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md"
+  },
+  {
+    "name": "SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md"
+  },
+  {
+    "name": "SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md"
+  },
+  {
+    "name": "SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md"
+  },
+  {
+    "name": "SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md"
+  },
+  {
+    "name": "SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md"
+  },
+  {
+    "name": "SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md"
+  },
+  {
+    "name": "SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md"
+  },
+  {
+    "name": "SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md"
+  },
+  {
+    "name": "SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md"
+  },
+  {
+    "name": "SEAL_DAY_40_02_PULSE_CORE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_02_PULSE_CORE.md"
+  },
+  {
+    "name": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md"
+  },
+  {
+    "name": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md"
+  },
+  {
+    "name": "SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md"
+  },
+  {
+    "name": "SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md"
+  },
+  {
+    "name": "SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md"
+  },
+  {
+    "name": "SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md"
+  },
+  {
+    "name": "SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md"
+  },
+  {
+    "name": "SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md"
+  },
+  {
+    "name": "SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md"
+  },
+  {
+    "name": "SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md"
+  },
+  {
+    "name": "SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_DAY_41_01_IRON_OS_STATUS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_01_IRON_OS_STATUS.md"
+  },
+  {
+    "name": "SEAL_DAY_41_02_TIMELINE_TAIL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_02_TIMELINE_TAIL.md"
+  },
+  {
+    "name": "SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md"
+  },
+  {
+    "name": "SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md"
+  },
+  {
+    "name": "SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md"
+  },
+  {
+    "name": "SEAL_DAY_41_07_IRON_STATE_HISTORY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_07_IRON_STATE_HISTORY.md"
+  },
+  {
+    "name": "SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_41_09_LKG_VIEWER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_09_LKG_VIEWER.md"
+  },
+  {
+    "name": "SEAL_DAY_41_10_IRON_DECISION_PATH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_10_IRON_DECISION_PATH.md"
+  },
+  {
+    "name": "SEAL_DAY_41_11_REPLAY_INTEGRITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_41_11_REPLAY_INTEGRITY.md"
+  },
+  {
+    "name": "SEAL_DAY_42_01_LOCK_REASON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_01_LOCK_REASON.md"
+  },
+  {
+    "name": "SEAL_DAY_42_02_COVERAGE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_02_COVERAGE.md"
+  },
+  {
+    "name": "SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md"
+  },
+  {
+    "name": "SEAL_DAY_42_04_AUTOFIX_TIER1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_04_AUTOFIX_TIER1.md"
+  },
+  {
+    "name": "SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md"
+  },
+  {
+    "name": "SEAL_DAY_42_06_RED_BUTTON_SURFACES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_06_RED_BUTTON_SURFACES.md"
+  },
+  {
+    "name": "SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md"
+  },
+  {
+    "name": "SEAL_DAY_42_08_FINDINGS_PANEL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_08_FINDINGS_PANEL.md"
+  },
+  {
+    "name": "SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md"
+  },
+  {
+    "name": "SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md"
+  },
+  {
+    "name": "SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md"
+  },
+  {
+    "name": "SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md"
+  },
+  {
+    "name": "SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md"
+  },
+  {
+    "name": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md"
+  },
+  {
+    "name": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md"
+  },
+  {
+    "name": "SEAL_DAY_42_BUILD_APK_SMOKE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_BUILD_APK_SMOKE.md"
+  },
+  {
+    "name": "SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md"
+  },
+  {
+    "name": "SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md"
+  },
+  {
+    "name": "SEAL_DAY_42_GIT_HYGIENE_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_HYGIENE_FIX.md"
+  },
+  {
+    "name": "SEAL_DAY_42_GIT_STAGE_UNTRACKED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_GIT_STAGE_UNTRACKED.md"
+  },
+  {
+    "name": "SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md"
+  },
+  {
+    "name": "SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md"
+  },
+  {
+    "name": "SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md"
+  },
+  {
+    "name": "SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md"
+  },
+  {
+    "name": "SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md"
+  },
+  {
+    "name": "SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md"
+  },
+  {
+    "name": "SEAL_DAY_43_03_ELITE_OS_READER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_03_ELITE_OS_READER.md"
+  },
+  {
+    "name": "SEAL_DAY_43_04_DAY_MEMORY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_04_DAY_MEMORY.md"
+  },
+  {
+    "name": "SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md"
+  },
+  {
+    "name": "SEAL_DAY_43_06_EXPLAIN_ROUTER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_06_EXPLAIN_ROUTER.md"
+  },
+  {
+    "name": "SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md"
+  },
+  {
+    "name": "SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md"
+  },
+  {
+    "name": "SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md"
+  },
+  {
+    "name": "SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md"
+  },
+  {
+    "name": "SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md"
+  },
+  {
+    "name": "SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md"
+  },
+  {
+    "name": "SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md"
+  },
+  {
+    "name": "SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md"
+  },
+  {
+    "name": "SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md"
+  },
+  {
+    "name": "SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md"
+  },
+  {
+    "name": "SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md"
+  },
+  {
+    "name": "SEAL_DAY_43_CANON_SYNC_TOTAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_CANON_SYNC_TOTAL.md"
+  },
+  {
+    "name": "SEAL_DAY_43_GLOBAL_SCROLL_LAW.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_GLOBAL_SCROLL_LAW.md"
+  },
+  {
+    "name": "SEAL_DAY_43_LAYOUT_POLICE_GUARD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_LAYOUT_POLICE_GUARD.md"
+  },
+  {
+    "name": "SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md"
+  },
+  {
+    "name": "SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md"
+  },
+  {
+    "name": "SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md"
+  },
+  {
+    "name": "SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md"
+  },
+  {
+    "name": "SEAL_DAY_44_02A_LOCK_REASON_MODAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_02A_LOCK_REASON_MODAL.md"
+  },
+  {
+    "name": "SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md"
+  },
+  {
+    "name": "SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md"
+  },
+  {
+    "name": "SEAL_DAY_44_04_ON_DEMAND_SCREEN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_04_ON_DEMAND_SCREEN.md"
+  },
+  {
+    "name": "SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md"
+  },
+  {
+    "name": "SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md"
+  },
+  {
+    "name": "SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md"
+  },
+  {
+    "name": "SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md"
+  },
+  {
+    "name": "SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md"
+  },
+  {
+    "name": "SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md"
+  },
+  {
+    "name": "SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md"
+  },
+  {
+    "name": "SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md"
+  },
+  {
+    "name": "SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md"
+  },
+  {
+    "name": "SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md"
+  },
+  {
+    "name": "SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md"
+  },
+  {
+    "name": "SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md"
+  },
+  {
+    "name": "SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md"
+  },
+  {
+    "name": "SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md"
+  },
+  {
+    "name": "SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md"
+  },
+  {
+    "name": "SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md"
+  },
+  {
+    "name": "SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md"
+  },
+  {
+    "name": "SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md"
+  },
+  {
+    "name": "SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md"
+  },
+  {
+    "name": "SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md"
+  },
+  {
+    "name": "SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md"
+  },
+  {
+    "name": "SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md"
+  },
+  {
+    "name": "SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md"
+  },
+  {
+    "name": "SEAL_DAY_45_07_ABORTED_ROLLBACK.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_07_ABORTED_ROLLBACK.md"
+  },
+  {
+    "name": "SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md"
+  },
+  {
+    "name": "SEAL_DAY_45_08_SHARE_ENGINE_V1.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_08_SHARE_ENGINE_V1.md"
+  },
+  {
+    "name": "SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md"
+  },
+  {
+    "name": "SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md"
+  },
+  {
+    "name": "SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md"
+  },
+  {
+    "name": "SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md"
+  },
+  {
+    "name": "SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md"
+  },
+  {
+    "name": "SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md"
+  },
+  {
+    "name": "SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md"
+  },
+  {
+    "name": "SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md"
+  },
+  {
+    "name": "SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md"
+  },
+  {
+    "name": "SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md"
+  },
+  {
+    "name": "SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md"
+  },
+  {
+    "name": "SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md"
+  },
+  {
+    "name": "SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H4_COMPILATION_REPAIR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H4_COMPILATION_REPAIR.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md"
+  },
+  {
+    "name": "SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md"
+  },
+  {
+    "name": "SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_MASTER_CLOSE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_MASTER_CLOSE.md"
+  },
+  {
+    "name": "SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md"
+  },
+  {
+    "name": "SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md"
+  },
+  {
+    "name": "SEAL_DAY_45_WAR_CALENDAR_UPDATE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_45_WAR_CALENDAR_UPDATE.md"
+  },
+  {
+    "name": "SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md"
+  },
+  {
+    "name": "SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md"
+  },
+  {
+    "name": "SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md"
+  },
+  {
+    "name": "SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md"
+  },
+  {
+    "name": "SEAL_Dxx_UI_LEATHER_BARS_ONLY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Dxx_UI_LEATHER_BARS_ONLY.md"
+  },
+  {
+    "name": "SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md"
+  },
+  {
+    "name": "SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md"
+  },
+  {
+    "name": "SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md"
+  },
+  {
+    "name": "SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md"
+  },
+  {
+    "name": "SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md"
+  },
+  {
+    "name": "SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md"
+  },
+  {
+    "name": "SEAL_Polish_01_BaseUrlCloud_Default.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_01_BaseUrlCloud_Default.md"
+  },
+  {
+    "name": "SEAL_POLISH_ACCOUNT_CLEAN_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_CLEAN_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md"
+  },
+  {
+    "name": "SEAL_POLISH_ACCOUNT_UI_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_UI_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md"
+  },
+  {
+    "name": "SEAL_POLISH_DASHBOARD_CLEANUP_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_DASHBOARD_CLEANUP_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md"
+  },
+  {
+    "name": "SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md"
+  },
+  {
+    "name": "SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md"
+  },
+  {
+    "name": "SEAL_POLISH_GLOBAL_SPACING_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_GLOBAL_SPACING_01.md"
+  },
+  {
+    "name": "SEAL_Polish_Human_01_Global_Tone_Layer.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Human_01_Global_Tone_Layer.md"
+  },
+  {
+    "name": "SEAL_POLISH_HYGIENE_ANALYZE_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_HYGIENE_ANALYZE_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md"
+  },
+  {
+    "name": "SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md"
+  },
+  {
+    "name": "SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md"
+  },
+  {
+    "name": "SEAL_POLISH_MENU_LANGUAGE_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_MENU_LANGUAGE_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_MENU_SHELL_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_MENU_SHELL_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_MENU_UI_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_MENU_UI_01.md"
+  },
+  {
+    "name": "SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md"
+  },
+  {
+    "name": "SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md"
+  },
+  {
+    "name": "SEAL_Polish_Notifications_02_TapRouting_DeepLink.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_Polish_Notifications_02_TapRouting_DeepLink.md"
+  },
+  {
+    "name": "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md"
+  },
+  {
+    "name": "SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md"
+  },
+  {
+    "name": "SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md"
+  },
+  {
+    "name": "SEAL_POLISH_WARROOM_RESTORE_02.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_WARROOM_RESTORE_02.md"
+  },
+  {
+    "name": "SEAL_POLISH_WELCOME_UI_01.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_WELCOME_UI_01.md"
+  },
+  {
+    "name": "SEAL_POLISH_WELCOME_UI_01_V2.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_POLISH_WELCOME_UI_01_V2.md"
+  },
+  {
+    "name": "SEAL_TARGET_STATE_FROZEN.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_TARGET_STATE_FROZEN.md"
+  },
+  {
+    "name": "SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md"
+  },
+  {
+    "name": "SEAL_VICTORY_DRILLDOWN_CREATED.md",
+    "path": "c:\\MSR\\MarketSniperRepo\\outputs\\seals\\SEAL_VICTORY_DRILLDOWN_CREATED.md"
+  }
+]

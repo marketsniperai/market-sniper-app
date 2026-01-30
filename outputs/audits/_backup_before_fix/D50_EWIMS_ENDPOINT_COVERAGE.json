@@ -1,0 +1,397 @@
+[
+  {
+    "method": "POST",
+    "path": "/lab/run_pipeline",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/misfire_autoheal",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/health_ext",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/dashboard",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/context",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/efficacy",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/briefing",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/misfire",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/pulse",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/aftermarket",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/sunday_setup",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/options_report",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/options_context",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/economic_calendar",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/macro_context",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/evidence_summary",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/overlay_live",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/voice_state",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/news_digest",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/autofix",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/autofix/execute",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/self_heal/housekeeper/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/os/self_heal/housekeeper/run",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/self_heal/autofix/tier1/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/os/self_heal/autofix/tier1/run",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/self_heal/autofix/decision_path",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/os/state_snapshot",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/iron/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/iron/timeline_tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/self_heal/findings",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/self_heal/before_after",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/iron/state_history",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/iron/drift",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/os/iron/replay_integrity",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/replay/day",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/replay/archive/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/os/rollback",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/war_room",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/shadow_repair/propose",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/foundation",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/ledger/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/intelligence",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/summary",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/shadow/suggestions",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/shadow/ledger/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/handoff",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/handoff/ledger/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/autopilot/execute_from_handoff",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/events/latest",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/agms/thresholds",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/projection/report",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/immune/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/immune/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/blackbox/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/blackbox/ledger/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/blackbox/snapshots",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/dojo/run",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/dojo/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/dojo/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/tuning/apply",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/tuning/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/tuning/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/explain/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/os/snapshot",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/ritual/{ritual_id}",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/ritual",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/script/first_interaction",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/context/status",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/what_changed",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/micro_briefing/open",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/agms/recall",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/lab/watchlist/log",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/lab/watchlist/log/tail",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/on_demand/context",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/elite/chat",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/events/latest",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "GET",
+    "path": "/elite/state",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/elite/reflection",
+    "defined_in": "backend/api_server.py"
+  },
+  {
+    "method": "POST",
+    "path": "/elite/settings",
+    "defined_in": "backend/api_server.py"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "date": "2026-01-29T19:30:40.841478",
+  "input_hash": "3a3a89a5497c543a4aecf84175f203adfa057c8ad1b2ee699c1e1932cbfb4763",
+  "stats": {
+    "ALIVE": 362,
+    "GHOST": 0,
+    "ZOMBIE": 0
+  },
+  "total_claims": 362,
+  "verdict": "PASS"
+}

@@ -406,6 +406,18 @@ def autofix_decision_path():
 
 
     
+# OS STATE SNAPSHOT (D49)
+from backend.os_ops.state_snapshot_engine import StateSnapshotEngine
+
+@app.get("/os/state_snapshot")
+def os_state_snapshot():
+    """
+    D49.OS.STATE_SNAPSHOT_V1: Institutional State Snapshot.
+    Returns {system_mode, freshness, providers, locks, events}.
+    """
+    return StateSnapshotEngine.generate_snapshot()
+
+
 # IRON OS ENDPOINTS (DAY 41)
 from backend.os_ops.iron_os import IronOS
 
@@ -901,6 +913,37 @@ def elite_os_snapshot():
          
     return snapshot
 
+@app.get("/elite/ritual/{ritual_id}")
+def elite_ritual_artifact(ritual_id: str):
+    """
+    D49: Get specific Elite Ritual Artifact via Router.
+    Standardized 200 OK Envelope.
+    """
+    from backend.os_intel.elite_ritual_router import EliteRitualRouter
+    try:
+        router = EliteRitualRouter()
+        envelope = router.route(ritual_id)
+        return envelope
+    except Exception as e:
+        from datetime import datetime
+        print(f"API Error in Ritual Router: {e}")
+        return {
+             "ritual_id": ritual_id,
+             "status": "ERROR",
+             "as_of_utc": datetime.utcnow().isoformat() + "Z",
+             "payload": None,
+             "details": str(e)
+        }
+
+@app.get("/elite/ritual")
+def elite_ritual_artifact_alias(id: str):
+    """
+    D49.HF01: Alias for /elite/ritual/{id} to maintain compatibility.
+    """
+    # Simply call the main function or router directly
+    return elite_ritual_artifact(id)
+
+
 @app.get("/elite/script/first_interaction")
 def elite_first_interaction_script():
     """
@@ -1085,6 +1128,107 @@ async def get_on_demand_context(
     
     return with_meta(result_envelope)
 
+
+
+
+# --- Elite Chat Core (D49) ---
+from pydantic import BaseModel
+from typing import Dict, Any, Optional
+
+class EliteChatRequest(BaseModel):
+    message: str
+    context: Optional[Dict[str, Any]] = {}
+
+@app.post("/elite/chat")
+def elite_chat_endpoint(req: EliteChatRequest):
+    """
+    D49: Elite Chat Core Endpoint.
+    Deterministic + LLM Hybrid.
+    """
+    from backend.os_intel.elite_chat_router import EliteChatRouter
+    
+    try:
+        router = EliteChatRouter()
+        # Ensure context is a dict
+        ctx = req.context if req.context else {}
+        response = router.route_request(req.message, ctx)
+        return response
+    except Exception as e:
+        print(f"Chat Error: {e}")
+        return {
+            "mode": "FALLBACK",
+            "answer": "Internal Error processing chat.",
+            "sections": [{"title": "Error Details", "bullets": [str(e)]}],
+            "next_actions": [],
+            "debug_info": {"error": str(e)}
+        }
+
+# --- Event Router (D49) ---
+@app.get("/events/latest")
+async def get_latest_events(since: Optional[str] = None):
+    """
+    D49: Poll for System/Elite Events.
+    """
+    from backend.os_ops.event_router import EventRouter
+    return {"events": EventRouter.get_latest(limit=20, since_timestamp=since)}
+
+@app.get("/elite/state")
+async def get_elite_state():
+    """
+    D49: Get Current Elite Ritual State (for Countdowns).
+    """
+    from backend.os_ops.elite_ritual_policy import EliteRitualPolicy
+    import datetime
+    
+    try:
+        policy = EliteRitualPolicy()
+        now_utc = datetime.datetime.now(datetime.timezone.utc)
+        return policy.get_ritual_state(now_utc)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# --- User Memory (D49) ---
+@app.post("/elite/reflection")
+async def submit_reflection(data: Dict[str, Any]):
+    """
+    D49: Submit User Reflection (Local/Cloud).
+    """
+    from backend.os_intel.elite_user_memory_engine import EliteUserMemoryEngine
+    success = EliteUserMemoryEngine.save_reflection(data)
+    if success:
+        return {"status": "OK", "message": "Reflection saved."}
+    else:
+        raise HTTPException(status_code=500, detail="Failed to save reflection.")
+
+@app.post("/elite/settings")
+async def update_settings(data: Dict[str, Any]):
+    """
+    D49: Update Settings (Autolearn Toggle).
+    """
+    # Simply write to os_settings.json for now
+    try:
+        from backend.artifacts.io import get_artifacts_root
+        import json
+        settings_path = get_artifacts_root() / "config/os_settings.json"
+        
+        # Load existing
+        current = {}
+        if settings_path.exists():
+            with open(settings_path, "r") as f:
+                current = json.load(f)
+        
+        # Merge
+        current.update(data)
+        
+        # Save
+        settings_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(settings_path, "w") as f:
+            json.dump(current, f, indent=2)
+            
+        return {"status": "OK"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":

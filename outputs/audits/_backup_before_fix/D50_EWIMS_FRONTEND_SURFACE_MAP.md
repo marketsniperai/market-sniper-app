@@ -1,0 +1,40 @@
+# D50 EWIMS FRONTEND SURFACE MAP
+
+| Class Name | File Path | Verified |
+| :--- | :--- | :--- |
+| `AccountScreen` | `/market_sniper_app/lib/screens/account_screen.dart` | ✅ |
+| `CalendarScreen` | `/market_sniper_app/lib/screens/calendar_screen.dart` | ✅ |
+| `CommandCenterScreen` | `/market_sniper_app/lib/screens/command_center_screen.dart` | ✅ |
+| `DashboardScreen` | `/market_sniper_app/lib/screens/dashboard_screen.dart` | ✅ |
+| `LanguageScreen` | `/market_sniper_app/lib/screens/language_screen.dart` | ✅ |
+| `MenuScreen` | `/market_sniper_app/lib/screens/menu_screen.dart` | ✅ |
+| `NewsScreen` | `/market_sniper_app/lib/screens/news_screen.dart` | ✅ |
+| `OnDemandPanel` | `/market_sniper_app/lib/screens/on_demand_panel.dart` | ✅ |
+| `PartnerTermsScreen` | `/market_sniper_app/lib/screens/partner_terms_screen.dart` | ✅ |
+| `PremiumScreen` | `/market_sniper_app/lib/screens/premium_screen.dart` | ✅ |
+| `RitualPreviewScreen` | `/market_sniper_app/lib/screens/ritual_preview_screen.dart` | ✅ |
+| `ShareLibraryScreen` | `/market_sniper_app/lib/screens/share_library_screen.dart` | ✅ |
+| `WarRoomScreen` | `/market_sniper_app/lib/screens/war_room_screen.dart` | ✅ |
+| `WatchlistScreen` | `/market_sniper_app/lib/screens/watchlist_screen.dart` | ✅ |
+| `_TickerTile` | `/market_sniper_app/lib/screens/watchlist_screen.dart` | ✅ |
+| `WelcomeScreen` | `/market_sniper_app/lib/screens/welcome_screen.dart` | ✅ |
+| `UniverseScreen` | `/market_sniper_app/lib/screens/universe/universe_screen.dart` | ✅ |
+| `DecryptionRitualOverlay` | `/market_sniper_app/lib/ui/components/decryption_ritual_overlay.dart` | ✅ |
+| `AttributionSheet` | `/market_sniper_app/lib/widgets/attribution_sheet.dart` | ✅ |
+| `BlurredTruthOverlay` | `/market_sniper_app/lib/widgets/blurred_truth_overlay.dart` | ✅ |
+| `EliteInteractionSheet` | `/market_sniper_app/lib/widgets/elite_interaction_sheet.dart` | ✅ |
+| `GlobalBackOverlay` | `/market_sniper_app/lib/widgets/global_back_overlay.dart` | ✅ |
+| `LockReasonModalContent` | `/market_sniper_app/lib/widgets/lock_reason_modal.dart` | ✅ |
+| `SessionAwarenessPanel` | `/market_sniper_app/lib/widgets/session_awareness_panel.dart` | ✅ |
+| `ShareModal` | `/market_sniper_app/lib/widgets/share_modal.dart` | ✅ |
+| `WarRoomTile` | `/market_sniper_app/lib/widgets/war_room_tile.dart` | ✅ |
+| `WatchlistAddModal` | `/market_sniper_app/lib/widgets/watchlist_add_modal.dart` | ✅ |
+| `EliteReflectionModal` | `/market_sniper_app/lib/widgets/elite/elite_reflection_modal.dart` | ✅ |
+| `EliteRitualModal` | `/market_sniper_app/lib/widgets/elite/elite_ritual_modal.dart` | ✅ |
+| `FounderRouterSheet` | `/market_sniper_app/lib/widgets/founder/founder_router_sheet.dart` | ✅ |
+| `EvidenceGhostOverlay` | `/market_sniper_app/lib/widgets/share/evidence_ghost_overlay.dart` | ✅ |
+| `ShareBoosterSheet` | `/market_sniper_app/lib/widgets/share/share_booster_sheet.dart` | ✅ |
+| `SharePreviewSheet` | `/market_sniper_app/lib/widgets/share/share_preview_sheet.dart` | ✅ |
+| `InviteLogicTile` | `/market_sniper_app/lib/widgets/war_room/invite_logic_tile.dart` | ✅ |
+| `ReplayControlTile` | `/market_sniper_app/lib/widgets/war_room/replay_control_tile.dart` | ✅ |
+| `WarRoomTileWrapper` | `/market_sniper_app/lib/widgets/war_room/war_room_tile_wrapper.dart` | ✅ |

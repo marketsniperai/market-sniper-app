@@ -1,0 +1,53 @@
+# D50 EWIMS DEBT ERADICATION LIST
+
+## 1. GHOST FEATURES (Claimed but Missing)
+- [ ] **OS Health Widget - Implemented unified health widget (health_ext > os/health). .** (Day 37.04): Stub or Restore.
+- [ ] **War Room Tile — Autofix Control Plane Summary (Status/Mode/Cooldown). .** (Day 37.08): Stub or Restore.
+- [ ] **War Room Truth & Degrade Hardening - Global degrade policy, banner system, and Founder Truth Surface. .** (Day 37.08): Stub or Restore.
+- [ ] **Web Shell Visibility Hotfix - Fixed blank layout on Web/Chrome. .** (Day 37.08): Stub or Restore.
+- [ ] **RT Freshness Monitor - Implemented 4-component freshness tracking (Core/Sentinel/Overlay/Synthesis) with strict precedence. .** (Day 37.08): Stub or Restore.
+- [ ] **LKG Snapshot Viewer - Implemented LKG metadata visibility (hash/time/valid). .** (Day 41): Stub or Restore.
+- [ ] **War Room (Lock Reason) - Implemented lock reason visibility (active/none). .** (Day 42): Stub or Restore.
+- [ ] **Day Memory - Implemented 4KB local memory with 4:00 ET reset. .** (Day 43): Stub or Restore.
+- [ ] **DXX.WELCOME.03 Welcome Screen Integrity (Guard + Hash) [SEALED]** (Day 43): Stub or Restore.
+- [ ] **POLISH.MENU.UI.01 Menu Screen UI Polish (Inter/Spacing/Density). .** (Day 43): Stub or Restore.
+- [ ] **POLISH.MENU.SHELL.01 Menu Shell Compliance (Embedded). .** (Day 43): Stub or Restore.
+- [ ] **HOTFIX.MENU.SHELL.02 Menu Material Ancestor Fix. .** (Day 43): Stub or Restore.
+- [ ] **POLISH.SHELL.global.01 Global Shell Persistence (Single Scaffold). .** (Day 43): Stub or Restore.
+- [ ] **POLISH.SHELL.SWEEP.01 Global Shell Compliance Sweep (Body-Only Screens). .** (Day 43): Stub or Restore.
+- [ ] **HOTFIX.SHELL.COMPILATION.01 Compilation Repair H7 (Shell Sweep). .** (Day 43): Stub or Restore.
+- [ ] **POLISH.HYGIENE.ANALYZE.01 Hygiene Polish (55% Issue Reduction). .** (Day 43): Stub or Restore.
+- [ ] **HOTFIX.WARROOM.WEB.01 Web Storage Guard + Layout Fix. .** (Day 43): Stub or Restore.
+- [ ] **POLISH.SPACING.GLOBAL.01 Global Spacing Standardization. .** (Day 43): Stub or Restore.
+- [ ] **POLISH.ACCOUNT.CLEAN.01 Account Screen Cleanup (Restored Minimal 3-Block Layout). .** (Day 43): Stub or Restore.
+- [ ] **POLISH.PREMIUM.VISIBILITY.01 Premium Protocol Visibility (Founder Hidden). .** (Day 43): Stub or Restore.
+- [ ] **POLISH.MENU.LANGUAGE.01 Language Selector (User-Facing). .** (Day 43): Stub or Restore.
+- [ ] **HOTFIX.MENU.LANGUAGE.COMPILATION.01 Compilation Repair (Braces/API). .** (Day 43): Stub or Restore.
+- [ ] **D45.HF02 Web Build Repair (Timezone Fallout). .** (Day 43): Stub or Restore.
+- [ ] **D45.HF03 Sector Flip V1 Smoke (Runtime Verification). .** (Day 43): Stub or Restore.
+- [ ] **D45.POLISH.SECTOR.FLIP.V2 (Layout, Header, Animations). .** (Day 43): Stub or Restore.
+- [ ] **D45.POLISH.SECTOR.FLIP.V3 (Leader Micro-Wow, Haptics). .** (Day 43): Stub or Restore.
+- [ ] **D45.SECTOR.REPLAY.V1_1 (Scrubber, 60m History, Safe ET). .** (Day 43): Stub or Restore.
+- [ ] **D45.SECTOR.REPLAY.V1_2 (Pulse Integration, Fallback). .** (Day 43): Stub or Restore.
+- [ ] **D45.SECTOR.SENTINEL.RT.V0 (Leader Change, Volume Spike Events). .** (Day 43): Stub or Restore.
+- [ ] **30 Gate). .** (Day 43): Stub or Restore.
+- [ ] **D46.REGIME.SENTINEL.POLISH (DIA, Grid, Candles, Fullscreen). .** (Day 43): Stub or Restore.
+- [ ] **D46.HF12.WIDGET.TITLES (Breathing Accents, Headers). .** (Day 43): Stub or Restore.
+- [ ] **D46.WATCHLIST.FINAL.SEAL (Unlocked, Pre-seed, Preview Sheet). .** (Day 43): Stub or Restore.
+- [ ] **D46.HF12.WATCHLIST.UI.POLISH (Compact Tiles, Glass SnackBar, Small FAB). .** (Day 43): Stub or Restore.
+- [ ] **D47.CANON_SYNC.CHECKPOINT (Docs Updated, Git Checkpoint). .** (Day 43): Stub or Restore.
+- [ ] **D47.HF14.NEWS.RANKING_SKELETON (Rules-Only Engine). .** (Day 43): Stub or Restore.
+- [ ] **D47.HF13.NEWS.DEMO_ENGINE (Demo Mode, Ready for Data). .** (Day 43): Stub or Restore.
+- [ ] **D47.HF13.NEWS.DEMO_ENGINE (Demo Mode, Ready for Data). .** (Day 43): Stub or Restore.
+- [ ] **D46.HF12B.WATCHLIST.MICRO_POLISH (Refined SnackBar, Text, FAB). .** (Day 43): Stub or Restore.
+- [ ] **D45.SECTOR.REPLAY.V1_3 (Pulse SSOT, Staleness Guard, Founder Src Tag). .** (Day 43): Stub or Restore.
+- [ ] **D45.CANON.PENDING.01 (Pending Ledger Created, 10 Items). .** (Day 43): Stub or Restore.
+- [ ] **War Room Debt Radar V2 (Delta + Trends + Sorting).** (Day 43): Stub or Restore.
+- [ ] **D47.HF-DEDUPE-GLOBAL (Shared Dossiers) - Sealed via `SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md`** (Day 43): Stub or Restore.
+- [ ] **D47.HF33 (On-Demand Area Seal) - Sealed via `SEAL_D47_ON_DEMAND_AREA_SEALED.md`** (Day 43): Stub or Restore.
+- [ ] **D47.HF34 (Canon Sync + Capstone) - Sealed via `SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md`** (Day 43): Stub or Restore.
+- [ ] **- [2026-01-29] D49.01 Elite Shell v2 Refactor** (Day 43): Stub or Restore.
+- [ ] **- [2026-01-29] D50.EWIMS.AUDIT Operation Truth** (Day 43): Stub or Restore.
+
+## 2. ZOMBIE FEATURES (Code exists but potential rot)
+- [ ] Review Legacy Pipeline (Day 6-10)
