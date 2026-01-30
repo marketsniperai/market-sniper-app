@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "required": [
+        "meta",
+        "window",
+        "sections",
+        "safety"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "meta": {
+            "type": "object",
+            "required": [
+                "asOfUtc",
+                "source",
+                "version"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "asOfUtc": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "window": {
+            "type": "object",
+            "required": [
+                "startEt",
+                "endEt"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "startEt": {
+                    "type": "string"
+                },
+                "endEt": {
+                    "type": "string"
+                }
+            }
+        },
+        "sections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "content",
+                    "type"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "text",
+                            "list",
+                            "key_value"
+                        ]
+                    }
+                }
+            }
+        },
+        "safety": {
+            "type": "object",
+            "required": [
+                "restrictions"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "restrictions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

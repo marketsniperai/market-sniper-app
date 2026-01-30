@@ -249,8 +249,8 @@ class IronOS:
             return {"history": final_entries}
 
         except Exception:
-            # Any file read/parse error -> UNAVAILABLE
-            return None
+            # Return empty history instead of None to prevent UI panic (404)
+            return {"history": []}
 
     @staticmethod
     def get_lkg_snapshot() -> Optional[Dict[str, Any]]:
@@ -351,7 +351,8 @@ class IronOS:
             
             return {"drift": valid_entries}
         except Exception:
-            return None
+            # Return empty drift instead of None to prevent UI panic (404)
+            return {"drift": []}
 
     @staticmethod
     def get_replay_integrity() -> Optional[Dict[str, Any]]:

@@ -71,6 +71,20 @@
             "visibility": "window_only",
             "enabled_rule": "in_window",
             "countdown_trigger_minutes": 60
+        },
+        {
+            "id": "elite_monday_free_window",
+            "label": "Monday Free Window",
+            "schedule": {
+                "type": "weekly_window",
+                "start_day": "Monday",
+                "start_time": "09:20",
+                "end_day": "Monday",
+                "end_time": "10:20"
+            },
+            "visibility": "window_only",
+            "enabled_rule": "in_window",
+            "countdown_trigger_minutes": 15
         }
     ]
 }

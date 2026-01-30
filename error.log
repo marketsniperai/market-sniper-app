@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\MSR\MarketSniperRepo\backend\verify_on_demand_projection_simple.py", line 2, in <module>
+    from backend.api_server import get_on_demand_context
+  File "C:\MSR\MarketSniperRepo\backend\api_server.py", line 30, in <module>
+    from backend.os_ops.watchlist_action_logger import (
+    ...<3 lines>...
+    )
+  File "C:\MSR\MarketSniperRepo\backend\os_ops\watchlist_action_logger.py", line 16, in <module>
+    class WatchlistActionEvent(BaseModel):
+    ...<17 lines>...
+            return v
+  File "C:\MSR\MarketSniperRepo\backend\os_ops\watchlist_action_logger.py", line 19, in WatchlistActionEvent
+    actor: str = Field(..., regex="^(USER|FOUNDER|SYSTEM)$")
+                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sergio B\AppData\Local\Programs\Python\Python314\Lib\site-packages\pydantic\fields.py", line 1322, in Field
+    raise PydanticUserError('`regex` is removed. use `pattern` instead', code='removed-kwargs')
+pydantic.errors.PydanticUserError: `regex` is removed. use `pattern` instead
+
+For further information visit https://errors.pydantic.dev/2.12/u/removed-kwargs

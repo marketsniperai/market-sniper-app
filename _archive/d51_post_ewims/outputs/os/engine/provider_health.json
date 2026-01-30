@@ -1,0 +1,13 @@
+{
+  "yahoo_stub": {
+    "last_success_utc": "2026-01-28T20:37:00.635015",
+    "failures": 2,
+    "denied": true,
+    "last_error_code": "DENIED"
+  },
+  "demo": {
+    "last_success_utc": "2026-01-28T20:37:00.641170",
+    "failures": 0,
+    "denied": false
+  }
+}

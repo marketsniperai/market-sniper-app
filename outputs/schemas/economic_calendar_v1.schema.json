@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Economic Calendar V1",
+    "type": "object",
+    "required": [
+        "status",
+        "asOfUtc",
+        "source",
+        "events"
+    ],
+    "properties": {
+        "status": {
+            "type": "string"
+        },
+        "asOfUtc": {
+            "type": "string"
+        },
+        "source": {
+            "type": "string"
+        },
+        "windowDays": {
+            "type": "integer"
+        },
+        "events": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "title",
+                    "timeUtc",
+                    "impact",
+                    "category"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "timeUtc": {
+                        "type": "string"
+                    },
+                    "impact": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

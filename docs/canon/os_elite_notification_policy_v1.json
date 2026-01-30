@@ -1,0 +1,55 @@
+{
+    "policy_version": "1.0.0",
+    "quiet_hours": {
+        "start_time": "22:00",
+        "end_time": "06:00",
+        "timezone": "US/Eastern",
+        "exceptions": [
+            "CRITICAL_ALERT"
+        ]
+    },
+    "event_rules": {
+        "ELITE_BRIEFING_READY": {
+            "badge": true,
+            "notification": true,
+            "priority": "HIGH",
+            "message_template": "Morning Briefing is ready."
+        },
+        "ELITE_MIDDAY_READY": {
+            "badge": true,
+            "notification": true,
+            "priority": "MEDIUM",
+            "message_template": "Mid-Day Report available."
+        },
+        "ELITE_MARKET_SUMMARY_READY": {
+            "badge": true,
+            "notification": true,
+            "priority": "MEDIUM",
+            "message_template": "Market Summary: Review the day."
+        },
+        "ELITE_FREE_WINDOW_OPEN": {
+            "badge": true,
+            "notification": true,
+            "priority": "HIGH",
+            "message_template": "Elite Free Window Open (60m)."
+        },
+        "ELITE_FREE_WINDOW_5MIN": {
+            "badge": true,
+            "notification": true,
+            "priority": "HIGH",
+            "message_template": "5 Minutes remaining in Free Window."
+        },
+        "ELITE_FREE_WINDOW_CLOSED": {
+            "badge": false,
+            "notification": false,
+            "priority": "LOW",
+            "message_template": "Window Closed."
+        },
+        "ELITE_RITUAL_CLOSING": {
+            "badge": true,
+            "notification": false,
+            "priority": "LOW",
+            "message_template": "Ritual closing soon."
+        }
+    }
+}

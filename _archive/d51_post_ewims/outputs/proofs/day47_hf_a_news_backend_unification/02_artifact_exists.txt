@@ -1,0 +1,3 @@
+Artifact Path: c:\MSR\MarketSniperRepo\outputs\engine\news_digest.json
+Exists: True
+Size: 1678 bytes

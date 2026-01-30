@@ -1,0 +1,23 @@
+{
+    "meta": {
+        "asOfUtc": "2026-01-29T17:30:00Z",
+        "source": "ELITE_ENGINE",
+        "version": "1.0"
+    },
+    "window": {
+        "startEt": "12:30",
+        "endEt": "04:00"
+    },
+    "sections": [
+        {
+            "title": "Midday Update",
+            "content": "Volume is trending lower than average.",
+            "type": "text"
+        }
+    ],
+    "safety": {
+        "restrictions": [
+            "NO_PREDICTIONS"
+        ]
+    }
+}

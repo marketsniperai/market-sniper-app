@@ -55,3 +55,4 @@ secrets/
 *.key
 *.pem
 outputs/backups/
+.

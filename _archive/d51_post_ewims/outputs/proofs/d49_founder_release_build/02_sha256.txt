@@ -1,0 +1,3 @@
+SHA256 hash of market_sniper_app\build\app\outputs\flutter-apk\app-release.apk:
+725ea711fc2bd3dde3cf3d5f37c9e3cbd1bc46e50a4dddac179d9649a53f2543
+CertUtil: -hashfile command completed successfully.

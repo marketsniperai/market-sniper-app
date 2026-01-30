@@ -1,0 +1,13 @@
+MARKET SNIPER AI OS - CALENDAR AUDIT
+FILE INVENTORY
+Date: 2026-01-28
+
+[FRONTEND]
+c:\MSR\MarketSniperRepo\market_sniper_app\lib\screens\calendar_screen.dart
+c:\MSR\MarketSniperRepo\market_sniper_app\lib\models\calendar\economic_calendar_model.dart
+c:\MSR\MarketSniperRepo\market_sniper_app\lib\widgets\calendar_event_card.dart
+
+[BACKEND]
+(None)
+* No endpoints matching /calendar in api_server.py
+* No specific calendar engine found in backend/os_intel/

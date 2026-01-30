@@ -1,0 +1,44 @@
+{
+  "status": "EXISTING",
+  "as_of_utc": "2026-01-28T14:53:28.613150Z",
+  "source": "DEMO_GENERATOR",
+  "items": [
+    {
+      "id": "demo-2026-01-28-1",
+      "headline": "Fed Signals Steady Approach Amidst Inflation Data",
+      "summary": "Federal Reserve officials indicate patience as recent CPI prints show mixed signals. Markets await further guidance.",
+      "bucket": "macro",
+      "source": "MarketSniper Wire (Demo)",
+      "published_utc": "2026-01-28T14:53:28.613150Z",
+      "url": "#"
+    },
+    {
+      "id": "demo-2026-01-28-2",
+      "headline": "Tech Sector Earnings Preview: AI Spend in Focus",
+      "summary": "Major semiconductor and cloud firms set to report. CapEx guidance is the key metric for institutional investors.",
+      "bucket": "general",
+      "source": "MarketSniper Wire (Demo)",
+      "published_utc": "2026-01-28T14:53:28.613150Z",
+      "url": "#"
+    },
+    {
+      "id": "demo-2026-01-28-3",
+      "headline": "Global Markets: Geopolitical Risk Limits Upside",
+      "summary": "Tensions in key trade corridors continue to weigh on logistics stocks and energy futures.",
+      "bucket": "macro",
+      "source": "MarketSniper Wire (Demo)",
+      "published_utc": "2026-01-28T14:53:28.613150Z",
+      "url": "#"
+    },
+    {
+      "id": "demo-2026-01-28-4",
+      "headline": "Watchlist Movers: Intraday Volume Anomalies",
+      "summary": "Automated scan detection of unusual volume in key index constituents.",
+      "bucket": "watchlist",
+      "source": "MarketSniper Wire (Demo)",
+      "published_utc": "2026-01-28T14:53:28.613150Z",
+      "url": "#"
+    }
+  ],
+  "version": "1.0.0"
+}

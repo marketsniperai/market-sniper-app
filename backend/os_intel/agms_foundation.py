@@ -64,6 +64,35 @@ class AGMSFoundation:
         # Here we rely on strict code discipline and contract alignment.
         return NO_EXECUTION_GUARD
 
+    @staticmethod
+    def record_projection_health(symbol: str, timeframe: str, state: str, source: str):
+        """
+        D47.FIX.02: Reliability Scoreboard Instrumentation.
+        Appends projection health outcome to the reliability ledger.
+        NEVER THROWS. Fails silently if FS is broken.
+        """
+        try:
+            if not NO_EXECUTION_GUARD: return # Should be True, but just in case
+            
+            root = get_artifacts_root()
+            agms_dir = root / AGMSFoundation.AGMS_ROOT
+            os.makedirs(agms_dir, exist_ok=True)
+            
+            entry = {
+                "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                "symbol": symbol,
+                "timeframe": timeframe,
+                "state": state,
+                "source": source
+            }
+            
+            append_to_ledger(str(agms_dir / "reliability_ledger.jsonl"), entry)
+            
+        except Exception as e:
+            # TITANIUM LAW: AGMS OBSERVATION MUST NOT BREAK PRODUCTION FLOW
+            print(f"[AGMS] Reliability Write Failed: {e}")
+            pass
+
     # --- INTERNAL HELPERS ---
     
     @staticmethod

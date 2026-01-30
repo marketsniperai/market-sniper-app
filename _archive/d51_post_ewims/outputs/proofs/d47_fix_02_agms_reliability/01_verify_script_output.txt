@@ -1,0 +1,33 @@
+>>> D47.FIX.02: AGMS Reliability Scoreboard Verification <<<
+
+[1] Simulating Projection Calls...
+ -> Invoking ProjectionOrchestrator for SPY...
+    Result State: INSUFFICIENT_DATA (Source: Low historical persistence (< 0%); expect chop.)
+ -> Invoking ProjectionOrchestrator for TSLA...
+    Result State: INSUFFICIENT_DATA (Source: Low historical persistence (< 0%); expect chop.)
+ -> Invoking ProjectionOrchestrator for AAPL...
+    Result State: INSUFFICIENT_DATA (Source: Low historical persistence (< 0%); expect chop.)
+
+[2] Checking Ledger at C:\MSR\MarketSniperRepo\outputs\runtime\agms\reliability_ledger.jsonl...
+ -> Found 3 entries.
+ -> Last Entry: {
+  "timestamp_utc": "2026-01-28T18:16:07.473026+00:00",
+  "symbol": "AAPL",
+  "timeframe": "DAILY",
+  "state": "INSUFFICIENT_DATA",
+  "source": "COMPUTED_PIPELINE"
+}
+
+[3] Triggering AGMS Intelligence...
+ -> Logic Executed.
+
+[4] verifying Snapshot Artifact...
+SUCCESS: 'reliability' key found in snapshot.
+{
+  "uptime_pct": 0.0,
+  "calibrating_pct": 0.0,
+  "window_days": 14,
+  "samples": 3
+}
+
+>>> VERIFICATION COMPLETE <<<

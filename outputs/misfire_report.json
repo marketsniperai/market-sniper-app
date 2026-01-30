@@ -1,8 +1,0 @@
-{
-  "timestamp_utc": "2026-01-14T17:56:12.603438",
-  "status": "NOMINAL",
-  "artifact_age_seconds": 57372.603744,
-  "last_run_id": "baseline-nominal-test",
-  "reason": "OK",
-  "recommended_action": "NONE"
-}

@@ -1,4 +1,3 @@
-
 import 'package:market_sniper_app/config/app_config.dart';
 
 void main() {

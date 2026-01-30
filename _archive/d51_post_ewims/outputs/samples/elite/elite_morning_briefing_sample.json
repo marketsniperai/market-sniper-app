@@ -1,0 +1,29 @@
+{
+    "meta": {
+        "asOfUtc": "2026-01-29T14:30:00Z",
+        "source": "ELITE_ENGINE",
+        "version": "1.0"
+    },
+    "window": {
+        "startEt": "09:20",
+        "endEt": "10:00"
+    },
+    "sections": [
+        {
+            "title": "Overnight Context",
+            "content": "Asian markets closed mixed while European indices show strength.",
+            "type": "text"
+        },
+        {
+            "title": "Key Levels",
+            "content": "SPX: 4850, NQ: 17200",
+            "type": "key_value"
+        }
+    ],
+    "safety": {
+        "restrictions": [
+            "NO_PREDICTIONS",
+            "NO_ADVICE"
+        ]
+    }
+}

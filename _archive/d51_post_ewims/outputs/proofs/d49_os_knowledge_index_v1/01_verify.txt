@@ -1,0 +1,8 @@
+VERIFICATION REPORT: OS Knowledge Index v1
+==========================================
+PASS: 'modules' present with 32 items.
+PASS: 'surfaces' present with 4 items.
+PASS: 'artifacts' present with 3 items.
+PASS: 'lexicon_constraints' present with 2 items.
+------------------------------------------
+OVERALL STATUS: PASS

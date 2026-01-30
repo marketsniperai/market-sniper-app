@@ -2,7 +2,7 @@ import os
 import json
 import hashlib
 from typing import Optional, List, Dict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pydantic import BaseModel
 from backend.artifacts.io import safe_read_or_fallback
 
@@ -198,7 +198,7 @@ class OnDemandCache:
         3. OFFLINE_FALLBACK
         """
         
-        """
+
         
         # 1. Pipeline Artifact (D47.HF15 Hook)
         pipe_env, pipe_note = OnDemandCache._try_load_pipeline_envelope(ticker)

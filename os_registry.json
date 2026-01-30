@@ -745,6 +745,71 @@
             }
         },
         {
+            "module_id": "OS.Ops.KnowledgeIndex",
+            "name": "Knowledge Index Generator",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "/backend/os_ops/generate_os_knowledge_index.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "os_registry.json",
+                    "docs/canon/OS_MODULES.md"
+                ],
+                "outputs": [
+                    "outputs/os/os_knowledge_index.json"
+                ],
+                "ports": [
+                    "(Artifact Generation)"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": []
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
+            "module_id": "OS.Ops.StateSnapshot",
+            "name": "State Snapshot Engine",
+            "type": "OPS",
+            "owner": "FOUNDER",
+            "status": "ACTIVE",
+            "primary_files": [
+                "/backend/os_ops/state_snapshot_engine.py"
+            ],
+            "wiring": {
+                "inputs": [
+                    "EventRouter",
+                    "DataMux",
+                    "Artifacts"
+                ],
+                "outputs": [
+                    "outputs/os/state_snapshot.json"
+                ],
+                "ports": [
+                    "GET /os/state_snapshot"
+                ],
+                "dependencies": {
+                    "upstream": [],
+                    "downstream": [
+                        "OS.Elite.Context"
+                    ]
+                }
+            },
+            "governance": {
+                "contracts": [],
+                "playbooks": "N/A",
+                "war_room_visibility": []
+            }
+        },
+        {
             "module_id": "OS.Intel.Thresholds",
             "name": "Dynamic Thresholds",
             "type": "INTELLIGENCE",

@@ -1,0 +1,277 @@
+[
+  {
+    "endpoint": "/health_ext",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.063716",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 11.65,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/dashboard",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.075462",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 4.52,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/context",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.080065",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 3.62,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/pulse",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.083826",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 4.06,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/foundation",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.087975",
+    "expected_status": 404,
+    "status_code": 404,
+    "latency_ms": 1.91,
+    "payload_keys": [
+      "detail"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/briefing",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.090013",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 4.87,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/aftermarket",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.094947",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 4.88,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/news_digest",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.099917",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 4.48,
+    "payload_keys": [
+      "status",
+      "source",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/elite/state",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.104502",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 44.19,
+    "payload_keys": [
+      "morning_briefing",
+      "mid_day_report",
+      "market_resumed",
+      "how_i_did_today",
+      "how_you_did_today",
+      "sunday_setup",
+      "elite_monday_free_window"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/elite/chat",
+    "method": "POST",
+    "timestamp": "2026-01-29T22:27:22.148794",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 226.36,
+    "payload_keys": [
+      "mode",
+      "answer",
+      "sections",
+      "next_actions",
+      "debug_info"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/os/state_snapshot",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.375403",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 6.68,
+    "payload_keys": [
+      "timestamp_utc",
+      "system_mode",
+      "freshness",
+      "providers",
+      "locks",
+      "recent_events"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/events/latest",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.382212",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 5.81,
+    "payload_keys": [
+      "status",
+      "as_of_utc",
+      "schema_version",
+      "partial",
+      "reason_codes",
+      "payload"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/lab/war_room",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.388135",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 28.19,
+    "payload_keys": [
+      "timestamp_utc",
+      "modules",
+      "truth_compare",
+      "evidence",
+      "timeline"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/lab/os/iron/state_history",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.416476",
+    "expected_status": 200,
+    "status_code": 404,
+    "latency_ms": 3.07,
+    "payload_keys": [
+      "error"
+    ],
+    "health": "MISSING"
+  },
+  {
+    "endpoint": "/lab/os/iron/drift",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.419626",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 3.22,
+    "payload_keys": [
+      "drift"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/lab/replay/archive/tail",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.423005",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 4.14,
+    "payload_keys": "LIST",
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/lab/os/self_heal/findings",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.427354",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 2.59,
+    "payload_keys": [
+      "findings"
+    ],
+    "health": "HEALTHY"
+  },
+  {
+    "endpoint": "/lab/os/self_heal/before_after",
+    "method": "GET",
+    "timestamp": "2026-01-29T22:27:22.430067",
+    "expected_status": 200,
+    "status_code": 200,
+    "latency_ms": 2.26,
+    "payload_keys": [
+      "timestamp_utc",
+      "operation_id",
+      "originating_module",
+      "before_state",
+      "after_state",
+      "changed_keys"
+    ],
+    "health": "HEALTHY"
+  }
+]

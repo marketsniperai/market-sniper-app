@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-01-29T22:27:22.391076",
+  "status": "MISFIRE",
+  "artifact_age_seconds": 0.0,
+  "last_run_id": "TEST_RUN",
+  "reason": "INVALID_MANIFEST_TIMESTAMP",
+  "recommended_action": "RUN_PIPELINE_FULL"
+}

@@ -1,0 +1,23 @@
+{
+    "meta": {
+        "asOfUtc": "2026-02-01T14:00:00Z",
+        "source": "ELITE_ENGINE",
+        "version": "1.0"
+    },
+    "window": {
+        "startEt": "14:00",
+        "endEt": "23:59"
+    },
+    "sections": [
+        {
+            "title": "Weekly Outlook",
+            "content": "Key economic events include FOMC meeting.",
+            "type": "text"
+        }
+    ],
+    "safety": {
+        "restrictions": [
+            "NO_PREDICTIONS"
+        ]
+    }
+}

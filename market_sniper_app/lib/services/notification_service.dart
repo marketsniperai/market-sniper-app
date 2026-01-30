@@ -200,4 +200,40 @@ class NotificationService {
     await _notifications.cancelAll();
     debugPrint("NotificationService: Cancelled all rituals.");
   }
+
+  // D49: Immediate Notification (Local)
+  Future<void> showNotification(String title, String body, {String? payload}) async {
+    if (kIsWeb) {
+      debugPrint("NotificationService (Web): $title - $body");
+      return; 
+    }
+    
+    // Ensure permissions or enabled check?
+    // We assume caller checks preferences or we check here:
+    if (!await isEnabled()) return;
+
+    const androidDetails = AndroidNotificationDetails(
+      'elite_channel',
+      'Elite Notifications',
+      channelDescription: 'Immediate alerts from Elite',
+      importance: Importance.max,
+      priority: Priority.high,
+    );
+    const iosDetails = DarwinNotificationDetails();
+    const details = NotificationDetails(android: androidDetails, iOS: iosDetails);
+
+    try {
+      // ID 999 for generic immediate alerts, or random?
+      // Using 999 overwrites previous. That's fine for now.
+      await _notifications.show(
+        999,
+        title,
+        body,
+        details,
+        payload: payload,
+      );
+    } catch (e) {
+      debugPrint("NotificationService: Failed to show notification. $e");
+    }
+  }
 }

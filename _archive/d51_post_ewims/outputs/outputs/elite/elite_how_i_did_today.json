@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "asOfUtc": "2026-01-29T19:54:46.493122Z",
+    "source": "HowIDidTodayEngine",
+    "version": "1.0"
+  },
+  "window": {
+    "startEt": "16:10",
+    "endEt": "16:40"
+  },
+  "sections": [
+    {
+      "title": "System Performance",
+      "content": "All systems nominal. Efficacy tracking active.",
+      "type": "text"
+    }
+  ],
+  "safety": {
+    "restrictions": [
+      "NO_SELF_PRAISE"
+    ]
+  }
+}

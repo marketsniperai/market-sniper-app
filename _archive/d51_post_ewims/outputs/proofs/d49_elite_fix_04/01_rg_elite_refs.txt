@@ -1,0 +1,21 @@
+# Usage Audit: Elite References (SSOT Check)
+Date: 2026-01-29
+Author: Antigravity
+
+## 1. EliteInteractionSheet Usage
+- **Definition:** `market_sniper_app/lib/widgets/elite_interaction_sheet.dart:21`
+- **Call Site 1 (Primary):** `market_sniper_app/lib/layout/main_layout.dart:374`
+    - Context: Main Persistent Overlay.
+- **Call Site 2 (Secondary):** `market_sniper_app/lib/screens/on_demand_panel.dart:1034`
+    - Context: Likely a legacy or specific "Explain This" modal within OnDemand.
+
+## 2. EliteRitualButton Usage
+- **Definition:** `market_sniper_app/lib/widgets/elite_ritual_button.dart:5`
+- **Call Site:** `market_sniper_app/lib/widgets/elite_ritual_strip.dart` (Lines 32, 41, 50, 59, 68, 77)
+
+## 3. Conclusion
+The `MainLayout` is correctly wired to `EliteInteractionSheet`.
+If signatures ("ELITE_BUILD_SIG") do not appear in the overlay, ensure:
+1. `flutter clean` was successful (Verified).
+2. Browser cache is cleared (Hard Refresh).
+3. The overlay being viewed is indeed the one from `MainLayout` (triggered by Shield Icon).

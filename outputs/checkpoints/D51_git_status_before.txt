@@ -1,0 +1,189 @@
+ M backend/artifacts/io.py
+ M backend/os_intel/agms_foundation.py
+ M backend/os_intel/agms_intelligence.py
+ M backend/os_intel/intraday_series_source.py
+ M backend/os_ops/event_router.py
+ M backend/os_ops/iron_os.py
+ M backend/os_ops/on_demand_cache.py
+ M backend/os_ops/on_demand_tier_enforcer.py
+ M backend/os_ops/war_room.py
+ M backend/os_ops/watchlist_action_logger.py
+ M docs/canon/MAP_CORE.md
+ M docs/canon/PENDING_LEDGER.md
+ M docs/canon/os_elite_ritual_policy_v1.json
+ M market_sniper_app/analyze_report.txt
+ M market_sniper_app/android/app/build.gradle
+ M market_sniper_app/android/gradle/wrapper/gradle-wrapper.properties
+ M market_sniper_app/android/settings.gradle
+ M market_sniper_app/lib/layout/main_layout.dart
+ M market_sniper_app/lib/logic/on_demand_tier_resolver.dart
+ M market_sniper_app/lib/screens/menu_screen.dart
+ M market_sniper_app/lib/services/notification_service.dart
+ M market_sniper_app/lib/widgets/elite_interaction_sheet.dart
+ M market_sniper_app/lib/widgets/tactical_playbook_block.dart
+ M market_sniper_app/linux/flutter/generated_plugin_registrant.cc
+ M market_sniper_app/linux/flutter/generated_plugins.cmake
+ M market_sniper_app/macos/Flutter/GeneratedPluginRegistrant.swift
+ M market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+ M market_sniper_app/test/verify_config.dart
+ M market_sniper_app/test/verify_menu.dart
+ M market_sniper_app/tool/generate_core_universe_proof.dart
+ M market_sniper_app/tool/verify_core_tape.dart
+ M market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+ M market_sniper_app/tool/verify_day_40_close.dart
+ M market_sniper_app/tool/verify_day_40_close_placeholder.dart
+ M market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+ M market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+ M market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+ M market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+ M market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+ M market_sniper_app/tool/verify_drift_surface.dart
+ M market_sniper_app/tool/verify_extended_governance_ui.dart
+ M market_sniper_app/tool/verify_extended_universe_ui.dart
+ M market_sniper_app/tool/verify_overlay_injection.dart
+ M market_sniper_app/tool/verify_propagation_audit.dart
+ M market_sniper_app/tool/verify_pulse_core.dart
+ M market_sniper_app/tool/verify_safe_degrade.dart
+ M market_sniper_app/tool/verify_sector_heatmap.dart
+ M market_sniper_app/tool/verify_sector_sentinel.dart
+ M market_sniper_app/tool/verify_universe_integrity.dart
+ M market_sniper_app/windows/flutter/generated_plugin_registrant.cc
+ M market_sniper_app/windows/flutter/generated_plugins.cmake
+ M openapi.yaml
+ M os_registry.json
+ M outputs/misfire_report.json
+ M outputs/os/projection/projection_report.json
+ M outputs/proofs/day47_deep_os_audit/01_verify_project_discipline_pass.txt
+ M outputs/scripts/deploy_auth_gateway.ps1
+?? analysis_fix.txt
+?? analyze_grouping.py
+?? analyze_untracked.py
+?? analyze_v1.txt
+?? backend/news_engine.py
+?? backend/os_intel/context_tagger.py
+?? backend/os_intel/elite_chat_router.py
+?? backend/os_intel/elite_free_window_ledger.py
+?? backend/os_intel/elite_ritual_engines/
+?? backend/os_intel/elite_ritual_router.py
+?? backend/os_intel/elite_user_memory_engine.py
+?? backend/os_intel/verify_hf18_proof.py
+?? backend/os_llm/
+?? backend/os_ops/debug_import.py
+?? backend/os_ops/generate_os_knowledge_index.py
+?? backend/os_ops/optruth_audit.py
+?? backend/os_ops/state_snapshot_engine.py
+?? backend/os_ops/update_pending_index_d48.py
+?? backend/verify_d49_elite_chat_core_v1.py
+?? backend/verify_d49_elite_final_audit.py
+?? backend/verify_d49_elite_free_window_v2.py
+?? backend/verify_d49_elite_hf01_contract.py
+?? backend/verify_d49_elite_llm_key_integration.py
+?? backend/verify_d49_elite_memory_v2.py
+?? backend/verify_d49_elite_notifications_badges_v1.py
+?? backend/verify_d49_elite_notify_v1.py
+?? backend/verify_d49_elite_ritual_api_router_v1.py
+?? backend/verify_d49_elite_user_memory_v1.py
+?? backend/verify_elite_ritual_contracts_v1.py
+?? backend/verify_elite_ritual_engines_v1.py
+?? backend/verify_fix_02_agms_reliability.py
+?? backend/verify_hf32_policy.py
+?? backend/verify_hf_b.py
+?? backend/verify_news_unification.py
+?? backend/verify_on_demand_projection.py
+?? backend/verify_on_demand_projection_simple.py
+?? backend/verify_on_demand_projection_v2.py
+?? backend/verify_os_knowledge_index_v1.py
+?? backend/verify_os_state_snapshot_v1.py
+?? backend/verify_schema_authority_v1.py
+?? classify_counts.py
+?? comparison_log.txt
+?? crash_test.log
+?? debug_audit.txt
+?? debug_dates.txt
+?? debug_hf_server.py
+?? docs/canon/ELITE_AREA_SEAL.md
+?? docs/canon/os_elite_chat_policy_v1.json
+?? docs/canon/os_elite_notification_policy_v1.json
+?? error.log
+?? implementation_plan_account_flip.md
+?? implementation_plan_account_identity.md
+?? implementation_plan_account_polish.md
+?? implementation_plan_account_polish_part2.md
+?? implementation_plan_global_spacing.md
+?? implementation_plan_menu_polish.md
+?? implementation_plan_partner_progress.md
+?? inspect_orchestrator.py
+?? market_sniper_app/analyze.txt
+?? market_sniper_app/analyze_intermediate.txt
+?? market_sniper_app/analyze_log.txt
+?? market_sniper_app/analyze_log_2.txt
+?? market_sniper_app/build_debug_log.txt
+?? market_sniper_app/build_result.txt
+?? market_sniper_app/build_result_v2.txt
+?? market_sniper_app/build_result_v3.txt
+?? market_sniper_app/build_web_log.txt
+?? market_sniper_app/deps.txt
+?? market_sniper_app/lib/logic/api_client.dart
+?? market_sniper_app/lib/logic/elite_badge_controller.dart
+?? market_sniper_app/lib/logic/elite_badge_resolver.dart
+?? market_sniper_app/lib/ui/components/decryption_ritual_overlay.dart
+?? market_sniper_app/lib/widgets/elite/
+?? market_sniper_app/lib/widgets/elite_ritual_button.dart
+?? market_sniper_app/lib/widgets/elite_ritual_grid.dart
+?? market_sniper_app/lib/widgets/elite_ritual_strip.dart
+?? market_sniper_app/panel_analysis.txt
+?? outputs/cache/on_demand/
+?? outputs/checkpoints/
+?? outputs/elite/
+?? outputs/engine/calibration_report.json
+?? outputs/engine/intraday_series.json
+?? outputs/engine/news_digest.json
+?? outputs/ledgers/
+?? outputs/on_demand_public/
+?? outputs/os/canon_debt_radar.json
+?? outputs/os/engine/
+?? outputs/os/iron_os_history.json
+?? outputs/os/ledger/
+?? outputs/os/on_demand_usage_ledger.jsonl
+?? outputs/os/os_drift_report.json
+?? outputs/os/os_knowledge_index.json
+?? outputs/os/projection/projection_report_daily.json
+?? outputs/os/projection/projection_report_weekly.json
+?? outputs/os/state_snapshot.json
+?? outputs/outputs/elite/
+?? outputs/proofs/TEMP_DEBUG.txt
+?? outputs/proofs/calendar_audit/
+?? outputs/proofs/canon/d49_backfill/05_git_status.txt
+?? outputs/proofs/canon/d49_backfill/06_git_commit_hash.txt
+?? outputs/proofs/d47_fix_02_agms_reliability/
+?? outputs/proofs/d49_elite_area_seal_audit.txt
+?? outputs/proofs/d49_elite_contracts_v1/
+?? outputs/proofs/d49_elite_fix_01/
+?? outputs/proofs/d49_elite_fix_02/
+?? outputs/proofs/d49_elite_fix_03/
+?? outputs/proofs/d49_elite_fix_04/
+?? outputs/proofs/d49_elite_fix_05/
+?? outputs/proofs/d49_elite_llm_key_integration/
+?? outputs/proofs/d49_elite_ritual_engines_v1/
+?? outputs/proofs/d49_founder_release_build/
+?? outputs/proofs/d49_os_knowledge_index_v1/
+?? outputs/proofs/d49_os_state_snapshot_v1/
+?? outputs/proofs/d50_optruth_audit_01/
+?? outputs/proofs/day47_hf22_on_demand_decryption/
+?? outputs/proofs/day47_hf_a_news_backend_unification/
+?? outputs/proofs/day47_hf_b_projection_contract_freeze_v1/
+?? outputs/proofs/day47_war_calendar_sync/01_verify_project_discipline_pass_retry.txt
+?? outputs/proofs/hf35_calendar_activation_v1/
+?? outputs/proofs/hf_cache_server/00_diff.txt
+?? outputs/proofs/hf_cache_server/01_backend_test.txt
+?? outputs/proofs/hfxx_build_rescue_on_demand/
+?? outputs/samples/elite/
+?? outputs/samples/on_demand_context_sample.json
+?? outputs/scan_raw.txt
+?? outputs/schemas/
+?? outputs/seals/SEAL_D51_PENDING_269_TRIAGE.md
+?? outputs/user_memory/
+?? sanity_output.txt
+?? scan_secrets.py
+?? verification.log
+?? verifier_log.txt

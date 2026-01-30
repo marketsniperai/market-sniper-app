@@ -53,9 +53,7 @@ class TacticalPlaybookBlock extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           
-          ),
-          const SizedBox(height: 12),
-          
+
           // GATED CONTENT AREA
           Stack(
             children: [

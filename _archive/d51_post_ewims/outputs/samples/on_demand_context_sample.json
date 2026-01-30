@@ -1,0 +1,25 @@
+{
+    "status": "OK",
+    "envelope": {
+        "request_id": "sample-req-001",
+        "timestamp_utc": "2026-01-28T12:00:00Z",
+        "usage_tier": "ELITE"
+    },
+    "data": {
+        "version": "0.1.0",
+        "symbol": "SPY",
+        "asOfUtc": "2026-01-28T18:16:07.461305Z",
+        "state": "INSUFFICIENT_DATA",
+        "stateReasons": [],
+        "enginesUsed": [],
+        "inputs": {},
+        "tactical": {},
+        "contextTags": {},
+        "missingInputs": [],
+        "intraday": {},
+        "scenarios": {},
+        "safety": {},
+        "timeframe": "DAILY"
+    },
+    "policy_block": null
+}

@@ -1,0 +1,22 @@
+# Elite Ritual Contracts Inventory (v1)
+Date: 2026-01-29
+
+## Schemas (outputs/schemas/elite/)
+- elite_how_i_did_today_v1.schema.json
+- elite_how_you_did_today_v1.schema.json
+- elite_market_resumed_v1.schema.json
+- elite_midday_report_v1.schema.json
+- elite_morning_briefing_v1.schema.json
+- elite_sunday_setup_v1.schema.json
+
+## Samples (outputs/samples/elite/)
+- elite_how_i_did_today_sample.json
+- elite_how_you_did_today_sample.json
+- elite_market_resumed_sample.json
+- elite_midday_report_sample.json
+- elite_morning_briefing_sample.json
+- elite_sunday_setup_sample.json
+
+## Verification
+- Script: backend/verify_elite_ritual_contracts_v1.py
+- Status: PASS

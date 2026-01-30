@@ -1,0 +1,24 @@
+# Usage Audit: Elite Ritual Components
+Date: 2026-01-29
+Author: Antigravity
+
+## 1. Component Definitions
+- EliteInteractionSheet: defined in `lib/widgets/elite_interaction_sheet.dart` (Line 21)
+- EliteRitualStrip: defined in `lib/widgets/elite_ritual_strip.dart` (Line 5)
+- EliteRitualButton: defined in `lib/widgets/elite_ritual_button.dart` (Line 5)
+
+## 2. Import Chain
+- `lib/layout/main_layout.dart` imports `../widgets/elite_interaction_sheet.dart` (Line 11)
+- `lib/widgets/elite_interaction_sheet.dart` imports `elite_ritual_strip.dart` (Implicit/Relative or explicit?)
+  - CHECK: `import 'elite_ritual_strip.dart';` (Line ?) -> Verified in previous grep/view.
+
+## 3. Runtime Mount
+- `MainLayout` mounts `EliteInteractionSheet` directly in the `Stack`.
+- `EliteInteractionSheet` mounts `EliteRitualStrip` in `_buildTopBar` or `build` body.
+
+## 4. Duplicate Check
+- `grep "class EliteInteractionSheet"` -> 1 result.
+- `grep "class EliteRitualStrip"` -> 1 result.
+- `grep "class EliteRitualButton"` -> 1 result.
+
+**Conclusion:** No duplicates found. "No change" likely due to cache or subtle visual settings.

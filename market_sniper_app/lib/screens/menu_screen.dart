@@ -1,3 +1,4 @@
+// ignore_for_file: deprecated_member_use, unnecessary_null_in_if_null_operators
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_colors.dart';
@@ -15,6 +16,8 @@ import '../theme/app_typography.dart';
 import '../theme/app_spacing.dart';
 import 'package:provider/provider.dart';
 import '../state/locale_provider.dart';
+import '../logic/api_client.dart'; // D49
+import '../widgets/elite/elite_reflection_modal.dart'; // D49
 
 class MenuScreen extends StatefulWidget {
   final VoidCallback? onClose; // Shell Compliance
@@ -28,6 +31,7 @@ class MenuScreen extends StatefulWidget {
 class _MenuScreenState extends State<MenuScreen> {
   // Toggles
   bool _notificationsEnabled = false;
+  bool _eliteAutolearn = false; // D49
   // final bool _humanModeEnabled = false; // REMOVED (Unused) // Stub state
 
   @override
@@ -152,6 +156,31 @@ class _MenuScreenState extends State<MenuScreen> {
                         ));
                       },
                     ),
+                    AppSpacing.gapAction,
+                    
+                    // D49: Elite Autolearn Toggle
+                    _buildToggleItem(
+                       "Elite Autolearn (Cloud)",
+                       _eliteAutolearn,
+                       (val) {
+                          setState(() => _eliteAutolearn = val);
+                          // Fire and Forget Save
+                          ApiClient().post('/elite/settings', {"elite_autolearn": val});
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                             content: Text(val ? "Cloud Autolearn Enabled (PII Scrubbed)" : "Autolearn Disabled (Local Only)")));
+                       }
+                    ),
+                    
+                    if (AppConfig.isFounderBuild) ...[
+                        AppSpacing.gapAction,
+                        Center(child: TextButton(
+                           child: const Text("DEBUG: Daily Reflection", style: TextStyle(color: AppColors.textDisabled, fontSize: 10)),
+                           onPressed: () {
+                              // Open Reflection Modal
+                              _showReflectionModal(context); 
+                           }
+                        )),
+                    ],
 
                     AppSpacing.gapSection,
 
@@ -454,6 +483,18 @@ class _MenuScreenState extends State<MenuScreen> {
         ),
       ),
     );
+  }
+
+  void _showReflectionModal(BuildContext context) {
+     showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (ctx) => EliteReflectionModal(onComplete: () {
+           // Maybe close menu too? 
+           // Navigator.pop(context); 
+        })
+     );
   }
 
   static const String _aboutContent = """

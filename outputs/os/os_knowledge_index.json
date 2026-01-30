@@ -1,0 +1,439 @@
+{
+    "metadata": {
+        "generated_at_utc": "2026-01-29T19:47:52.335224Z",
+        "version": "1.0",
+        "generator": "generate_os_knowledge_index.py"
+    },
+    "modules": [
+        {
+            "id": "OS.Intel.VoiceMVP",
+            "name": "Voice MVP Stub",
+            "paths": [
+                "/backend/voice_mvp_engine.py"
+            ],
+            "why": "Core functionality for Voice MVP Stub.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Intel.Lexicon",
+            "name": "Lexicon Pro Engine",
+            "paths": [
+                "/backend/lexicon_pro_engine.py"
+            ],
+            "why": "Core functionality for Lexicon Pro Engine.",
+            "consumers": [
+                "OS.Intel.Options",
+                "OS.Intel.Macro",
+                "OS.Intel.Evidence"
+            ]
+        },
+        {
+            "id": "OS.Intel.Evidence",
+            "name": "Evidence Engine",
+            "paths": [
+                "/backend/evidence_engine.py"
+            ],
+            "why": "Regime matching + Sample Size guard.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Intel.Calendar",
+            "name": "Economic Calendar Engine",
+            "paths": [
+                "/backend/os_intel/economic_calendar_engine.py"
+            ],
+            "why": "High-Impact Event Schedule (Pipeline/Demo).",
+            "consumers": []
+        },
+        {
+            "id": "OS.Intel.Macro",
+            "name": "Macro Engine",
+            "paths": [
+                "/backend/macro_engine.py"
+            ],
+            "why": "Rates/USD/Oil context + degradation.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Infra.API",
+            "name": "API Server",
+            "paths": [
+                "/backend/api_server.py"
+            ],
+            "why": "Entry point for all system interactions.",
+            "consumers": [
+                "ALL"
+            ]
+        },
+        {
+            "id": "OS.Infra.Gates",
+            "name": "Core Gates",
+            "paths": [
+                "/backend/gates/core_gates.py"
+            ],
+            "why": "Enforces system safety and data freshness.",
+            "consumers": [
+                "OS.Infra.API"
+            ]
+        },
+        {
+            "id": "OS.Ops.Pipeline",
+            "name": "Pipeline Controller",
+            "paths": [
+                "/backend/pipeline_controller.py",
+                "/backend/pipeline_premarket.py"
+            ],
+            "why": "Orchestrates data generation pipelines.",
+            "consumers": [
+                "OS.Infra.API"
+            ]
+        },
+        {
+            "id": "OS.Ops.Misfire",
+            "name": "Misfire Monitor",
+            "paths": [
+                "/backend/os_ops/misfire_monitor.py"
+            ],
+            "why": "Detects missed schedules and triggers auto-heal.",
+            "consumers": [
+                "OS.Ops.AutoFix"
+            ]
+        },
+        {
+            "id": "OS.Ops.AutoFix",
+            "name": "AutoFix Control Plane",
+            "paths": [
+                "/backend/os_ops/autofix_control_plane.py"
+            ],
+            "why": "Recommends and executes recovery actions.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Ops.Housekeeper",
+            "name": "Housekeeper",
+            "paths": [
+                "/backend/os_ops/housekeeper.py"
+            ],
+            "why": "Cleans operational trash and drift.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Ops.WarRoom",
+            "name": "War Room",
+            "paths": [
+                "/backend/os_ops/war_room.py"
+            ],
+            "why": "Unified command center for visibility.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Ops.ImmuneSystem",
+            "name": "Immune System",
+            "paths": [
+                "/backend/os_ops/immune_system.py",
+                "/os_immune_system_contract.json"
+            ],
+            "why": "Active defense against poisoned inputs.",
+            "consumers": [
+                "OS.Ops.WarRoom"
+            ]
+        },
+        {
+            "id": "OS.Ops.BlackBox",
+            "name": "Black Box",
+            "paths": [
+                "/backend/os_ops/black_box.py",
+                "/os_black_box_contract.json"
+            ],
+            "why": "Forensic Indestructibility & Truth Recorder.",
+            "consumers": [
+                "OS.Ops.WarRoom"
+            ]
+        },
+        {
+            "id": "OS.Ops.ShadowRepair",
+            "name": "Shadow Repair",
+            "paths": [
+                "/backend/os_ops/shadow_repair.py"
+            ],
+            "why": "Proposes Patches and Executes Runtime Surgery.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Ops.TuningGate",
+            "name": "Tuning Gate",
+            "paths": [
+                "/backend/os_ops/tuning_gate.py",
+                "/os_tuning_gate_contract.json"
+            ],
+            "why": "Governance for Runtime Tuning (2-Vote).",
+            "consumers": [
+                "OS.Intel.Thresholds",
+                "OS.Ops.WarRoom"
+            ]
+        },
+        {
+            "id": "OS.Intel.Foundation",
+            "name": "AGMS Foundation",
+            "paths": [
+                "/backend/os_intel/agms_foundation.py"
+            ],
+            "why": "Memory, Truth Mirror, and Base Truth.",
+            "consumers": [
+                "OS.Intel.Intel"
+            ]
+        },
+        {
+            "id": "OS.Intel.Intel",
+            "name": "AGMS Intelligence",
+            "paths": [
+                "/backend/os_intel/agms_intelligence.py"
+            ],
+            "why": "Pattern recognition and coherence analysis.",
+            "consumers": [
+                "OS.Intel.ShadowRec"
+            ]
+        },
+        {
+            "id": "OS.Intel.Dojo",
+            "name": "The Dojo",
+            "paths": [
+                "/backend/os_intel/dojo_simulator.py",
+                "/os_dojo_contract.json"
+            ],
+            "why": "Offline Simulation & Deep Dreaming.",
+            "consumers": [
+                "OS.Ops.WarRoom"
+            ]
+        },
+        {
+            "id": "OS.Intel.ShadowRec",
+            "name": "AGMS Shadow Recommender",
+            "paths": [
+                "/backend/os_intel/agms_shadow_recommender.py"
+            ],
+            "why": "Maps patterns to Shadow Playbooks.",
+            "consumers": [
+                "OS.Intel.Handoff"
+            ]
+        },
+        {
+            "id": "OS.Intel.Handoff",
+            "name": "Autopilot Handoff",
+            "paths": [
+                "/backend/os_intel/agms_autopilot_handoff.py"
+            ],
+            "why": "Secure bridge from Thinker (AGMS) to Actor (AutoFix).",
+            "consumers": [
+                "OS.Ops.AutoFix"
+            ]
+        },
+        {
+            "id": "OS.Ops.KnowledgeIndex",
+            "name": "Knowledge Index Generator",
+            "paths": [
+                "/backend/os_ops/generate_os_knowledge_index.py"
+            ],
+            "why": "Generates SSOT map of OS capabilities.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Intel.Thresholds",
+            "name": "Dynamic Thresholds",
+            "paths": [
+                "/backend/os_intel/agms_dynamic_thresholds.py"
+            ],
+            "why": "Self-tuning sensitivity based on market state.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Intel.Bands",
+            "name": "Confidence Bands",
+            "paths": [
+                "/backend/os_intel/agms_stability_bands.py"
+            ],
+            "why": "Standardizes confidence levels (Green/Yellow/Orange).",
+            "consumers": []
+        },
+        {
+            "id": "OS.Biz.Dashboard",
+            "name": "Dashboard",
+            "paths": [
+                "/backend/schemas/dashboard_schema.py"
+            ],
+            "why": "Main user interface data payload.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Biz.Context",
+            "name": "Context",
+            "paths": [
+                "/backend/schemas/context_schema.py"
+            ],
+            "why": "Narrative context and market status.",
+            "consumers": []
+        },
+        {
+            "id": "OS.Biz.Efficacy",
+            "name": "Efficacy Engine",
+            "paths": [
+                "/backend/schemas/efficacy_schema.py"
+            ],
+            "why": "Tracks prediction accuracy.",
+            "consumers": []
+        },
+        {
+            "id": "OS.OnDemand.Cache",
+            "name": "On-Demand Cache",
+            "paths": [
+                "/backend/os_ops/hf_cache_server.py"
+            ],
+            "why": "Universe-agnostic analysis cache.",
+            "consumers": [
+                "OS.Intel.Projection"
+            ]
+        },
+        {
+            "id": "OS.OnDemand.Global",
+            "name": "Global Cache Server",
+            "paths": [
+                "/backend/os_ops/global_cache_server.py"
+            ],
+            "why": "Shared dossier deduplication (Public).",
+            "consumers": [
+                "OS.Intel.Projection"
+            ]
+        },
+        {
+            "id": "OS.OnDemand.Ledger",
+            "name": "Computation Ledger",
+            "paths": [
+                "/backend/os_ops/computation_ledger.py"
+            ],
+            "why": "Daily Cost Policy Enforcer.",
+            "consumers": [
+                "OS.Intel.Projection"
+            ]
+        },
+        {
+            "id": "OS.OnDemand.Resolver",
+            "name": "Tier Resolver",
+            "paths": [
+                "/lib/logic/on_demand_tier_resolver.dart"
+            ],
+            "why": "Founder/Elite/Plus/Free Resolution.",
+            "consumers": [
+                "OS.UI.OnDemandPanel"
+            ]
+        },
+        {
+            "id": "OS.OnDemand.Recent",
+            "name": "Recent Dossier Store",
+            "paths": [
+                "/lib/logic/recent_dossier_store.dart"
+            ],
+            "why": "Local offline snapshot persistence.",
+            "consumers": []
+        }
+    ],
+    "surfaces": [
+        {
+            "id": "Surface.Dashboard",
+            "name": "Mission Dashboard",
+            "paths": [
+                "lib/screens/dashboard_screen.dart"
+            ],
+            "why": "Primary tactical interface for market status and signals.",
+            "consumers": [
+                "User"
+            ]
+        },
+        {
+            "id": "Surface.OnDemand",
+            "name": "On-Demand Intelligence",
+            "paths": [
+                "lib/screens/on_demand_panel.dart",
+                "lib/adapters/on_demand/"
+            ],
+            "why": "Ad-hoc analysis of any ticker against institutional levels.",
+            "consumers": [
+                "User"
+            ]
+        },
+        {
+            "id": "Surface.Elite",
+            "name": "Elite Overlay",
+            "paths": [
+                "lib/widgets/elite_interaction_sheet.dart"
+            ],
+            "why": "Contextual reasoning and system explainer interface.",
+            "consumers": [
+                "User",
+                "Elite Logic"
+            ]
+        },
+        {
+            "id": "Surface.WarRoom",
+            "name": "War Room",
+            "paths": [
+                "lib/screens/war_room_screen.dart",
+                "backend/os_ops/war_room.py"
+            ],
+            "why": "Operational health monitoring and system diagnostics.",
+            "consumers": [
+                "Founder",
+                "Ops"
+            ]
+        }
+    ],
+    "artifacts": [
+        {
+            "name": "Project State",
+            "path": "docs/canon/PROJECT_STATE.md",
+            "producer": "Founder/Agent",
+            "why": "High-level project tracking.",
+            "pii_safe": true
+        },
+        {
+            "name": "OS Registry",
+            "path": "os_registry.json",
+            "producer": "Founder/Agent",
+            "why": "Canonical system architecture map.",
+            "pii_safe": true
+        },
+        {
+            "name": "War Calendar",
+            "path": "docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md",
+            "producer": "Founder/Agent",
+            "why": "Detailed execution schedule.",
+            "pii_safe": true
+        }
+    ],
+    "lexicon_constraints": [
+        {
+            "surface_or_module": "Elite",
+            "bans": [
+                "Buy",
+                "Sell",
+                "Prediction",
+                "Guarantee"
+            ],
+            "safe_phrases": [
+                "Context suggests...",
+                "Levels indicating...",
+                "Risk structure..."
+            ]
+        },
+        {
+            "surface_or_module": "Dashboard",
+            "bans": [
+                "Loading...",
+                "Error"
+            ],
+            "safe_phrases": [
+                "Calculating...",
+                "Unavailable"
+            ]
+        }
+    ]
+}

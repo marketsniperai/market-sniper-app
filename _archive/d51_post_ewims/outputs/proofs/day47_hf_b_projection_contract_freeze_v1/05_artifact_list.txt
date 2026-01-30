@@ -1,0 +1,2 @@
+Daily: c:\MSR\MarketSniperRepo\outputs\os\projection\projection_report_daily.json
+Weekly: c:\MSR\MarketSniperRepo\outputs\os\projection\projection_report_weekly.json

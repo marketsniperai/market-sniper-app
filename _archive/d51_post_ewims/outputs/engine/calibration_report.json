@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "total_projections_recorded": 5,
+    "total_outcomes_reconciled": 0,
+    "coverage_pct": 0.0
+  },
+  "reliability_scores": {
+    "global_in_bounds_rate": 0,
+    "sample_size": 0
+  },
+  "source_breakdown": {}
+}

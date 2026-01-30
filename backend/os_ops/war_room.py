@@ -31,8 +31,15 @@ class WarRoom:
         # AutoFix (Observation Only) - Now returns Playbook matches
         autofix_status_raw = AutoFixControlPlane.assess_and_recommend()
         
-        # Housekeeper (Scan Only)
-        housekeeper_scan_raw = Housekeeper.scan()
+        # Housekeeper (Scan Only) - Read Proof directly
+        # Housekeeper.scan() does not exist. We read the latest proof.
+        housekeeper_scan_raw = {"status": "UNKNOWN"}
+        from backend.os_ops.housekeeper import PROOF_PATH
+        if PROOF_PATH.exists():
+            try:
+                with open(PROOF_PATH, "r") as f:
+                    housekeeper_scan_raw = json.load(f)
+            except: pass
         
         # Misfire (Check Only)
         misfire_report = safe_read_or_fallback("misfire_report.json")

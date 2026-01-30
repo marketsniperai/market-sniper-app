@@ -1,0 +1,23 @@
+{
+    "script_metadata": {
+        "version": "1.0",
+        "tone": "BATTLE_BUDDY",
+        "target_audience": "FREE_PLUS_USERS"
+    },
+    "greeting": {
+        "text": "Good morning. I’m Elite, your institutional guide. I’m unlocked for the next 60 minutes.",
+        "subtext": "Ask me anything about market structure, levels, or the week ahead."
+    },
+    "explanation": {
+        "text": "My role is to cut through noise. I don't hype. I verify.",
+        "cta": "Check the Weekly Plan or ask: 'What is the regime today?'"
+    },
+    "warning_5min": {
+        "text": "Heads up. Free window checks close in 5 minutes.",
+        "cta": "Final questions?"
+    },
+    "closure": {
+        "text": "Window closed. Access returning to Elite tier.",
+        "subtext": "Solid session. See you next Monday."
+    }
+}

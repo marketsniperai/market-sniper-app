@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "News Digest V1",
+    "type": "object",
+    "required": [
+        "status",
+        "as_of_utc",
+        "source",
+        "items"
+    ],
+    "properties": {
+        "status": {
+            "type": "string"
+        },
+        "as_of_utc": {
+            "type": "string"
+        },
+        "source": {
+            "type": "string"
+        },
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "headline",
+                    "summary",
+                    "bucket",
+                    "source"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "headline": {
+                        "type": "string"
+                    },
+                    "summary": {
+                        "type": "string"
+                    },
+                    "bucket": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "published_utc": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "version": {
+            "type": "string"
+        }
+    }
+}

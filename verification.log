@@ -1,0 +1,61 @@
+Initializing Antigravity Discipline Check...
+
+============================================================
+ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
+============================================================
+
+[!] UI DISCIPLINE VIOLATIONS (Hardcoded Colors)
+  File: market_sniper_app\lib\widgets\dashboard\sector_flip_widget_v1.dart:645
+  Code: color: Colors.white.withOpacity(0.4) // Base intensity
+  >> HINT: Found 'Colors.white'. Use a semantic token from AppColors (e.g., AppColors.stateError for red).
+----------------------------------------
+  File: market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:700
+  Code: if (kind == "PENDING_TECH_DEBT") kindColor = Colors.purpleAccent; // Was neonPurple (missing)
+  >> HINT: Found 'Colors.purple'. Use a semantic token from AppColors (e.g., AppColors.stateError for red).
+----------------------------------------
+  File: market_sniper_app\lib\widgets\war_room\canon_debt_radar.dart:705
+  Code: if (kindColor == Colors.transparent) kindColor = Colors.purpleAccent; // Fallback for purple
+  >> HINT: Found 'Colors.purple'. Use a semantic token from AppColors (e.g., AppColors.stateError for red).
+----------------------------------------
+
+[!] CRITICAL: UNTRACKED CANON OUTPUTS DETECTED
+  - outputs/proofs/day45_auth/
+  - outputs/proofs/day45_auth_gateway/
+  - outputs/proofs/day46_hf11_regime_sentinel_polish/
+  - outputs/proofs/day46_hf11a_regime_sentinel_skeleton/
+  - outputs/proofs/day47_hf15_on_demand_pipeline_hook/
+  - outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2.md
+  - outputs/seals/SEAL_D45_CANON_PENDING_INDEX_02.md
+  - outputs/seals/SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md
+  - outputs/seals/SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md
+  - outputs/seals/SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md
+  - outputs/seals/SEAL_D46_HF12_WATCHLIST_UI_POLISH.md
+  - outputs/seals/SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md
+  - outputs/seals/SEAL_D46_WATCHLIST_FINAL_SEAL.md
+  - outputs/seals/SEAL_D47_CANON_SYNC_CHECKPOINT.md
+  - outputs/seals/SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md
+  - outputs/seals/SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md
+
+>> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`
+
+[!] SEALS MISSING CLOSURE HOOK (PENDING LAW)
+  - SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D46_HF12_WATCHLIST_UI_POLISH.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D46_WATCHLIST_FINAL_SEAL.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D47_CANON_SYNC_CHECKPOINT.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_Dxx_UI_LEATHER_BARS_ONLY.md (V2 STRICT: Missing 'Resolved'/'New' items)
+  - SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md (V2 STRICT: Missing 'Resolved'/'New' items)
+
+>> ACTION REQUIRED: Add '## Pending Closure Hook' to these seals.

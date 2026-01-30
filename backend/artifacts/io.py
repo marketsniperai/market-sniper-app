@@ -18,7 +18,9 @@ ARTIFACTS_ROOT = Path(__file__).parent.parent.parent / "outputs"
 
 def get_artifacts_root() -> Path:
     """Returns the immutable Artifacts Root."""
-    return ARTIFACTS_ROOT.resolve()
+    root = ARTIFACTS_ROOT.resolve()
+    # print(f"DEBUG: Artifacts Root: {root}")
+    return root
 
 def read_json_raw(filename: str) -> Dict[str, Any]:
     """

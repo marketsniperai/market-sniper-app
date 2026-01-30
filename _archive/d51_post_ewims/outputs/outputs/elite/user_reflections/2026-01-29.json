@@ -1,0 +1,16 @@
+{
+  "date": "2026-01-29",
+  "session_type": "REGULAR",
+  "timestamp_utc": "2026-01-29T20:00:00Z",
+  "answers": [
+    {
+      "question": "Q1",
+      "answer": "Test Answer 1"
+    },
+    {
+      "question": "Q2",
+      "answer": "Test Answer 2"
+    }
+  ],
+  "email": "ignore@me.com"
+}

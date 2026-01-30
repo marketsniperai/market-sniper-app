@@ -1,0 +1,56 @@
+[
+  {
+    "path": "outputs/os/state_snapshot.json",
+    "exists": true,
+    "size_bytes": 1625,
+    "mtime": "2026-01-29T17:27:22.378986",
+    "valid_json": true
+  },
+  {
+    "path": "outputs/os/os_knowledge_index.json",
+    "exists": true,
+    "size_bytes": 13605,
+    "mtime": "2026-01-29T14:47:52.336097",
+    "valid_json": true
+  },
+  {
+    "path": "outputs/ledgers/system_events.jsonl",
+    "exists": true,
+    "size_bytes": 3655,
+    "mtime": "2026-01-29T15:47:22.949842"
+  },
+  {
+    "path": "outputs/ledgers/reliability_ledger_global.jsonl",
+    "exists": true,
+    "size_bytes": 6613,
+    "mtime": "2026-01-28T15:33:26.446136"
+  },
+  {
+    "path": "outputs/os/engine/provider_health.json",
+    "exists": true,
+    "size_bytes": 272,
+    "mtime": "2026-01-28T15:37:00.640967",
+    "valid_json": true
+  },
+  {
+    "path": "outputs/proofs/canon/pending_index_v2.json",
+    "exists": true,
+    "size_bytes": 278793,
+    "mtime": "2026-01-28T15:49:39.099435",
+    "valid_json": true
+  },
+  {
+    "path": "outputs/os/canon_debt_radar.json",
+    "exists": true,
+    "size_bytes": 99,
+    "mtime": "2026-01-29T17:26:53.493506",
+    "valid_json": true
+  },
+  {
+    "path": "outputs/os/iron_os_history.json",
+    "exists": true,
+    "size_bytes": 73,
+    "mtime": "2026-01-29T17:26:57.461058",
+    "valid_json": true
+  }
+]

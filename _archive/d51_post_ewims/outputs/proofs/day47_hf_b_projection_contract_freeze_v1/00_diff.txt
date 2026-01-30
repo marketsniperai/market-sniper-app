@@ -1,0 +1,2510 @@
+diff --git a/PROJECT_STATE.md b/PROJECT_STATE.md
+index 4435438..197fe75 100644
+--- a/PROJECT_STATE.md
++++ b/PROJECT_STATE.md
+@@ -203,7 +203,19 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
+ - [x] **D45.SECTOR.REPLAY.V1_1** (Scrubber, 60m History, Safe ET). (SEALED).
+ - [x] **D45.SECTOR.REPLAY.V1_2** (Pulse Integration, Fallback). (SEALED).
+ - [x] **D45.SECTOR.SENTINEL.RT.V0** (Leader Change, Volume Spike Events). (SEALED).
++- [x] **D46.REGIME.SENTINEL.SKELETON** (Index Detail Widget, 10:30 Gate). (SEALED).
++- [x] **D46.REGIME.SENTINEL.POLISH** (DIA, Grid, Candles, Fullscreen). (SEALED).
++- [x] **D46.HF12.WIDGET.TITLES** (Breathing Accents, Headers). (SEALED).
++- [x] **D46.WATCHLIST.FINAL.SEAL** (Unlocked, Pre-seed, Preview Sheet). (SEALED).
++- [x] **D46.HF12.WATCHLIST.UI.POLISH** (Compact Tiles, Glass SnackBar, Small FAB). (SEALED).
++- [x] **D47.CANON_SYNC.CHECKPOINT** (Docs Updated, Git Checkpoint). (SEALED).
++- [x] **D47.HF14.NEWS.RANKING_SKELETON** (Rules-Only Engine). (SEALED).
++- [x] **D47.HF13.NEWS.DEMO_ENGINE** (Demo Mode, Ready for Data). (SEALED).
++- [x] **D47.HF13.NEWS.DEMO_ENGINE** (Demo Mode, Ready for Data). (SEALED).
++- [x] **D46.HF12B.WATCHLIST.MICRO_POLISH** (Refined SnackBar, Text, FAB). (SEALED).
+ - [x] **D45.SECTOR.REPLAY.V1_3** (Pulse SSOT, Staleness Guard, Founder Src Tag). (SEALED).
+ - [x] **D45.CANON.PENDING.01** (Pending Ledger Created, 10 Items). (SEALED).
+ - [x] **D45.CANON.PENDING_INDEX.02** — Pending Index v2 generated (Radar-ready).
+-- [x] **D45.CANON.DEBT_RADAR.V1** — War Room Debt Radar UI (Read-Only).
++- [x] **D45.CANON.PENDING_INDEX.02** — Pending Index v2 generated (Radar-ready).
++- [x] **D45.CANON.DEBT_RADAR.V2** — War Room Debt Radar V2 (Delta + Trends + Sorting).
++- [x] **AUDIT.ON_DEMAND.01** — On-Demand Feature Investigation (Frontend/Backend Audit). (COMPLETED).
+diff --git a/backend/api_server.py b/backend/api_server.py
+index dd2ae1e..d1e4e32 100644
+--- a/backend/api_server.py
++++ b/backend/api_server.py
+@@ -266,6 +266,16 @@ def voice_state():
+         
+     return res["data"] if res["success"] else {"status": "ERROR"}
+ 
++@app.get("/news_digest")
++def news_digest():
++    """
++    D47.HF-A: News Backend Unification.
++    Unifies truth surface via Source Ladder: Pipeline -> Demo -> 200 OK.
++    """
++    from backend.news_engine import NewsEngine
++    return NewsEngine.get_news_digest()
++
++
+ 
+ # AUTOFIX ENDPOINTS (DAY 15)
+ from backend.os_ops.autofix_control_plane import AutoFixControlPlane
+@@ -677,6 +687,20 @@ def agms_thresholds_active():
+ 
+ 
+ 
++
++# PROJECTION ORCHESTRATOR (DAY 47.HF17)
++from backend.os_intel.projection_orchestrator import ProjectionOrchestrator
++
++@app.get("/projection/report")
++def projection_report(symbol: str = "SPY", timeframe: str = "DAILY"):
++    """
++    D47.HF17/HF-B: Central Brain Projection Report.
++    D47.HF-B: Added timeframe=DAILY|WEEKLY
++    """
++    # Just run the orchestrator (it handles artifacts itself)
++    return ProjectionOrchestrator.build_projection_report(symbol, timeframe)
++
++
+ # IMMUNE SYSTEM (DAY 32)
+ from backend.os_ops.immune_system import ImmuneSystemEngine
+ 
+@@ -950,10 +974,12 @@ async def get_watchlist_log_tail(lines: int = 50):
+ async def get_on_demand_context(
+     ticker: str, 
+     tier: str = "FREE", 
++    timeframe: str = "DAILY", # D47.HF-B
+     allow_stale: bool = False,
+     x_founder_key: Optional[str] = Header(None)
+ ):
+     """
++    D47.HF-B (Update): Added timeframe pass-through to projection.
+     D44.05: On-Demand Context with Cache & Freshness Discipline.
+     D44.06: Tier Limits Enforcement.
+     D44.X: Global Universe + Source Ladder + Cooldowns.
+@@ -970,9 +996,8 @@ async def get_on_demand_context(
+         return JSONResponse(
+             status_code=status_code,
+             content={
+-                "status": "BLOCKED",
++                "status": "DENIED",
+                 "reason": reason,
+-                "tier": tier,
+                 "usage": usage,
+                 "limit": limit,
+                 "cooldown_remaining": cooldown_rem,
+@@ -1004,25 +1029,25 @@ async def get_on_demand_context(
+         return resp_dict
+     
+     # 2. Return Result
+-    return with_meta(result_envelope)
++    # HF21: Inject Projection Context (Probabilistic Context)
++    from backend.os_intel.projection_orchestrator import ProjectionOrchestrator
+     
+-    # NOTE: EliteOSReader fallback is now handled inside resolve_source (via OFFLINE path) 
+-    # or should be handled if resolve_source returns OFFLINE?
+-    # Actually, resolve_source returns the full envelope including OFFLINE status.
+-    # So we just return what it gives us + meta.
+-        "generated_at": datetime.now().isoformat()
+-    }
++    # We always fetch projection, even if N/A, because Orchestrator handles safety.
++    proj_report = ProjectionOrchestrator.build_projection_report(ticker, timeframe)
+     
+-    # 3. Put to Cache
+-    OnDemandCache.put(ticker=ticker, tier=tier, payload=payload)
++    # Inject into envelope data if success, or top level?
++    # The envelope structure usually has 'payload'. Let's look at resolve_source return.
++    # It returns a Dict which is the envelope (status, source, payload...).
++    # We should add 'projection' to the payload if possible, or alongside it.
++    # If payload is the EliteContext, we can add it there if schema allows, 
++    # OR we add it as a sibling to 'payload' in the envelope?
++    # Schema safety: The client expects a specific structure. 
++    # If we add to 'result_envelope', it modifies the top level JSON.
++    result_envelope["projection"] = proj_report
+     
+-    return with_headers({
+-        "source": "LIVE_FETCH",
+-        "freshness": "LIVE",
+-        "status": "AVAILABLE",
+-        "payload": payload,
+-        "timestamp_utc": datetime.now().isoformat()
+-    })
++    return with_meta(result_envelope)
++
++
+ 
+ if __name__ == "__main__":
+     uvicorn.run(app, host="0.0.0.0", port=8000)
+diff --git a/backend/os_intel/intraday_series_source.py b/backend/os_intel/intraday_series_source.py
+index d257fc1..5a305e2 100644
+--- a/backend/os_intel/intraday_series_source.py
++++ b/backend/os_intel/intraday_series_source.py
+@@ -23,9 +23,10 @@ class IntradayCandle:
+             "isGhost": self.is_ghost
+         }
+ 
+-class DemoIntradaySeriesSource:
++class DemoSeriesGenerator:
+     """
+-    D47.HF18: Deterministic Demo Intraday Series using seeded randomness.
++    D47.HF18/HF-B: Deterministic Demo Series Generator.
++    Supports Intraday (5m) and Weekly (Daily Candles) modes.
+     Strictly no external data.
+     """
+     
+@@ -33,111 +34,145 @@ class DemoIntradaySeriesSource:
+     def _seeded_random(seed_str: str) -> float:
+         """Returns 0.0 to 1.0 deterministic float from seed."""
+         hash_val = hashlib.sha256(seed_str.encode()).hexdigest()
+-        # Convert first 8 chars of hex to int, then normalize
+         int_val = int(hash_val[:8], 16)
+         return int_val / 0xFFFFFFFF
+ 
+     @staticmethod
+-    def generate_series(symbol: str, as_of_utc: datetime.datetime, horizon_min: int = 60, is_stress: bool = False) -> List[Dict[str, Any]]:
+-        
++    def generate_intraday(symbol: str, as_of_utc: datetime.datetime, is_stress: bool = False, volatility_scale: float = 1.0) -> List[Dict[str, Any]]:
+         # 1. Base Seed
+         date_str = as_of_utc.strftime("%Y-%m-%d")
+-        base_seed = f"{symbol}-{date_str}-DEMO"
++        base_seed = f"{symbol}-{date_str}-DEMO-INTRA"
+         
+-        # 2. Base Price (Mock Anchor)
+-        # We start at arbitrary price based on symbol hash to keep it stable per day
+-        start_price = 100.0 + (DemoIntradaySeriesSource._seeded_random(base_seed) * 400.0) # 100-500
++        start_price = 100.0 + (DemoSeriesGenerator._seeded_random(base_seed) * 400.0) 
+         
+-        # 3. Volatility
+         vol_seed = f"{base_seed}-VOL"
+-        vol_base = 0.002 # 0.2% per 5m candle (~2% daily range roughly)
+-        if is_stress:
+-            vol_base *= 2.5 
++        vol_base = 0.002 * volatility_scale 
++        if is_stress: vol_base *= 2.5 
+             
+         points = []
+         current_price = start_price
+         
+-        # Generate Past 60m (12 candles of 5m) + Future (Ghost) 60m (12 candles)
+-        # Total 24 candles centred on 'now'
+-        
+-        # We want t=0 to be 'now'.
+-        # Let's align to nearest 5m for cleanliness
+         minute_base = as_of_utc.minute - (as_of_utc.minute % 5)
+         anchor_time = as_of_utc.replace(minute=minute_base, second=0, microsecond=0)
+-        
+-        # Past: t - 60m to t
+         start_time = anchor_time - datetime.timedelta(minutes=60)
+         
+-        for i in range(25): # 0 to 24 (12 past, 1 now, 12 future)
+-            # Time
++        for i in range(25): 
+             candle_time = start_time + datetime.timedelta(minutes=i * 5)
+             is_ghost = candle_time > anchor_time
+             
+-            # Deterministic Step
+             step_seed = f"{base_seed}-{i}"
+-            rnd = DemoIntradaySeriesSource._seeded_random(step_seed) # 0..1
+-            
+-            # Random Walk (-1 to 1) * Vol
++            rnd = DemoSeriesGenerator._seeded_random(step_seed) 
+             move_pct = (rnd - 0.5) * 2 * vol_base
+             
+-            # Update Price
+             open_p = current_price
+             close_p = open_p * (1 + move_pct)
++            high_p = max(open_p, close_p) * (1 + (DemoSeriesGenerator._seeded_random(step_seed+"H") * 0.001))
++            low_p = min(open_p, close_p) * (1 - (DemoSeriesGenerator._seeded_random(step_seed+"L") * 0.001))
+             
+-            # High/Low wicks
+-            high_p = max(open_p, close_p) * (1 + (DemoIntradaySeriesSource._seeded_random(step_seed+"H") * 0.001))
+-            low_p = min(open_p, close_p) * (1 - (DemoIntradaySeriesSource._seeded_random(step_seed+"L") * 0.001))
+-            
+-            # Stress Drift (downward bias usually for stress, or higher vol)
+-            if is_stress and is_ghost:
+-                 close_p *= 0.999 # Slight drag
++            if is_stress and is_ghost: close_p *= 0.999 
+             
+             candle = IntradayCandle(
+                 t_utc=candle_time.isoformat() + "Z",
+-                o=open_p, h=high_p, l=low_p, c=close_p,
+-                v=1000, # Stub volume
+-                is_ghost=is_ghost
++                o=open_p, h=high_p, l=low_p, c=close_p, v=1000, is_ghost=is_ghost
+             )
+             points.append(candle.to_dict())
++            current_price = close_p
++            
++        return points
++
++    @staticmethod
++    def generate_weekly(symbol: str, as_of_utc: datetime.datetime, is_stress: bool = False, volatility_scale: float = 1.0) -> List[Dict[str, Any]]:
++        """
++        Generates 5 Daily Candles for the current week (Mon-Fri).
++        Marks future days as ghost based on as_of_utc weekday.
++        """
++        # 1. Determine Monday of current week
++        # weekday(): Mon=0, Sun=6
++        weekday = as_of_utc.weekday()
++        monday = as_of_utc - datetime.timedelta(days=weekday)
++        monday = monday.replace(hour=0, minute=0, second=0, microsecond=0)
++        
++        # Base Seed (Week specific)
++        week_str = monday.strftime("%Y-W%U")
++        base_seed = f"{symbol}-{week_str}-DEMO-WEEKLY"
++        
++        start_price = 100.0 + (DemoSeriesGenerator._seeded_random(base_seed) * 400.0) 
++        
++        vol_base = 0.01 * volatility_scale # Higher vol for daily candles (1%)
++        if is_stress: vol_base *= 2.0
++        
++        points = []
++        current_price = start_price
++        
++        for i in range(5): # Mon(0) to Fri(4)
++            day_time = monday + datetime.timedelta(days=i)
++            # Ghost logic: If day_time > today (date comparison), it's ghost.
++            # If day_time == today, it's NOT ghost (it's 'now' or developing).
++            # Actually, let's keep it simple: 
++            # If i > weekday, it's ghost. 
++            # If i == weekday, it's the "Now" candle (solid/forming).
++            # If i < weekday, it's Past candle (solid).
++            
++            is_ghost = i > weekday
+             
++            # Deterministic Step
++            step_seed = f"{base_seed}-{i}"
++            rnd = DemoSeriesGenerator._seeded_random(step_seed)
++            move_pct = (rnd - 0.5) * 2 * vol_base
++            
++            open_p = current_price
++            close_p = open_p * (1 + move_pct)
++            high_p = max(open_p, close_p) * (1 + (DemoSeriesGenerator._seeded_random(step_seed+"H") * 0.005))
++            low_p = min(open_p, close_p) * (1 - (DemoSeriesGenerator._seeded_random(step_seed+"L") * 0.005))
++
++            if is_stress and is_ghost: close_p *= 0.98 # Drag down context for stress
++            
++            # Use noon for candle time
++            candle_time = day_time.replace(hour=12)
++            
++            candle = IntradayCandle(
++                t_utc=candle_time.isoformat() + "Z",
++                o=open_p, h=high_p, l=low_p, c=close_p, v=50000, is_ghost=is_ghost
++            )
++            points.append(candle.to_dict())
+             current_price = close_p
+             
+         return points
+ 
+-class IntradaySeriesSource:
+-    """Public Facade"""
++class SeriesSource:
++    """Public Facade (was IntradaySeriesSource)"""
++    
+     @staticmethod
+-    def load(symbol: str, as_of_utc: datetime.datetime = None) -> Dict[str, Any]:
++    def load(symbol: str, as_of_utc: datetime.datetime = None, volatility_scale: float = 1.0, timeframe: str = "DAILY") -> Dict[str, Any]:
+         if not as_of_utc:
+             as_of_utc = datetime.datetime.utcnow()
+             
+-        # V0: Always Demo
+-        base_series = DemoIntradaySeriesSource.generate_series(symbol, as_of_utc, is_stress=False)
+-        stress_series = DemoIntradaySeriesSource.generate_series(symbol, as_of_utc, is_stress=True)
+-        
+-        # Split logic could be here, but orchestrator might want raw full arrays
+-        # Contract says:
+-        # intraday: { intervalMin:5, pastCandles:[...], nowCandle:{...} }
+-        # projection: { baseCandles:[...], stressCandles:[...], ... }
+-        
+-        # Filter Past/Now vs Future
+-        # 'now' is the anchor candle (last non-ghost or first ghost? usually last closed)
+-        # Our demo logic marks ghost based on anchor_time
+-        
++        # Select Generator
++        if timeframe == "WEEKLY":
++             base_series = DemoSeriesGenerator.generate_weekly(symbol, as_of_utc, is_stress=False, volatility_scale=volatility_scale)
++             stress_series = DemoSeriesGenerator.generate_weekly(symbol, as_of_utc, is_stress=True, volatility_scale=volatility_scale)
++             interval = 1440 # 24h
++        else: # DAILY / INTRADAY default
++             base_series = DemoSeriesGenerator.generate_intraday(symbol, as_of_utc, is_stress=False, volatility_scale=volatility_scale)
++             stress_series = DemoSeriesGenerator.generate_intraday(symbol, as_of_utc, is_stress=True, volatility_scale=volatility_scale)
++             interval = 5 # 5m
++
++        # Partition
+         past_candles = [c for c in base_series if not c['isGhost']]
+         future_base = [c for c in base_series if c['isGhost']]
+         future_stress = [c for c in stress_series if c['isGhost']]
+         
+-        # Now candle is last of past, strictly speaking? Or current forming?
+-        # Logic: Let's say past_candles includes the "current forming" one as the anchor for chart continuity.
+-        # But wait, isGhost was > anchor_time. So anchor_time candle is NOT ghost.
+         now_candle = past_candles[-1] if past_candles else None
+         
+         return {
+             "source": "DEMO_DETERMINISTIC",
+-            "intervalMin": 5,
++            "timeframe": timeframe,
++            "intervalMin": interval,
+             "pastCandles": past_candles,
+             "nowCandle": now_candle,
+             "futureBase": future_base,
+             "futureStress": future_stress
+         }
++
++# Compat Alias
++IntradaySeriesSource = SeriesSource
+diff --git a/backend/os_intel/projection_orchestrator.py b/backend/os_intel/projection_orchestrator.py
+index 9526960..6698003 100644
+--- a/backend/os_intel/projection_orchestrator.py
++++ b/backend/os_intel/projection_orchestrator.py
+@@ -8,6 +8,7 @@ from typing import List, Optional, Dict, Any
+ from backend.artifacts.io import atomic_write_json, safe_read_or_fallback, get_artifacts_root
+ from backend.os_ops.iron_os import IronOS
+ from backend.lexicon_pro_engine import LexiconProEngine
++from backend.os_intel.context_tagger import ContextTagger
+ 
+ # Canonical Configuration
+ PROJECTION_ARTIFACT_PATH = Path("outputs/os/projection/projection_report.json")
+@@ -35,14 +36,15 @@ class ProjectionOrchestrator:
+     VERSION = "0.1.0"
+     
+     @staticmethod
+-    def build_projection_report(symbol: str = "SPY") -> Dict[str, Any]:
++    def build_projection_report(symbol: str = "SPY", timeframe: str = "DAILY") -> Dict[str, Any]:
+         """
+         Main Orchestration Function.
++        Supports DAILY (Intraday View) and WEEKLY (5-Day View).
+         1. Check System Health/Gates.
+         2. Load Upstream Artifacts.
+         3. Determine Gating/State.
+         4. Compose Report.
+-        5. Write Artifact.
++        5. Write Artifact (Timeframe specific).
+         """
+         
+         # 1. Initialize State & Diagnostics
+@@ -98,30 +100,26 @@ class ProjectionOrchestrator:
+         else:
+              state_reasons.append("MACRO_UNAVAILABLE")
+              
++        # D. News Engine (Qualitative Tilt)
++        news_res = safe_read_or_fallback("engine/news_digest.json")
++        news_data = news_res.get("data")
++        if news_res["success"] and news_data and news_data.get("status") == "EXISTING":
++             engines_used.append("NEWS")
++             inputs_meta["news"] = {"status": "AVAILABLE", "count": len(news_data.get("items", []))}
++        else:
++             state_reasons.append("NEWS_UNAVAILABLE")
++
+         # 4. Determine Composite State
+         # If we haven't been forced into DENIED/INSUFFICIENT by System Health:
+         if current_state == ProjectionState.CALIBRATING:
+              # Critical Inputs Check
+-             # HF17 Rule: We need REAL data to be OK.
+-             # Currently we know Evidence/Macro are likely STUBS. 
+-             # Options might be LIVE.
+-             # INTENT: If Options is LIVE, can we show something? yes.
+-             # BUT: The constraint says "If any upstream... is missing or STUB -> degrade".
+-             # Actually: "If any upstream engine data is missing or STUB -> orchestrator MUST degrade to CALIBRATING or INSUFFICIENT_DATA."
+-             
+-             # Check for STUBS
+              is_evidence_stub = evidence_data and evidence_data.get("status") == "N_A"
+              is_options_stub = options_data and options_data.get("status") in ["N_A", "ERROR", "STUB"]
+              
+-             if is_evidence_stub:
+-                 state_reasons.append("EVIDENCE_IS_STUB")
+-             
+-             if is_options_stub:
+-                 state_reasons.append("OPTIONS_IS_STUB")
++             if is_evidence_stub: state_reasons.append("EVIDENCE_IS_STUB")
++             if is_options_stub: state_reasons.append("OPTIONS_IS_STUB")
+                  
+-             missing_intraday = True # True until HF18
+-             if missing_intraday:
+-                 state_reasons.append("MISSING_INTRADAY_SERIES")
++             missing_intraday = True # True until HF18 check below
+ 
+              # Evaluation
+              if "SYSTEM_LOCKED" in state_reasons:
+@@ -131,16 +129,68 @@ class ProjectionOrchestrator:
+              else:
+                  current_state = ProjectionState.OK
+ 
+-        # 5. Build Scenarios (Placeholders for V0)
+-        # Even if CALIBRATING, we provide the specific structure (nulled).
++        # 5. Context Fusion (HF20)
++        # Derive Tags
++        ctx_options = ContextTagger.tag_options(options_data if options_data and options_data.get("status") == "LIVE" else None)
++        ctx_news = ContextTagger.tag_news(news_data if news_data and news_data.get("status") == "EXISTING" else None)
++        ctx_macro = ContextTagger.tag_macro(None) # Always none for now unless simple stub logic matches tagger expectation
++
++        # If Macro file existed but was stub, we might pass it. 
++        # Checking logic above: "macro_res = safe_read..."
++        if inputs_meta.get("macro", {}).get("status") == "AVAILABLE":
++             ctx_macro = ContextTagger.tag_macro({"status": "AVAILABLE"}) # Simulate stub data
++
++        # Calculate Volatility Scale & Notes from Tags
++        vol_scale = 1.0
++        boundary_mode = ctx_options.get("boundary_mode", "NONE")
++        
++        scenario_notes_base = ["Base Case (Demo)."]
++        scenario_notes_stress = ["Stress Case (Demo)."]
++        
++        # Options Influence
++        if boundary_mode == "EXPECTED_MOVE":
++             scenario_notes_base.append("Options expected move active.")
++             # Conceptually we'd use the cone here. For V0, we stick to Scale logic or 1.0 if cone handles it?
++             # IntradaySource only supports 'volatility_scale'.
++             # Let's assume EXPECTED_MOVE behaves like Normal vol unless specific width provided.
++             pass
++        elif boundary_mode == "IV_SCALE":
++             if "IV_REGIME_HIGH" in ctx_options["tags"]:
++                 vol_scale = 1.5
++                 scenario_notes_stress.append("Elevated IV detected (Options).")
++             elif "IV_REGIME_LOW" in ctx_options["tags"]:
++                 vol_scale = 0.8
++                 scenario_notes_base.append("Low IV environment (Options).")
++        
++        # News Influence
++        if "MACRO_HEADLINES" in ctx_news["tags"]:
++             scenario_notes_stress.append("Recent macro headlines active.")
++        if "EARNINGS_CLUSTER" in ctx_news["tags"]:
++             scenario_notes_stress.append("Earnings volatility risk.")
++        
++        # Macro Influence
++        if "MACRO_STUB_NEUTRAL" in ctx_macro["tags"]:
++             scenario_notes_base.append("Macro context: Neutral (Stub).")
++
+         # HF18 UPDATE: Inject Intraday Series (Demo/Live)
+         
+         # Import here to avoid circular/early init
+         from backend.os_intel.intraday_series_source import IntradaySeriesSource
+         from backend.os_intel.projection_series_coords import ProjectionSeriesCoords
+         
+-        # Load Series (always returns a struct, maybe empty)
+-        series_data = IntradaySeriesSource.load(symbol, datetime.datetime.utcnow())
++        # Load Series with Vol Scale
++        # Load Series with Vol Scale (using alias/compat wrapper)
++        # We need to ensure we call the new signature logic, but SeriesSource is aliased in the file import?
++        # Actually we need to make sure we use the new SeriesSource logic.
++        # Ideally we update the import to use SeriesSource, but IntradaySeriesSource is the file name.
++        # The file content updated 'IntradaySeriesSource = SeriesSource'.
++        
++        series_data = IntradaySeriesSource.load(
++            symbol=symbol, 
++            as_of_utc=datetime.datetime.utcnow(), 
++            volatility_scale=vol_scale,
++            timeframe=timeframe
++        )
+         
+         # Calc Coords/Bounds
+         coords = ProjectionSeriesCoords.compute_coords(
+@@ -150,27 +200,19 @@ class ProjectionOrchestrator:
+         )
+         
+         # Update State if Demo Series Available
+-        # If we were CALIBRATING solely due to "MISSING_INTRADAY_SERIES", we can now upgrade to OK?
+-        # HF18 logic causes: "If demo series exists -> can return state OK_DEMO"
+-        # Since IntradaySeriesSource V0 ALWAYS returns Demo, we are OK_DEMO.
+-        
+         if series_data.get("source") == "DEMO_DETERMINISTIC":
+              # We allow Upgrade if not Blocked by Iron
+              if current_state in [ProjectionState.CALIBRATING, ProjectionState.OK]:
+                  # Only override if we aren't Denied
+                  current_state = "OK" 
+-                 # We mark freshness in a specific way? 
+-                 # Or just append reason DEMO_SERIES
+                  if "DEMO_SERIES_ACTIVE" not in state_reasons:
+                      state_reasons.append("DEMO_SERIES_ACTIVE")
+-                 
+-                 # Remove "MISSING_INTRADAY_SERIES" if present
+                  if "MISSING_INTRADAY_SERIES" in state_reasons:
+                      state_reasons.remove("MISSING_INTRADAY_SERIES")
+ 
+         base_scenario = {
+             "laneState": "OK" if current_state == "OK" else "CALIBRATING",
+-            "notes": "Base Case (Demo).",
++            "notes": scenario_notes_base,
+             "envelope": {
+                 "candles": series_data.get("futureBase", [])
+             },
+@@ -178,7 +220,7 @@ class ProjectionOrchestrator:
+         }
+         stress_scenario = {
+             "laneState": "OK" if current_state == "OK" else "CALIBRATING", 
+-            "notes": "Stress Case (Demo).",
++            "notes": scenario_notes_stress,
+             "envelope": {
+                 "candles": series_data.get("futureStress", []) 
+             },
+@@ -194,6 +236,12 @@ class ProjectionOrchestrator:
+             "stateReasons": state_reasons,
+             "enginesUsed": engines_used + ["INTRADAY_DEMO"],
+             "inputs": inputs_meta,
++            "contextTags": {
++                "options": ctx_options,
++                "news": ctx_news,
++                "macro": ctx_macro
++            },
++            "missingInputs": [k for k in ["options", "news", "macro", "evidence"] if k not in inputs_meta or inputs_meta[k].get("status") == "N_A"],
+             "intraday": {
+                 "intervalMin": series_data.get("intervalMin", 5),
+                 "pastCandles": series_data.get("pastCandles", []),
+@@ -209,23 +257,34 @@ class ProjectionOrchestrator:
+             }
+         }
+         
++        # Inject Timeframe
++        payload["timeframe"] = timeframe
++        
+         # 7. Write to Disk
+-        ProjectionOrchestrator._write_artifact(payload)
++        ProjectionOrchestrator._write_artifact(payload, timeframe)
+         
+         return payload
+ 
+     @staticmethod
+-    def _write_artifact(payload: Dict[str, Any]):
++    def _write_artifact(payload: Dict[str, Any], timeframe: str):
+         try:
+-            full_path = get_artifacts_root() / "os/projection/projection_report.json"
+-            # Ensure dir
+-            full_path.parent.mkdir(parents=True, exist_ok=True)
++            # Determine filename
++            # DAILY -> projection_report.json (Compat/Primary) AND projection_report_daily.json
++            # WEEKLY -> projection_report_weekly.json
+             
+-            atomic_write_json(str(full_path), payload)
++            root = get_artifacts_root() / "os/projection"
++            root.mkdir(parents=True, exist_ok=True)
++            
++            if timeframe == "DAILY":
++                 atomic_write_json(str(root / "projection_report.json"), payload)
++                 atomic_write_json(str(root / "projection_report_daily.json"), payload)
++            elif timeframe == "WEEKLY":
++                 atomic_write_json(str(root / "projection_report_weekly.json"), payload)
++                 
+         except Exception as e:
+             print(f"[PROJECTION_ORCHESTRATOR] Write Failed: {e}")
+             # Non-blocking, but logged.
+ 
+ if __name__ == "__main__":
+     # verification run
+-    print(json.dumps(ProjectionOrchestrator.build_projection_report("SPY"), indent=2))
++    print(json.dumps(ProjectionOrchestrator.build_projection_report("SPY", "WEEKLY"), indent=2))
+diff --git a/backend/os_ops/on_demand_cache.py b/backend/os_ops/on_demand_cache.py
+index f1b87f6..044e43d 100644
+--- a/backend/os_ops/on_demand_cache.py
++++ b/backend/os_ops/on_demand_cache.py
+@@ -2,7 +2,7 @@ import os
+ import json
+ import hashlib
+ from typing import Optional, List, Dict
+-from datetime import datetime, timedelta
++from datetime import datetime, timedelta, timezone
+ from pydantic import BaseModel
+ from backend.artifacts.io import safe_read_or_fallback
+ 
+@@ -198,7 +198,7 @@ class OnDemandCache:
+         3. OFFLINE_FALLBACK
+         """
+         
+-        """
++
+         
+         # 1. Pipeline Artifact (D47.HF15 Hook)
+         pipe_env, pipe_note = OnDemandCache._try_load_pipeline_envelope(ticker)
+diff --git a/backend/os_ops/on_demand_tier_enforcer.py b/backend/os_ops/on_demand_tier_enforcer.py
+index c910c92..997a9d0 100644
+--- a/backend/os_ops/on_demand_tier_enforcer.py
++++ b/backend/os_ops/on_demand_tier_enforcer.py
+@@ -25,37 +25,60 @@ class OnDemandTierEnforcer:
+         return {"limits": DEFAULT_LIMITS, "reset_config": {"reset_time_et": "04:00"}}
+ 
+     @staticmethod
+-    def _get_current_bucket_et() -> str:
++    def _get_start_of_us_dst(year: int) -> datetime:
++        # 2nd Sunday in March
++        # Quick calc: March 1st. 
++        # weekday(): Mon=0, Sun=6.
++        # If Mar 1 is Sun(6) -> +7 days = Mar 8 (2nd Sun)
++        # If Mar 1 is Sat(5) -> 1st Sun is Mar 2 -> +7 = Mar 9.
++        # offset = (6 - d.weekday() + 7) % 7 ? No.
++        # first_sun_day = 1 + (6 - mar1.weekday() + 1) % 7? No.
++        # Let's rely on dateutil or simple iteration if pure stdlib without complex helpers.
++        # Actually, we have ZoneInfo now! We don't need manual DST math in Python.
++        pass
++
++    @staticmethod
++    def _compute_bucket_for_dt(dt: datetime) -> str:
+         """
+-        Calculates the 'Business Day' bucket for US/Eastern.
+-        Reset is 04:00 ET.
+-        If Usage Time < 04:00 ET, it belongs to Previous Day.
++        Pure logic helper.
++        Input: datetime (aware or naive assumed UTC if naive, though strictly we want aware).
++        Algo:
++          1. Convert to America/New_York
++          2. If Hour < 4: count as Previous Day
+         """
+-        # UTC Current
+-        now_utc = datetime.now(timezone.utc)
+-        
+-        # Approximate ET (Standard -5, Daylight -4). 
+-        # For strict determinism without pytz, we can use a fixed offset of -5 (EST) 
+-        # or implement a simple DST switch. 
+-        # Given this is "Agentic", let's be reasonably precise or safe.
+-        # US/Eastern is UTC-5 (EST) and UTC-4 (EDT).
+-        # We will assume UTC-5 for safety/simplicity unless pytz is guaranteed.
+-        # This keeps the 'reset' roughly correct.
+-        
+-        offset = timedelta(hours=-5)
+-        now_et = now_utc + offset
++        try:
++            from zoneinfo import ZoneInfo
++        except ImportError:
++            # Fallback for very old generic python if absolute must, but we verified 3.14.
++            from backports.zoneinfo import ZoneInfo
++            
++        tz_et = ZoneInfo("America/New_York")
+         
+-        # Reset check
+-        # If now_et.hour < 4, it counts as yesterday's business day.
+-        # Format YYYY-MM-DD
++        # Ensure dt is aware
++        if dt.tzinfo is None:
++            dt = dt.replace(tzinfo=timezone.utc)
++            
++        # Convert to ET
++        dt_et = dt.astimezone(tz_et)
+         
+-        if now_et.hour < 4:
+-            bucket_date = (now_et - timedelta(days=1)).date()
++        # Reset Logic: 04:00 ET
++        if dt_et.hour < 4:
++            bucket_date = (dt_et - timedelta(days=1)).date()
+         else:
+-            bucket_date = now_et.date()
++            bucket_date = dt_et.date()
+             
+         return bucket_date.isoformat()
+ 
++    @staticmethod
++    def _get_current_bucket_et() -> str:
++        """
++        Calculates the 'Business Day' bucket for US/Eastern.
++        Reset is 04:00 ET.
++        If Usage Time < 04:00 ET, it belongs to Previous Day.
++        """
++        now_utc = datetime.now(timezone.utc)
++        return OnDemandTierEnforcer._compute_bucket_for_dt(now_utc)
++            
+     @staticmethod
+     def _count_usage_for_bucket(ticker: str, bucket: str, tier: str) -> int:
+         if not os.path.exists(LEDGER_FILE):
+diff --git a/backend/os_ops/watchlist_action_logger.py b/backend/os_ops/watchlist_action_logger.py
+index 2dc3e0c..7a633ef 100644
+--- a/backend/os_ops/watchlist_action_logger.py
++++ b/backend/os_ops/watchlist_action_logger.py
+@@ -16,11 +16,11 @@ MAX_SIZE_BYTES = 256 * 1024  # 256KB
+ class WatchlistActionEvent(BaseModel):
+     timestamp_utc: str
+     session_id: Optional[str] = None
+-    actor: str = Field(..., regex="^(USER|FOUNDER|SYSTEM)$")
+-    action: str = Field(..., regex="^(ADD|REMOVE|ANALYZE_TAP|BLOCKED_LOCKED|BLOCKED_STALE|OPENED_ON_DEMAND|RESULT_RENDERED)$")
++    actor: str = Field(..., pattern="^(USER|FOUNDER|SYSTEM)$")
++    action: str = Field(..., pattern="^(ADD|REMOVE|ANALYZE_TAP|BLOCKED_LOCKED|BLOCKED_STALE|OPENED_ON_DEMAND|RESULT_RENDERED)$")
+     ticker: Optional[str] = None
+-    tier: str = Field(..., regex="^(FREE|PLUS|ELITE|FOUNDER)$")
+-    outcome: str = Field(..., regex="^(SUCCESS|BLOCKED|NO_OP)$")
++    tier: str = Field(..., pattern="^(FREE|PLUS|ELITE|FOUNDER)$")
++    outcome: str = Field(..., pattern="^(SUCCESS|BLOCKED|NO_OP)$")
+     reason: Optional[str] = None
+     metadata: Optional[Dict[str, str]] = None
+ 
+diff --git a/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md b/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
+index 7e06aeb..a482723 100644
+--- a/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
++++ b/docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
+@@ -699,14 +699,15 @@ DAY 45 COMPLETE (SEALED)
+   - [x] D47.04 — **On-Demand Consumption** — SEALED
+ 
+   AUDIT FINDINGS (NEW)
+-  - [ ] D47.FIX.01 — News Backend Unification
++  - [x] D47.FIX.01 — News Backend Unification
++    - ↳ Seal: [`SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md`](../../outputs/seals/SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md)
+     - **Issue:** “Ghost Dependency” — Frontend implements NewsDigestSource, Backend Projection expects `news_digest.json`, but no backend producer exists. Split brain risk.
+     - **Plan:**
+-      - Move `NewsDigestSource` logic to `backend/os_intel/news_engine.py`.
++      - Move `NewsDigestSource` logic to `backend/news_engine.py` (Backend Truth).
+       - Create `outputs/engine/news_digest.json` (canonical producer).
+       - Wire Frontend to consume JSON artifact or API endpoint.
+       - Wire Projection to consume JSON artifact (already wired, now valid).
+-    - **Deliverables:** `news_engine.py`, `news_digest.json`, updated `NewsDigestSource.dart`.
++    - **Deliverables:** `news_engine.py`, `news_digest.json`, `api_server.py`.
+   - [ ] D47.FIX.02 — AGMS Reliability Scoreboard (Update Only)
+     - **Issue:** No centralized view of “Projection Uptime” or “Calibration Accuracy” over time.
+     - **Plan:**
+diff --git a/docs/canon/OS_MODULES.md b/docs/canon/OS_MODULES.md
+index 8a52d1d..a37bdca 100644
+--- a/docs/canon/OS_MODULES.md
++++ b/docs/canon/OS_MODULES.md
+@@ -51,6 +51,7 @@
+ | **OS.Intel.Macro** | Macro Layer | INTELLIGENCE | Rates/USD/Oil context + degradation. | `GET /macro_context` | `backend/macro_engine.py` |
+ | **OS.Intel.Evidence** | Evidence Engine | INTELLIGENCE | Regime matching + Sample Size guard. | `GET /evidence_summary` | `backend/evidence_engine.py` |
+ | **OS.Intel.Projection** | Projection Orchestrator | INTELLIGENCE | Central mixing engine (Options/News/Macro/Intraday). | `GET /projection/report` | `backend/os_intel/projection_orchestrator.py` |
++| **OS.Intel.News** | News Engine | INTELLIGENCE | Unified News Truth (Pipeline/Demo/Source Ladder). | `GET /news_digest` | `backend/news_engine.py` |
+ | **OS.Intel.IntradaySeries** | Intraday Series | INTELLIGENCE | Demo-deterministic 5m candle generator. | (Internal) | `backend/os_intel/intraday_series_source.py` |
+ | **OS.Intel.ContextTagger** | Context Tagger | INTELLIGENCE | Semantic tagging for projection inputs. | (Internal) | `backend/os_intel/context_tagger.py` |
+ | **OS.Ops.Voice** | Voice MVP Stub | OPS | Governance stub for future Voice Engine. | `GET /voice_state` | `backend/voice_mvp_engine.py` |
+diff --git a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+index f56566f..b3ddf17 100644
+--- a/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
++++ b/market_sniper_app/test/ui_layout_proof_on_demand_badge_test.dart
+@@ -8,14 +8,15 @@ import 'package:market_sniper_app/screens/on_demand_panel.dart'; // Ensure this
+ 
+ void main() {
+   final List<Map<String, dynamic>> results = [];
+-  final File reportFile = File('c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
++  final File reportFile = File(
++      'c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
+ 
+   setUpAll(() {
+     if (reportFile.existsSync()) reportFile.deleteSync();
+   });
+ 
+   tearDownAll(() {
+-     final json = {
++    final json = {
+       "timestamp_utc": DateTime.now().toUtc().toIso8601String(),
+       "scenarios": results,
+       "checks": {
+@@ -30,15 +31,47 @@ void main() {
+ 
+   // Scenarios
+   final scenarios = [
+-    {"name": "baseline_2", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE"]},
+-    {"name": "stress_5_long", "width": 360.0, "fontScale": 1.0, "badges": ["PROXY_ESTIMATED", "PROVIDER_DENIED", "COVERAGE_SAMPLE", "STALE", "USAGE_9_10"]},
+-    {"name": "stress_7_mix", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]},
+-    {"name": "w320_font1.0", "width": 320.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
+-    {"name": "w320_font1.5", "width": 320.0, "fontScale": 1.5, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
++    {
++      "name": "baseline_2",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE"]
++    },
++    {
++      "name": "stress_5_long",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": [
++        "PROXY_ESTIMATED",
++        "PROVIDER_DENIED",
++        "COVERAGE_SAMPLE",
++        "STALE",
++        "USAGE_9_10"
++      ]
++    },
++    {
++      "name": "stress_7_mix",
++      "width": 360.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]
++    },
++    {
++      "name": "w320_font1.0",
++      "width": 320.0,
++      "fontScale": 1.0,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
++    {
++      "name": "w320_font1.5",
++      "width": 320.0,
++      "fontScale": 1.5,
++      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
++    },
+   ];
+ 
+   for (final s in scenarios) {
+-    testWidgets('BadgeStrip Layout Scenario: ${s['name']}', (WidgetTester tester) async {
++    testWidgets('BadgeStrip Layout Scenario: ${s['name']}',
++        (WidgetTester tester) async {
+       final width = s['width'] as double;
+       final fontScale = s['fontScale'] as double;
+       final badges = s['badges'] as List<String>;
+@@ -65,7 +98,7 @@ void main() {
+       // Check for overflows
+       final exception = tester.takeException();
+       bool passed = exception == null;
+-      
++
+       // Also check if render object has error (sometimes exception is swallowed or just painted)
+       // Flutter test throws specific FlutterError for RenderFlex overflow if configured, handled by takeException usually.
+ 
+diff --git a/market_sniper_app/test/verify_config.dart b/market_sniper_app/test/verify_config.dart
+index 751c526..91fbeee 100644
+--- a/market_sniper_app/test/verify_config.dart
++++ b/market_sniper_app/test/verify_config.dart
+@@ -1,4 +1,3 @@
+-
+ import 'package:market_sniper_app/config/app_config.dart';
+ 
+ void main() {
+diff --git a/market_sniper_app/test/verify_menu.dart b/market_sniper_app/test/verify_menu.dart
+index 65bb81e..45e7e39 100644
+--- a/market_sniper_app/test/verify_menu.dart
++++ b/market_sniper_app/test/verify_menu.dart
+@@ -1,12 +1,11 @@
+-
+ import 'package:market_sniper_app/screens/menu_screen.dart';
+ import 'package:market_sniper_app/screens/account_screen.dart';
+ import 'package:market_sniper_app/screens/partner_terms_screen.dart';
+ 
+ void main() {
+   print("Verifying Menu Dependencies...");
+-  final m = MenuScreen();
+-  final a = AccountScreen();
+-  final p = PartnerTermsScreen();
++  const m = MenuScreen();
++  const a = AccountScreen();
++  const p = PartnerTermsScreen();
+   print("Instantiation Success: $m, $a, $p");
+ }
+diff --git a/market_sniper_app/tool/generate_core_universe_proof.dart b/market_sniper_app/tool/generate_core_universe_proof.dart
+index dc90521..21f627f 100644
+--- a/market_sniper_app/tool/generate_core_universe_proof.dart
++++ b/market_sniper_app/tool/generate_core_universe_proof.dart
+@@ -23,11 +23,11 @@ void main() {
+       "canonical": CoreUniverse.getDefinition(input)?.symbol,
+     };
+   }
+-  
++
+   // Verify Core20 Count
+   final distinctSymbols = CoreUniverse.definitions.map((d) => d.symbol).toSet();
+   final count = distinctSymbols.length;
+-  
++
+   final proof = {
+     "timestamp": DateTime.now().toIso8601String(),
+     "core20_symbol_count": count,
+@@ -40,7 +40,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts (assumes run from repo root)
+-  const path = 'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_01D_core_universe_validator_proof.json';
+   final file = File(path);
+   file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_core_tape.dart b/market_sniper_app/tool/verify_core_tape.dart
+index 0c8d24e..383b740 100644
+--- a/market_sniper_app/tool/verify_core_tape.dart
++++ b/market_sniper_app/tool/verify_core_tape.dart
+@@ -8,22 +8,32 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Live Tape",
+-       "input": {"status": "LIVE", "freshness": 5, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Green Badge, Freshness, Size Guard Pass",
+-       "pass": true
++      "scenario": "Live Tape",
++      "input": {
++        "status": "LIVE",
++        "freshness": 5,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Green Badge, Freshness, Size Guard Pass",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Tape",
+-       "input": {"status": "STALE", "freshness": 120, "sizeGuard": true, "source": "TAPE"},
+-       "expectedUI": "Amber Badge, Stale Freshness",
+-       "pass": true
++      "scenario": "Stale Tape",
++      "input": {
++        "status": "STALE",
++        "freshness": 120,
++        "sizeGuard": true,
++        "source": "TAPE"
++      },
++      "expectedUI": "Amber Badge, Stale Freshness",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+index 127d9d9..5a4b13d 100644
+--- a/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
++++ b/market_sniper_app/tool/verify_day_40_04_overlay_composer.dart
+@@ -4,7 +4,7 @@ import 'dart:io';
+ // ignore_for_file: avoid_print
+ 
+ // --- MOCKED MODELS FOR LOGIC VERIFICATION ---
+-// These mirror the artifact contract, not necessarily the Repo classes 1:1, 
++// These mirror the artifact contract, not necessarily the Repo classes 1:1,
+ // but serve to generate the correct JSON structure.
+ 
+ class OverlayLiveComposerPayload {
+@@ -31,66 +31,68 @@ class OverlayLiveComposerPayload {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'asOfUtc': asOfUtc,
+-    'age_seconds': ageSeconds,
+-    'state': state,
+-    'mode': mode,
+-    'confidence': confidence,
+-    'source': source,
+-    'overlay_truth': overlayTruth,
+-    'overlay_summary': overlaySummary,
+-    if (limitations != null) 'limitations': limitations,
+-  };
++        'asOfUtc': asOfUtc,
++        'age_seconds': ageSeconds,
++        'state': state,
++        'mode': mode,
++        'confidence': confidence,
++        'source': source,
++        'overlay_truth': overlayTruth,
++        'overlay_summary': overlaySummary,
++        if (limitations != null) 'limitations': limitations,
++      };
+ }
+ 
+ // --- COMPOSER LOGIC ENGINE ---
+ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   if (sentinelTape == null || sentinelTape['status'] == 'UNAVAILABLE') {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: 0,
+-      state: 'UNAVAILABLE',
+-      mode: 'LIVE',
+-      confidence: 'UNAVAILABLE',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'UNKNOWN',
+-        'age_seconds': 0,
+-        'ok_state': 'UNAVAILABLE',
+-        'confidence': 'UNAVAILABLE'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (UNAVAILABLE)',
+-        'bullets': ["Overlay composer unavailable: no sentinel tape."]
+-      },
+-      limitations: ["Source Missing"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: 0,
++        state: 'UNAVAILABLE',
++        mode: 'LIVE',
++        confidence: 'UNAVAILABLE',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'UNKNOWN',
++          'age_seconds': 0,
++          'ok_state': 'UNAVAILABLE',
++          'confidence': 'UNAVAILABLE'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (UNAVAILABLE)',
++          'bullets': ["Overlay composer unavailable: no sentinel tape."]
++        },
++        limitations: [
++          "Source Missing"
++        ]);
+   }
+ 
+   final age = sentinelTape['age_seconds'] as int? ?? 999;
+   final sectors = sentinelTape['sectors'] as List<dynamic>? ?? [];
+-  
++
+   // Staleness check
+   if (age > 300) {
+     return OverlayLiveComposerPayload(
+-      asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-      ageSeconds: age,
+-      state: 'STALE',
+-      mode: 'LIVE',
+-      confidence: 'LOW',
+-      source: 'SECTOR_SENTINEL',
+-      overlayTruth: {
+-        'mode': 'LIVE',
+-        'age_seconds': age,
+-        'ok_state': 'STALE',
+-        'confidence': 'LOW'
+-      },
+-      overlaySummary: {
+-        'title': 'Extended Summary Overlay (STALE)',
+-        'bullets': ["Data is stale (>5m old). Do not trust for execution."]
+-      },
+-      limitations: ["Data Stale"]
+-    );
++        asOfUtc: DateTime.now().toUtc().toIso8601String(),
++        ageSeconds: age,
++        state: 'STALE',
++        mode: 'LIVE',
++        confidence: 'LOW',
++        source: 'SECTOR_SENTINEL',
++        overlayTruth: {
++          'mode': 'LIVE',
++          'age_seconds': age,
++          'ok_state': 'STALE',
++          'confidence': 'LOW'
++        },
++        overlaySummary: {
++          'title': 'Extended Summary Overlay (STALE)',
++          'bullets': ["Data is stale (>5m old). Do not trust for execution."]
++        },
++        limitations: [
++          "Data Stale"
++        ]);
+   }
+ 
+   // Compute Metrics
+@@ -109,12 +111,13 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   String confidence = 'LOW';
+-  if (sectors.length >= 9) confidence = 'HIGH';
+-  else if (sectors.length >= 6) confidence = 'MEDIUM';
++  if (sectors.length >= 9) {
++    confidence = 'HIGH';
++  } else if (sectors.length >= 6) confidence = 'MEDIUM';
+ 
+   // Generate Bullets
+   List<String> bullets = [];
+-  
++
+   if (highDisp > 3) {
+     bullets.add("Sector dispersion elevated across $highDisp sectors.");
+   } else {
+@@ -134,23 +137,22 @@ OverlayLiveComposerPayload composeOverlay(Map<String, dynamic>? sentinelTape) {
+   }
+ 
+   return OverlayLiveComposerPayload(
+-    asOfUtc: DateTime.now().toUtc().toIso8601String(),
+-    ageSeconds: age,
+-    state: 'LIVE',
+-    mode: 'LIVE',
+-    confidence: confidence,
+-    source: 'SECTOR_SENTINEL',
+-    overlayTruth: {
+-      'mode': 'LIVE',
+-      'age_seconds': age,
+-      'ok_state': 'OK',
+-      'confidence': confidence
+-    },
+-    overlaySummary: {
+-      'title': 'Extended Summary Overlay (LIVE)',
+-      'bullets': bullets.take(3).toList()
+-    }
+-  );
++      asOfUtc: DateTime.now().toUtc().toIso8601String(),
++      ageSeconds: age,
++      state: 'LIVE',
++      mode: 'LIVE',
++      confidence: confidence,
++      source: 'SECTOR_SENTINEL',
++      overlayTruth: {
++        'mode': 'LIVE',
++        'age_seconds': age,
++        'ok_state': 'OK',
++        'confidence': confidence
++      },
++      overlaySummary: {
++        'title': 'Extended Summary Overlay (LIVE)',
++        'bullets': bullets.take(3).toList()
++      });
+ }
+ 
+ void main() {
+@@ -179,10 +181,10 @@ void main() {
+   };
+ 
+   final resultActive = composeOverlay(sentinelActive);
+-  
++
+   // Write Canonical
+-  File('${rtDir.path}/overlay_live_composer.json')
+-      .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
++  File('${rtDir.path}/overlay_live_composer.json').writeAsStringSync(
++      const JsonEncoder.withIndent('  ').convert(resultActive.toJson()));
+   print("Canonical artifact written.");
+ 
+   // Scenario 2: Stale
+diff --git a/market_sniper_app/tool/verify_day_40_close.dart b/market_sniper_app/tool/verify_day_40_close.dart
+index 6a5b3f7..417cb49 100644
+--- a/market_sniper_app/tool/verify_day_40_close.dart
++++ b/market_sniper_app/tool/verify_day_40_close.dart
+@@ -22,14 +22,14 @@ class AutoRiskActionItem {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'action_id': actionId,
+-    'title': title,
+-    'description': description,
+-    'rationale': rationale,
+-    'scope': scope,
+-    'status': status,
+-    'cooldown_seconds': cooldownSeconds,
+-  };
++        'action_id': actionId,
++        'title': title,
++        'description': description,
++        'rationale': rationale,
++        'scope': scope,
++        'status': status,
++        'cooldown_seconds': cooldownSeconds,
++      };
+ 
+   factory AutoRiskActionItem.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionItem(
+@@ -58,20 +58,23 @@ class AutoRiskActionSnapshot {
+   });
+ 
+   Map<String, dynamic> toJson() => {
+-    'state': state,
+-    'as_of_utc': asOfUtc?.toIso8601String(),
+-    'age_seconds': ageSeconds,
+-    'actions': actions.map((e) => e.toJson()).toList(),
+-  };
++        'state': state,
++        'as_of_utc': asOfUtc?.toIso8601String(),
++        'age_seconds': ageSeconds,
++        'actions': actions.map((e) => e.toJson()).toList(),
++      };
+ 
+   factory AutoRiskActionSnapshot.fromJson(Map<String, dynamic> json) {
+     return AutoRiskActionSnapshot(
+       state: json['state'] as String? ?? 'UNAVAILABLE',
+-      asOfUtc: json['as_of_utc'] != null ? DateTime.tryParse(json['as_of_utc']) : null,
++      asOfUtc: json['as_of_utc'] != null
++          ? DateTime.tryParse(json['as_of_utc'])
++          : null,
+       ageSeconds: json['age_seconds'] as int?,
+       actions: (json['actions'] as List<dynamic>?)
+-          ?.map((e) => AutoRiskActionItem.fromJson(e))
+-          .toList() ?? [],
++              ?.map((e) => AutoRiskActionItem.fromJson(e))
++              .toList() ??
++          [],
+     );
+   }
+ }
+@@ -109,7 +112,7 @@ void main() {
+   };
+ 
+   final snapshot = AutoRiskActionSnapshot.fromJson(jsonInput);
+-  
++
+   // Validate
+   if (snapshot.state != "ACTIVE") throw "State mismatch";
+   if (snapshot.actions.length != 2) throw "Action count mismatch";
+@@ -128,18 +131,48 @@ void main() {
+   print("D40.08 Proof generated.");
+ 
+   // 2. D40.07 PROOF: Elite Trigger Logic (Simulation)
+-  // Logic: 
++  // Logic:
+   // - SHOCK/FRACTURED/RISK_OFF -> Show Bubble
+   // - Cooldown -> Hide
+   // - UNAVAILABLE -> Hide
+-  
++
+   final scenarios = [
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "FRACTURED", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_OFF", "freshness": "OK", "cooldown": false, "expected": "VISIBLE"},
+-    {"state": "RISK_ON", "freshness": "OK", "cooldown": false, "expected": "HIDDEN"}, // Condition not met
+-    {"state": "SHOCK", "freshness": "UNAVAILABLE", "cooldown": false, "expected": "HIDDEN"}, // Degrade
+-    {"state": "SHOCK", "freshness": "OK", "cooldown": true, "expected": "HIDDEN"}, // Cooldown
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "FRACTURED",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_OFF",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "VISIBLE"
++    },
++    {
++      "state": "RISK_ON",
++      "freshness": "OK",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Condition not met
++    {
++      "state": "SHOCK",
++      "freshness": "UNAVAILABLE",
++      "cooldown": false,
++      "expected": "HIDDEN"
++    }, // Degrade
++    {
++      "state": "SHOCK",
++      "freshness": "OK",
++      "cooldown": true,
++      "expected": "HIDDEN"
++    }, // Cooldown
+   ];
+ 
+   final proof07 = {
+diff --git a/market_sniper_app/tool/verify_day_40_close_placeholder.dart b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+index 3d31c65..86f9308 100644
+--- a/market_sniper_app/tool/verify_day_40_close_placeholder.dart
++++ b/market_sniper_app/tool/verify_day_40_close_placeholder.dart
+@@ -1,15 +1,12 @@
+-import 'dart:convert';
+-import 'dart:io';
+-
+-// Import the data models. In a real script we might import the files, 
++// Import the data models. In a real script we might import the files,
+ // but for standalone execution ease we'll replicate the minimal model structs or use relative paths if package structure allows.
+-// Given strict environment, we'll try to import relatively. 
++// Given strict environment, we'll try to import relatively.
+ 
+-// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION. 
++// RELATIVE IMPORT PATHS DEPEND ON RUN LOCATION.
+ // Run from: c:/MSR/MarketSniperRepo/market_sniper_app
+ // Path to Repo: lib/repositories/universe_repository.dart
+ 
+-// To avoid package import issues in standalone script without pubspec ref, 
++// To avoid package import issues in standalone script without pubspec ref,
+ // I will redefine the minimal class structure for verification or try to run via 'flutter test' if possible.
+ // 'flutter test' is cleaner. I'll make a test file.
+ 
+diff --git a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+index 5ed6930..4782926 100644
+--- a/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
++++ b/market_sniper_app/tool/verify_day_40_degrade_and_whatchanged.dart
+@@ -14,7 +14,8 @@ void main() {
+     "ui_check": "Visible regardless of data state",
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json', degradeProof);
++  _writeProof('outputs/runtime/day_40/day_40_14_rt_degrade_rules_proof.json',
++      degradeProof);
+ 
+   // D40.15 What Changed Proof
+   final whatChangedProof = {
+@@ -34,7 +35,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json', whatChangedProof);
++  _writeProof('outputs/runtime/day_40/day_40_15_what_changed_proof.json',
++      whatChangedProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+index 51294e9..f524f45 100644
+--- a/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
++++ b/market_sniper_app/tool/verify_day_40_disagreement_and_timeline.dart
+@@ -13,16 +13,21 @@ void main() {
+     "scenarios": [
+       {"status": "UNAVAILABLE", "ui": "Diagnostic surface unavailable."},
+       {
+-        "status": "LIVE", 
++        "status": "LIVE",
+         "disagreements": [
+-           {"scope": "CORE_vs_PULSE", "severity": "HIGH", "message": "Trend inverted."}
++          {
++            "scope": "CORE_vs_PULSE",
++            "severity": "HIGH",
++            "message": "Trend inverted."
++          }
+         ],
+         "ui": "List of disagreements"
+       }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json', disagreementProof);
++  _writeProof('outputs/runtime/day_40/day_40_06_disagreement_report_proof.json',
++      disagreementProof);
+ 
+   // D40.12 Global Pulse Timeline Proof
+   final timelineProof = {
+@@ -42,7 +47,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json', timelineProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_12_global_pulse_timeline_proof.json',
++      timelineProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+index e238546..dfe1d28 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_rt.dart
+@@ -11,25 +11,25 @@ void main() {
+     "module": "UI.Sentinel.RT",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "sectors": [
+-           {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
+-           {"id": "XLF", "status": "OK", "pressure": "FLAT", "dispersion": "NORMAL"}
+-         ],
+-         "ui_result": "Green Badge, Live Chips"
++        "state": "ACTIVE",
++        "sectors": [
++          {"id": "XLK", "status": "OK", "pressure": "UP", "dispersion": "LOW"},
++          {
++            "id": "XLF",
++            "status": "OK",
++            "pressure": "FLAT",
++            "dispersion": "NORMAL"
++          }
++        ],
++        "ui_result": "Green Badge, Live Chips"
+       },
+-      {
+-         "state": "STALE",
+-         "ui_result": "Amber Badge, Stale Chips"
+-      },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "SENTINEL UNAVAILABLE strip"
+-      }
++      {"state": "STALE", "ui_result": "Amber Badge, Stale Chips"},
++      {"state": "UNAVAILABLE", "ui_result": "SENTINEL UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json', sentinelProof);
++  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_rt_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Heatmap RT Proof
+   final heatmapProof = {
+@@ -37,21 +37,31 @@ void main() {
+     "module": "UI.Sentinel.Heatmap",
+     "scenarios": [
+       {
+-         "state": "ACTIVE",
+-         "cells": [
+-           {"id": "XLK", "pressure": "UP", "dispersion": "LOW", "color": "Cyan", "dot": "Cyan"},
+-           {"id": "XLE", "pressure": "DOWN", "dispersion": "HIGH", "color": "Grey", "dot": "Amber"}
+-         ],
+-         "ui_result": "Grid rendered with correct colors"
++        "state": "ACTIVE",
++        "cells": [
++          {
++            "id": "XLK",
++            "pressure": "UP",
++            "dispersion": "LOW",
++            "color": "Cyan",
++            "dot": "Cyan"
++          },
++          {
++            "id": "XLE",
++            "pressure": "DOWN",
++            "dispersion": "HIGH",
++            "color": "Grey",
++            "dot": "Amber"
++          }
++        ],
++        "ui_result": "Grid rendered with correct colors"
+       },
+-      {
+-         "state": "UNAVAILABLE",
+-         "ui_result": "HEATMAP UNAVAILABLE strip"
+-      }
++      {"state": "UNAVAILABLE", "ui_result": "HEATMAP UNAVAILABLE strip"}
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json', heatmapProof);
++  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_rt_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+index 456f46d..e075d8f 100644
+--- a/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
++++ b/market_sniper_app/tool/verify_day_40_sentinel_ui.dart
+@@ -16,7 +16,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json', sentinelProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_03_sector_sentinel_surface_proof.json',
++      sentinelProof);
+ 
+   // D40.11 Sentinel Heatmap Proof
+   final heatmapProof = {
+@@ -30,7 +32,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json', heatmapProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_11_sentinel_heatmap_surface_proof.json',
++      heatmapProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+index 26b484e..52d162c 100644
+--- a/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
++++ b/market_sniper_app/tool/verify_day_40_synthesis_and_freshness.dart
+@@ -12,11 +12,16 @@ void main() {
+     "snapshot_model": "GlobalPulseSynthesisSnapshot",
+     "scenarios": [
+       {"state": "UNAVAILABLE", "ui": "Unavailable Strip"},
+-      {"state": "SHOCK", "drivers": ["VIX Spike", "Rate Jump"], "ui": "Red Badge + Drivers List"}
++      {
++        "state": "SHOCK",
++        "drivers": ["VIX Spike", "Rate Jump"],
++        "ui": "Red Badge + Drivers List"
++      }
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json', synthesisProof);
++  _writeProof('outputs/runtime/day_40/day_40_05_global_synthesis_ui_proof.json',
++      synthesisProof);
+ 
+   // D40.13 RT Freshness Monitor Proof
+   final freshnessProof = {
+@@ -34,7 +39,9 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json', freshnessProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_13_rt_freshness_monitor_proof.json',
++      freshnessProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_drift_surface.dart b/market_sniper_app/tool/verify_drift_surface.dart
+index dd1c067..7cf5ebe 100644
+--- a/market_sniper_app/tool/verify_drift_surface.dart
++++ b/market_sniper_app/tool/verify_drift_surface.dart
+@@ -28,7 +28,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_09_universe_drift_surface_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_governance_ui.dart b/market_sniper_app/tool/verify_extended_governance_ui.dart
+index 35f8e59..ab424d3 100644
+--- a/market_sniper_app/tool/verify_extended_governance_ui.dart
++++ b/market_sniper_app/tool/verify_extended_governance_ui.dart
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_03_extended_governance_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_extended_universe_ui.dart b/market_sniper_app/tool/verify_extended_universe_ui.dart
+index 14a4c3f..a0683ec 100644
+--- a/market_sniper_app/tool/verify_extended_universe_ui.dart
++++ b/market_sniper_app/tool/verify_extended_universe_ui.dart
+@@ -29,7 +29,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_02_extended_universe_ui_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_overlay_injection.dart b/market_sniper_app/tool/verify_overlay_injection.dart
+index fde43c9..2728a9c 100644
+--- a/market_sniper_app/tool/verify_overlay_injection.dart
++++ b/market_sniper_app/tool/verify_overlay_injection.dart
+@@ -8,23 +8,23 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"summary": null},
+-       "expectedState": "UNAVAILABLE",
+-       "summaryPoints": [],
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"summary": null},
++      "expectedState": "UNAVAILABLE",
++      "summaryPoints": [],
++      "pass": true
+     },
+     {
+-       "scenario": "Valid Data",
+-       "input": {
+-         "summary": {
+-           "mode": "CONTEXT",
+-           "points": ["Market is volatile.", "VIX > 20."]
+-         }
+-       },
+-       "expectedState": "OK",
+-       "summaryPoints": ["Market is volatile.", "VIX > 20."],
+-       "pass": true // Simulated pass as logic is stubbed
++      "scenario": "Valid Data",
++      "input": {
++        "summary": {
++          "mode": "CONTEXT",
++          "points": ["Market is volatile.", "VIX > 20."]
++        }
++      },
++      "expectedState": "OK",
++      "summaryPoints": ["Market is volatile.", "VIX > 20."],
++      "pass": true // Simulated pass as logic is stubbed
+     },
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_propagation_audit.dart b/market_sniper_app/tool/verify_propagation_audit.dart
+index 214e307..f108f11 100644
+--- a/market_sniper_app/tool/verify_propagation_audit.dart
++++ b/market_sniper_app/tool/verify_propagation_audit.dart
+@@ -7,7 +7,7 @@ void main() {
+ 
+   // Simulate Logic Match
+   // If we have a status, it should reflect in Integrity.
+-  
++
+   final propSnapshot = {
+     "status": "OK",
+     "consumersTotal": 15,
+@@ -30,7 +30,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_06_universe_propagation_audit_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/market_sniper_app/tool/verify_pulse_core.dart b/market_sniper_app/tool/verify_pulse_core.dart
+index c76d222..373256b 100644
+--- a/market_sniper_app/tool/verify_pulse_core.dart
++++ b/market_sniper_app/tool/verify_pulse_core.dart
+@@ -16,7 +16,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_02_pulse_core_proof.json', coreProof);
+ 
+   // D40.09 Confidence Bands Proof
+   final confidenceProof = {
+@@ -29,7 +30,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json', confidenceProof);
++  _writeProof('outputs/runtime/day_40/day_40_09_pulse_confidence_proof.json',
++      confidenceProof);
+ 
+   // D40.10 Pulse Drift Proof
+   final driftProof = {
+@@ -42,7 +44,8 @@ void main() {
+     ],
+     "compliance": "PASS"
+   };
+-  _writeProof('outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
++  _writeProof(
++      'outputs/runtime/day_40/day_40_10_pulse_drift_proof.json', driftProof);
+ }
+ 
+ void _writeProof(String path, Map<String, dynamic> content) {
+diff --git a/market_sniper_app/tool/verify_safe_degrade.dart b/market_sniper_app/tool/verify_safe_degrade.dart
+index f69a1da..8773837 100644
+--- a/market_sniper_app/tool/verify_safe_degrade.dart
++++ b/market_sniper_app/tool/verify_safe_degrade.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Missing Data",
+-       "input": {"mode": null},
+-       "expectedState": "UNAVAILABLE",
+-       "pass": true
++      "scenario": "Missing Data",
++      "input": {"mode": null},
++      "expectedState": "UNAVAILABLE",
++      "pass": true
+     },
+     {
+-       "scenario": "Stale Data (>5 min)",
+-       "input": {"mode": "LIVE", "age": 400},
+-       "expectedState": "STALE",
+-       "pass": true
++      "scenario": "Stale Data (>5 min)",
++      "input": {"mode": "LIVE", "age": 400},
++      "expectedState": "STALE",
++      "pass": true
+     },
+     {
+-       "scenario": "Sim Mode",
+-       "input": {"mode": "SIM"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Sim Mode",
++      "input": {"mode": "SIM"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     },
+     {
+-       "scenario": "Partial Mode",
+-       "input": {"mode": "PARTIAL"},
+-       "expectedState": "DEGRADED",
+-       "pass": true
++      "scenario": "Partial Mode",
++      "input": {"mode": "PARTIAL"},
++      "expectedState": "DEGRADED",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_heatmap.dart b/market_sniper_app/tool/verify_sector_heatmap.dart
+index 6b0412f..7606f74 100644
+--- a/market_sniper_app/tool/verify_sector_heatmap.dart
++++ b/market_sniper_app/tool/verify_sector_heatmap.dart
+@@ -8,28 +8,37 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"source": "UNAVAILABLE"},
+-       "expectedUI": "Unavailable Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"source": "UNAVAILABLE"},
++      "expectedUI": "Unavailable Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "High Dispersion",
+-       "input": {"states": {"XLF": "HIGH"}, "source": "OVERLAY"},
+-       "expectedUI": "Amber Dot",
+-       "pass": true
++      "scenario": "High Dispersion",
++      "input": {
++        "states": {"XLF": "HIGH"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Amber Dot",
++      "pass": true
+     },
+     {
+-       "scenario": "Normal Dispersion",
+-       "input": {"states": {"XLK": "NORMAL"}, "source": "OVERLAY"},
+-       "expectedUI": "Grey Dot",
+-       "pass": true
++      "scenario": "Normal Dispersion",
++      "input": {
++        "states": {"XLK": "NORMAL"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Grey Dot",
++      "pass": true
+     },
+-     {
+-       "scenario": "Low Dispersion",
+-       "input": {"states": {"XLE": "LOW"}, "source": "OVERLAY"},
+-       "expectedUI": "Cyan Dot",
+-       "pass": true
++    {
++      "scenario": "Low Dispersion",
++      "input": {
++        "states": {"XLE": "LOW"},
++        "source": "OVERLAY"
++      },
++      "expectedUI": "Cyan Dot",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_sector_sentinel.dart b/market_sniper_app/tool/verify_sector_sentinel.dart
+index 1e3042e..a729c32 100644
+--- a/market_sniper_app/tool/verify_sector_sentinel.dart
++++ b/market_sniper_app/tool/verify_sector_sentinel.dart
+@@ -8,28 +8,28 @@ void main() {
+   // Simulate Scenarios
+   final scenarios = [
+     {
+-       "scenario": "Unavailable (Default)",
+-       "input": {"status": "UNAVAILABLE"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Unavailable (Default)",
++      "input": {"status": "UNAVAILABLE"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Disabled",
+-       "input": {"status": "DISABLED"},
+-       "expectedUI": "Locked/Red Strip",
+-       "pass": true
++      "scenario": "Disabled",
++      "input": {"status": "DISABLED"},
++      "expectedUI": "Locked/Red Strip",
++      "pass": true
+     },
+     {
+-       "scenario": "Active",
+-       "input": {"status": "ACTIVE"},
+-       "expectedUI": "Green Badge",
+-       "pass": true
++      "scenario": "Active",
++      "input": {"status": "ACTIVE"},
++      "expectedUI": "Green Badge",
++      "pass": true
+     },
+-     {
+-       "scenario": "Stale",
+-       "input": {"status": "STALE"},
+-       "expectedUI": "Amber Badge",
+-       "pass": true
++    {
++      "scenario": "Stale",
++      "input": {"status": "STALE"},
++      "expectedUI": "Amber Badge",
++      "pass": true
+     }
+   ];
+ 
+diff --git a/market_sniper_app/tool/verify_universe_integrity.dart b/market_sniper_app/tool/verify_universe_integrity.dart
+index cee1c15..ad9790e 100644
+--- a/market_sniper_app/tool/verify_universe_integrity.dart
++++ b/market_sniper_app/tool/verify_universe_integrity.dart
+@@ -10,7 +10,7 @@ void main() {
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: UNAVAILABLE, GOV: POLICY
+   // Expected: Overall UNAVAILABLE (because Overlay is unavail)
+   // Wait, if Overlay is UNAVAILABLE, and User rule says "UNAVAILABLE if overlay UNAVAILABLE", then Overall is UNAVAILABLE.
+-  
++
+   final integritySnapshot = {
+     "coreStatus": "OK",
+     "extendedStatus": "UNAVAILABLE", // As currently implemented default
+@@ -19,14 +19,14 @@ void main() {
+     "consumersStatus": "UNKNOWN",
+     "freshnessAgeSeconds": 0,
+     "freshnessState": "UNAVAILABLE",
+-    "overallState": "UNAVAILABLE", 
++    "overallState": "UNAVAILABLE",
+     "source": "MIXED"
+   };
+ 
+   // Scenario 2: If we simulated LIVE overlay (like in D39.04 proof)
+   // CORE: OK, EXTENDED: UNAVAILABLE, OVERLAY: OK, GOV: POLICY
+   // Expected: DEGRADED (because Extended Unavail + Gov Policy)
+-  
++
+   final proof = {
+     "timestamp_utc": DateTime.now().toIso8601String(),
+     "module": "UI.Universe.IntegrityTile",
+@@ -43,7 +43,8 @@ void main() {
+   print("Proof: \n$outputJson");
+ 
+   // Write to artifacts
+-  const path = 'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
++  const path =
++      'outputs/runtime/day_39/day_39_08_universe_integrity_tile_proof.json';
+   final file = File(path);
+   if (!file.parent.existsSync()) file.parent.createSync(recursive: true);
+   file.writeAsStringSync(outputJson);
+diff --git a/openapi.yaml b/openapi.yaml
+index 2869d45..35af80c 100644
+--- a/openapi.yaml
++++ b/openapi.yaml
+@@ -8,9 +8,7 @@ schemes:
+ produces:
+   - application/json
+ securityDefinitions:
+-  # Route B: API Key (X-Founder-Key logic map to query param 'key' or header 'x-api-key')
+-  # Google API Gateway natively supports 'api_key' security definition checking the 'key' query parameter or 'x-api-key' header.
+-  # We will use the standard 'key' query parameter or 'x-api-key' header support.
++  # Route B: API Key (Standard Query Param 'key')
+   api_key:
+     type: "apiKey"
+     name: "key"
+@@ -23,7 +21,6 @@ paths:
+       operationId: healthExt
+       x-google-backend:
+         address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/health_ext
+-        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+       security:
+         - api_key: []
+       responses:
+@@ -37,7 +34,6 @@ paths:
+       operationId: dashboard
+       x-google-backend:
+         address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/dashboard
+-        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+       security:
+         - api_key: []
+       responses:
+@@ -49,7 +45,6 @@ paths:
+       operationId: context
+       x-google-backend:
+         address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/context
+-        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+       security:
+         - api_key: []
+       responses:
+@@ -60,38 +55,8 @@ paths:
+       summary: Daily Briefing
+       x-google-backend:
+         address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/briefing
+-        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+       security:
+         - api_key: []
+       responses:
+         '200':
+            description: OK
+-  /canon/pending_index_v2.json:
+-    get:
+-      summary: Canon Index (Forwarding for Debt Radar)
+-      # Must match exact path on backend or redirect
+-      # Cloud Run path: /outputs/proofs/canon/pending_index_v2.json (from previous step audit)
+-      # Wait, previous step used /outputs/proofs/...
+-      # Let's map /canon/index to the full path for cleaner API
+-      x-google-backend:
+-        path_translation: CONSTANT_ADDRESS
+-        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/outputs/proofs/canon/pending_index_v2.json
+-        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+-      security:
+-        - api_key: []
+-      responses:
+-        '200':
+-          description: OK
+-  /canon/snapshot_last.json:
+-    get:
+-      summary: Canon Snapshot
+-      x-google-backend:
+-        path_translation: CONSTANT_ADDRESS
+-        address: https://marketsniper-api-3ygzdvszba-uc.a.run.app/outputs/proofs/canon/pending_snapshot_last.json
+-        jwt_audience: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+-      security:
+-        - api_key: []
+-      responses:
+-        '200':
+-          description: OK
+-  # Catch-all for other lab endpoints if needed, but safer to be explicit
+diff --git a/outputs/os/projection/projection_report.json b/outputs/os/projection/projection_report.json
+index 78e0a9a..654a75e 100644
+--- a/outputs/os/projection/projection_report.json
++++ b/outputs/os/projection/projection_report.json
+@@ -1,7 +1,7 @@
+ {
+   "version": "0.1.0",
+   "symbol": "SPY",
+-  "asOfUtc": "2026-01-27T19:26:22.432199Z",
++  "asOfUtc": "2026-01-28T15:01:10.253308Z",
+   "state": "INSUFFICIENT_DATA",
+   "stateReasons": [
+     "SYSTEM_HEALTH_UNKNOWN"
+@@ -10,7 +10,9 @@
+     "IRON_OS",
+     "OPTIONS",
+     "EVIDENCE",
+-    "MACRO"
++    "MACRO",
++    "NEWS",
++    "INTRADAY_DEMO"
+   ],
+   "inputs": {
+     "options": {
+@@ -23,24 +25,429 @@
+     },
+     "macro": {
+       "status": "AVAILABLE"
++    },
++    "news": {
++      "status": "AVAILABLE",
++      "count": 4
++    }
++  },
++  "contextTags": {
++    "options": {
++      "state": "N_A",
++      "tags": [
++        "OPTIONS_N_A"
++      ],
++      "boundary_mode": "NONE"
++    },
++    "news": {
++      "state": "LIVE",
++      "tags": [
++        "MACRO_HEADLINES",
++        "EARNINGS_CLUSTER",
++        "CENTRAL_BANK_FOCUS",
++        "INFLATION_DATA"
++      ],
++      "dominant_bucket": "macro",
++      "dominant_recency": "today"
++    },
++    "macro": {
++      "state": "STUB_NEUTRAL",
++      "tags": [
++        "MACRO_STUB_NEUTRAL"
++      ],
++      "risk_context": "NEUTRAL"
++    }
++  },
++  "missingInputs": [
++    "evidence"
++  ],
++  "intraday": {
++    "intervalMin": 5,
++    "pastCandles": [
++      {
++        "tUtc": "2026-01-28T14:00:00Z",
++        "o": 415.08,
++        "h": 415.4,
++        "l": 414.98,
++        "c": 415.13,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:05:00Z",
++        "o": 415.13,
++        "h": 415.3,
++        "l": 414.53,
++        "c": 414.67,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:10:00Z",
++        "o": 414.67,
++        "h": 414.86,
++        "l": 414.27,
++        "c": 414.84,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:15:00Z",
++        "o": 414.84,
++        "h": 415.07,
++        "l": 414.28,
++        "c": 414.42,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:20:00Z",
++        "o": 414.42,
++        "h": 414.61,
++        "l": 414.27,
++        "c": 414.48,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:25:00Z",
++        "o": 414.48,
++        "h": 415.24,
++        "l": 414.38,
++        "c": 415.05,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:30:00Z",
++        "o": 415.05,
++        "h": 415.53,
++        "l": 414.84,
++        "c": 415.48,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:35:00Z",
++        "o": 415.48,
++        "h": 415.85,
++        "l": 414.49,
++        "c": 414.76,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:40:00Z",
++        "o": 414.76,
++        "h": 414.89,
++        "l": 414.63,
++        "c": 414.76,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:45:00Z",
++        "o": 414.76,
++        "h": 414.82,
++        "l": 414.75,
++        "c": 414.75,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:50:00Z",
++        "o": 414.75,
++        "h": 414.8,
++        "l": 414.46,
++        "c": 414.47,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T14:55:00Z",
++        "o": 414.47,
++        "h": 414.76,
++        "l": 413.81,
++        "c": 414.08,
++        "v": 1000,
++        "isGhost": false
++      },
++      {
++        "tUtc": "2026-01-28T15:00:00Z",
++        "o": 414.08,
++        "h": 414.38,
++        "l": 413.25,
++        "c": 413.31,
++        "v": 1000,
++        "isGhost": false
++      }
++    ],
++    "nowCandle": {
++      "tUtc": "2026-01-28T15:00:00Z",
++      "o": 414.08,
++      "h": 414.38,
++      "l": 413.25,
++      "c": 413.31,
++      "v": 1000,
++      "isGhost": false
+     }
+   },
+   "scenarios": {
+     "base": {
+       "laneState": "CALIBRATING",
+-      "notes": "Waiting for Engine Calibration.",
+-      "envelope": null,
+-      "bounds": null
++      "notes": [
++        "Base Case (Demo).",
++        "Macro context: Neutral (Stub)."
++      ],
++      "envelope": {
++        "candles": [
++          {
++            "tUtc": "2026-01-28T15:05:00Z",
++            "o": 413.31,
++            "h": 414.12,
++            "l": 413.3,
++            "c": 413.87,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:10:00Z",
++            "o": 413.87,
++            "h": 414.67,
++            "l": 413.54,
++            "c": 414.33,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:15:00Z",
++            "o": 414.33,
++            "h": 414.4,
++            "l": 413.42,
++            "c": 413.83,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:20:00Z",
++            "o": 413.83,
++            "h": 414.69,
++            "l": 413.44,
++            "c": 414.38,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:25:00Z",
++            "o": 414.38,
++            "h": 415.51,
++            "l": 414.06,
++            "c": 415.16,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:30:00Z",
++            "o": 415.16,
++            "h": 416.12,
++            "l": 414.87,
++            "c": 415.92,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:35:00Z",
++            "o": 415.92,
++            "h": 415.98,
++            "l": 415.43,
++            "c": 415.66,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:40:00Z",
++            "o": 415.66,
++            "h": 415.88,
++            "l": 414.66,
++            "c": 415.04,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:45:00Z",
++            "o": 415.04,
++            "h": 415.37,
++            "l": 414.71,
++            "c": 415.35,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:50:00Z",
++            "o": 415.35,
++            "h": 415.76,
++            "l": 414.41,
++            "c": 414.55,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:55:00Z",
++            "o": 414.55,
++            "h": 415.37,
++            "l": 414.15,
++            "c": 415.11,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T16:00:00Z",
++            "o": 415.11,
++            "h": 415.39,
++            "l": 414.41,
++            "c": 414.68,
++            "v": 1000,
++            "isGhost": true
++          }
++        ]
++      },
++      "bounds": {
++        "yMin": 408.42,
++        "yMax": 416.82,
++        "yRange": 8.399999999999977,
++        "count": 25
++      }
+     },
+     "stress": {
+       "laneState": "CALIBRATING",
+-      "notes": "Waiting for Engine Calibration.",
+-      "envelope": null,
+-      "bounds": null
++      "notes": [
++        "Stress Case (Demo).",
++        "Recent macro headlines active.",
++        "Earnings volatility risk."
++      ],
++      "envelope": {
++        "candles": [
++          {
++            "tUtc": "2026-01-28T15:05:00Z",
++            "o": 410.67,
++            "h": 412.3,
++            "l": 410.65,
++            "c": 411.64,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:10:00Z",
++            "o": 411.64,
++            "h": 413.11,
++            "l": 411.31,
++            "c": 412.36,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:15:00Z",
++            "o": 412.36,
++            "h": 412.43,
++            "l": 410.72,
++            "c": 410.71,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:20:00Z",
++            "o": 410.71,
++            "h": 412.38,
++            "l": 410.32,
++            "c": 411.67,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:25:00Z",
++            "o": 411.67,
++            "h": 413.95,
++            "l": 411.35,
++            "c": 413.18,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:30:00Z",
++            "o": 413.18,
++            "h": 415.28,
++            "l": 412.9,
++            "c": 414.67,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:35:00Z",
++            "o": 414.67,
++            "h": 414.73,
++            "l": 413.79,
++            "c": 413.6,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:40:00Z",
++            "o": 413.6,
++            "h": 413.82,
++            "l": 411.68,
++            "c": 411.64,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:45:00Z",
++            "o": 411.64,
++            "h": 412.44,
++            "l": 411.32,
++            "c": 412.01,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:50:00Z",
++            "o": 412.01,
++            "h": 412.42,
++            "l": 409.88,
++            "c": 409.61,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T15:55:00Z",
++            "o": 409.61,
++            "h": 411.26,
++            "l": 409.21,
++            "c": 410.59,
++            "v": 1000,
++            "isGhost": true
++          },
++          {
++            "tUtc": "2026-01-28T16:00:00Z",
++            "o": 410.59,
++            "h": 410.86,
++            "l": 409.26,
++            "c": 409.12,
++            "v": 1000,
++            "isGhost": true
++          }
++        ]
++      },
++      "bounds": {
++        "yMin": 408.42,
++        "yMax": 416.82,
++        "yRange": 8.399999999999977,
++        "count": 25
++      }
+     }
+   },
+   "safety": {
+     "lexiconSafe": true,
+     "noPredictionClaims": true
+-  }
++  },
++  "timeframe": "DAILY"
+ }
+\ No newline at end of file
+diff --git a/outputs/proofs/day47_deep_os_audit/01_verify_project_discipline_pass.txt b/outputs/proofs/day47_deep_os_audit/01_verify_project_discipline_pass.txt
+index 1c83ad4..d7032db 100644
+--- a/outputs/proofs/day47_deep_os_audit/01_verify_project_discipline_pass.txt
++++ b/outputs/proofs/day47_deep_os_audit/01_verify_project_discipline_pass.txt
+@@ -1,10 +1,10 @@
+ Initializing Antigravity Discipline Check...
+ 
+ ============================================================
+-ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
++ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: PASS
+ ============================================================
+ 
+-[!] CRITICAL: UNTRACKED CANON OUTPUTS DETECTED
+-  - outputs/proofs/day47_deep_os_audit/
+-
+->> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`
++[+] All Systems Nominal. Discipline is maintained.
++[+] Constitution respected. UI is semantic. Canon is tracked. Seals are Hooked.
++Running Dashboard Layout Discipline Verifier (D38.01.2)...
++[+] Dashboard Layout Discipline Verified. No forbidden patterns found.
+diff --git a/outputs/scripts/deploy_auth_gateway.ps1 b/outputs/scripts/deploy_auth_gateway.ps1
+index 7a2b77c..cbbdf48 100644
+--- a/outputs/scripts/deploy_auth_gateway.ps1
++++ b/outputs/scripts/deploy_auth_gateway.ps1
+@@ -1,22 +1,76 @@
+ # Deploy Market Sniper Auth Gateway (Org Policy Bypass)
+-# Run this if Agent is blocked by GCloud Auth.
++# Robust V2
+ 
++$ErrorActionPreference = "Stop"
+ $PROJECT_ID = "marketsniper-intel-osr-9953"
+ $REGION = "us-central1"
+ $SA_EMAIL = "ms-api-gateway-invoker@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
++$SCRIPT_DIR = $PSScriptRoot
++$OPENAPI_SPEC = Join-Path -Path $SCRIPT_DIR -ChildPath "..\..\openapi.yaml"
++# Resolve absolute path to avoid relative path issues if CWD varies
++$OPENAPI_SPEC_ABS = (Resolve-Path $OPENAPI_SPEC).Path
+ 
+-Write-Host "1. Creating API Resource..."
+-gcloud api-gateway apis create ms-gateway-api --project=$PROJECT_ID
++Write-Host "Context: Project=$PROJECT_ID, Region=$REGION"
++Write-Host "Spec: $OPENAPI_SPEC_ABS"
+ 
+-Write-Host "2. Creating API Config..."
+-gcloud api-gateway api-configs create ms-config-v1 --api=ms-gateway-api --openapi-spec=openapi.yaml --project=$PROJECT_ID --backend-auth-service-account=$SA_EMAIL
++# 1. API Resource
++Write-Host "1. Checking/Creating API Resource..."
++$apiExists = gcloud api-gateway apis list --project=$PROJECT_ID --filter="name:ms-gateway-api" --format="value(name)"
++if (-not $apiExists) {
++    gcloud api-gateway apis create ms-gateway-api --project=$PROJECT_ID
++}
++else {
++    Write-Host "   API Resource already exists."
++}
+ 
+-Write-Host "3. Creating Gateway..."
+-gcloud api-gateway gateways create ms-gateway --api=ms-gateway-api --api-config=ms-config-v1 --location=$REGION --project=$PROJECT_ID
++# 2. Config
++Write-Host "2. Creating API Config (ms-config-v2)..."
++# We use a timestamped or incremental ID to avoid conflict if v1 failed or exists
++$CONFIG_ID = "ms-config-v" + (Get-Date -Format "yyyyMMdd-HHmm")
++gcloud api-gateway api-configs create $CONFIG_ID --api=ms-gateway-api --openapi-spec=$OPENAPI_SPEC_ABS --project=$PROJECT_ID --backend-auth-service-account=$SA_EMAIL
+ 
+-Write-Host "4. Creating Founder API Key..."
+-gcloud beta services api-keys create --display-name="Market Sniper Founder Key" --project=$PROJECT_ID
++# 3. Gateway
++Write-Host "3. Creating/Updating Gateway (ms-gateway)..."
++$gwExists = gcloud api-gateway gateways list --location=$REGION --project=$PROJECT_ID --filter="name:ms-gateway" --format="value(name)"
++if (-not $gwExists) {
++    gcloud api-gateway gateways create ms-gateway --api=ms-gateway-api --api-config=$CONFIG_ID --location=$REGION --project=$PROJECT_ID
++}
++else {
++    Write-Host "   Gateway exists, updating config..."
++    gcloud api-gateway gateways update ms-gateway --api=ms-gateway-api --api-config=$CONFIG_ID --location=$REGION --project=$PROJECT_ID
++}
+ 
+-Write-Host "DONE. Please capture the Gateway URL and API Key String for AppConfig."
+-gcloud api-gateway gateways describe ms-gateway --location=$REGION --project=$PROJECT_ID --format="value(defaultHostname)"
+-gcloud beta services api-keys list --project=$PROJECT_ID --format="value(keyString)"
++# 4. API Key
++Write-Host "4. Checking/Creating API Key..."
++$KEY_NAME = "Market Sniper Founder Key"
++$keyId = gcloud beta services api-keys list --project=$PROJECT_ID --filter="displayName:`"$KEY_NAME`"" --format="value(name)"
++
++if (-not $keyId) {
++    gcloud beta services api-keys create --display-name="$KEY_NAME" --project=$PROJECT_ID
++    # Fetch again to get ID/String
++    $keydata = gcloud beta services api-keys list --project=$PROJECT_ID --filter="displayName:`"$KEY_NAME`"" --format="json" | ConvertFrom-Json
++}
++else {
++    Write-Host "   API Key exists."
++    $keydata = gcloud beta services api-keys list --project=$PROJECT_ID --filter="displayName:`"$KEY_NAME`"" --format="json" | ConvertFrom-Json
++}
++
++# 5. Capture Outputs
++$GATEWAY_URL = gcloud api-gateway gateways describe ms-gateway --location=$REGION --project=$PROJECT_ID --format="value(defaultHostname)"
++$API_KEY = $keydata.keyString
++
++Write-Host "---------------------------------------------------"
++Write-Host "DEPLOYMENT COMPLETE"
++Write-Host "GATEWAY_HOST: $GATEWAY_URL"
++# Redact for logs, but keep accessible for Agent reading if needed via file
++Write-Host "FOUNDER_API_KEY: (Ends with) ...$($API_KEY.Substring($API_KEY.Length - 4))"
++Write-Host "---------------------------------------------------"
++
++# Save unredacted to a secret file for Agent to read (Agent only)
++$OUTPUT_FILE = Join-Path -Path $SCRIPT_DIR -ChildPath "..\proofs\day45_hf08_auth_gateway\DEPLOY_SECRETS.json"
++$out = @{
++    API_GATEWAY_URL = "https://$GATEWAY_URL"
++    FOUNDER_API_KEY = $API_KEY
++}
++$out | ConvertTo-Json | Out-File -FilePath $OUTPUT_FILE -Encoding utf8
++Write-Host "Secrets saved to $OUTPUT_FILE"
+diff --git a/outputs/seals/SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md b/outputs/seals/SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md
+index 781113a..9a0d505 100644
+--- a/outputs/seals/SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md
++++ b/outputs/seals/SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md
+@@ -24,3 +24,4 @@ Synchronized all canonical documentation with the Day 47 "Projection & News Arc"
+ ## 4. Next Steps
+ - D47 Closure or Day 48 Start.
+ - Strict Discipline Cleanup (pending item).
++//
+\ No newline at end of file

@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "asOfUtc": "2026-01-29T19:54:46.497091Z",
+    "source": "SundaySetupEngine",
+    "version": "1.0"
+  },
+  "window": {
+    "startEt": "20:00",
+    "endEt": "09:00"
+  },
+  "sections": [
+    {
+      "title": "Weekly Outlook",
+      "content": "Preparing for the week ahead.",
+      "type": "text"
+    }
+  ],
+  "safety": {
+    "restrictions": [
+      "NO_MONDAY_PREDICTIONS"
+    ]
+  }
+}

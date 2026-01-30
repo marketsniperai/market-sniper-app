@@ -1,0 +1,13 @@
+{
+  "score": 94,
+  "trend": "FLAT",
+  "explanation": [
+    "Penalty -6 due to recent drift events."
+  ],
+  "reliability": {
+    "uptime_pct": 0.0,
+    "calibrating_pct": 0.0,
+    "window_days": 14,
+    "samples": 3
+  }
+}

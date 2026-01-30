@@ -1,0 +1,7 @@
+>>> D47.HF35: Verifying Economic Calendar API <<<
+ -> GET http://127.0.0.1:8000/economic_calendar
+ -> HTTP 200 OK
+ -> Source: DEMO_ENGINE
+ -> Events: 20
+ -> Sample Event: PPI (MoM) (2026-01-28T13:15:00)
+SUCCESS: API Verification Passed.

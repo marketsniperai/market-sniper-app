@@ -1,0 +1,23 @@
+{
+    "meta": {
+        "asOfUtc": "2026-01-29T21:10:00Z",
+        "source": "ELITE_ENGINE",
+        "version": "1.0"
+    },
+    "window": {
+        "startEt": "04:10",
+        "endEt": "23:59"
+    },
+    "sections": [
+        {
+            "title": "Performance Review",
+            "content": "You adhered to your rules today.",
+            "type": "text"
+        }
+    ],
+    "safety": {
+        "restrictions": [
+            "PRIVATE_DATA_ONLY"
+        ]
+    }
+}

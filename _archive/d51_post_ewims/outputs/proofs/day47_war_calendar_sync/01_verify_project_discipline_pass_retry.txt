@@ -1,0 +1,10 @@
+Initializing Antigravity Discipline Check...
+
+============================================================
+ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
+============================================================
+
+[!] CRITICAL: UNTRACKED CANON OUTPUTS DETECTED
+  - outputs/proofs/day47_war_calendar_sync/01_verify_project_discipline_pass_retry.txt
+
+>> ACTION REQUIRED: Run `python tool/auto_stage_canon_outputs.py`

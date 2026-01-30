@@ -1,0 +1,23 @@
+{
+    "meta": {
+        "asOfUtc": "2026-01-29T21:15:00Z",
+        "source": "ELITE_ENGINE",
+        "version": "1.0"
+    },
+    "window": {
+        "startEt": "04:15",
+        "endEt": "23:59"
+    },
+    "sections": [
+        {
+            "title": "System Performance",
+            "content": "The system generated 3 valid signals.",
+            "type": "text"
+        }
+    ],
+    "safety": {
+        "restrictions": [
+            "AGGREGATED_DATA_ONLY"
+        ]
+    }
+}

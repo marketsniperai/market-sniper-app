@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Projection Report V1",
+    "type": "object",
+    "required": [
+        "version",
+        "symbol",
+        "asOfUtc",
+        "state",
+        "inputs",
+        "scenarios"
+    ],
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "symbol": {
+            "type": "string"
+        },
+        "asOfUtc": {
+            "type": "string"
+        },
+        "state": {
+            "type": "string"
+        },
+        "stateReasons": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "enginesUsed": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "inputs": {
+            "type": "object",
+            "required": [
+                "options",
+                "evidence",
+                "macro",
+                "news"
+            ],
+            "properties": {
+                "options": {
+                    "type": "object",
+                    "required": [
+                        "status"
+                    ]
+                },
+                "evidence": {
+                    "type": "object",
+                    "required": [
+                        "status"
+                    ]
+                },
+                "macro": {
+                    "type": "object",
+                    "required": [
+                        "status"
+                    ]
+                },
+                "news": {
+                    "type": "object",
+                    "required": [
+                        "status"
+                    ]
+                }
+            }
+        },
+        "scenarios": {
+            "type": "object",
+            "properties": {
+                "base": {
+                    "type": "object",
+                    "required": [
+                        "laneState",
+                        "envelope"
+                    ]
+                },
+                "stress": {
+                    "type": "object",
+                    "required": [
+                        "laneState",
+                        "envelope"
+                    ]
+                }
+            }
+        },
+        "missingInputs": {
+            "type": "array"
+        }
+    }
+}

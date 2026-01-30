@@ -8,14 +8,15 @@ import 'package:market_sniper_app/screens/on_demand_panel.dart'; // Ensure this 
 
 void main() {
   final List<Map<String, dynamic>> results = [];
-  final File reportFile = File('c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
+  final File reportFile = File(
+      'c:/MSR/MarketSniperRepo/outputs/proofs/day_44/ui_layout_proof_on_demand_badge.json');
 
   setUpAll(() {
     if (reportFile.existsSync()) reportFile.deleteSync();
   });
 
   tearDownAll(() {
-     final json = {
+    final json = {
       "timestamp_utc": DateTime.now().toUtc().toIso8601String(),
       "scenarios": results,
       "checks": {
@@ -30,15 +31,47 @@ void main() {
 
   // Scenarios
   final scenarios = [
-    {"name": "baseline_2", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE"]},
-    {"name": "stress_5_long", "width": 360.0, "fontScale": 1.0, "badges": ["PROXY_ESTIMATED", "PROVIDER_DENIED", "COVERAGE_SAMPLE", "STALE", "USAGE_9_10"]},
-    {"name": "stress_7_mix", "width": 360.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]},
-    {"name": "w320_font1.0", "width": 320.0, "fontScale": 1.0, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
-    {"name": "w320_font1.5", "width": 320.0, "fontScale": 1.5, "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]},
+    {
+      "name": "baseline_2",
+      "width": 360.0,
+      "fontScale": 1.0,
+      "badges": ["LIVE", "CACHE"]
+    },
+    {
+      "name": "stress_5_long",
+      "width": 360.0,
+      "fontScale": 1.0,
+      "badges": [
+        "PROXY_ESTIMATED",
+        "PROVIDER_DENIED",
+        "COVERAGE_SAMPLE",
+        "STALE",
+        "USAGE_9_10"
+      ]
+    },
+    {
+      "name": "stress_7_mix",
+      "width": 360.0,
+      "fontScale": 1.0,
+      "badges": ["LIVE", "CACHE", "PROXY", "DENIED", "SAMPLE", "STALE", "USAGE"]
+    },
+    {
+      "name": "w320_font1.0",
+      "width": 320.0,
+      "fontScale": 1.0,
+      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
+    },
+    {
+      "name": "w320_font1.5",
+      "width": 320.0,
+      "fontScale": 1.5,
+      "badges": ["LIVE", "CACHE", "PROXY_ESTIMATED"]
+    },
   ];
 
   for (final s in scenarios) {
-    testWidgets('BadgeStrip Layout Scenario: ${s['name']}', (WidgetTester tester) async {
+    testWidgets('BadgeStrip Layout Scenario: ${s['name']}',
+        (WidgetTester tester) async {
       final width = s['width'] as double;
       final fontScale = s['fontScale'] as double;
       final badges = s['badges'] as List<String>;
@@ -65,7 +98,7 @@ void main() {
       // Check for overflows
       final exception = tester.takeException();
       bool passed = exception == null;
-      
+
       // Also check if render object has error (sometimes exception is swallowed or just painted)
       // Flutter test throws specific FlutterError for RenderFlex overflow if configured, handled by takeException usually.
 

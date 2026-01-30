@@ -1,0 +1,238 @@
+{
+  "status": "OK",
+  "asOfUtc": "2026-01-28T18:35:16.174177",
+  "source": "DEMO_ENGINE",
+  "windowDays": 14,
+  "events": [
+    {
+      "id": "evt_20260128_9897",
+      "title": "PPI (MoM)",
+      "timeUtc": "2026-01-28T13:15:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation"
+      ]
+    },
+    {
+      "id": "evt_20260128_3196",
+      "title": "Retail Sales",
+      "timeUtc": "2026-01-28T17:15:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "consumer",
+        "growth"
+      ]
+    },
+    {
+      "id": "evt_20260128_1927",
+      "title": "Initial Jobless Claims",
+      "timeUtc": "2026-01-28T17:30:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "jobs"
+      ]
+    },
+    {
+      "id": "evt_20260129_9601",
+      "title": "Fed Chair Powell Speaks",
+      "timeUtc": "2026-01-29T15:30:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "fed",
+        "volatility"
+      ]
+    },
+    {
+      "id": "evt_20260129_5018",
+      "title": "Non-Farm Payrolls",
+      "timeUtc": "2026-01-29T17:45:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "jobs",
+        "growth"
+      ]
+    },
+    {
+      "id": "evt_20260130_9025",
+      "title": "FOMC Rate Decision",
+      "timeUtc": "2026-01-30T14:00:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "rates",
+        "fed"
+      ]
+    },
+    {
+      "id": "evt_20260130_1347",
+      "title": "GDP Growth (QoQ)",
+      "timeUtc": "2026-01-30T16:00:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "growth"
+      ]
+    },
+    {
+      "id": "evt_20260130_7826",
+      "title": "Retail Sales",
+      "timeUtc": "2026-01-30T19:00:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "consumer",
+        "growth"
+      ]
+    },
+    {
+      "id": "evt_20260133_2186",
+      "title": "PPI (MoM)",
+      "timeUtc": "2026-02-02T18:15:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation"
+      ]
+    },
+    {
+      "id": "evt_20260134_6933",
+      "title": "Consumer Sentiment",
+      "timeUtc": "2026-02-03T13:00:00",
+      "category": "MACRO",
+      "impact": "LOW",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "consumer"
+      ]
+    },
+    {
+      "id": "evt_20260134_3856",
+      "title": "Initial Jobless Claims",
+      "timeUtc": "2026-02-03T16:00:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "jobs"
+      ]
+    },
+    {
+      "id": "evt_20260135_5391",
+      "title": "CPI (YoY)",
+      "timeUtc": "2026-02-04T13:45:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation",
+        "rates"
+      ]
+    },
+    {
+      "id": "evt_20260135_2552",
+      "title": "FOMC Rate Decision",
+      "timeUtc": "2026-02-04T16:30:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "rates",
+        "fed"
+      ]
+    },
+    {
+      "id": "evt_20260136_2631",
+      "title": "PPI (MoM)",
+      "timeUtc": "2026-02-05T16:15:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation"
+      ]
+    },
+    {
+      "id": "evt_20260136_1063",
+      "title": "Consumer Sentiment",
+      "timeUtc": "2026-02-05T16:30:00",
+      "category": "MACRO",
+      "impact": "LOW",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "consumer"
+      ]
+    },
+    {
+      "id": "evt_20260136_6913",
+      "title": "FOMC Rate Decision",
+      "timeUtc": "2026-02-05T17:45:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "rates",
+        "fed"
+      ]
+    },
+    {
+      "id": "evt_20260137_4212",
+      "title": "CPI (YoY)",
+      "timeUtc": "2026-02-06T17:00:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation",
+        "rates"
+      ]
+    },
+    {
+      "id": "evt_20260140_4943",
+      "title": "CPI (YoY)",
+      "timeUtc": "2026-02-09T13:15:00",
+      "category": "MACRO",
+      "impact": "HIGH",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation",
+        "rates"
+      ]
+    },
+    {
+      "id": "evt_20260140_6047",
+      "title": "PPI (MoM)",
+      "timeUtc": "2026-02-09T14:30:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "inflation"
+      ]
+    },
+    {
+      "id": "evt_20260141_5568",
+      "title": "Initial Jobless Claims",
+      "timeUtc": "2026-02-10T15:45:00",
+      "category": "MACRO",
+      "impact": "MEDIUM",
+      "source": "DEMO_PIPE",
+      "tags": [
+        "jobs"
+      ]
+    }
+  ]
+}

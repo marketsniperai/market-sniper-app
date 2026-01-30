@@ -25,37 +25,60 @@ class OnDemandTierEnforcer:
         return {"limits": DEFAULT_LIMITS, "reset_config": {"reset_time_et": "04:00"}}
 
     @staticmethod
+    def _get_start_of_us_dst(year: int) -> datetime:
+        # 2nd Sunday in March
+        # Quick calc: March 1st. 
+        # weekday(): Mon=0, Sun=6.
+        # If Mar 1 is Sun(6) -> +7 days = Mar 8 (2nd Sun)
+        # If Mar 1 is Sat(5) -> 1st Sun is Mar 2 -> +7 = Mar 9.
+        # offset = (6 - d.weekday() + 7) % 7 ? No.
+        # first_sun_day = 1 + (6 - mar1.weekday() + 1) % 7? No.
+        # Let's rely on dateutil or simple iteration if pure stdlib without complex helpers.
+        # Actually, we have ZoneInfo now! We don't need manual DST math in Python.
+        pass
+
+    @staticmethod
+    def _compute_bucket_for_dt(dt: datetime) -> str:
+        """
+        Pure logic helper.
+        Input: datetime (aware or naive assumed UTC if naive, though strictly we want aware).
+        Algo:
+          1. Convert to America/New_York
+          2. If Hour < 4: count as Previous Day
+        """
+        try:
+            from zoneinfo import ZoneInfo
+        except ImportError:
+            # Fallback for very old generic python if absolute must, but we verified 3.14.
+            from backports.zoneinfo import ZoneInfo
+            
+        tz_et = ZoneInfo("America/New_York")
+        
+        # Ensure dt is aware
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+            
+        # Convert to ET
+        dt_et = dt.astimezone(tz_et)
+        
+        # Reset Logic: 04:00 ET
+        if dt_et.hour < 4:
+            bucket_date = (dt_et - timedelta(days=1)).date()
+        else:
+            bucket_date = dt_et.date()
+            
+        return bucket_date.isoformat()
+
+    @staticmethod
     def _get_current_bucket_et() -> str:
         """
         Calculates the 'Business Day' bucket for US/Eastern.
         Reset is 04:00 ET.
         If Usage Time < 04:00 ET, it belongs to Previous Day.
         """
-        # UTC Current
         now_utc = datetime.now(timezone.utc)
-        
-        # Approximate ET (Standard -5, Daylight -4). 
-        # For strict determinism without pytz, we can use a fixed offset of -5 (EST) 
-        # or implement a simple DST switch. 
-        # Given this is "Agentic", let's be reasonably precise or safe.
-        # US/Eastern is UTC-5 (EST) and UTC-4 (EDT).
-        # We will assume UTC-5 for safety/simplicity unless pytz is guaranteed.
-        # This keeps the 'reset' roughly correct.
-        
-        offset = timedelta(hours=-5)
-        now_et = now_utc + offset
-        
-        # Reset check
-        # If now_et.hour < 4, it counts as yesterday's business day.
-        # Format YYYY-MM-DD
-        
-        if now_et.hour < 4:
-            bucket_date = (now_et - timedelta(days=1)).date()
-        else:
-            bucket_date = now_et.date()
+        return OnDemandTierEnforcer._compute_bucket_for_dt(now_utc)
             
-        return bucket_date.isoformat()
-
     @staticmethod
     def _count_usage_for_bucket(ticker: str, bucket: str, tier: str) -> int:
         if not os.path.exists(LEDGER_FILE):

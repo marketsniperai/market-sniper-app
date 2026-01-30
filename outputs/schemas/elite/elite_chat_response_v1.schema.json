@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Elite Chat Response v1",
+    "type": "object",
+    "required": [
+        "mode",
+        "answer"
+    ],
+    "properties": {
+        "mode": {
+            "type": "string",
+            "enum": [
+                "DETERMINISTIC",
+                "LLM",
+                "FALLBACK"
+            ]
+        },
+        "answer": {
+            "type": "string",
+            "description": "Short summary or direct answer."
+        },
+        "sections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "bullets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "next_actions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "action": {
+                        "type": "string"
+                    },
+                    "payload": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "debug_info": {
+            "type": "object"
+        }
+    }
+}

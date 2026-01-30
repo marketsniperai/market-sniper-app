@@ -16,11 +16,11 @@ MAX_SIZE_BYTES = 256 * 1024  # 256KB
 class WatchlistActionEvent(BaseModel):
     timestamp_utc: str
     session_id: Optional[str] = None
-    actor: str = Field(..., regex="^(USER|FOUNDER|SYSTEM)$")
-    action: str = Field(..., regex="^(ADD|REMOVE|ANALYZE_TAP|BLOCKED_LOCKED|BLOCKED_STALE|OPENED_ON_DEMAND|RESULT_RENDERED)$")
+    actor: str = Field(..., pattern="^(USER|FOUNDER|SYSTEM)$")
+    action: str = Field(..., pattern="^(ADD|REMOVE|ANALYZE_TAP|BLOCKED_LOCKED|BLOCKED_STALE|OPENED_ON_DEMAND|RESULT_RENDERED)$")
     ticker: Optional[str] = None
-    tier: str = Field(..., regex="^(FREE|PLUS|ELITE|FOUNDER)$")
-    outcome: str = Field(..., regex="^(SUCCESS|BLOCKED|NO_OP)$")
+    tier: str = Field(..., pattern="^(FREE|PLUS|ELITE|FOUNDER)$")
+    outcome: str = Field(..., pattern="^(SUCCESS|BLOCKED|NO_OP)$")
     reason: Optional[str] = None
     metadata: Optional[Dict[str, str]] = None
 

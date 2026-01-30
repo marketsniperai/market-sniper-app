@@ -1,0 +1,71 @@
+{
+  "timestamp_utc": "2026-01-29T22:27:22.377153Z",
+  "system_mode": "LIVE",
+  "freshness": {
+    "dashboard": "STALE",
+    "on_demand": "FRESH"
+  },
+  "providers": {
+    "market": "LIVE",
+    "options": "LIVE",
+    "news": "LIVE"
+  },
+  "locks": [],
+  "recent_events": [
+    {
+      "timestamp_utc": "2026-01-29T20:39:19.883698",
+      "event_type": "ELITE_FREE_WINDOW_OPEN",
+      "severity": "INFO",
+      "symbol": null,
+      "timeframe": null,
+      "details": {
+        "test": true
+      },
+      "version": "1.0"
+    },
+    {
+      "timestamp_utc": "2026-01-29T20:39:19.884072",
+      "event_type": "ELITE_FREE_WINDOW_5MIN",
+      "severity": "WARN",
+      "symbol": null,
+      "timeframe": null,
+      "details": {
+        "test": true
+      },
+      "version": "1.0"
+    },
+    {
+      "timestamp_utc": "2026-01-29T20:39:19.884535",
+      "event_type": "ELITE_FREE_WINDOW_CLOSED",
+      "severity": "INFO",
+      "symbol": null,
+      "timeframe": null,
+      "details": {
+        "test": true
+      },
+      "version": "1.0"
+    },
+    {
+      "timestamp_utc": "2026-01-29T20:46:37.135889",
+      "event_type": "ELITE_AUDIT_CHECK",
+      "severity": "INFO",
+      "symbol": null,
+      "timeframe": null,
+      "details": {
+        "audit": true
+      },
+      "version": "1.0"
+    },
+    {
+      "timestamp_utc": "2026-01-29T20:47:22.950093",
+      "event_type": "ELITE_AUDIT_CHECK",
+      "severity": "INFO",
+      "symbol": null,
+      "timeframe": null,
+      "details": {
+        "audit": true
+      },
+      "version": "1.0"
+    }
+  ]
+}

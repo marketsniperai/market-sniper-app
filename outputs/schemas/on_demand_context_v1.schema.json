@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "On-Demand Context V1",
+    "type": "object",
+    "required": [
+        "status",
+        "envelope",
+        "data"
+    ],
+    "properties": {
+        "status": {
+            "type": "string"
+        },
+        "envelope": {
+            "type": "object",
+            "required": [
+                "request_id",
+                "timestamp_utc",
+                "usage_tier"
+            ]
+        },
+        "data": {
+            "type": "object",
+            "description": "Must match Projection Report Schema (validated loosely here, strictly in dedicated schema)"
+        },
+        "policy_block": {
+            "type": [
+                "object",
+                "null"
+            ]
+        }
+    }
+}

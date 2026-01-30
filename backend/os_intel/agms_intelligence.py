@@ -44,6 +44,10 @@ class AGMSIntelligence:
         # 3. COMPUTE COHERENCE
         coherence = AGMSIntelligence._compute_coherence(patterns, ledgers)
         
+        # 3B. COMPUTE RELIABILITY (FIX.02)
+        reliability = AGMSIntelligence._compute_reliability(ledgers, now)
+        coherence["reliability"] = reliability # Inject into Coherence Snapshot directly
+        
         # 4. COMPRESS TIMELINE
         summary = AGMSIntelligence._compress_timeline(ledgers, now)
         
@@ -64,9 +68,9 @@ class AGMSIntelligence:
     @staticmethod
     def _read_ledgers(root: Path) -> Dict[str, List[Dict[str, Any]]]:
         """
-        Reads AGMS and Autofix ledgers safely.
+        Reads AGMS, Autofix, and Reliability ledgers safely.
         """
-        data = {"agms": [], "autofix": []}
+        data = {"agms": [], "autofix": [], "reliability": []}
         
         # AGMS Ledger
         p_agms = root / "runtime/agms/agms_ledger.jsonl"
@@ -80,6 +84,12 @@ class AGMSIntelligence:
             with open(p_af, "r", encoding="utf-8") as f:
                 data["autofix"] = [json.loads(line) for line in f if line.strip()]
                 
+        # Reliability Ledger
+        p_rel = root / "runtime/agms/reliability_ledger.jsonl"
+        if p_rel.exists():
+            with open(p_rel, "r", encoding="utf-8") as f:
+                data["reliability"] = [json.loads(line) for line in f if line.strip()]
+
         return data
 
     @staticmethod
@@ -158,6 +168,38 @@ class AGMSIntelligence:
             "score": score,
             "trend": trend,
             "explanation": explanation
+        }
+
+    @staticmethod
+    def _compute_reliability(ledgers: Dict[str, List[Dict[str, Any]]], now: datetime) -> Dict[str, Any]:
+        """
+        D47.FIX.02: Computes Reliability Scoreboard from ledger.
+        """
+        entries = ledgers.get("reliability", [])
+        total = len(entries)
+        if total == 0:
+            return {
+                "uptime_pct": 0,
+                "calibrating_pct": 0,
+                "window_days": 14,
+                "samples": 0
+            }
+            
+        # Filter last 14 days
+        cutoff = now - timedelta(days=14)
+        recent = [e for e in entries if datetime.fromisoformat(e["timestamp_utc"]) >= cutoff]
+        count = len(recent)
+        if count == 0:
+             return {"uptime_pct": 0, "calibrating_pct": 0, "window_days": 14, "samples": 0}
+             
+        ok_count = sum(1 for e in recent if e["state"] == "OK")
+        calib_count = sum(1 for e in recent if e["state"] == "CALIBRATING")
+        
+        return {
+            "uptime_pct": round((ok_count / count) * 100, 1),
+            "calibrating_pct": round((calib_count / count) * 100, 1),
+            "window_days": 14,
+            "samples": count
         }
 
     @staticmethod

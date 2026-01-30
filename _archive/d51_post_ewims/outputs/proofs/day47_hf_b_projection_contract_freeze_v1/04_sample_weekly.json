@@ -1,0 +1,183 @@
+{
+  "version": "0.1.0",
+  "symbol": "SPY",
+  "asOfUtc": "2026-01-28T15:01:10.259318Z",
+  "state": "INSUFFICIENT_DATA",
+  "stateReasons": [
+    "SYSTEM_HEALTH_UNKNOWN"
+  ],
+  "enginesUsed": [
+    "IRON_OS",
+    "OPTIONS",
+    "EVIDENCE",
+    "MACRO",
+    "NEWS",
+    "INTRADAY_DEMO"
+  ],
+  "inputs": {
+    "options": {
+      "status": "PROVIDER_DENIED",
+      "as_of": "2026-01-23T18:23:38.108351Z"
+    },
+    "evidence": {
+      "status": "N_A",
+      "sample_size": 0
+    },
+    "macro": {
+      "status": "AVAILABLE"
+    },
+    "news": {
+      "status": "AVAILABLE",
+      "count": 4
+    }
+  },
+  "contextTags": {
+    "options": {
+      "state": "N_A",
+      "tags": [
+        "OPTIONS_N_A"
+      ],
+      "boundary_mode": "NONE"
+    },
+    "news": {
+      "state": "LIVE",
+      "tags": [
+        "MACRO_HEADLINES",
+        "EARNINGS_CLUSTER",
+        "CENTRAL_BANK_FOCUS",
+        "INFLATION_DATA"
+      ],
+      "dominant_bucket": "macro",
+      "dominant_recency": "today"
+    },
+    "macro": {
+      "state": "STUB_NEUTRAL",
+      "tags": [
+        "MACRO_STUB_NEUTRAL"
+      ],
+      "risk_context": "NEUTRAL"
+    }
+  },
+  "missingInputs": [
+    "evidence"
+  ],
+  "intraday": {
+    "intervalMin": 1440,
+    "pastCandles": [
+      {
+        "tUtc": "2026-01-26T12:00:00Z",
+        "o": 344.41,
+        "h": 348.26,
+        "l": 344.18,
+        "c": 347.77,
+        "v": 50000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-01-27T12:00:00Z",
+        "o": 347.77,
+        "h": 347.93,
+        "l": 347.14,
+        "c": 347.64,
+        "v": 50000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-01-28T12:00:00Z",
+        "o": 347.64,
+        "h": 349.54,
+        "l": 346.56,
+        "c": 348.79,
+        "v": 50000,
+        "isGhost": false
+      }
+    ],
+    "nowCandle": {
+      "tUtc": "2026-01-28T12:00:00Z",
+      "o": 347.64,
+      "h": 349.54,
+      "l": 346.56,
+      "c": 348.79,
+      "v": 50000,
+      "isGhost": false
+    }
+  },
+  "scenarios": {
+    "base": {
+      "laneState": "CALIBRATING",
+      "notes": [
+        "Base Case (Demo).",
+        "Macro context: Neutral (Stub)."
+      ],
+      "envelope": {
+        "candles": [
+          {
+            "tUtc": "2026-01-29T12:00:00Z",
+            "o": 348.79,
+            "h": 349.27,
+            "l": 344.76,
+            "c": 345.45,
+            "v": 50000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-01-30T12:00:00Z",
+            "o": 345.45,
+            "h": 345.61,
+            "l": 341.09,
+            "c": 342.35,
+            "v": 50000,
+            "isGhost": true
+          }
+        ]
+      },
+      "bounds": {
+        "yMin": 324.047,
+        "yMax": 356.363,
+        "yRange": 32.315999999999974,
+        "count": 5
+      }
+    },
+    "stress": {
+      "laneState": "CALIBRATING",
+      "notes": [
+        "Stress Case (Demo).",
+        "Recent macro headlines active.",
+        "Earnings volatility risk."
+      ],
+      "envelope": {
+        "candles": [
+          {
+            "tUtc": "2026-01-29T12:00:00Z",
+            "o": 353.19,
+            "h": 353.67,
+            "l": 345.72,
+            "c": 339.49,
+            "v": 50000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-01-30T12:00:00Z",
+            "o": 339.49,
+            "h": 339.65,
+            "l": 332.18,
+            "c": 326.74,
+            "v": 50000,
+            "isGhost": true
+          }
+        ]
+      },
+      "bounds": {
+        "yMin": 324.047,
+        "yMax": 356.363,
+        "yRange": 32.315999999999974,
+        "count": 5
+      }
+    }
+  },
+  "safety": {
+    "lexiconSafe": true,
+    "noPredictionClaims": true
+  },
+  "timeframe": "WEEKLY"
+}

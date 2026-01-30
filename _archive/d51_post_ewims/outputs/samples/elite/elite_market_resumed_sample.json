@@ -1,0 +1,23 @@
+{
+    "meta": {
+        "asOfUtc": "2026-01-29T21:05:00Z",
+        "source": "ELITE_ENGINE",
+        "version": "1.0"
+    },
+    "window": {
+        "startEt": "04:05",
+        "endEt": "23:59"
+    },
+    "sections": [
+        {
+            "title": "Closing Summary",
+            "content": "Market closed near session highs.",
+            "type": "text"
+        }
+    ],
+    "safety": {
+        "restrictions": [
+            "NO_PREDICTIONS"
+        ]
+    }
+}
