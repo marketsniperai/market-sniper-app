@@ -1,0 +1,17 @@
+# Firebase Identity Discovery (FAILED)
+
+## Attempts
+1. **Project IAM Search**: No principals matching `firebase` or `hosting`.
+2. **Service Account List**: No SAs matching `firebase` or `hosting` found in `gcloud iam service-accounts list`.
+3. **Identity Force Creation**:
+   - Command: `gcloud beta services identity create --service=firebasehosting.googleapis.com`
+   - Result: `INVALID_ARGUMENT: IAM_SERVICE_NOT_CONFIGURED_FOR_IDENTITIES`
+
+## Conclusion
+The project `marketsniper-intel-osr-9953` does not have a provisioned Firebase Hosting Service Agent.
+The API `firebasehosting.googleapis.com` does not support `gcloud beta services identity create`.
+Without this identity, we cannot grant `roles/run.invoker` to the hosting rewrite service.
+
+## Blocker
+A manual "Seed" of the Hosting service is likely required via the Firebase Console to spin up the hidden service agent.
+The CLI approach is dead-ended.

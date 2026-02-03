@@ -1,0 +1,15 @@
+[
+  {
+    "creationTimestamp": "2026-01-31T15:30:40.768-08:00",
+    "fingerprint": "tymxOpmoX6A=",
+    "id": "4077913726552059471",
+    "kind": "compute#targetHttpsProxy",
+    "name": "msr-https-proxy",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/targetHttpsProxies/msr-https-proxy",
+    "sslCertificates": [
+      "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/sslCertificates/msr-api-cert"
+    ],
+    "tlsEarlyData": "DISABLED",
+    "urlMap": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/urlMaps/msr-urlmap"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "hosting": {
+    "site": "marketsniper-intel-osr-9953",
+    "public": "market_sniper_app/build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "run": {
+          "serviceId": "marketsniper-api",
+          "region": "us-central1"
+        }
+      }
+    ],
+    "headers": [
+      {
+        "source": "/api/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          }
+        ]
+      }
+    ]
+  }
+}

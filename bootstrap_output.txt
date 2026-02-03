@@ -1,0 +1,9 @@
+InvalidOperation: C:\MSR\MarketSniperRepo\bootstrap_firebase.ps1:34:21
+Line |
+  34 |                      $stream = $r.GetResponseStream()
+     |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Method
+     | invocation
+     | failed because
+     | [System.Net.Http.HttpResponseMessage] does not contain a method named 'GetResponseStream'.
+

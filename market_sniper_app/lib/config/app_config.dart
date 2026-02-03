@@ -33,6 +33,18 @@ class AppConfig {
       return _canonicalProdUrl;
     }
     // Debug/Profile:
+    
+    // D55.0E: Firebase Hosting Rewrite (Bypass CORS/Auth on Web)
+    // Works for both Debug (if deployed) and Release.
+    if (kIsWeb) {
+      if (kDebugMode) {
+         // Local Proxy still useful for iteration without deploy
+         return 'http://localhost:8787'; 
+      }
+      // Production Web (Firebase Hosting)
+      return 'https://marketsniper-intel-osr-9953.web.app/api';
+    }
+
     // User Request: Default to CLOUD. Local only if requested.
     const mode = String.fromEnvironment('API_MODE', defaultValue: 'cloud');
     if (mode == 'local') {

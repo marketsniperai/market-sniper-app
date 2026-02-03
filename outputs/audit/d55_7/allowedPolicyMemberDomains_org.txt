@@ -1,0 +1,9 @@
+etag: CPSHmssGEKjf4p8B-
+name: organizations/4018819876/policies/iam.allowedPolicyMemberDomains
+spec:
+  etag: CPSHmssGEKjf4p8B
+  rules:
+  - values:
+      allowedValues:
+      - C03fwchpd
+  updateTime: '2026-01-13T17:42:12.335065Z'

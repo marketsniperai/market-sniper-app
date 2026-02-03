@@ -1,0 +1,7 @@
+bindings:
+- members:
+  - serviceAccount:ms-api-gateway-invoker@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+  - user:intel@marketsniperai.com
+  role: roles/run.invoker
+etag: BwZJS2ubpTM=
+version: 1

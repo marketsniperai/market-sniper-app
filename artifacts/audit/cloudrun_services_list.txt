@@ -1,0 +1,2 @@
+NAME              URL                                               LATEST_READY_REVISION_NAME
+marketsniper-api  https://marketsniper-api-3ygzdvszba-uc.a.run.app  marketsniper-api-00019-7db

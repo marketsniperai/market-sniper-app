@@ -1,0 +1,8 @@
+Analyzing console_gates.dart...                                 
+
+warning - Unused import: 'package:market_sniper_app/config/app_config.dart' - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:4:8 - unused_import
+warning - Unused import: 'package:market_sniper_app/widgets/war_room/replay_control_tile.dart' - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:8:8 - unused_import
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:96:29 - curly_braces_in_flow_control_structures
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:122:109 - prefer_const_literals_to_create_immutables
+  error - The getter 'reason' isn't defined for the type 'LockReasonSnapshot' - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:129:98 - undefined_getter
+

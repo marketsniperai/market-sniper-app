@@ -1,0 +1,20 @@
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: MISFIRE_THRESHOLD_SECONDS
+          value: '93600'
+        - name: PROJECT_ID
+          value: marketsniper-intel-osr-9953
+        - name: REGION
+          value: us-central1
+        - name: JOB_NAME
+          value: market-sniper-pipeline
+        - name: OUTPUTS_PATH
+          value: /app/backend/outputs
+        image: us-central1-docker.pkg.dev/marketsniper-intel-osr-9953/marketsniper-repo/api:latest
+      serviceAccountName: ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+status:
+  latestReadyRevisionName: marketsniper-api-00019-7db
+  url: https://marketsniper-api-3ygzdvszba-uc.a.run.app

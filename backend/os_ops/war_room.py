@@ -3,7 +3,7 @@ import json
 import heapq
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from backend.artifacts.io import get_artifacts_root, safe_read_or_fallback
 # from backend.misfire_monitor import MisfireMonitor (Not a class, using artifact read instead)
 from backend.os_ops.autofix_control_plane import AutoFixControlPlane

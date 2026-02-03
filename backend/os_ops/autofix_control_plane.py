@@ -3,7 +3,7 @@ import json
 import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 import requests
 import google.auth
 from google.auth.transport.requests import Request as GoogleRequest

@@ -8,3 +8,4 @@ google-cloud-logging
 python-dotenv
 requests
 google-auth
+yfinance

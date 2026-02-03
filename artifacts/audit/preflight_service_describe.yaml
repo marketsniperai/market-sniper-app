@@ -1,0 +1,42 @@
++ Service marketsniper-api in region us-central1
+ 
+URL:     https://marketsniper-api-553550349208.us-central1.run.app
+Ingress: all
+Traffic:
+  100% LATEST (currently marketsniper-api-00019-7db)
+ 
+Scaling: Auto (Min: 0, Max: 12)
+ 
+Last updated on 2026-01-14T01:56:43.280981Z by intel@marketsniperai.com:
+  Revision marketsniper-api-00019-7db
+  Container None
+    Image:           us-central1-docker.pkg.dev/marketsniper-intel-osr-9953/marketsniper-repo/api:latest
+    Port:            8080
+    Memory:          512Mi
+    CPU:             1000m
+    Env vars:
+      JOB_NAME       market-sniper-pipeline
+      MISFIRE_THRESHOLD_SECONDS 93600
+      OUTPUTS_PATH   /app/backend/outputs
+      PROJECT_ID     marketsniper-intel-osr-9953
+      REGION         us-central1
+    Volume Mounts:
+      /app/backend/outputs
+        name:        outputs
+        type:        cloud-storage
+        bucket:      marketsniper-outputs-marketsniper-intel-osr-9953
+    Startup Probe:
+      TCP every 240s
+      Port:          8080
+      Initial delay: 0s
+      Timeout:       240s
+      Failure threshold: 1
+      Type:          Default
+  Service account:   ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+  Concurrency:       80
+  Max instances:     12
+  Timeout:           300s
+  Volumes:
+    outputs
+      type:          cloud-storage
+      bucket:        marketsniper-outputs-marketsniper-intel-osr-9953

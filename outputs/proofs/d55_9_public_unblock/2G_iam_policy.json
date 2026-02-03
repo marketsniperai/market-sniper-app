@@ -1,0 +1,14 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "allUsers",
+        "serviceAccount:ms-api-gateway-invoker@marketsniper-intel-osr-9953.iam.gserviceaccount.com",
+        "user:intel@marketsniperai.com"
+      ],
+      "role": "roles/run.invoker"
+    }
+  ],
+  "etag": "BwZJ8Abfv64=",
+  "version": 1
+}

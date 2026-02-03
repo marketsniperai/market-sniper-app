@@ -28,6 +28,7 @@ class WarRoomSnapshot {
   final OptionsInfoSnapshot options; // D36.3
   final MacroInfoSnapshot macro; // D36.5
   final EvidenceInfoSnapshot evidence; // D36.4
+  final int? warRoomHttpStatus; // D53.6A Truth Proof
 
   const WarRoomSnapshot({
     required this.osHealth,
@@ -57,6 +58,7 @@ class WarRoomSnapshot {
     required this.options, // D36.3
     required this.macro, // D36.5
     required this.evidence, // D36.4
+    this.warRoomHttpStatus,
   });
 
   static const WarRoomSnapshot initial = WarRoomSnapshot(
@@ -665,6 +667,7 @@ class UniverseSnapshot {
   final String overlayState; // "LIVE" / "SIM" / "PARTIAL"
   final int overlayAge;
   final String source;
+  final String timestampUtc; // Added for D53.3D Proof of Life
   final bool isAvailable;
 
   const UniverseSnapshot({
@@ -674,6 +677,7 @@ class UniverseSnapshot {
     required this.overlayState,
     required this.overlayAge,
     required this.source,
+    required this.timestampUtc,
     required this.isAvailable,
   });
 
@@ -684,6 +688,7 @@ class UniverseSnapshot {
     overlayState: "...",
     overlayAge: 0,
     source: "local",
+    timestampUtc: "N/A",
     isAvailable: false,
   );
 }
@@ -822,17 +827,26 @@ class DriftEntry {
 }
 
 class DriftSnapshot {
+  final String status;
+  final String assetSkew;
+  final int systemClockOffsetMs;
   final List<DriftEntry> entries;
   final String source;
   final bool isAvailable;
 
   const DriftSnapshot({
+    required this.status,
+    required this.assetSkew,
+    required this.systemClockOffsetMs,
     required this.entries,
     required this.source,
     required this.isAvailable,
   });
 
   static const DriftSnapshot unknown = DriftSnapshot(
+    status: "N/A",
+    assetSkew: "N/A",
+    systemClockOffsetMs: 0,
     entries: [],
     source: "local",
     isAvailable: false,
@@ -847,6 +861,8 @@ class ReplayIntegritySnapshot {
   final String timestamp;
   final String source;
   final bool isAvailable;
+
+  bool get valid => !corrupted && !truncated && !outOfOrder && !duplicateEvents;
 
   const ReplayIntegritySnapshot({
     required this.corrupted,

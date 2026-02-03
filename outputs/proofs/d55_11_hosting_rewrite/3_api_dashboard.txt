@@ -1,0 +1,17 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+Connection: keep-alive
+Cache-Control: no-store
+Content-Type: text/html; charset=utf-8
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 19:32:10 GMT
+X-Served-By: cache-mia-kmia1760027-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770147131.875133,VS0,VE25
+Vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+

@@ -1,0 +1,6 @@
+ms-scheduler-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+firebase-adminsdk-fbsvc@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+ms-job-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+ms-api-gateway-invoker@marketsniper-intel-osr-9953.iam.gserviceaccount.com
+553550349208-compute@developer.gserviceaccount.com

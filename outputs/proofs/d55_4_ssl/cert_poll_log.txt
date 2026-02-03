@@ -1,0 +1,1 @@
+[SKIPPED] Certificate 'msr-api-cert' was found ACTIVE during initial snapshot. Polling loop not required.

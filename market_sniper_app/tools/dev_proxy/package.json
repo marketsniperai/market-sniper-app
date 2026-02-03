@@ -1,0 +1,14 @@
+{
+    "name": "msr-dev-proxy",
+    "version": "1.0.0",
+    "description": "Local BFF Proxy for Market Sniper War Room (Web Debug)",
+    "main": "dev_proxy.js",
+    "scripts": {
+        "start": "node dev_proxy.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "http-proxy-middleware": "^2.0.6"
+    }
+}

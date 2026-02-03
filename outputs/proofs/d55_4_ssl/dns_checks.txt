@@ -1,0 +1,32 @@
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    api.marketsniperai.com
+Address:  34.36.210.87
+
+Server:  one.one.one.one
+Address:  1.1.1.1
+
+Name:    api.marketsniperai.com
+Address:  34.36.210.87
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    api.marketsniperai.com
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    api.marketsniperai.com
+Address:  34.36.210.87
+
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    marketsniperai.com
+Addresses:  198.185.159.144
+	  198.49.23.144
+	  198.49.23.145
+	  198.185.159.145
+

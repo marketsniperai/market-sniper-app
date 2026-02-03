@@ -1,0 +1,6 @@
+name: projects/553550349208/policies/iam.allowedPolicyMemberDomains
+spec:
+  rules:
+  - values:
+      allowedValues:
+      - C03fwchpd

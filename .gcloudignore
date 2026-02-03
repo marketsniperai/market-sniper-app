@@ -1,0 +1,61 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+# Ignore all build directories by default
+build/
+# BUT explicitly whitelist the flutter web build
+!market_sniper_app/build/
+
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.venv
+venv/
+ENV/
+
+# Flutter
+/market_sniper_app/.dart_tool/
+/market_sniper_app/.flutter-plugins
+/market_sniper_app/.flutter-plugins-dependencies
+/market_sniper_app/.pub-cache/
+/market_sniper_app/.packages
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Project Specific
+outputs/logs/
+outputs/runtime/
+backend/outputs/
+secrets/
+*.key
+*.pem
+outputs/backups/
+.git
+.gitignore

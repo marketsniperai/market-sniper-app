@@ -1,0 +1,7 @@
+ERROR: (gcloud.org-policies.set-policy) [intel@marketsniperai.com] does not have permission to access projects instance [553550349208] (or it may not exist): Permission 'orgpolicy.policies.create' denied on resource '//cloudresourcemanager.googleapis.com/projects/553550349208' (or it may not exist). This command is authenticated as intel@marketsniperai.com which is the active account specified by the [core/account] property.
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: cloudresourcemanager.googleapis.com
+  metadata:
+    permission: orgpolicy.policies.create
+    resource: projects/553550349208
+  reason: IAM_PERMISSION_DENIED

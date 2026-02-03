@@ -1,0 +1,453 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     2    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: c5ddd4e6e0117e55d3f11fde79bc725b;o=1
+Content-Length: 2
+date: Tue, 03 Feb 2026 20:34:02 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     2    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: e14ad8ee4c89e2fe0a2adbf484508084
+Content-Length: 2
+date: Tue, 03 Feb 2026 20:34:06 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     2    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 05db1ce03500ebf5be892f97abf68f54;o=1
+Content-Length: 2
+date: Tue, 03 Feb 2026 20:38:11 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 2316fa287bc13d4247a7acd619c1b3fa
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:38:13 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 405 Method Not Allowed
+allow: GET
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 9192a246f5088b5b9b1d0e2bf20c2882
+Content-Length: 31
+date: Tue, 03 Feb 2026 20:38:16 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   787    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 787
+Cache-Control: no-store
+Content-Type: application/json
+Server: Google Frontend
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+X-Cloud-Trace-Context: 4111378bd02fa12c44112301090f3923
+X-Country-Code: US
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 20:38:18 GMT
+X-Served-By: cache-mia-kmia1760078-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770151098.490347,VS0,VE79
+Vary: cookie,need-authorization, x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   189    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 189
+Cache-Control: no-store
+Content-Type: application/json
+Server: Google Frontend
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+X-Cloud-Trace-Context: 31b7373b746b4b22f550228e8d1234ef
+X-Country-Code: US
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 20:38:21 GMT
+X-Served-By: cache-mia-kmia1760107-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770151101.922389,VS0,VE114
+Vary: cookie,need-authorization, x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (35) Recv failure: Connection was reset
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 2eae2c219aad10146146ef75cc2aca6e;o=1
+date: Tue, 03 Feb 2026 20:38:27 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: ca2e10f2c297e9789141c81776086b2a
+date: Tue, 03 Feb 2026 20:38:29 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: d67b1325d6fa82745bcfe957596d323e
+date: Tue, 03 Feb 2026 20:38:31 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 6b1e72e1f6f852db2af4758f11b72a44;o=1
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:39:10 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 5f072427942575225a86441e4b80ffc4
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:39:12 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: b50c56def46383da6224afdaf6f04969
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:39:14 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 405 Method Not Allowed
+allow: GET, HEAD
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 3aa54dc6dccc3bb933ac65210b85e296
+date: Tue, 03 Feb 2026 20:39:17 GMT
+server: Google Frontend
+Content-Length: 31
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 405 Method Not Allowed
+Connection: keep-alive
+Content-Length: 31
+Allow: GET, HEAD
+Content-Type: application/json
+Server: Google Frontend
+X-Cloud-Trace-Context: 80515ab8cf5ef7972e09afc4af8e50e2
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 20:39:19 GMT
+X-Served-By: cache-mia-kmia1760104-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770151159.362506,VS0,VE77
+Vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     2    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: c5ddd4e6e0117e55d3f11fde79bc725b;o=1
+Content-Length: 2
+date: Tue, 03 Feb 2026 20:34:02 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     2    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: e14ad8ee4c89e2fe0a2adbf484508084
+Content-Length: 2
+date: Tue, 03 Feb 2026 20:34:06 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     2    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 05db1ce03500ebf5be892f97abf68f54;o=1
+Content-Length: 2
+date: Tue, 03 Feb 2026 20:38:11 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 2316fa287bc13d4247a7acd619c1b3fa
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:38:13 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 405 Method Not Allowed
+allow: GET
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 9192a246f5088b5b9b1d0e2bf20c2882
+Content-Length: 31
+date: Tue, 03 Feb 2026 20:38:16 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   787    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 787
+Cache-Control: no-store
+Content-Type: application/json
+Server: Google Frontend
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+X-Cloud-Trace-Context: 4111378bd02fa12c44112301090f3923
+X-Country-Code: US
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 20:38:18 GMT
+X-Served-By: cache-mia-kmia1760078-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770151098.490347,VS0,VE79
+Vary: cookie,need-authorization, x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   189    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 189
+Cache-Control: no-store
+Content-Type: application/json
+Server: Google Frontend
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+X-Cloud-Trace-Context: 31b7373b746b4b22f550228e8d1234ef
+X-Country-Code: US
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 20:38:21 GMT
+X-Served-By: cache-mia-kmia1760107-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770151101.922389,VS0,VE114
+Vary: cookie,need-authorization, x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (35) Recv failure: Connection was reset
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 2eae2c219aad10146146ef75cc2aca6e;o=1
+date: Tue, 03 Feb 2026 20:38:27 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: ca2e10f2c297e9789141c81776086b2a
+date: Tue, 03 Feb 2026 20:38:29 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: d67b1325d6fa82745bcfe957596d323e
+date: Tue, 03 Feb 2026 20:38:31 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 6b1e72e1f6f852db2af4758f11b72a44;o=1
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:39:10 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 5f072427942575225a86441e4b80ffc4
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:39:12 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    22    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 404 Not Found
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: b50c56def46383da6224afdaf6f04969
+Content-Length: 22
+date: Tue, 03 Feb 2026 20:39:14 GMT
+server: Google Frontend
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 405 Method Not Allowed
+allow: GET, HEAD
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: 3aa54dc6dccc3bb933ac65210b85e296
+date: Tue, 03 Feb 2026 20:39:17 GMT
+server: Google Frontend
+Content-Length: 31
+via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0    31    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 405 Method Not Allowed
+Connection: keep-alive
+Content-Length: 31
+Allow: GET, HEAD
+Content-Type: application/json
+Server: Google Frontend
+X-Cloud-Trace-Context: 80515ab8cf5ef7972e09afc4af8e50e2
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 20:39:19 GMT
+X-Served-By: cache-mia-kmia1760104-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770151159.362506,VS0,VE77
+Vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
+  % Total    % Received % Xferd  

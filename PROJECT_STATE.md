@@ -235,3 +235,240 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
   - Forensic Audit of Days 0-50 Complete.
   - Verified 397 Endpoints and 100% Feature Persistence.
   - Zero True Ghosts detected. System Integrity: GOLD.
+
+- [2026-01-30] **D52 War Room Design** (SEALED)
+  - Established Command Center Doctrine (Variant A: Founder Dense).
+  - Defined Zone Architecture.
+- [2026-01-30] **D53 War Room Structural Refactor** (SEALED)
+  - Refactored War Room into 4 Zones: Command Bar, Honeycomb, Alpha Strip, Console Gates.
+  - Implemented dense layouts and deprecated legacy tile structures.
+  - Matches D52 IA.
+- [2026-01-30]- **D53.6 (War Room Truth Exposure):** SEALED. War Room V2 transformed into a truth-only surface with strict N/A mapping, source attribution, and system consciousness gates. All mocked data removed. verified by compilation and static analysis.
+- [2026-01-30] **D53.1 War Room V2 Compile Fix** (SEALED)
+  - Restored compilation after structural refactor.
+  - Fixes imports, LockReason, and Snapshot definitions.
+- [2026-01-30] **D53.2 War Room V2 Exit + Skeleton** (SEALED)
+  - Added Navigation Safety (Back/Close).
+  - Ensured Always-Visible Skeleton layout (No blanks).
+- [2026-01-30] **D53.3 War Room V2 Unlock Exit + Density Pass** (SEALED)
+  - Fixed Exit buttons (Back/Close) with safe fallback.
+  - Applied Founder Dense spacing (AppBar 50px, compacted zones).
+- [2026-01-30] **D53.3A AlphaStrip Hotfix** (SEALED)
+  - Fixed syntax error (duplicate statement).
+  - Restored compilation.
+- [2026-01-30] [x] D53.3B: War Room V2 - Unlock Exit Proof (SEALED)
+- [x] D53.3C: War Room V2 - Proof of Life [404 ALIVE] (SEALED)
+  - Implemented rootNavigator/fallback logic.
+  - Added "WARROOM_EXIT" observability.
+- [2026-01-30] [x] D53.3D: War Room V2 - Real Proof of Life [200 OK] (SEALED)
+  - Connected `/lab/war_room` backend endpoint.
+  - Implemented "ASOF" Server Time display.
+  - Added Compact Error Banner.
+- [2026-01-31] **D53.Refactor.Code Implementation (SEALED)**
+  - Physically implemented the 4-zone separation (GlobalCommandBar, ServiceHoneycomb, AlphaStrip, ConsoleGates).
+  - Verified compilation and structure.
+  - Seal: outputs/seals/SEAL_D53_WAR_ROOM_STRUCTURAL_REFACTOR.md
+- [2026-01-31] **D53.6A War Room Truth Proof Panel** (SEALED)
+  - Implemented Founder-only metrics: FETCH, AGE, REAL, N/A.
+  - No backend changes. Strict density.
+- [2026-01-31] **D53.6B War Room Tile Source Overlay** (SEALED)
+  - Implemented Founder-only "SRC" toggle.
+  - Tiles display endpoint/field/origin (REAL/SIM) overlay.
+  - Wired metadata for all 12 canonical tiles.
+- [2026-01-31] **D53.6B.1 War Room No-Blank Guarantee** (SEALED)
+  - Hardened layout against "flash then blank".
+  - Wrapped all Zone builders in `try/catch`.
+  - Added Founder-only "ZONES: 4 | STATE: OK" debug marker.
+- [2026-01-31] **D53.6B.2 Flash->Blank Root Cause + Fix** (SEALED)
+  - Fixed `AppColors.stateWarning` compilation error (Root Cause).
+  - Confirmed fix with `flutter run -d chrome`.
+- [2026-01-31] **D53.6C War Room Responsive Density Lock** (SEALED)
+  - Switched from Ratio-Grid to Height-Locked Grid (48px/42px).
+  - Implemented responsive column variance (<520/820/1200px).
+  - Added Founder-only Layout Proof Chip (W:###).
+- [2026-01-31] **D53.6X War Room Widget Disappear Investigation** (SEALED)
+  - Identified root cause: Unprotected `Future.wait` parallel fetch.
+  - Implemented `safe()` isolation wrapper for all 29 endpoints.
+  - Hardened repository against partial network failures.
+- [2026-01-31] **D53.6Y Truth Coverage Meter** (SEALED)
+  - Implemented Founder-only Truth Coverage Meter in Zone 4.
+  - Key Metrics: Fetch Status, Data Age (s), Coverage Ratio (%), Top N/A Tiles.
+  - Pure client-side derivation with no backend changes.
+- [2026-01-31] **D53.6Z War Room Viewport Null Fix** (SEALED)
+  - Resolved `viewport.hitTestChildren` crash ("Unexpected null value").
+  - Replaced problematic `Wrap` layout in `ConsoleGates` with `Row`.
+  - Reverted forced `/war_room` route; restored Safe Startup flow.
+- [2026-01-31] **D54.0 War Room Web Hardening** (SEALED)
+  - Hardened `WarRoomTile` against unbounded constraint crashes (Expanded -> Flexible).
+  - Verified Backend Layout/CORS configuration.
+  - Ensured stable rendering on Flutter Web even under partial data conditions.
+- [2026-01-31] **D54.0A War Room Endpoint 404 Slayed** (SEALED)
+  - Added /lab/warroom and /lab/war-room aliases.
+  - Added hit logging for observability.
+  - Verified local reachability via curl.
+- [2026-01-31] **D54.1 War Room Zero Overflows Polish** (SEALED)
+  - Eliminated vertical overflows in Alpha Strip (42px tiles).
+  - Enforced strict padding (2px) and text limits (maxLines=1).
+  - Ensured responsive layout stability on narrow screens.
+- [2026-01-31] **D54.2B Local BFF Proxy for Web** (SEALED)
+  - Implemented `tools/dev_proxy/proxy.py` (FastAPI) to bridge Flutter Web -> Cloud Run.
+  - Solved CORS & Auth (gcloud token injection) for local debugging.
+  - Enabled "Real Data" War Room access in Chrome Debug mode.
+- [2026-01-31] **D54.3 Cloud Run Reality Audit** (SEALED)
+  - Confirmed Critical Drift: PROD is 17 days behind HEAD (Jan 14).
+  - Identified 68 Missing Routes (War Room, Context, Foundation).
+  - Recommended Full Redeploy to restore checking.
+- [2026-01-31] **D55.0 Full Redeploy & Route Restoration** (SEALED)
+  - Redeployed `marketsniper-api` to Revision `00024-xrd`.
+  - Fixed 3 startup crashes (Imports, Dependencies) via hot-patches.
+  - Verified 0 Missing Routes (all 68 restored). User intervention required for token auth.
+- [2026-01-31] **D55.0B HEAD/OPTIONS Method Hardening** (SEALED)
+  - Modifed `api_server.py` to explicitly support `HEAD` on critical routes (`/lab/war_room`, etc.).
+  - Eliminated `405 Method Not Allowed` errors for availability checks.
+  - Confirmed `HTTP 200 OK` for HEAD requests in Production (Rev `0B`).
+- [2026-01-31] **D55.0D Public Gateway Proxy** (BLOCKED)
+  - Attempted to deploy `marketsniper-gateway` for CORS handling.
+  - **Critical Block**: Org Policy prevents `allUsers` (Public Access) on Cloud Run services.
+  - Gateway cannot serve unauthenticated `OPTIONS` requests. Recommended Firebase Hosting rewrite.
+- [2026-01-31] **D55.0E Firebase Hosting Rewrite Web Unblock** (PARTIAL)
+  - Configured `firebase.json` for Rewrite (`/api/**` -> Cloud Run).
+  - Built Flutter Web Release.
+  - **Action Required**: Run `firebase deploy --only hosting` (CLI missing in env).
+  - Updated `AppConfig.dart` to use Hosting URL.
+- [2026-01-31] **D55.1 Web Access Unblock Zero Human** (FAILED)
+  - Attempted programmatic deploy via Cloud Build to trigger SA creation. Failed on Auth/Env.
+  - Confirmed Service Agent `service-553550349208@...` does not exist yet.
+  - **Manual Unblock**: User must run `firebase deploy` locally once.
+- [2026-01-31] **D55.1B Zero Human Firebase SA + Cloud Build** (FAILED)
+  - Attempted `gcloud beta services identity create` (Failed: Provider Internal Error).
+  - Attempted debug Cloud Build deploy (Failed: Exit Code 1).
+  - **Conclusion**: Automation Impossible in current env. Manual Bootstrapping Mandatory.
+- [2026-01-31] **D55.2 Firebase Hosting Bootstrap** (FAILED)
+  - Attempted manual CLI bootstrap via `firebase` standalone + `gcloud` token.
+  - **Blocker**: Auth token generation failed/incompatible. CLI unusable.
+  - **Action**: User must run manual bootstrap commands.
+- [2026-01-31] **D55.3 LB Web Unblock** (INFRA READY)
+  - Deployed HTTPS Load Balancer (`34.36.210.87`) + Serverless NEG (`marketsniper-api`).
+  - Infrastructure sealed. SSL Certificate provisioning pending DNS update.
+  - Provides path to unblock Web CORS via managed infrastructure.
+-
+**Verdict**:
+Project
+is
+Institutionally
+Pure.
+No
+sergiobltrn@gmail.com dependencies.
+-
+↳
+Seal:
+[SEAL_D55_5_OWNERSHIP_AUDIT.md]
+-
+**Blocker**:
+Firebase
+Hosting
+Service
+Agent
+does
+not
+exist
+and
+cannot
+be
+force-created
+via
+CLI.
+-
+**Action**:
+User
+must
+manually
+trigger
+a
+hosting
+deploy
+from
+Console
+or
+authorized
+machine
+to
+seed
+identity.
+-
+↳
+Seal:
+[SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md]
+-
+**Blocker**:
+iam.allowedPolicyMemberDomains restricts
+IAM
+to
+C03fwchpd.
+-
+**Action**:
+Org
+Admin
+must
+override
+policy
+on
+project
+to
+Allow
+All
+for
+public
+access.
+-
+↳
+Seal:
+[SEAL_D55_7_DOMAIN_RESTRICTION_DIAGNOSIS.md]
+-
+**Blocker**:
+Project
+Owner
+lacks
+oles/orgpolicy.policyAdmin.
+-
+**Action**:
+Elevate
+permissions
+or
+apply
+policy
+manualy
+via
+Console.
+-
+↳
+Seal:
+[SEAL_D55_8_DOMAIN_RESTRICTION_OVERRIDE_FAILURE.md]
+-
+**Resolution**:
+Org
+Policy
+overridden
+to
+llowAll.
+llUsers invoker
+granted.
+-
+↳
+Seal:
+[SEAL_D55_9_PUBLIC_WEB_UNBLOCK.md]
+-
+**Verdict**:
+API
+Surface
+is
+hardened.
+Sensitive
+routes
+are
+not
+accessible.
+-
+↳
+Seal:
+[SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md]

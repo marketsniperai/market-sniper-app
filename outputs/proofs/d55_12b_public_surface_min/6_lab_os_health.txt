@@ -1,0 +1,13 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 403 Forbidden
+content-type: application/json
+x-founder-trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+x-cloud-trace-context: d1da656367f0cc9c4827f4c60af9469d
+date: Tue, 03 Feb 2026 20:24:42 GMT
+server: Google Frontend
+via: 1.1 google
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+

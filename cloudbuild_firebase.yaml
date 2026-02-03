@@ -1,0 +1,9 @@
+steps:
+- name: 'node:16'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    npm install -g firebase-tools
+    # Using --non-interactive and --debug to solve stalled/silent failures
+    firebase deploy --project $PROJECT_ID --only hosting --non-interactive --debug

@@ -37,6 +37,20 @@ ENV/
 /market_sniper_app/.packages
 /market_sniper_app/pubspec.lock
 
+# Firebase
+.firebase/
+firebase-debug.log
+.firebaserc.bak
+*.log
+
+# Windows junk
+Thumbs.db
+Desktop.ini
+
+# Local artifacts/tools (if not intended to track)
+tools/*.exe
+firebase.exe
+
 # IDE
 .idea/
 .vscode/

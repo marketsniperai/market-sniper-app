@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui'; // PlatformDispatcher
 import 'package:google_fonts/google_fonts.dart'; // Add import
 import 'package:provider/provider.dart'; // Provider
 import 'layout/main_layout.dart';
@@ -21,6 +22,17 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   LayoutPoliceGuard.install(enabled: AppConfig.isFounderBuild);
+
+  // D53.6X Investigation Hooks
+  FlutterError.onError = (details) {
+    debugPrint("FLUTTER_ERROR: ${details.exception}");
+    debugPrintStack(stackTrace: details.stack);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    debugPrint("DART_ERROR: $error");
+    debugPrintStack(stackTrace: stack);
+    return true;
+  };
 
   // Polish.Notifications.01
   WidgetsFlutterBinding.ensureInitialized();
@@ -94,7 +106,11 @@ class _MarketSniperAppState extends State<MarketSniperApp> {
           surface: AppColors.surface1,
         ),
       ),
-      initialRoute: '/welcome', // Entry Point
+      initialRoute: '/welcome', // Reverted D53.6X Force Entry
+      onGenerateRoute: (settings) {
+        debugPrint("ROUTER_INITIAL_ROUTE=${settings.name}");
+        return null; // Use default routes table
+      },
       routes: {
         '/welcome': (context) => const WelcomeScreen(),
         '/startup': (context) =>

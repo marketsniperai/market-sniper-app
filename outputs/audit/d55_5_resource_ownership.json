@@ -1,0 +1,31 @@
+{
+    "auditTimestamp": "2026-02-03T13:10:00-05:00",
+    "scope": "marketsniper-intel-osr-9953",
+    "status": "CLEAN",
+    "contaminationFound": false,
+    "iam": {
+        "status": "OK",
+        "owners": [
+            "intel@marketsniperai.com"
+        ],
+        "personalAccounts": []
+    },
+    "cloudRun": {
+        "service": "marketsniper-api",
+        "creator": "intel@marketsniperai.com",
+        "lastModifier": "intel@marketsniperai.com",
+        "serviceAccount": "ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+    },
+    "loadBalancer": {
+        "status": "OK",
+        "personalAccounts": []
+    },
+    "serviceAccounts": {
+        "status": "OK",
+        "personalAccounts": []
+    },
+    "logs": {
+        "query": "protoPayload.authenticationInfo.principalEmail='sergiobltrn@gmail.com'",
+        "matches": 0
+    }
+}

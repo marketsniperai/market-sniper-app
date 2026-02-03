@@ -33,6 +33,11 @@ class EliteOSSnapshot(BaseModel):
     overlay: Optional[OverlaySnapshot] = None
     generated_at_utc: str = "UNKNOWN"
 
+class FirstInteractionScript(BaseModel):
+    script_id: str = "UNKNOWN"
+    steps: List[Dict[str, Any]] = Field(default_factory=list)
+    version: str = "1.0.0"
+
 # --- Reader Logic ---
 
 class EliteOSReader:
@@ -41,6 +46,9 @@ class EliteOSReader:
     Loads canonical OS artifacts for Elite explanations.
     Bounded, Safe, Degrade-First.
     """
+    
+    # Paths
+    PATH_FIRST_INTERACTION = Path("backend/outputs/elite/script/first_interaction.json")
 
     @staticmethod
     def get_snapshot() -> EliteOSSnapshot:

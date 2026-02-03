@@ -1,0 +1,25 @@
+Analyzing zones...                                              
+
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:51:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:66:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:81:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:100:31 - curly_braces_in_flow_control_structures
+  error - The getter 'status' isn't defined for the type 'DriftSnapshot' - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:102:27 - undefined_getter
+  error - The getter 'assetSkew' isn't defined for the type 'DriftSnapshot' - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:103:36 - undefined_getter
+  error - The getter 'systemClockOffsetMs' isn't defined for the type 'DriftSnapshot' - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:104:37 - undefined_getter
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:94:29 - curly_braces_in_flow_control_structures
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:120:109 - prefer_const_literals_to_create_immutables
+  error - The getter 'eliteGold' isn't defined for the type 'AppColors' - market_sniper_app\lib\widgets\war_room\zones\global_command_bar.dart:82:54 - undefined_getter
+  error - The method 'jetbrainsMono' isn't defined for the type 'GoogleFonts' - market_sniper_app\lib\widgets\war_room\zones\global_command_bar.dart:85:54 - undefined_method
+  error - The getter 'eliteGold' isn't defined for the type 'AppColors' - market_sniper_app\lib\widgets\war_room\zones\global_command_bar.dart:86:49 - undefined_getter
+  error - The method 'jetbrainsMono' isn't defined for the type 'GoogleFonts' - market_sniper_app\lib\widgets\war_room\zones\global_command_bar.dart:100:40 - undefined_method
+warning - Unused import: 'package:market_sniper_app/theme/app_spacing.dart' - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:2:8 - unused_import
+warning - The value of the local variable 'label' isn't used - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:54:12 - unused_local_variable
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:99:32 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:115:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:130:31 - curly_braces_in_flow_control_structures
+  error - The getter 'valid' isn't defined for the type 'ReplayIntegritySnapshot' - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:132:26 - undefined_getter
+  error - The getter 'valid' isn't defined for the type 'ReplayIntegritySnapshot' - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:133:23 - undefined_getter
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:144:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:158:29 - curly_braces_in_flow_control_structures
+

@@ -1,0 +1,17 @@
+metadata:
+  creationTimestamp: '2026-01-14T01:56:28.211560Z'
+  name: marketsniper-api-00019-7db
+spec:
+  containers:
+  - env:
+    - name: MISFIRE_THRESHOLD_SECONDS
+      value: '93600'
+    - name: PROJECT_ID
+      value: marketsniper-intel-osr-9953
+    - name: REGION
+      value: us-central1
+    - name: JOB_NAME
+      value: market-sniper-pipeline
+    - name: OUTPUTS_PATH
+      value: /app/backend/outputs
+    image: us-central1-docker.pkg.dev/marketsniper-intel-osr-9953/marketsniper-repo/api@sha256:a5da6cf941e4d57bf7c3faa542d63a031c604baaf8fdd474e9d1938ed9396802

@@ -1,0 +1,7 @@
+Google Cloud SDK 550.0.0
+alpha 2025.12.12
+beta 2025.12.12
+bq 2.1.26
+core 2025.12.12
+gcloud-crc32c 1.0.0
+gsutil 5.35

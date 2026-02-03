@@ -239,7 +239,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchHousekeeperStatus() async {
-    final url = Uri.parse('$baseUrl/lab/housekeeper/status');
+    final url = Uri.parse('$baseUrl/lab/os/self_heal/housekeeper/status');
     try {
       final response = await client.get(url, headers: _headers);
       if (response.statusCode == 200) {
@@ -432,6 +432,27 @@ class ApiClient {
         return json.decode(response.body);
       }
     } catch (_) {}
+    return {};
+  }
+
+  Future<Map<String, dynamic>> fetchWarRoomDashboard() async {
+    final url = Uri.parse('$baseUrl/lab/war_room');
+    print("WARROOM_FETCH url=$url"); // Using print/debugPrint as requested
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        print("WARROOM_FETCH status=200");
+        return json.decode(response.body);
+      } else {
+        print("WARROOM_FETCH status=${response.statusCode}");
+        if (response.body.isNotEmpty) {
+           final trunc = response.body.length > 120 ? response.body.substring(0, 120) : response.body;
+           print("WARROOM_FETCH body_preview=$trunc");
+        }
+      }
+    } catch (e) {
+      print("WARROOM_FETCH Error: $e");
+    }
     return {};
   }
 }

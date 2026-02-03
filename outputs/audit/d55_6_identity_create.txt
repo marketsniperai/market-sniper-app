@@ -1,0 +1,9 @@
+ERROR: (gcloud.beta.services.identity.create) INVALID_ARGUMENT: com.google.api.tenant.error.TenantManagerException: IAM_SERVICE_NOT_CONFIGURED_FOR_IDENTITIES: Parameter{name=service_name, values=Constant{values=[firebasehosting.googleapis.com]}} Code: INVALID_ARGUMENT
+Help Token: AcxmRmIj9YaPDBSJVOvWoXGmZiey2DTiUNb2nm26lqDj_aKfI-DT_ij6Izd358ppYnyQSI21TKEv1wV5jDjEDwUMJq3KT2w6e6TMdLMfJR1cSa76
+- '@type': type.googleapis.com/google.rpc.PreconditionFailure
+  violations:
+  - subject: '908020'
+    type: googleapis.com
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: serviceusage.googleapis.com
+  reason: SU_INTERNAL_GENERATE_SERVICE_IDENTITY

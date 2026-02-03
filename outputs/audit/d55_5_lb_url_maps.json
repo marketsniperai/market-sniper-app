@@ -1,0 +1,11 @@
+[
+  {
+    "creationTimestamp": "2026-01-31T15:30:36.369-08:00",
+    "defaultService": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/backendServices/msr-backend",
+    "fingerprint": "F3fP3nuj5uY=",
+    "id": "892685122784145012",
+    "kind": "compute#urlMap",
+    "name": "msr-urlmap",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/urlMaps/msr-urlmap"
+  }
+]

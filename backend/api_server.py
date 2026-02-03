@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, Request, BackgroundTasks, Header, HTTPException
+
 from typing import Optional, Dict, Any, List
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -37,13 +38,57 @@ from backend.os_ops.on_demand_tier_enforcer import OnDemandTierEnforcer # D44.06
 from backend.os_intel.economic_calendar_engine import EconomicCalendarEngine # HF35
 from backend.os_ops.event_router import EventRouter # D48.BRAIN.06
 
-app = FastAPI()
+docs_on = (os.getenv('PUBLIC_DOCS','0') == '1')
+app = FastAPI(
+    docs_url=('/docs' if docs_on else None),
+    redoc_url=('/redoc' if docs_on else None),
+    openapi_url=('/openapi.json' if docs_on else None)
+)
+
+class StripApiPrefixMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") == "http":
+            path = scope.get("path") or ""
+            if path == "/api":
+                scope["path"] = "/"
+            elif path.startswith("/api/"):
+                scope["path"] = path[4:]  # remove "/api"
+        await self.app(scope, receive, send)
+
+app.add_middleware(StripApiPrefixMiddleware)
+
+class PublicSurfaceShieldMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") == "http":
+            path = (scope.get("path") or "")
+            # HARD-DENY sensitive surfaces (belt+suspenders)
+            if (
+                path.startswith("/lab") or
+                path.startswith("/forge") or
+                path.startswith("/internal") or
+                path.startswith("/admin")
+            ):
+                # 403 JSON
+                body = b'{"detail":"Forbidden"}'
+                headers = [(b"content-type", b"application/json")]
+                await send({"type":"http.response.start","status":403,"headers":headers})
+                await send({"type":"http.response.body","body":body})
+                return
+        await self.app(scope, receive, send)
+
+app.add_middleware(PublicSurfaceShieldMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*", "HEAD", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -111,8 +156,11 @@ def read_and_validate(filename: str, schema_cls, subdir: str = "full"):
     except Exception as e:
         return FallbackEnvelope.create_fallback("SCHEMA_INVALID", [str(e)])
 
-@app.get("/health_ext", response_model=FallbackEnvelope[RunManifest])
-def health_ext():
+@app.api_route("/health_ext", methods=["GET", "HEAD"], response_model=FallbackEnvelope[RunManifest])
+def health_ext(request: Request):
+    if request.method == "HEAD":
+        print(f"HTTP_METHOD_HARDENING_HIT path={request.url.path} method=HEAD")
+        return JSONResponse(status_code=200, content={})
     # Primary Truth is now FULL pipeline
     result = safe_read_or_fallback("full/run_manifest.json")
     if not result["success"]:
@@ -135,12 +183,18 @@ def health_ext():
     except Exception as e:
         return FallbackEnvelope.create_fallback("SCHEMA_INVALID", [str(e)])
 
-@app.get("/dashboard", response_model=FallbackEnvelope[DashboardPayload])
-def dashboard():
+@app.api_route("/dashboard", methods=["GET", "HEAD"], response_model=FallbackEnvelope[DashboardPayload])
+def dashboard(request: Request):
+    if request.method == "HEAD":
+        print(f"HTTP_METHOD_HARDENING_HIT path={request.url.path} method=HEAD")
+        return JSONResponse(status_code=200, content={})
     return read_and_validate("dashboard_market_sniper.json", DashboardPayload, subdir="full")
 
-@app.get("/context", response_model=FallbackEnvelope[ContextPayload])
-def context():
+@app.api_route("/context", methods=["GET", "HEAD"], response_model=FallbackEnvelope[ContextPayload])
+def context(request: Request):
+    if request.method == "HEAD":
+        print(f"HTTP_METHOD_HARDENING_HIT path={request.url.path} method=HEAD")
+        return JSONResponse(status_code=200, content={})
     return read_and_validate("context_market_sniper.json", ContextPayload, subdir="full")
 
 @app.get("/efficacy", response_model=FallbackEnvelope[EfficacyReport])
@@ -569,8 +623,11 @@ async def os_rollback(request: Request):
 # WAR ROOM ENDPOINTS (DAY 18)
 from backend.os_ops.war_room import WarRoom
 
-@app.get("/lab/war_room")
+@app.api_route("/lab/war_room", methods=["GET", "HEAD"])
 def war_room_dashboard(request: Request):
+    if request.method == "HEAD":
+        print(f"HTTP_METHOD_HARDENING_HIT path={request.url.path} method=HEAD")
+        return JSONResponse(status_code=200, content={})
     """
     Day 18: War Room Command Center (Founder-Gated).
     Unified view of all autonomous systems and forensic timelines.
@@ -579,6 +636,19 @@ def war_room_dashboard(request: Request):
     # Gate check (Strict for War Room visibility)
     # verify_day_18.py will simulate key
     
+    print(f"WAR_ROOM_ENDPOINT_HIT path={request.url.path}") # D54.0A Logging
+    return WarRoom.get_dashboard()
+
+@app.get("/lab/warroom")
+def war_room_alias_1(request: Request):
+    """D54.0A: Defensive Alias for /lab/war_room."""
+    print(f"WAR_ROOM_ENDPOINT_HIT path={request.url.path} (ALIAS warroom)")
+    return WarRoom.get_dashboard()
+
+@app.get("/lab/war-room")
+def war_room_alias_2(request: Request):
+    """D54.0A: Defensive Alias for /lab/war_room."""
+    print(f"WAR_ROOM_ENDPOINT_HIT path={request.url.path} (ALIAS war-room)")
     return WarRoom.get_dashboard()
 
 # SHADOW REPAIR (DAY 19)
@@ -605,8 +675,11 @@ async def shadow_repair_propose(request: Request):
 # AGMS FOUNDATION (DAY 20)
 from backend.os_intel.agms_foundation import AGMSFoundation
 
-@app.get("/agms/foundation")
-def agms_foundation():
+@app.api_route("/agms/foundation", methods=["GET", "HEAD"])
+def agms_foundation(request: Request):
+    if request.method == "HEAD":
+        print(f"HTTP_METHOD_HARDENING_HIT path={request.url.path} method=HEAD")
+        return JSONResponse(status_code=200, content={})
     """
     Day 20: AGMS Foundation (Memory + Mirror + Truth).
     Observe-Only. Returns Snapshot + Delta.

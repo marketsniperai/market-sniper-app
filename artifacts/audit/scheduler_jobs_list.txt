@@ -1,0 +1,4 @@
+ID                       LOCATION     SCHEDULE (TZ)                   TARGET_TYPE  STATE
+ms-light-5min            us-central1  */5 * * * * (America/New_York)  HTTP         ENABLED
+ms-full-0830et           us-central1  30 8 * * * (America/New_York)   HTTP         ENABLED
+market-sniper-scheduler  us-central1  30 8 * * * (Etc/UTC)            HTTP         PAUSED

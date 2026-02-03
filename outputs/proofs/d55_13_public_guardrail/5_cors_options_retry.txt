@@ -1,0 +1,13 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   273    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.0 400 Bad Request
+Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 273
+Date: Tue, 03 Feb 2026 20:40:28 GMT
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (35) Recv failure: Connection was reset

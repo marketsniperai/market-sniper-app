@@ -1,0 +1,36 @@
+[
+  {
+    "IPAddress": "34.107.155.47",
+    "IPProtocol": "TCP",
+    "creationTimestamp": "2026-01-31T15:31:46.019-08:00",
+    "description": "",
+    "fingerprint": "_b7MkF3WBlQ=",
+    "id": "7808182940131864078",
+    "kind": "compute#forwardingRule",
+    "labelFingerprint": "42WmSpB8rSM=",
+    "loadBalancingScheme": "EXTERNAL",
+    "name": "msr-http-fr",
+    "networkTier": "PREMIUM",
+    "portRange": "80-80",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/forwardingRules/msr-http-fr",
+    "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/forwardingRules/7808182940131864078",
+    "target": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/targetHttpProxies/msr-http-proxy"
+  },
+  {
+    "IPAddress": "34.36.210.87",
+    "IPProtocol": "TCP",
+    "creationTimestamp": "2026-01-31T15:30:45.981-08:00",
+    "description": "",
+    "fingerprint": "xTknuOUV6i8=",
+    "id": "8534238322477968970",
+    "kind": "compute#forwardingRule",
+    "labelFingerprint": "42WmSpB8rSM=",
+    "loadBalancingScheme": "EXTERNAL",
+    "name": "msr-https-fr",
+    "networkTier": "PREMIUM",
+    "portRange": "443-443",
+    "selfLink": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/forwardingRules/msr-https-fr",
+    "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/forwardingRules/8534238322477968970",
+    "target": "https://www.googleapis.com/compute/v1/projects/marketsniper-intel-osr-9953/global/targetHttpsProxies/msr-https-proxy"
+  }
+]

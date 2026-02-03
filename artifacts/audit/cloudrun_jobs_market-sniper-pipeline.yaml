@@ -1,0 +1,12 @@
+status:
+  conditions:
+  - lastTransitionTime: '2026-01-13T21:39:56.151304Z'
+    status: 'True'
+    type: Ready
+  executionCount: 16
+  latestCreatedExecution:
+    completionStatus: EXECUTION_FAILED
+    completionTimestamp: '2026-01-14T02:07:40.610898Z'
+    creationTimestamp: '2026-01-14T02:02:08.958842Z'
+    name: market-sniper-pipeline-fph8j
+  observedGeneration: 6

@@ -1,0 +1,16 @@
+Analyzing zones...                                              
+
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:51:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:66:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:81:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\alpha_strip.dart:100:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:94:29 - curly_braces_in_flow_control_structures
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - market_sniper_app\lib\widgets\war_room\zones\console_gates.dart:120:109 - prefer_const_literals_to_create_immutables
+warning - Unused import: 'package:market_sniper_app/theme/app_spacing.dart' - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:2:8 - unused_import
+warning - The value of the local variable 'label' isn't used - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:54:12 - unused_local_variable
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:99:32 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:115:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:130:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:144:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - market_sniper_app\lib\widgets\war_room\zones\service_honeycomb.dart:158:29 - curly_braces_in_flow_control_structures
+

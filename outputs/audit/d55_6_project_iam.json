@@ -1,0 +1,167 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-apigateway.iam.gserviceaccount.com"
+      ],
+      "role": "roles/apigateway.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-apigateway-mgmt.iam.gserviceaccount.com"
+      ],
+      "role": "roles/apigateway_management.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com",
+        "serviceAccount:ms-job-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.reader"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-artifactregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208-compute@developer.gserviceaccount.com"
+      ],
+      "role": "roles/artifactregistry.writer"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.builds.builder"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudbuild.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-cloudscheduler.iam.gserviceaccount.com"
+      ],
+      "role": "roles/cloudscheduler.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudservices.gserviceaccount.com"
+      ],
+      "role": "roles/compute.instanceGroupManagerServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@compute-system.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@containerregistry.iam.gserviceaccount.com"
+      ],
+      "role": "roles/containerregistry.ServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudservices.gserviceaccount.com"
+      ],
+      "role": "roles/editor"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/firebase.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-firebase.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebase.managementServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:firebase-adminsdk-fbsvc@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/firebase.sdkAdminServiceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/firebasehosting.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:firebase-adminsdk-fbsvc@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountTokenCreator"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountUser"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208-compute@developer.gserviceaccount.com",
+        "serviceAccount:ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com",
+        "serviceAccount:ms-job-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/logging.logWriter"
+    },
+    {
+      "members": [
+        "user:intel@marketsniperai.com"
+      ],
+      "role": "roles/owner"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@gcp-sa-pubsub.iam.gserviceaccount.com"
+      ],
+      "role": "roles/pubsub.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:service-553550349208@serverless-robot-prod.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.serviceAgent"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208@cloudbuild.gserviceaccount.com"
+      ],
+      "role": "roles/serviceusage.serviceUsageConsumer"
+    },
+    {
+      "members": [
+        "serviceAccount:ms-job-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storage.objectAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:553550349208-compute@developer.gserviceaccount.com",
+        "serviceAccount:553550349208@cloudbuild.gserviceaccount.com",
+        "serviceAccount:ms-api-sa@marketsniper-intel-osr-9953.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storage.objectViewer"
+    }
+  ],
+  "etag": "BwZJt3BtnOs=",
+  "version": 1
+}

@@ -1,0 +1,20 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1259    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 1259
+Cache-Control: max-age=3600
+Content-Type: text/html; charset=utf-8
+Etag: "596bf26843e03cf24613dab9cfe00ce7f6fae6c3684776e508ef0c310f364c08"
+Last-Modified: Tue, 03 Feb 2026 19:30:30 GMT
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+Accept-Ranges: bytes
+Date: Tue, 03 Feb 2026 19:31:21 GMT
+X-Served-By: cache-mia-kfll1870020-MIA
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1770147081.166767,VS0,VE1
+Vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
