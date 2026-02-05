@@ -60,10 +60,13 @@ class ApiClient {
     
     final isAllowed = path.contains('/lab/war_room/snapshot');
     
+    // D56.01.6: Full URL Visibility
+    final fullLog = "baseUrl=$baseUrl path=$path full=${url.toString()}";
+
     if (isAllowed) {
-      debugPrint("NET_AUDIT: [ALLOW] $method $path");
+      debugPrint("NET_AUDIT: [ALLOW] $method $path ($fullLog)");
     } else {
-      debugPrint("NET_AUDIT: [SUSPECT] $method $path (Legacy Call Detected)");
+      debugPrint("NET_AUDIT: [SUSPECT] $method $path (Legacy Call Detected) ($fullLog)");
     }
   }
 

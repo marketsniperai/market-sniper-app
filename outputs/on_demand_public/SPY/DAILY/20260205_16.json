@@ -1,0 +1,502 @@
+{
+  "version": "0.1.0",
+  "symbol": "SPY",
+  "asOfUtc": "2026-02-05T16:56:44.309856Z",
+  "state": "INSUFFICIENT_DATA",
+  "stateReasons": [
+    "SYSTEM_HEALTH_UNKNOWN",
+    "NEWS_UNAVAILABLE"
+  ],
+  "enginesUsed": [
+    "IRON_OS",
+    "OPTIONS",
+    "EVIDENCE",
+    "MACRO",
+    "INTRADAY_DEMO"
+  ],
+  "inputs": {
+    "options": {
+      "status": "PROVIDER_DENIED",
+      "as_of": "2026-01-23T18:23:38.108351Z"
+    },
+    "evidence": {
+      "status": "N_A",
+      "sample_size": 0,
+      "metrics": {}
+    },
+    "macro": {
+      "status": "AVAILABLE"
+    }
+  },
+  "tactical": {
+    "watch": [
+      "Low historical persistence (< 0%); expect chop."
+    ],
+    "invalidate": [
+      "Volatility expansion vs forecast.",
+      "Structural break of current regime."
+    ]
+  },
+  "contextTags": {
+    "options": {
+      "state": "N_A",
+      "tags": [
+        "OPTIONS_N_A"
+      ],
+      "boundary_mode": "NONE"
+    },
+    "news": {
+      "state": "N_A",
+      "tags": [],
+      "dominant_bucket": "NONE",
+      "dominant_recency": "NONE"
+    },
+    "macro": {
+      "state": "STUB_NEUTRAL",
+      "tags": [
+        "MACRO_STUB_NEUTRAL"
+      ],
+      "risk_context": "NEUTRAL"
+    }
+  },
+  "missingInputs": [
+    "news",
+    "evidence"
+  ],
+  "intraday": {
+    "intervalMin": 5,
+    "pastCandles": [
+      {
+        "tUtc": "2026-02-05T15:55:00Z",
+        "o": 253.87,
+        "h": 253.97,
+        "l": 253.75,
+        "c": 253.94,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:00:00Z",
+        "o": 253.94,
+        "h": 254.29,
+        "l": 253.94,
+        "c": 254.16,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:05:00Z",
+        "o": 254.16,
+        "h": 254.56,
+        "l": 254.06,
+        "c": 254.35,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:10:00Z",
+        "o": 254.35,
+        "h": 254.52,
+        "l": 253.95,
+        "c": 254.03,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:15:00Z",
+        "o": 254.03,
+        "h": 254.24,
+        "l": 253.97,
+        "c": 254.0,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:20:00Z",
+        "o": 254.0,
+        "h": 254.34,
+        "l": 253.82,
+        "c": 254.09,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:25:00Z",
+        "o": 254.09,
+        "h": 254.35,
+        "l": 253.9,
+        "c": 254.07,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:30:00Z",
+        "o": 254.07,
+        "h": 254.25,
+        "l": 253.68,
+        "c": 253.72,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:35:00Z",
+        "o": 253.72,
+        "h": 253.72,
+        "l": 253.33,
+        "c": 253.38,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:40:00Z",
+        "o": 253.38,
+        "h": 253.73,
+        "l": 253.21,
+        "c": 253.58,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:45:00Z",
+        "o": 253.58,
+        "h": 253.71,
+        "l": 253.28,
+        "c": 253.33,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:50:00Z",
+        "o": 253.33,
+        "h": 253.47,
+        "l": 253.07,
+        "c": 253.15,
+        "v": 1000,
+        "isGhost": false
+      },
+      {
+        "tUtc": "2026-02-05T16:55:00Z",
+        "o": 253.15,
+        "h": 253.23,
+        "l": 252.63,
+        "c": 252.65,
+        "v": 1000,
+        "isGhost": false
+      }
+    ],
+    "nowCandle": {
+      "tUtc": "2026-02-05T16:55:00Z",
+      "o": 253.15,
+      "h": 253.23,
+      "l": 252.63,
+      "c": 252.65,
+      "v": 1000,
+      "isGhost": false
+    }
+  },
+  "scenarios": {
+    "base": {
+      "laneState": "CALIBRATING",
+      "notes": [
+        "Base Case (Demo).",
+        "Macro context: Neutral (Stub)."
+      ],
+      "envelope": {
+        "candles": [
+          {
+            "tUtc": "2026-02-05T17:00:00Z",
+            "o": 252.65,
+            "h": 252.86,
+            "l": 252.5,
+            "c": 252.6,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:05:00Z",
+            "o": 252.6,
+            "h": 253.0,
+            "l": 252.57,
+            "c": 252.91,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:10:00Z",
+            "o": 252.91,
+            "h": 253.08,
+            "l": 252.67,
+            "c": 252.83,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:15:00Z",
+            "o": 252.83,
+            "h": 253.42,
+            "l": 252.73,
+            "c": 253.29,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:20:00Z",
+            "o": 253.29,
+            "h": 253.63,
+            "l": 253.11,
+            "c": 253.43,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:25:00Z",
+            "o": 253.43,
+            "h": 253.8,
+            "l": 253.37,
+            "c": 253.6,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:30:00Z",
+            "o": 253.6,
+            "h": 254.28,
+            "l": 253.59,
+            "c": 254.04,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:35:00Z",
+            "o": 254.04,
+            "h": 254.24,
+            "l": 253.7,
+            "c": 253.76,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:40:00Z",
+            "o": 253.76,
+            "h": 253.99,
+            "l": 253.74,
+            "c": 253.91,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:45:00Z",
+            "o": 253.91,
+            "h": 254.1,
+            "l": 253.74,
+            "c": 253.82,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:50:00Z",
+            "o": 253.82,
+            "h": 253.87,
+            "l": 253.79,
+            "c": 253.84,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:55:00Z",
+            "o": 253.84,
+            "h": 254.22,
+            "l": 253.82,
+            "c": 254.17,
+            "v": 1000,
+            "isGhost": true
+          }
+        ]
+      },
+      "bounds": {
+        "yMin": 250.00599999999997,
+        "yMax": 254.974,
+        "yRange": 4.968000000000018,
+        "count": 25
+      }
+    },
+    "stress": {
+      "laneState": "CALIBRATING",
+      "notes": [
+        "Stress Case (Demo)."
+      ],
+      "envelope": {
+        "candles": [
+          {
+            "tUtc": "2026-02-05T17:00:00Z",
+            "o": 250.82,
+            "h": 251.03,
+            "l": 250.6,
+            "c": 250.44,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:05:00Z",
+            "o": 250.44,
+            "h": 251.31,
+            "l": 250.42,
+            "c": 250.97,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:10:00Z",
+            "o": 250.97,
+            "h": 251.13,
+            "l": 250.61,
+            "c": 250.51,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:15:00Z",
+            "o": 250.51,
+            "h": 251.78,
+            "l": 250.42,
+            "c": 251.4,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:20:00Z",
+            "o": 251.4,
+            "h": 251.94,
+            "l": 251.22,
+            "c": 251.49,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:25:00Z",
+            "o": 251.49,
+            "h": 252.12,
+            "l": 251.44,
+            "c": 251.68,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:30:00Z",
+            "o": 251.68,
+            "h": 253.0,
+            "l": 251.66,
+            "c": 252.51,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:35:00Z",
+            "o": 252.51,
+            "h": 252.71,
+            "l": 251.74,
+            "c": 251.55,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:40:00Z",
+            "o": 251.55,
+            "h": 252.01,
+            "l": 251.54,
+            "c": 251.68,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:45:00Z",
+            "o": 251.68,
+            "h": 251.87,
+            "l": 251.38,
+            "c": 251.21,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:50:00Z",
+            "o": 251.21,
+            "h": 251.28,
+            "l": 251.18,
+            "c": 251.0,
+            "v": 1000,
+            "isGhost": true
+          },
+          {
+            "tUtc": "2026-02-05T17:55:00Z",
+            "o": 251.0,
+            "h": 251.86,
+            "l": 250.98,
+            "c": 251.56,
+            "v": 1000,
+            "isGhost": true
+          }
+        ]
+      },
+      "bounds": {
+        "yMin": 250.00599999999997,
+        "yMax": 254.974,
+        "yRange": 4.968000000000018,
+        "count": 25
+      }
+    }
+  },
+  "safety": {
+    "lexiconSafe": true,
+    "noPredictionClaims": true
+  },
+  "attribution": {
+    "generatedAtUtc": "2026-02-05T16:56:44.309856Z",
+    "ticker": "SPY",
+    "timeframe": "DAILY",
+    "source_ladder_used": "PIPELINE",
+    "inputs_consulted": [
+      {
+        "engine": "IRON_OS",
+        "status": "UNKNOWN"
+      },
+      {
+        "engine": "OPTIONS",
+        "status": "PROVIDER_DENIED"
+      },
+      {
+        "engine": "EVIDENCE",
+        "status": "N_A"
+      },
+      {
+        "engine": "MACRO",
+        "status": "AVAILABLE"
+      }
+    ],
+    "rules_fired": [],
+    "derived_facts": [],
+    "blur_reasons": [
+      {
+        "surface": "Future Projection",
+        "reason": "TierGate",
+        "explanation": "Future probabilistic projections are restricted to Elite tier."
+      },
+      {
+        "surface": "Tactical Playbook",
+        "reason": "TierGate",
+        "explanation": "Watch/Invalidate logic is restricted to Elite (or Plus partial)."
+      },
+      {
+        "surface": "Mentor Access",
+        "reason": "TierGate",
+        "explanation": "Mentor interaction requires Elite access."
+      },
+      {
+        "surface": "Calibration Lock",
+        "reason": "TimeGate",
+        "explanation": "09:30-10:30 ET calibration window is active."
+      }
+    ]
+  },
+  "timeframe": "DAILY",
+  "public": true
+}

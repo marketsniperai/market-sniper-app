@@ -23,9 +23,15 @@ class AppConfig {
 
   // Dart Define ensures these can be set at build time
   // RELEASE GUARD: If kReleaseMode, IGNORE env var and force PROD.
+  // Dart Define ensures these can be set at build time
+  // RELEASE GUARD: If kReleaseMode, IGNORE env var and force PROD.
   static String get apiBaseUrl {
-    // 1. Gateway Preference (Highest Priority/Stability)
-    // If Gateway URL is provided, use it. It maps to the same backend but via public ingress.
+    // 0. Manual Override (Highest Priority check)
+    // If running via dev_ritual/flutter run --dart-define=API_BASE_URL=... use it.
+    const explicitUrl = String.fromEnvironment('API_BASE_URL', defaultValue: '');
+    if (explicitUrl.isNotEmpty) return explicitUrl;
+
+    // 1. Gateway Preference
     final gateway = apiGatewayUrl;
     if (gateway.isNotEmpty) {
         return gateway.startsWith('http') ? gateway : "https://$gateway";
@@ -34,28 +40,21 @@ class AppConfig {
     if (const bool.fromEnvironment('dart.vm.product')) {
       return _canonicalProdUrl;
     }
-    // Debug/Profile:
     
-    // D55.0E: Firebase Hosting Rewrite (Bypass CORS/Auth on Web)
-    // Works for both Debug (if deployed) and Release.
+    // Debug/Profile Default:
     if (kIsWeb) {
-      if (kDebugMode) {
-         // Local Backend Direct (No Proxy needed)
-         return 'http://localhost:8000'; 
-      }
-      // Production Web (Firebase Hosting)
-      return 'https://marketsniper-intel-osr-9953.web.app/api';
+      if (kDebugMode) return 'http://localhost:8000';
     }
 
-    // User Request: Default to CLOUD. Local only if requested.
-    const mode = String.fromEnvironment('API_MODE', defaultValue: 'cloud');
-    if (mode == 'local') {
-      return const String.fromEnvironment(
-        'API_BASE_URL',
-        defaultValue: 'http://10.0.2.2:8000',
-      );
-    }
+    // Default Fallback
     return _canonicalProdUrl;
+  }
+  
+  static void printStartupLog() {
+     if (kDebugMode && isNetAuditEnabled) {
+         print("APP_CONFIG: apiBaseUrl=$apiBaseUrl");
+         print("APP_CONFIG: netAuditEnabled=$isNetAuditEnabled");
+     }
   }
   
   static bool get isFounderBuild {

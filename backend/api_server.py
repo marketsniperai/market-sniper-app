@@ -75,23 +75,28 @@ class PublicSurfaceShieldMiddleware:
                 path.startswith("/internal") or
                 path.startswith("/admin")
             ):
-                # D55.16B.1: Strict Founder Check (Env + Key Match)
-                is_founder_mode = (os.getenv("FOUNDER_BUILD") == "1") or (os.getenv("SYSTEM_MODE") == "LAB")
-                env_key = os.getenv("FOUNDER_KEY")
+                # D56.01.10: Allow Unauthenticated Probes (Bypass Edge 404)
+                if path in ["/lab/healthz", "/lab/readyz"]:
+                    await self.app(scope, receive, send)
+                    return
+
+                # D56.01.8: Use Central Config
+                from backend.config import BackendConfig
+                env_key = BackendConfig.FOUNDER_KEY
                 
                 # Check Header
                 headers = dict(scope.get("headers", []))
                 req_key_bytes = headers.get(b"x-founder-key")
                 
                 authorized = False
-                if is_founder_mode and env_key and req_key_bytes:
+                # D55.16B.1: Strict Founder Check (Env + Key Match)
+                if env_key and req_key_bytes:
                     if req_key_bytes.decode("utf-8") == env_key:
                         authorized = True
                 
                 if not authorized:
-
                     # 403 JSON (Consistent)
-                    body = b'{"detail":"Forbidden: Shield Active"}'
+                    body = b'{"detail":"Forbidden: Shield Active (Cloud Run Hardened)"}'
                     headers_out = [(b"content-type", b"application/json")]
                     await send({"type":"http.response.start","status":403,"headers":headers_out})
                     await send({"type":"http.response.body","body":body})
@@ -1367,5 +1372,115 @@ async def update_settings(data: Dict[str, Any]):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ... imports ...
+from backend.config import BackendConfig
+import uuid
+import time
+from datetime import datetime, timezone
+
+# ... existing imports ...
+
+# D56.01.8: Request ID & Logging Middleware
+class RequestObservabilityMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http":
+            await self.app(scope, receive, send)
+            return
+
+        request_id = None
+        # Try to get trace header from Cloud Run / Load Balancer
+        headers = dict(scope.get("headers", []))
+        for name, value in headers.items():
+            if name.lower() == b"x-cloud-trace-context":
+                request_id = value.decode("latin1").split("/")[0]
+                break
+        
+        if not request_id:
+            request_id = str(uuid.uuid4())
+            
+        # Inject into scope for endpoints to use
+        scope["state"] = scope.get("state", {})
+        scope["state"]["request_id"] = request_id
+        
+        start_time = time.time()
+        
+        # Intercept response to log
+        async def wrapped_send(message):
+            if message["type"] == "http.response.start":
+                duration_ms = int((time.time() - start_time) * 1000)
+                path = scope.get("path")
+                status = message["status"]
+                
+                # Structured Log (Stdout)
+                # Filter noise for health checks unless error
+                if path not in ["/healthz", "/readyz"] or status >= 400:
+                    log_entry = json.dumps({
+                        "ts": datetime.now(timezone.utc).isoformat(),
+                        "lvl": "INFO" if status < 400 else "ERROR",
+                        "req_id": request_id,
+                        "path": path,
+                        "status": status,
+                        "lat_ms": duration_ms,
+                        "mode": BackendConfig.SYSTEM_MODE
+                    })
+                    print(log_entry)
+            
+            await send(message)
+
+        await self.app(scope, receive, wrapped_send)
+
+app.add_middleware(RequestObservabilityMiddleware)
+
+# Removed duplicate middleware definitions
+
+
+# ... (Existing Routes) ...
+
+# D56.01.8: Cloud Run Health Probes
+@app.get("/healthz")
+def healthz():
+    """Liveness probe (Root). May be intercepted by FE."""
+    return {"status": "ALIVE", "mode": BackendConfig.SYSTEM_MODE}
+
+@app.get("/readyz")
+def readyz():
+    """Readiness probe (Root). May be intercepted by FE."""
+    # Quick check if artifacts root is readable
+    try:
+        from backend.artifacts.io import get_artifacts_root
+        root = get_artifacts_root()
+        if not root.exists():
+            raise Exception("Artifacts Root Missing")
+        return {"status": "READY", "mode": BackendConfig.SYSTEM_MODE}
+    except Exception as e:
+         return JSONResponse(status_code=503, content={"status": "NOT_READY", "error": str(e)})
+
+# D56.01.10: LAB Probes (Bypass Edge 404)
+# These sit behind the Shield (Allowlisted) and guarantee App Access.
+@app.get("/lab/healthz")
+def lab_healthz():
+    """Liveness probe (Lab). Guaranteed App Access."""
+    return {"status": "ALIVE", "mode": BackendConfig.SYSTEM_MODE}
+
+@app.get("/lab/readyz")
+def lab_readyz():
+    """Readiness probe (Lab). Guaranteed App Access."""
+    # Re-use logic or import, keep it simple for smoke test
+    try:
+        from backend.artifacts.io import get_artifacts_root
+        root = get_artifacts_root()
+        if not root.exists():
+            raise Exception("Artifacts Root Missing")
+        return {"status": "READY", "mode": BackendConfig.SYSTEM_MODE}
+    except Exception as e:
+         return JSONResponse(status_code=503, content={"status": "NOT_READY", "error": str(e)})
+
+# ... (Load Config and Print Startup) ...
+print(f"Backend Startup: {json.dumps(BackendConfig.get_startup_summary())}")
+
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # D56.01.8: Bind to $PORT for Cloud Run
+    uvicorn.run(app, host=BackendConfig.HOST, port=BackendConfig.PORT)

@@ -320,6 +320,5 @@ ANTIGRAVITY DISCIPLINE VERIFIER -- STATUS: FAIL
   - SEAL_D55_16B_1_SHIELD_HARDENING.md (V2 STRICT: Missing 'Resolved'/'New' items)
   - SEAL_D55_16B_WAR_ROOM_SIGNAL_RESTORE.md (V2 STRICT: Missing 'Resolved'/'New' items)
   - SEAL_D55_16_WAR_ROOM_VISIBILITY_RESTORE.md (V2 STRICT: Missing 'Resolved'/'New' items)
-  - SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md (V2 STRICT: Missing 'Resolved'/'New' items)
 
 >> ACTION REQUIRED: Add '## Pending Closure Hook' to these seals.

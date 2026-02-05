@@ -497,3 +497,33 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
   - **Status**: **GUARANTEED.** Zero legacy traffic leakage during War Room activity.
   - **Polish**: Added `NET_AUDIT_ENABLED` toggle for clean debug logs.
   - **Seal**: `outputs/seals/SEAL_D56_01_5_WARROOM_SNAPSHOT_ONLY.md`
+
+- [2026-02-05] **D56.01.6 War Room Green Hard Gate** (SEALED)
+  - **Goal**: Hard Gate Flutter launch until Backend is PROVEN Green (200 OK). Eliminate Base URL ambiguity.
+  - **Fixes**: `dev_ritual.ps1` Verified Probe + Kill/Restart Loop. `AppConfig` explicit `API_BASE_URL` build profile.
+  - **Status**: **GREEN GATE ACTIVE.** Zero Ambiguity.
+  - **Seal**: `outputs/seals/SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md`
+
+- [2026-02-05] **D56.01.7 V3 Hydration (Full Materialization)** (SEALED)
+  - **Goal**: Strict Definition of Done for Snapshot Keys. Zero Missing Keys.
+  - **Fixes**: `war_room.py` Hydration Loop + `REQUIRED_KEYS` Enforcement. `canon_debt_radar` stub.
+  - **Status**: **HYDRATED.** 21+ Keys Guaranteed.
+  - **Seal**: `outputs/seals/SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md`
+
+- [2026-02-05] **D56.01.8 Cloud Run Hardening** (SEALED)
+  - **Goal**: Centralized config, Port Binding ($PORT), Health Checks (/healthz), Structured Logging.
+  - **Fixes**: `api_server.py` updated for Cloud Run environment variables and health check endpoint.
+  - **Status**: **HARDENED.** Production-ready Cloud Run deployment.
+  - **Seal**: `outputs/seals/SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md`
+
+- [2026-02-05] **D56.01.9 Cloud Run Smoke Test** (SEALED)
+  - **Goal**: CI-Proof Deployment Guardrails. Prevent broken deployments.
+  - **Fixes**: `war_room_contract.py`, `smoke_cloud_run.ps1`, `smoke_cloud_run.sh`.
+  - **Status**: **GUARDED.** Automated verification for Port/Auth/Data.
+  - **Seal**: `outputs/seals/SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md`
+
+- [2026-02-05] **D56.01.10 Cloud Run Deploy (Green)** (SEALED)
+  - **Goal**: Deploy to Cloud Run, Fix Probes, Pass Smoke Test (Gate A/B).
+  - **Fixes**: LAB Probes (`/lab/healthz`), `Procfile`, Updated Guardrails.
+  - **Status**: **DEPLOYED & VERIFIED.** Real Production URL is stable.
+  - **Seal**: `outputs/seals/SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md`

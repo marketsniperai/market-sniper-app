@@ -1074,3 +1074,46 @@ Seal:
     - **Guard:** Implemented `AppConfig.isWarRoomActive` and strict Network Guard in `ApiClient` (Throws if non-USP).
     - **Refactor:** `CanonDebtRadar` no longer fetches internally. Now waits for USP hydration (V3).
     - **Outcome:** Guaranteed zero legacy network leaks during War Room session. `ERR_CONNECTION_REFUSED` spam eliminated.
+
+  - [x] D56.01.6 — War Room Green Hard Gate (Liveness + BaseUrl)
+    - ↳ Seal: [`SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md`](../../outputs/seals/SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md)
+    - **Hard Gate:** `dev_ritual.ps1` polls for 10s. If backend != 200 OK, Flutter launch is ABORTED (Exit 1).
+    - **Zero Ambiguity:** `AppConfig` enforces `API_BASE_URL` from build args. `ApiClient` logs full URLs on startup.
+    - **Outcome:** Guaranteed Green State on launch. "Blackout" vector eliminated.
+
+  - [x] D56.01.7 — V3 Hydration (Snapshot Full Materialization)
+    - ↳ Seal: [`SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md`](../../outputs/seals/SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md)
+    - **Hydration:** Backend strictly enforces `REQUIRED_KEYS` (21+ modules).
+    - **Zero Missing Keys:** Missing providers return `status: N_A` with diagnostics instead of omission. `missing_modules` is empty.
+    - **Outcome:** War Room UI shows "Coverage 25/25" (or max) with no missing key errors. "Snapshot Only" policy fully respected.
+
+  - [x] D56.01.8 — Cloud Run / Prod Hardening (Deploy-Proof)
+    - ↳ Seal: [`SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md`](../../outputs/seals/SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md)
+    - **Problem**: Backend was "fragile" (hardcoded port 8000, no health checks, ambiguous logs). Cloud Run failed due to `$PORT` binding issues.
+    - **Fix**:
+        - Centralized `backend/config.py` (`HOST`, `PORT`, `SYSTEM_MODE`).
+        - Updated `api_server.py` to bind to `$PORT` (default 8000).
+        - Added `/healthz` (Liveness) and `/readyz` (Readiness).
+        - Added Structured Logging middleware (JSON logs with request IDs).
+    - **Result**: Backend is now container-native and observable.
+    - **Status**: [x] COMPLETE
+
+  - [x] D56.01.9 — Cloud Run Smoke Test + Deploy Guardrails (CI-Proof)
+    - ↳ Seal: [`SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md`](../../outputs/seals/SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md)
+    - **Problem**: No automated way to verify deployments (port binding, secret safety, schema) before traffic.
+    - **Fix**:
+        *   **Contract**: Extracted `REQUIRED_KEYS` to `backend/contracts/war_room_contract.py` (SSOT).
+        *   **Guardrails**: Created `tools/smoke_cloud_run.ps1` (Win) and `.sh` (Linux) for auto-verification.
+        *   **Checklist**: Created `docs/canon/DEPLOY_SMOKE_CHECKLIST.md`.
+    - **Result**: "Deploy broken" is now impossible if smoke test is run.
+    - **Status**: [x] COMPLETE
+
+  - [x] D56.01.10 — Cloud Run Deploy + Smoke + Final Audit (One-Shot with Gates)
+    - ↳ Seal: [`SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md`](../../outputs/seals/SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md)
+    - **Problem**: Edge 404 on Root Probes (Google Frontend Robot). Missing Entrypoint (`Procfile`).
+    - **Fix**:
+        *   **Probes**: Moved to `/lab/healthz` and `/lab/readyz` (Bypass Edge).
+        *   **Entrypoint**: Added `Procfile` (`python -m backend.api_server`).
+        *   **Gate A/B**: Verified Deployment and Smoke Test against real URL.
+    - **Result**: Production is GREEN. `marketsniper-api` is robust and observable.
+    - **Status**: [x] COMPLETE

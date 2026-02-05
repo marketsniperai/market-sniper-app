@@ -1,110 +1,63 @@
-# ANTIGRAVITY CONSTITUTION
-**Status:** SUPREME LAW  
-**Enforcement:** AUTOMATED (`verify_project_discipline.py`)
-
-## 1. Prime Directives
-1. **"One Step = One Seal"**: No day ends without a SEAL file.
-2. **"No Core OS Change Without Release Checklist"**: Modifying `backend/os_ops/` requires `RELEASE_CHECKLIST.md` evidence.
-3. **"AGMS Thinks. Autofix Acts. Policy Decides."**: Respect the Separation of Powers.
-4. **"Source is Sacred. Runtime is Regenerable."**: `outputs/runtime/` is ephemeral. Code is eternal.
-5. **"Canon is Law"**: If the Code contradicts Canon, the Code is wrong.
-6. **"Structural Failure = Rollback First"**:  
-   If `flutter analyze`, `flutter run`, or `flutter build` emits **syntax/AST-level errors**
-   (e.g. unmatched braces, missing `build()`, “Expected '{'”, “Non-optional parameters can't have a default value”),
-   Antigravity MUST:
-   - Immediately rollback the affected file(s) to last known good (LKG) via Git
-   - Re-apply changes incrementally with verification after each increment  
-   **Patch-on-top is PROHIBITED in this state.**
-
-## 2. Mandatory Read Set (The "Truth")
-*Before answering complex queries or starting a task, Antigravity MUST verify if these files exist and respect them:*
-- `docs/canon/ANTIGRAVITY_CONSTITUTION.md` (This file)
-- `docs/canon/PRINCIPIO_OPERATIVO__MADRE_NODRIZA.md` (Operational Core)
-- `docs/canon/SYSTEM_ATLAS.md` (Map)
-- `docs/canon/OS_MODULES.md` (Module Registry)
-- `docs/canon/PENDING_LEDGER.md` (Canon Debt Truth)
-- `os_registry.json` (Machine Registry)
-- `os_playbooks.yml` (Standard Procedures)
-- `os_autopilot_policy.json` (Decision Logic)
-- `os_kill_switches.json` (Safety Gates)
-- `market_sniper_app/lib/theme/app_colors.dart` (UI Truth)
-- `market_sniper_app/lib/theme/app_typography.dart` (UI Fonts)
-
-## 3. Non-Negotiables
-
-### UI & Frontend
-- **PROHIBITED:** Hardcoding `Color(0x...)` or `Colors.red/green/etc` in widgets (Exception: `theme/`).
-  - *Correction:* Use `AppColors.semanticToken`.
-- **PROHIBITED:** Custom TextStyles without `AppTypography`.
-  - *Correction:* Use `AppTypography.body(context)`, etc.
-
-### Large File Safety
-- **MANDATORY:** Any Dart file **>300 LOC** must follow one of:
-  - Block-level edits only (clearly delimited sections), OR
-  - Git rollback to LKG + re-apply changes incrementally
-- **PROHIBITED:** Multi-feature patching on large files (>300 LOC) **without intermediate compilation checks**.
-  - Minimum: compile/verify after each structural change to avoid silent corruption.
-
-### Runtime & Ops
-- **PROHIBITED:** Committing files in `outputs/runtime/` to git (Ephemeral).
-- **MANDATORY:** Proof artifacts must be stored in `outputs/proofs/` and tracked.
-- **MANDATORY:** `PROJECT_STATE.md` must be updated at the end of every Task.
-- **MANDATORY:** `outputs/seals/` must be created to close a Task.
-
-### Canon Debt (Pending Law) — Enforcement
-- **PENDING LAW:** If a SEAL contains **“Next Steps / Future / Planned / Pending / Upgrade”**, then the same step MUST create or update `docs/canon/PENDING_LEDGER.md` with those items. Otherwise: **DO NOT SEAL**.
-- **MANDATORY:** Any such SEAL MUST also create/update the corresponding pending index JSON (e.g. `outputs/proofs/canon/pending_index_v2.json` or latest).
-- **MANDATORY:** Pending Closure Hook must include both **Resolved Pending Items** and **New Pending Items** (Effective 2026-01-27).
-- **FAILURE CONDITION:** If `PENDING_LEDGER.md` and the pending index JSON are not updated, the SEAL is **INVALID**.
-
-## 4. Finish Protocol
-*Every Task concludes with this sequence:*
-1. **Update State:** Edit `PROJECT_STATE.md`.
-2. **Auto-Stage Canon:** Run `python tool/auto_stage_canon_outputs.py`.
-3. **Verify Discipline:** Run `verify_project_discipline.py`.
-4. **Seal:** Create `outputs/seals/SEAL_*.md`.
-5. **Evidence:** Generate logs in `outputs/proofs/`.
-
-----------------------------------------
-
-ANTIGRAVITY CONSTITUTION 01/26/2025 UPDATE.
+ANTIGRAVITY CONSTITUTION
 
 Status: SUPREME LAW
 Enforcement: AUTOMATED (verify_project_discipline.py)
 
-1. PRIME DIRECTIVES
+1. PRIME DIRECTIVES (NON-NEGOTIABLE)
 
 One Step = One Seal
-No task concludes without a verifiable SEAL.
+No task concludes without a verifiable SEAL_*.md.
 
 Core OS Changes Require Release Discipline
-Modifying backend/os_ops/ requires checklist evidence.
+Any modification under backend/os_ops/ MUST include RELEASE_CHECKLIST.md evidence.
 
 Separation of Powers
-AGMS reasons. Autofix executes. Policy arbitrates.
+
+AGMS reasons
+
+Autofix executes
+
+Policy arbitrates
+No role leakage is allowed.
 
 Source is Sacred. Runtime is Regenerable
-Artifacts are ephemeral. Code is eternal.
+
+Code is permanent
+
+Runtime artifacts are ephemeral
+
+outputs/runtime/ is NEVER committed
 
 Canon is Law
-If code conflicts with Canon, Canon prevails.
+If code conflicts with Canon, code is wrong.
 
-Structural Failure Protocol
-On syntax or AST-level failure, rollback to LKG first. Incremental recovery only.
+Structural Failure Protocol (LKG First)
+If any syntax or AST-level failure occurs (e.g. parser errors, missing build(), unmatched braces):
 
-2. MANDATORY READ SET (TRUTH SOURCES)
+Immediate rollback to Last Known Good (LKG)
 
-Before any complex task, these must be respected:
+Re-apply changes incrementally
 
-ANTIGRAVITY_CONSTITUTION.md
+Verify after each increment
+🚫 Patch-on-top recovery is PROHIBITED in this state.
 
-PRINCIPIO_OPERATIVO__MADRE_NODRIZA.md
+2. MANDATORY READ SET (SOURCE OF TRUTH)
 
-SYSTEM_ATLAS.md
+Before starting any non-trivial task, Antigravity MUST respect these if present:
 
-OS_MODULES.md
+Canon & System
 
-PENDING_LEDGER.md
+docs/canon/ANTIGRAVITY_CONSTITUTION.md
+
+docs/canon/PRINCIPIO_OPERATIVO__MADRE_NODRIZA.md
+
+docs/canon/SYSTEM_ATLAS.md
+
+docs/canon/OS_MODULES.md
+
+docs/canon/PENDING_LEDGER.md
+
+Machine & Policy
 
 os_registry.json
 
@@ -114,45 +67,112 @@ os_autopilot_policy.json
 
 os_kill_switches.json
 
-app_colors.dart
+UI Truth
 
-app_typography.dart
+market_sniper_app/lib/theme/app_colors.dart
 
-3. NON-NEGOTIABLES
-UI & FRONTEND DISCIPLINE
+market_sniper_app/lib/theme/app_typography.dart
 
-UI must be semantic and token-driven.
+3. NON-NEGOTIABLE DISCIPLINE
+A. UI & FRONTEND
 
-LARGE FILE SAFETY
+🚫 PROHIBITED: Hardcoded colors (Color(0x...), Colors.red, etc.)
 
-Incremental edits with verification only.
+✅ Use AppColors.semanticToken
 
-RUNTIME & OPS
+🚫 PROHIBITED: Custom TextStyle
 
-Artifacts are atomic, verified, and tracked.
+✅ Use AppTypography.*
 
-CANON DEBT (PENDING LAW)
+UI must be semantic, token-driven, and theme-authoritative.
 
-All future scope must be registered and indexed before sealing.
+B. LARGE FILE SAFETY (≥ 300 LOC)
 
-4. FINISH PROTOCOL
+For Dart files over 300 LOC, ONE of the following is mandatory:
 
-Every task ends with:
+Block-level edits only (clearly delimited), OR
 
-Project state update
+Git rollback to LKG + incremental re-application
 
-Canon auto-stage
+🚫 PROHIBITED:
+Multi-feature patching without intermediate compile/verify steps.
 
-Discipline verification
+Minimum requirement:
 
-SEAL creation
+Compile / analyze after each structural change
 
-Evidence capture
+C. RUNTIME & OPS HYGIENE
 
-CLOSING STATEMENT
+🚫 PROHIBITED: Committing outputs/runtime/
 
-Antigravity exists to extend the Founder’s intent with discipline, memory, and rigor.
+✅ MANDATORY: Proof artifacts go in outputs/proofs/
+
+✅ MANDATORY: Update PROJECT_STATE.md at task end
+
+✅ MANDATORY: Create a SEAL in outputs/seals/
+
+Artifacts must be atomic, verifiable, and traceable.
+
+D. CANON DEBT (PENDING LAW — STRICT)
+
+If a SEAL contains any of the following:
+
+“Next Steps”
+
+“Future”
+
+“Planned”
+
+“Pending”
+
+“Upgrade”
+
+Then ALL are mandatory:
+
+Update docs/canon/PENDING_LEDGER.md
+
+Update the corresponding pending index JSON
+(e.g. outputs/proofs/canon/pending_index_*.json)
+
+Pending Closure Hook MUST include:
+
+Resolved Pending Items
+
+New Pending Items
+
+❌ FAILURE CONDITION:
+If pending artifacts are not updated → SEAL IS INVALID
+
+4. FINISH PROTOCOL (MANDATORY ORDER)
+
+Every task ends with ALL of the following:
+
+Update PROJECT_STATE.md
+
+Run python tool/auto_stage_canon_outputs.py
+
+Run verify_project_discipline.py
+
+Create outputs/seals/SEAL_*.md
+
+Generate proof artifacts in outputs/proofs/
+
+No exceptions. No shortcuts.
+
+5. OPERATING PRINCIPLE (CLOSING LAW)
+
+Antigravity exists to extend the Founder’s intent with:
+
+Discipline
+
+Memory
+
+Rigor
 
 No hype.
 No shortcuts.
 Only systems that endure.
+
+📌 EFFECTIVE DATE
+
+Original Constitution + Updates consolidated and enforced as of 2026-02-05

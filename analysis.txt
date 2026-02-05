@@ -1,0 +1,27 @@
+Analyzing war_room_repository.dart...                           
+
+  error - The named parameter 'ageSeconds' is required, but there's no corresponding argument - market_sniper_app\lib\repositories\war_room_repository.dart:52:22 - missing_required_argument
+  error - The named parameter 'message' is required, but there's no corresponding argument - market_sniper_app\lib\repositories\war_room_repository.dart:52:22 - missing_required_argument
+  error - The named parameter 'summary' isn't defined - market_sniper_app\lib\repositories\war_room_repository.dart:54:9 - undefined_named_parameter
+  error - The named parameter 'lastUpdated' isn't defined - market_sniper_app\lib\repositories\war_room_repository.dart:55:9 - undefined_named_parameter
+  error - The argument type 'String' can't be assigned to the parameter type 'HealthSource'.  - market_sniper_app\lib\repositories\war_room_repository.dart:56:17 - argument_type_not_assignable
+warning - The value of the local variable 'timelineJson' isn't used - market_sniper_app\lib\repositories\war_room_repository.dart:65:11 - unused_local_variable
+warning - The value of the local variable 'findingsJson' isn't used - market_sniper_app\lib\repositories\war_room_repository.dart:90:11 - unused_local_variable
+  error - Expected to find '(' - market_sniper_app\lib\repositories\war_room_repository.dart:109:50 - expected_token
+  error - The class 'IronTimelineSnapshot' doesn't have a constant constructor 'unknown' - market_sniper_app\lib\repositories\war_room_repository.dart:109:50 - const_with_undefined_constructor
+  error - Expected to find '(' - market_sniper_app\lib\repositories\war_room_repository.dart:110:53 - expected_token
+  error - The class 'IronStateHistorySnapshot' doesn't have a constant constructor 'unknown' - market_sniper_app\lib\repositories\war_room_repository.dart:110:53 - const_with_undefined_constructor
+  error - Expected to find '(' - market_sniper_app\lib\repositories\war_room_repository.dart:112:50 - expected_token
+  error - The class 'DecisionPathSnapshot' doesn't have a constant constructor 'unknown' - market_sniper_app\lib\repositories\war_room_repository.dart:112:50 - const_with_undefined_constructor
+  error - Expected to find '(' - market_sniper_app\lib\repositories\war_room_repository.dart:115:46 - expected_token
+  error - The class 'LockReasonSnapshot' doesn't have a constant constructor 'unknown' - market_sniper_app\lib\repositories\war_room_repository.dart:115:46 - const_with_undefined_constructor
+  error - Expected to find '(' - market_sniper_app\lib\repositories\war_room_repository.dart:116:42 - expected_token
+  error - The class 'CoverageSnapshot' doesn't have a constant constructor 'unknown' - market_sniper_app\lib\repositories\war_room_repository.dart:116:42 - const_with_undefined_constructor
+warning - The declaration '_fetchDashboardSafe' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:135:32 - unused_element
+warning - The declaration '_parseBeforeAfterDiff' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:263:36 - unused_element
+warning - The declaration '_parseFindingsWrapper' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:271:29 - unused_element
+warning - The declaration '_parseIronTimeline' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:397:24 - unused_element
+warning - The declaration '_parseIronHistory' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:423:28 - unused_element
+warning - The declaration '_parseDecisionPath' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:470:24 - unused_element
+warning - The declaration '_parseCoverage' isn't referenced - market_sniper_app\lib\repositories\war_room_repository.dart:604:20 - unused_element
+

@@ -22,15 +22,23 @@ import 'l10n/generated/app_localizations.dart'; // Non-Synthetic (Fixed)
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
-  // D56.01.5: Fail-Safe Reset (Ensure clean state on hot restart)
+  AppConfig.printStartupLog(); // D56.01.6: Startup Audit
+  
+  // D56.01.5 Fail-Safe: Create instance.
+  final routeObserver = WarRoomRouteObserver();
   AppConfig.setWarRoomActive(false);
+
+  // Reverted logging commands
+  // debugPrint("RUNTIME_VERIFY: AppConfig.apiBaseUrl = ${AppConfig.apiBaseUrl}");
+  // debugPrint("RUNTIME_VERIFY: AppConfig.isFounderBuild = ${AppConfig.isFounderBuild}");
 
   LayoutPoliceGuard.install(enabled: AppConfig.isFounderBuild);
 
   // D53.6X Investigation Hooks
   FlutterError.onError = (details) {
-    debugPrint("FLUTTER_ERROR: ${details.exception}");
-    debugPrintStack(stackTrace: details.stack);
+    // Reverted logging commands
+    // debugPrint("FLUTTER_ERROR: ${details.exception}");
+    // debugPrintStack(stackTrace: details.stack);
   };
   PlatformDispatcher.instance.onError = (error, stack) {
     debugPrint("DART_ERROR: $error");

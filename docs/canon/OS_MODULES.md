@@ -81,7 +81,7 @@
 | **OS.Intel.ChatCore** | Elite Chat Core | INTELLIGENCE | Hybrid Chat + Tool Router. | `POST /elite/chat` | `backend/os_intel/elite_chat_router.py` |
 | **OS.Intel.UserMemory** | User Memory | INTELLIGENCE | Longitudinal user reflection. | (Internal) | `backend/os_intel/elite_user_memory_engine.py` |
 | **OS.Intel.LLMBoundary** | LLM Boundary | INTELLIGENCE | Safe LLM wrapper with cost/PII guards. | (Internal) | `backend/os_llm/elite_llm_boundary.py` |
-| **OS.Infra.CloudRun** | Cloud Run API | INFRA | Core Compute (Restored Rev 24). | `marketsniper-api` | `backend/api_server.py` |
+| **OS.Infra.CloudRun** | Cloud Run API | INFRA | Core Compute (Procfile + Lab Probes). | `marketsniper-api` | `backend/api_server.py` |
 | **OS.Infra.LB** | Global Load Balancer | INFRA | HTTPS termination + Serverless NEG. | `api.marketsniperai.com` | (GCP) |
 | **OS.Infra.Hosting** | Firebase Hosting | INFRA | Static Assets + Rewrite Layer. | `*.web.app` | `firebase.json` |
 
@@ -126,6 +126,7 @@
 | **OS.Logic.TabState** | Tab State Store | Logic | Bottom nav persistence. | `lib/logic/tab_state_store.dart` | D45 |
 | **OS.Logic.Ritual** | Ritual Scheduler | Logic | Local notification triggers. | `lib/logic/ritual_scheduler.dart` | D43 |
 | **OS.Domain.Universe** | Universe Domain | Logic | `Core20` Definitions. | `lib/domain/core20_universe.dart` | Canon |
+| **OS.Contract.WarRoom** | War Room Contract | CONTRACT | SSOT for Required Keys (Hydration). | `backend/contracts/war_room_contract.py` | D56.9 |
 | **OS.Logic.RitualPolicy** | Ritual Policy Engine | Logic | Windows + Countdown Logic. | `backend/os_ops/elite_ritual_policy.py` | D49 |
 | **OS.Logic.FreeWindow** | Free Window Ledger | Logic | Monday Free Window Tracking. | `backend/os_intel/elite_free_window_ledger.py` | D49 |
 

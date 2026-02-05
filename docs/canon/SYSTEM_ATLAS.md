@@ -11,6 +11,10 @@
 ### 2.1 Backend (Service Layer)
 - **marketsniper-api**: Core Brain (FastAPI).
     - *Roles*: API Server, Autopilot Policy Engine, War Room Dashboard.
+    - *Entrypoint*: `Procfile` (`web: python -m backend.api_server`).
+    - *Probes*: 
+        - `/lab/healthz` & `/lab/readyz` (Bypass Edge 404).
+        - Root `/healthz` is unreliable due to Google Frontend robot.
     - *Features*:
         - **Autofix Control Plane**: Orchestrates healing (Tier 1).
         - **Housekeeper**: Manages data hygiene.
