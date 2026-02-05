@@ -81,6 +81,10 @@
 | **OS.Intel.ChatCore** | Elite Chat Core | INTELLIGENCE | Hybrid Chat + Tool Router. | `POST /elite/chat` | `backend/os_intel/elite_chat_router.py` |
 | **OS.Intel.UserMemory** | User Memory | INTELLIGENCE | Longitudinal user reflection. | (Internal) | `backend/os_intel/elite_user_memory_engine.py` |
 | **OS.Intel.LLMBoundary** | LLM Boundary | INTELLIGENCE | Safe LLM wrapper with cost/PII guards. | (Internal) | `backend/os_llm/elite_llm_boundary.py` |
+| **OS.Infra.CloudRun** | Cloud Run API | INFRA | Core Compute (Restored Rev 24). | `marketsniper-api` | `backend/api_server.py` |
+| **OS.Infra.LB** | Global Load Balancer | INFRA | HTTPS termination + Serverless NEG. | `api.marketsniperai.com` | (GCP) |
+| **OS.Infra.Hosting** | Firebase Hosting | INFRA | Static Assets + Rewrite Layer. | `*.web.app` | `firebase.json` |
+
 
 
 ## UI Module Inventory

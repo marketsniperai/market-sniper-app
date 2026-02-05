@@ -100,7 +100,10 @@ class WarRoomTile extends StatelessWidget {
                   fit: FlexFit.loose,
                   child: customBody ??
                       Center(
-                        child: _buildBody(context),
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: _buildBody(context),
+                        ),
                       ),
                 ),
 

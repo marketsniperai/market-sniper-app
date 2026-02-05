@@ -109,6 +109,12 @@ class WarRoom:
             "dojo": WarRoom._get_dojo_status(root),
             "tuning_gate": WarRoom._get_tuning_status(root),
             "iron_os_status": IronOS.get_status(),
+            # D55.16B: Explicit Missing Keys for War Room V2
+            "universe": {"status": "UNKNOWN", "source": "MISSING_IMPLEMENTATION"}, # Pending
+            "drift": IronOS.get_drift_report() or {"status": "UNAVAILABLE"}, 
+            "replay": IronOS.get_replay_integrity() or {"status": "UNAVAILABLE"},
+            "iron_lkg": {"status": "UNAVAILABLE"}, # Implicit in Iron status usually
+            "red_button": {"status": "UNAVAILABLE"}, # Frontend-only mostly
             "timestamp_utc": now.isoformat()
         }
         

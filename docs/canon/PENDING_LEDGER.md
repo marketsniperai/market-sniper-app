@@ -137,15 +137,22 @@ Items here are **NOT** bugs; they are distinct units of future value or technica
 - **Description**: Provision API Gateway + API Key to front Private Cloud Run.
 - **Origin**: D45.HF05.AUTH.GATEWAY
 - **Trigger**: Deployment Script Run
-- **Status**: OPEN
-- **Note**: Manual script `outputs/scripts/deploy_auth_gateway.ps1` generated.
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D55_3_LB_WEB_UNBLOCK.md
+- **Evidence**: GCP Load Balancer `34.36.210.87`
+- **Method**: Global HTTPS LB + Serverless NEG (Replaces API Gateway)
+
 
 ### PEND_AUTH_FIREBASE_FULL
 - **Module**: OS.AUTH
 - **Description**: Migrate from API Key (Route B) to Firebase JWT (Route A) for public clients.
 - **Origin**: D45.HF05.AUTH.GATEWAY
 - **Trigger**: Security Hardening
-- **Status**: OPEN
+- **Status**: RESOLVED
+- **Resolved By Seal**: SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md
+- **Evidence**: `firebase.json` rewrite configuration
+- **Method**: Managed Service Account (`firebase-hosting-sa`) with `roles/run.invoker`
+
 
 ## 5. Audit Fixes (D47.FIX)
 

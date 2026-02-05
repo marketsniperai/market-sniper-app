@@ -70,6 +70,7 @@
 - **Pulse**: Real-time sector/regime state.
 - **Sentinel**: Sector heatmap and active monitoring.
 - **Freshness**: Real-time logic (1 min - 15 min degrade).
+- **Options Report**: `GET /options_report` (Legacy PDF/Text - superseded by `options_context` for logic, but endpoint remains active).
 
 ## 7. Iron OS Arc (Day 41) - COMPLETED
 - **Iron OS**: The immutable state recorder.
@@ -128,4 +129,20 @@
 - **Inputs**: Options (Vol Scale), News (Tags), Macro (Stub).
 - **Intraday Series**: Deterministic demo series generator for UI painters.
 - **On-Demand Consumption**: Injects projection block into analysis results.
+
+## 16. Infrastructure & Deployment (Day 55) - RESTORED
+- **Public API**: `api.marketsniperai.com` (Google Managed SSL + Load Balancer).
+- **Hosting**: `marketsniper-intel-osr-9953.web.app` (Firebase Hosting).
+- **Rewrite Layer**:
+    - `/api/**` -> `marketsniper-api` (Cloud Run) via `firebase.json` rewrite.
+    - **Auth**: Service Account `firebase-hosting-sa` with `roles/run.invoker`.
+- **Private Guard**: `PublicSurfaceShieldMiddleware` blocks `/lab`, `/forge` on public routes.
+- **CORS**: Strict Origin validation (Trusted Domains Only).
+
+## 17. Legacy Content Modules (Reconciled)
+*   **Briefing**: `GET /briefing` (Active)
+*   **Aftermarket**: `GET /aftermarket` (Active)
+*   **Sunday Setup**: `GET /sunday_setup` (Active)
+*   **Options Report**: `GET /options_report` (Legacy PDF/Text - superseded by `options_context` for logic, but endpoint remains active).
+
 

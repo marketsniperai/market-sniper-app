@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import json
 import os
+from pathlib import Path
 
 # Lens Imports
 from backend.artifacts.io import safe_read_or_fallback
@@ -74,12 +75,27 @@ class PublicSurfaceShieldMiddleware:
                 path.startswith("/internal") or
                 path.startswith("/admin")
             ):
-                # 403 JSON
-                body = b'{"detail":"Forbidden"}'
-                headers = [(b"content-type", b"application/json")]
-                await send({"type":"http.response.start","status":403,"headers":headers})
-                await send({"type":"http.response.body","body":body})
-                return
+                # D55.16B.1: Strict Founder Check (Env + Key Match)
+                is_founder_mode = (os.getenv("FOUNDER_BUILD") == "1") or (os.getenv("SYSTEM_MODE") == "LAB")
+                env_key = os.getenv("FOUNDER_KEY")
+                
+                # Check Header
+                headers = dict(scope.get("headers", []))
+                req_key_bytes = headers.get(b"x-founder-key")
+                
+                authorized = False
+                if is_founder_mode and env_key and req_key_bytes:
+                    if req_key_bytes.decode("utf-8") == env_key:
+                        authorized = True
+                
+                if not authorized:
+
+                    # 403 JSON (Consistent)
+                    body = b'{"detail":"Forbidden: Shield Active"}'
+                    headers_out = [(b"content-type", b"application/json")]
+                    await send({"type":"http.response.start","status":403,"headers":headers_out})
+                    await send({"type":"http.response.body","body":body})
+                    return
         await self.app(scope, receive, send)
 
 app.add_middleware(PublicSurfaceShieldMiddleware)
@@ -651,6 +667,34 @@ def war_room_alias_2(request: Request):
     print(f"WAR_ROOM_ENDPOINT_HIT path={request.url.path} (ALIAS war-room)")
     return WarRoom.get_dashboard()
 
+@app.get("/lab/canon/debt_index")
+def canon_debt_index(request: Request):
+    """
+    D55.16B: Canon Debt Radar Index.
+    """
+    from backend.artifacts.io import get_artifacts_root
+    
+    # Path Resolution
+    p = Path("outputs/canon/pending_index_v2.json")
+    if not p.exists():
+         root = get_artifacts_root()
+         # fallback to root parent
+         p = root.parent / "outputs/canon/pending_index_v2.json"
+
+    if p.exists():
+        with open(p, "r") as f:
+            return json.load(f)
+            
+    return JSONResponse(status_code=404, content={"error": "Index Unavailable", "path": str(p)})
+
+@app.get("/lab/os/health")
+def os_health_alias(request: Request):
+    """
+    D55.16B.8: Alias for /health_ext.
+    Satisfies Frontend contract without duplicating logic.
+    """
+    return health_ext(request)
+
 # SHADOW REPAIR (DAY 19)
 from backend.os_ops.shadow_repair import ShadowRepair
 
@@ -879,6 +923,25 @@ def blackbox_snapshots():
         return sorted([f.name for f in p.glob("*.json")])
     except: return []
 
+@app.get("/lab/war_room/snapshot")
+def war_room_snapshot(request: Request):
+    """
+    D56.01: Unified Snapshot Protocol (USP-1).
+    Single Source of Truth for War Room.
+    """
+    # Middleware handles header integrity check generally
+    # This route returns the computed snapshot
+    from backend.os_ops.war_room import WarRoom
+    return WarRoom.get_unified_snapshot()
+
+@app.get("/dashboard")
+def dashboard(request: Request):
+    """
+    Day 19: War Room Command Center Dashboard.
+    Deprecated for V2 (Use /lab/war_room/snapshot), kept for V1 compat.
+    """
+    from backend.os_ops.war_room import WarRoom
+    return WarRoom.get_dashboard()
 # Day 33: The Dojo (Offline Simulation)
 @app.post("/lab/dojo/run")
 def dojo_run(request: Request):

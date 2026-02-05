@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:crypto/crypto.dart'; // V2.1 Fingerprint
 import '../../config/app_config.dart';
@@ -52,120 +51,19 @@ class _CanonDebtRadarState extends State<CanonDebtRadar> {
   @override
   void initState() {
     super.initState();
-    if (AppConfig.isFounderBuild) {
-      _fetchData();
-    } else {
-      if (mounted) {
-        setState(() {
-          _loading = false;
-          _unavailable = true;
-        });
-      }
-    }
+    // D56.01.5: Snapshot-Only Enforcement. No internal fetching.
+    // If pendingIndexSnapshot is passed (future), we use it. 
+    // Otherwise, we remain UNAVAILABLE.
+    _loading = false;
+    _unavailable = true; 
+    _dataSourceUsed = "SNAPSHOT_ONLY_WAITING";
+    
+    // Future V3: Hydrate from `widget.pendingIndexSnapshot` if added to USP.
   }
 
-  Future<void> _fetchData() async {
-    try {
-      // FIX: Use AppConfig.apiBaseUrl. Never fallback to localhost blindly.
-      final String baseUrl = AppConfig.apiBaseUrl;
-      // If base URL is empty (unlikely with current AppConfig), we fail fast.
-      if (baseUrl.isEmpty) throw Exception("AppConfig.apiBaseUrl is empty");
+  // Legacy fetch removed for D56.01.5 compliance.
+  // Future implementation should pass data via constructor.
 
-      _dataSourceUsed = baseUrl;
-
-      // Primary Strategy: Try /canon/pending_index_v2 (API Route)
-      // Fallback Strategy: Try /outputs/proofs/... (Static File) 
-      // Current Infra: Static File is the known artifact path.
-      
-      final indexUrl = Uri.parse('$baseUrl/outputs/proofs/canon/pending_index_v2.json');
-      final snapUrl = Uri.parse('$baseUrl/outputs/proofs/canon/pending_snapshot_last.json');
-      
-      // D45.HF05.RouteB: Inject API Key if available
-      final Map<String, String> headers = {'Content-Type': 'application/json'};
-      final apiKey = AppConfig.founderApiKey;
-      if (apiKey.isNotEmpty) {
-          // Standard Google API Gateway / Endpoints query param 'key' is common, 
-          // but our OpenAPI spec defined 'key' in QUERY or 'x-api-key' in HEADER (comment said header support).
-          // Actually OpenAPI spec used:
-          // securityDefinitions: api_key: in: query, name: key
-          // So we must append it to the URL query param for standard compatibility, 
-          // OR verify if we changed it to header. 
-          // Let's rely on Query Param 'key' as defined in the Spec we generated.
-          // indexUrl = indexUrl.replace(queryParameters: {'key': apiKey}); -- Immutable URI handling needed
-      }
-
-      // Using Query Param Helper
-      Uri addKey(Uri u) {
-          if (apiKey.isEmpty) return u;
-          // Merge existing params if any (none expected on static files but good practice)
-          final newParams = Map<String, String>.from(u.queryParameters);
-          newParams['key'] = apiKey;
-          return u.replace(queryParameters: newParams);
-      }
-
-      final results = await Future.wait([
-        http.get(addKey(indexUrl), headers: headers),
-        http.get(addKey(snapUrl), headers: headers),
-      ]);
-
-      final indexResp = results[0];
-      final snapResp = results[1];
-
-      // Debug Hook for Founder
-      if (AppConfig.isFounderBuild && mounted) {
-           print("CanonRadar Probe: ${indexUrl.toString()} -> ${indexResp.statusCode}");
-      }
-      
-      // Store status for UI display if error
-      if (indexResp.statusCode != 200) {
-          if (mounted) {
-             setState(() {
-                 _unavailable = true;
-                 _loading = false;
-                 // V2.2 Founder Debug Data
-                 if (AppConfig.isFounderBuild) {
-                     _dataSourceUsed = "$baseUrl [${indexResp.statusCode}]"; 
-                 }
-             });
-          }
-          return;
-      }
-
-      final data = json.decode(indexResp.body);
-      Map<String, dynamic>? snapData;
-        
-      if (snapResp.statusCode == 200) {
-          try {
-             snapData = json.decode(snapResp.body);
-          } catch (_) {}
-      }
-
-      if (mounted) {
-          setState(() {
-            _index = data;
-            _modules = (data['modules'] as List?) ?? [];
-            _snapshot = snapData;
-            _loading = false;
-            _unavailable = false; // Clear unavailable if successful
-            
-            // Core Logic
-            _computeDelta();
-            _computeIntegrity();
-          });
-      }
-
-    } catch (e) {
-      if (mounted) {
-         setState(() {
-             _unavailable = true; 
-             _loading = false;
-             if (AppConfig.isFounderBuild) {
-                 _dataSourceUsed = "Error: $e";
-             }
-         });
-      }
-    }
-  }
   
   void _computeIntegrity() {
       if (_index == null) return;

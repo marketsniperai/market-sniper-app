@@ -15,7 +15,7 @@
 | **UI Colors** | `market_sniper_app/lib/theme/app_colors.dart` | New Semantic Token needed. |
 | **UI Fonts** | `market_sniper_app/lib/theme/app_typography.dart`| New Text Style Role needed. |
 | **Release** | `docs/canon/RELEASE_CHECKLIST.md` | Core OS modification. |
-| **War Room** | `docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md` | Daily event or Seal creation. |
+| **War Room** | `docs/canon/OMSR_WAR_CALENDAR__35_55_DAYS.md` | Daily event or Seal creation. |
 
 ## Verification
 *The Discipline Verifier checks that all files listed above exist.*

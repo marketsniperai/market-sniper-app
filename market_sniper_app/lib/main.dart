@@ -13,6 +13,7 @@ import 'services/notification_service.dart'; // Polish
 import 'services/human_mode_service.dart'; // Polish Human Mode
 import 'guards/layout_police.dart';
 import 'guards/startup_guard.dart'; // Integrity
+import 'guards/war_room_route_observer.dart'; // D56.01.5
 import 'widgets/global_back_overlay.dart'; // Polish Overlay
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Synthetic (Broken)
 // import 'package:timezone/data/latest.dart' as tz; // Removed for Web Config
@@ -21,6 +22,9 @@ import 'l10n/generated/app_localizations.dart'; // Non-Synthetic (Fixed)
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
+  // D56.01.5: Fail-Safe Reset (Ensure clean state on hot restart)
+  AppConfig.setWarRoomActive(false);
+
   LayoutPoliceGuard.install(enabled: AppConfig.isFounderBuild);
 
   // D53.6X Investigation Hooks
@@ -76,7 +80,10 @@ class _MarketSniperAppState extends State<MarketSniperApp> {
     return MaterialApp(
       title: 'MarketSniper Day 05',
       navigatorKey: navigatorKey,
-      navigatorObservers: [_backOverlayObserver], // Track navigation
+      navigatorObservers: [
+        _backOverlayObserver, 
+        WarRoomRouteObserver(), // D56.01.5: Route-Based Guard
+      ],
 
       // Locale Config
       locale: localeProvider.locale,

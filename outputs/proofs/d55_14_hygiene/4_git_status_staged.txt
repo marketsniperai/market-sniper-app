@@ -1,0 +1,217 @@
+On branch checkpoint/d51_post_ewims_checkpoint
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .firebaserc
+	new file:   .gcloudignore
+	modified:   .gitignore
+	modified:   PROJECT_STATE.md
+	new file:   artifacts/audit/buckets_list.txt
+	new file:   artifacts/audit/cloudrun_jobs_list.txt
+	new file:   artifacts/audit/cloudrun_jobs_market-sniper-pipeline.yaml
+	new file:   artifacts/audit/cloudrun_revision_marketsniper-api_latest.yaml
+	new file:   artifacts/audit/cloudrun_revisions_list.txt
+	new file:   artifacts/audit/cloudrun_services_list.txt
+	new file:   artifacts/audit/cloudrun_services_marketsniper-api.yaml
+	new file:   artifacts/audit/gcs_outputs_listing.txt
+	new file:   artifacts/audit/gcs_outputs_listing_root.txt
+	new file:   artifacts/audit/identity_token.txt
+	new file:   artifacts/audit/identity_token_d55.txt
+	new file:   artifacts/audit/local_openapi.json
+	new file:   artifacts/audit/local_openapi_paths.txt
+	new file:   artifacts/audit/missing_matrix.txt
+	new file:   artifacts/audit/preflight_service_describe.yaml
+	new file:   artifacts/audit/prod_openapi.json
+	new file:   artifacts/audit/prod_openapi_d55.json
+	new file:   artifacts/audit/prod_openapi_paths.txt
+	new file:   artifacts/audit/scheduler_jobs_list.txt
+	new file:   artifacts/audit/scheduler_ms-full-0830et.yaml
+	modified:   backend/api_server.py
+	modified:   backend/os_ops/autofix_control_plane.py
+	modified:   backend/os_ops/elite_os_reader.py
+	modified:   backend/os_ops/war_room.py
+	new file:   bootstrap_firebase.ps1
+	new file:   bootstrap_firebase_v2.ps1
+	new file:   bootstrap_output.txt
+	new file:   bootstrap_v2_output.txt
+	new file:   cloudbuild_firebase.yaml
+	new file:   design/WAR_ROOM_UX_EXPLORATION.md
+	modified:   docs/canon/OMSR_WAR_CALENDAR__35_45_DAYS.md
+	new file:   firebase.json
+	new file:   issues.txt
+	new file:   issues_final_v2.txt
+	new file:   issues_screen.txt
+	new file:   issues_zones.txt
+	new file:   market_sniper_app/errors.txt
+	new file:   market_sniper_app/issues_all.txt
+	modified:   market_sniper_app/lib/config/app_config.dart
+	modified:   market_sniper_app/lib/main.dart
+	modified:   market_sniper_app/lib/models/war_room_snapshot.dart
+	modified:   market_sniper_app/lib/repositories/war_room_repository.dart
+	modified:   market_sniper_app/lib/screens/war_room_screen.dart
+	modified:   market_sniper_app/lib/services/api_client.dart
+	new file:   market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart
+	new file:   market_sniper_app/lib/widgets/war_room/war_room_truth_metrics.dart
+	new file:   market_sniper_app/lib/widgets/war_room/zones/alpha_strip.dart
+	new file:   market_sniper_app/lib/widgets/war_room/zones/console_gates.dart
+	new file:   market_sniper_app/lib/widgets/war_room/zones/global_command_bar.dart
+	new file:   market_sniper_app/lib/widgets/war_room/zones/service_honeycomb.dart
+	modified:   market_sniper_app/lib/widgets/war_room_tile.dart
+	new file:   market_sniper_app/openapi.json
+	new file:   market_sniper_app/tools/dev_proxy/dev_proxy.js
+	new file:   market_sniper_app/tools/dev_proxy/package.json
+	new file:   market_sniper_app/tools/dev_proxy/proxy.py
+	new file:   outputs/audit/d55_5_audit_logs.json
+	new file:   outputs/audit/d55_5_auditlog_summary.md
+	new file:   outputs/audit/d55_5_cloud_run.json
+	new file:   outputs/audit/d55_5_lb_backends.json
+	new file:   outputs/audit/d55_5_lb_certs.json
+	new file:   outputs/audit/d55_5_lb_forwarding_rules.json
+	new file:   outputs/audit/d55_5_lb_proxies.json
+	new file:   outputs/audit/d55_5_lb_url_maps.json
+	new file:   outputs/audit/d55_5_principal_scan.txt
+	new file:   outputs/audit/d55_5_resource_ownership.json
+	new file:   outputs/audit/d55_5_service_accounts.json
+	new file:   outputs/audit/d55_6_firebase_identities.txt
+	new file:   outputs/audit/d55_6_hosting_test.txt
+	new file:   outputs/audit/d55_6_identity_create.txt
+	new file:   outputs/audit/d55_6_invoker_grants.txt
+	new file:   outputs/audit/d55_6_project_iam.json
+	new file:   outputs/audit/d55_6_run_config.txt
+	new file:   outputs/audit/d55_6_run_iam.txt
+	new file:   outputs/audit/d55_6_sa_list.txt
+	new file:   outputs/audit/d55_7/allUsers_attempt.txt
+	new file:   outputs/audit/d55_7/allowedPolicyMemberDomains_effective.txt
+	new file:   outputs/audit/d55_7/allowedPolicyMemberDomains_org.txt
+	new file:   outputs/audit/d55_7/allowedPolicyMemberDomains_project.txt
+	new file:   outputs/audit/d55_7/gcloud_version.txt
+	new file:   outputs/audit/d55_7/project_policies_list.txt
+	new file:   outputs/audit/d55_8/allUsers_bind_after.txt
+	new file:   outputs/audit/d55_8/allow_all_policy.yaml
+	new file:   outputs/audit/d55_8/curl_after.txt
+	new file:   outputs/audit/d55_8/effective_after.txt
+	new file:   outputs/audit/d55_8/set_policy.txt
+	new file:   outputs/audit/prod_openapi.json
+	new file:   outputs/audit/prod_routes.txt
+	new file:   outputs/misfire_report.json
+	new file:   outputs/proofs/d55_10_public_surface/openapi.json
+	new file:   outputs/proofs/d55_10_public_surface/public_aftermarket.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_briefing.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_context.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_dashboard.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_foundation.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_health_ext.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_news_digest.txt
+	new file:   outputs/proofs/d55_10_public_surface/public_pulse.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_forge_status.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_founder_war_room.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_lab.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_lab_slash.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_os_health.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_os_registry.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_override.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_run_pipeline.txt
+	new file:   outputs/proofs/d55_10_public_surface/sensitive_truth_fingerprint.txt
+	new file:   outputs/proofs/d55_11_hosting_rewrite/1_root.txt
+	new file:   outputs/proofs/d55_11_hosting_rewrite/2_api_health.txt
+	new file:   outputs/proofs/d55_11_hosting_rewrite/3_api_dashboard.txt
+	new file:   outputs/proofs/d55_11_hosting_rewrite/_summary.txt
+	new file:   outputs/proofs/d55_11b_hosting_run_rewrite/1_root.txt
+	new file:   outputs/proofs/d55_11b_hosting_run_rewrite/2_api_health.txt
+	new file:   outputs/proofs/d55_11b_hosting_run_rewrite/3_api_dashboard.txt
+	new file:   outputs/proofs/d55_11b_hosting_run_rewrite/_summary.txt
+	new file:   outputs/proofs/d55_11c_strip_api_prefix/1_api_health.txt
+	new file:   outputs/proofs/d55_11c_strip_api_prefix/2_web_api_health.txt
+	new file:   outputs/proofs/d55_11c_strip_api_prefix/3_web_api_dashboard.txt
+	new file:   outputs/proofs/d55_11c_strip_api_prefix/_summary.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/10_redoc.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/1_api_health.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/2_api_dashboard.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/3_web_api_health.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/3_web_api_health_retry.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/4_web_api_dashboard.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/5_lab_founder.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/6_lab_os_health.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/7_forge_status.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/8_openapi.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/9_docs.txt
+	new file:   outputs/proofs/d55_12b_public_surface_min/_summary.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/1_api_public_ok.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/1_api_public_ok_retry.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/2_web_rewrite_ok.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/3_sensitive_403.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/4_docs_404.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/5_cors_options.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/5_cors_options_retry.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/_final_summary.txt
+	new file:   outputs/proofs/d55_13_public_guardrail/_summary.txt
+	new file:   outputs/proofs/d55_14_hygiene/1_git_status_before.txt
+	new file:   outputs/proofs/d55_14_hygiene/2_git_status_after.txt
+	new file:   outputs/proofs/d55_14_hygiene/3_firebase_json.txt
+	new file:   outputs/proofs/d55_4_ssl/cert_poll_log.txt
+	new file:   outputs/proofs/d55_4_ssl/dns_checks.txt
+	new file:   outputs/proofs/d55_4_ssl/final_verification.txt
+	new file:   outputs/proofs/d55_4_ssl/iam_error.txt
+	new file:   outputs/proofs/d55_4_ssl/infra_snapshot.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2A_curl_health.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2B_curl_dashboard.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2C_curl_context.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2D_run_url.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2E_curl_run_direct.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2F_org_policy.txt
+	new file:   outputs/proofs/d55_9_public_unblock/2G_iam_policy.json
+	new file:   outputs/proofs/d55_9_public_unblock/2H_curl_resolve.txt
+	new file:   outputs/seals/SEAL_D52_WAR_ROOM_DESIGN.md
+	new file:   outputs/seals/SEAL_D53_1_WAR_ROOM_COMPILE_FIX.md
+	new file:   outputs/seals/SEAL_D53_2_WAR_ROOM_EXIT_AND_SKELETON.md
+	new file:   outputs/seals/SEAL_D53_3A_ALPHA_STRIP_SLIVER_FIX.md
+	new file:   outputs/seals/SEAL_D53_3B_WAR_ROOM_EXIT_UNLOCK_PROOF.md
+	new file:   outputs/seals/SEAL_D53_3C_WAR_ROOM_PROOF_OF_LIFE.md
+	new file:   outputs/seals/SEAL_D53_3D_WAR_ROOM_REAL_PROOF_OF_LIFE.md
+	new file:   outputs/seals/SEAL_D53_3_WAR_ROOM_UNLOCK_EXIT_DENSITY_PASS.md
+	new file:   outputs/seals/SEAL_D53_4_WAR_ROOM_V2_POLISH.md
+	new file:   outputs/seals/SEAL_D53_5_WAR_ROOM_REAL_WIRING_PARTIAL.md
+	new file:   outputs/seals/SEAL_D53_6A_WAR_ROOM_TRUTH_PROOF_PANEL.md
+	new file:   outputs/seals/SEAL_D53_6B_1_WAR_ROOM_NO_BLANK_GUARANTEE.md
+	new file:   outputs/seals/SEAL_D53_6B_2_WAR_ROOM_FLASH_BLANK_ROOT_CAUSE_FIX.md
+	new file:   outputs/seals/SEAL_D53_6B_WAR_ROOM_TILE_SOURCE_OVERLAY.md
+	new file:   outputs/seals/SEAL_D53_6C_WAR_ROOM_RESPONSIVE_DENSITY_LOCK.md
+	new file:   outputs/seals/SEAL_D53_6X_WAR_ROOM_WIDGET_DISAPPEAR_INVESTIGATION.md
+	new file:   outputs/seals/SEAL_D53_6Y_TRUTH_COVERAGE_METER.md
+	new file:   outputs/seals/SEAL_D53_6Z_WAR_ROOM_VIEWPORT_NULL_FIX.md
+	new file:   outputs/seals/SEAL_D53_6_WAR_ROOM_TRUTH_EXPOSURE.md
+	new file:   outputs/seals/SEAL_D53_WAR_ROOM_STRUCTURAL_REFACTOR.md
+	new file:   outputs/seals/SEAL_D54_0A_WAR_ROOM_ENDPOINT_404_SLAYED.md
+	new file:   outputs/seals/SEAL_D54_0_WAR_ROOM_WEB_FETCH_AND_LAYOUT_HARDENING.md
+	new file:   outputs/seals/SEAL_D54_1_WAR_ROOM_ZERO_OVERFLOWS_POLISH.md
+	new file:   outputs/seals/SEAL_D54_2B_PY_DEV_PROXY_FOR_WEB.md
+	new file:   outputs/seals/SEAL_D54_3_CLOUD_RUN_REALITY_AUDIT.md
+	new file:   outputs/seals/SEAL_D55_0B_HEAD_OPTIONS_METHOD_HARDENING.md
+	new file:   outputs/seals/SEAL_D55_0D_PUBLIC_GATEWAY_PROXY_FOR_WEB.md
+	new file:   outputs/seals/SEAL_D55_0E_FIREBASE_HOSTING_REWRITE_WEB_UNBLOCK.md
+	new file:   outputs/seals/SEAL_D55_0_FULL_REDEPLOY_AND_ROUTE_RESTORATION.md
+	new file:   outputs/seals/SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md
+	new file:   outputs/seals/SEAL_D55_11C_STRIP_API_PREFIX_FOR_HOSTING_REWRITE.md
+	new file:   outputs/seals/SEAL_D55_12B_PUBLIC_SURFACE_MINIMIZATION_AND_LAB_SHIELD.md
+	new file:   outputs/seals/SEAL_D55_13_PUBLIC_PRODUCTION_GUARDRAIL.md
+	new file:   outputs/seals/SEAL_D55_1B_ZERO_HUMAN_FIREBASE_SA_AND_HOSTING_DEPLOY.md
+	new file:   outputs/seals/SEAL_D55_1_WEB_ACCESS_UNBLOCK_ZERO_HUMAN.md
+	new file:   outputs/seals/SEAL_D55_2_FIREBASE_HOSTING_BOOTSTRAP_FAILURE.md
+	new file:   outputs/seals/SEAL_D55_3_LB_WEB_UNBLOCK.md
+	new file:   outputs/seals/SEAL_D55_4_SSL_CERT_PROVISIONING_UNBLOCK.md
+	new file:   outputs/seals/SEAL_D55_5_OWNERSHIP_AUDIT.md
+	new file:   outputs/seals/SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md
+	new file:   outputs/seals/SEAL_D55_7_DOMAIN_RESTRICTION_DIAGNOSIS.md
+	new file:   outputs/seals/SEAL_D55_8_DOMAIN_RESTRICTION_OVERRIDE_FAILURE.md
+	new file:   outputs/seals/SEAL_D55_9_PUBLIC_WEB_UNBLOCK.md
+	modified:   requirements.txt
+	new file:   task.md
+	new file:   tools/audit_routes.py
+	new file:   tools/cloud_gateway/Dockerfile
+	new file:   tools/cloud_gateway/main.py
+	new file:   tools/cloud_gateway/requirements.txt
+	new file:   tools/scan_missing_imports.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	outputs/proofs/d55_14_hygiene/4_git_status_staged.txt
+

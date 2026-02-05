@@ -3,6 +3,7 @@ import '../../../models/war_room_snapshot.dart';
 import '../../../models/system_health_snapshot.dart';
 import '../../war_room_tile.dart';
 import '../war_room_tile_meta.dart';
+import '../../../theme/app_colors.dart';
 
 class ServiceHoneycomb extends StatelessWidget {
   final WarRoomSnapshot snapshot;
@@ -70,8 +71,8 @@ class ServiceHoneycomb extends StatelessWidget {
       return SliverToBoxAdapter(
         child: Container(
           padding: const EdgeInsets.all(8),
-          color: Colors.white10,
-          child: Text("HONEYCOMB ERROR: $e", style: const TextStyle(color: Colors.orange, fontSize: 10)),
+          color: AppColors.textPrimary.withValues(alpha: 0.1),
+          child: Text("HONEYCOMB ERROR: $e", style: TextStyle(color: AppColors.stateStale, fontSize: 10)),
         ),
       );
     }

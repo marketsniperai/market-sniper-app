@@ -16,7 +16,9 @@ class AppConfig {
   
   // Route B: API Key for Gateway
   static String get founderApiKey {
-      return const String.fromEnvironment('FOUNDER_API_KEY', defaultValue: '');
+      const env = String.fromEnvironment('FOUNDER_API_KEY', defaultValue: '');
+      if (env.isEmpty && kDebugMode) return 'mz_founder_888'; // D56.01.2A: Auto-Unlock for Local Debug
+      return env;
   }
 
   // Dart Define ensures these can be set at build time
@@ -38,8 +40,8 @@ class AppConfig {
     // Works for both Debug (if deployed) and Release.
     if (kIsWeb) {
       if (kDebugMode) {
-         // Local Proxy still useful for iteration without deploy
-         return 'http://localhost:8787'; 
+         // Local Backend Direct (No Proxy needed)
+         return 'http://localhost:8000'; 
       }
       // Production Web (Firebase Hosting)
       return 'https://marketsniper-intel-osr-9953.web.app/api';
@@ -91,4 +93,22 @@ class AppConfig {
   static const String invitePattern = r'^MS-[A-Z0-9]{5}$';
 
   static bool get inviteBypassForFounder => true;
+
+  // D56.01.5: War Room Network Policy Guard
+  // Tracks if the War Room is active to enforce Snapshot-Only fetching.
+  static bool _warRoomActive = false;
+  static bool get isWarRoomActive => _warRoomActive;
+  static void setWarRoomActive(bool active) {
+    if (_warRoomActive != active) {
+        if (kDebugMode && isNetAuditEnabled) print("WAR_ROOM_STATE: active=$active");
+        _warRoomActive = active;
+    }
+  }
+
+  // D56.01.5: Network Audit Log Toggle
+  // Default: FALSE (Quiet). Enable via --dart-define=NET_AUDIT_ENABLED=true
+  static bool get isNetAuditEnabled {
+    if (!kDebugMode) return false;
+    return const bool.fromEnvironment('NET_AUDIT_ENABLED', defaultValue: false);
+  }
 }

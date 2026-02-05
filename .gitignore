@@ -66,6 +66,8 @@ outputs/logs/
 outputs/runtime/
 backend/outputs/
 secrets/
+*.env.local
+.env.*.local
 *.key
 *.pem
 outputs/backups/

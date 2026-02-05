@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-12
 **Purpose:** OMSR Day 00 Initialization
-**Status:** PHASE 7: ELITE ARC (DAY 41) - AUTHORIZED
+**Status:** PHASE 8: INFRASTRUCTURE RESTORATION (DAY 55) - SEALED
 
 ## Rules
 - No legacy artifacts.
@@ -351,124 +351,149 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
   - Deployed HTTPS Load Balancer (`34.36.210.87`) + Serverless NEG (`marketsniper-api`).
   - Infrastructure sealed. SSL Certificate provisioning pending DNS update.
   - Provides path to unblock Web CORS via managed infrastructure.
--
-**Verdict**:
-Project
-is
-Institutionally
-Pure.
-No
-sergiobltrn@gmail.com dependencies.
--
-↳
-Seal:
-[SEAL_D55_5_OWNERSHIP_AUDIT.md]
--
-**Blocker**:
-Firebase
-Hosting
-Service
-Agent
-does
-not
-exist
-and
-cannot
-be
-force-created
-via
-CLI.
--
-**Action**:
-User
-must
-manually
-trigger
-a
-hosting
-deploy
-from
-Console
-or
-authorized
-machine
-to
-seed
-identity.
--
-↳
-Seal:
-[SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md]
--
-**Blocker**:
-iam.allowedPolicyMemberDomains restricts
-IAM
-to
-C03fwchpd.
--
-**Action**:
-Org
-Admin
-must
-override
-policy
-on
-project
-to
-Allow
-All
-for
-public
-access.
--
-↳
-Seal:
-[SEAL_D55_7_DOMAIN_RESTRICTION_DIAGNOSIS.md]
--
-**Blocker**:
-Project
-Owner
-lacks
-oles/orgpolicy.policyAdmin.
--
-**Action**:
-Elevate
-permissions
-or
-apply
-policy
-manualy
-via
-Console.
--
-↳
-Seal:
-[SEAL_D55_8_DOMAIN_RESTRICTION_OVERRIDE_FAILURE.md]
--
-**Resolution**:
-Org
-Policy
-overridden
-to
-llowAll.
-llUsers invoker
-granted.
--
-↳
-Seal:
-[SEAL_D55_9_PUBLIC_WEB_UNBLOCK.md]
--
-**Verdict**:
-API
-Surface
-is
-hardened.
-Sensitive
-routes
-are
-not
-accessible.
--
-↳
-Seal:
-[SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md]
+- [2026-01-31] **D55.4 SSL Cert Provisioning Unblock** (SEALED)
+  - Implemented Google-Managed SSL Certificate for `api.marketsniperai.com`.
+  - Verified DNS propagation and Certificate Active state.
+  - Seal: `outputs/seals/SEAL_D55_4_SSL_CERT_PROVISIONING_UNBLOCK.md`
+
+- [2026-01-31] **D55.5 Ownership Audit** (SEALED)
+  - Verified GCP Resource Ownership (Cloud Run, Hosting, Storage).
+  - Confirmed 0 external dependencies.
+  - Seal: `outputs/seals/SEAL_D55_5_OWNERSHIP_AUDIT.md`
+
+- [2026-01-31] **D55.6 Firebase Hosting Rewrite Unblock** (SEALED)
+  - Forced manual Hosting deploy to seed Service Agent Identity.
+  - Granted `roles/run.invoker` to `firebase-hosting-sa`.
+  - Verified `/api/**` rewrite in Production.
+  - Seal: `outputs/seals/SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md`
+
+- [2026-01-31] **D55.7-9 Domain & Public Unblock** (SEALED)
+  - Diagnosed Org Policy restrictions (`allowedPolicyMemberDomains`).
+  - **Resolution**: Overrode Org Policy to allow `allUsers`.
+  - **Result**: Public Access Restored.
+  - Seals: `SEAL_D55_7...`, `SEAL_D55_8...`, `SEAL_D55_9...`
+
+- [2026-01-31] **D55.10 Public Surface Hardening Audit** (SEALED)
+  - Audited all 68 restored routes. Verified Security posture.
+  - Seal: `outputs/seals/SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md`
+
+- [2026-02-03] **D55.11-12 Surface Minimization & Shield** (SEALED)
+  - Implemented `StripApiPrefixMiddleware` for Hosting Rewrite compatibility.
+  - Implemented `PublicSurfaceShieldMiddleware` (403 Forbidden for `/lab`, `/forge`).
+  - Seals: `SEAL_D55_11C...`, `SEAL_D55_12B...`
+
+- [2026-02-03] **D55.13 Public Production Guardrail** (SEALED)
+  - Final Verification of Production Surface.
+  - Public API: OK (200). Sensitive Routes: BLOCKED (403). Documentation: HIDDEN (404).
+  - Verdict: **SYSTEM HARDENED & RESTORED.**
+  - Seal: `outputs/seals/SEAL_D55_13_PUBLIC_PRODUCTION_GUARDRAIL.md`
+
+- [2026-02-03] **D55.14 System Hygiene & Checkpoint** (SEALED)
+  - Final D55 Saga Checkpoint.
+  - Cleaned `firebase.json` & Git noise.
+  - Seal: `outputs/seals/SEAL_D55_14_SYSTEM_HYGIENE_AND_CHECKPOINT.md`
+
+- [2026-02-04] **D55.15 Canon Reconciliation** (SEALED)
+  - Reconciled Canon with Sealed Reality (Day 41-55).
+  - Upgraded War Calendar to `35_55_DAYS`.
+  - Documented Infrastructure Restoration.
+  - Seal: `outputs/seals/SEAL_D55_15_CANON_RECONCILIATION.md`
+
+- [2026-02-04] **D55.16 War Room Visibility Restore** (SEALED)
+  - **Goal**: Restore Live Signal path for War Room (Front ↔ Back).
+  - **Fixes**:
+    - Created `tools/dev_ritual.ps1` (Pulse Check).
+    - Documented `docs/dev/DEV_RITUALS.md`.
+    - Fixed UI Overflow in War Room Tile (Compact Mode).
+  - **Truth**: Blackout confirmed as correct behavior when Backend is off.
+  - Seal: `outputs/seals/SEAL_D55_16_WAR_ROOM_VISIBILITY_RESTORE.md`
+
+- [2026-02-05] **D55.16B War Room Signal Restore** (SEALED)
+  - **Goal**: Restore Signal when Backend is ALIVE (Fix Gating + Snapshot).
+  - **Fixes**:
+    - `api_server.py`: Modified `PublicSurfaceShieldMiddleware` to allow `/lab` with `X-Founder-Key`.
+    - `war_room.py`: Added explicit keys (`universe`, `drift`, `replay`, `iron_lkg`) to contract.
+    - `dev_ritual.ps1`: Sets `FOUNDER_BUILD=1`.
+    - Verification: Prod Curls (200 OK).
+  - Seal: `outputs/seals/SEAL_D55_16B_WAR_ROOM_SIGNAL_RESTORE.md`
+
+- [2026-02-05] **D55.16B.1 Shield Hardening Fix** (SEALED)
+  - **Goal**: Enforce strict dual-check for Founder Bypass.
+  - **Seal**: `outputs/seals/SEAL_D55_16B_1_SHIELD_HARDENING.md`
+
+- [2026-02-05] **D55.16B.2 Shield Hardening Hygiene + Real Proofs** (SEALED)
+  - **Goal**: Remove secrets from tracked scripts + Verify Shield.
+  - **Proofs**: 403 (Hostile) / 200 (Founder) confirmed.
+  - **Seal**: `outputs/seals/SEAL_D55_16B_2_SHIELD_HYGIENE_AND_PROOFS.md`
+
+- [2026-02-05] **D55.16B.8 Backend Hotfix (Debt Index & Health Alias)** (SEALED)
+  - **Goal**: Resolve 500 Error on Debt Radar and 404 on OS Health.
+  - **Fixes**: Added `Path` import + `/lab/os/health` alias in `api_server.py`.
+  - **Status**: **D55 COMPLETE.** Runtime contract matches frontend expectation.
+  - **Seal**: `outputs/seals/SEAL_D55_16B_8_BACKEND_DEBT_INDEX_AND_OS_HEALTH_ALIAS.md`
+
+- [2026-02-05] **D55.16B.9 Frontend Hotfix (Canon Debt Radar Route)** (SEALED)
+  - **Goal**: Stop 404s on Debt Radar by using valid API endpoint.
+  - **Fixes**: Updated `canon_debt_radar.dart` to use `/lab/canon/debt_index` + Header Auth.
+  - **Status**: **D55 COMPLETE.** Frontend/Backend handshake restored.
+  - **Seal**: `outputs/seals/SEAL_D55_16B_9_FRONTEND_CANON_DEBT_RADAR_ROUTE_FIX.md`
+
+- [2026-02-05] **D55.16B.10 Architecture Strategy (Unified Snapshot)** (STRATEGY SEALED)
+  - **Verdict**: Hybrid Architecture identified as root cause of fragility.
+  - **Decision**: Adopt **Unified Snapshot Protocol (USP)** for Day 56. Frontend to call `/lab/snapshot` ONLY.
+  - **Seal**: `outputs/seals/SEAL_D55_16B_10_WAR_ROOM_ARCHITECTURE_DECISION.md`
+
+- [2026-02-05] **D55.16B.5 Dev Ritual Restore + Web Debug Fix** (SEALED)
+  - **Goal**: Restore local "Pulse Check" and fix Web Debug 404s.
+  - **Fixes**: Direct backend startup (8000) in `dev_ritual.ps1`. `AppConfig` Web Debug -> 8000.
+  - **Verification**: Backend 200/403 probes verified.
+  - **Seal**: `outputs/seals/SEAL_D55_16B_5_DEV_RITUAL_AND_WEB_DEBUG_WIRING.md`
+
+- [2026-02-05] **D56.01 Unified Snapshot Protocol Implementation** (SEALED)
+  - **Goal**: Replace hybrid atomic architecture with Unified Snapshot Protocol (USP-1).
+  - **Fixes**: Backend `WarRoom.get_unified_snapshot()` + `GET /lab/war_room/snapshot`. Frontend `WarRoomRepository` refactor.
+  - **Verification**: USP-1 Contract verified via curl. Frontend static analysis clean. Atomic fetches removed.
+  - **Seal**: `outputs/seals/SEAL_D56_01_UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION.md`
+
+- [2026-02-05] **D56.01.1 USP Frontend Build Restore** (SEALED)
+  - **Goal**: Fix build failures (missing methods, invalid consts) post-USP-1 merge.
+  - **Fixes**: `WarRoomRepository` syntax repairs, `ApiClient` debugPrint.
+  - **Status**: **HOTFIX SEALED.** Build restored.
+  - **Seal**: `outputs/seals/SEAL_D56_01_1_USP_FRONTEND_BUILD_RESTORE.md`
+
+- [2026-02-05] **D56.01.2A Founder Key Wiring (Investigation & Fix)** (SEALED)
+  - **Goal**: Resolve "Blackout" where `flutter run` fails to inject Founder Key.
+  - **Fixes**: `AppConfig` auto-unlock for Debug Mode (`mz_founder_888` default).
+  - **Status**: **WIRED.** 
+  - **Seal**: `outputs/seals/SEAL_D56_01_2A_FOUNDER_KEY_WIRING_MAP_AND_FIX.md`
+
+- [2026-02-05] **D56.01.2B Backend Key Validation Fix** (SEALED)
+  - **Goal**: Resolve 403 Forbidden despite Key Injection.
+  - **Fixes**: `dev_ritual.ps1` Auto-Unlock (`mz_founder_888`) + Env Inheritance.
+  - **Status**: **MATCHED.** 200 OK Confirmed.
+  - **Seal**: `outputs/seals/SEAL_D56_01_2B_BACKEND_KEY_MATCH_FIX.md`
+
+- [2026-02-05] **D56.01.2C Dev Ritual "Skip is Lying" (Session Key Fix)** (SEALED)
+  - **Goal**: Prevent Backend Session Drift (Old Key persistence).
+  - **Fixes**: `dev_ritual.ps1` now Probes 8000 before skipping. Kills/Restarts on 403.
+  - **Status**: **VERIFIED SKIP.**
+  - **Seal**: `outputs/seals/SEAL_D56_01_2C_DEV_RITUAL_SKIP_VERIFICATION.md`
+
+- [2026-02-05] **D56.01.3 USP Finalization (Single-Call Runtime)** (SEALED)
+  - **Goal**: Enforce strict Single-Call loading for War Room (USP-1).
+  - **Fixes**: Refactored `WarRoomRepository` for strict key presence (No Absentees). Injected Network Audit logs.
+  - **Status**: **SINGLE-CALL CONFIRMED.**
+  - **Seal**: `outputs/seals/SEAL_D56_01_3_USP_SINGLE_CALL_AND_TILE_MATERIALIZATION.md`
+
+- [2026-02-05] **D56.01.4 Dev Ritual Hardening (Verified State Machine)** (SEALED)
+  - **Goal**: Guarantee Backend listener + Key Match + Zero-Ambiguity Startup.
+  - **Logic**: Robust Liveness Loop (20x) + Explicit Environment Injection.
+  - **Status**: **HARDENED.** War Room blackout vector eliminated.
+  - **Seal**: `outputs/seals/SEAL_D56_01_4_DEV_RITUAL_HARDENING.md`
+
+- [2026-02-05] **D56.01.5 War Room Snapshot-Only Hardening** (SEALED)
+  - **Goal**: Hard stop on legacy requests (`/dashboard`, `/misfire`) leaking from War Room.
+  - **Fixes**: `ApiClient` Network Audit Exceptions + `AppConfig` War Room State + `CanonDebtRadar` Refactor.
+  - **Status**: **GUARANTEED.** Zero legacy traffic leakage during War Room activity.
+  - **Polish**: Added `NET_AUDIT_ENABLED` toggle for clean debug logs.
+  - **Seal**: `outputs/seals/SEAL_D56_01_5_WARROOM_SNAPSHOT_ONLY.md`

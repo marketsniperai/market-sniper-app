@@ -1,0 +1,24 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   787    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 787
+Cache-Control: no-store
+Content-Type: application/json
+Server: Google Frontend
+Strict-Transport-Security: max-age=31556926; includeSubDomains; preload
+X-Cloud-Trace-Context: 689d0501ed500fe1c753b2b838183b18
+X-Country-Code: US
+X-Founder-Trace: FOUNDER_BUILD=TRUE; KEY_SENT=False
+Accept-Ranges: bytes
+Date: Thu, 05 Feb 2026 14:49:55 GMT
+X-Served-By: cache-mia-kmia1760104-MIA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1770302995.270413,VS0,VE80
+Vary: cookie,need-authorization, x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+

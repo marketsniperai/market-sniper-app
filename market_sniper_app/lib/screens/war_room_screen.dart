@@ -37,6 +37,8 @@ class _WarRoomScreenState extends State<WarRoomScreen>
   @override
   void initState() {
     super.initState();
+    // D56.01.5: War Room state now handled by WarRoomRouteObserver (Global)
+    
     WidgetsBinding.instance.addObserver(this);
     _repo = WarRoomRepository(api: ApiClient());
 

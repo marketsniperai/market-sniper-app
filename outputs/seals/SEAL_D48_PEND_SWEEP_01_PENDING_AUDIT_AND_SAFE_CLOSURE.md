@@ -32,3 +32,9 @@ Resolved Pending Items:
 - PEND_INFRA_PROVIDER_APIS_BOOTSTRAP
 
 New Pending Items: None
+
+## Pending Closure Hook
+- Resolved Pending Items:
+  - None
+- New Pending Items:
+  - None
