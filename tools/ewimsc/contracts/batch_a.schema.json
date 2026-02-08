@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string"
+        },
+        "data": {
+            "type": [
+                "object",
+                "array",
+                "null",
+                "string"
+            ]
+        },
+        "meta": {
+            "type": "object"
+        },
+        "timestamp": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "status"
+    ],
+    "additionalProperties": true
+}

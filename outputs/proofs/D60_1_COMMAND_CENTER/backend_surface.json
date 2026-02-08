@@ -1,0 +1,408 @@
+[
+  {
+    "path": "/lab/run_pipeline",
+    "method": "POST",
+    "name": "run_pipeline_endpoint",
+    "function": "run_pipeline_endpoint",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/misfire_autoheal",
+    "method": "POST",
+    "name": "misfire_autoheal",
+    "function": "misfire_autoheal",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/autofix",
+    "method": "GET",
+    "name": "get_autofix_status",
+    "function": "get_autofix_status",
+    "classification": "PUBLIC_PRODUCT"
+  },
+  {
+    "path": "/lab/autofix/execute",
+    "method": "POST",
+    "name": "autofix_execute",
+    "function": "autofix_execute",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/housekeeper/status",
+    "method": "GET",
+    "name": "housekeeper_status_endpoint",
+    "function": "housekeeper_status_endpoint",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/housekeeper/run",
+    "method": "POST",
+    "name": "housekeeper_run_endpoint",
+    "function": "housekeeper_run_endpoint",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/autofix/tier1/status",
+    "method": "GET",
+    "name": "autofix_tier1_status",
+    "function": "autofix_tier1_status",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/autofix/tier1/run",
+    "method": "POST",
+    "name": "autofix_tier1_run",
+    "function": "autofix_tier1_run",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/autofix/decision_path",
+    "method": "GET",
+    "name": "autofix_decision_path",
+    "function": "autofix_decision_path",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/iron/status",
+    "method": "GET",
+    "name": "iron_status",
+    "function": "iron_status",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/iron/timeline_tail",
+    "method": "GET",
+    "name": "iron_timeline",
+    "function": "iron_timeline",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/findings",
+    "method": "GET",
+    "name": "get_self_heal_findings",
+    "function": "get_self_heal_findings",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/self_heal/before_after",
+    "method": "GET",
+    "name": "get_self_heal_before_after",
+    "function": "get_self_heal_before_after",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/iron/state_history",
+    "method": "GET",
+    "name": "iron_history",
+    "function": "iron_history",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/iron/drift",
+    "method": "GET",
+    "name": "iron_drift",
+    "function": "iron_drift",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/iron/replay_integrity",
+    "method": "GET",
+    "name": "iron_replay",
+    "function": "iron_replay",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/replay/day",
+    "method": "POST",
+    "name": "replay_day",
+    "function": "replay_day",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/housekeeper/run",
+    "method": "POST",
+    "name": "run_housekeeper",
+    "function": "run_housekeeper",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/housekeeper/status",
+    "method": "GET",
+    "name": "get_housekeeper_status",
+    "function": "get_housekeeper_status",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/replay/archive/tail",
+    "method": "GET",
+    "name": "get_replay_archive",
+    "function": "get_replay_archive",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/rollback",
+    "method": "POST",
+    "name": "os_rollback",
+    "function": "os_rollback",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/war_room",
+    "method": "GET",
+    "name": "war_room_dashboard",
+    "function": "war_room_dashboard",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/war_room",
+    "method": "HEAD",
+    "name": "war_room_dashboard",
+    "function": "war_room_dashboard",
+    "classification": "UNKNOWN_ZOMBIE"
+  },
+  {
+    "path": "/lab/warroom",
+    "method": "GET",
+    "name": "war_room_alias_1",
+    "function": "war_room_alias_1",
+    "classification": "DEPRECATED_ALIAS"
+  },
+  {
+    "path": "/lab/war-room",
+    "method": "GET",
+    "name": "war_room_alias_2",
+    "function": "war_room_alias_2",
+    "classification": "DEPRECATED_ALIAS"
+  },
+  {
+    "path": "/lab/canon/debt_index",
+    "method": "GET",
+    "name": "canon_debt_index",
+    "function": "canon_debt_index",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/os/health",
+    "method": "GET",
+    "name": "os_health_alias",
+    "function": "os_health_alias",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/shadow_repair/propose",
+    "method": "POST",
+    "name": "shadow_repair_propose",
+    "function": "shadow_repair_propose",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/autopilot/execute_from_handoff",
+    "method": "POST",
+    "name": "autopilot_execute",
+    "function": "autopilot_execute",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/immune/status",
+    "method": "GET",
+    "name": "immune_status",
+    "function": "immune_status",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/immune/tail",
+    "method": "GET",
+    "name": "immune_tail",
+    "function": "immune_tail",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/blackbox/status",
+    "method": "GET",
+    "name": "blackbox_status",
+    "function": "blackbox_status",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/blackbox/ledger/tail",
+    "method": "GET",
+    "name": "blackbox_ledger",
+    "function": "blackbox_ledger",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/blackbox/snapshots",
+    "method": "GET",
+    "name": "blackbox_snapshots",
+    "function": "blackbox_snapshots",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/war_room/snapshot",
+    "method": "GET",
+    "name": "war_room_snapshot",
+    "function": "war_room_snapshot",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/dojo/run",
+    "method": "POST",
+    "name": "dojo_run",
+    "function": "dojo_run",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/dojo/status",
+    "method": "GET",
+    "name": "dojo_status",
+    "function": "dojo_status",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/dojo/tail",
+    "method": "GET",
+    "name": "dojo_tail",
+    "function": "dojo_tail",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/tuning/apply",
+    "method": "POST",
+    "name": "tuning_apply",
+    "function": "tuning_apply",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/tuning/status",
+    "method": "GET",
+    "name": "tuning_status",
+    "function": "tuning_status",
+    "classification": "PUBLIC_PRODUCT"
+  },
+  {
+    "path": "/tuning/tail",
+    "method": "GET",
+    "name": "tuning_tail",
+    "function": "tuning_tail",
+    "classification": "PUBLIC_PRODUCT"
+  },
+  {
+    "path": "/elite/explain/status",
+    "method": "GET",
+    "name": "elite_explain_status",
+    "function": "elite_explain_status",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/os/snapshot",
+    "method": "GET",
+    "name": "elite_os_snapshot",
+    "function": "elite_os_snapshot",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/ritual/{ritual_id}",
+    "method": "GET",
+    "name": "elite_ritual_artifact",
+    "function": "elite_ritual_artifact",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/ritual",
+    "method": "GET",
+    "name": "elite_ritual_artifact_alias",
+    "function": "elite_ritual_artifact_alias",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/script/first_interaction",
+    "method": "GET",
+    "name": "elite_first_interaction_script",
+    "function": "elite_first_interaction_script",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/context/status",
+    "method": "GET",
+    "name": "get_elite_context_status",
+    "function": "get_elite_context_status",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/what_changed",
+    "method": "GET",
+    "name": "get_elite_what_changed",
+    "function": "get_elite_what_changed",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/micro_briefing/open",
+    "method": "GET",
+    "name": "get_elite_micro_briefing_open",
+    "function": "get_elite_micro_briefing_open",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/agms/recall",
+    "method": "GET",
+    "name": "get_elite_agms_recall",
+    "function": "get_elite_agms_recall",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/lab/watchlist/log",
+    "method": "POST",
+    "name": "post_watchlist_log",
+    "function": "post_watchlist_log",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/lab/watchlist/log/tail",
+    "method": "GET",
+    "name": "get_watchlist_log_tail",
+    "function": "get_watchlist_log_tail",
+    "classification": "LAB_INTERNAL"
+  },
+  {
+    "path": "/elite/chat",
+    "method": "POST",
+    "name": "elite_chat_endpoint",
+    "function": "elite_chat_endpoint",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/state",
+    "method": "GET",
+    "name": "get_elite_state",
+    "function": "get_elite_state",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/reflection",
+    "method": "POST",
+    "name": "submit_reflection",
+    "function": "submit_reflection",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/elite/settings",
+    "method": "POST",
+    "name": "update_settings",
+    "function": "update_settings",
+    "classification": "ELITE_GATED"
+  },
+  {
+    "path": "/lab/healthz",
+    "method": "GET",
+    "name": "lab_healthz",
+    "function": "lab_healthz",
+    "classification": "DEPRECATED_ALIAS"
+  },
+  {
+    "path": "/lab/readyz",
+    "method": "GET",
+    "name": "lab_readyz",
+    "function": "lab_readyz",
+    "classification": "PUBLIC_PRODUCT"
+  }
+]

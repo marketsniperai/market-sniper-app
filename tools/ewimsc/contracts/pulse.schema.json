@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Pulse Envelope",
+    "type": "object",
+    "required": [
+        "status",
+        "schema_version"
+    ],
+    "properties": {
+        "status": {
+            "type": "string"
+        },
+        "schema_version": {
+            "type": "string"
+        },
+        "payload": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "mode": {
+                    "type": "string"
+                },
+                "window": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "contract_version": "D61.x.04",
+    "status_enum": [
+        "unplugged",
+        "mock",
+        "live"
+    ],
+    "result_shape": {
+        "status": "CapitalActivityStatus",
+        "asOfUtc": "DateTime",
+        "summary": "String",
+        "bias": "String (Bullish|Bearish|Mixed|Neutral)",
+        "sourceName": "String",
+        "isError": "bool"
+    },
+    "ui_states": {
+        "UNPLUGGED": "N/A (External source unplugged) + PowerOff Icon",
+        "MOCK": "MOCK Badge (Yellow) + Summary + Bias",
+        "LIVE": "Pending Implementation"
+    },
+    "defaults": {
+        "status": "UNPLUGGED",
+        "source": "System"
+    },
+    "repository_behavior": {
+        "default": "Returns CapitalActivityResult.unplugged()",
+        "debug_flag": "EXTERNAL_SUPPORT_MOCK=true -> Returns Mock Data"
+    }
+}

@@ -32,7 +32,7 @@
 | **OS.Ops.Pipeline** | Pipeline Controller | OPS | Orchestrates data generation pipelines. | `POST /lab/run_pipeline` | `backend/pipeline_controller.py` |
 | **OS.Ops.Misfire** | Misfire Monitor | OPS | Detects missed schedules and triggers auto-heal. | `GET /misfire`, `POST /lab/misfire_autoheal` | `backend/os_ops/misfire_monitor.py` |
 | **OS.Ops.AutoFix** | AutoFix Control Plane | OPS | Recommends and executes recovery actions. | `GET /autofix`, `POST /lab/autofix/execute` | `backend/os_ops/autofix_control_plane.py` |
-| **OS.Ops.Housekeeper** | Housekeeper | OPS | Cleans operational trash and drift. | `GET /housekeeper`, `POST /lab/housekeeper/run` | `backend/os_ops/housekeeper.py` |
+| **OS.Ops.Housekeeper** | Housekeeper Engine | OPS | Hygiene Engine (Wired/Manual). | `GET /housekeeper`, `POST /lab/housekeeper/run` | `backend/os_ops/housekeeper.py` |
 | **OS.Ops.Iron** | Iron OS | OPS | State Management, Replay, and History Engine. | `GET /lab/os/iron/status` | `backend/os_ops/iron_os.py` |
 | **OS.Ops.Replay** | Replay Archive | OPS | Time Machine for Operational States. | `GET /lab/replay/archive/tail` | `backend/os_ops/replay_archive.py` |
 | **OS.Ops.Rollback** | Rollback Ledger | OPS | Founder Intent Ledger for State Rollbacks. | `POST /lab/os/rollback` | `backend/os_ops/rollback_ledger.py` |

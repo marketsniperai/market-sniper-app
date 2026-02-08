@@ -1,0 +1,770 @@
+{
+  "/aftermarket": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/aftermarket",
+    "names": "aftermarket"
+  },
+  "/agms/foundation": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/foundation",
+    "names": "agms_foundation"
+  },
+  "/agms/handoff": {
+    "tier": "DEPRECATED_ALIAS",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/handoff",
+    "names": "agms_handoff_latest"
+  },
+  "/agms/handoff/ledger/tail": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/handoff/ledger/tail",
+    "names": "agms_handoff_ledger_tail"
+  },
+  "/agms/intelligence": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/intelligence",
+    "names": "agms_intelligence"
+  },
+  "/agms/ledger/tail": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/ledger/tail",
+    "names": "agms_ledger_tail"
+  },
+  "/agms/shadow/ledger/tail": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/shadow/ledger/tail",
+    "names": "agms_shadow_ledger_tail"
+  },
+  "/agms/shadow/suggestions": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/shadow/suggestions",
+    "names": "agms_shadow_suggestions"
+  },
+  "/agms/summary": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/summary",
+    "names": "agms_summary"
+  },
+  "/agms/thresholds": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/agms/thresholds",
+    "names": "agms_thresholds_active"
+  },
+  "/autofix": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/autofix",
+    "names": "get_autofix_status"
+  },
+  "/blackbox/ledger/tail": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/blackbox/ledger/tail",
+    "names": "blackbox_ledger"
+  },
+  "/blackbox/snapshots": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/blackbox/snapshots",
+    "names": "blackbox_snapshots"
+  },
+  "/blackbox/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/blackbox/status",
+    "names": "blackbox_status"
+  },
+  "/briefing": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/briefing",
+    "names": "briefing"
+  },
+  "/context": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/context",
+    "names": "context"
+  },
+  "/dashboard": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/dashboard",
+    "names": "dashboard"
+  },
+  "/dojo/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/dojo/status",
+    "names": "dojo_status"
+  },
+  "/dojo/tail": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/dojo/tail",
+    "names": "dojo_tail"
+  },
+  "/economic_calendar": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/economic_calendar",
+    "names": "get_economic_calendar"
+  },
+  "/efficacy": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/efficacy",
+    "names": "efficacy"
+  },
+  "/elite/agms/recall": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/agms/recall",
+    "names": "get_elite_agms_recall"
+  },
+  "/elite/chat": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/elite/chat",
+    "names": "elite_chat_endpoint"
+  },
+  "/elite/context/status": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/context/status",
+    "names": "get_elite_context_status"
+  },
+  "/elite/explain/status": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/explain/status",
+    "names": "elite_explain_status"
+  },
+  "/elite/micro_briefing/open": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/micro_briefing/open",
+    "names": "get_elite_micro_briefing_open"
+  },
+  "/elite/os/snapshot": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/os/snapshot",
+    "names": "elite_os_snapshot"
+  },
+  "/elite/reflection": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/elite/reflection",
+    "names": "submit_reflection"
+  },
+  "/elite/ritual": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/ritual",
+    "names": "elite_ritual_artifact_alias"
+  },
+  "/elite/ritual/{ritual_id}": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/ritual/{ritual_id}",
+    "names": "elite_ritual_artifact"
+  },
+  "/elite/script/first_interaction": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/script/first_interaction",
+    "names": "elite_first_interaction_script"
+  },
+  "/elite/settings": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/elite/settings",
+    "names": "update_settings"
+  },
+  "/elite/state": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/state",
+    "names": "get_elite_state"
+  },
+  "/elite/what_changed": {
+    "tier": "ELITE_GATED",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/elite/what_changed",
+    "names": "get_elite_what_changed"
+  },
+  "/events/latest": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/events/latest",
+    "names": "events_latest<br>get_latest_events"
+  },
+  "/evidence_summary": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/evidence_summary",
+    "names": "evidence_summary"
+  },
+  "/health_ext": {
+    "tier": "DEPRECATED_ALIAS",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/health_ext",
+    "names": "health_ext"
+  },
+  "/healthz": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/healthz",
+    "names": "healthz"
+  },
+  "/immune/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/immune/status",
+    "names": "immune_status"
+  },
+  "/immune/tail": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/immune/tail",
+    "names": "immune_tail"
+  },
+  "/lab/autofix/execute": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/autofix/execute",
+    "names": "autofix_execute"
+  },
+  "/lab/autopilot/execute_from_handoff": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/autopilot/execute_from_handoff",
+    "names": "autopilot_execute"
+  },
+  "/lab/canon/debt_index": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/canon/debt_index",
+    "names": "canon_debt_index"
+  },
+  "/lab/dojo/run": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/dojo/run",
+    "names": "dojo_run"
+  },
+  "/lab/healthz": {
+    "tier": "DEPRECATED_ALIAS",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/healthz",
+    "names": "lab_healthz"
+  },
+  "/lab/evidence_summary": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/evidence_summary",
+    "names": "get_evidence_summary"
+  },
+  "/lab/macro_context": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/macro_context",
+    "names": "get_macro_context"
+  },
+  "/lab/misfire_autoheal": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/misfire_autoheal",
+    "names": "misfire_autoheal"
+  },
+  "/lab/os/health": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/health",
+    "names": "os_health_alias"
+  },
+  "/lab/os/housekeeper/run": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/os/housekeeper/run",
+    "names": "run_housekeeper"
+  },
+  "/lab/os/housekeeper/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/housekeeper/status",
+    "names": "get_housekeeper_status"
+  },
+  "/lab/os/iron/decision_path": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/decision_path",
+    "names": "get_iron_decision_path"
+  },
+  "/lab/os/iron/drift": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/drift",
+    "names": "iron_drift"
+  },
+  "/lab/os/iron/lkg": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/lkg",
+    "names": "get_iron_lkg"
+  },
+  "/lab/os/iron/lock_reason": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/lock_reason",
+    "names": "get_iron_lock_reason"
+  },
+  "/lab/os/iron/replay_integrity": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/replay_integrity",
+    "names": "iron_replay"
+  },
+  "/lab/os/iron/state_history": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/state_history",
+    "names": "iron_history"
+  },
+  "/lab/os/iron/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/status",
+    "names": "iron_status"
+  },
+  "/lab/os/iron/timeline_tail": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/iron/timeline_tail",
+    "names": "iron_timeline"
+  },
+  "/lab/os/rollback": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/os/rollback",
+    "names": "os_rollback"
+  },
+  "/lab/os/self_heal/autofix/decision_path": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/self_heal/autofix/decision_path",
+    "names": "autofix_decision_path"
+  },
+  "/lab/os/self_heal/autofix/tier1/run": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/os/self_heal/autofix/tier1/run",
+    "names": "autofix_tier1_run"
+  },
+  "/lab/os/self_heal/autofix/tier1/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/self_heal/autofix/tier1/status",
+    "names": "autofix_tier1_status"
+  },
+  "/lab/os/self_heal/before_after": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/self_heal/before_after",
+    "names": "get_self_heal_before_after"
+  },
+  "/lab/os/self_heal/coverage": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/self_heal/coverage",
+    "names": "get_self_heal_coverage"
+  },
+  "/lab/os/self_heal/findings": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/self_heal/findings",
+    "names": "get_self_heal_findings"
+  },
+  "/lab/os/self_heal/housekeeper/run": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/os/self_heal/housekeeper/run",
+    "names": "housekeeper_run_endpoint"
+  },
+  "/lab/os/self_heal/housekeeper/status": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/os/self_heal/housekeeper/status",
+    "names": "housekeeper_status_endpoint"
+  },
+  "/lab/readyz": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/readyz",
+    "names": "lab_readyz"
+  },
+  "/lab/replay/archive/tail": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/replay/archive/tail",
+    "names": "get_replay_archive"
+  },
+  "/lab/replay/day": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/replay/day",
+    "names": "replay_day"
+  },
+  "/lab/run_pipeline": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/run_pipeline",
+    "names": "run_pipeline_endpoint"
+  },
+  "/lab/shadow_repair/propose": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/shadow_repair/propose",
+    "names": "shadow_repair_propose"
+  },
+  "/lab/tuning/apply": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/tuning/apply",
+    "names": "tuning_apply"
+  },
+  "/lab/war-room": {
+    "tier": "DEPRECATED_ALIAS",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/war-room",
+    "names": "war_room_alias_2"
+  },
+  "/lab/war_room": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/war_room",
+    "names": "war_room_dashboard"
+  },
+  "/lab/war_room/snapshot": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/war_room/snapshot",
+    "names": "war_room_snapshot"
+  },
+  "/lab/warroom": {
+    "tier": "DEPRECATED_ALIAS",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/warroom",
+    "names": "war_room_alias_1"
+  },
+  "/lab/watchlist/log": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "POST"
+    ],
+    "path_norm": "/lab/watchlist/log",
+    "names": "post_watchlist_log"
+  },
+  "/lab/watchlist/log/tail": {
+    "tier": "LAB_INTERNAL",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/lab/watchlist/log/tail",
+    "names": "get_watchlist_log_tail"
+  },
+  "/macro_context": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/macro_context",
+    "names": "macro_context"
+  },
+  "/misfire": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/misfire",
+    "names": "misfire"
+  },
+  "/news_digest": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/news_digest",
+    "names": "news_digest"
+  },
+  "/on_demand/context": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/on_demand/context",
+    "names": "get_on_demand_context"
+  },
+  "/options_context": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/options_context",
+    "names": "get_options_context"
+  },
+  "/options_report": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/options_report",
+    "names": "options_report"
+  },
+  "/os/state_snapshot": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/os/state_snapshot",
+    "names": "os_state_snapshot"
+  },
+  "/overlay_live": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/overlay_live",
+    "names": "overlay_live"
+  },
+  "/projection/report": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/projection/report",
+    "names": "projection_report"
+  },
+  "/pulse": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/pulse",
+    "names": "pulse"
+  },
+  "/readyz": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/readyz",
+    "names": "readyz"
+  },
+  "/sunday_setup": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/sunday_setup",
+    "names": "sunday_setup"
+  },
+  "/tuning/status": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/tuning/status",
+    "names": "tuning_status"
+  },
+  "/tuning/tail": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/tuning/tail",
+    "names": "tuning_tail"
+  },
+  "/universe": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/universe",
+    "names": "get_universe_status"
+  },
+  "/voice_state": {
+    "tier": "PUBLIC_PRODUCT",
+    "methods": [
+      "GET"
+    ],
+    "path_norm": "/voice_state",
+    "names": "voice_state"
+  }
+}

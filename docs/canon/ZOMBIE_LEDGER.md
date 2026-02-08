@@ -1,0 +1,107 @@
+# ZOMBIE LEDGER (TRIAGED)
+> **Generated:** 2026-02-06T15:30:27.225154
+> **Unique Routes:** 89
+> **Public/Product:** 34
+> **LAB/Internal:** 37
+> **Elite/Gated:** 13
+> **Aliases:** 5
+> **Unknown Zombies:** 0
+
+| Class | Method | Path | Expect | Names |
+| :--- | :--- | :--- | :--- | :--- |
+| **PUBLIC_PRODUCT** | `GET` | `/aftermarket` | `200` | `aftermarket` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/foundation` | `200` | `agms_foundation` |
+| **DEPRECATED_ALIAS** | `GET` | `/agms/handoff` | `redirect` | `agms_handoff_latest` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/handoff/ledger/tail` | `200` | `agms_handoff_ledger_tail` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/intelligence` | `200` | `agms_intelligence` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/ledger/tail` | `200` | `agms_ledger_tail` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/shadow/ledger/tail` | `200` | `agms_shadow_ledger_tail` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/shadow/suggestions` | `200` | `agms_shadow_suggestions` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/summary` | `200` | `agms_summary` |
+| **PUBLIC_PRODUCT** | `GET` | `/agms/thresholds` | `200` | `agms_thresholds_active` |
+| **PUBLIC_PRODUCT** | `GET` | `/autofix` | `200` | `get_autofix_status` |
+| **LAB_INTERNAL** | `GET` | `/blackbox/ledger/tail` | `403` | `blackbox_ledger` |
+| **LAB_INTERNAL** | `GET` | `/blackbox/snapshots` | `403` | `blackbox_snapshots` |
+| **LAB_INTERNAL** | `GET` | `/blackbox/status` | `403` | `blackbox_status` |
+| **PUBLIC_PRODUCT** | `GET` | `/briefing` | `200` | `briefing` |
+| **PUBLIC_PRODUCT** | `GET` | `/context` | `200` | `context` |
+| **PUBLIC_PRODUCT** | `GET` | `/dashboard` | `200` | `dashboard` |
+| **LAB_INTERNAL** | `GET` | `/dojo/status` | `403` | `dojo_status` |
+| **LAB_INTERNAL** | `GET` | `/dojo/tail` | `403` | `dojo_tail` |
+| **PUBLIC_PRODUCT** | `GET` | `/economic_calendar` | `200` | `get_economic_calendar` |
+| **PUBLIC_PRODUCT** | `GET` | `/efficacy` | `200` | `efficacy` |
+| **ELITE_GATED** | `GET` | `/elite/agms/recall` | `403` | `get_elite_agms_recall` |
+| **ELITE_GATED** | `POST` | `/elite/chat` | `403` | `elite_chat_endpoint` |
+| **ELITE_GATED** | `GET` | `/elite/context/status` | `403` | `get_elite_context_status` |
+| **ELITE_GATED** | `GET` | `/elite/explain/status` | `403` | `elite_explain_status` |
+| **ELITE_GATED** | `GET` | `/elite/micro_briefing/open` | `403` | `get_elite_micro_briefing_open` |
+| **ELITE_GATED** | `GET` | `/elite/os/snapshot` | `403` | `elite_os_snapshot` |
+| **ELITE_GATED** | `POST` | `/elite/reflection` | `403` | `submit_reflection` |
+| **ELITE_GATED** | `GET` | `/elite/ritual` | `403` | `elite_ritual_artifact_alias` |
+| **ELITE_GATED** | `GET` | `/elite/ritual/{ritual_id}` | `403` | `elite_ritual_artifact` |
+| **ELITE_GATED** | `GET` | `/elite/script/first_interaction` | `403` | `elite_first_interaction_script` |
+| **ELITE_GATED** | `POST` | `/elite/settings` | `403` | `update_settings` |
+| **ELITE_GATED** | `GET` | `/elite/state` | `403` | `get_elite_state` |
+| **ELITE_GATED** | `GET` | `/elite/what_changed` | `403` | `get_elite_what_changed` |
+| **PUBLIC_PRODUCT** | `GET` | `/events/latest` | `200` | `events_latest<br>get_latest_events` |
+| **PUBLIC_PRODUCT** | `GET` | `/evidence_summary` | `200` | `evidence_summary` |
+| **DEPRECATED_ALIAS** | `GET` | `/health_ext` | `redirect` | `health_ext` |
+| **PUBLIC_PRODUCT** | `GET` | `/healthz` | `200` | `healthz` |
+| **LAB_INTERNAL** | `GET` | `/immune/status` | `403` | `immune_status` |
+| **LAB_INTERNAL** | `GET` | `/immune/tail` | `403` | `immune_tail` |
+| **LAB_INTERNAL** | `POST` | `/lab/autofix/execute` | `403` | `autofix_execute` |
+| **LAB_INTERNAL** | `POST` | `/lab/autopilot/execute_from_handoff` | `403` | `autopilot_execute` |
+| **LAB_INTERNAL** | `GET` | `/lab/canon/debt_index` | `403` | `canon_debt_index` |
+| **LAB_INTERNAL** | `POST` | `/lab/dojo/run` | `403` | `dojo_run` |
+| **DEPRECATED_ALIAS** | `GET` | `/lab/healthz` | `redirect` | `lab_healthz` |
+| **LAB_INTERNAL** | `GET` | `/lab/evidence_summary` | `403` | `get_evidence_summary` |
+| **LAB_INTERNAL** | `GET` | `/lab/macro_context` | `403` | `get_macro_context` |
+| **LAB_INTERNAL** | `POST` | `/lab/misfire_autoheal` | `403` | `misfire_autoheal` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/health` | `403` | `os_health_alias` |
+| **LAB_INTERNAL** | `POST` | `/lab/os/housekeeper/run` | `403` | `run_housekeeper` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/housekeeper/status` | `403` | `get_housekeeper_status` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/decision_path` | `403` | `get_iron_decision_path` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/drift` | `403` | `iron_drift` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/lkg` | `403` | `get_iron_lkg` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/lock_reason` | `403` | `get_iron_lock_reason` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/replay_integrity` | `403` | `iron_replay` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/state_history` | `403` | `iron_history` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/status` | `403` | `iron_status` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/iron/timeline_tail` | `403` | `iron_timeline` |
+| **LAB_INTERNAL** | `POST` | `/lab/os/rollback` | `403` | `os_rollback` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/self_heal/autofix/decision_path` | `403` | `autofix_decision_path` |
+| **LAB_INTERNAL** | `POST` | `/lab/os/self_heal/autofix/tier1/run` | `403` | `autofix_tier1_run` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/self_heal/autofix/tier1/status` | `403` | `autofix_tier1_status` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/self_heal/before_after` | `403` | `get_self_heal_before_after` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/self_heal/coverage` | `403` | `get_self_heal_coverage` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/self_heal/findings` | `403` | `get_self_heal_findings` |
+| **LAB_INTERNAL** | `POST` | `/lab/os/self_heal/housekeeper/run` | `403` | `housekeeper_run_endpoint` |
+| **LAB_INTERNAL** | `GET` | `/lab/os/self_heal/housekeeper/status` | `403` | `housekeeper_status_endpoint` |
+| **PUBLIC_PRODUCT** | `GET` | `/lab/readyz` | `200` | `lab_readyz` |
+| **LAB_INTERNAL** | `GET` | `/lab/replay/archive/tail` | `403` | `get_replay_archive` |
+| **LAB_INTERNAL** | `POST` | `/lab/replay/day` | `403` | `replay_day` |
+| **LAB_INTERNAL** | `POST` | `/lab/run_pipeline` | `403` | `run_pipeline_endpoint` |
+| **LAB_INTERNAL** | `POST` | `/lab/shadow_repair/propose` | `403` | `shadow_repair_propose` |
+| **LAB_INTERNAL** | `POST` | `/lab/tuning/apply` | `403` | `tuning_apply` |
+| **DEPRECATED_ALIAS** | `GET` | `/lab/war-room` | `redirect` | `war_room_alias_2` |
+| **LAB_INTERNAL** | `GET` | `/lab/war_room` | `403` | `war_room_dashboard` |
+| **LAB_INTERNAL** | `GET` | `/lab/war_room/snapshot` | `403` | `war_room_snapshot` |
+| **DEPRECATED_ALIAS** | `GET` | `/lab/warroom` | `redirect` | `war_room_alias_1` |
+| **LAB_INTERNAL** | `POST` | `/lab/watchlist/log` | `403` | `post_watchlist_log` |
+| **LAB_INTERNAL** | `GET` | `/lab/watchlist/log/tail` | `403` | `get_watchlist_log_tail` |
+| **PUBLIC_PRODUCT** | `GET` | `/macro_context` | `200` | `macro_context` |
+| **PUBLIC_PRODUCT** | `GET` | `/misfire` | `200` | `misfire` |
+| **PUBLIC_PRODUCT** | `GET` | `/news_digest` | `200` | `news_digest` |
+| **PUBLIC_PRODUCT** | `GET` | `/on_demand/context` | `200` | `get_on_demand_context` |
+| **PUBLIC_PRODUCT** | `GET` | `/options_context` | `200` | `get_options_context` |
+| **PUBLIC_PRODUCT** | `GET` | `/options_report` | `200` | `options_report` |
+| **PUBLIC_PRODUCT** | `GET` | `/os/state_snapshot` | `200` | `os_state_snapshot` |
+| **PUBLIC_PRODUCT** | `GET` | `/overlay_live` | `200` | `overlay_live` |
+| **PUBLIC_PRODUCT** | `GET` | `/projection/report` | `200` | `projection_report` |
+| **PUBLIC_PRODUCT** | `GET` | `/pulse` | `200` | `pulse` |
+| **PUBLIC_PRODUCT** | `GET` | `/readyz` | `200` | `readyz` |
+| **PUBLIC_PRODUCT** | `GET` | `/sunday_setup` | `200` | `sunday_setup` |
+| **PUBLIC_PRODUCT** | `GET` | `/tuning/status` | `200` | `tuning_status` |
+| **PUBLIC_PRODUCT** | `GET` | `/tuning/tail` | `200` | `tuning_tail` |
+| **PUBLIC_PRODUCT** | `GET` | `/universe` | `200` | `get_universe_status` |
+| **PUBLIC_PRODUCT** | `GET` | `/voice_state` | `200` | `voice_state` |

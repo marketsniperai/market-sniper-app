@@ -60,4 +60,16 @@ class AppColors {
   static const Color accentNeutral = stateStale;
   static const Color textWhite = textPrimary;
   static const Color textGrey = textSecondary;
+
+  // --- Command Center Tokens (D61.3) ---
+  static const Color ccBg = bgDeepVoid;
+  static const Color ccSurface = surface1;
+  static const Color ccSurfaceHigh = surface2; // Elevated
+  // We use withValues for opacity usually, but can define specific static alphas if needed.
+  // For now, these are the bases.
+  static const Color ccBorder = borderSubtle;
+  static const Color ccAccent = neonCyan;
+  static const Color ccAccentDim = neonCyanOutline; 
+  static const Color ccTextMono = textSecondary;
+  static const Color ccShadow = shadow;
 }

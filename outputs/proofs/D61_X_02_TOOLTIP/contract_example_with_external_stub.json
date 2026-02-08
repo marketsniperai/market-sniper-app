@@ -1,0 +1,30 @@
+{
+    "symbol": "MSFT",
+    "score": 7.8,
+    "internal_data": {
+        "why_high_confidence": [
+            "Technicals: Above 50DMA"
+        ],
+        "evidence_memory": [
+            "Regime: Expansion"
+        ],
+        "regime_macro_options": [],
+        "invalidation_risks": []
+    },
+    "external_data": {
+        "capital_activity": {
+            "status": "LIVE",
+            "items": [
+                "Dark Pool Block: $50M @ 405.00"
+            ],
+            "source": "Unusual Whales"
+        },
+        "human_consensus": {
+            "status": "PARTIAL",
+            "items": [
+                "Analyst Ratings: Buy (85%)"
+            ],
+            "source": "TipRanks"
+        }
+    }
+}

@@ -1,0 +1,289 @@
+[
+  {
+    "raw": "/universe",
+    "path_norm": "/universe",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 201,
+    "snippet": "source: \"/universe\","
+  },
+  {
+    "raw": "/lab/os/self_heal/autofix/tier1/status",
+    "path_norm": "/lab/os/self_heal/autofix/tier1/status",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 328,
+    "snippet": "source: \"/lab/os/self_heal/autofix/tier1/status\", // Rewired from /lab/autofix/status"
+  },
+  {
+    "raw": "/misfire",
+    "path_norm": "/misfire",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 365,
+    "snippet": "source: \"/misfire\","
+  },
+  {
+    "raw": "/lab/os/self_heal/housekeeper/status",
+    "path_norm": "/lab/os/self_heal/housekeeper/status",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 393,
+    "snippet": "source: \"/lab/os/self_heal/housekeeper/status\","
+  },
+  {
+    "raw": "/lab/os/self_heal/housekeeper/status",
+    "path_norm": "/lab/os/self_heal/housekeeper/status",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 414,
+    "snippet": "source: \"/lab/os/self_heal/housekeeper/status\","
+  },
+  {
+    "raw": "/lab/os/iron/timeline_tail",
+    "path_norm": "/lab/os/iron/timeline_tail",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 444,
+    "snippet": "source: \"/lab/os/iron/timeline_tail\","
+  },
+  {
+    "raw": "/lab/os/iron/state_history",
+    "path_norm": "/lab/os/iron/state_history",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 471,
+    "snippet": "source: \"/lab/os/iron/state_history\","
+  },
+  {
+    "raw": "/lab/os/iron/lkg",
+    "path_norm": "/lab/os/iron/lkg",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 491,
+    "snippet": "source: \"/lab/os/iron/lkg\","
+  },
+  {
+    "raw": "/lab/os/iron/decision_path",
+    "path_norm": "/lab/os/iron/decision_path",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 515,
+    "snippet": "source: \"/lab/os/iron/decision_path\","
+  },
+  {
+    "raw": "/lab/os/iron/drift",
+    "path_norm": "/lab/os/iron/drift",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 547,
+    "snippet": "source: \"/lab/os/iron/drift\","
+  },
+  {
+    "raw": "/lab/os/iron/replay_integrity",
+    "path_norm": "/lab/os/iron/replay_integrity",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 569,
+    "snippet": "source: \"/lab/os/iron/replay_integrity\","
+  },
+  {
+    "raw": "/lab/os/iron/status",
+    "path_norm": "/lab/os/iron/status",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 593,
+    "snippet": "final ironStatus = await _parseIron(await _fetchJson('/lab/os/iron/status'));"
+  },
+  {
+    "raw": "/lab/os/iron/timeline_tail",
+    "path_norm": "/lab/os/iron/timeline_tail",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 594,
+    "snippet": "final ironTimeline = await _parseIronTimeline(await _fetchJson('/lab/os/iron/timeline_tail'));"
+  },
+  {
+    "raw": "/lab/os/iron/state_history",
+    "path_norm": "/lab/os/iron/state_history",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 595,
+    "snippet": "final ironHistory = await _parseIronHistory(await _fetchJson('/lab/os/iron/state_history'));"
+  },
+  {
+    "raw": "/lab/os/iron/lkg",
+    "path_norm": "/lab/os/iron/lkg",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 596,
+    "snippet": "final lkg = await _parseIronLKG(await _fetchJson('/lab/os/iron/lkg'));"
+  },
+  {
+    "raw": "/lab/os/iron/decision_path",
+    "path_norm": "/lab/os/iron/decision_path",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 597,
+    "snippet": "final decisionPath = await _parseDecisionPath(await _fetchJson('/lab/os/iron/decision_path'));"
+  },
+  {
+    "raw": "/lab/os/iron/drift",
+    "path_norm": "/lab/os/iron/drift",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 598,
+    "snippet": "final drift = await _parseIronDrift(await _fetchJson('/lab/os/iron/drift'));"
+  },
+  {
+    "raw": "/lab/os/iron/replay_integrity",
+    "path_norm": "/lab/os/iron/replay_integrity",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 599,
+    "snippet": "final replay = await _parseIronReplay(await _fetchJson('/lab/os/iron/replay_integrity'));"
+  },
+  {
+    "raw": "/lab/os/iron/lock_reason",
+    "path_norm": "/lab/os/iron/lock_reason",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 600,
+    "snippet": "final lockReason = await _parseLockReason(await _fetchJson('/lab/os/iron/lock_reason'));"
+  },
+  {
+    "raw": "/lab/os/self_heal/coverage",
+    "path_norm": "/lab/os/self_heal/coverage",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 601,
+    "snippet": "final coverage = await _parseCoverage(await _fetchJson('/lab/os/self_heal/coverage'));"
+  },
+  {
+    "raw": "/lab/os/self_heal/findings",
+    "path_norm": "/lab/os/self_heal/findings",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 602,
+    "snippet": "final findings = await _parseFindings(await _fetchJson('/lab/os/self_heal/findings')); // New line"
+  },
+  {
+    "raw": "/lab/os/self_heal/coverage",
+    "path_norm": "/lab/os/self_heal/coverage",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 655,
+    "snippet": "source: \"/lab/os/self_heal/coverage\","
+  },
+  {
+    "raw": "/lab/os/iron/status",
+    "path_norm": "/lab/os/iron/status",
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "line": 670,
+    "snippet": "source: \"/lab/os/iron/status\","
+  },
+  {
+    "raw": "/elite/settings",
+    "path_norm": "/elite/settings",
+    "file": "market_sniper_app/lib/screens/menu_screen.dart",
+    "line": 168,
+    "snippet": "ApiClient().post('/elite/settings', {\"elite_autolearn\": val});"
+  },
+  {
+    "raw": "/lab/war_room/snapshot",
+    "path_norm": "/lab/war_room/snapshot",
+    "file": "market_sniper_app/lib/services/api_client.dart",
+    "line": 49,
+    "snippet": "if (!path.contains('/lab/war_room/snapshot')) {"
+  },
+  {
+    "raw": "/lab/war_room/snapshot",
+    "path_norm": "/lab/war_room/snapshot",
+    "file": "market_sniper_app/lib/services/api_client.dart",
+    "line": 61,
+    "snippet": "final isAllowed = path.contains('/lab/war_room/snapshot');"
+  },
+  {
+    "raw": "/elite/chat",
+    "path_norm": "/elite/chat",
+    "file": "market_sniper_app/lib/widgets/elite_interaction_sheet.dart",
+    "line": 1149,
+    "snippet": "final response = await ApiClient().post('/elite/chat', {"
+  },
+  {
+    "raw": "/elite/reflection",
+    "path_norm": "/elite/reflection",
+    "file": "market_sniper_app/lib/widgets/elite/elite_reflection_modal.dart",
+    "line": 58,
+    "snippet": "await ApiClient().post('/elite/reflection', payload);"
+  },
+  {
+    "raw": "/lab/os/health",
+    "path_norm": "/lab/os/health",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 24,
+    "snippet": "endpoint: \"/lab/os/health\","
+  },
+  {
+    "raw": "/lab/os/self_heal/autofix/tier1/status",
+    "path_norm": "/lab/os/self_heal/autofix/tier1/status",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 30,
+    "snippet": "endpoint: \"/lab/os/self_heal/autofix/tier1/status\", // Rewired from /lab/autofix/status"
+  },
+  {
+    "raw": "/misfire",
+    "path_norm": "/misfire",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 36,
+    "snippet": "endpoint: \"/misfire\","
+  },
+  {
+    "raw": "/lab/os/self_heal/housekeeper/status",
+    "path_norm": "/lab/os/self_heal/housekeeper/status",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 42,
+    "snippet": "endpoint: \"/lab/os/self_heal/housekeeper/status\","
+  },
+  {
+    "raw": "/lab/os/iron/status",
+    "path_norm": "/lab/os/iron/status",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 48,
+    "snippet": "endpoint: \"/lab/os/iron/status\","
+  },
+  {
+    "raw": "/lab/os/iron/replay_integrity",
+    "path_norm": "/lab/os/iron/replay_integrity",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 54,
+    "snippet": "endpoint: \"/lab/os/iron/replay_integrity\","
+  },
+  {
+    "raw": "/universe",
+    "path_norm": "/universe",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 60,
+    "snippet": "endpoint: \"/universe\", // To be implemented"
+  },
+  {
+    "raw": "/lab/os/iron/lkg",
+    "path_norm": "/lab/os/iron/lkg",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 66,
+    "snippet": "endpoint: \"/lab/os/iron/lkg\", // To be implemented"
+  },
+  {
+    "raw": "/options_context",
+    "path_norm": "/options_context",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 73,
+    "snippet": "endpoint: \"/options_context\", // To be implemented or alias? NOTE: This wasn't in ghost report?"
+  },
+  {
+    "raw": "/lab/evidence_summary",
+    "path_norm": "/lab/evidence_summary",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 81,
+    "snippet": "endpoint: \"/lab/evidence_summary\", // To be implemented (Stub)"
+  },
+  {
+    "raw": "/lab/macro_context",
+    "path_norm": "/lab/macro_context",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 87,
+    "snippet": "endpoint: \"/lab/macro_context\", // To be implemented (Stub)"
+  },
+  {
+    "raw": "/lab/os/iron/drift",
+    "path_norm": "/lab/os/iron/drift",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 93,
+    "snippet": "endpoint: \"/lab/os/iron/drift\","
+  },
+  {
+    "raw": "/lab/war_room",
+    "path_norm": "/lab/war_room",
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "line": 99,
+    "snippet": "endpoint: \"/lab/war_room\","
+  }
+]

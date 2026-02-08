@@ -1,0 +1,60 @@
+{
+    "known_aliases": {
+        "/lab/war-room": "/lab/war_room",
+        "/lab/warroom": "/lab/war_room",
+        "/health_ext": "/healthz",
+        "/lab/healthz": "/healthz",
+        "/agms/handoff": "/agms/handoff/ledger/tail"
+    },
+    "known_public_routes": [
+        "/dashboard",
+        "/context",
+        "/pulse",
+        "/briefing",
+        "/aftermarket",
+        "/news_digest",
+        "/macro_context",
+        "/options_context",
+        "/projection/report",
+        "/agms/foundation",
+        "/healthz",
+        "/readyz",
+        "/lab/readyz",
+        "/docs",
+        "/redoc",
+        "/openapi.json",
+        "/agms/summary",
+        "/agms/thresholds",
+        "/efficacy",
+        "/economic_calendar",
+        "/options_report",
+        "/sunday_setup",
+        "/overlay_live",
+        "/voice_state",
+        "/on_demand/context",
+        "/os/state_snapshot",
+        "/agms/handoff/ledger/tail",
+        "/agms/intelligence",
+        "/agms/ledger/tail",
+        "/agms/shadow/ledger/tail",
+        "/agms/shadow/suggestions",
+        "/autofix",
+        "/events/latest",
+        "/evidence_summary",
+        "/misfire",
+        "/tuning/status",
+        "/tuning/tail"
+    ],
+    "internal_prefixes": [
+        "/lab/",
+        "/forge/",
+        "/internal/",
+        "/admin/",
+        "/blackbox/",
+        "/dojo/",
+        "/immune/"
+    ],
+    "elite_prefixes": [
+        "/elite/"
+    ]
+}

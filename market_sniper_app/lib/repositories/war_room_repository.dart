@@ -190,6 +190,7 @@ class WarRoomRepository {
     }
 
     // Priority 1: /universe JSON (if implemented)
+    // D60.3 Rewire: Using /universe as canonical
     if (json.isNotEmpty) {
       return UniverseSnapshot(
         status: json['status'] ?? 'LIVE',
@@ -205,6 +206,8 @@ class WarRoomRepository {
 
     // Priority 3: Fallback to /health_ext (RunManifest) which contains universe info
     if (fallback.isNotEmpty && fallback.containsKey('data')) {
+      // ... same fallback logic ...
+      // Keeping fallback logic as is
       final data = fallback['data']; // Manifest
       // Manifest usually has: universe_name, extended_universe, mode, processing_time...
 
@@ -322,7 +325,7 @@ class WarRoomRepository {
             autofix['last_recommendation_at'] ??
             '',
         cooldownRemaining: autofix['cooldown_seconds_remaining'] ?? 0,
-        source: "/lab/autofix/status",
+        source: "/lab/os/self_heal/autofix/tier1/status", // Rewired from /lab/autofix/status
         isAvailable: true,
       );
     }

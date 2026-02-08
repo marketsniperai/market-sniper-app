@@ -5,6 +5,7 @@ import '../../../models/war_room_snapshot.dart';
 import '../../war_room_tile.dart';
 import '../canon_debt_radar.dart';
 import '../war_room_truth_metrics.dart';
+import '../../../theme/app_colors.dart';
 
 class ConsoleGates extends StatelessWidget {
   final WarRoomSnapshot snapshot;
@@ -26,7 +27,7 @@ class ConsoleGates extends StatelessWidget {
         return SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Container(height: 100, color: Colors.transparent),
+            child: Container(height: 100, color: AppColors.transparent),
           ),
         );
       }
@@ -62,8 +63,8 @@ class ConsoleGates extends StatelessWidget {
       return SliverToBoxAdapter(
         child: Container(
           padding: const EdgeInsets.all(8),
-          color: Colors.white10,
-          child: Text("CONSOLE ERROR: $e", style: const TextStyle(color: Colors.orange, fontSize: 10)),
+          color: AppColors.textPrimary.withOpacity(0.1),
+          child: Text("CONSOLE ERROR: $e", style: const TextStyle(color: AppColors.stateStale, fontSize: 10)),
         ),
       );
     }
@@ -180,30 +181,30 @@ class ConsoleGates extends StatelessWidget {
     final mono = GoogleFonts.robotoMono(fontSize: 11, fontWeight: FontWeight.bold);
 
     // FETCH Color
-    final fetchColor = metrics.fetchOk ? Colors.cyanAccent : Colors.orangeAccent;
+    final fetchColor = metrics.fetchOk ? AppColors.neonCyan : AppColors.stateStale;
     // AGE Color (Gray < 2m, Amber 2-10m, Red > 10m)
     final age = metrics.ageSeconds ?? 9999;
-    Color ageColor = Colors.white38;
+    Color ageColor = AppColors.textDisabled;
     if (age > 600) {
-      ageColor = Colors.redAccent;
+      ageColor = AppColors.marketBear;
     } else if (age > 120) {
-      ageColor = Colors.orangeAccent;
+      ageColor = AppColors.stateStale;
     }
 
     // COV Color (Cyan >= 60, Amber 30-59, Gray < 30)
     final cov = metrics.coveragePct;
-    Color covColor = Colors.white38;
+    Color covColor = AppColors.textDisabled;
     if (cov >= 60) {
-      covColor = Colors.cyanAccent;
+      covColor = AppColors.neonCyan;
     } else if (cov >= 30) {
-      covColor = Colors.orangeAccent;
+      covColor = AppColors.stateStale;
     }
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
       decoration: BoxDecoration(
-        color: Colors.black.withAlpha(100),
-        border: Border.all(color: Colors.white10),
+        color: AppColors.bgPrimary.withAlpha(100),
+        border: Border.all(color: AppColors.textPrimary.withOpacity(0.1)),
         // borderRadius: BorderRadius.circular(4), // Square for "Meter" feel
       ),
       child: Column(
@@ -217,49 +218,49 @@ class ConsoleGates extends StatelessWidget {
               // [FETCH: ...]
               Text.rich(
                 TextSpan(children: [
-                  TextSpan(text: "[FETCH: ", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "[FETCH: ", style: mono.copyWith(color: AppColors.textDisabled)),
                   TextSpan(
                       text: metrics.fetchOk
                           ? "OK"
                           : (metrics.httpStatus?.toString() ?? "ERR"),
                       style: mono.copyWith(color: fetchColor)),
-                  TextSpan(text: "]", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "]", style: mono.copyWith(color: AppColors.textDisabled)),
                 ]),
               ),
               // [AGE: ...]
               Text.rich(
                 TextSpan(children: [
-                  TextSpan(text: "[AGE: ", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "[AGE: ", style: mono.copyWith(color: AppColors.textDisabled)),
                   TextSpan(
                       text: metrics.ageSeconds != null
                           ? "${metrics.ageSeconds}s"
                           : "N/A",
                       style: mono.copyWith(color: ageColor)),
-                  TextSpan(text: "]", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "]", style: mono.copyWith(color: AppColors.textDisabled)),
                 ]),
               ),
               // [COV: ...]
               Text.rich(
                 TextSpan(children: [
-                  TextSpan(text: "[COV: ", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "[COV: ", style: mono.copyWith(color: AppColors.textDisabled)),
                   TextSpan(
                       text:
                           "${metrics.realCount}/${metrics.totalCount} (${metrics.coveragePct.toStringAsFixed(0)}%)",
                       style: mono.copyWith(color: covColor)),
-                  TextSpan(text: "]", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "]", style: mono.copyWith(color: AppColors.textDisabled)),
                 ]),
               ),
               // [N/A: ...]
               Text.rich(
                 TextSpan(children: [
-                  TextSpan(text: "[N/A: ", style: mono.copyWith(color: Colors.white38)),
+                  TextSpan(text: "[N/A: ", style: mono.copyWith(color: AppColors.textDisabled)),
                   TextSpan(
                       text: "${metrics.totalCount - metrics.realCount}",
                       style: mono.copyWith(
                           color: (metrics.totalCount - metrics.realCount) > 0
-                              ? Colors.orangeAccent
-                              : Colors.white38)),
-                  TextSpan(text: "]", style: mono.copyWith(color: Colors.white38)),
+                              ? AppColors.stateStale
+                              : AppColors.textDisabled)),
+                  TextSpan(text: "]", style: mono.copyWith(color: AppColors.textDisabled)),
                 ]),
               ),
             ],
@@ -270,7 +271,7 @@ class ConsoleGates extends StatelessWidget {
             Text(
               "MISSING: ${metrics.topNaTiles.join(", ")}${metrics.topNaTiles.length < (metrics.totalCount - metrics.realCount) ? "..." : ""}",
               style: GoogleFonts.robotoMono(
-                  fontSize: 10, color: Colors.orangeAccent.withOpacity(0.7)),
+                  fontSize: 10, color: AppColors.stateStale.withOpacity(0.7)),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),

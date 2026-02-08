@@ -1,0 +1,38 @@
+{
+    "gating_matrix": {
+        "tiers": [
+            "FREE",
+            "PLUS",
+            "ELITE"
+        ],
+        "rules": {
+            "FREE": {
+                "door_state": "Locked (Default) -> Unlocked (4 Taps)",
+                "counter_visual": "Circle with '4' -> '3' -> ... -> 'OPEN'",
+                "quartet_visibility": "Frosted (Full Blur)",
+                "evidence_tooltip": "Allowed (Frosted Content?) - Code allows interaction if Unlocked",
+                "cta": "Unlock Command Center (Upsell)"
+            },
+            "PLUS": {
+                "door_state": "Always Unlocked",
+                "counter_visual": "Days Remaining (5..0)",
+                "decrement_rule": "Market Open Days Only + App Open",
+                "quartet_visibility": "Partial (Top Left/Bottom Left Visible, Others Blurred)",
+                "evidence_tooltip": "Allowed for Visible Chips",
+                "cta": "None (Hidden chips are blurred)"
+            },
+            "ELITE": {
+                "door_state": "Always Unlocked",
+                "counter_visual": "Hidden",
+                "quartet_visibility": "Full Visibility",
+                "evidence_tooltip": "Full Access",
+                "cta": "None"
+            }
+        },
+        "implementation_status": {
+            "service": "DisciplineCounterService (Implemented)",
+            "ui_wiring": "WarRoomScreen -> GlobalCommandBar (Counter) + CoherenceQuartetCard (Content)",
+            "persistence": "SharedPreferences (Simulated/Ready)"
+        }
+    }
+}

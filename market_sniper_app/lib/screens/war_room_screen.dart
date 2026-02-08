@@ -1,4 +1,6 @@
+import 'dart:convert'; // D62.0
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +17,12 @@ import '../widgets/war_room/zones/global_command_bar.dart';
 import '../widgets/war_room/zones/service_honeycomb.dart';
 import '../widgets/war_room/zones/alpha_strip.dart';
 import '../widgets/war_room/zones/console_gates.dart';
+
+import '../services/command_center/discipline_counter_service.dart';
+import '../models/command_center/command_center_tier.dart';
+
+import 'package:http/http.dart' as http;
+
 
 class WarRoomScreen extends StatefulWidget {
   const WarRoomScreen({super.key});
@@ -33,6 +41,61 @@ class _WarRoomScreenState extends State<WarRoomScreen>
   bool _silentRefreshing = false; // For subtle indicator
   String? _errorMessage; // D53.3D: Compact Error State
   bool _showSources = false; // D53.6B: Truth Sources Overlay
+  
+  // D61.1 Debug: Tier Cycle for Verification
+  CommandCenterTier _debugTier = CommandCenterTier.elite;
+
+  // D61.2: Discipline Logic
+  late DisciplineCounterService _disciplineService;
+  CommandCenterAccessState _accessState = const CommandCenterAccessState(tier: CommandCenterTier.elite, isDoorUnlocked: true);
+  int _freeTapsRemaining = 4; // Session state for 4-tap door
+
+  // D62.0: Probe Logic
+  bool _warRoomProbeEnabled() {
+    return kDebugMode && AppConfig.isFounderBuild;
+  }
+
+  Future<void> _runProbes() async {
+    if (!_warRoomProbeEnabled()) return;
+
+    final baseUrl = AppConfig.apiBaseUrl;
+    debugPrint("WAR_ROOM_PROBE_CTX baseUrl=$baseUrl founder=${AppConfig.isFounderBuild} web=$kIsWeb");
+
+    // NET Probe: Health
+    final healthUrl = "$baseUrl/health_ext";
+    try {
+      final sw = Stopwatch()..start();
+      final resp = await http.get(Uri.parse(healthUrl));
+      sw.stop();
+      debugPrint("WAR_ROOM_PROBE_NET health_ext code=${resp.statusCode} ms=${sw.elapsedMilliseconds}");
+    } catch (e) {
+      debugPrint("WAR_ROOM_PROBE_NET health_ext error=$e");
+    }
+
+    // NET Probe: Snapshot
+    final snapUrl = "$baseUrl/lab/war_room/snapshot";
+    try {
+      final sw = Stopwatch()..start();
+      final resp = await http.get(Uri.parse(snapUrl));
+      sw.stop();
+      debugPrint("WAR_ROOM_PROBE_NET snapshot code=${resp.statusCode} ms=${sw.elapsedMilliseconds}");
+      if (resp.statusCode == 200) {
+         try {
+           final json = jsonDecode(resp.body);
+           if (json is Map<String, dynamic>) {
+              // Log top-level keys only
+              debugPrint("WAR_ROOM_PROBE_NET snapshot keys=${json.keys.toList()}");
+           } else {
+              debugPrint("WAR_ROOM_PROBE_NET snapshot rawType=${json.runtimeType}");
+           }
+         } catch (e) {
+            debugPrint("WAR_ROOM_PROBE_PARSE snapshot_manual error=$e");
+         }
+      }
+    } catch (e) {
+      debugPrint("WAR_ROOM_PROBE_NET snapshot error=$e");
+    }
+  }
 
   @override
   void initState() {
@@ -49,6 +112,24 @@ class _WarRoomScreenState extends State<WarRoomScreen>
 
     // Start Governance (will schedule next)
     _refreshController.start();
+
+    // D61.2: Init Discipline
+    _initDiscipline();
+    
+    // D62.0: Run Probes (replaces D61.2D)
+    _runProbes();
+  }
+  
+  Future<void> _initDiscipline() async {
+    _disciplineService = await DisciplineCounterService.init();
+    await _disciplineService.checkAndDecrementPlus(_debugTier);
+    _refreshState();
+  }
+
+  void _refreshState() {
+     setState(() {
+       _accessState = _disciplineService.getAccessState(_debugTier);
+     });
   }
 
   @override
@@ -107,6 +188,9 @@ class _WarRoomScreenState extends State<WarRoomScreen>
         });
       }
     } catch (e) {
+      if (_warRoomProbeEnabled()) {
+         debugPrint("WAR_ROOM_PROBE_PARSE error=$e type=${e.runtimeType}");
+      }
       if (mounted) {
         setState(() {
           _loading = false;
@@ -114,6 +198,20 @@ class _WarRoomScreenState extends State<WarRoomScreen>
           _errorMessage = "WAR ROOM DATA: ${e.toString().replaceAll('Exception:', '').trim()}";
         });
       }
+    }
+  }
+
+  void _handleDisciplineTap() {
+    if (_accessState.tier == CommandCenterTier.free) {
+      if (_accessState.isDoorUnlocked) return;
+      
+      setState(() {
+        if (_freeTapsRemaining > 0) _freeTapsRemaining--;
+        if (_freeTapsRemaining == 0) {
+          _disciplineService.setFreeDoorUnlocked(true);
+          _refreshState();
+        }
+      });
     }
   }
 
@@ -142,7 +240,7 @@ class _WarRoomScreenState extends State<WarRoomScreen>
         child: CustomScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
-            SliverToBoxAdapter(child: Container(color: Colors.green, padding: EdgeInsets.all(4), child: Text("WARROOM_MARKER_TOP", style: TextStyle(color: Colors.black)))),
+
 
             // Spacer
             const SliverToBoxAdapter(child: SizedBox(height: 8)),
@@ -193,7 +291,7 @@ class _WarRoomScreenState extends State<WarRoomScreen>
               founderTruthOverlay: AppConfig.isFounderBuild ? _buildFounderTruthContent() : null,
             ),
             
-            SliverToBoxAdapter(child: Container(color: Colors.red, padding: EdgeInsets.all(4), child: Text("WARROOM_MARKER_BOTTOM", style: TextStyle(color: Colors.white)))),
+            SliverToBoxAdapter(child: Container(color: AppColors.stateLocked, padding: EdgeInsets.all(4), child: Text("WARROOM_MARKER_BOTTOM", style: TextStyle(color: AppColors.textPrimary)))),
             const SliverToBoxAdapter(child: SizedBox(height: 32)), // Bottom padding
           ],
         ),
@@ -215,6 +313,10 @@ class _WarRoomScreenState extends State<WarRoomScreen>
             lastRefreshTime: displayTime,
             showSources: _showSources,
             onToggleSources: () => setState(() => _showSources = !_showSources),
+            disciplineTier: _accessState.tier,
+            disciplineCount: _accessState.tier == CommandCenterTier.plus ? _accessState.plusDaysRemaining : _freeTapsRemaining,
+            disciplineUnlocked: _accessState.isDoorUnlocked,
+            onDisciplineTap: _handleDisciplineTap,
           ),
         ),
       ),

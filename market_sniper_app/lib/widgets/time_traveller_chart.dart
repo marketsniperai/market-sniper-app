@@ -159,7 +159,7 @@ class _TimeTravellerChartState extends State<TimeTravellerChart>
                                color: AppColors.stateLocked,
                                borderRadius: BorderRadius.circular(4)
                              ),
-                             child: const Text("LOCKED", style: TextStyle(fontSize: 10, color: Colors.black, fontWeight: FontWeight.bold)),
+                             child: const Text("LOCKED", style: TextStyle(fontSize: 10, color: AppColors.bgPrimary, fontWeight: FontWeight.bold)),
                           )
                         ),
                   ],

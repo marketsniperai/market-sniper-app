@@ -44,9 +44,7 @@ War Room Snapshot requests were failing (403 Forbidden) because the "Unified Sna
 -   `market_sniper_app/lib/services/api_client.dart` (Verified & Reverted Debugs)
 
 ## Pending Closure Hook
-
-Resolved Pending Items:
-- [ ] (None)
-
-New Pending Items:
-- [ ] (None)
+- Resolved Pending Items:
+  - None (Legacy Seal Retrofit)
+- New Pending Items:
+  - None

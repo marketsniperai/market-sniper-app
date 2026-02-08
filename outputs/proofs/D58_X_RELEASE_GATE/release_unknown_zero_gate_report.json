@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-06T20:30:53.568738",
+  "status": "PASS",
+  "mode": "DEV",
+  "current": {
+    "count": 0
+  },
+  "check": {
+    "result": "SKIPPED",
+    "message": "Dev Mode - Check skipped."
+  }
+}

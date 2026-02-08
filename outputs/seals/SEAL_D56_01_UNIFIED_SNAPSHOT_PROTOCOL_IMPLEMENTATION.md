@@ -33,9 +33,7 @@ Replace the fragile "Hybrid Architecture" (29+ frontend atomic calls) with the *
 - `market_sniper_app/lib/repositories/war_room_repository.dart`: Full refactor.
 
 ## Pending Closure Hook
-
-Resolved Pending Items:
-- [ ] (None)
-
-New Pending Items:
-- [ ] (None)
+- Resolved Pending Items:
+  - None (Legacy Seal Retrofit)
+- New Pending Items:
+  - None

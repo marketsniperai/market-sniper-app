@@ -1,0 +1,49 @@
+{
+    "layout_version": "D61.x.03",
+    "responsive_rules": {
+        "breakpoints": {
+            "compact_width_threshold": 360.0
+        },
+        "chips": {
+            "height": {
+                "normal": 28.0,
+                "compact": 24.0
+            },
+            "spacing": {
+                "normal": 4.0,
+                "compact": 3.0
+            },
+            "font_size": {
+                "normal": 12.0,
+                "compact": 10.0
+            },
+            "radius": 12.0
+        },
+        "visualization": {
+            "max_size": 180.0,
+            "container_height": 220.0,
+            "radius_normalization": {
+                "min_scale": 0.85,
+                "max_scale": 1.10,
+                "input_range": "0.0 to 10.0 (clamped)"
+            },
+            "animation": {
+                "duration_loop": "4s",
+                "breathing_scale_delta": 0.03,
+                "glow_blur_range": [
+                    16.0,
+                    24.0
+                ],
+                "glow_alpha_range": [
+                    0.18,
+                    0.32
+                ]
+            }
+        },
+        "colors": {
+            "positive": "AppColors.marketBull (Green)",
+            "negative": "AppColors.marketBear (Red)",
+            "neutral": "AppColors.textDisabled (Blue-Grey)"
+        }
+    }
+}

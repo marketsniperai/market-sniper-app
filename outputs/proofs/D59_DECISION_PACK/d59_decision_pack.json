@@ -1,0 +1,405 @@
+[
+  {
+    "path": "/agms/handoff/ledger/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "PUBLIC_CANDIDATE",
+    "reason": "AGMS Read-Only",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/agms/intelligence",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "PUBLIC_CANDIDATE",
+    "reason": "AGMS Read-Only",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/agms/ledger/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "PUBLIC_CANDIDATE",
+    "reason": "AGMS Read-Only",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/agms/shadow/ledger/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "PUBLIC_CANDIDATE",
+    "reason": "AGMS Read-Only",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/agms/shadow/suggestions",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "PUBLIC_CANDIDATE",
+    "reason": "AGMS Read-Only",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/autofix",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "POTENTIAL_PUBLIC",
+    "reason": "General GET",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/blackbox/ledger/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/blackbox/snapshots",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/blackbox/status",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/dojo/status",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/dojo/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/agms/recall",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/chat",
+    "method": "POST",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_GATED",
+    "reason": "Elite Cost/Write",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/context/status",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/explain/status",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/micro_briefing/open",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/os/snapshot",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/reflection",
+    "method": "POST",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_GATED",
+    "reason": "Elite Cost/Write",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/ritual",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/ritual/{ritual_id}",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/script/first_interaction",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/settings",
+    "method": "POST",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_GATED",
+    "reason": "Elite Cost/Write",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/state",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/elite/what_changed",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "UNKNOWN_ZOMBIE",
+    "category": "ELITE_READ",
+    "reason": "Elite Read (Check safety)",
+    "actions": [
+      "Update zombie_allowlist.json to UNKNOWN_ZOMBIE",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/events/latest",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "POTENTIAL_PUBLIC",
+    "reason": "General GET",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/evidence_summary",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "POTENTIAL_PUBLIC",
+    "reason": "General GET",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/immune/status",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/immune/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "LAB_INTERNAL",
+    "category": "LAB_INTERNAL",
+    "reason": "Ops/Forensics path",
+    "actions": [
+      "Update zombie_allowlist.json to LAB_INTERNAL",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/misfire",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "POTENTIAL_PUBLIC",
+    "reason": "General GET",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/tuning/status",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "POTENTIAL_PUBLIC",
+    "reason": "General GET",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  },
+  {
+    "path": "/tuning/tail",
+    "method": "GET",
+    "current_status": "UNKNOWN_ZOMBIE",
+    "proposed_class": "PUBLIC_PRODUCT",
+    "category": "POTENTIAL_PUBLIC",
+    "reason": "General GET",
+    "actions": [
+      "Update zombie_allowlist.json to PUBLIC_PRODUCT",
+      "Ensure Artifact Backing or Caching",
+      "Add to Contracts (if Public)"
+    ]
+  }
+]

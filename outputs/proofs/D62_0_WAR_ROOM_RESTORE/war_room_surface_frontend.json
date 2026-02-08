@@ -1,0 +1,21 @@
+{
+    "screen": "WarRoomScreen",
+    "path": "market_sniper_app/lib/screens/war_room_screen.dart",
+    "widgets": [
+        "ServiceHoneycomb",
+        "AlphaStrip",
+        "ConsoleGates",
+        "GlobalCommandBar",
+        "CoherenceQuartetCard"
+    ],
+    "repositories": [
+        "WarRoomRepository",
+        "SystemHealthRepository",
+        "DisciplineCounterService"
+    ],
+    "models": [
+        "WarRoomSnapshot",
+        "SystemHealthSnapshot",
+        "UniverseSnapshot"
+    ]
+}

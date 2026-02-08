@@ -1,0 +1,108 @@
+MARKET SNIPER OS COMPREHENSIVE WIRING MAP
+USE THIS TO UNDERSTAND SYSTEM CONNECTIVITY.
+
+SECTION: BASE URLS
+LOCAL: http://127.0.0.1:8787
+PROD CANDIDATES: https://marketsniper-api-3ygzdvszba-uc.a.run.app
+
+SECTION: ENDPOINT INVENTORY (STATUS METHOD PATH)
+[PUBLIC_PRODUCT] GET /aftermarket
+[PUBLIC_PRODUCT] GET,HEAD /agms/foundation
+[DEPRECATED_ALIAS] GET /agms/handoff
+[UNKNOWN_ZOMBIE] GET /agms/handoff/ledger/tail
+[UNKNOWN_ZOMBIE] GET /agms/intelligence
+[UNKNOWN_ZOMBIE] GET /agms/ledger/tail
+[UNKNOWN_ZOMBIE] GET /agms/shadow/ledger/tail
+[UNKNOWN_ZOMBIE] GET /agms/shadow/suggestions
+[UNKNOWN_ZOMBIE] GET /agms/summary
+[UNKNOWN_ZOMBIE] GET /agms/thresholds
+[UNKNOWN_ZOMBIE] GET /autofix
+[UNKNOWN_ZOMBIE] GET /blackbox/ledger/tail
+[UNKNOWN_ZOMBIE] GET /blackbox/snapshots
+[UNKNOWN_ZOMBIE] GET /blackbox/status
+[PUBLIC_PRODUCT] GET /briefing
+[PUBLIC_PRODUCT] GET,HEAD /context
+[PUBLIC_PRODUCT] GET,HEAD /dashboard
+[PUBLIC_PRODUCT] GET /dashboard
+[UNKNOWN_ZOMBIE] GET /dojo/status
+[UNKNOWN_ZOMBIE] GET /dojo/tail
+[UNKNOWN_ZOMBIE] GET /economic_calendar
+[UNKNOWN_ZOMBIE] GET /efficacy
+[UNKNOWN_ZOMBIE] GET /elite/agms/recall
+[UNKNOWN_ZOMBIE] POST /elite/chat
+[UNKNOWN_ZOMBIE] GET /elite/context/status
+[UNKNOWN_ZOMBIE] GET /elite/explain/status
+[UNKNOWN_ZOMBIE] GET /elite/micro_briefing/open
+[UNKNOWN_ZOMBIE] GET /elite/os/snapshot
+[UNKNOWN_ZOMBIE] POST /elite/reflection
+[UNKNOWN_ZOMBIE] GET /elite/ritual
+[UNKNOWN_ZOMBIE] GET /elite/ritual/{ritual_id}
+[UNKNOWN_ZOMBIE] GET /elite/script/first_interaction
+[UNKNOWN_ZOMBIE] POST /elite/settings
+[UNKNOWN_ZOMBIE] GET /elite/state
+[UNKNOWN_ZOMBIE] GET /elite/what_changed
+[UNKNOWN_ZOMBIE] GET /events/latest
+[UNKNOWN_ZOMBIE] GET /events/latest
+[UNKNOWN_ZOMBIE] GET /evidence_summary
+[DEPRECATED_ALIAS] GET,HEAD /health_ext
+[PUBLIC_PRODUCT] GET /healthz
+[UNKNOWN_ZOMBIE] GET /immune/status
+[UNKNOWN_ZOMBIE] GET /immune/tail
+[LAB_INTERNAL] POST /lab/autofix/execute
+[LAB_INTERNAL] POST /lab/autopilot/execute_from_handoff
+[LAB_INTERNAL] GET /lab/canon/debt_index
+[LAB_INTERNAL] POST /lab/dojo/run
+[DEPRECATED_ALIAS] GET /lab/healthz
+[LAB_INTERNAL] POST /lab/misfire_autoheal
+[LAB_INTERNAL] GET /lab/os/health
+[LAB_INTERNAL] POST /lab/os/housekeeper/run
+[LAB_INTERNAL] GET /lab/os/housekeeper/status
+[LAB_INTERNAL] GET /lab/os/iron/drift
+[LAB_INTERNAL] GET /lab/os/iron/replay_integrity
+[LAB_INTERNAL] GET /lab/os/iron/state_history
+[LAB_INTERNAL] GET /lab/os/iron/status
+[LAB_INTERNAL] GET /lab/os/iron/timeline_tail
+[LAB_INTERNAL] POST /lab/os/rollback
+[LAB_INTERNAL] GET /lab/os/self_heal/autofix/decision_path
+[LAB_INTERNAL] POST /lab/os/self_heal/autofix/tier1/run
+[LAB_INTERNAL] GET /lab/os/self_heal/autofix/tier1/status
+[LAB_INTERNAL] GET /lab/os/self_heal/before_after
+[LAB_INTERNAL] GET /lab/os/self_heal/findings
+[LAB_INTERNAL] POST /lab/os/self_heal/housekeeper/run
+[LAB_INTERNAL] GET /lab/os/self_heal/housekeeper/status
+[PUBLIC_PRODUCT] GET /lab/readyz
+[LAB_INTERNAL] GET /lab/replay/archive/tail
+[LAB_INTERNAL] POST /lab/replay/day
+[LAB_INTERNAL] POST /lab/run_pipeline
+[LAB_INTERNAL] POST /lab/shadow_repair/propose
+[LAB_INTERNAL] POST /lab/tuning/apply
+[DEPRECATED_ALIAS] GET /lab/war-room
+[LAB_INTERNAL] GET,HEAD /lab/war_room
+[LAB_INTERNAL] GET /lab/war_room/snapshot
+[DEPRECATED_ALIAS] GET /lab/warroom
+[LAB_INTERNAL] POST /lab/watchlist/log
+[LAB_INTERNAL] GET /lab/watchlist/log/tail
+[PUBLIC_PRODUCT] GET /macro_context
+[UNKNOWN_ZOMBIE] GET /misfire
+[PUBLIC_PRODUCT] GET /news_digest
+[UNKNOWN_ZOMBIE] GET /on_demand/context
+[PUBLIC_PRODUCT] GET /options_context
+[UNKNOWN_ZOMBIE] GET /options_report
+[UNKNOWN_ZOMBIE] GET /os/state_snapshot
+[UNKNOWN_ZOMBIE] GET /overlay_live
+[PUBLIC_PRODUCT] GET /projection/report
+[PUBLIC_PRODUCT] GET /pulse
+[PUBLIC_PRODUCT] GET /readyz
+[UNKNOWN_ZOMBIE] GET /sunday_setup
+[UNKNOWN_ZOMBIE] GET /tuning/status
+[UNKNOWN_ZOMBIE] GET /tuning/tail
+[UNKNOWN_ZOMBIE] GET /voice_state
+
+SECTION: DATA ARTIFACTS
+BUCKETS: gs://...
+ROOTS: outputs/
+FILES: dashboard_market_sniper.json, run_manifest.json
+
+SECTION: PIPELINES
+JOBS: pipeline_light, run_pipeline
+SCHEDULERS: generate_wiring_pack.py

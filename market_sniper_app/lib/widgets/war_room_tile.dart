@@ -140,7 +140,7 @@ class WarRoomTile extends StatelessWidget {
     if (meta!.origin == WarRoomDataOrigin.simulated) {
       labelColor = AppColors.stateStale; // Amber
     } else if (meta!.origin == WarRoomDataOrigin.real) {
-      labelColor = Colors.cyan.withAlpha(200);
+      labelColor = AppColors.neonCyan.withAlpha(200);
     }
 
     // Determine effective status based on UI state vs Meta intent
@@ -153,9 +153,9 @@ class WarRoomTile extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
         decoration: BoxDecoration(
-          color: Colors.black.withAlpha(220),
+          color: AppColors.bgPrimary.withAlpha(220),
           borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: Colors.white10),
+          border: Border.all(color: AppColors.textPrimary.withOpacity(0.1)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +175,7 @@ class WarRoomTile extends StatelessWidget {
               "${meta!.fieldPath} [${meta!.origin.name.toUpperCase()}]",
               style: GoogleFonts.robotoMono(
                 fontSize: 7,
-                color: Colors.white38,
+                color: AppColors.textDisabled,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

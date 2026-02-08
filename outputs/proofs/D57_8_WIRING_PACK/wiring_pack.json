@@ -1,0 +1,1051 @@
+{
+  "runtime": {
+    "local": {
+      "protocol": "http",
+      "host": "127.0.0.1",
+      "port_strategy": "dynamic (default 8787)",
+      "example": "http://127.0.0.1:8787"
+    },
+    "cloud_run": {
+      "base_urls": [
+        "https://marketsniper-api-3ygzdvszba-uc.a.run.app"
+      ],
+      "region": "UNKNOWN"
+    }
+  },
+  "inventory": [
+    {
+      "path": "/aftermarket",
+      "methods": [
+        "GET"
+      ],
+      "handler": "aftermarket",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/foundation",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "handler": "agms_foundation",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/handoff",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_handoff_latest",
+      "classification": "DEPRECATED_ALIAS",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/handoff/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_handoff_ledger_tail",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/intelligence",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_intelligence",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_ledger_tail",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/shadow/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_shadow_ledger_tail",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/shadow/suggestions",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_shadow_suggestions",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/summary",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_summary",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/agms/thresholds",
+      "methods": [
+        "GET"
+      ],
+      "handler": "agms_thresholds_active",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/autofix",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_autofix_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/blackbox/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "blackbox_ledger",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/blackbox/snapshots",
+      "methods": [
+        "GET"
+      ],
+      "handler": "blackbox_snapshots",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/blackbox/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "blackbox_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/briefing",
+      "methods": [
+        "GET"
+      ],
+      "handler": "briefing",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/context",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "handler": "context",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/dashboard",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "handler": "dashboard",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/dashboard",
+      "methods": [
+        "GET"
+      ],
+      "handler": "dashboard",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/dojo/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "dojo_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/dojo/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "dojo_tail",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/economic_calendar",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_economic_calendar",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/efficacy",
+      "methods": [
+        "GET"
+      ],
+      "handler": "efficacy",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/agms/recall",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_elite_agms_recall",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/chat",
+      "methods": [
+        "POST"
+      ],
+      "handler": "elite_chat_endpoint",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/context/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_elite_context_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/explain/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "elite_explain_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/micro_briefing/open",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_elite_micro_briefing_open",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/os/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "handler": "elite_os_snapshot",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/reflection",
+      "methods": [
+        "POST"
+      ],
+      "handler": "submit_reflection",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/ritual",
+      "methods": [
+        "GET"
+      ],
+      "handler": "elite_ritual_artifact_alias",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/ritual/{ritual_id}",
+      "methods": [
+        "GET"
+      ],
+      "handler": "elite_ritual_artifact",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/script/first_interaction",
+      "methods": [
+        "GET"
+      ],
+      "handler": "elite_first_interaction_script",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/settings",
+      "methods": [
+        "POST"
+      ],
+      "handler": "update_settings",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/state",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_elite_state",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/elite/what_changed",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_elite_what_changed",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "handler": "events_latest",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_latest_events",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/evidence_summary",
+      "methods": [
+        "GET"
+      ],
+      "handler": "evidence_summary",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/health_ext",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "handler": "health_ext",
+      "classification": "DEPRECATED_ALIAS",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/healthz",
+      "methods": [
+        "GET"
+      ],
+      "handler": "healthz",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/immune/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "immune_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/immune/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "immune_tail",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/autofix/execute",
+      "methods": [
+        "POST"
+      ],
+      "handler": "autofix_execute",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/autopilot/execute_from_handoff",
+      "methods": [
+        "POST"
+      ],
+      "handler": "autopilot_execute",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/canon/debt_index",
+      "methods": [
+        "GET"
+      ],
+      "handler": "canon_debt_index",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/dojo/run",
+      "methods": [
+        "POST"
+      ],
+      "handler": "dojo_run",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/healthz",
+      "methods": [
+        "GET"
+      ],
+      "handler": "lab_healthz",
+      "classification": "DEPRECATED_ALIAS",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/misfire_autoheal",
+      "methods": [
+        "POST"
+      ],
+      "handler": "misfire_autoheal",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/health",
+      "methods": [
+        "GET"
+      ],
+      "handler": "os_health_alias",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/housekeeper/run",
+      "methods": [
+        "POST"
+      ],
+      "handler": "run_housekeeper",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/housekeeper/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_housekeeper_status",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/iron/drift",
+      "methods": [
+        "GET"
+      ],
+      "handler": "iron_drift",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/iron/replay_integrity",
+      "methods": [
+        "GET"
+      ],
+      "handler": "iron_replay",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/iron/state_history",
+      "methods": [
+        "GET"
+      ],
+      "handler": "iron_history",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/iron/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "iron_status",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/iron/timeline_tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "iron_timeline",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/rollback",
+      "methods": [
+        "POST"
+      ],
+      "handler": "os_rollback",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/decision_path",
+      "methods": [
+        "GET"
+      ],
+      "handler": "autofix_decision_path",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/run",
+      "methods": [
+        "POST"
+      ],
+      "handler": "autofix_tier1_run",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "autofix_tier1_status",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/before_after",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_self_heal_before_after",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/findings",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_self_heal_findings",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/housekeeper/run",
+      "methods": [
+        "POST"
+      ],
+      "handler": "housekeeper_run_endpoint",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/os/self_heal/housekeeper/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "housekeeper_status_endpoint",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/readyz",
+      "methods": [
+        "GET"
+      ],
+      "handler": "lab_readyz",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/replay/archive/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_replay_archive",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/replay/day",
+      "methods": [
+        "POST"
+      ],
+      "handler": "replay_day",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/run_pipeline",
+      "methods": [
+        "POST"
+      ],
+      "handler": "run_pipeline_endpoint",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/shadow_repair/propose",
+      "methods": [
+        "POST"
+      ],
+      "handler": "shadow_repair_propose",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/tuning/apply",
+      "methods": [
+        "POST"
+      ],
+      "handler": "tuning_apply",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/war-room",
+      "methods": [
+        "GET"
+      ],
+      "handler": "war_room_alias_2",
+      "classification": "DEPRECATED_ALIAS",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/war_room",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "handler": "war_room_dashboard",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/war_room/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "handler": "war_room_snapshot",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/warroom",
+      "methods": [
+        "GET"
+      ],
+      "handler": "war_room_alias_1",
+      "classification": "DEPRECATED_ALIAS",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/watchlist/log",
+      "methods": [
+        "POST"
+      ],
+      "handler": "post_watchlist_log",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/lab/watchlist/log/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_watchlist_log_tail",
+      "classification": "LAB_INTERNAL",
+      "expected_status_unauth": 403,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/macro_context",
+      "methods": [
+        "GET"
+      ],
+      "handler": "macro_context",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/misfire",
+      "methods": [
+        "GET"
+      ],
+      "handler": "misfire",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/news_digest",
+      "methods": [
+        "GET"
+      ],
+      "handler": "news_digest",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/on_demand/context",
+      "methods": [
+        "GET"
+      ],
+      "handler": "get_on_demand_context",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/options_context",
+      "methods": [
+        "GET"
+      ],
+      "handler": "options_context",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/options_report",
+      "methods": [
+        "GET"
+      ],
+      "handler": "options_report",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/os/state_snapshot",
+      "methods": [
+        "GET"
+      ],
+      "handler": "os_state_snapshot",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/overlay_live",
+      "methods": [
+        "GET"
+      ],
+      "handler": "overlay_live",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/projection/report",
+      "methods": [
+        "GET"
+      ],
+      "handler": "projection_report",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/pulse",
+      "methods": [
+        "GET"
+      ],
+      "handler": "pulse",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/readyz",
+      "methods": [
+        "GET"
+      ],
+      "handler": "readyz",
+      "classification": "PUBLIC_PRODUCT",
+      "expected_status_unauth": 200,
+      "requires_founder_key": true,
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/sunday_setup",
+      "methods": [
+        "GET"
+      ],
+      "handler": "sunday_setup",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/tuning/status",
+      "methods": [
+        "GET"
+      ],
+      "handler": "tuning_status",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/tuning/tail",
+      "methods": [
+        "GET"
+      ],
+      "handler": "tuning_tail",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    },
+    {
+      "path": "/voice_state",
+      "methods": [
+        "GET"
+      ],
+      "handler": "voice_state",
+      "classification": "UNKNOWN_ZOMBIE",
+      "expected_status_unauth": "UNKNOWN",
+      "requires_founder_key": "UNKNOWN",
+      "notes": "Auto-Exported"
+    }
+  ],
+  "security": {
+    "founder_header": "X-Founder-Key",
+    "lab_internal_rule": "403 exact, timeout = FAIL",
+    "public_rule": "Fail Open (never 500)",
+    "entitlement_rule": "Fail Closed",
+    "shield_middleware": "PublicSurfaceShieldMiddleware"
+  },
+  "artifacts": {
+    "artifacts_root": "backend/outputs/",
+    "primary_truth": "Artifacts, not code",
+    "pipeline_outputs": [
+      "dashboard_market_sniper.json",
+      "context_market_sniper.json",
+      "news_digest.json"
+    ],
+    "runtime_ledgers": [
+      "misfire_report.json",
+      "run_manifest.json"
+    ]
+  },
+  "ewimsc": {
+    "single_command": "tools/ewimsc/ewimsc_run.ps1",
+    "ci_gate": "ewimsc_ci.ps1",
+    "negative_pack": true,
+    "contract_freeze": true,
+    "zombie_scan": true
+  }
+}

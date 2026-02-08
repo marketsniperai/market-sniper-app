@@ -1,0 +1,27 @@
+{
+    "probes": [
+        {
+            "name": "CTX",
+            "description": "Logs Base URL and Founder State",
+            "condition": "kDebugMode && AppConfig.isFounderBuild"
+        },
+        {
+            "name": "NET_HEALTH",
+            "endpoint": "/health_ext",
+            "method": "GET",
+            "log": "status code, latency ms"
+        },
+        {
+            "name": "NET_SNAPSHOT",
+            "endpoint": "/lab/war_room/snapshot",
+            "method": "GET",
+            "log": "status code, latency ms, top-level keys (if 200 OK)"
+        },
+        {
+            "name": "PARSE",
+            "trigger": "Exception in _handleRefresh",
+            "log": "Exception string, RuntimeType"
+        }
+    ],
+    "associated_file": "market_sniper_app/lib/screens/war_room_screen.dart"
+}

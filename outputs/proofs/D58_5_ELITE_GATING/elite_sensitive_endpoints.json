@@ -1,0 +1,29 @@
+[
+    {
+        "normalized_path": "/elite/chat",
+        "methods": [
+            "POST"
+        ],
+        "reason": "COST_SENSITIVE (LLM)",
+        "policy": "REQUIRE_ELITE_OR_FOUNDER",
+        "rate_limit_key": "ELITE_CHAT"
+    },
+    {
+        "normalized_path": "/elite/reflection",
+        "methods": [
+            "POST"
+        ],
+        "reason": "WRITE_STATE (Mental Model)",
+        "policy": "REQUIRE_ELITE_OR_FOUNDER",
+        "rate_limit_key": "ELITE_WRITE"
+    },
+    {
+        "normalized_path": "/elite/settings",
+        "methods": [
+            "POST"
+        ],
+        "reason": "WRITE_STATE (Config)",
+        "policy": "REQUIRE_ELITE_OR_FOUNDER",
+        "rate_limit_key": "ELITE_WRITE"
+    }
+]

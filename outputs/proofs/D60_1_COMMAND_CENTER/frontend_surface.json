@@ -1,0 +1,370 @@
+[
+  {
+    "file": "market_sniper_app/lib/guards/war_room_route_observer.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/command_center/command_center_builder.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:CommandCenter"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_access_window_controller.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_badge_controller.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_badge_resolver.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_contextual_recall_engine.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_mentor_brain.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_messages.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/elite_ritual_policy_resolver.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/recent_dossier_store.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/share/share_composer.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/share/teaser_composer.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/war_room_degrade_policy.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/logic/war_room_refresh_controller.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/models/war_room_snapshot.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom",
+      "Class:OS",
+      "Class:Integrity"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/repositories/dashboard_repository.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/repositories/last_run_repository.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/repositories/system_health_repository.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/repositories/universe_repository.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": [
+      "/lab/os/iron/decision_path",
+      "/lab/os/iron/drift",
+      "/lab/os/self_heal/findings",
+      "/lab/os/iron/lkg",
+      "/lab/os/iron/replay_integrity",
+      "/lab/os/iron/status",
+      "/lab/autofix/status",
+      "/lab/os/self_heal/housekeeper/status",
+      "/lab/os/self_heal/coverage",
+      "/lab/os/iron/state_history",
+      "/lab/os/iron/lock_reason",
+      "/lab/os/iron/timeline_tail"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/repositories/watchlist_log_repository.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/screens/command_center_screen.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:CommandCenter"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/screens/dashboard/dashboard_composer.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/screens/menu_screen.dart",
+    "is_cc_surface": false,
+    "keywords": [],
+    "endpoints": [
+      "/elite/settings"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/screens/war_room_screen.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/services/api_client.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": [
+      "/lab/war_room/snapshot"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/dashboard/regime_sentinel_widget.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite/elite_reflection_modal.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": [
+      "/elite/reflection"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite/elite_ritual_modal.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_interaction_sheet.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": [
+      "/elite/chat"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_mentor_bridge_button.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_ritual_button.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_ritual_grid.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_ritual_strip.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Elite"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/os_health_widget.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/recent_dossier_rail.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/share/evidence_ghost_overlay.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/share/share_booster_sheet.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/time_traveller_chart.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:OS"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": [
+      "/lab/war_room",
+      "/lab/os/iron/drift",
+      "/lab/os/iron/replay_integrity",
+      "/lab/os/iron/lkg",
+      "/lab/os/iron/status",
+      "/lab/autofix/status",
+      "/lab/os/self_heal/housekeeper/status",
+      "/lab/os/health",
+      "/lab/evidence_summary",
+      "/lab/macro_context"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_wrapper.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/war_room_tile.dart",
+    "is_cc_surface": true,
+    "keywords": [
+      "Class:WarRoom"
+    ],
+    "endpoints": []
+  }
+]

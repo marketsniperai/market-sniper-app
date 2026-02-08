@@ -1,69 +1,69 @@
 {
-  "timestamp_utc": "2026-01-29T22:27:22.377153Z",
+  "timestamp_utc": "2026-02-06T19:33:33.400617Z",
   "system_mode": "LIVE",
   "freshness": {
     "dashboard": "STALE",
     "on_demand": "FRESH"
   },
   "providers": {
-    "market": "LIVE",
-    "options": "LIVE",
-    "news": "LIVE"
+    "market": "UNKNOWN",
+    "options": "UNKNOWN",
+    "news": "UNKNOWN"
   },
   "locks": [],
   "recent_events": [
     {
-      "timestamp_utc": "2026-01-29T20:39:19.883698",
-      "event_type": "ELITE_FREE_WINDOW_OPEN",
-      "severity": "INFO",
-      "symbol": null,
-      "timeframe": null,
-      "details": {
-        "test": true
-      },
-      "version": "1.0"
-    },
-    {
-      "timestamp_utc": "2026-01-29T20:39:19.884072",
-      "event_type": "ELITE_FREE_WINDOW_5MIN",
+      "timestamp_utc": "2026-02-05T17:12:40.899799",
+      "event_type": "POLICY_BLOCK",
       "severity": "WARN",
-      "symbol": null,
-      "timeframe": null,
+      "symbol": "SPY",
+      "timeframe": "DAILY",
       "details": {
-        "test": true
+        "source": "GLOBAL_FAILOVER"
       },
       "version": "1.0"
     },
     {
-      "timestamp_utc": "2026-01-29T20:39:19.884535",
-      "event_type": "ELITE_FREE_WINDOW_CLOSED",
-      "severity": "INFO",
-      "symbol": null,
-      "timeframe": null,
+      "timestamp_utc": "2026-02-05T17:33:02.030070",
+      "event_type": "POLICY_BLOCK",
+      "severity": "WARN",
+      "symbol": "SPY",
+      "timeframe": "DAILY",
       "details": {
-        "test": true
+        "source": "GLOBAL_FAILOVER"
       },
       "version": "1.0"
     },
     {
-      "timestamp_utc": "2026-01-29T20:46:37.135889",
-      "event_type": "ELITE_AUDIT_CHECK",
-      "severity": "INFO",
-      "symbol": null,
-      "timeframe": null,
+      "timestamp_utc": "2026-02-05T17:52:44.677589",
+      "event_type": "POLICY_BLOCK",
+      "severity": "WARN",
+      "symbol": "SPY",
+      "timeframe": "DAILY",
       "details": {
-        "audit": true
+        "source": "GLOBAL_FAILOVER"
       },
       "version": "1.0"
     },
     {
-      "timestamp_utc": "2026-01-29T20:47:22.950093",
-      "event_type": "ELITE_AUDIT_CHECK",
+      "timestamp_utc": "2026-02-06T19:33:10.924902",
+      "event_type": "PROJECTION_COMPUTED",
       "severity": "INFO",
-      "symbol": null,
-      "timeframe": null,
+      "symbol": "SPY",
+      "timeframe": "DAILY",
       "details": {
-        "audit": true
+        "state": "INSUFFICIENT_DATA"
+      },
+      "version": "1.0"
+    },
+    {
+      "timestamp_utc": "2026-02-06T19:33:33.140373",
+      "event_type": "CACHE_HIT_GLOBAL",
+      "severity": "INFO",
+      "symbol": "SPY",
+      "timeframe": "DAILY",
+      "details": {
+        "source": "GLOBAL"
       },
       "version": "1.0"
     }

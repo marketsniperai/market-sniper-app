@@ -1,0 +1,3962 @@
+[
+  {
+    "id": "DEPRECATED__SEAL_DAY_44_02_PLACEHOLDER_WRONG_SCOPE",
+    "seal": "DEPRECATED__SEAL_DAY_44_02_PLACEHOLDER_WRONG_SCOPE.md",
+    "group": "Unclassified",
+    "description": "Deprecated  Seal Day 44 02 Placeholder Wrong Scope",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE",
+    "seal": "SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md",
+    "group": "Unclassified",
+    "description": "Seal Build Release Apk To Onedrive",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_CANON_0_REGISTRY",
+    "seal": "SEAL_CANON_0_REGISTRY.md",
+    "group": "Unclassified",
+    "description": "Seal Canon 0 Registry",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST",
+    "seal": "SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md",
+    "group": "Unclassified",
+    "description": "Seal Canon Add Omsr War Calendar Checklist",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_CANON_REFRESH_POST_D56_01_10",
+    "seal": "SEAL_CANON_REFRESH_POST_D56_01_10.md",
+    "group": "Unclassified",
+    "description": "Seal Canon Refresh Post D56 01 10",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_CANON_SCOPE_HISTORICO",
+    "seal": "SEAL_CANON_SCOPE_HISTORICO.md",
+    "group": "Unclassified",
+    "description": "Seal Canon Scope Historico",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_CANON_SYNC_UP_TO_DAY_08",
+    "seal": "SEAL_CANON_SYNC_UP_TO_DAY_08.md",
+    "group": "Unclassified",
+    "description": "Seal Canon Sync Up To Day 08",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_CHECKPOINT_D51_GIT",
+    "seal": "SEAL_CHECKPOINT_D51_GIT.md",
+    "group": "Unclassified",
+    "description": "Seal Checkpoint D51 Git",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D31.1.TOPBAR_LOGO_AND_TYPOGRAPHY",
+    "seal": "SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md",
+    "group": "D31.1",
+    "description": "Topbar Logo And Typography",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.FINAL_CLOSE",
+    "seal": "SEAL_D44_FINAL_CLOSE.md",
+    "group": "D44",
+    "description": "Final Close",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_DEBT_RADAR_V1",
+    "seal": "SEAL_D45_CANON_DEBT_RADAR_V1.md",
+    "group": "D45",
+    "description": "Canon Debt Radar V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_DEBT_RADAR_V2",
+    "seal": "SEAL_D45_CANON_DEBT_RADAR_V2.md",
+    "group": "D45",
+    "description": "Canon Debt Radar V2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_DEBT_RADAR_V2_1",
+    "seal": "SEAL_D45_CANON_DEBT_RADAR_V2_1.md",
+    "group": "D45",
+    "description": "Canon Debt Radar V2 1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_PENDING_01",
+    "seal": "SEAL_D45_CANON_PENDING_01.md",
+    "group": "D45",
+    "description": "Canon Pending 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_PENDING_CLOSURE_HOOK",
+    "seal": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md",
+    "group": "D45",
+    "description": "Canon Pending Closure Hook",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_PENDING_CLOSURE_HOOK_V2",
+    "seal": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md",
+    "group": "D45",
+    "description": "Canon Pending Closure Hook V2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_PENDING_INDEX_02",
+    "seal": "SEAL_D45_CANON_PENDING_INDEX_02.md",
+    "group": "D45",
+    "description": "Canon Pending Index 02",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.CANON_PENDING_LIFECYCLE",
+    "seal": "SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+    "group": "D45",
+    "description": "Canon Pending Lifecycle",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.FIX_CANON_DEBT_RADAR_TOKENS_01",
+    "seal": "SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md",
+    "group": "D45",
+    "description": "Fix Canon Debt Radar Tokens 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF03_SECTOR_FLIP_V1_SMOKE_01",
+    "seal": "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+    "group": "D45",
+    "description": "Hf03 Sector Flip V1 Smoke 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF04_BUILD_RESTORE",
+    "seal": "SEAL_D45_HF04_BUILD_RESTORE.md",
+    "group": "D45",
+    "description": "Hf04 Build Restore",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX",
+    "seal": "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+    "group": "D45",
+    "description": "Hf04 War Room Wiring Audit And Canon Debt Radar Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF05_AUTH_GATEWAY",
+    "seal": "SEAL_D45_HF05_AUTH_GATEWAY.md",
+    "group": "D45",
+    "description": "Hf05 Auth Gateway",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS",
+    "seal": "SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md",
+    "group": "D45",
+    "description": "Hf05 Cloud Run 403 Restore Public Access",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF06_INFRA_DISCOVERY",
+    "seal": "SEAL_D45_HF06_INFRA_DISCOVERY.md",
+    "group": "D45",
+    "description": "Hf06 Infra Discovery",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF07_AUTH_GATEWAY_DEPLOY_VERIFY",
+    "seal": "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "group": "D45",
+    "description": "Hf07 Auth Gateway Deploy Verify",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF08_AUTH_GATEWAY_DEPLOY_VERIFY",
+    "seal": "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "group": "D45",
+    "description": "Hf08 Auth Gateway Deploy Verify",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF09_APP_CONFIG_DUPLICATE_GETTER_FIX",
+    "seal": "SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md",
+    "group": "D45",
+    "description": "Hf09 App Config Duplicate Getter Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10A_VOLUME_INTEL_FRONT_UPGRADE",
+    "seal": "SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md",
+    "group": "D45",
+    "description": "Hf10A Volume Intel Front Upgrade",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10B_VOLUME_INTEL_BACK_WHY_PANEL",
+    "seal": "SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md",
+    "group": "D45",
+    "description": "Hf10B Volume Intel Back Why Panel",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10C_VOLUME_INTEL_FRONT_POLISH",
+    "seal": "SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md",
+    "group": "D45",
+    "description": "Hf10C Volume Intel Front Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT",
+    "seal": "SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md",
+    "group": "D45",
+    "description": "Hf10D Volume Intel Front Welcome Shimmer Compact",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10E_LAYOUT_POLICE_PARENTDATA_FIX",
+    "seal": "SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md",
+    "group": "D45",
+    "description": "Hf10E Layout Police Parentdata Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN",
+    "seal": "SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md",
+    "group": "D45",
+    "description": "Hf10F Volume Intel Front Top4 Shimmer Darkcyan",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE",
+    "seal": "SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md",
+    "group": "D45",
+    "description": "Hf10G Volume Intel Timeline Now Past Future",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED",
+    "seal": "SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md",
+    "group": "D45",
+    "description": "Pending Flutter Analyze Baseline Registered",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_ACCOUNT_IDENTITY_01",
+    "seal": "SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md",
+    "group": "D45",
+    "description": "Polish Account Identity 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_MENU_ENTRY_01",
+    "seal": "SEAL_D45_POLISH_MENU_ENTRY_01.md",
+    "group": "D45",
+    "description": "Polish Menu Entry 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_PARTNER_PROGRESS_01",
+    "seal": "SEAL_D45_POLISH_PARTNER_PROGRESS_01.md",
+    "group": "D45",
+    "description": "Polish Partner Progress 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_SECTOR_FLIP_V2",
+    "seal": "SEAL_D45_POLISH_SECTOR_FLIP_V2.md",
+    "group": "D45",
+    "description": "Polish Sector Flip V2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_SECTOR_FLIP_V3",
+    "seal": "SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+    "group": "D45",
+    "description": "Polish Sector Flip V3",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_SECTOR_HEADER_COPY_01",
+    "seal": "SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md",
+    "group": "D45",
+    "description": "Polish Sector Header Copy 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.SECTOR_REPLAY_SCRUBBER_RESTORE_01",
+    "seal": "SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md",
+    "group": "D45",
+    "description": "Sector Replay Scrubber Restore 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.SECTOR_REPLAY_V1_1",
+    "seal": "SEAL_D45_SECTOR_REPLAY_V1_1.md",
+    "group": "D45",
+    "description": "Sector Replay V1 1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.SECTOR_REPLAY_V1_2",
+    "seal": "SEAL_D45_SECTOR_REPLAY_V1_2.md",
+    "group": "D45",
+    "description": "Sector Replay V1 2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.SECTOR_REPLAY_V1_3",
+    "seal": "SEAL_D45_SECTOR_REPLAY_V1_3.md",
+    "group": "D45",
+    "description": "Sector Replay V1 3",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.SECTOR_SENTINEL_RT_V0",
+    "seal": "SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+    "group": "D45",
+    "description": "Sector Sentinel Rt V0",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.HF11A_REGIME_SENTINEL_SKELETON",
+    "seal": "SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md",
+    "group": "D46",
+    "description": "Hf11A Regime Sentinel Skeleton",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN",
+    "seal": "SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md",
+    "group": "D46",
+    "description": "Hf11 Regime Sentinel Polish Dia Grid Candle Fullscreen",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.HF12B_WATCHLIST_MICRO_POLISH",
+    "seal": "SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md",
+    "group": "D46",
+    "description": "Hf12B Watchlist Micro Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.HF12_WATCHLIST_UI_POLISH",
+    "seal": "SEAL_D46_HF12_WATCHLIST_UI_POLISH.md",
+    "group": "D46",
+    "description": "Hf12 Watchlist Ui Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.HF12_WIDGET_TITLES_AND_BREATHING_ACCENT",
+    "seal": "SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md",
+    "group": "D46",
+    "description": "Hf12 Widget Titles And Breathing Accent",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.WATCHLIST_FINAL_SEAL",
+    "seal": "SEAL_D46_WATCHLIST_FINAL_SEAL.md",
+    "group": "D46",
+    "description": "Watchlist Final Seal",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.AGMS_DEEP_FUNCTIONAL_REPORT",
+    "seal": "SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md",
+    "group": "D47",
+    "description": "Agms Deep Functional Report",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.CALENDAR_AUDIT",
+    "seal": "SEAL_D47_CALENDAR_AUDIT.md",
+    "group": "D47",
+    "description": "Calendar Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.CANON_DOCS_SYNC_PROJECTION_ON_DEMAND",
+    "seal": "SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md",
+    "group": "D47",
+    "description": "Canon Docs Sync Projection On Demand",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.CANON_SYNC_CHECKPOINT",
+    "seal": "SEAL_D47_CANON_SYNC_CHECKPOINT.md",
+    "group": "D47",
+    "description": "Canon Sync Checkpoint",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.DEEP_OS_FUNCTIONAL_AUDIT",
+    "seal": "SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md",
+    "group": "D47",
+    "description": "Deep Os Functional Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.FIX_02_AGMS_RELIABILITY_SCOREBOARD",
+    "seal": "SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md",
+    "group": "D47",
+    "description": "Fix 02 Agms Reliability Scoreboard",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA",
+    "seal": "SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md",
+    "group": "D47",
+    "description": "Hf13 News Demo Engine Ready For Data",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF14_NEWS_RANKING_SKELETON_RULES_ONLY",
+    "seal": "SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md",
+    "group": "D47",
+    "description": "Hf14 News Ranking Skeleton Rules Only",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF15X_DISCIPLINE_UNBLOCK",
+    "seal": "SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md",
+    "group": "D47",
+    "description": "Hf15X Discipline Unblock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF16_ON_DEMAND_0400_ET_SYNC",
+    "seal": "SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md",
+    "group": "D47",
+    "description": "Hf16 On Demand 0400 Et Sync",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF17_PROJECTION_ORCHESTRATOR_V0",
+    "seal": "SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md",
+    "group": "D47",
+    "description": "Hf17 Projection Orchestrator V0",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF18_INTRADAY_SERIES_COORDS_DEMO",
+    "seal": "SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md",
+    "group": "D47",
+    "description": "Hf18 Intraday Series Coords Demo",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF19_PROJECTION_INPUTS_WIRING",
+    "seal": "SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md",
+    "group": "D47",
+    "description": "Hf19 Projection Inputs Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF20_PROJECTION_CONTEXT_FUSION",
+    "seal": "SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md",
+    "group": "D47",
+    "description": "Hf20 Projection Context Fusion",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF21_ON_DEMAND_PROJECTION_CONSUME",
+    "seal": "SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md",
+    "group": "D47",
+    "description": "Hf21 On Demand Projection Consume",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF22_ON_DEMAND_DECRYPTION_RITUAL",
+    "seal": "SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md",
+    "group": "D47",
+    "description": "Hf22 On Demand Decryption Ritual",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF23_ON_DEMAND_TIMEFRAME_CONTROL",
+    "seal": "SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md",
+    "group": "D47",
+    "description": "Hf23 On Demand Timeframe Control",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF24_TIME_TRAVELLER_CHART_V1",
+    "seal": "SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md",
+    "group": "D47",
+    "description": "Hf24 Time Traveller Chart V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF25_RELIABILITY_METER",
+    "seal": "SEAL_D47_HF25_RELIABILITY_METER.md",
+    "group": "D47",
+    "description": "Hf25 Reliability Meter",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF26_MICRO_BRIEFINGS_V1",
+    "seal": "SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md",
+    "group": "D47",
+    "description": "Hf26 Micro Briefings V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF27_TACTICAL_PLAYBOOK",
+    "seal": "SEAL_D47_HF27_TACTICAL_PLAYBOOK.md",
+    "group": "D47",
+    "description": "Hf27 Tactical Playbook",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF28_ELITE_MENTOR_BRIDGE",
+    "seal": "SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md",
+    "group": "D47",
+    "description": "Hf28 Elite Mentor Bridge",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF29_SHARE_MINI_CARD",
+    "seal": "SEAL_D47_HF29_SHARE_MINI_CARD.md",
+    "group": "D47",
+    "description": "Hf29 Share Mini Card",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF30_BLURRED_TRUTH_GATING",
+    "seal": "SEAL_D47_HF30_BLURRED_TRUTH_GATING.md",
+    "group": "D47",
+    "description": "Hf30 Blurred Truth Gating",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF31_TIER_RESOLVER_V1_HF30_COMPLETE",
+    "seal": "SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md",
+    "group": "D47",
+    "description": "Hf31 Tier Resolver V1 Hf30 Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY",
+    "seal": "SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md",
+    "group": "D47",
+    "description": "Hf32 On Demand Cost Policy Per Ticker Day",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF34_ON_DEMAND_CAPSTONE_CANON_SYNC",
+    "seal": "SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md",
+    "group": "D47",
+    "description": "Hf34 On Demand Capstone Canon Sync",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST",
+    "seal": "SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md",
+    "group": "D47",
+    "description": "Hf35 Calendar Activation V1 Artifact First",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF36_WALK_THE_WALL_VISUAL_PROOF_PACK",
+    "seal": "SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md",
+    "group": "D47",
+    "description": "Hf36 Walk The Wall Visual Proof Pack",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HFXX_BUILD_RESCUE_HOTFIX",
+    "seal": "SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md",
+    "group": "D47",
+    "description": "Hfxx Build Rescue Hotfix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF_A_NEWS_BACKEND_UNIFICATION",
+    "seal": "SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md",
+    "group": "D47",
+    "description": "Hf A News Backend Unification",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF_B_PROJECTION_CONTRACT_V1_FREEZE",
+    "seal": "SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md",
+    "group": "D47",
+    "description": "Hf B Projection Contract V1 Freeze",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF_CACHE_SERVER_ON_DEMAND",
+    "seal": "SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md",
+    "group": "D47",
+    "description": "Hf Cache Server On Demand",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HF_RECENT_LOCAL_RECENT_DOSSIERS",
+    "seal": "SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md",
+    "group": "D47",
+    "description": "Hf Recent Local Recent Dossiers",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.HFxx_BUILD_RESCUE_ON_DEMAND",
+    "seal": "SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md",
+    "group": "D47",
+    "description": "Hfxx Build Rescue On Demand",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.ON_DEMAND_AREA_SEALED",
+    "seal": "SEAL_D47_ON_DEMAND_AREA_SEALED.md",
+    "group": "D47",
+    "description": "On Demand Area Sealed",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D47.WAR_CALENDAR_PENDING_EXPANSION",
+    "seal": "SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md",
+    "group": "D47",
+    "description": "War Calendar Pending Expansion",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.BRAIN_01_SCHEMA_AUTHORITY_V1",
+    "seal": "SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md",
+    "group": "D48",
+    "description": "Brain 01 Schema Authority V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.BRAIN_02_ATTRIBUTION_ENGINE_V1",
+    "seal": "SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md",
+    "group": "D48",
+    "description": "Brain 02 Attribution Engine V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND",
+    "seal": "SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md",
+    "group": "D48",
+    "description": "Brain 03 Surface Adapters V1 On Demand",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH",
+    "seal": "SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md",
+    "group": "D48",
+    "description": "Brain 04 Reliability Ledger Global Truth",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.BRAIN_05_PROVIDER_DATAMUX_V1",
+    "seal": "SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+    "group": "D48",
+    "description": "Brain 05 Provider Datamux V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.BRAIN_06_EVENT_ROUTER_V1",
+    "seal": "SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md",
+    "group": "D48",
+    "description": "Brain 06 Event Router V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.OPS_PEND_REGISTRY_PATH",
+    "seal": "SEAL_D48_OPS_PEND_REGISTRY_PATH.md",
+    "group": "D48",
+    "description": "Ops Pend Registry Path",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D48.PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE",
+    "seal": "SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md",
+    "group": "D48",
+    "description": "Pend Sweep 01 Pending Audit And Safe Closure",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_AREA_SEALED_CANON_SYNC",
+    "seal": "SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md",
+    "group": "D49",
+    "description": "Elite Area Sealed Canon Sync",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY",
+    "seal": "SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md",
+    "group": "D49",
+    "description": "Elite Chat Core V1 With Os Authority",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_FIX_01_LAYOUT_GLASS_INPUT",
+    "seal": "SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md",
+    "group": "D49",
+    "description": "Elite Fix 01 Layout Glass Input",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV",
+    "seal": "SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md",
+    "group": "D49",
+    "description": "Elite Fix 02 Persistent Overlay Above Bottomnav",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS",
+    "seal": "SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md",
+    "group": "D49",
+    "description": "Elite Fix 03 Ritual Strip Compact True Glass",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED",
+    "seal": "SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md",
+    "group": "D49",
+    "description": "Elite Fix 04 Ritual Strip Density And True Glass Verified",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS",
+    "seal": "SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md",
+    "group": "D49",
+    "description": "Elite Fix 05 Ritual Grid 2X3 True Glass",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_FREE_WINDOW_COUNTDOWN_V2",
+    "seal": "SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md",
+    "group": "D49",
+    "description": "Elite Free Window Countdown V2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_HF01_CONTRACT_SYNC_RITUAL_API",
+    "seal": "SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md",
+    "group": "D49",
+    "description": "Elite Hf01 Contract Sync Ritual Api",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_LLM_KEY_INTEGRATION_GEMINI",
+    "seal": "SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md",
+    "group": "D49",
+    "description": "Elite Llm Key Integration Gemini",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_NOTIFICATIONS_BADGES_V1",
+    "seal": "SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md",
+    "group": "D49",
+    "description": "Elite Notifications Badges V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_RITUAL_API_ROUTER_V1",
+    "seal": "SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md",
+    "group": "D49",
+    "description": "Elite Ritual Api Router V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_RITUAL_CONTRACTS_V1",
+    "seal": "SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md",
+    "group": "D49",
+    "description": "Elite Ritual Contracts V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST",
+    "seal": "SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md",
+    "group": "D49",
+    "description": "Elite Ritual Engines V1 Artifact First",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_RITUAL_MODALS_WIRING_V1",
+    "seal": "SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md",
+    "group": "D49",
+    "description": "Elite Ritual Modals Wiring V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN",
+    "seal": "SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md",
+    "group": "D49",
+    "description": "Elite Ritual Policy V1 Windows Countdown",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_SHELL_V2_GLASS_RITUAL_PANEL",
+    "seal": "SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md",
+    "group": "D49",
+    "description": "Elite Shell V2 Glass Ritual Panel",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.ELITE_USER_REFLECTION_MEMORY_V1",
+    "seal": "SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md",
+    "group": "D49",
+    "description": "Elite User Reflection Memory V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.FOUNDER_RELEASE_APK_BUILD",
+    "seal": "SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md",
+    "group": "D49",
+    "description": "Founder Release Apk Build",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.OS_KNOWLEDGE_INDEX_V1",
+    "seal": "SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md",
+    "group": "D49",
+    "description": "Os Knowledge Index V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.OS_STATE_SNAPSHOT_V1",
+    "seal": "SEAL_D49_OS_STATE_SNAPSHOT_V1.md",
+    "group": "D49",
+    "description": "Os State Snapshot V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D49.WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT",
+    "seal": "SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md",
+    "group": "D49",
+    "description": "War Calendar Backfill And Git Checkpoint",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D50.EWIMS_AUDIT_COMPLETE",
+    "seal": "SEAL_D50_EWIMS_AUDIT_COMPLETE.md",
+    "group": "D50",
+    "description": "Ewims Audit Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D50.EWIMS_DETERMINISTIC_ATOMIC",
+    "seal": "SEAL_D50_EWIMS_DETERMINISTIC_ATOMIC.md",
+    "group": "D50",
+    "description": "Ewims Deterministic Atomic",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D50.EWIMS_GOLD_TRUTH_COMPLETE",
+    "seal": "SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md",
+    "group": "D50",
+    "description": "Ewims Gold Truth Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D50.EWIMS_NO_FALSE_GOLD",
+    "seal": "SEAL_D50_EWIMS_NO_FALSE_GOLD.md",
+    "group": "D50",
+    "description": "Ewims No False Gold",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D50.OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP",
+    "seal": "SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md",
+    "group": "D50",
+    "description": "Optruth Audit 01 Full System Functional Root Cause Map",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D51.01.BOTTOM_NAV_WIRING_EVIDENCE",
+    "seal": "SEAL_D51_01_BOTTOM_NAV_WIRING_EVIDENCE.md",
+    "group": "D51.01",
+    "description": "Bottom Nav Wiring Evidence",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D51.CLEAN_SLATE_TRIAGE",
+    "seal": "SEAL_D51_CLEAN_SLATE_TRIAGE.md",
+    "group": "D51",
+    "description": "Clean Slate Triage",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D51.PENDING_269_TRIAGE",
+    "seal": "SEAL_D51_PENDING_269_TRIAGE.md",
+    "group": "D51",
+    "description": "Pending 269 Triage",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D52.WAR_ROOM_DESIGN",
+    "seal": "SEAL_D52_WAR_ROOM_DESIGN.md",
+    "group": "D52",
+    "description": "War Room Design",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.1.WAR_ROOM_COMPILE_FIX",
+    "seal": "SEAL_D53_1_WAR_ROOM_COMPILE_FIX.md",
+    "group": "D53.1",
+    "description": "War Room Compile Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.2.WAR_ROOM_EXIT_AND_SKELETON",
+    "seal": "SEAL_D53_2_WAR_ROOM_EXIT_AND_SKELETON.md",
+    "group": "D53.2",
+    "description": "War Room Exit And Skeleton",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.3.A_ALPHA_STRIP_SLIVER_FIX",
+    "seal": "SEAL_D53_3A_ALPHA_STRIP_SLIVER_FIX.md",
+    "group": "D53.3",
+    "description": "A Alpha Strip Sliver Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.3.B_WAR_ROOM_EXIT_UNLOCK_PROOF",
+    "seal": "SEAL_D53_3B_WAR_ROOM_EXIT_UNLOCK_PROOF.md",
+    "group": "D53.3",
+    "description": "B War Room Exit Unlock Proof",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.3.C_WAR_ROOM_PROOF_OF_LIFE",
+    "seal": "SEAL_D53_3C_WAR_ROOM_PROOF_OF_LIFE.md",
+    "group": "D53.3",
+    "description": "C War Room Proof Of Life",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.3.D_WAR_ROOM_REAL_PROOF_OF_LIFE",
+    "seal": "SEAL_D53_3D_WAR_ROOM_REAL_PROOF_OF_LIFE.md",
+    "group": "D53.3",
+    "description": "D War Room Real Proof Of Life",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.3.WAR_ROOM_UNLOCK_EXIT_DENSITY_PASS",
+    "seal": "SEAL_D53_3_WAR_ROOM_UNLOCK_EXIT_DENSITY_PASS.md",
+    "group": "D53.3",
+    "description": "War Room Unlock Exit Density Pass",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.4.WAR_ROOM_V2_POLISH",
+    "seal": "SEAL_D53_4_WAR_ROOM_V2_POLISH.md",
+    "group": "D53.4",
+    "description": "War Room V2 Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.5.WAR_ROOM_REAL_WIRING_PARTIAL",
+    "seal": "SEAL_D53_5_WAR_ROOM_REAL_WIRING_PARTIAL.md",
+    "group": "D53.5",
+    "description": "War Room Real Wiring Partial",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.A_WAR_ROOM_TRUTH_PROOF_PANEL",
+    "seal": "SEAL_D53_6A_WAR_ROOM_TRUTH_PROOF_PANEL.md",
+    "group": "D53.6",
+    "description": "A War Room Truth Proof Panel",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.B_1_WAR_ROOM_NO_BLANK_GUARANTEE",
+    "seal": "SEAL_D53_6B_1_WAR_ROOM_NO_BLANK_GUARANTEE.md",
+    "group": "D53.6",
+    "description": "B 1 War Room No Blank Guarantee",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.B_2_WAR_ROOM_FLASH_BLANK_ROOT_CAUSE_FIX",
+    "seal": "SEAL_D53_6B_2_WAR_ROOM_FLASH_BLANK_ROOT_CAUSE_FIX.md",
+    "group": "D53.6",
+    "description": "B 2 War Room Flash Blank Root Cause Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.B_WAR_ROOM_TILE_SOURCE_OVERLAY",
+    "seal": "SEAL_D53_6B_WAR_ROOM_TILE_SOURCE_OVERLAY.md",
+    "group": "D53.6",
+    "description": "B War Room Tile Source Overlay",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.C_WAR_ROOM_RESPONSIVE_DENSITY_LOCK",
+    "seal": "SEAL_D53_6C_WAR_ROOM_RESPONSIVE_DENSITY_LOCK.md",
+    "group": "D53.6",
+    "description": "C War Room Responsive Density Lock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.X_WAR_ROOM_WIDGET_DISAPPEAR_INVESTIGATION",
+    "seal": "SEAL_D53_6X_WAR_ROOM_WIDGET_DISAPPEAR_INVESTIGATION.md",
+    "group": "D53.6",
+    "description": "X War Room Widget Disappear Investigation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.Y_TRUTH_COVERAGE_METER",
+    "seal": "SEAL_D53_6Y_TRUTH_COVERAGE_METER.md",
+    "group": "D53.6",
+    "description": "Y Truth Coverage Meter",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.Z_WAR_ROOM_VIEWPORT_NULL_FIX",
+    "seal": "SEAL_D53_6Z_WAR_ROOM_VIEWPORT_NULL_FIX.md",
+    "group": "D53.6",
+    "description": "Z War Room Viewport Null Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.6.WAR_ROOM_TRUTH_EXPOSURE",
+    "seal": "SEAL_D53_6_WAR_ROOM_TRUTH_EXPOSURE.md",
+    "group": "D53.6",
+    "description": "War Room Truth Exposure",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D53.WAR_ROOM_STRUCTURAL_REFACTOR",
+    "seal": "SEAL_D53_WAR_ROOM_STRUCTURAL_REFACTOR.md",
+    "group": "D53",
+    "description": "War Room Structural Refactor",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D54.0.A_WAR_ROOM_ENDPOINT_404_SLAYED",
+    "seal": "SEAL_D54_0A_WAR_ROOM_ENDPOINT_404_SLAYED.md",
+    "group": "D54.0",
+    "description": "A War Room Endpoint 404 Slayed",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D54.0.WAR_ROOM_WEB_FETCH_AND_LAYOUT_HARDENING",
+    "seal": "SEAL_D54_0_WAR_ROOM_WEB_FETCH_AND_LAYOUT_HARDENING.md",
+    "group": "D54.0",
+    "description": "War Room Web Fetch And Layout Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D54.1.WAR_ROOM_ZERO_OVERFLOWS_POLISH",
+    "seal": "SEAL_D54_1_WAR_ROOM_ZERO_OVERFLOWS_POLISH.md",
+    "group": "D54.1",
+    "description": "War Room Zero Overflows Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D54.2.B_PY_DEV_PROXY_FOR_WEB",
+    "seal": "SEAL_D54_2B_PY_DEV_PROXY_FOR_WEB.md",
+    "group": "D54.2",
+    "description": "B Py Dev Proxy For Web",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D54.3.CLOUD_RUN_REALITY_AUDIT",
+    "seal": "SEAL_D54_3_CLOUD_RUN_REALITY_AUDIT.md",
+    "group": "D54.3",
+    "description": "Cloud Run Reality Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.0.B_HEAD_OPTIONS_METHOD_HARDENING",
+    "seal": "SEAL_D55_0B_HEAD_OPTIONS_METHOD_HARDENING.md",
+    "group": "D55.0",
+    "description": "B Head Options Method Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.0.D_PUBLIC_GATEWAY_PROXY_FOR_WEB",
+    "seal": "SEAL_D55_0D_PUBLIC_GATEWAY_PROXY_FOR_WEB.md",
+    "group": "D55.0",
+    "description": "D Public Gateway Proxy For Web",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.0.E_FIREBASE_HOSTING_REWRITE_WEB_UNBLOCK",
+    "seal": "SEAL_D55_0E_FIREBASE_HOSTING_REWRITE_WEB_UNBLOCK.md",
+    "group": "D55.0",
+    "description": "E Firebase Hosting Rewrite Web Unblock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.0.FULL_REDEPLOY_AND_ROUTE_RESTORATION",
+    "seal": "SEAL_D55_0_FULL_REDEPLOY_AND_ROUTE_RESTORATION.md",
+    "group": "D55.0",
+    "description": "Full Redeploy And Route Restoration",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.10.PUBLIC_SURFACE_HARDENING_AUDIT",
+    "seal": "SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md",
+    "group": "D55.10",
+    "description": "Public Surface Hardening Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.11.C_STRIP_API_PREFIX_FOR_HOSTING_REWRITE",
+    "seal": "SEAL_D55_11C_STRIP_API_PREFIX_FOR_HOSTING_REWRITE.md",
+    "group": "D55.11",
+    "description": "C Strip Api Prefix For Hosting Rewrite",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.12.B_PUBLIC_SURFACE_MINIMIZATION_AND_LAB_SHIELD",
+    "seal": "SEAL_D55_12B_PUBLIC_SURFACE_MINIMIZATION_AND_LAB_SHIELD.md",
+    "group": "D55.12",
+    "description": "B Public Surface Minimization And Lab Shield",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.13.PUBLIC_PRODUCTION_GUARDRAIL",
+    "seal": "SEAL_D55_13_PUBLIC_PRODUCTION_GUARDRAIL.md",
+    "group": "D55.13",
+    "description": "Public Production Guardrail",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.14.SYSTEM_HYGIENE_AND_CHECKPOINT",
+    "seal": "SEAL_D55_14_SYSTEM_HYGIENE_AND_CHECKPOINT.md",
+    "group": "D55.14",
+    "description": "System Hygiene And Checkpoint",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.15.CANON_AUDIT_REPORT",
+    "seal": "SEAL_D55_15_CANON_AUDIT_REPORT.md",
+    "group": "D55.15",
+    "description": "Canon Audit Report",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.15.CANON_RECONCILIATION",
+    "seal": "SEAL_D55_15_CANON_RECONCILIATION.md",
+    "group": "D55.15",
+    "description": "Canon Reconciliation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.A_BACKEND_INVENTORY",
+    "seal": "SEAL_D55_16A_BACKEND_INVENTORY.md",
+    "group": "D55.16",
+    "description": "A Backend Inventory",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_10_WAR_ROOM_ARCHITECTURE_DECISION",
+    "seal": "SEAL_D55_16B_10_WAR_ROOM_ARCHITECTURE_DECISION.md",
+    "group": "D55.16",
+    "description": "B 10 War Room Architecture Decision",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_1_SHIELD_HARDENING",
+    "seal": "SEAL_D55_16B_1_SHIELD_HARDENING.md",
+    "group": "D55.16",
+    "description": "B 1 Shield Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_2_SHIELD_HYGIENE_AND_PROOFS",
+    "seal": "SEAL_D55_16B_2_SHIELD_HYGIENE_AND_PROOFS.md",
+    "group": "D55.16",
+    "description": "B 2 Shield Hygiene And Proofs",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_3_FLUTTER_BUILD_FIX",
+    "seal": "SEAL_D55_16B_3_FLUTTER_BUILD_FIX.md",
+    "group": "D55.16",
+    "description": "B 3 Flutter Build Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_5_DEV_RITUAL_AND_WEB_DEBUG_WIRING",
+    "seal": "SEAL_D55_16B_5_DEV_RITUAL_AND_WEB_DEBUG_WIRING.md",
+    "group": "D55.16",
+    "description": "B 5 Dev Ritual And Web Debug Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_6_1_FLUTTER_BUILD_IMPORT_FIX",
+    "seal": "SEAL_D55_16B_6_1_FLUTTER_BUILD_IMPORT_FIX.md",
+    "group": "D55.16",
+    "description": "B 6 1 Flutter Build Import Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_6_FRONTEND_FOUNDER_HEADER_INJECTION",
+    "seal": "SEAL_D55_16B_6_FRONTEND_FOUNDER_HEADER_INJECTION.md",
+    "group": "D55.16",
+    "description": "B 6 Frontend Founder Header Injection",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_8_BACKEND_DEBT_INDEX_AND_OS_HEALTH_ALIAS",
+    "seal": "SEAL_D55_16B_8_BACKEND_DEBT_INDEX_AND_OS_HEALTH_ALIAS.md",
+    "group": "D55.16",
+    "description": "B 8 Backend Debt Index And Os Health Alias",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_9_FRONTEND_CANON_DEBT_RADAR_ROUTE_FIX",
+    "seal": "SEAL_D55_16B_9_FRONTEND_CANON_DEBT_RADAR_ROUTE_FIX.md",
+    "group": "D55.16",
+    "description": "B 9 Frontend Canon Debt Radar Route Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.B_WAR_ROOM_SIGNAL_RESTORE",
+    "seal": "SEAL_D55_16B_WAR_ROOM_SIGNAL_RESTORE.md",
+    "group": "D55.16",
+    "description": "B War Room Signal Restore",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.16.WAR_ROOM_VISIBILITY_RESTORE",
+    "seal": "SEAL_D55_16_WAR_ROOM_VISIBILITY_RESTORE.md",
+    "group": "D55.16",
+    "description": "War Room Visibility Restore",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.1.B_ZERO_HUMAN_FIREBASE_SA_AND_HOSTING_DEPLOY",
+    "seal": "SEAL_D55_1B_ZERO_HUMAN_FIREBASE_SA_AND_HOSTING_DEPLOY.md",
+    "group": "D55.1",
+    "description": "B Zero Human Firebase Sa And Hosting Deploy",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.1.WEB_ACCESS_UNBLOCK_ZERO_HUMAN",
+    "seal": "SEAL_D55_1_WEB_ACCESS_UNBLOCK_ZERO_HUMAN.md",
+    "group": "D55.1",
+    "description": "Web Access Unblock Zero Human",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.2.FIREBASE_HOSTING_BOOTSTRAP_FAILURE",
+    "seal": "SEAL_D55_2_FIREBASE_HOSTING_BOOTSTRAP_FAILURE.md",
+    "group": "D55.2",
+    "description": "Firebase Hosting Bootstrap Failure",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.3.LB_WEB_UNBLOCK",
+    "seal": "SEAL_D55_3_LB_WEB_UNBLOCK.md",
+    "group": "D55.3",
+    "description": "Lb Web Unblock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.4.SSL_CERT_PROVISIONING_UNBLOCK",
+    "seal": "SEAL_D55_4_SSL_CERT_PROVISIONING_UNBLOCK.md",
+    "group": "D55.4",
+    "description": "Ssl Cert Provisioning Unblock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.5.OWNERSHIP_AUDIT",
+    "seal": "SEAL_D55_5_OWNERSHIP_AUDIT.md",
+    "group": "D55.5",
+    "description": "Ownership Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.6.FIREBASE_HOSTING_REWRITE_UNBLOCK",
+    "seal": "SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md",
+    "group": "D55.6",
+    "description": "Firebase Hosting Rewrite Unblock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.7.DOMAIN_RESTRICTION_DIAGNOSIS",
+    "seal": "SEAL_D55_7_DOMAIN_RESTRICTION_DIAGNOSIS.md",
+    "group": "D55.7",
+    "description": "Domain Restriction Diagnosis",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.8.DOMAIN_RESTRICTION_OVERRIDE_FAILURE",
+    "seal": "SEAL_D55_8_DOMAIN_RESTRICTION_OVERRIDE_FAILURE.md",
+    "group": "D55.8",
+    "description": "Domain Restriction Override Failure",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D55.9.PUBLIC_WEB_UNBLOCK",
+    "seal": "SEAL_D55_9_PUBLIC_WEB_UNBLOCK.md",
+    "group": "D55.9",
+    "description": "Public Web Unblock",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.10.CLOUD_RUN_PROBES_SMOKE_GREEN",
+    "seal": "SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md",
+    "group": "D56.01",
+    "description": "Cloud Run Probes Smoke Green",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.1.USP_FRONTEND_BUILD_RESTORE",
+    "seal": "SEAL_D56_01_1_USP_FRONTEND_BUILD_RESTORE.md",
+    "group": "D56.01",
+    "description": "Usp Frontend Build Restore",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.2.A_FOUNDER_KEY_WIRING_MAP_AND_FIX",
+    "seal": "SEAL_D56_01_2A_FOUNDER_KEY_WIRING_MAP_AND_FIX.md",
+    "group": "D56.01",
+    "description": "A Founder Key Wiring Map And Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.2.B_BACKEND_KEY_MATCH_FIX",
+    "seal": "SEAL_D56_01_2B_BACKEND_KEY_MATCH_FIX.md",
+    "group": "D56.01",
+    "description": "B Backend Key Match Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.2.C_DEV_RITUAL_SKIP_VERIFICATION",
+    "seal": "SEAL_D56_01_2C_DEV_RITUAL_SKIP_VERIFICATION.md",
+    "group": "D56.01",
+    "description": "C Dev Ritual Skip Verification",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.3.USP_SINGLE_CALL_AND_TILE_MATERIALIZATION",
+    "seal": "SEAL_D56_01_3_USP_SINGLE_CALL_AND_TILE_MATERIALIZATION.md",
+    "group": "D56.01",
+    "description": "Usp Single Call And Tile Materialization",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.4.DEV_RITUAL_HARDENING",
+    "seal": "SEAL_D56_01_4_DEV_RITUAL_HARDENING.md",
+    "group": "D56.01",
+    "description": "Dev Ritual Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.5.WARROOM_SNAPSHOT_ONLY",
+    "seal": "SEAL_D56_01_5_WARROOM_SNAPSHOT_ONLY.md",
+    "group": "D56.01",
+    "description": "Warroom Snapshot Only",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.6.WARROOM_GREEN_HARD_GATE",
+    "seal": "SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md",
+    "group": "D56.01",
+    "description": "Warroom Green Hard Gate",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.7.V3_HYDRATION_SNAPSHOT_FULL",
+    "seal": "SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md",
+    "group": "D56.01",
+    "description": "V3 Hydration Snapshot Full",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.8.CLOUD_RUN_DEPLOY_PROOF",
+    "seal": "SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md",
+    "group": "D56.01",
+    "description": "Cloud Run Deploy Proof",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.9.CLOUD_RUN_SMOKE_GUARDRAILS",
+    "seal": "SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md",
+    "group": "D56.01",
+    "description": "Cloud Run Smoke Guardrails",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.01.UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION",
+    "seal": "SEAL_D56_01_UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION.md",
+    "group": "D56.01",
+    "description": "Unified Snapshot Protocol Implementation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.AUDIT_CHUNK_01_BLOCKER",
+    "seal": "SEAL_D56_AUDIT_CHUNK_01_BLOCKER.md",
+    "group": "D56",
+    "description": "Audit Chunk 01 Blocker",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.AUDIT_CHUNK_D00_D10",
+    "seal": "SEAL_D56_AUDIT_CHUNK_D00_D10.md",
+    "group": "D56",
+    "description": "Audit Chunk D00 D10",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.AUDIT_CHUNK_D51_D56",
+    "seal": "SEAL_D56_AUDIT_CHUNK_D51_D56.md",
+    "group": "D56",
+    "description": "Audit Chunk D51 D56",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D56.HK_1_HOUSEKEEPER_WIRING_RESTORED",
+    "seal": "SEAL_D56_HK_1_HOUSEKEEPER_WIRING_RESTORED.md",
+    "group": "D56",
+    "description": "Hk 1 Housekeeper Wiring Restored",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.0.WORKSPACE_TRUTH",
+    "seal": "SEAL_DAY_00_0_WORKSPACE_TRUTH.md",
+    "group": "Day 00 Sub 0",
+    "description": "Workspace Truth",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.1.GIT_INIT",
+    "seal": "SEAL_DAY_00_1_GIT_INIT.md",
+    "group": "Day 00 Sub 1",
+    "description": "Git Init",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.2.SKELETON",
+    "seal": "SEAL_DAY_00_2_SKELETON.md",
+    "group": "Day 00 Sub 2",
+    "description": "Skeleton",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.3.TRUTH_SURFACE",
+    "seal": "SEAL_DAY_00_3_TRUTH_SURFACE.md",
+    "group": "Day 00 Sub 3",
+    "description": "Truth Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.4.FOUNDER_ALWAYS_ON",
+    "seal": "SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md",
+    "group": "Day 00 Sub 4",
+    "description": "Founder Always On",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.5.FLUTTER_SHELL",
+    "seal": "SEAL_DAY_00_5_FLUTTER_SHELL.md",
+    "group": "Day 00 Sub 5",
+    "description": "Flutter Shell",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D00.MASTER",
+    "seal": "SEAL_DAY_00_MASTER.md",
+    "group": "Day 00",
+    "description": "Master",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D01.1.CANON_VERSION_GLOSSARY",
+    "seal": "SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md",
+    "group": "Day 01 Sub 1",
+    "description": "Canon Version Glossary",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D01.SYSTEM_CONTRACT",
+    "seal": "SEAL_DAY_01_SYSTEM_CONTRACT.md",
+    "group": "Day 01",
+    "description": "System Contract",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D02.SCHEMAS_AND_LENS",
+    "seal": "SEAL_DAY_02_SCHEMAS_AND_LENS.md",
+    "group": "Day 02",
+    "description": "Schemas And Lens",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D03.1.AUTONOMY_HARDENING",
+    "seal": "SEAL_DAY_03_1_AUTONOMY_HARDENING.md",
+    "group": "Day 03 Sub 1",
+    "description": "Autonomy Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D03.AUTONOMY_SPINE",
+    "seal": "SEAL_DAY_03_AUTONOMY_SPINE.md",
+    "group": "Day 03",
+    "description": "Autonomy Spine",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D04.PIPELINE_MIN_REAL",
+    "seal": "SEAL_DAY_04_PIPELINE_MIN_REAL.md",
+    "group": "Day 04",
+    "description": "Pipeline Min Real",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D05.1.LINE_ENDINGS_POLICY",
+    "seal": "SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md",
+    "group": "Day 05 Sub 1",
+    "description": "Line Endings Policy",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D05.FLUTTER_DASHBOARD_LENS",
+    "seal": "SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md",
+    "group": "Day 05",
+    "description": "Flutter Dashboard Lens",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D06.1.SCHEMA_MANIFEST_COMPAT",
+    "seal": "SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md",
+    "group": "Day 06 Sub 1",
+    "description": "Schema Manifest Compat",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D06.2.PIPELINE_HYDRATION_AND_SCHEDULER",
+    "seal": "SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md",
+    "group": "Day 06 Sub 2",
+    "description": "Pipeline Hydration And Scheduler",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D06.3.GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER",
+    "seal": "SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md",
+    "group": "Day 06 Sub 3",
+    "description": "Gcsfuse Persistence Hydration Scheduler",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D06.INTEGRITY_SWEEP",
+    "seal": "SEAL_DAY_06_INTEGRITY_SWEEP.md",
+    "group": "Day 06",
+    "description": "Integrity Sweep",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D07.CANON_TRUTH_AND_CONTRACT_HARDENING",
+    "seal": "SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md",
+    "group": "Day 07",
+    "description": "Canon Truth And Contract Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D08.MISFIRE_MONITOR_AND_AUTOHEAL",
+    "seal": "SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md",
+    "group": "Day 08",
+    "description": "Misfire Monitor And Autoheal",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D09.FRONTEND_SYSTEM_HEALTH_SURFACE",
+    "seal": "SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md",
+    "group": "Day 09",
+    "description": "Frontend System Health Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D10.DUAL_PIPELINE_LOCKS_COOLDOWNS",
+    "seal": "SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md",
+    "group": "Day 10",
+    "description": "Dual Pipeline Locks Cooldowns",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D11.SCHEDULER_DUAL_CADENCE",
+    "seal": "SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md",
+    "group": "Day 11",
+    "description": "Scheduler Dual Cadence",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D12.RELEASE_CANDIDATE_PACK",
+    "seal": "SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md",
+    "group": "Day 12",
+    "description": "Release Candidate Pack",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D13.DEPLOYMENT_AND_HANDOVER_PACK",
+    "seal": "SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md",
+    "group": "Day 13",
+    "description": "Deployment And Handover Pack",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D14.01.AUTOHEAL_ARGS_FIX_AND_REVERIFY",
+    "seal": "SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md",
+    "group": "Day 14 Sub 01",
+    "description": "Autoheal Args Fix And Reverify",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D14.02.CALENDAR_CANON_ALIGNMENT",
+    "seal": "SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md",
+    "group": "Day 14 Sub 02",
+    "description": "Calendar Canon Alignment",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D14.MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY",
+    "seal": "SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md",
+    "group": "Day 14",
+    "description": "Misfire Autoheal Founder Red Button Verify",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D15.AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER",
+    "seal": "SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md",
+    "group": "Day 15",
+    "description": "Autofix Control Plane Observe Recommend Ledger",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D16.AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT",
+    "seal": "SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md",
+    "group": "Day 16",
+    "description": "Autofix Execute Tier1 Cooldowns Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D17.HOUSEKEEPER_AUTOCLEAN_DRIFT",
+    "seal": "SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md",
+    "group": "Day 17",
+    "description": "Housekeeper Autoclean Drift",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D18.WAR_ROOM_COMMAND_CENTER",
+    "seal": "SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md",
+    "group": "Day 18",
+    "description": "War Room Command Center",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D19.PLAYBOOK_LAW",
+    "seal": "SEAL_DAY_19_PLAYBOOK_LAW.md",
+    "group": "Day 19",
+    "description": "Playbook Law",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D19.TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR",
+    "seal": "SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md",
+    "group": "Day 19",
+    "description": "Titanium Playbooks Autofix V2 War Room Shadow Repair",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D20.AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH",
+    "seal": "SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md",
+    "group": "Day 20",
+    "description": "Agms Foundation Memory Mirror Truth",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D21.AGMS_INTELLIGENCE_SHADOW_MODE",
+    "seal": "SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md",
+    "group": "Day 21",
+    "description": "Agms Intelligence Shadow Mode",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D22.AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY",
+    "seal": "SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md",
+    "group": "Day 22",
+    "description": "Agms Shadow Recommender Suggest Only",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D23.AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX",
+    "seal": "SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md",
+    "group": "Day 23",
+    "description": "Autopilot Handoff Agms To Autofix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D24.DYNAMIC_THRESHOLDS_SELF_TUNING",
+    "seal": "SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md",
+    "group": "Day 24",
+    "description": "Dynamic Thresholds Self Tuning",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D25.CONFIDENCE_STABILITY_BANDS",
+    "seal": "SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md",
+    "group": "Day 25",
+    "description": "Confidence Stability Bands",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D26.MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING",
+    "seal": "SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md",
+    "group": "Day 26",
+    "description": "Module Registry Law And Coherence Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D27.MODULAR_REFACTOR",
+    "seal": "SEAL_DAY_27_MODULAR_REFACTOR.md",
+    "group": "Day 27",
+    "description": "Modular Refactor",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D28.01.PLAYBOOK_EXPANSION_V1",
+    "seal": "SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md",
+    "group": "Day 28 Sub 01",
+    "description": "Playbook Expansion V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D28.02.SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS",
+    "seal": "SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md",
+    "group": "Day 28 Sub 02",
+    "description": "Shadow Repair V1 5 Unified Diff Risk Tags",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D28.AUTOPILOT_POLICY_V1",
+    "seal": "SEAL_DAY_28_AUTOPILOT_POLICY_V1.md",
+    "group": "Day 28",
+    "description": "Autopilot Policy V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D29.AUTOPILOT_SHADOW_OBSERVATION",
+    "seal": "SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md",
+    "group": "Day 29",
+    "description": "Autopilot Shadow Observation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D30.1.FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST",
+    "seal": "SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md",
+    "group": "Day 30 Sub 1",
+    "description": "Freeze Core Os Kill Switches Release Checklist",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D30.2.SURGEON_2VOTE_CONSENSUS",
+    "seal": "SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md",
+    "group": "Day 30 Sub 2",
+    "description": "Surgeon 2Vote Consensus",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D30.SAFE_AUTOPILOT_PROD_OBSERVATION",
+    "seal": "SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md",
+    "group": "Day 30",
+    "description": "Safe Autopilot Prod Observation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D31.1.CANON_SYNC_POST_SURGEON",
+    "seal": "SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md",
+    "group": "Day 31 Sub 1",
+    "description": "Canon Sync Post Surgeon",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D31.2.ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE",
+    "seal": "SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md",
+    "group": "Day 31 Sub 2",
+    "description": "Antigravity Constitution And Discipline",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D31.THE_SURGEON_RUNTIME_SELF_REPAIR",
+    "seal": "SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md",
+    "group": "Day 31",
+    "description": "The Surgeon Runtime Self Repair",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D32.IMMUNE_SYSTEM_SHADOW_SANITIZE",
+    "seal": "SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md",
+    "group": "Day 32",
+    "description": "Immune System Shadow Sanitize",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D33.1.TUNING_GATE_2VOTE_RUNTIME_ONLY",
+    "seal": "SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md",
+    "group": "Day 33 Sub 1",
+    "description": "Tuning Gate 2Vote Runtime Only",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D33.DOJO_OFFLINE_SIMULATION",
+    "seal": "SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md",
+    "group": "Day 33",
+    "description": "Dojo Offline Simulation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D34.BLACK_BOX_FORENSIC_INDESTRUCTIBILITY",
+    "seal": "SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md",
+    "group": "Day 34",
+    "description": "Black Box Forensic Indestructibility",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.1.FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION",
+    "seal": "SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md",
+    "group": "Day 36 Sub 1",
+    "description": "Forensic Language Audit And Remediation",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.2.ENGINE_RECONCILIATION_BACKLOG_INSERT",
+    "seal": "SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md",
+    "group": "Day 36 Sub 2",
+    "description": "Engine Reconciliation Backlog Insert",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.3.A_OPTIONS_INTELLIGENCE_V1_1",
+    "seal": "SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md",
+    "group": "Day 36 Sub 3",
+    "description": "A Options Intelligence V1 1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.3.OPTIONS_INTELLIGENCE_V1",
+    "seal": "SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md",
+    "group": "Day 36 Sub 3",
+    "description": "Options Intelligence V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.4.EVIDENCE_BACKTESTING_V1",
+    "seal": "SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md",
+    "group": "Day 36 Sub 4",
+    "description": "Evidence Backtesting V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.5.MACRO_LAYER_V1",
+    "seal": "SEAL_DAY_36_5_MACRO_LAYER_V1.md",
+    "group": "Day 36 Sub 5",
+    "description": "Macro Layer V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.6.LEXICON_PRO_V1",
+    "seal": "SEAL_DAY_36_6_LEXICON_PRO_V1.md",
+    "group": "Day 36 Sub 6",
+    "description": "Lexicon Pro V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.7.VOICE_MVP_REABSORPTION",
+    "seal": "SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md",
+    "group": "Day 36 Sub 7",
+    "description": "Voice Mvp Reabsorption",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D36.SYSTEM_LANGUAGE_NORMALIZATION",
+    "seal": "SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md",
+    "group": "Day 36",
+    "description": "System Language Normalization",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.00.1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY",
+    "seal": "SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md",
+    "group": "Day 37 Sub 00",
+    "description": "1A Flutter Sdk Decontamination Upgrade Retry",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.00.2_GLOBAL_SHELL_BASELINE",
+    "seal": "SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md",
+    "group": "Day 37 Sub 00",
+    "description": "2 Global Shell Baseline",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.00.3_PREMIUM_PALETTE_ALIGNMENT",
+    "seal": "SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md",
+    "group": "Day 37 Sub 00",
+    "description": "3 Premium Palette Alignment",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.00.FRONTEND_PREFLIGHT_APP_COLORS_TOKENS",
+    "seal": "SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md",
+    "group": "Day 37 Sub 00",
+    "description": "Frontend Preflight App Colors Tokens",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.01.DASHBOARD_SSOT_WIRING",
+    "seal": "SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md",
+    "group": "Day 37 Sub 01",
+    "description": "Dashboard Ssot Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.02.1_SESSION_STRIP_POLISH",
+    "seal": "SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md",
+    "group": "Day 37 Sub 02",
+    "description": "1 Session Strip Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.02.SESSION_WINDOW_WIDGET",
+    "seal": "SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md",
+    "group": "Day 37 Sub 02",
+    "description": "Session Window Widget",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.03.LIVE_STALE_LOCKED_PRECEDENCE",
+    "seal": "SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md",
+    "group": "Day 37 Sub 03",
+    "description": "Live Stale Locked Precedence",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.04.OS_HEALTH_WIDGET",
+    "seal": "SEAL_DAY_37_04_OS_HEALTH_WIDGET.md",
+    "group": "Day 37 Sub 04",
+    "description": "Os Health Widget",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.05.LAST_RUN_WIDGET",
+    "seal": "SEAL_DAY_37_05_LAST_RUN_WIDGET.md",
+    "group": "Day 37 Sub 05",
+    "description": "Last Run Widget",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.06.FOUNDER_MODE_ALWAYS_ON",
+    "seal": "SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md",
+    "group": "Day 37 Sub 06",
+    "description": "Founder Mode Always On",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.07.REFRESH_GOVERNANCE",
+    "seal": "SEAL_DAY_37_07_REFRESH_GOVERNANCE.md",
+    "group": "Day 37 Sub 07",
+    "description": "Refresh Governance",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.08.DASHBOARD_DEGRADE_RULES",
+    "seal": "SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md",
+    "group": "Day 37 Sub 08",
+    "description": "Dashboard Degrade Rules",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.WAR_CALENDAR_PHASE_6_FULL_EXPANSION",
+    "seal": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md",
+    "group": "Day 37",
+    "description": "War Calendar Phase 6 Full Expansion",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D37.WAR_CALENDAR_PHASE_6_FULL_FINAL",
+    "seal": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md",
+    "group": "Day 37",
+    "description": "War Calendar Phase 6 Full Final",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.01.1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP",
+    "seal": "SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md",
+    "group": "Day 38 Sub 01",
+    "description": "1 Dashboard Layout System Anti Overlap",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.01.2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER",
+    "seal": "SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md",
+    "group": "Day 38 Sub 01",
+    "description": "2 Dashboard Layout Discipline Verifier",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.01.WAR_ROOM_TILES_SHELL",
+    "seal": "SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md",
+    "group": "Day 38 Sub 01",
+    "description": "War Room Tiles Shell",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.02.WAR_ROOM_TILES_WIRING",
+    "seal": "SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md",
+    "group": "Day 38 Sub 02",
+    "description": "War Room Tiles Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.03.AUTOFIX_CONTROL_PLANE_TILE",
+    "seal": "SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md",
+    "group": "Day 38 Sub 03",
+    "description": "Autofix Control Plane Tile",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.04.MISFIRE_HOUSEKEEPER_TILES",
+    "seal": "SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md",
+    "group": "Day 38 Sub 04",
+    "description": "Misfire Housekeeper Tiles",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.05.MISFIRE_MONITOR_AUTO_RECOVERY_TILE",
+    "seal": "SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md",
+    "group": "Day 38 Sub 05",
+    "description": "Misfire Monitor Auto Recovery Tile",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.06.IRON_OS_TILE_STATE_ROLLBACK_REPLAY",
+    "seal": "SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md",
+    "group": "Day 38 Sub 06",
+    "description": "Iron Os Tile State Rollback Replay",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.07.UNIVERSE_TILE",
+    "seal": "SEAL_DAY_38_07_UNIVERSE_TILE.md",
+    "group": "Day 38 Sub 07",
+    "description": "Universe Tile",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.08.WAR_ROOM_REFRESH_GOVERNANCE",
+    "seal": "SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md",
+    "group": "Day 38 Sub 08",
+    "description": "War Room Refresh Governance",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.09.WAR_ROOM_TRUTH_HARDENING",
+    "seal": "SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md",
+    "group": "Day 38 Sub 09",
+    "description": "War Room Truth Hardening",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D38.WAR_CALENDAR_MOAT_IDEAS_CAPTURE",
+    "seal": "SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md",
+    "group": "Day 38",
+    "description": "War Calendar Moat Ideas Capture",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.01.A_CORE20_CANON_FIX",
+    "seal": "SEAL_DAY_39_01A_CORE20_CANON_FIX.md",
+    "group": "Day 39 Sub 01",
+    "description": "A Core20 Canon Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.01.B_CORE20_CANON_CORRECTION",
+    "seal": "SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md",
+    "group": "Day 39 Sub 01",
+    "description": "B Core20 Canon Correction",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.01.C_CORE20_CANON_FINAL",
+    "seal": "SEAL_DAY_39_01C_CORE20_CANON_FINAL.md",
+    "group": "Day 39 Sub 01",
+    "description": "C Core20 Canon Final",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.01.D_CORE_UNIVERSE_CANON_CLARIFICATION",
+    "seal": "SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md",
+    "group": "Day 39 Sub 01",
+    "description": "D Core Universe Canon Clarification",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.01.CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE",
+    "seal": "SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md",
+    "group": "Day 39 Sub 01",
+    "description": "Core20 Universe Surface And Watchlist Compliance",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.02.EXTENDED_UNIVERSE_UI",
+    "seal": "SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md",
+    "group": "Day 39 Sub 02",
+    "description": "Extended Universe Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.03.EXTENDED_GOVERNANCE_VISIBILITY",
+    "seal": "SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md",
+    "group": "Day 39 Sub 03",
+    "description": "Extended Governance Visibility",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.04.OVERLAY_TRUTH_METADATA_UI",
+    "seal": "SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md",
+    "group": "Day 39 Sub 04",
+    "description": "Overlay Truth Metadata Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.05.EXTENDED_SUMMARY_OVERLAY_INJECTION",
+    "seal": "SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md",
+    "group": "Day 39 Sub 05",
+    "description": "Extended Summary Overlay Injection",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.06.UNIVERSE_PROPAGATION_AUDIT",
+    "seal": "SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md",
+    "group": "Day 39 Sub 06",
+    "description": "Universe Propagation Audit",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.07.SAFE_DEGRADE_RULES",
+    "seal": "SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md",
+    "group": "Day 39 Sub 07",
+    "description": "Safe Degrade Rules",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.08.UNIVERSE_INTEGRITY_TILE",
+    "seal": "SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md",
+    "group": "Day 39 Sub 08",
+    "description": "Universe Integrity Tile",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.09.UNIVERSE_DRIFT_SURFACE",
+    "seal": "SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md",
+    "group": "Day 39 Sub 09",
+    "description": "Universe Drift Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.10.SECTOR_HEATMAP_MINI_OPTIONAL",
+    "seal": "SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md",
+    "group": "Day 39 Sub 10",
+    "description": "Sector Heatmap Mini Optional",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.11.SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI",
+    "seal": "SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md",
+    "group": "Day 39 Sub 11",
+    "description": "Sector Sentinel Status Placeholder Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.HF01_WEB_SHELL_VISIBILITY",
+    "seal": "SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md",
+    "group": "Day 39",
+    "description": "Hf01 Web Shell Visibility",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.UNIVERSE_V3_COMPLETE",
+    "seal": "SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md",
+    "group": "Day 39",
+    "description": "Universe V3 Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D39.WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND",
+    "seal": "SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md",
+    "group": "Day 39",
+    "description": "War Calendar Universe V3 Parity Append",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.01.CORE_UNIVERSE_REALTIME_TAPE",
+    "seal": "SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md",
+    "group": "Day 40 Sub 01",
+    "description": "Core Universe Realtime Tape",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.02.PULSE_CORE",
+    "seal": "SEAL_DAY_40_02_PULSE_CORE.md",
+    "group": "Day 40 Sub 02",
+    "description": "Pulse Core",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.03.SECTOR_SENTINEL_RT",
+    "seal": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md",
+    "group": "Day 40 Sub 03",
+    "description": "Sector Sentinel Rt",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.03.SECTOR_SENTINEL_RT_SURFACE",
+    "seal": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md",
+    "group": "Day 40 Sub 03",
+    "description": "Sector Sentinel Rt Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.04.EXTENDED_OVERLAY_LIVE_COMPOSER",
+    "seal": "SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md",
+    "group": "Day 40 Sub 04",
+    "description": "Extended Overlay Live Composer",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.05.GLOBAL_PULSE_SYNTHESIS_UI",
+    "seal": "SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md",
+    "group": "Day 40 Sub 05",
+    "description": "Global Pulse Synthesis Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.06.DISAGREEMENT_REPORT_UI",
+    "seal": "SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md",
+    "group": "Day 40 Sub 06",
+    "description": "Disagreement Report Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.07.ELITE_EXPLAIN_TRIGGER_WIRING",
+    "seal": "SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md",
+    "group": "Day 40 Sub 07",
+    "description": "Elite Explain Trigger Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.08.AUTO_RISK_ACTIONS_UI_ONLY",
+    "seal": "SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md",
+    "group": "Day 40 Sub 08",
+    "description": "Auto Risk Actions Ui Only",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.09.PULSE_CONFIDENCE_BANDS",
+    "seal": "SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md",
+    "group": "Day 40 Sub 09",
+    "description": "Pulse Confidence Bands",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.10.PULSE_DRIFT_SURFACE",
+    "seal": "SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md",
+    "group": "Day 40 Sub 10",
+    "description": "Pulse Drift Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.11.SENTINEL_HEATMAP_RT",
+    "seal": "SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md",
+    "group": "Day 40 Sub 11",
+    "description": "Sentinel Heatmap Rt",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.11.SENTINEL_SECTOR_HEATMAP_RT",
+    "seal": "SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md",
+    "group": "Day 40 Sub 11",
+    "description": "Sentinel Sector Heatmap Rt",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.12.GLOBAL_PULSE_TIMELINE_UI",
+    "seal": "SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md",
+    "group": "Day 40 Sub 12",
+    "description": "Global Pulse Timeline Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.13.REALTIME_FRESHNESS_MONITOR",
+    "seal": "SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md",
+    "group": "Day 40 Sub 13",
+    "description": "Realtime Freshness Monitor",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.14.REALTIME_DEGRADE_RULES",
+    "seal": "SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md",
+    "group": "Day 40 Sub 14",
+    "description": "Realtime Degrade Rules",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.15.WHAT_CHANGED_RT_PANEL",
+    "seal": "SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md",
+    "group": "Day 40 Sub 15",
+    "description": "What Changed Rt Panel",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D40.REALTIME_INTELLIGENCE_ARC_COMPLETE",
+    "seal": "SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md",
+    "group": "Day 40",
+    "description": "Realtime Intelligence Arc Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.01.IRON_OS_STATUS",
+    "seal": "SEAL_DAY_41_01_IRON_OS_STATUS.md",
+    "group": "Day 41 Sub 01",
+    "description": "Iron Os Status",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.02.TIMELINE_TAIL",
+    "seal": "SEAL_DAY_41_02_TIMELINE_TAIL.md",
+    "group": "Day 41 Sub 02",
+    "description": "Timeline Tail",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.03.INSTITUTIONAL_DAY_REPLAY_UI",
+    "seal": "SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md",
+    "group": "Day 41 Sub 03",
+    "description": "Institutional Day Replay Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.04.REPLAY_ARCHIVE_TIME_MACHINE_UI",
+    "seal": "SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md",
+    "group": "Day 41 Sub 04",
+    "description": "Replay Archive Time Machine Ui",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.05.FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING",
+    "seal": "SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md",
+    "group": "Day 41 Sub 05",
+    "description": "Founder Rollback Ui Confirm Logging",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.06.REPLAY_ROLLBACK_FAILSAFE_STATES",
+    "seal": "SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md",
+    "group": "Day 41 Sub 06",
+    "description": "Replay Rollback Failsafe States",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.07.IRON_STATE_HISTORY",
+    "seal": "SEAL_DAY_41_07_IRON_STATE_HISTORY.md",
+    "group": "Day 41 Sub 07",
+    "description": "Iron State History",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.08.IRON_DRIFT_SURFACE",
+    "seal": "SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md",
+    "group": "Day 41 Sub 08",
+    "description": "Iron Drift Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.09.LKG_VIEWER",
+    "seal": "SEAL_DAY_41_09_LKG_VIEWER.md",
+    "group": "Day 41 Sub 09",
+    "description": "Lkg Viewer",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.10.IRON_DECISION_PATH",
+    "seal": "SEAL_DAY_41_10_IRON_DECISION_PATH.md",
+    "group": "Day 41 Sub 10",
+    "description": "Iron Decision Path",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D41.11.REPLAY_INTEGRITY",
+    "seal": "SEAL_DAY_41_11_REPLAY_INTEGRITY.md",
+    "group": "Day 41 Sub 11",
+    "description": "Replay Integrity",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.01.LOCK_REASON",
+    "seal": "SEAL_DAY_42_01_LOCK_REASON.md",
+    "group": "Day 42 Sub 01",
+    "description": "Lock Reason",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.02.COVERAGE",
+    "seal": "SEAL_DAY_42_02_COVERAGE.md",
+    "group": "Day 42 Sub 02",
+    "description": "Coverage",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.03.HOUSEKEEPER_AUTO",
+    "seal": "SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md",
+    "group": "Day 42 Sub 03",
+    "description": "Housekeeper Auto",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.04.AUTOFIX_TIER1",
+    "seal": "SEAL_DAY_42_04_AUTOFIX_TIER1.md",
+    "group": "Day 42 Sub 04",
+    "description": "Autofix Tier1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.05.MISFIRE_TIER2_VISIBILITY",
+    "seal": "SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md",
+    "group": "Day 42 Sub 05",
+    "description": "Misfire Tier2 Visibility",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.06.RED_BUTTON_SURFACES",
+    "seal": "SEAL_DAY_42_06_RED_BUTTON_SURFACES.md",
+    "group": "Day 42 Sub 06",
+    "description": "Red Button Surfaces",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.07.COOLDOWN_TRANSPARENCY",
+    "seal": "SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md",
+    "group": "Day 42 Sub 07",
+    "description": "Cooldown Transparency",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.08.FINDINGS_PANEL",
+    "seal": "SEAL_DAY_42_08_FINDINGS_PANEL.md",
+    "group": "Day 42 Sub 08",
+    "description": "Findings Panel",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.09.BEFORE_AFTER_DIFF",
+    "seal": "SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md",
+    "group": "Day 42 Sub 09",
+    "description": "Before After Diff",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.10.AUTOFIX_DECISION_PATH",
+    "seal": "SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md",
+    "group": "Day 42 Sub 10",
+    "description": "Autofix Decision Path",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.11.MISFIRE_ROOT_CAUSE",
+    "seal": "SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md",
+    "group": "Day 42 Sub 11",
+    "description": "Misfire Root Cause",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.12.SELF_HEAL_CONFIDENCE",
+    "seal": "SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md",
+    "group": "Day 42 Sub 12",
+    "description": "Self Heal Confidence",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.13.SELF_HEAL_WHAT_CHANGED",
+    "seal": "SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md",
+    "group": "Day 42 Sub 13",
+    "description": "Self Heal What Changed",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.AUTO_STAGE_CANON_OUTPUTS",
+    "seal": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md",
+    "group": "Day 42",
+    "description": "Auto Stage Canon Outputs",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.AUTO_STAGE_CANON_OUTPUTS_PATCH",
+    "seal": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md",
+    "group": "Day 42",
+    "description": "Auto Stage Canon Outputs Patch",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.BUILD_APK_SMOKE",
+    "seal": "SEAL_DAY_42_BUILD_APK_SMOKE.md",
+    "group": "Day 42",
+    "description": "Build Apk Smoke",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.GIT_COMMIT_CHECKPOINT",
+    "seal": "SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md",
+    "group": "Day 42",
+    "description": "Git Commit Checkpoint",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.GIT_COMMIT_SEAL_CANONIZED",
+    "seal": "SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md",
+    "group": "Day 42",
+    "description": "Git Commit Seal Canonized",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.GIT_HYGIENE_FIX",
+    "seal": "SEAL_DAY_42_GIT_HYGIENE_FIX.md",
+    "group": "Day 42",
+    "description": "Git Hygiene Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.GIT_STAGE_UNTRACKED",
+    "seal": "SEAL_DAY_42_GIT_STAGE_UNTRACKED.md",
+    "group": "Day 42",
+    "description": "Git Stage Untracked",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.PROJECT_STATE_WAR_ROOM_CATCHUP",
+    "seal": "SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md",
+    "group": "Day 42",
+    "description": "Project State War Room Catchup",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.WAR_CALENDAR_CANONIZED",
+    "seal": "SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md",
+    "group": "Day 42",
+    "description": "War Calendar Canonized",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D42.WAR_ROOM_ENTRY_5TAP_FIX",
+    "seal": "SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md",
+    "group": "Day 42",
+    "description": "War Room Entry 5Tap Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.00.ELITE_FIRST_INTERACTION",
+    "seal": "SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md",
+    "group": "Day 43 Sub 00",
+    "description": "Elite First Interaction",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.01.ELITE_OVERLAY_SHELL",
+    "seal": "SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md",
+    "group": "Day 43 Sub 01",
+    "description": "Elite Overlay Shell",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.02.ELITE_MENTOR_BRAIN",
+    "seal": "SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md",
+    "group": "Day 43 Sub 02",
+    "description": "Elite Mentor Brain",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.03.ELITE_OS_READER",
+    "seal": "SEAL_DAY_43_03_ELITE_OS_READER.md",
+    "group": "Day 43 Sub 03",
+    "description": "Elite Os Reader",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.04.DAY_MEMORY",
+    "seal": "SEAL_DAY_43_04_DAY_MEMORY.md",
+    "group": "Day 43 Sub 04",
+    "description": "Day Memory",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.05.ELITE_AGMS_RECALL_READER",
+    "seal": "SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md",
+    "group": "Day 43 Sub 05",
+    "description": "Elite Agms Recall Reader",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.06.EXPLAIN_ROUTER",
+    "seal": "SEAL_DAY_43_06_EXPLAIN_ROUTER.md",
+    "group": "Day 43 Sub 06",
+    "description": "Explain Router",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.07.EXPLAIN_BUTTONS_WIRING",
+    "seal": "SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md",
+    "group": "Day 43 Sub 07",
+    "description": "Explain Buttons Wiring",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.08.SESSION_THREAD_MEMORY_V2",
+    "seal": "SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md",
+    "group": "Day 43 Sub 08",
+    "description": "Session Thread Memory V2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.09.DAILY_RITUAL_TRIGGERS",
+    "seal": "SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md",
+    "group": "Day 43 Sub 09",
+    "description": "Daily Ritual Triggers",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.10.ELITE_EXPLAINER_PROTOCOL",
+    "seal": "SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md",
+    "group": "Day 43 Sub 10",
+    "description": "Elite Explainer Protocol",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.11.ELITE_CONTEXT_ENGINE_STATUS",
+    "seal": "SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md",
+    "group": "Day 43 Sub 11",
+    "description": "Elite Context Engine Status",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.12.ELITE_WHAT_CHANGED",
+    "seal": "SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md",
+    "group": "Day 43 Sub 12",
+    "description": "Elite What Changed",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.13.ELITE_CONTEXTUAL_RECALL",
+    "seal": "SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md",
+    "group": "Day 43 Sub 13",
+    "description": "Elite Contextual Recall",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.14.EXPLAIN_MY_SCREEN",
+    "seal": "SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md",
+    "group": "Day 43 Sub 14",
+    "description": "Explain My Screen",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.15.ELITE_MICRO_BRIEFING_OPEN",
+    "seal": "SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md",
+    "group": "Day 43 Sub 15",
+    "description": "Elite Micro Briefing Open",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.16.ELITE_CONTEXT_SAFETY_LAYER",
+    "seal": "SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md",
+    "group": "Day 43 Sub 16",
+    "description": "Elite Context Safety Layer",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.APK_FOUNDER_RELEASE_BUILD",
+    "seal": "SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md",
+    "group": "Day 43",
+    "description": "Apk Founder Release Build",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.CANON_SYNC_TOTAL",
+    "seal": "SEAL_DAY_43_CANON_SYNC_TOTAL.md",
+    "group": "Day 43",
+    "description": "Canon Sync Total",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.GLOBAL_SCROLL_LAW",
+    "seal": "SEAL_DAY_43_GLOBAL_SCROLL_LAW.md",
+    "group": "Day 43",
+    "description": "Global Scroll Law",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.LAYOUT_POLICE_GUARD",
+    "seal": "SEAL_DAY_43_LAYOUT_POLICE_GUARD.md",
+    "group": "Day 43",
+    "description": "Layout Police Guard",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.LAYOUT_POLICE_HOTLIST",
+    "seal": "SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md",
+    "group": "Day 43",
+    "description": "Layout Police Hotlist",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.X1_WATCHLIST_UNIVERSE_SCROLL_SAFE",
+    "seal": "SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md",
+    "group": "Day 43",
+    "description": "X1 Watchlist Universe Scroll Safe",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D43.X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE",
+    "seal": "SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md",
+    "group": "Day 43",
+    "description": "X2 Elite First Interaction Default State",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.01.WATCHLIST_STORE_LOCAL",
+    "seal": "SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md",
+    "group": "Day 44 Sub 01",
+    "description": "Watchlist Store Local",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.02.A_LOCK_REASON_MODAL",
+    "seal": "SEAL_DAY_44_02A_LOCK_REASON_MODAL.md",
+    "group": "Day 44 Sub 02",
+    "description": "A Lock Reason Modal",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.02.B_WATCHLIST_ANALYZE_NOW",
+    "seal": "SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md",
+    "group": "Day 44 Sub 02",
+    "description": "B Watchlist Analyze Now",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.03.WATCHLIST_ACTION_LOGGING",
+    "seal": "SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md",
+    "group": "Day 44 Sub 03",
+    "description": "Watchlist Action Logging",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.04.A_ON_DEMAND_REABSORPTION",
+    "seal": "SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md",
+    "group": "Day 44 Sub 04",
+    "description": "A On Demand Reabsorption",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.04.B_ON_DEMAND_PANEL_HYGIENE",
+    "seal": "SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md",
+    "group": "Day 44 Sub 04",
+    "description": "B On Demand Panel Hygiene",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.04.ON_DEMAND_SCREEN",
+    "seal": "SEAL_DAY_44_04_ON_DEMAND_SCREEN.md",
+    "group": "Day 44 Sub 04",
+    "description": "On Demand Screen",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.05.ON_DEMAND_CACHE_FRESHNESS",
+    "seal": "SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md",
+    "group": "Day 44 Sub 05",
+    "description": "On Demand Cache Freshness",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.06.TIER_LIMITS_COUNTERS",
+    "seal": "SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md",
+    "group": "Day 44 Sub 06",
+    "description": "Tier Limits Counters",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.06.WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER",
+    "seal": "SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md",
+    "group": "Day 44 Sub 06",
+    "description": "Watchlist On Demand Prefill Autotrigger",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.07.ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT",
+    "seal": "SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md",
+    "group": "Day 44 Sub 07",
+    "description": "On Demand Envelope Lexicon Enforcement",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.08.BADGESTRIP_NO_OVERLAP_PROOF",
+    "seal": "SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md",
+    "group": "Day 44 Sub 08",
+    "description": "Badgestrip No Overlap Proof",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.09.WATCHLIST_STATE_CHIPS",
+    "seal": "SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md",
+    "group": "Day 44 Sub 09",
+    "description": "Watchlist State Chips",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.10.WATCHLIST_LAST_ANALYZED_TIMESTAMP",
+    "seal": "SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md",
+    "group": "Day 44 Sub 10",
+    "description": "Watchlist Last Analyzed Timestamp",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.11.ON_DEMAND_ENVELOPE_PREVIEW_HEADER",
+    "seal": "SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md",
+    "group": "Day 44 Sub 11",
+    "description": "On Demand Envelope Preview Header",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.12.ON_DEMAND_CONTEXT_STRIP",
+    "seal": "SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md",
+    "group": "Day 44 Sub 12",
+    "description": "On Demand Context Strip",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.13.ON_DEMAND_ELITE_EXPLAIN_BUTTON",
+    "seal": "SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md",
+    "group": "Day 44 Sub 13",
+    "description": "On Demand Elite Explain Button",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.14.A_WATCHLIST_ANALYZE_STUB",
+    "seal": "SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md",
+    "group": "Day 44 Sub 14",
+    "description": "A Watchlist Analyze Stub",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.14.WATCHLIST_SCREEN_BASIC",
+    "seal": "SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md",
+    "group": "Day 44 Sub 14",
+    "description": "Watchlist Screen Basic",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.15.ON_DEMAND_HISTORY_LAST5",
+    "seal": "SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md",
+    "group": "Day 44 Sub 15",
+    "description": "On Demand History Last5",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.16.ON_DEMAND_STALE_WARNING",
+    "seal": "SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md",
+    "group": "Day 44 Sub 16",
+    "description": "On Demand Stale Warning",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.COMMIT_AND_APK_RELEASE",
+    "seal": "SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md",
+    "group": "Day 44",
+    "description": "Commit And Apk Release",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES",
+    "seal": "SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md",
+    "group": "Day 44",
+    "description": "Governance Update War Calendar Os Modules",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.WATCHLIST_ON_DEMAND_V1",
+    "seal": "SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md",
+    "group": "Day 44",
+    "description": "Watchlist On Demand V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D44.X_ON_DEMAND_GLOBAL_CANON",
+    "seal": "SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md",
+    "group": "Day 44",
+    "description": "X On Demand Global Canon",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.01.SYSTEM_STATUS_PANEL_HYGIENE",
+    "seal": "SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md",
+    "group": "Day 45 Sub 01",
+    "description": "System Status Panel Hygiene",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.02.BOTTOM_NAV_TAB_STATE_PERSISTENCE",
+    "seal": "SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md",
+    "group": "Day 45 Sub 02",
+    "description": "Bottom Nav Tab State Persistence",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.03.NEWS_DAILY_DIGEST_FLIP",
+    "seal": "SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md",
+    "group": "Day 45 Sub 03",
+    "description": "News Daily Digest Flip",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.04.ECONOMIC_CALENDAR_DAILY_WEEKLY",
+    "seal": "SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md",
+    "group": "Day 45 Sub 04",
+    "description": "Economic Calendar Daily Weekly",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.05.PREMIUM_FEATURE_MATRIX",
+    "seal": "SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md",
+    "group": "Day 45 Sub 05",
+    "description": "Premium Feature Matrix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.06.TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER",
+    "seal": "SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md",
+    "group": "Day 45 Sub 06",
+    "description": "Trial 3 Market Opens Tryme Scheduler",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.07.ABORTED_ROLLBACK",
+    "seal": "SEAL_DAY_45_07_ABORTED_ROLLBACK.md",
+    "group": "Day 45 Sub 07",
+    "description": "Aborted Rollback",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.07.ELITE_ACCESS_WINDOW_CONTROLLER",
+    "seal": "SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md",
+    "group": "Day 45 Sub 07",
+    "description": "Elite Access Window Controller",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.08.SHARE_ENGINE_V1",
+    "seal": "SEAL_DAY_45_08_SHARE_ENGINE_V1.md",
+    "group": "Day 45 Sub 08",
+    "description": "Share Engine V1",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.09.SHARE_LIBRARY_CTA_LOOP",
+    "seal": "SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md",
+    "group": "Day 45 Sub 09",
+    "description": "Share Library Cta Loop",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.10.SHARE_PROMPT_LOOP",
+    "seal": "SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md",
+    "group": "Day 45 Sub 10",
+    "description": "Share Prompt Loop",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.11.SHARE_TO_INSTALL_SCAFFOLD",
+    "seal": "SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md",
+    "group": "Day 45 Sub 11",
+    "description": "Share To Install Scaffold",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.12.SHARE_ATTRIBUTION_DASHBOARD",
+    "seal": "SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md",
+    "group": "Day 45 Sub 12",
+    "description": "Share Attribution Dashboard",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.13.COMMAND_CENTER_SECRET_SURFACE",
+    "seal": "SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md",
+    "group": "Day 45 Sub 13",
+    "description": "Command Center Secret Surface",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.14.PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE",
+    "seal": "SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md",
+    "group": "Day 45 Sub 14",
+    "description": "Plus 5Day Unlock Elite Immediate",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.15.COMMAND_CENTER_CONTENT_SPEC",
+    "seal": "SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md",
+    "group": "Day 45 Sub 15",
+    "description": "Command Center Content Spec",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.16.VIRAL_TEASER_SHARE",
+    "seal": "SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md",
+    "group": "Day 45 Sub 16",
+    "description": "Viral Teaser Share",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.17.SESSION_AWARENESS_MICRO_PANEL",
+    "seal": "SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md",
+    "group": "Day 45 Sub 17",
+    "description": "Session Awareness Micro Panel",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.18.PROVIDER_STATUS_INDICATOR",
+    "seal": "SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md",
+    "group": "Day 45 Sub 18",
+    "description": "Provider Status Indicator",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.19.PREMIUM_FEATURE_MATRIX_VISUAL_GRID",
+    "seal": "SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md",
+    "group": "Day 45 Sub 19",
+    "description": "Premium Feature Matrix Visual Grid",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.20.21_NEWS_CALENDAR_FINAL_POLISH",
+    "seal": "SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md",
+    "group": "Day 45 Sub 20",
+    "description": "21 News Calendar Final Polish",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.22.23_24_SHARING_GROWTH_FINAL",
+    "seal": "SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md",
+    "group": "Day 45 Sub 22",
+    "description": "23 24 Sharing Growth Final",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.F1_FOUNDER_ROUTER_SELECTOR",
+    "seal": "SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md",
+    "group": "Day 45",
+    "description": "F1 Founder Router Selector",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.FOUNDER_ROUTER_SELECTOR",
+    "seal": "SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md",
+    "group": "Day 45",
+    "description": "Founder Router Selector",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.FULL_FOUNDER_APK_BUILD",
+    "seal": "SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md",
+    "group": "Day 45",
+    "description": "Full Founder Apk Build",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES",
+    "seal": "SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md",
+    "group": "Day 45",
+    "description": "H1 Stabilization Clean Commit Idempotent Elite Notices",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL",
+    "seal": "SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md",
+    "group": "Day 45",
+    "description": "H2 Founder Phone Hotfix Baseurl And Ritual",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION",
+    "seal": "SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md",
+    "group": "Day 45",
+    "description": "H3 Founder Ritual Hitbox And Network Permission",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H4_COMPILATION_REPAIR",
+    "seal": "SEAL_DAY_45_H4_COMPILATION_REPAIR.md",
+    "group": "Day 45",
+    "description": "H4 Compilation Repair",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35",
+    "seal": "SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md",
+    "group": "Day 45",
+    "description": "H5 War Calendar Canon Hotfix Phase D35",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H6_FLUTTER_WEB_L10N_FIX",
+    "seal": "SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md",
+    "group": "Day 45",
+    "description": "H6 Flutter Web L10N Fix",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.H7_COMPILATION_REPAIR_SHELL_SWEEP",
+    "seal": "SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md",
+    "group": "Day 45",
+    "description": "H7 Compilation Repair Shell Sweep",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.HF02_WEB_BUILD_REPAIR_TIMEZONE",
+    "seal": "SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md",
+    "group": "Day 45",
+    "description": "Hf02 Web Build Repair Timezone",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.MASTER_CLOSE",
+    "seal": "SEAL_DAY_45_MASTER_CLOSE.md",
+    "group": "Day 45",
+    "description": "Master Close",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_02_COMPILATION_REPAIR_NEON_CYAN",
+    "seal": "SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md",
+    "group": "Day 45",
+    "description": "Polish 02 Compilation Repair Neon Cyan",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.POLISH_03_CANONICAL_CYAN_CORRECTION",
+    "seal": "SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md",
+    "group": "Day 45",
+    "description": "Polish 03 Canonical Cyan Correction",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D45.WAR_CALENDAR_UPDATE",
+    "seal": "SEAL_DAY_45_WAR_CALENDAR_UPDATE.md",
+    "group": "Day 45",
+    "description": "War Calendar Update",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "D46.WAR_CALENDAR_MSK_KERNEL_STEP_ADDED",
+    "seal": "SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md",
+    "group": "Day 46",
+    "description": "War Calendar Msk Kernel Step Added",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION",
+    "seal": "SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md",
+    "group": "Unclassified",
+    "description": "Seal Day Xx Welcome 02 Invite Gate Attribution",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY",
+    "seal": "SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md",
+    "group": "Unclassified",
+    "description": "Seal Day Xx Welcome 03 Welcome Integrity",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION",
+    "seal": "SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md",
+    "group": "Unclassified",
+    "description": "Seal Day Xx Welcome Screen Integration",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Dxx_UI_LEATHER_BARS_ONLY",
+    "seal": "SEAL_Dxx_UI_LEATHER_BARS_ONLY.md",
+    "group": "Unclassified",
+    "description": "Seal Dxx Ui Leather Bars Only",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE",
+    "seal": "SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md",
+    "group": "Unclassified",
+    "description": "Seal Governance Sync D36 45 Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS",
+    "seal": "SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md",
+    "group": "Unclassified",
+    "description": "Seal Hf Dedupe Global Shared Dossiers",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01",
+    "seal": "SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md",
+    "group": "Unclassified",
+    "description": "Seal Hotfix Menu Language Compilation 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR",
+    "seal": "SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md",
+    "group": "Unclassified",
+    "description": "Seal Hotfix Menu Shell 02 Material Ancestor",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL",
+    "seal": "SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md",
+    "group": "Unclassified",
+    "description": "Seal Hotfix Menu Shell 03 Material Selfheal",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL",
+    "seal": "SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md",
+    "group": "Unclassified",
+    "description": "Seal Hotfix Warroom Web 01 Store Guard Layout Scroll",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE",
+    "seal": "SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md",
+    "group": "Unclassified",
+    "description": "Seal Phase D36 Backlog Reconciliation Complete",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_ACCOUNT_CLEAN_01",
+    "seal": "SEAL_POLISH_ACCOUNT_CLEAN_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Account Clean 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL",
+    "seal": "SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Account Flip 01 Partner Protocol",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_ACCOUNT_UI_01",
+    "seal": "SEAL_POLISH_ACCOUNT_UI_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Account Ui 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY",
+    "seal": "SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Account Ui 02 Partner Card Unify",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_DASHBOARD_CLEANUP_01",
+    "seal": "SEAL_POLISH_DASHBOARD_CLEANUP_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Dashboard Cleanup 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP",
+    "seal": "SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Dashboard Ui 01 Banner Cleanup",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01",
+    "seal": "SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Forensics Engine Audit 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_GLOBAL_SPACING_01",
+    "seal": "SEAL_POLISH_GLOBAL_SPACING_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Global Spacing 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_HYGIENE_ANALYZE_01",
+    "seal": "SEAL_POLISH_HYGIENE_ANALYZE_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Hygiene Analyze 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_HYGIENE_FLUTTER_WEB_01",
+    "seal": "SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Hygiene Flutter Web 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_MENU_LANGUAGE_01",
+    "seal": "SEAL_POLISH_MENU_LANGUAGE_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Menu Language 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_MENU_SHELL_01",
+    "seal": "SEAL_POLISH_MENU_SHELL_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Menu Shell 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_MENU_UI_01",
+    "seal": "SEAL_POLISH_MENU_UI_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Menu Ui 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01",
+    "seal": "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Premium Protocol Visibility 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS",
+    "seal": "SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Shell Global 01 Persistent Bars",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS",
+    "seal": "SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Shell Sweep 01 Body Only Screens",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON",
+    "seal": "SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Visual Cyan 01 Canonical Neon",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_WARROOM_RESTORE_02",
+    "seal": "SEAL_POLISH_WARROOM_RESTORE_02.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Warroom Restore 02",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_WELCOME_UI_01",
+    "seal": "SEAL_POLISH_WELCOME_UI_01.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Welcome Ui 01",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_POLISH_WELCOME_UI_01_V2",
+    "seal": "SEAL_POLISH_WELCOME_UI_01_V2.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Welcome Ui 01 V2",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_01_BaseUrlCloud_Default",
+    "seal": "SEAL_Polish_01_BaseUrlCloud_Default.md",
+    "group": "Unclassified",
+    "description": "Seal Polish 01 Baseurlcloud Default",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating",
+    "seal": "SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Founderlaw 01 Alwayson Nogating",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_Human_01_Global_Tone_Layer",
+    "seal": "SEAL_Polish_Human_01_Global_Tone_Layer.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Human 01 Global Tone Layer",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer",
+    "seal": "SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Menu 01 Fullscreen Menu Nodrawer",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_Menu_02_Account_Terms_Modals_Wired",
+    "seal": "SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Menu 02 Account Terms Modals Wired",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_NavBack_Overlay_01_Global_Back_Button",
+    "seal": "SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Navback Overlay 01 Global Back Button",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_Notifications_01_Ritual_Local_Scheduled",
+    "seal": "SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Notifications 01 Ritual Local Scheduled",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_Polish_Notifications_02_TapRouting_DeepLink",
+    "seal": "SEAL_Polish_Notifications_02_TapRouting_DeepLink.md",
+    "group": "Unclassified",
+    "description": "Seal Polish Notifications 02 Taprouting Deeplink",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_TARGET_STATE_FROZEN",
+    "seal": "SEAL_TARGET_STATE_FROZEN.md",
+    "group": "Unclassified",
+    "description": "Seal Target State Frozen",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL",
+    "seal": "SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md",
+    "group": "Unclassified",
+    "description": "Seal Ui Canon V1 Theme Typography Shell",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  },
+  {
+    "id": "SEAL_VICTORY_DRILLDOWN_CREATED",
+    "seal": "SEAL_VICTORY_DRILLDOWN_CREATED.md",
+    "group": "Unclassified",
+    "description": "Seal Victory Drilldown Created",
+    "status": "PENDING",
+    "type": "UNKNOWN"
+  }
+]

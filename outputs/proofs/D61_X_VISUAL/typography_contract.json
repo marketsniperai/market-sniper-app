@@ -1,0 +1,18 @@
+{
+    "contract": "D61.x Command Center Typography",
+    "base": "AppTypography (Inter + Roboto Mono)",
+    "definitions": {
+        "screen_title": "AppTypography.headline (Sora, Bold, Spacing 2.0)",
+        "section_title": "AppTypography.monoLabel (Roboto Mono, Bold, Spacing 1.5, Cyan)",
+        "card_title": "AppTypography.monoTitle (Roboto Mono, Bold, White)",
+        "body_text": "AppTypography.monoBody (Roboto Mono, Normal, Blue-Grey)",
+        "subtitle": "AppTypography.monoTiny (Roboto Mono, Normal, Blue-Grey @ 0.8 Opacity)",
+        "drivers_bullet": "AppTypography.monoTiny (Neutral Color)",
+        "chip_text": "AppTypography.monoBody (Bold, White)"
+    },
+    "rules": {
+        "no_neon_bullets": "Use neutral '•' or '|' instead of Cyan '>' for lists.",
+        "subtitle_contrast": "Ensure subtitles are readable (min constrast vs bg). Avoid textDisabled for essential context.",
+        "hierarchy": "Card Title > Body > Subtitle/Meta"
+    }
+}

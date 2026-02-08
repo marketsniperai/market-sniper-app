@@ -1,0 +1,30 @@
+{
+    "primary_endpoint": {
+        "method": "GET",
+        "path": "/lab/war_room/snapshot",
+        "handler": "backend.api_server.get_unified_snapshot",
+        "return_type": "UnifiedSnapshot (JSON)"
+    },
+    "secondary_endpoints": [
+        {
+            "method": "GET",
+            "path": "/misfire",
+            "usage": "System Health Fallback"
+        },
+        {
+            "method": "GET",
+            "path": "/universe",
+            "usage": "Universe Status Fallback"
+        },
+        {
+            "method": "GET",
+            "path": "/health_ext",
+            "usage": "Web Probe / RunManifest"
+        }
+    ],
+    "associated_artifacts": [
+        "outputs/os/unified_snapshot.json",
+        "outputs/os/system_health.json",
+        "outputs/os/universe_state.json"
+    ]
+}

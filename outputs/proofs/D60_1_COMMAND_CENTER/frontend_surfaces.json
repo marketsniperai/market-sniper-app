@@ -1,0 +1,157 @@
+[
+  {
+    "file": "market_sniper_app/lib/screens/dashboard_screen.dart",
+    "markers": [
+      "Dashboard"
+    ],
+    "classes": [
+      "DashboardScreen"
+    ],
+    "repos_used": [
+      "LastRunRepository",
+      "SystemHealthRepository",
+      "SystemRepository",
+      "DashboardRepository"
+    ]
+  },
+  {
+    "file": "market_sniper_app/lib/screens/dashboard/dashboard_composer.dart",
+    "markers": [
+      "Dashboard"
+    ],
+    "classes": [],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/ui/components/dashboard_card.dart",
+    "markers": [
+      "Dashboard"
+    ],
+    "classes": [
+      "DashboardCard"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/dashboard_widgets.dart",
+    "markers": [
+      "Dashboard"
+    ],
+    "classes": [
+      "UnknownWidgetCard",
+      "DeltaCard",
+      "StatusCard"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_interaction_sheet.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteInteractionSheet"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_mentor_bridge_button.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteMentorBridgeButton"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_ritual_button.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteRitualButton"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_ritual_grid.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteRitualGrid"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite_ritual_strip.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteRitualStrip"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/founder_banner.dart",
+    "markers": [
+      "Founder"
+    ],
+    "classes": [
+      "FounderBanner"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite/elite_reflection_modal.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteReflectionModal"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/elite/elite_ritual_modal.dart",
+    "markers": [
+      "Elite"
+    ],
+    "classes": [
+      "EliteRitualModal"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/founder/founder_router_sheet.dart",
+    "markers": [
+      "Founder"
+    ],
+    "classes": [
+      "FounderRouterSheet"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/war_room/replay_control_tile.dart",
+    "markers": [
+      "Replay"
+    ],
+    "classes": [
+      "ReplayControlTile"
+    ],
+    "repos_used": []
+  },
+  {
+    "file": "market_sniper_app/lib/widgets/war_room/zones/console_gates.dart",
+    "markers": [
+      "Console"
+    ],
+    "classes": [
+      "ConsoleGates"
+    ],
+    "repos_used": []
+  }
+]

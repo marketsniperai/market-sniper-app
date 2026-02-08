@@ -67,4 +67,39 @@ class AppTypography {
       color: color,
     );
   }
+
+  // --- Canonical Command Center Mono (D61.3) ---
+
+  static TextStyle monoHero(BuildContext context) {
+    return _baseMono(context, 16, FontWeight.bold, AppColors.textPrimary);
+  }
+
+  static TextStyle monoTitle(BuildContext context) {
+    return _baseMono(context, 14, FontWeight.bold, AppColors.textPrimary);
+  }
+
+  static TextStyle monoBody(BuildContext context) {
+    return _baseMono(context, 12, FontWeight.normal, AppColors.textSecondary);
+  }
+
+  static TextStyle monoTiny(BuildContext context) {
+    return _baseMono(context, 10, FontWeight.normal, AppColors.textSecondary);
+  }
+
+  static TextStyle monoLabel(BuildContext context) {
+    return _baseMono(context, 10, FontWeight.bold, AppColors.textPrimary,
+        letterSpacing: 0.5);
+  }
+
+  static TextStyle _baseMono(
+      BuildContext context, double size, FontWeight weight, Color color,
+      {double? letterSpacing}) {
+    double scale = getScaleFactor(context);
+    return GoogleFonts.robotoMono(
+      fontSize: size * scale,
+      fontWeight: weight,
+      color: color,
+      letterSpacing: letterSpacing,
+    );
+  }
 }

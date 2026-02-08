@@ -79,7 +79,7 @@ class _EliteReflectionModalState extends State<EliteReflectionModal> {
          color: AppColors.surface1,
          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
          border: Border.all(color: AppColors.neonCyan.withValues(alpha: 0.3)),
-         boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.5), blurRadius: 20)],
+         boxShadow: [BoxShadow(color: AppColors.bgPrimary.withValues(alpha: 0.5), blurRadius: 20)],
       ),
       child: ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),

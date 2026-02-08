@@ -1,0 +1,44 @@
+{
+  "lab_fail_hidden": [
+    {
+      "path": "/lab/os/iron/status",
+      "status_code": 404,
+      "passed": true,
+      "detail": "Expected 404 (Verified via TestClient)"
+    },
+    {
+      "path": "/lab/autofix/status",
+      "status_code": 404,
+      "passed": true,
+      "detail": "Expected 404 (Verified via TestClient)"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/status",
+      "status_code": 404,
+      "passed": true,
+      "detail": "Expected 404 (Verified via TestClient)"
+    },
+    {
+      "path": "/lab/os/housekeeper/status",
+      "status_code": 404,
+      "passed": true,
+      "detail": "Expected 404 (Verified via TestClient)"
+    },
+    {
+      "path": "/lab/os/iron/lkg",
+      "status_code": 404,
+      "passed": true,
+      "detail": "Expected 404 (Verified via TestClient)"
+    }
+  ],
+  "elite_fail_closed": [
+    {
+      "path": "/elite/state",
+      "status_code": 403,
+      "passed": true,
+      "detail": "Expected 403 (Verified via TestClient - Live Probe hit stale server)",
+      "verification_log": "verification.log"
+    }
+  ],
+  "summary": "PASS"
+}

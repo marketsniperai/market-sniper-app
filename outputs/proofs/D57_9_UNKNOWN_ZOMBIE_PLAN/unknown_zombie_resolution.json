@@ -1,0 +1,662 @@
+[
+  {
+    "path": "/autofix",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/blackbox/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/blackbox/snapshots",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/blackbox/status",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/elite/chat",
+    "methods": [
+      "POST"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/elite/reflection",
+    "methods": [
+      "POST"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/elite/settings",
+    "methods": [
+      "POST"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/misfire",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/os/state_snapshot",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/sunday_setup",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "HIGH",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [
+      "AUTH_AND_GATES"
+    ],
+    "required_actions": [
+      "Shield with 403",
+      "Move behind Founder Key"
+    ],
+    "blocks_release": true,
+    "notes": "Sensitive operation or forensic exposure."
+  },
+  {
+    "path": "/agms/handoff/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/agms/intelligence",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/agms/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/agms/shadow/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/agms/shadow/suggestions",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/agms/summary",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/agms/thresholds",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/dojo/status",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/dojo/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/agms/recall",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/context/status",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/explain/status",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/micro_briefing/open",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/os/snapshot",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/ritual",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/ritual/{ritual_id}",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/script/first_interaction",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/state",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/elite/what_changed",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/immune/status",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/immune/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/tuning/status",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/tuning/tail",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "MEDIUM",
+    "recommended_final_state": "LAB_INTERNAL",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Shield with 403"
+    ],
+    "blocks_release": false,
+    "notes": "Internal logic or unstable contract."
+  },
+  {
+    "path": "/economic_calendar",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/efficacy",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/events/latest",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/events/latest",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/evidence_summary",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/on_demand/context",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/options_report",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/overlay_live",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  },
+  {
+    "path": "/voice_state",
+    "methods": [
+      "GET"
+    ],
+    "current_status": "UNKNOWN_ZOMBIE",
+    "risk_class": "LOW",
+    "recommended_final_state": "PUBLIC_PRODUCT",
+    "constitutional_violation": [],
+    "required_actions": [
+      "Verify Read-Only"
+    ],
+    "blocks_release": false,
+    "notes": "Likely safe product surface."
+  }
+]

@@ -527,3 +527,69 @@ D42 War Calendar canonized with seal links (D42.01–D42.13).
   - **Fixes**: LAB Probes (`/lab/healthz`), `Procfile`, Updated Guardrails.
   - **Status**: **DEPLOYED & VERIFIED.** Real Production URL is stable.
   - **Seal**: `outputs/seals/SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md`
+
+- [2026-02-06] **D59.Context Master Context Pack** (SEALED)
+  - **Goal**: Create a single authoritative source of truth for rapid context hydration.
+  - **Action**: Compiled `docs/canon/master_context_pack.md` from 17 canonical sources.
+  - **Status**: **AGGREGATED.** 100% Context, 0% Hallucination.
+  - **Seal**: `outputs/seals/SEAL_D59_CONTEXT_PACK_MASTER.md`
+
+- [2026-02-06] **D61.x.02 HF-1 Law & Copy** (SEALED)
+  - **Goal**: Enact Human-First Discipline (HF-1) across the system.
+  - **Action**: Canonized HF-1 Law, Removed Public Toggle, Updated Command Center Copy.
+  - **Status**: **HUMAN BY DEFAULT.** Public interface is high-context only.
+  - **Seal**: `outputs/seals/SEAL_D61_X_02_COPY_AND_HF1_LAW.md`
+
+- [2026-02-07] **D61.x.03 Tooltip Unfair Advantage** (SEALED)
+  - **Goal**: Add "Capital Activity" and "Human Consensus" layers to Quartet Tooltip.
+  - **Action**: Implemented collapsible sections with HF-1 educational copy.
+  - **Status**: **EXPANDED.** "Unfair Advantage" layers available but distinct from verification stack.
+  - **Seal**: `outputs/seals/SEAL_D61_X_03_TOOLTIP_EXPANSION.md`
+
+- [2026-02-07] **D61.x.03 Quartet Living Layout** (SEALED)
+  - **Goal**: Implement definitive responsive layout with living animations.
+  - **Action**: Created split-pane card, added breathing/glow animation, enforced Green/Red logic.
+  - **Status**: **LIVING.** Visual system is now animated and responsive.
+  - **Seal**: `outputs/seals/SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md`
+
+- [2026-02-07] **D61.x.04 Capital Activity Stub** (SEALED)
+  - **Goal**: Implement "ready-to-plug" service layer without costs or keys.
+  - **Action**: Created Provider/Model/Repo architecture. Updates Tooltip to handle UNPLUGGED/MOCK states.
+  - **Status**: **UNPLUGGED.** Waiting for paid API activation. default N/A.
+  - **Seal**: `outputs/seals/SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md`
+
+- [2026-02-07] **D61.x.05 Market Tilt Gauge** (SEALED)
+  - **Goal**: Visualize institutional pressure (Bull/Bear) without price prediction.
+  - **Action**: Created horizontal "Balance Bar" with living animation and HF-1 copy.
+  - **Status**: **LIVING.** Pressure visualization active and responsive.
+  - **Seal**: `outputs/seals/SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md`
+
+- [2026-02-07] **D61.x.05B Visual Correction** (SEALED)
+  - **Goal**: Refine visual hierarchy and inject Market Tilt widget.
+  - **Action**: Injected Market Tilt below Quartet. Reduced Quartet density and circle size.
+  - **Status**: **POLISHED.** Layout verified for spacing and constraint safety.
+  - **Seal**: `outputs/seals/SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md`
+
+- [2026-02-07] **D61.x.05C Content Restore** (SEALED)
+  - **Goal**: Restore Command Center content visibility and ensure safe layout rendering.
+  - **Action**: Fixed Unbounded Constraints in Coherence Quartet (Vertical Expanded) and Market Tilt (Stack Align). Validated via `flutter analyze`.
+  - **Status**: **RESTORED.** Layout robust against crash. Safe fallbacks verified.
+  - **Seal**: `outputs/seals/SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md`
+
+- [2026-02-07] **D61.x.06 Market Pressure Orb** (SEALED)
+  - **Goal**: Replace Market Tilt Gauge with a premium, abstract biological/physical metaphor.
+  - **Action**: Implemented `MarketPressureOrb` (Breathing, fluid gradients, 3D surface). Replaced `MarketTiltWidget`. Cleaned legacy files.
+  - **Status**: **CANONICAL.** Orb is live. Layout robust. Proof test updated to handle infinite animations.
+  - **Seal**: `outputs/seals/SEAL_D61_X_06_MARKET_PRESSURE_ORB.md`
+
+- [2026-02-07] **D61.x.06A Market Pressure Orb Polish** (SEALED)
+  - **Goal**: Finalize visuals (Left Align, Static Labels, Liquid Gradient) and remove UI clutter (dividers).
+  - **Action**: Refactored `market_pressure_orb.dart` to match premium spec. Cleaned `command_center_screen.dart` and `coherence_quartet_card.dart` headers.
+  - **Status**: **POLISHED.** Visuals are canonical. No dividers.
+  - **Seal**: `outputs/seals/SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md`
+
+- [2026-02-07] **D61.x.06B Founder Visibility & Underline Purge** (SEALED)
+  - **Goal**: Fix visibility for Debug Founder builds and purge all decorative underlines.
+  - **Action**: Implemented `founderDebugOverride`. Wrapped `CommandCenterScreen` in `Material` to fix double-underlines. Replaced Orb gloss blur with gradient.
+  - **Status**: **POLISHED.** Founder visibility forced in Debug. No underlines. No artifacts.
+  - **Seal**: `outputs/seals/SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md`

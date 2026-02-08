@@ -1,0 +1,22 @@
+{
+    "scope_files": [
+        "market_sniper_app/lib/screens/command_center_screen.dart",
+        "market_sniper_app/lib/widgets/command_center/coherence_quartet_card.dart",
+        "market_sniper_app/lib/widgets/command_center/coherence_quartet_tooltip.dart",
+        "market_sniper_app/lib/widgets/command_center/discipline_counter.dart"
+    ],
+    "verification": {
+        "flutter_analyze": "PASS",
+        "discipline_check": "PASS (Manual Grep: 0 Colors.* usages)",
+        "unused_imports": "CLEARED"
+    },
+    "tokens_added": [
+        "AppColors.ccBg",
+        "AppColors.ccSurface",
+        "AppColors.ccAccent",
+        "AppTypography.monoHero",
+        "AppTypography.monoTitle",
+        "AppTypography.monoBody",
+        "AppTypography.monoLabel"
+    ]
+}

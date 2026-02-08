@@ -1,0 +1,18 @@
+{
+    "AppColors": [
+        "ccBg (alias bgDeepVoid)",
+        "ccSurface (alias surface1)",
+        "ccSurfaceHigh (surface1 + opacity)",
+        "ccBorder (alias borderSubtle)",
+        "ccAccent (alias neonCyan)",
+        "ccTextMono (alias textSecondary)",
+        "ccShadow (alias shadow)"
+    ],
+    "AppTypography": [
+        "monoHero (16, Bold)",
+        "monoTitle (14, Bold)",
+        "monoBody (12, Normal)",
+        "monoTiny (10, Normal)",
+        "monoLabel (10, Bold, Spaced)"
+    ]
+}

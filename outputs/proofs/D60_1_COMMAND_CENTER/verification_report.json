@@ -1,0 +1,25 @@
+{
+  "success": false,
+  "errors": [
+    "Surface market_sniper_app/lib/repositories/war_room_repository.dart calls GHOST endpoint /lab/os/iron/decision_path (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/repositories/war_room_repository.dart calls GHOST endpoint /lab/os/iron/lkg (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/repositories/war_room_repository.dart calls GHOST endpoint /lab/autofix/status (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/repositories/war_room_repository.dart calls GHOST endpoint /lab/os/self_heal/coverage (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/repositories/war_room_repository.dart calls GHOST endpoint /lab/os/iron/lock_reason (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart calls GHOST endpoint /lab/os/iron/lkg (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart calls GHOST endpoint /lab/autofix/status (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart calls GHOST endpoint /lab/evidence_summary (Missing from Backend/Ledger)!",
+    "Surface market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart calls GHOST endpoint /lab/macro_context (Missing from Backend/Ledger)!"
+  ],
+  "missing_scan_coverage": [
+    "market_sniper_app/lib/repositories/war_room_repository.dart -> /lab/os/iron/decision_path",
+    "market_sniper_app/lib/repositories/war_room_repository.dart -> /lab/os/iron/lkg",
+    "market_sniper_app/lib/repositories/war_room_repository.dart -> /lab/autofix/status",
+    "market_sniper_app/lib/repositories/war_room_repository.dart -> /lab/os/self_heal/coverage",
+    "market_sniper_app/lib/repositories/war_room_repository.dart -> /lab/os/iron/lock_reason",
+    "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart -> /lab/os/iron/lkg",
+    "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart -> /lab/autofix/status",
+    "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart -> /lab/evidence_summary",
+    "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart -> /lab/macro_context"
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "false_positives": [
+    {
+      "raw": "/welcome",
+      "path_norm": "/welcome",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/main.dart",
+      "line": 124,
+      "snippet": "initialRoute: '/welcome', // Reverted D53.6X Force Entry",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "/welcome",
+      "path_norm": "/welcome",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/main.dart",
+      "line": 130,
+      "snippet": "'/welcome': (context) => const WelcomeScreen(),",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "/startup",
+      "path_norm": "/startup",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/main.dart",
+      "line": 131,
+      "snippet": "'/startup': (context) =>",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "/war_room",
+      "path_norm": "/war_room",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/main.dart",
+      "line": 133,
+      "snippet": "'/war_room': (context) => const WarRoomScreen(),",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "/welcome",
+      "path_norm": "/welcome",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/guards/startup_guard.dart",
+      "line": 48,
+      "snippet": "Navigator.of(context).pushReplacementNamed('/welcome');",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "/war_room",
+      "path_norm": "/war_room",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/guards/war_room_route_observer.dart",
+      "line": 31,
+      "snippet": "final isActive = (name == '/war_room');",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "../widgets/dashboard_widgets.dart",
+      "path_norm": "../widgets/dashboard_widgets.dart",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/screens/dashboard_screen.dart",
+      "line": 9,
+      "snippet": "// import '../widgets/dashboard_widgets.dart'; // Moved to Composer",
+      "triage_reason": "File Import/Path"
+    },
+    {
+      "raw": "/startup",
+      "path_norm": "/startup",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/screens/welcome_screen.dart",
+      "line": 230,
+      "snippet": "Navigator.pushReplacementNamed(context, '/startup');",
+      "triage_reason": "Flutter Navigation Route"
+    },
+    {
+      "raw": "../../ui/components/dashboard_card.dart",
+      "path_norm": "../../ui/components/dashboard_card.dart",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/screens/dashboard/dashboard_composer.dart",
+      "line": 11,
+      "snippet": "// import '../../ui/components/dashboard_card.dart';",
+      "triage_reason": "File Import/Path"
+    },
+    {
+      "raw": "../../widgets/dashboard_widgets.dart",
+      "path_norm": "../../widgets/dashboard_widgets.dart",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/screens/dashboard/dashboard_composer.dart",
+      "line": 21,
+      "snippet": "// import '../../widgets/dashboard_widgets.dart'; // For renderWidget",
+      "triage_reason": "File Import/Path"
+    }
+  ],
+  "true_ghosts": [
+    {
+      "raw": "${AppConfig.apiBaseUrl}/elite/ritual/$ritualId",
+      "path_norm": "/elite/ritual/{param}",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/logic/api_client.dart",
+      "line": 13,
+      "snippet": "final url = Uri.parse('${AppConfig.apiBaseUrl}/elite/ritual/$ritualId');",
+      "triage_reason": null
+    },
+    {
+      "raw": "/universe",
+      "path_norm": "/universe",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 200,
+      "snippet": "source: \"/universe\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/autofix/status",
+      "path_norm": "/lab/autofix/status",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 325,
+      "snippet": "source: \"/lab/autofix/status\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/iron/lkg",
+      "path_norm": "/lab/os/iron/lkg",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 488,
+      "snippet": "source: \"/lab/os/iron/lkg\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/iron/decision_path",
+      "path_norm": "/lab/os/iron/decision_path",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 512,
+      "snippet": "source: \"/lab/os/iron/decision_path\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/iron/lkg",
+      "path_norm": "/lab/os/iron/lkg",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 593,
+      "snippet": "final lkg = await _parseIronLKG(await _fetchJson('/lab/os/iron/lkg'));",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/iron/decision_path",
+      "path_norm": "/lab/os/iron/decision_path",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 594,
+      "snippet": "final decisionPath = await _parseDecisionPath(await _fetchJson('/lab/os/iron/decision_path'));",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/iron/lock_reason",
+      "path_norm": "/lab/os/iron/lock_reason",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 597,
+      "snippet": "final lockReason = await _parseLockReason(await _fetchJson('/lab/os/iron/lock_reason'));",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/self_heal/coverage",
+      "path_norm": "/lab/os/self_heal/coverage",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 598,
+      "snippet": "final coverage = await _parseCoverage(await _fetchJson('/lab/os/self_heal/coverage'));",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/self_heal/coverage",
+      "path_norm": "/lab/os/self_heal/coverage",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/repositories/war_room_repository.dart",
+      "line": 652,
+      "snippet": "source: \"/lab/os/self_heal/coverage\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/autofix/status",
+      "path_norm": "/lab/autofix/status",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+      "line": 30,
+      "snippet": "endpoint: \"/lab/autofix/status\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/universe",
+      "path_norm": "/universe",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+      "line": 60,
+      "snippet": "endpoint: \"/universe\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/os/iron/lkg",
+      "path_norm": "/lab/os/iron/lkg",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+      "line": 66,
+      "snippet": "endpoint: \"/lab/os/iron/lkg\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/evidence_summary",
+      "path_norm": "/lab/evidence_summary",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+      "line": 79,
+      "snippet": "endpoint: \"/lab/evidence_summary\",",
+      "triage_reason": null
+    },
+    {
+      "raw": "/lab/macro_context",
+      "path_norm": "/lab/macro_context",
+      "method": "UNKNOWN_METHOD",
+      "file": "market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart",
+      "line": 85,
+      "snippet": "endpoint: \"/lab/macro_context\",",
+      "triage_reason": null
+    }
+  ],
+  "unique_true_ghost_paths": [
+    "/elite/ritual/{param}",
+    "/universe",
+    "/lab/autofix/status",
+    "/lab/os/iron/lkg",
+    "/lab/os/iron/decision_path",
+    "/lab/os/iron/lock_reason",
+    "/lab/os/self_heal/coverage",
+    "/lab/evidence_summary",
+    "/lab/macro_context"
+  ]
+}

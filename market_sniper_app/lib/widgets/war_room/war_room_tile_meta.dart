@@ -27,7 +27,7 @@ class WarRoomTileRegistry {
 
   static const autopilot = WarRoomTileMeta(
     id: "CTRL",
-    endpoint: "/lab/autofix/status",
+    endpoint: "/lab/os/self_heal/autofix/tier1/status", // Rewired from /lab/autofix/status
     fieldPath: "autofix.mode",
   );
 
@@ -57,32 +57,34 @@ class WarRoomTileRegistry {
   
   static const universe = WarRoomTileMeta(
     id: "UNIV",
-    endpoint: "/universe",
+    endpoint: "/universe", // To be implemented
     fieldPath: "universe.status",
   );
   
   static const lkg = WarRoomTileMeta(
     id: "LKG",
-    endpoint: "/lab/os/iron/lkg",
+    endpoint: "/lab/os/iron/lkg", // To be implemented
     fieldPath: "lkg.valid",
   );
 
   // Alpha Strip
   static const options = WarRoomTileMeta(
     id: "OPT",
-    endpoint: "/options_context",
+    endpoint: "/options_context", // To be implemented or alias? NOTE: This wasn't in ghost report? 
+    // Wait, options_context wasn't in ghost report because it might not have been hit or is valid?
+    // Double check backend scan.
     fieldPath: "options.status",
   );
 
   static const evidence = WarRoomTileMeta(
     id: "EVID",
-    endpoint: "/lab/evidence_summary",
+    endpoint: "/lab/evidence_summary", // To be implemented (Stub)
     fieldPath: "evidence.status",
   );
   
   static const macro = WarRoomTileMeta(
     id: "MACRO",
-    endpoint: "/lab/macro_context",
+    endpoint: "/lab/macro_context", // To be implemented (Stub)
     fieldPath: "macro.status",
   );
 

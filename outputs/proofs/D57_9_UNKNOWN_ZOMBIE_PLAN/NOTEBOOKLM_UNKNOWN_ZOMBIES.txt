@@ -1,0 +1,97 @@
+UNKNOWN_ZOMBIES_TOTAL: 42
+
+HIGH_RISK:
+- /autofix
+- /blackbox/ledger/tail
+- /blackbox/snapshots
+- /blackbox/status
+- /elite/chat
+- /elite/reflection
+- /elite/settings
+- /misfire
+- /os/state_snapshot
+- /sunday_setup
+
+MEDIUM_RISK:
+- /agms/handoff/ledger/tail
+- /agms/intelligence
+- /agms/ledger/tail
+- /agms/shadow/ledger/tail
+- /agms/shadow/suggestions
+- /agms/summary
+- /agms/thresholds
+- /dojo/status
+- /dojo/tail
+- /elite/agms/recall
+- /elite/context/status
+- /elite/explain/status
+- /elite/micro_briefing/open
+- /elite/os/snapshot
+- /elite/ritual
+- /elite/ritual/{ritual_id}
+- /elite/script/first_interaction
+- /elite/state
+- /elite/what_changed
+- /immune/status
+- /immune/tail
+- /tuning/status
+- /tuning/tail
+
+LOW_RISK:
+- /economic_calendar
+- /efficacy
+- /events/latest
+- /events/latest
+- /evidence_summary
+- /on_demand/context
+- /options_report
+- /overlay_live
+- /voice_state
+
+RECOMMENDED_LAB_INTERNAL:
+- /autofix
+- /blackbox/ledger/tail
+- /blackbox/snapshots
+- /blackbox/status
+- /elite/chat
+- /elite/reflection
+- /elite/settings
+- /misfire
+- /os/state_snapshot
+- /sunday_setup
+- /agms/handoff/ledger/tail
+- /agms/intelligence
+- /agms/ledger/tail
+- /agms/shadow/ledger/tail
+- /agms/shadow/suggestions
+- /agms/summary
+- /agms/thresholds
+- /dojo/status
+- /dojo/tail
+- /elite/agms/recall
+- /elite/context/status
+- /elite/explain/status
+- /elite/micro_briefing/open
+- /elite/os/snapshot
+- /elite/ritual
+- /elite/ritual/{ritual_id}
+- /elite/script/first_interaction
+- /elite/state
+- /elite/what_changed
+- /immune/status
+- /immune/tail
+- /tuning/status
+- /tuning/tail
+
+RECOMMENDED_PUBLIC_PRODUCT:
+- /economic_calendar
+- /efficacy
+- /events/latest
+- /events/latest
+- /evidence_summary
+- /on_demand/context
+- /options_report
+- /overlay_live
+- /voice_state
+
+RECOMMENDED_DEPRECATION:

@@ -1,0 +1,35 @@
+{
+    "contract": "D61.x Command Center Palette",
+    "base": "AppColors (Night Finance)",
+    "definitions": {
+        "background": "AppColors.ccBg (Deep Void)",
+        "surface_card": "AppColors.ccSurface (Surface 1)",
+        "surface_elevated": "AppColors.ccSurfaceHigh (Surface 2)",
+        "divider": "AppColors.borderSubtle (Blue-Grey) @ 1.0 Opacity",
+        "border_card": "AppColors.ccBorder (Subtle) @ 0.5 Opacity",
+        "border_active": "AppColors.ccAccent (Cyan) @ 0.5 Opacity",
+        "text_primary": "AppColors.textPrimary (Off-White)",
+        "text_secondary": "AppColors.textSecondary (Blue-Grey)",
+        "text_muted": "AppColors.textDisabled (Deep Grey)",
+        "accent_main": "AppColors.ccAccent (Neon Cyan)",
+        "accent_dim": "AppColors.ccAccentDim (Cyan Outline)",
+        "state_pos": "AppColors.stateLive (Sniper Green)",
+        "state_neg": "AppColors.marketBear (Neon Red)"
+    },
+    "components": {
+        "premium_tag": {
+            "bg": "AppColors.ccSurfaceHigh @ 0.5",
+            "border": "State Color (Pos/Neg) @ 0.3",
+            "text": "AppColors.textPrimary"
+        },
+        "institutional_tag": {
+            "bg": "AppColors.ccAccent @ 0.1",
+            "border": "AppColors.ccAccent @ 0.2",
+            "text": "AppColors.ccAccent"
+        },
+        "section_header": {
+            "text": "AppColors.ccAccent",
+            "line": "AppColors.borderSubtle @ 0.5"
+        }
+    }
+}

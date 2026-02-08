@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../theme/app_colors.dart';
@@ -5,6 +6,9 @@ import '../../../theme/app_typography.dart';
 import '../../../models/war_room_snapshot.dart';
 import '../../../models/system_health_snapshot.dart';
 import '../../../config/app_config.dart';
+import '../../command_center/discipline_counter.dart';
+
+import '../../../models/command_center/command_center_tier.dart';
 import 'package:intl/intl.dart';
 
 class GlobalCommandBar extends StatelessWidget {
@@ -15,6 +19,12 @@ class GlobalCommandBar extends StatelessWidget {
   final DateTime? lastRefreshTime;
   final bool showSources;
   final VoidCallback? onToggleSources;
+  
+  // D61.2: Discipline Inputs
+  final CommandCenterTier? disciplineTier;
+  final int? disciplineCount;
+  final bool? disciplineUnlocked;
+  final VoidCallback? onDisciplineTap;
 
   const GlobalCommandBar({
     super.key,
@@ -25,6 +35,10 @@ class GlobalCommandBar extends StatelessWidget {
     this.lastRefreshTime,
     this.showSources = false,
     this.onToggleSources,
+    this.disciplineTier,
+    this.disciplineCount,
+    this.disciplineUnlocked,
+    this.onDisciplineTap,
   });
 
   @override
@@ -70,7 +84,7 @@ class GlobalCommandBar extends StatelessWidget {
                   "ZONES: 4 | STATE: ${loading ? 'LOAD' : 'OK'}",
                   style: GoogleFonts.robotoMono(
                     fontSize: 9, 
-                    color: Colors.white24,
+                    color: AppColors.textPrimary.withOpacity(0.24),
                     fontWeight: FontWeight.w500
                   ),
                 ),
@@ -83,19 +97,46 @@ class GlobalCommandBar extends StatelessWidget {
                    return Container(
                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
                      decoration: BoxDecoration(
-                       color: Colors.purple.withOpacity(0.2),
+                       color: AppColors.neonCyan.withOpacity(0.2),
                        borderRadius: BorderRadius.circular(2),
-                       border: Border.all(color: Colors.purple.withOpacity(0.5), width: 0.5),
+                       border: Border.all(color: AppColors.neonCyan.withOpacity(0.5), width: 0.5),
                      ),
                      child: Text(
                         "W:${w.toInt()} C2:$c2 C3:$c3",
-                        style: GoogleFonts.robotoMono(fontSize: 9, color: Colors.purpleAccent),
+                        style: GoogleFonts.robotoMono(fontSize: 9, color: AppColors.neonCyan),
                      ),
                    );
                 }),
+                // D61.2D Web Truth Stamp
+                if (kIsWeb && kDebugMode) ...[
+                  const SizedBox(width: 8),
+                  Container(
+                     padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                     decoration: BoxDecoration(
+                       color: AppColors.neonCyan.withValues(alpha: 0.2),
+                       border: Border.all(color: AppColors.neonCyan.withValues(alpha: 0.5)),
+                       borderRadius: BorderRadius.circular(2),
+                     ),
+                     child: Text(
+                       "api:${AppConfig.apiBaseUrl.replaceAll('http://', '').replaceAll('https://', '')}",
+                       style: GoogleFonts.robotoMono(fontSize: 8, color: AppColors.neonCyan),
+                     ),
+                  ),
+                ],
               ],
             ],
           ),
+
+          // D61.2: Discipline Counter (Near Logo/Title)
+          if (disciplineTier != null) ...[
+             const SizedBox(width: 12),
+             DisciplineCounter(
+               tier: disciplineTier!,
+               count: disciplineCount ?? 0,
+               isUnlocked: disciplineUnlocked ?? false,
+               onTap: onDisciplineTap ?? () {},
+             ),
+          ],
 
           const Spacer(),
 
@@ -115,7 +156,7 @@ class GlobalCommandBar extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                 decoration: BoxDecoration(
-                  color: showSources ? Colors.white10 : Colors.transparent,
+                  color: showSources ? AppColors.textPrimary.withOpacity(0.1) : AppColors.transparent,
                   borderRadius: BorderRadius.circular(4),
                   border: Border.all(
                       color: showSources

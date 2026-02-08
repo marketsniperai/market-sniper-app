@@ -1,0 +1,42 @@
+[
+  {
+    "id": "D56.01.UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION",
+    "status": "RED",
+    "details": "File backend/contracts/war_room_contract.py missing content: 'class WarRoomSnapshot'"
+  },
+  {
+    "id": "D53.6.WAR_ROOM_TRUTH_EXPOSURE",
+    "status": "GREEN",
+    "details": "File verified: market_sniper_app/lib/widgets/war_room/zones/service_honeycomb.dart"
+  },
+  {
+    "id": "D29.AUTOPILOT_SHADOW_OBSERVATION",
+    "status": "GREEN",
+    "details": "File verified: backend/os_intel/agms_shadow_recommender.py"
+  },
+  {
+    "id": "D29.AUTOPILOT_SHADOW_OBSERVATION",
+    "status": "YELLOW",
+    "details": "Runtime ledger absent (Ephemeral). Code verified."
+  },
+  {
+    "id": "D42.04.AUTOFIX_TIER1",
+    "status": "GREEN",
+    "details": "File verified: backend/os_ops/autofix_control_plane.py"
+  },
+  {
+    "id": "D56.HK_1_HOUSEKEEPER_WIRING_RESTORED",
+    "status": "GREEN",
+    "details": "File verified: backend/os_ops/housekeeper.py"
+  },
+  {
+    "id": "D08.MISFIRE_MONITOR_AND_AUTOHEAL",
+    "status": "GREEN",
+    "details": "File verified: backend/os_ops/misfire_monitor.py"
+  },
+  {
+    "id": "D56.01.10.CLOUD_RUN_PROBES_SMOKE_GREEN",
+    "status": "GREEN",
+    "details": "File verified: tools/smoke_cloud_run.ps1"
+  }
+]

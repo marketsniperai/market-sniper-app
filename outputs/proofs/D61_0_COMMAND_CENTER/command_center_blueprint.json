@@ -1,0 +1,74 @@
+{
+    "manifest_version": "D61.0",
+    "identity": "Institutional Attention Allocator",
+    "widgets": [
+        {
+            "id": "global_command_bar",
+            "name": "Global Command Bar",
+            "type": "CORE",
+            "gating": {
+                "free": "LOCKED",
+                "plus": "UNLOCKED",
+                "elite": "UNLOCKED"
+            },
+            "fallback": "CACHED_LAST_KNOWN"
+        },
+        {
+            "id": "coherence_quartet",
+            "name": "Coherence Quartet",
+            "type": "PREMIUM_ANCHOR",
+            "gating": {
+                "free": "LOCKED",
+                "plus": "PARTIAL (Top 1/1)",
+                "elite": "FULL (Top 2/2)"
+            },
+            "fallback": "HIDE"
+        },
+        {
+            "id": "service_honeycomb",
+            "name": "Service Honeycomb",
+            "type": "INFRASTRUCTURE",
+            "gating": {
+                "free": "LOCKED",
+                "plus": "UNLOCKED",
+                "elite": "UNLOCKED"
+            },
+            "fallback": "SHOW_DISCONNECTED"
+        },
+        {
+            "id": "alpha_strip",
+            "name": "Alpha Strip",
+            "type": "INTELLIGENCE",
+            "gating": {
+                "free": "LOCKED",
+                "plus": "UNLOCKED",
+                "elite": "UNLOCKED"
+            },
+            "fallback": "SHOW_STALE"
+        },
+        {
+            "id": "console_gates",
+            "name": "Console Gates",
+            "type": "OPERATIONAL",
+            "gating": {
+                "free": "LOCKED",
+                "plus": "UNLOCKED",
+                "elite": "UNLOCKED"
+            },
+            "fallback": "SHOW_LOCAL_ONLY"
+        }
+    ],
+    "removed_widgets": [
+        "hero_header",
+        "legacy_debug_text",
+        "os_learned_this_week"
+    ],
+    "data_policy": {
+        "source_priority": [
+            "ARTIFACT",
+            "CACHE",
+            "API"
+        ],
+        "fail_state": "FAIL_HIDDEN"
+    }
+}

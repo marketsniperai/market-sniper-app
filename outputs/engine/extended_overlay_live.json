@@ -1,10 +1,11 @@
 {
   "version": "1.0",
-  "as_of_utc": "2026-01-23T19:10:20.278879",
-  "status": "LIVE",
+  "as_of_utc": "2026-02-06T19:33:33.538484",
+  "status": "STALE",
   "source": "SECTOR_SENTINEL",
-  "age_seconds": -279,
+  "age_seconds": 1210713,
   "summary_lines": [
+    "[WARNING] Data Stale (1210713s old)",
     "Sector Sentinel: 11/11 Active",
     "Pressure: 5 Up, 3 Down, 3 Mixed"
   ],
@@ -14,82 +15,82 @@
       "state": "ACTIVE",
       "pressure": "UP",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLF",
       "state": "ACTIVE",
       "pressure": "UP",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLV",
       "state": "ACTIVE",
       "pressure": "DOWN",
       "dispersion": "HIGH",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLY",
       "state": "ACTIVE",
       "pressure": "UP",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLP",
       "state": "ACTIVE",
       "pressure": "MIXED",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLE",
       "state": "ACTIVE",
       "pressure": "DOWN",
       "dispersion": "HIGH",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLI",
       "state": "ACTIVE",
       "pressure": "UP",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLC",
       "state": "ACTIVE",
       "pressure": "UP",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLB",
       "state": "ACTIVE",
       "pressure": "MIXED",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLU",
       "state": "ACTIVE",
       "pressure": "DOWN",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     },
     {
       "sector": "XLRE",
       "state": "ACTIVE",
       "pressure": "MIXED",
       "dispersion": "NORMAL",
-      "as_of_utc": "2026-01-23T19:10:20.278879"
+      "as_of_utc": "2026-02-06T19:33:33.538484"
     }
   ],
   "diagnostics": {
     "provider_result": "OK",
-    "fallback_reason": "NONE",
+    "fallback_reason": "SENTINEL_STALE",
     "input_artifact_path": "engine/sector_sentinel_rt.json",
     "input_as_of_utc": "2026-01-23T19:15:00.000000",
     "missing_sectors": []

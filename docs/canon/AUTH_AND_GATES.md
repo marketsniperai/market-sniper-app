@@ -28,3 +28,16 @@ Founder Mode is a **System Override**, not a Feature.
 - **Public API**: Fail Open (Serve stale data if live is missing).
 - **Ops API**: Fail Hidden (Return 404 if unauthorized).
 - **Entitlement**: Fail Closed (Deny access if DB is down).
+
+### 4.1 LAB_INTERNAL Unauthorized Failure Mode (Fail-Hidden)
+**Rule:** Unauthorized access to `LAB_INTERNAL` endpoints must be indistinguishable from a missing route.
+- **Fail-Hidden (404 Not Found)** is REQUIRED for all `LAB_INTERNAL` routes when `X-Founder-Key` is missing or invalid.
+- **Fail-Closed (403 Forbidden)** is explicitly BANNED for these routes to prevent enumeration.
+- **Traces:** A 404 trace may be logged internally, but the external response must be empty/standard 404.
+
+## 5. Elite Gating (Cost/Write)
+Certain Elite endpoints are gated to prevent cost abuse or unauthorized state modification.
+**Policy:** `REQUIRE_ELITE_OR_FOUNDER`
+- **Authorized:** `X-Founder-Key` override OR `Elite Entitlement` active.
+- **Fail Behavior:** `403 Forbidden` (Fail-Closed).
+- **Body:** `{"detail":"NOT_AUTHORIZED"}`

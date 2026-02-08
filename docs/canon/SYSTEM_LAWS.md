@@ -30,6 +30,14 @@ There is **One** Artifacts Root.
 1. **Safety** overrides **Performance**.
 2. **Truth** overrides **Stability**.
 3. **Founder Override** overrides **Everything** (Forensics).
+
+## 6. RELEASE ZERO UNKNOWN LAW
+**Governance:** RELEASE BLOCKED
+**Trigger:** `EWIMSC_RELEASE_MODE=1` (Tags `v*`, Branches `release/*`)
+
+In Release Mode, the system MUST contain **ZERO (0)** Unknown Zombies.
+- Any `UNKNOWN` route detected during a Release build fails the pipeline immediately.
+- Exception: In `DEV` mode, unknowns are strictly ratcheted (cannot rise) but allowed if descending (Weekly Gate).
 ^>
 **RULE:**
 Glossary

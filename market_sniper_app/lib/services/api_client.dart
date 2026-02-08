@@ -27,11 +27,20 @@ class ApiClient {
   // I will replace likely from class start or helper method.
   
   Map<String, String> get _headers {
-      // Re-implementing _headers to ensure context matches (or I can trust line numbers from previous view)
       final headers = <String, String>{
         'Content-Type': 'application/json',
       };
+      
+      // D62.0 HOTFIX: Allow Founder Key on Remote/Web if Founder Build
       if (kIsWeb && kDebugMode && AppConfig.isFounderBuild) {
+         final key = AppConfig.founderApiKey;
+         if (key.isNotEmpty) {
+            // WEB_LAB_AUTH: sending founder header
+            debugPrint("WEB_LAB_AUTH: sending founder header = true, keyHashPrefix=${key.substring(0, 5)}...");
+            headers['X-Founder-Key'] = key;
+         }
+      } else if (kDebugMode && AppConfig.isFounderBuild) {
+         // Existing Logic for Mobile/Local
          final key = AppConfig.founderApiKey;
          if (key.isNotEmpty && baseUrl.contains('localhost')) {
             headers['X-Founder-Key'] = key;

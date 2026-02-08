@@ -143,6 +143,20 @@ New Pending Items
 ❌ FAILURE CONDITION:
 If pending artifacts are not updated → SEAL IS INVALID
 
+E. HUMAN-FIRST DISCIPLINE (HF-1)
+
+Public Copy must be "Human-First":
+- Primary Headings: Clear, benefit-driven language.
+- Secondary/Tags: Technical engine names (e.g. Coherence Quartet).
+- Subordinated: Diagnostics and raw metrics.
+
+Friction Reduction:
+- No toggles for "Human Mode" in public interfaces.
+- High-context is the DEFAULT and ONLY state for public users.
+
+Founder Exception:
+- War Room and Founder tools retain raw technical labels for precision.
+
 4. FINISH PROTOCOL (MANDATORY ORDER)
 
 Every task ends with ALL of the following:

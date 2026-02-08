@@ -1,0 +1,36 @@
+{
+    "contract_version": "D61.x.05",
+    "widget_name": "MarketTiltWidget",
+    "visual_logic": {
+        "type": "Center-Out Horizontal Balance Bar",
+        "range": "-1.0 (Bear) to 1.0 (Bull)",
+        "center": "0.0 (Neutral)",
+        "colors": {
+            "bull": "AppColors.marketBull",
+            "bear": "AppColors.marketBear",
+            "neutral": "AppColors.textDisabled"
+        },
+        "animation": {
+            "type": "Breathing Fill Length",
+            "loop_duration": "4s",
+            "magnitude_delta": "+/- 5%"
+        }
+    },
+    "gating": {
+        "FREE": "Heavy Blue (sigma 8.0) + Lock CTA",
+        "PLUS": "Partial Blur (sigma 3.0) + No CTA + No Info",
+        "ELITE": "Clear + Animations + Info Modal"
+    },
+    "copy_hf1": {
+        "header": "Market Pressure",
+        "subtitle": "Who is controlling the narrative right now?",
+        "info_modal": {
+            "title": "Market Pressure",
+            "bullets": [
+                "Strong green tilt → buyers are aggressive",
+                "Strong red tilt → sellers dominate",
+                "Centered → noise, no clear driver"
+            ]
+        }
+    }
+}

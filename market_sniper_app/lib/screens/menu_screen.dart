@@ -125,6 +125,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       (val) {
                         setState(() => _notificationsEnabled = val);
                         NotificationService().setEnabled(val).then((_) {
+                          if (!context.mounted) return;
                           if (val) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -139,23 +140,26 @@ class _MenuScreenState extends State<MenuScreen> {
                         });
                       },
                     ),
-                    AppSpacing.gapAction, // Tighter gap
-                    _buildToggleItem(
-                      "Human Mode",
-                      HumanModeService().enabled,
-                      (val) {
-                        HumanModeService().setEnabled(val);
-                        setState(() {}); // Local update for the switch UI
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                            val
-                                ? "Human Mode Enabled (Explanatory Tone)"
-                                : "Human Mode Disabled (Institutional Tone)",
-                          ),
-                          duration: const Duration(seconds: 1),
-                        ));
-                      },
-                    ),
+                    // D53: Human Mode Toggle (Founder Only - HF-1 Law forces Public ON)
+                    if (AppConfig.isFounderBuild) ...[
+                      AppSpacing.gapAction,
+                      _buildToggleItem(
+                        "Human Mode",
+                        HumanModeService().enabled,
+                        (val) {
+                          HumanModeService().setEnabled(val);
+                          setState(() {}); // Local update for the switch UI
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                              val
+                                  ? "Human Mode Enabled (Explanatory Tone)"
+                                  : "Human Mode Disabled (Institutional Tone)",
+                            ),
+                            duration: const Duration(seconds: 1),
+                          ));
+                        },
+                      ),
+                    ],
                     AppSpacing.gapAction,
                     
                     // D49: Elite Autolearn Toggle

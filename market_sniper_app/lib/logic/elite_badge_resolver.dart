@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../theme/app_colors.dart';
 
 /// D49: Elite Badge Resolver (Frontend Logic)
 /// Deterministic resolver for Badge State based on Event Types.
@@ -18,7 +19,7 @@ class EliteBadgeResolver {
            return BadgeResult(
                hasBadge: true,
                text: "BRIEF",
-               color: Colors.cyanAccent,
+               color: AppColors.neonCyan,
                notificationBody: allowNotif ? "Morning Briefing Ready" : null
            );
            
@@ -26,7 +27,7 @@ class EliteBadgeResolver {
            return BadgeResult(
                hasBadge: true,
                text: "RPT",
-               color: Colors.cyanAccent,
+               color: AppColors.neonCyan,
                notificationBody: allowNotif ? "Mid-Day Report Ready" : null
            );
            
@@ -34,7 +35,7 @@ class EliteBadgeResolver {
            return BadgeResult(
                hasBadge: true,
                text: "SUM",
-               color: Colors.cyanAccent,
+               color: AppColors.neonCyan,
                notificationBody: allowNotif ? "Market Summary Ready" : null
            );
            
@@ -42,7 +43,7 @@ class EliteBadgeResolver {
            return BadgeResult(
                hasBadge: true,
                text: "FREE",
-               color: Colors.greenAccent,
+               color: AppColors.stateLive,
                notificationBody: allowNotif ? "Elite Free Window Open" : null
            );
            
@@ -50,7 +51,7 @@ class EliteBadgeResolver {
            return BadgeResult(
                hasBadge: true,
                text: "5m",
-               color: Colors.orangeAccent,
+               color: AppColors.stateStale,
                notificationBody: allowNotif ? "5 Minutes Remaining" : null
            );
            
@@ -63,7 +64,7 @@ class EliteBadgeResolver {
            return BadgeResult(
                hasBadge: true,
                text: "!",
-               color: Colors.orange,
+               color: AppColors.stateStale,
                notificationBody: null // Just badge
            );
            
@@ -73,7 +74,7 @@ class EliteBadgeResolver {
                return BadgeResult(
                    hasBadge: true,
                    text: "1",
-                   color: Colors.cyanAccent,
+                   color: AppColors.neonCyan,
                    notificationBody: allowNotif ? "New Ritual Available" : null
                );
            }

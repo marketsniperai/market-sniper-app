@@ -1,0 +1,680 @@
+{
+  "meta": {
+    "generated_at": "2026-02-05T23:20:33.450300",
+    "generator": "D57.7 Wiring Pack Generator"
+  },
+  "base_urls": {
+    "local": "http://127.0.0.1:8787",
+    "prod_discovered": [
+      "https://marketsniper-api-3ygzdvszba-uc.a.run.app"
+    ]
+  },
+  "routes": [
+    {
+      "path": "/aftermarket",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/agms/foundation",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/agms/handoff",
+      "methods": [
+        "GET"
+      ],
+      "status": "DEPRECATED_ALIAS"
+    },
+    {
+      "path": "/agms/handoff/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/agms/intelligence",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/agms/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/agms/shadow/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/agms/shadow/suggestions",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/agms/summary",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/agms/thresholds",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/autofix",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/blackbox/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/blackbox/snapshots",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/blackbox/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/briefing",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/context",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/dashboard",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/dashboard",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/dojo/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/dojo/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/economic_calendar",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/efficacy",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/agms/recall",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/chat",
+      "methods": [
+        "POST"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/context/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/explain/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/micro_briefing/open",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/os/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/reflection",
+      "methods": [
+        "POST"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/ritual",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/ritual/{ritual_id}",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/script/first_interaction",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/settings",
+      "methods": [
+        "POST"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/state",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/elite/what_changed",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/evidence_summary",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/health_ext",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "DEPRECATED_ALIAS"
+    },
+    {
+      "path": "/healthz",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/immune/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/immune/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/lab/autofix/execute",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/autopilot/execute_from_handoff",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/canon/debt_index",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/dojo/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/healthz",
+      "methods": [
+        "GET"
+      ],
+      "status": "DEPRECATED_ALIAS"
+    },
+    {
+      "path": "/lab/misfire_autoheal",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/health",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/housekeeper/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/housekeeper/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/iron/drift",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/iron/replay_integrity",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/iron/state_history",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/iron/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/iron/timeline_tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/rollback",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/decision_path",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/before_after",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/findings",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/housekeeper/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/os/self_heal/housekeeper/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/readyz",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/lab/replay/archive/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/replay/day",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/run_pipeline",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/shadow_repair/propose",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/tuning/apply",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/war-room",
+      "methods": [
+        "GET"
+      ],
+      "status": "DEPRECATED_ALIAS"
+    },
+    {
+      "path": "/lab/war_room",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/war_room/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/warroom",
+      "methods": [
+        "GET"
+      ],
+      "status": "DEPRECATED_ALIAS"
+    },
+    {
+      "path": "/lab/watchlist/log",
+      "methods": [
+        "POST"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/lab/watchlist/log/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "LAB_INTERNAL"
+    },
+    {
+      "path": "/macro_context",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/misfire",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/news_digest",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/on_demand/context",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/options_context",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/options_report",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/os/state_snapshot",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/overlay_live",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/projection/report",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/pulse",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/readyz",
+      "methods": [
+        "GET"
+      ],
+      "status": "PUBLIC_PRODUCT"
+    },
+    {
+      "path": "/sunday_setup",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/tuning/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/tuning/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    },
+    {
+      "path": "/voice_state",
+      "methods": [
+        "GET"
+      ],
+      "status": "UNKNOWN_ZOMBIE"
+    }
+  ],
+  "artifact_wiring": {
+    "buckets": [
+      "gs://..."
+    ],
+    "artifact_roots": [
+      "outputs/"
+    ],
+    "files": [
+      "dashboard_market_sniper.json",
+      "run_manifest.json"
+    ]
+  },
+  "pipeline_wiring": {
+    "schedulers": [
+      "generate_wiring_pack.py"
+    ],
+    "jobs": [
+      "pipeline_light",
+      "run_pipeline"
+    ],
+    "entrypoints": [
+      "main.py"
+    ]
+  }
+}

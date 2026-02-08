@@ -1,0 +1,29 @@
+{
+    "wiring_chain": [
+        {
+            "from": "WarRoomScreen.initState",
+            "to": "WarRoomRepository.fetchSnapshot",
+            "type": "MethodCall"
+        },
+        {
+            "from": "WarRoomRepository.fetchSnapshot",
+            "to": "ApiClient.fetchUnifiedSnapshot",
+            "type": "MethodCall"
+        },
+        {
+            "from": "ApiClient.fetchUnifiedSnapshot",
+            "to": "GET /lab/war_room/snapshot",
+            "type": "HTTP Request"
+        },
+        {
+            "from": "GET /lab/war_room/snapshot",
+            "to": "backend.api_server:get_unified_snapshot",
+            "type": "Route Handler"
+        }
+    ],
+    "data_flow": {
+        "request": "Void/Empty",
+        "response": "Map<String, dynamic> (Unified Payload)",
+        "parsing": "WarRoomRepository._parseUnifiedSnapshot -> WarRoomSnapshot"
+    }
+}

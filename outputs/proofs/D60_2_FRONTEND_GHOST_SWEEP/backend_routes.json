@@ -1,0 +1,295 @@
+{
+  "/lab/run_pipeline": [
+    "POST"
+  ],
+  "/lab/misfire_autoheal": [
+    "POST"
+  ],
+  "/health_ext": [
+    "GET",
+    "HEAD"
+  ],
+  "/dashboard": [
+    "GET",
+    "HEAD"
+  ],
+  "/context": [
+    "GET",
+    "HEAD"
+  ],
+  "/efficacy": [
+    "GET"
+  ],
+  "/briefing": [
+    "GET"
+  ],
+  "/misfire": [
+    "GET"
+  ],
+  "/pulse": [
+    "GET"
+  ],
+  "/aftermarket": [
+    "GET"
+  ],
+  "/sunday_setup": [
+    "GET"
+  ],
+  "/options_report": [
+    "GET"
+  ],
+  "/options_context": [
+    "GET"
+  ],
+  "/economic_calendar": [
+    "GET"
+  ],
+  "/macro_context": [
+    "GET"
+  ],
+  "/evidence_summary": [
+    "GET"
+  ],
+  "/overlay_live": [
+    "GET"
+  ],
+  "/voice_state": [
+    "GET"
+  ],
+  "/news_digest": [
+    "GET"
+  ],
+  "/autofix": [
+    "GET"
+  ],
+  "/lab/autofix/execute": [
+    "POST"
+  ],
+  "/lab/os/self_heal/housekeeper/status": [
+    "GET"
+  ],
+  "/lab/os/self_heal/housekeeper/run": [
+    "POST"
+  ],
+  "/lab/os/self_heal/autofix/tier1/status": [
+    "GET"
+  ],
+  "/lab/os/self_heal/autofix/tier1/run": [
+    "POST"
+  ],
+  "/lab/os/self_heal/autofix/decision_path": [
+    "GET"
+  ],
+  "/os/state_snapshot": [
+    "GET"
+  ],
+  "/lab/os/iron/status": [
+    "GET"
+  ],
+  "/lab/os/iron/timeline_tail": [
+    "GET"
+  ],
+  "/lab/os/self_heal/findings": [
+    "GET"
+  ],
+  "/lab/os/self_heal/before_after": [
+    "GET"
+  ],
+  "/lab/os/iron/state_history": [
+    "GET"
+  ],
+  "/lab/os/iron/drift": [
+    "GET"
+  ],
+  "/lab/os/iron/replay_integrity": [
+    "GET"
+  ],
+  "/lab/replay/day": [
+    "POST"
+  ],
+  "/lab/os/housekeeper/run": [
+    "POST"
+  ],
+  "/lab/os/housekeeper/status": [
+    "GET"
+  ],
+  "/lab/replay/archive/tail": [
+    "GET"
+  ],
+  "/lab/os/rollback": [
+    "POST"
+  ],
+  "/lab/war_room": [
+    "GET",
+    "HEAD"
+  ],
+  "/lab/warroom": [
+    "GET"
+  ],
+  "/lab/war-room": [
+    "GET"
+  ],
+  "/lab/canon/debt_index": [
+    "GET"
+  ],
+  "/lab/os/health": [
+    "GET"
+  ],
+  "/lab/shadow_repair/propose": [
+    "POST"
+  ],
+  "/agms/foundation": [
+    "GET",
+    "HEAD"
+  ],
+  "/agms/ledger/tail": [
+    "GET"
+  ],
+  "/agms/intelligence": [
+    "GET"
+  ],
+  "/agms/summary": [
+    "GET"
+  ],
+  "/agms/shadow/suggestions": [
+    "GET"
+  ],
+  "/agms/shadow/ledger/tail": [
+    "GET"
+  ],
+  "/agms/handoff": [
+    "GET"
+  ],
+  "/agms/handoff/ledger/tail": [
+    "GET"
+  ],
+  "/lab/autopilot/execute_from_handoff": [
+    "POST"
+  ],
+  "/events/latest": [
+    "GET"
+  ],
+  "/agms/thresholds": [
+    "GET"
+  ],
+  "/projection/report": [
+    "GET"
+  ],
+  "/immune/status": [
+    "GET"
+  ],
+  "/immune/tail": [
+    "GET"
+  ],
+  "/blackbox/status": [
+    "GET"
+  ],
+  "/blackbox/ledger/tail": [
+    "GET"
+  ],
+  "/blackbox/snapshots": [
+    "GET"
+  ],
+  "/lab/war_room/snapshot": [
+    "GET"
+  ],
+  "/lab/dojo/run": [
+    "POST"
+  ],
+  "/dojo/status": [
+    "GET"
+  ],
+  "/dojo/tail": [
+    "GET"
+  ],
+  "/lab/tuning/apply": [
+    "POST"
+  ],
+  "/tuning/status": [
+    "GET"
+  ],
+  "/tuning/tail": [
+    "GET"
+  ],
+  "/elite/explain/status": [
+    "GET"
+  ],
+  "/elite/os/snapshot": [
+    "GET"
+  ],
+  "/elite/ritual/{ritual_id}": [
+    "GET"
+  ],
+  "/elite/ritual": [
+    "GET"
+  ],
+  "/elite/script/first_interaction": [
+    "GET"
+  ],
+  "/elite/context/status": [
+    "GET"
+  ],
+  "/elite/what_changed": [
+    "GET"
+  ],
+  "/elite/micro_briefing/open": [
+    "GET"
+  ],
+  "/elite/agms/recall": [
+    "GET"
+  ],
+  "/lab/watchlist/log": [
+    "POST"
+  ],
+  "/lab/watchlist/log/tail": [
+    "GET"
+  ],
+  "/on_demand/context": [
+    "GET"
+  ],
+  "/elite/chat": [
+    "POST"
+  ],
+  "/elite/state": [
+    "GET"
+  ],
+  "/elite/reflection": [
+    "POST"
+  ],
+  "/elite/settings": [
+    "POST"
+  ],
+  "/healthz": [
+    "GET"
+  ],
+  "/readyz": [
+    "GET"
+  ],
+  "/lab/healthz": [
+    "GET"
+  ],
+  "/lab/readyz": [
+    "GET"
+  ],
+  "/universe": [
+    "GET"
+  ],
+  "/lab/os/iron/lkg": [
+    "GET"
+  ],
+  "/lab/os/iron/decision_path": [
+    "GET"
+  ],
+  "/lab/os/iron/lock_reason": [
+    "GET"
+  ],
+  "/lab/os/self_heal/coverage": [
+    "GET"
+  ],
+  "/lab/evidence_summary": [
+    "GET"
+  ],
+  "/lab/macro_context": [
+    "GET"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+    "widget": "CoherenceQuartetCard",
+    "path": "market_sniper_app/lib/widgets/command_center/coherence_quartet_card.dart",
+    "props": {
+        "tier": "CommandCenterTier (enum: free, plus, elite)",
+        "quartetData": "List<Map<String, dynamic>> (Optional, defaults to Mock)",
+        "onUnlockTap": "VoidCallback (Optional)"
+    },
+    "states": {
+        "FREE": {
+            "visual": "Heavy Frost (sigma 10)",
+            "chips_visible": false,
+            "cta": "Unlock Command Center (Center)",
+            "interaction": "Locked"
+        },
+        "PLUS": {
+            "visual": "Partial Visibility (Top 1 Pos / Top 1 Neg)",
+            "chips_visible": "Partial (Index 0, 2)",
+            "cta": "None (Hidden chips are blurred)",
+            "interaction": "Enabled for visible chips"
+        },
+        "ELITE": {
+            "visual": "Full Visibility (4 Quadrants)",
+            "chips_visible": "All (4)",
+            "cta": "None",
+            "interaction": "Full Tooltips"
+        }
+    },
+    "visuals": {
+        "pos_color": "AppColors.neonCyan",
+        "neg_color": "AppColors.marketBear",
+        "background": "AppColors.surface1",
+        "shadow": "AppColors.bgPrimary (withValues alpha 0.3)"
+    },
+    "tooltip": {
+        "widget": "CoherenceQuartetTooltip",
+        "contract": [
+            "Symbol",
+            "Score",
+            "Why Headline",
+            "Evidence List",
+            "Risk Box"
+        ]
+    }
+}

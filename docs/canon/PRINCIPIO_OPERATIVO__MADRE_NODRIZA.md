@@ -306,20 +306,21 @@ Founder-only
 No es estética.
 Es mando.
 
-13. HUMAN MODE (ACCESIBILIDAD)
+13. HUMAN-FIRST LAW (HF-1)
 
-Human Mode:
+El sistema no pregunta "¿Quieres modo humano?".
+El sistema ES humano por defecto.
 
-no cambia hechos
+Jerarquía de Comunicación (Public Surfaces):
 
-no suaviza incertidumbre
+1. Benefit/Outcome (Header)
+2. Engine Name (Subtitle/Tag)
+3. Raw Metric (Detail/Tooltip)
 
-no agrega emoción
+La complejidad técnica es secundaria, no oculta.
+El "Human Mode" no es un toggle, es la realidad pública del sistema.
 
-Solo traduce:
-
-Institucional → Claro
-Claro → Honesto
+(Excepción: War Room & Founder Tools mantienen Technical-First)
 
 14. MONETIZACIÓN (SHADOW FIRST)
 

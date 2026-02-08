@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-02-06T20:26:22.136078",
+  "status": "PASS",
+  "baseline": {
+    "captured_at_utc": "2026-02-06T20:25:03.192133",
+    "unknown_count": 13,
+    "source_report_path": "outputs/proofs/D57_5_ZOMBIE_TRIAGE/zombie_report.json",
+    "last_decrease_at_utc": "2026-02-06T20:25:03.192133"
+  },
+  "current": {
+    "count": 13,
+    "timestamp": "2026-02-06T20:26:22.136995"
+  },
+  "check": {
+    "days_stagnant": 0,
+    "baseline_updated": false
+  }
+}

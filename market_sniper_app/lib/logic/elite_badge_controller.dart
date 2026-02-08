@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_null_aware_assignment, unnecessary_null_in_if_null_operators, invariant_booleans, unnecessary_type_check
 import 'dart:async';
 import 'package:flutter/material.dart'; // For Color
+import '../theme/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import '../services/notification_service.dart';
 import 'api_client.dart';
@@ -23,7 +24,7 @@ class EliteBadgeController extends ChangeNotifier {
 
   bool get hasBadge => _hasBadge;
   String? get badgeText => _badgeText;
-  Color? get badgeColor => _badgeColor ?? const Color(0xFF00E5FF);
+  Color? get badgeColor => _badgeColor ?? AppColors.neonCyan;
   String? get contextualHint => _contextualHint;
   int? get freeWindowCountdown => _freeWindowCountdown;
 

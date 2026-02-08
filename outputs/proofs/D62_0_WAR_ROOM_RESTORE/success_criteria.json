@@ -1,0 +1,13 @@
+{
+    "war_room_on": {
+        "min_active_tiles": 5,
+        "required_tiles_state": "Visual state other than generic UNAVAILABLE (can be Live, Stale, or detailed Error)",
+        "banner": "Must NOT list 'All Systems Missing'",
+        "consistency": "Fetch age/coverage matches backend"
+    },
+    "probes": {
+        "ctx": "Must log BaseURL and Founder State",
+        "net": "Must attempt connection to endpoints and log Status/Latency",
+        "parse": "Must log specific key failures if parse fails"
+    }
+}

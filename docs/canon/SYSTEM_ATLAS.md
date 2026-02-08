@@ -17,7 +17,7 @@
         - Root `/healthz` is unreliable due to Google Frontend robot.
     - *Features*:
         - **Autofix Control Plane**: Orchestrates healing (Tier 1).
-        - **Housekeeper**: Manages data hygiene.
+        - **Housekeeper**: Manages data hygiene (Wired: `/lab/os/housekeeper/run`).
         - **Shadow Repair**: Generates/Applies Patches (Propose/Surgeon).
         - **War Room**: Real-time observability interface.
     - *Auth*: Service Account `ms-api-sa`.

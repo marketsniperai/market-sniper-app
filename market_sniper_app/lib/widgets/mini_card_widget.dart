@@ -93,18 +93,18 @@ class MiniCardWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    _buildGaugeSegment(context, true, Colors.red),
+                    _buildGaugeSegment(context, true, AppColors.stateLocked),
                     const SizedBox(width: 4),
-                    _buildGaugeSegment(context, reliability != 'LOW', Colors.yellow),
+                    _buildGaugeSegment(context, reliability != 'LOW', AppColors.stateStale),
                     const SizedBox(width: 4),
-                    _buildGaugeSegment(context, reliability == 'HIGH', Colors.green),
+                    _buildGaugeSegment(context, reliability == 'HIGH', AppColors.stateLive),
                   ],
                 ),
                 const SizedBox(height: 8),
                 Text(
                   reliability, 
                   style: AppTypography.label(context).copyWith(
-                    color: reliability == 'HIGH' ? Colors.green : (reliability == 'LOW' ? Colors.red : Colors.yellow),
+                    color: reliability == 'HIGH' ? AppColors.stateLive : (reliability == 'LOW' ? AppColors.stateLocked : AppColors.stateStale),
                     fontWeight: FontWeight.bold
                   )
                 ),
@@ -201,7 +201,7 @@ class MiniCardWidget extends StatelessWidget {
          borderRadius: BorderRadius.circular(4),
          child: BackdropFilter(
            filter: import_ui.ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-           child: Container(color: Colors.transparent),
+           child: Container(color: AppColors.transparent),
          ),
        ),
      );

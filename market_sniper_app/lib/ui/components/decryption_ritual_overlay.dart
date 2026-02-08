@@ -15,7 +15,7 @@ class DecryptionRitualOverlay extends StatefulWidget {
     return await showGeneralDialog<T>(
       context: context,
       barrierDismissible: false,
-      barrierColor: Colors.black, // Pure black overlay
+      barrierColor: AppColors.bgPrimary, // Pure black overlay
       transitionDuration: const Duration(milliseconds: 300),
       pageBuilder: (ctx, anim1, anim2) {
         return DecryptionRitualOverlay(task: task);
@@ -172,7 +172,7 @@ class _DecryptionRitualOverlayState extends State<DecryptionRitualOverlay> {
   Widget build(BuildContext context) {
     // Full screen scaffold logic
     return Scaffold(
-      backgroundColor: Colors.black, // Explicitly black
+      backgroundColor: AppColors.bgPrimary, // Explicitly black
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -208,7 +208,7 @@ class _DecryptionRitualOverlayState extends State<DecryptionRitualOverlay> {
                 width: double.infinity,
                 color: AppColors.neonCyan.withValues(alpha: 0.3),
                 child: const LinearProgressIndicator(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: AppColors.transparent,
                   color: AppColors.neonCyan,
                 ),
               ),

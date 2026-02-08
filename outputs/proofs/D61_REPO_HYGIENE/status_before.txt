@@ -1,0 +1,311 @@
+AM .github/workflows/ewimsc.yml
+M  PROJECT_STATE.md
+MM backend/api_server.py
+A  backend/requirements.txt
+ M docs/canon/ANTIGRAVITY_CONSTITUTION.md
+M  docs/canon/AUTH_AND_GATES.md
+A  docs/canon/D59_UNKNOWN_BACKLOG.json
+M  docs/canon/ENDPOINT_CONTRACT.md
+A  docs/canon/EWIMSC.md
+A  docs/canon/GHOST_LEDGER.md
+ M docs/canon/MAP_CORE.md
+M  docs/canon/OMSR_WAR_CALENDAR__35_55_DAYS.md
+A  docs/canon/OS_FEATURES.md
+M  docs/canon/OS_MODULES.md
+ M docs/canon/PRINCIPIO_OPERATIVO__MADRE_NODRIZA.md
+M  docs/canon/SYSTEM_ATLAS.md
+M  docs/canon/SYSTEM_LAWS.md
+A  docs/canon/UNKNOWN_BASELINE.json
+A  docs/canon/UNKNOWN_TREND_BASELINE.json
+A  docs/canon/ZOMBIE_LEDGER.md
+A  docs/canon/master_context_pack.md
+A  docs/seals/SEAL_D61_X_02_TOOLTIP_EXPANSION.md
+A  docs/seals/SEAL_D61_X_COMMAND_CENTER_VISUAL_SEAL.md
+M  market_sniper_app/lib/config/app_config.dart
+ M market_sniper_app/lib/logic/elite_badge_controller.dart
+ M market_sniper_app/lib/logic/elite_badge_resolver.dart
+ M market_sniper_app/lib/repositories/war_room_repository.dart
+M  market_sniper_app/lib/screens/command_center_screen.dart
+ M market_sniper_app/lib/screens/menu_screen.dart
+ M market_sniper_app/lib/screens/war_room_screen.dart
+ M market_sniper_app/lib/services/api_client.dart
+A  market_sniper_app/lib/services/external_support/capital_activity_provider.dart
+A  market_sniper_app/lib/services/external_support/capital_activity_repository.dart
+A  market_sniper_app/lib/services/external_support/mock_capital_activity_provider.dart
+ M market_sniper_app/lib/services/human_mode_service.dart
+ M market_sniper_app/lib/theme/app_colors.dart
+ M market_sniper_app/lib/theme/app_typography.dart
+ M market_sniper_app/lib/ui/components/decryption_ritual_overlay.dart
+A  market_sniper_app/lib/widgets/command_center/coherence_quartet_card.dart
+A  market_sniper_app/lib/widgets/command_center/coherence_quartet_tooltip.dart
+A  market_sniper_app/lib/widgets/command_center/market_pressure_orb.dart
+ M market_sniper_app/lib/widgets/elite/elite_reflection_modal.dart
+ M market_sniper_app/lib/widgets/elite/elite_ritual_modal.dart
+ M market_sniper_app/lib/widgets/elite_interaction_sheet.dart
+ M market_sniper_app/lib/widgets/mini_card_widget.dart
+ M market_sniper_app/lib/widgets/recent_dossier_rail.dart
+ M market_sniper_app/lib/widgets/time_traveller_chart.dart
+ M market_sniper_app/lib/widgets/war_room/war_room_tile_meta.dart
+ M market_sniper_app/lib/widgets/war_room/zones/alpha_strip.dart
+ M market_sniper_app/lib/widgets/war_room/zones/console_gates.dart
+ M market_sniper_app/lib/widgets/war_room/zones/global_command_bar.dart
+ M market_sniper_app/lib/widgets/war_room_tile.dart
+ M market_sniper_app/pubspec.yaml
+A  market_sniper_app/test/command_center_proof_test.dart
+ M outputs/engine/extended_overlay_live.json
+ M outputs/ledgers/reliability_ledger_global.jsonl
+ M outputs/ledgers/system_events.jsonl
+ M outputs/misfire_report.json
+ M outputs/os/ledger/computation_ledger.json
+ M outputs/os/projection/projection_report.json
+ M outputs/os/projection/projection_report_daily.json
+ M outputs/os/state_snapshot.json
+A  outputs/proofs/D56_AUDIT_CHUNK_D00_D10/audit_matrix.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D00_D10/claim_list.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D00_D10/gate0_toolchain.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D00_D10/patch_plan.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D00_D10/verify_chunk_01.py
+A  outputs/proofs/D56_AUDIT_CHUNK_D11_D20/chunk_summary.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D11_D20/claim_list.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D11_D20/gate0_toolchain.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D21_D30/chunk_summary.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D21_D30/claim_list.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D21_D30/gate0_toolchain.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D31_D40/chunk_summary.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D31_D40/claim_list.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D31_D40/gate0_toolchain.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D41_D50/chunk_summary.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D41_D50/claim_list.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D41_D50/gate0_toolchain.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D51_D56/audit_matrix.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D51_D56/claim_list.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D51_D56/patch_plan.md
+A  outputs/proofs/D56_AUDIT_CHUNK_D51_D56/top_violations.md
+A  outputs/proofs/D56_EWIMSC/core_verification_results.json
+A  outputs/proofs/D56_EWIMSC/gate0_toolchain.md
+A  outputs/proofs/D56_EWIMSC/raw_claims.json
+A  outputs/proofs/D56_EWIMSC/verify_ewimsc_core.py
+A  outputs/proofs/D56_GLOBAL_AUDIT_EVIDENCE/runtime_failure_log.md
+A  outputs/proofs/D56_GLOBAL_AUDIT_MASTER_MATRIX.md
+A  outputs/proofs/D56_GLOBAL_AUDIT_MATRIX.md
+A  outputs/proofs/D56_HK_0_HOUSEKEEPER_INTEL_REPORT.md
+A  outputs/proofs/D57_4_ZOMBIE_SCAN/zombie_report.json
+A  outputs/proofs/D57_5_ZOMBIE_TRIAGE/unknown_gate_report.json
+A  outputs/proofs/D57_5_ZOMBIE_TRIAGE/zombie_report.json
+A  outputs/proofs/D57_7_WIRING_PACK/WIRING_PACK.json
+A  outputs/proofs/D57_7_WIRING_PACK/WIRING_PACK.md
+A  outputs/proofs/D57_7_WIRING_PACK/WIRING_PACK_NOTEBOOKLM.txt
+A  outputs/proofs/D57_8_WIRING_PACK/WIRING_PACK.md
+A  outputs/proofs/D57_8_WIRING_PACK/WIRING_PACK_NOTEBOOKLM.txt
+A  outputs/proofs/D57_8_WIRING_PACK/wiring_pack.json
+A  outputs/proofs/D57_9_UNKNOWN_ZOMBIE_PLAN/D58_SEQUENCE_PLAN.md
+A  outputs/proofs/D57_9_UNKNOWN_ZOMBIE_PLAN/NOTEBOOKLM_UNKNOWN_ZOMBIES.txt
+A  outputs/proofs/D57_9_UNKNOWN_ZOMBIE_PLAN/UNKNOWN_ZOMBIE_COUNTS.md
+A  outputs/proofs/D57_9_UNKNOWN_ZOMBIE_PLAN/unknown_zombie_resolution.json
+A  outputs/proofs/D58_2_UNKNOWN_INVENTORY/unknown_inventory.json
+A  outputs/proofs/D58_2_UNKNOWN_INVENTORY/unknown_inventory.md
+A  outputs/proofs/D58_3_UNKNOWN_WIRING/wiring_logs.txt
+A  outputs/proofs/D58_3_UNKNOWN_WIRING/wiring_matrix.json
+A  outputs/proofs/D58_3_UNKNOWN_WIRING/wiring_matrix.md
+A  outputs/proofs/D58_3_UNKNOWN_WIRING/wiring_smoke_report.json
+A  outputs/proofs/D58_3_UNKNOWN_WIRING/wiring_smoke_report.md
+A  outputs/proofs/D58_3_UNKNOWN_WIRING/wiring_verdict.json
+A  outputs/proofs/D58_4_PUBLIC_DECISIONS/public_candidates.json
+A  outputs/proofs/D58_4_PUBLIC_DECISIONS/public_promotion_report.md
+A  outputs/proofs/D58_5_ELITE_GATING/elite_negative_report.json
+A  outputs/proofs/D58_5_ELITE_GATING/elite_sensitive_endpoints.json
+A  outputs/proofs/D58_6_UNKNOWN_TREND/unknown_weekly_gate_report.json
+A  outputs/proofs/D58_X_RELEASE_GATE/release_unknown_zero_gate_report.json
+A  outputs/proofs/D59_DECISION_PACK/d59_decision_pack.json
+A  outputs/proofs/D59_DECISION_PACK/d59_decision_pack.md
+A  outputs/proofs/D60_1_COMMAND_CENTER/backend_routes.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/backend_surface.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/canon_routes.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/command_center_inventory.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/command_center_inventory.md
+A  outputs/proofs/D60_1_COMMAND_CENTER/frontend_endpoint_calls.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/frontend_surface.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/frontend_surfaces.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/security_probe_report.json
+A  outputs/proofs/D60_1_COMMAND_CENTER/verification_report.json
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/backend_routes.json
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/canon_routes.json
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/frontend_endpoint_inventory.json
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/ghost_endpoints.json
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/ghost_endpoints.md
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/ghost_endpoints_by_file.json
+A  outputs/proofs/D60_2_FRONTEND_GHOST_SWEEP/ghost_summary.json
+A  outputs/proofs/D60_3_GHOST_REMEDIATION/ghost_mapping.json
+A  outputs/proofs/D60_3_GHOST_REMEDIATION/ghost_triage.json
+A  outputs/proofs/D61_0_COMMAND_CENTER/command_center_blueprint.json
+A  outputs/proofs/D61_1_QUARTET_UI/widget_contract.json
+A  outputs/proofs/D61_2_TIERS/discipline_counter_sim.json
+A  outputs/proofs/D61_2_TIERS/gating_matrix.json
+A  outputs/proofs/D61_3_COMMAND_CENTER_REWIRE/paths.json
+A  outputs/proofs/D61_3_POLISH/scope_files.json
+A  outputs/proofs/D61_3_POLISH/token_manifest.json
+A  outputs/proofs/D61_3_POLISH/token_violations.json
+A  outputs/proofs/D61_3_POLISH/verification_report.json
+A  outputs/proofs/D61_X_02_TOOLTIP/contract_example_internal_only.json
+A  outputs/proofs/D61_X_02_TOOLTIP/contract_example_with_external_stub.json
+A  outputs/proofs/D61_X_02_TOOLTIP/tooltip_contract.json
+A  outputs/proofs/D61_X_03_LAYOUT/overflow_checklist.md
+A  outputs/proofs/D61_X_03_LAYOUT/quartet_layout_contract.json
+A  outputs/proofs/D61_X_04_EXTERNAL_PLUG/external_support_contract.json
+A  outputs/proofs/D61_X_05_MARKET_TILT/market_tilt_contract.json
+A  outputs/proofs/D61_X_VISUAL/audit_visual_issues.json
+A  outputs/proofs/D61_X_VISUAL/command_center_palette_contract.json
+A  outputs/proofs/D61_X_VISUAL/typography_contract.json
+A  outputs/proofs/D62_0_WAR_ROOM_RESTORE/probe_plan.json
+A  outputs/proofs/D62_0_WAR_ROOM_RESTORE/success_criteria.json
+A  outputs/proofs/D62_0_WAR_ROOM_RESTORE/war_room_surface_backend.json
+A  outputs/proofs/D62_0_WAR_ROOM_RESTORE/war_room_surface_frontend.json
+A  outputs/proofs/D62_0_WAR_ROOM_RESTORE/war_room_wiring_map.json
+M  outputs/seals/SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md
+M  outputs/seals/SEAL_CANON_REFRESH_POST_D56_01_10.md
+M  outputs/seals/SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md
+M  outputs/seals/SEAL_D56_01_1_USP_FRONTEND_BUILD_RESTORE.md
+M  outputs/seals/SEAL_D56_01_2A_FOUNDER_KEY_WIRING_MAP_AND_FIX.md
+M  outputs/seals/SEAL_D56_01_2B_BACKEND_KEY_MATCH_FIX.md
+M  outputs/seals/SEAL_D56_01_2C_DEV_RITUAL_SKIP_VERIFICATION.md
+M  outputs/seals/SEAL_D56_01_3_USP_SINGLE_CALL_AND_TILE_MATERIALIZATION.md
+M  outputs/seals/SEAL_D56_01_4_DEV_RITUAL_HARDENING.md
+M  outputs/seals/SEAL_D56_01_5_WARROOM_SNAPSHOT_ONLY.md
+M  outputs/seals/SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md
+M  outputs/seals/SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md
+M  outputs/seals/SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md
+M  outputs/seals/SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md
+M  outputs/seals/SEAL_D56_01_UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION.md
+A  outputs/seals/SEAL_D56_AUDIT_CHUNK_01_BLOCKER.md
+A  outputs/seals/SEAL_D56_AUDIT_CHUNK_D00_D10.md
+A  outputs/seals/SEAL_D56_AUDIT_CHUNK_D51_D56.md
+A  outputs/seals/SEAL_D56_EWIMSC_AUDIT_COMPLETE.md
+A  outputs/seals/SEAL_D56_HK_1_HOUSEKEEPER_WIRING_RESTORED.md
+A  outputs/seals/SEAL_D57_1_EWIMSC_CI_GATE_FULL_STEEL.md
+A  outputs/seals/SEAL_D57_2_EWIMSC_NEGATIVE_PACK.md
+A  outputs/seals/SEAL_D57_3_EWIMSC_CONTRACT_FREEZE.md
+A  outputs/seals/SEAL_D57_4_EWIMSC_ZOMBIE_SCAN_REPORT.md
+A  outputs/seals/SEAL_D57_5_EWIMSC_ZOMBIE_TRIAGE_FULL_STEEL.md
+A  outputs/seals/SEAL_D57_6_1_EWIMSC_LAB_INTERNAL_NO_TIMEOUT_FIX.md
+A  outputs/seals/SEAL_D57_7_WIRING_PACK_FULL_CABLE_MAP.md
+A  outputs/seals/SEAL_D57_8_WIRING_PACK_EXPORT.md
+A  outputs/seals/SEAL_D57_9_UNKNOWN_ZOMBIE_RESOLUTION_PLAN.md
+A  outputs/seals/SEAL_D57_EWIMSC_SINGLE_HARNESS.md
+A  outputs/seals/SEAL_D58_0_LAB_INTERNAL_FAIL_HIDDEN_POLICY.md
+A  outputs/seals/SEAL_D58_1_NO_NEW_UNKNOWN_GATE.md
+A  outputs/seals/SEAL_D58_2_UNKNOWN_PURPOSE_MAP.md
+A  outputs/seals/SEAL_D58_3B_UNKNOWN_SMOKE_PROOF_FIX.md
+A  outputs/seals/SEAL_D58_3_UNKNOWN_WIRING_RECOVERY.md
+A  outputs/seals/SEAL_D58_4_PUBLIC_PROMOTION_BATCH_2.md
+A  outputs/seals/SEAL_D58_5_ELITE_GATING_FULL_STEEL.md
+A  outputs/seals/SEAL_D58_6_UNKNOWN_WEEKLY_TREND_GATE.md
+A  outputs/seals/SEAL_D58_X_UNKNOWN_ZERO_RELEASE_GATE.md
+A  outputs/seals/SEAL_D59_1_PUBLIC_PROMOTION_BATCH_A.md
+A  outputs/seals/SEAL_D59_2_LAB_INTERNAL_PROMOTION_BATCH_B.md
+A  outputs/seals/SEAL_D59_3_ELITE_CLASSIFICATION_BATCH_C.md
+A  outputs/seals/SEAL_D59_5_ZERO_UNKNOWN_VICTORY.md
+A  outputs/seals/SEAL_D59_CONTEXT_PACK_MASTER.md
+A  outputs/seals/SEAL_D60_1B_COMMAND_CENTER_INVENTORY_TRUTH.md
+A  outputs/seals/SEAL_D60_2_FRONTEND_GHOST_SWEEP.md
+A  outputs/seals/SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md
+A  outputs/seals/SEAL_D61_0_COMMAND_CENTER_MANIFEST.md
+A  outputs/seals/SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md
+A  outputs/seals/SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md
+A  outputs/seals/SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md
+A  outputs/seals/SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md
+A  outputs/seals/SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md
+A  outputs/seals/SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md
+A  outputs/seals/SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md
+A  outputs/seals/SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md
+A  outputs/seals/SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md
+A  outputs/seals/SEAL_D61_X_02_COPY_AND_HF1_LAW.md
+A  outputs/seals/SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md
+A  outputs/seals/SEAL_D61_X_03_TOOLTIP_EXPANSION.md
+A  outputs/seals/SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md
+A  outputs/seals/SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md
+A  outputs/seals/SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md
+A  outputs/seals/SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md
+A  outputs/seals/SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md
+A  outputs/seals/SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md
+A  outputs/seals/SEAL_D61_X_06_MARKET_PRESSURE_ORB.md
+A  tools/audit/detect_ghosts.py
+A  tools/audit/generate_ewimsc_registry.py
+A  tools/d60/d60_1b_inventory.py
+A  tools/d60/d60_1b_probe.py
+A  tools/d60/frontend_ghost_sweep.py
+A  tools/d60/generate_inventory_map.py
+A  tools/d60/map_ghosts.py
+A  tools/d60/scan_backend_surface.py
+A  tools/d60/scan_frontend_surface.py
+A  tools/d60/triage_ghosts.py
+A  tools/ewimsc/contracts/batch_a.schema.json
+A  tools/ewimsc/contracts/context_envelope.schema.json
+A  tools/ewimsc/contracts/contract__agms_summary__v1.schema.json
+A  tools/ewimsc/contracts/contract__agms_thresholds_active__v1.schema.json
+A  tools/ewimsc/contracts/contract__efficacy__v1.schema.json
+A  tools/ewimsc/contracts/contract__get_economic_calendar__v1.schema.json
+A  tools/ewimsc/contracts/contract__get_on_demand_context__v1.schema.json
+A  tools/ewimsc/contracts/contract__options_report__v1.schema.json
+A  tools/ewimsc/contracts/contract__os_state_snapshot__v1.schema.json
+A  tools/ewimsc/contracts/contract__overlay_live__v1.schema.json
+A  tools/ewimsc/contracts/contract__sunday_setup__v1.schema.json
+A  tools/ewimsc/contracts/contract__voice_state__v1.schema.json
+A  tools/ewimsc/contracts/dashboard_envelope.schema.json
+A  tools/ewimsc/contracts/pulse.schema.json
+A  tools/ewimsc/d59_generate_decision_pack.py
+A  tools/ewimsc/ewimsc_ci.ps1
+A  tools/ewimsc/ewimsc_core_harness.py
+A  tools/ewimsc/ewimsc_elite_negative_suite.py
+A  tools/ewimsc/ewimsc_release_unknown_zero_gate.py
+A  tools/ewimsc/ewimsc_run.ps1
+A  tools/ewimsc/ewimsc_smoke_unknowns.py
+A  tools/ewimsc/ewimsc_smoke_unknowns_deterministic.py
+A  tools/ewimsc/ewimsc_unknown_gate.py
+A  tools/ewimsc/ewimsc_unknown_weekly_gate.py
+A  tools/ewimsc/ewimsc_zombie_scan.py
+A  tools/ewimsc/wiring_pack/generate_d57_8_export.py
+A  tools/ewimsc/wiring_pack/generate_d57_9_plan.py
+A  tools/ewimsc/wiring_pack/generate_d58_2_inventory.py
+A  tools/ewimsc/wiring_pack/generate_d58_3_wiring.py
+A  tools/ewimsc/wiring_pack/generate_wiring_pack.py
+A  tools/ewimsc/zombie_allowlist.json
+ D verification.log
+?? analysis_bar.txt
+?? analysis_bar_final.txt
+?? analysis_final.txt
+?? analysis_fix.txt
+?? analysis_log.txt
+?? analysis_log_v2.txt
+?? analysis_output.txt
+?? analysis_output_2.txt
+?? backend/security/
+?? docs/canon/COMMAND_CENTER_CLEANSE.md
+?? docs/canon/COMMAND_CENTER_MANIFEST.md
+?? docs/canon/COMMAND_CENTER_TIERS.md
+?? docs/canon/COMMAND_CENTER_WIDGETS/
+?? integration_output.txt
+?? market_sniper_app/lib/models/command_center/
+?? market_sniper_app/lib/services/command_center/
+?? market_sniper_app/lib/widgets/command_center/discipline_counter.dart
+?? market_sniper_app/test/war_room_probe_test_d62.dart
+?? market_sniper_app/test_fail_log.txt
+?? market_sniper_app/test_output.txt
+?? outputs/cache/on_demand/SPY_DAILY_20260206_19.json
+?? outputs/config/
+?? outputs/engine/news_digest.json
+?? outputs/on_demand_public/SPY/DAILY/20260206_19.json
+?? outputs/os/on_demand_usage_ledger.jsonl
+?? outputs/os/os_explain_router_status.json
+?? outputs/proofs/D60_1_COMMAND_CENTER/flutter_chrome_build_ok.txt
+?? outputs/proofs/D61_3_COMMAND_CENTER_REWIRE/before_after_notes.md
+?? outputs/proofs/D61_3_POLISH/before_after_summary.md
+?? outputs/proofs/D61_REPO_HYGIENE/
+?? outputs/proofs/D61_X_VISUAL/layout_proof.md
+?? outputs/proofs/D61_X_VISUAL/visual_diff_checklist.md
+?? tools/d61/
+?? verification_d60_debug.txt
+?? verification_d60_debug_v2.txt
+?? verification_error.txt
+?? verification_error_v2.txt
+?? verification_error_v3.txt
+?? verification_error_v4.txt

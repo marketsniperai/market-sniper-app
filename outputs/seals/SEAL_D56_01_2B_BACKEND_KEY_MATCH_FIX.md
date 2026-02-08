@@ -32,9 +32,7 @@ Trace showed `FOUNDER_BUILD=TRUE`, implying `is_founder_mode` was active, but th
 -   `tools/dev_ritual.ps1` (Key Injection Logic Updated)
 
 ## Pending Closure Hook
-
-Resolved Pending Items:
-- [ ] (None)
-
-New Pending Items:
-- [ ] (None)
+- Resolved Pending Items:
+  - None (Legacy Seal Retrofit)
+- New Pending Items:
+  - None

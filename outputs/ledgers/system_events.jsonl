@@ -2,3 +2,5 @@
 {"timestamp_utc": "2026-02-05T17:12:40.899799", "event_type": "POLICY_BLOCK", "severity": "WARN", "symbol": "SPY", "timeframe": "DAILY", "details": {"source": "GLOBAL_FAILOVER"}, "version": "1.0"}
 {"timestamp_utc": "2026-02-05T17:33:02.030070", "event_type": "POLICY_BLOCK", "severity": "WARN", "symbol": "SPY", "timeframe": "DAILY", "details": {"source": "GLOBAL_FAILOVER"}, "version": "1.0"}
 {"timestamp_utc": "2026-02-05T17:52:44.677589", "event_type": "POLICY_BLOCK", "severity": "WARN", "symbol": "SPY", "timeframe": "DAILY", "details": {"source": "GLOBAL_FAILOVER"}, "version": "1.0"}
+{"timestamp_utc": "2026-02-06T19:33:10.924902", "event_type": "PROJECTION_COMPUTED", "severity": "INFO", "symbol": "SPY", "timeframe": "DAILY", "details": {"state": "INSUFFICIENT_DATA"}, "version": "1.0"}
+{"timestamp_utc": "2026-02-06T19:33:33.140373", "event_type": "CACHE_HIT_GLOBAL", "severity": "INFO", "symbol": "SPY", "timeframe": "DAILY", "details": {"source": "GLOBAL"}, "version": "1.0"}

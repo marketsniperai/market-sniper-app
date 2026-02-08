@@ -1,0 +1,580 @@
+[
+  {
+    "normalized_path": "/agms/handoff/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_handoff_ledger_tail",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/agms/intelligence",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_intelligence",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/agms/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_ledger_tail",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/agms/shadow/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_shadow_ledger_tail",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/agms/shadow/suggestions",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_shadow_suggestions",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/agms/summary",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_summary",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/agms/thresholds",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "agms_thresholds_active",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/autofix",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_autofix_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/blackbox/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "blackbox_ledger",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/blackbox/snapshots",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "blackbox_snapshots",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/blackbox/status",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "blackbox_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/dojo/status",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "dojo_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/dojo/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "dojo_tail",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/economic_calendar",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_economic_calendar",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/efficacy",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "efficacy",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/agms/recall",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_elite_agms_recall",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/chat",
+    "methods": [
+      "POST"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "elite_chat_endpoint",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/context/status",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_elite_context_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/explain/status",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "elite_explain_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/micro_briefing/open",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_elite_micro_briefing_open",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/os/snapshot",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "elite_os_snapshot",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/reflection",
+    "methods": [
+      "POST"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "submit_reflection",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/ritual",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "elite_ritual_artifact_alias",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/ritual/{ritual_id}",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "elite_ritual_artifact",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/script/first_interaction",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "elite_first_interaction_script",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/settings",
+    "methods": [
+      "POST"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "update_settings",
+    "behavior_type": "WRITE_STATE",
+    "reads_artifacts": [
+      "JSON_READ"
+    ],
+    "writes_artifacts": [
+      "JSON_WRITE"
+    ],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/state",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_elite_state",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/elite/what_changed",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_elite_what_changed",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/events/latest",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_latest_events",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/evidence_summary",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "evidence_summary",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/immune/status",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "immune_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/immune/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "immune_tail",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/misfire",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "misfire",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/on_demand/context",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "get_on_demand_context",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/options_report",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "options_report",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/os/state_snapshot",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "os_state_snapshot",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/overlay_live",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "overlay_live",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/sunday_setup",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "sunday_setup",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/tuning/status",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "tuning_status",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/tuning/tail",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "tuning_tail",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  },
+  {
+    "normalized_path": "/voice_state",
+    "methods": [
+      "GET"
+    ],
+    "suggestion": "review",
+    "handler_file": "backend\\api_server.py",
+    "handler_name": "voice_state",
+    "behavior_type": "COMPUTE_ON_DEMAND",
+    "reads_artifacts": [],
+    "writes_artifacts": [],
+    "external_deps": [],
+    "suggested_destiny": "LAB_INTERNAL"
+  }
+]

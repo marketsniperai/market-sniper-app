@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../theme/app_colors.dart';
 import '../../../models/war_room_snapshot.dart';
 import '../../war_room_tile.dart';
 import '../war_room_tile_meta.dart';
@@ -71,8 +72,8 @@ class AlphaStrip extends StatelessWidget {
       return SliverToBoxAdapter(
         child: Container(
           padding: const EdgeInsets.all(8),
-          color: Colors.white10,
-          child: Text("ALPHA ERROR: $e", style: const TextStyle(color: Colors.orange, fontSize: 10)),
+          color: AppColors.textPrimary.withOpacity(0.1),
+          child: Text("ALPHA ERROR: $e", style: TextStyle(color: AppColors.stateStale, fontSize: 10)),
         ),
       );
     }

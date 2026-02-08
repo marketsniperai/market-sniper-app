@@ -1,0 +1,261 @@
+{
+  "summary": {
+    "timestamp": "2026-02-06T19:33:34Z",
+    "total_tested": 41,
+    "skipped": 1,
+    "timeouts": 0,
+    "errors": 0,
+    "http_ok_count": 40,
+    "wiring_ok_log_count": 20,
+    "pass": true
+  },
+  "details": [
+    {
+      "path": "/agms/handoff/ledger/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/agms/intelligence",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 130
+    },
+    {
+      "path": "/agms/ledger/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 140
+    },
+    {
+      "path": "/agms/shadow/ledger/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/agms/shadow/suggestions",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 151
+    },
+    {
+      "path": "/agms/summary",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/agms/thresholds",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/autofix",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 175
+    },
+    {
+      "path": "/blackbox/ledger/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 140
+    },
+    {
+      "path": "/blackbox/snapshots",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/blackbox/status",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 129
+    },
+    {
+      "path": "/dojo/status",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 129
+    },
+    {
+      "path": "/dojo/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/economic_calendar",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 129
+    },
+    {
+      "path": "/efficacy",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/elite/agms/recall",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 129
+    },
+    {
+      "path": "/elite/chat",
+      "method": "POST",
+      "status": 200,
+      "latency_ms": 300
+    },
+    {
+      "path": "/elite/context/status",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/elite/explain/status",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 132
+    },
+    {
+      "path": "/elite/micro_briefing/open",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 129
+    },
+    {
+      "path": "/elite/os/snapshot",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 130
+    },
+    {
+      "path": "/elite/reflection",
+      "method": "POST",
+      "status": "SKIPPED",
+      "reason": "Complex Payload (500)",
+      "latency_ms": 0
+    },
+    {
+      "path": "/elite/ritual",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 230
+    },
+    {
+      "path": "/elite/ritual/test_ritual_id",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 149
+    },
+    {
+      "path": "/elite/script/first_interaction",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 130
+    },
+    {
+      "path": "/elite/settings",
+      "method": "POST",
+      "status": 200,
+      "latency_ms": 151
+    },
+    {
+      "path": "/elite/state",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 129
+    },
+    {
+      "path": "/elite/what_changed",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 151
+    },
+    {
+      "path": "/events/latest",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/evidence_summary",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/immune/status",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/immune/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 130
+    },
+    {
+      "path": "/misfire",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 135
+    },
+    {
+      "path": "/on_demand/context",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 149
+    },
+    {
+      "path": "/options_report",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 130
+    },
+    {
+      "path": "/os/state_snapshot",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 136
+    },
+    {
+      "path": "/overlay_live",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 132
+    },
+    {
+      "path": "/sunday_setup",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/tuning/status",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 128
+    },
+    {
+      "path": "/tuning/tail",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 147
+    },
+    {
+      "path": "/voice_state",
+      "method": "GET",
+      "status": 200,
+      "latency_ms": 141
+    }
+  ]
+}

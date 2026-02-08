@@ -1,0 +1,6 @@
+{
+    "command_center_screen": "c:/MSR/MarketSniperRepo/market_sniper_app/lib/screens/command_center_screen.dart",
+    "war_room_screen_founder": "c:/MSR/MarketSniperRepo/market_sniper_app/lib/screens/war_room_screen.dart",
+    "tier_enum_canonical": "c:/MSR/MarketSniperRepo/market_sniper_app/lib/models/command_center/command_center_tier.dart",
+    "rewire_status": "lazy_loaded_route"
+}

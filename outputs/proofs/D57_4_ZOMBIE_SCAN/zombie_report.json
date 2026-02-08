@@ -1,0 +1,740 @@
+{
+  "timestamp": "2026-02-05T21:27:38.520784",
+  "total_routes": 91,
+  "zombies": 91,
+  "routes": [
+    {
+      "path": "/aftermarket",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "aftermarket"
+    },
+    {
+      "path": "/agms/foundation",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_foundation"
+    },
+    {
+      "path": "/agms/handoff",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_handoff_latest"
+    },
+    {
+      "path": "/agms/handoff/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_handoff_ledger_tail"
+    },
+    {
+      "path": "/agms/intelligence",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_intelligence"
+    },
+    {
+      "path": "/agms/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_ledger_tail"
+    },
+    {
+      "path": "/agms/shadow/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_shadow_ledger_tail"
+    },
+    {
+      "path": "/agms/shadow/suggestions",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_shadow_suggestions"
+    },
+    {
+      "path": "/agms/summary",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_summary"
+    },
+    {
+      "path": "/agms/thresholds",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "agms_thresholds_active"
+    },
+    {
+      "path": "/autofix",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_autofix_status"
+    },
+    {
+      "path": "/blackbox/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "blackbox_ledger"
+    },
+    {
+      "path": "/blackbox/snapshots",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "blackbox_snapshots"
+    },
+    {
+      "path": "/blackbox/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "blackbox_status"
+    },
+    {
+      "path": "/briefing",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "briefing"
+    },
+    {
+      "path": "/context",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "ZOMBIE",
+      "name": "context"
+    },
+    {
+      "path": "/dashboard",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "ZOMBIE",
+      "name": "dashboard"
+    },
+    {
+      "path": "/dashboard",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "dashboard"
+    },
+    {
+      "path": "/dojo/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "dojo_status"
+    },
+    {
+      "path": "/dojo/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "dojo_tail"
+    },
+    {
+      "path": "/economic_calendar",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_economic_calendar"
+    },
+    {
+      "path": "/efficacy",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "efficacy"
+    },
+    {
+      "path": "/elite/agms/recall",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_elite_agms_recall"
+    },
+    {
+      "path": "/elite/chat",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "elite_chat_endpoint"
+    },
+    {
+      "path": "/elite/context/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_elite_context_status"
+    },
+    {
+      "path": "/elite/explain/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "elite_explain_status"
+    },
+    {
+      "path": "/elite/micro_briefing/open",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_elite_micro_briefing_open"
+    },
+    {
+      "path": "/elite/os/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "elite_os_snapshot"
+    },
+    {
+      "path": "/elite/reflection",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "submit_reflection"
+    },
+    {
+      "path": "/elite/ritual",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "elite_ritual_artifact_alias"
+    },
+    {
+      "path": "/elite/ritual/{ritual_id}",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "elite_ritual_artifact"
+    },
+    {
+      "path": "/elite/script/first_interaction",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "elite_first_interaction_script"
+    },
+    {
+      "path": "/elite/settings",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "update_settings"
+    },
+    {
+      "path": "/elite/state",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_elite_state"
+    },
+    {
+      "path": "/elite/what_changed",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_elite_what_changed"
+    },
+    {
+      "path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "events_latest"
+    },
+    {
+      "path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_latest_events"
+    },
+    {
+      "path": "/evidence_summary",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "evidence_summary"
+    },
+    {
+      "path": "/health_ext",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "ZOMBIE",
+      "name": "health_ext"
+    },
+    {
+      "path": "/healthz",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "healthz"
+    },
+    {
+      "path": "/immune/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "immune_status"
+    },
+    {
+      "path": "/immune/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "immune_tail"
+    },
+    {
+      "path": "/lab/autofix/execute",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "autofix_execute"
+    },
+    {
+      "path": "/lab/autopilot/execute_from_handoff",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "autopilot_execute"
+    },
+    {
+      "path": "/lab/canon/debt_index",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "canon_debt_index"
+    },
+    {
+      "path": "/lab/dojo/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "dojo_run"
+    },
+    {
+      "path": "/lab/healthz",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "lab_healthz"
+    },
+    {
+      "path": "/lab/misfire_autoheal",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "misfire_autoheal"
+    },
+    {
+      "path": "/lab/os/health",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "os_health_alias"
+    },
+    {
+      "path": "/lab/os/housekeeper/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "run_housekeeper"
+    },
+    {
+      "path": "/lab/os/housekeeper/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_housekeeper_status"
+    },
+    {
+      "path": "/lab/os/iron/drift",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "iron_drift"
+    },
+    {
+      "path": "/lab/os/iron/replay_integrity",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "iron_replay"
+    },
+    {
+      "path": "/lab/os/iron/state_history",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "iron_history"
+    },
+    {
+      "path": "/lab/os/iron/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "iron_status"
+    },
+    {
+      "path": "/lab/os/iron/timeline_tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "iron_timeline"
+    },
+    {
+      "path": "/lab/os/rollback",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "os_rollback"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/decision_path",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "autofix_decision_path"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "autofix_tier1_run"
+    },
+    {
+      "path": "/lab/os/self_heal/autofix/tier1/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "autofix_tier1_status"
+    },
+    {
+      "path": "/lab/os/self_heal/before_after",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_self_heal_before_after"
+    },
+    {
+      "path": "/lab/os/self_heal/findings",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_self_heal_findings"
+    },
+    {
+      "path": "/lab/os/self_heal/housekeeper/run",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "housekeeper_run_endpoint"
+    },
+    {
+      "path": "/lab/os/self_heal/housekeeper/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "housekeeper_status_endpoint"
+    },
+    {
+      "path": "/lab/readyz",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "lab_readyz"
+    },
+    {
+      "path": "/lab/replay/archive/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_replay_archive"
+    },
+    {
+      "path": "/lab/replay/day",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "replay_day"
+    },
+    {
+      "path": "/lab/run_pipeline",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "run_pipeline_endpoint"
+    },
+    {
+      "path": "/lab/shadow_repair/propose",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "shadow_repair_propose"
+    },
+    {
+      "path": "/lab/tuning/apply",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "tuning_apply"
+    },
+    {
+      "path": "/lab/war-room",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "war_room_alias_2"
+    },
+    {
+      "path": "/lab/war_room",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "status": "ZOMBIE",
+      "name": "war_room_dashboard"
+    },
+    {
+      "path": "/lab/war_room/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "war_room_snapshot"
+    },
+    {
+      "path": "/lab/warroom",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "war_room_alias_1"
+    },
+    {
+      "path": "/lab/watchlist/log",
+      "methods": [
+        "POST"
+      ],
+      "status": "ZOMBIE",
+      "name": "post_watchlist_log"
+    },
+    {
+      "path": "/lab/watchlist/log/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_watchlist_log_tail"
+    },
+    {
+      "path": "/macro_context",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "macro_context"
+    },
+    {
+      "path": "/misfire",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "misfire"
+    },
+    {
+      "path": "/news_digest",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "news_digest"
+    },
+    {
+      "path": "/on_demand/context",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "get_on_demand_context"
+    },
+    {
+      "path": "/options_context",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "options_context"
+    },
+    {
+      "path": "/options_report",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "options_report"
+    },
+    {
+      "path": "/os/state_snapshot",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "os_state_snapshot"
+    },
+    {
+      "path": "/overlay_live",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "overlay_live"
+    },
+    {
+      "path": "/projection/report",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "projection_report"
+    },
+    {
+      "path": "/pulse",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "pulse"
+    },
+    {
+      "path": "/readyz",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "readyz"
+    },
+    {
+      "path": "/sunday_setup",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "sunday_setup"
+    },
+    {
+      "path": "/tuning/status",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "tuning_status"
+    },
+    {
+      "path": "/tuning/tail",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "tuning_tail"
+    },
+    {
+      "path": "/voice_state",
+      "methods": [
+        "GET"
+      ],
+      "status": "ZOMBIE",
+      "name": "voice_state"
+    }
+  ]
+}

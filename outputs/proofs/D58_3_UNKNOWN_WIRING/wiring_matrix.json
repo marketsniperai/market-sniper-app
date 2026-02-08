@@ -1,0 +1,248 @@
+[
+  {
+    "path": "/agms/handoff/ledger/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/agms/intelligence",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/agms/ledger/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/agms/shadow/ledger/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/agms/shadow/suggestions",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/agms/summary",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/agms/thresholds",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/autofix",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/blackbox/ledger/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/blackbox/snapshots",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/blackbox/status",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/dojo/status",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/dojo/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/economic_calendar",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/efficacy",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/agms/recall",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/chat",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/context/status",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/explain/status",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/micro_briefing/open",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/os/snapshot",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/reflection",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/ritual",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/ritual/{ritual_id}",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/script/first_interaction",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/settings",
+    "strategy": "STRAT_D_GATED_WRITE",
+    "current_behavior": "WRITE_STATE",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/state",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/elite/what_changed",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/events/latest",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/evidence_summary",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/immune/status",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/immune/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/misfire",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/on_demand/context",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/options_report",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/os/state_snapshot",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/overlay_live",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/sunday_setup",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/tuning/status",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/tuning/tail",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  },
+  {
+    "path": "/voice_state",
+    "strategy": "STRAT_B_COMPUTE_TO_ARTIFACT",
+    "current_behavior": "COMPUTE_ON_DEMAND",
+    "primary_artifact": "TBD"
+  }
+]

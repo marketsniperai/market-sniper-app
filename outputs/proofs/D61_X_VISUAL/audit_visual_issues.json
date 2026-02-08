@@ -1,0 +1,32 @@
+[
+    {
+        "component": "CommandCenterScreen / Section Headers",
+        "issue": "Neon Overuse",
+        "details": "Section headers use Neon Cyan for text and divider lines. Divider opacity 0.3 is still visually noisy.",
+        "recommendation": "Switch divider to 'borderSubtle' (Blue-Grey). Keep Cyan for text but reduce letter spacing noise."
+    },
+    {
+        "component": "CoherenceQuartetCard / Visualization",
+        "issue": "Static State",
+        "details": "The 'Four Chambers' visualization is implemented as static Containers. No breathing, no size modulation.",
+        "recommendation": "Implement 'Living State' animation: separate AnimationController, size-by-score logic."
+    },
+    {
+        "component": "CoherenceQuartetCard / Chips",
+        "issue": "Ad-Hoc Styling",
+        "details": "Chips use 'ccSurfaceHigh' with 0.5 opacity and borders with 0.3 opacity. Inconsistent with 'Badge' styles in main screen.",
+        "recommendation": "Standardize on a 'Premium Tag' token in Palette Contract."
+    },
+    {
+        "component": "CommandCenterScreen / Badges",
+        "issue": "Legacy Badge Style",
+        "details": "_buildBadge uses 'ccAccent' with 0.15 opacity. Looks like a dev placeholder.",
+        "recommendation": "Update to 'Institutional Tag' style (Darker bg, thinner border, mono text)."
+    },
+    {
+        "component": "CommandCenterScreen / Typography",
+        "issue": "Contrast/Hierarchy",
+        "details": "'Institutional context snapshot' subtitle is 'textDisabled' (too faint). Focus Card 'Drivers' are 'monoBody' (Good) but bullets are 'ccAccent' '>' (Noisy).",
+        "recommendation": "Bump subtitle contrast. Switch bullets to neutral dot or pipe."
+    }
+]

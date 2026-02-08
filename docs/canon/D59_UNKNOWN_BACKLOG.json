@@ -1,0 +1,441 @@
+{
+  "locked_at": "D59_INIT",
+  "count": 31,
+  "routes": [
+    {
+      "normalized_path": "/agms/handoff/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/agms/handoff/ledger/tail"
+      ],
+      "endpoint_names": [
+        "agms_handoff_ledger_tail"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/agms/intelligence",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/agms/intelligence"
+      ],
+      "endpoint_names": [
+        "agms_intelligence"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/agms/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/agms/ledger/tail"
+      ],
+      "endpoint_names": [
+        "agms_ledger_tail"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/agms/shadow/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/agms/shadow/ledger/tail"
+      ],
+      "endpoint_names": [
+        "agms_shadow_ledger_tail"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/agms/shadow/suggestions",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/agms/shadow/suggestions"
+      ],
+      "endpoint_names": [
+        "agms_shadow_suggestions"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/autofix",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/autofix"
+      ],
+      "endpoint_names": [
+        "get_autofix_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/blackbox/ledger/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/blackbox/ledger/tail"
+      ],
+      "endpoint_names": [
+        "blackbox_ledger"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/blackbox/snapshots",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/blackbox/snapshots"
+      ],
+      "endpoint_names": [
+        "blackbox_snapshots"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/blackbox/status",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/blackbox/status"
+      ],
+      "endpoint_names": [
+        "blackbox_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/dojo/status",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/dojo/status"
+      ],
+      "endpoint_names": [
+        "dojo_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/dojo/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/dojo/tail"
+      ],
+      "endpoint_names": [
+        "dojo_tail"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/agms/recall",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/agms/recall"
+      ],
+      "endpoint_names": [
+        "get_elite_agms_recall"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/chat",
+      "methods": [
+        "POST"
+      ],
+      "original_paths": [
+        "/elite/chat"
+      ],
+      "endpoint_names": [
+        "elite_chat_endpoint"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/context/status",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/context/status"
+      ],
+      "endpoint_names": [
+        "get_elite_context_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/explain/status",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/explain/status"
+      ],
+      "endpoint_names": [
+        "elite_explain_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/micro_briefing/open",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/micro_briefing/open"
+      ],
+      "endpoint_names": [
+        "get_elite_micro_briefing_open"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/os/snapshot",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/os/snapshot"
+      ],
+      "endpoint_names": [
+        "elite_os_snapshot"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/reflection",
+      "methods": [
+        "POST"
+      ],
+      "original_paths": [
+        "/elite/reflection"
+      ],
+      "endpoint_names": [
+        "submit_reflection"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/ritual",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/ritual"
+      ],
+      "endpoint_names": [
+        "elite_ritual_artifact_alias"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/ritual/{ritual_id}",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/ritual/{ritual_id}"
+      ],
+      "endpoint_names": [
+        "elite_ritual_artifact"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/script/first_interaction",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/script/first_interaction"
+      ],
+      "endpoint_names": [
+        "elite_first_interaction_script"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/settings",
+      "methods": [
+        "POST"
+      ],
+      "original_paths": [
+        "/elite/settings"
+      ],
+      "endpoint_names": [
+        "update_settings"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/state",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/state"
+      ],
+      "endpoint_names": [
+        "get_elite_state"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/elite/what_changed",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/elite/what_changed"
+      ],
+      "endpoint_names": [
+        "get_elite_what_changed"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/events/latest",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/events/latest"
+      ],
+      "endpoint_names": [
+        "events_latest",
+        "get_latest_events"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/evidence_summary",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/evidence_summary"
+      ],
+      "endpoint_names": [
+        "evidence_summary"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/immune/status",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/immune/status"
+      ],
+      "endpoint_names": [
+        "immune_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/immune/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/immune/tail"
+      ],
+      "endpoint_names": [
+        "immune_tail"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/misfire",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/misfire"
+      ],
+      "endpoint_names": [
+        "misfire"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/tuning/status",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/tuning/status"
+      ],
+      "endpoint_names": [
+        "tuning_status"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    },
+    {
+      "normalized_path": "/tuning/tail",
+      "methods": [
+        "GET"
+      ],
+      "original_paths": [
+        "/tuning/tail"
+      ],
+      "endpoint_names": [
+        "tuning_tail"
+      ],
+      "status": "UNKNOWN_ZOMBIE",
+      "expected_public_status": "review"
+    }
+  ]
+}

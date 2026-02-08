@@ -1,0 +1,31 @@
+{
+    "c:/MSR/MarketSniperRepo/market_sniper_app/lib/screens/command_center_screen.dart": [
+        "Inline TextStyle: fontSize: 10, letterSpacing: 1.5, fontFamily: 'RobotoMono'",
+        "Inline TextStyle: fontSize: 14, fontWeight: bold, fontFamily: 'RobotoMono'",
+        "Inline TextStyle: fontSize: 12, fontFamily: 'RobotoMono'",
+        "Inline TextStyle: fontSize: 9, fontWeight: bold, letterSpacing: 0.5",
+        "Inline TextStyle: fontSize: 10, fontFamily: 'RobotoMono' (multiple)",
+        "Container decoration: AppColors.neonCyan.withValues(alpha: 0.15)",
+        "Container decoration: AppColors.neonCyan.withValues(alpha: 0.3) (Divider)"
+    ],
+    "c:/MSR/MarketSniperRepo/market_sniper_app/lib/widgets/command_center/coherence_quartet_card.dart": [
+        "Inline TextStyle: GoogleFonts.robotoMono(fontSize: 12...)",
+        "Inline TextStyle: GoogleFonts.robotoMono(fontSize: 10...)",
+        "BoxShadow: inline definition with withValues",
+        "Container decoration: AppColors.surface2.withValues(alpha: 0.5)",
+        "Container decoration: AppColors.borderSubtle.withValues(alpha: 0.5)",
+        "Blur: ImageFilter.blur(sigmaX: 4...)"
+    ],
+    "c:/MSR/MarketSniperRepo/market_sniper_app/lib/widgets/command_center/coherence_quartet_tooltip.dart": [
+        "Inline TextStyle: GoogleFonts.robotoMono(fontSize: 16...)",
+        "Inline TextStyle: GoogleFonts.robotoMono(fontSize: 12...)",
+        "Inline TextStyle: GoogleFonts.robotoMono(fontSize: 10...)",
+        "BoxShadow: inline definition",
+        "Container decoration: AppColors.surface1.withValues(alpha: 0.95)"
+    ],
+    "c:/MSR/MarketSniperRepo/market_sniper_app/lib/widgets/command_center/discipline_counter.dart": [
+        "Inline TextStyle: GoogleFonts.robotoMono(fontSize: 10...)",
+        "BoxShadow: inline definition",
+        "Icon size: 10 (hardcoded)"
+    ]
+}

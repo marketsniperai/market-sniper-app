@@ -35,7 +35,7 @@ class EliteRitualModal extends StatelessWidget {
          border: Border.all(color: AppColors.neonCyan.withValues(alpha: 0.3)),
          boxShadow: [
            BoxShadow(
-             color: Colors.black.withValues(alpha: 0.5),
+             color: AppColors.bgPrimary.withValues(alpha: 0.5),
              blurRadius: 20,
              spreadRadius: 5,
            )

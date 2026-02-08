@@ -1,0 +1,34 @@
+{
+    "symbol": "NVDA",
+    "score": 9.2,
+    "internal_data": {
+        "why_high_confidence": [
+            "Coherence Score > 9.0 (Exceptional)",
+            "Multi-Regime Alignment (Macro + Technicals)"
+        ],
+        "evidence_memory": [
+            "Macro: Tailwind (AI CapEx)",
+            "Options: Call Skew > 2σ",
+            "Volume: 150% Avg"
+        ],
+        "regime_macro_options": [
+            "Regime: Expansion",
+            "Gamma Exposure: Positive"
+        ],
+        "invalidation_risks": [
+            "Earnings in 3 days"
+        ]
+    },
+    "external_data": {
+        "capital_activity": {
+            "status": "N/A",
+            "items": [],
+            "source": null
+        },
+        "human_consensus": {
+            "status": "N/A",
+            "items": [],
+            "source": null
+        }
+    }
+}

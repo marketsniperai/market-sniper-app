@@ -72,3 +72,17 @@ secrets/
 *.pem
 outputs/backups/
 .
+
+# D61 Repo Hygiene Noise
+analysis_*.txt
+verification*.txt
+integration_output*.txt
+test_output*.txt
+*_error*.txt
+*_log*.txt
+test_fail_log.txt
+flutter_chrome_build_ok.txt
+
+# Caches
+outputs/cache/
+outputs/on_demand_public/

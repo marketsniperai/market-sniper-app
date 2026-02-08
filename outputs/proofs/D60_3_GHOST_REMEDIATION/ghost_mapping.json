@@ -1,0 +1,56 @@
+[
+  {
+    "ghost": "/elite/ritual/{param}",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/elite/ritual/{ritual_id}",
+    "reason": "Similar endpoint found: /elite/ritual/{ritual_id}"
+  },
+  {
+    "ghost": "/universe",
+    "action": "IMPLEMENT",
+    "target": null,
+    "reason": "No similar endpoint found."
+  },
+  {
+    "ghost": "/lab/autofix/status",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/blackbox/status",
+    "reason": "Similar endpoint found: /blackbox/status"
+  },
+  {
+    "ghost": "/lab/os/iron/lkg",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/lab/os/iron/drift",
+    "reason": "Similar endpoint found: /lab/os/iron/drift"
+  },
+  {
+    "ghost": "/lab/os/iron/decision_path",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/lab/os/iron/drift",
+    "reason": "Similar endpoint found: /lab/os/iron/drift"
+  },
+  {
+    "ghost": "/lab/os/iron/lock_reason",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/lab/os/iron/drift",
+    "reason": "Similar endpoint found: /lab/os/iron/drift"
+  },
+  {
+    "ghost": "/lab/os/self_heal/coverage",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/lab/os/self_heal/before_after",
+    "reason": "Similar endpoint found: /lab/os/self_heal/before_after"
+  },
+  {
+    "ghost": "/lab/evidence_summary",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/evidence_summary",
+    "reason": "Similar endpoint found: /evidence_summary"
+  },
+  {
+    "ghost": "/lab/macro_context",
+    "action": "REWIRE_CANDIDATE",
+    "target": "/macro_context",
+    "reason": "Similar endpoint found: /macro_context"
+  }
+]

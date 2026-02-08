@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Context Envelope",
+    "type": "object",
+    "required": [
+        "status",
+        "schema_version"
+    ],
+    "properties": {
+        "status": {
+            "type": "string"
+        },
+        "schema_version": {
+            "type": "string"
+        },
+        "as_of_utc": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "payload": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "summary": {
+                    "type": "string"
+                },
+                "market_status": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

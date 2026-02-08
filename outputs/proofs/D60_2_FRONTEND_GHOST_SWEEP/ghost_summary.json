@@ -1,0 +1,8 @@
+{
+  "total_scanned_refs": 88,
+  "unique_frontend_paths": 39,
+  "backend_route_count": 96,
+  "ledger_route_count": 96,
+  "ghost_count": 0,
+  "ghost_files_count": 0
+}

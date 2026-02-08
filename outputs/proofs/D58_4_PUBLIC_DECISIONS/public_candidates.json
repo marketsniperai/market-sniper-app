@@ -1,0 +1,150 @@
+[
+    {
+        "normalized_path": "/agms/summary",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "agms_summary"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "runtime/agms/agms_weekly_summary.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Weekly summary is safe, high-level product data."
+    },
+    {
+        "normalized_path": "/agms/thresholds",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "agms_thresholds_active"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "runtime/agms/agms_dynamic_thresholds.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Thresholds are operational params, safe for transparency."
+    },
+    {
+        "normalized_path": "/efficacy",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "efficacy"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "efficacy_report.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Efficacy is a core transparency metric."
+    },
+    {
+        "normalized_path": "/economic_calendar",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "get_economic_calendar"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "economic_calendar.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Public market data artifact."
+    },
+    {
+        "normalized_path": "/options_report",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "options_report"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "options_report.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Product feature, likely safe."
+    },
+    {
+        "normalized_path": "/sunday_setup",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "sunday_setup"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "sunday_setup.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Weekly content product."
+    },
+    {
+        "normalized_path": "/overlay_live",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "overlay_live"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "overlay_status.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Live system status for UI overlay."
+    },
+    {
+        "normalized_path": "/voice_state",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "voice_state"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "voice_state.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "UI state for voice features."
+    },
+    {
+        "normalized_path": "/on_demand/context",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "get_on_demand_context"
+        ],
+        "strategy": "STRAT_B",
+        "artifact_paths": [],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "Core product feature, cache-backed."
+    },
+    {
+        "normalized_path": "/os/state_snapshot",
+        "methods": [
+            "GET"
+        ],
+        "endpoint_names": [
+            "os_state_snapshot"
+        ],
+        "strategy": "STRAT_A",
+        "artifact_paths": [
+            "os_state.json"
+        ],
+        "decision": "PROMOTE_PUBLIC_PRODUCT",
+        "reason": "High-level system state, designed for public UI."
+    }
+]

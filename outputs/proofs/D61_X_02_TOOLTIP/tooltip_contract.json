@@ -1,0 +1,46 @@
+{
+    "contract": "D61.x.02 Tooltip Expansion",
+    "version": "1.0",
+    "data_structure": {
+        "symbol": "String",
+        "score": "double",
+        "internal_data": {
+            "why_high_confidence": [
+                "String"
+            ],
+            "evidence_memory": [
+                "String"
+            ],
+            "regime_macro_options": [
+                "String"
+            ],
+            "invalidation_risks": [
+                "String"
+            ]
+        },
+        "external_data": {
+            "capital_activity": {
+                "status": "N/A | PARTIAL | LIVE",
+                "items": [
+                    "String"
+                ],
+                "source": "String?"
+            },
+            "human_consensus": {
+                "status": "N/A | PARTIAL | LIVE",
+                "items": [
+                    "String"
+                ],
+                "source": "String?"
+            }
+        }
+    },
+    "ui_policy": {
+        "default_state": {
+            "internal": "EXPANDED",
+            "external": "COLLAPSED"
+        },
+        "risk_presentation": "Always visible strip if non-empty",
+        "external_disabled": "Show header with status N/A"
+    }
+}

@@ -1117,3 +1117,17 @@ Seal:
         *   **Gate A/B**: Verified Deployment and Smoke Test against real URL.
     - **Result**: Production is GREEN. `marketsniper-api` is robust and observable.
     - **Status**: [x] COMPLETE
+
+- [x] **D58.5 ELITE COST/WRITE GATING**
+    - **Goal**: Lock down expensive/write Elite surface (chat, settings, reflection).
+    - **Wiring**: `backend/security/elite_gate.py`
+    - **Policy**: Fail-Closed (403) unless `X-Founder-Key` or `Elite Entitlement`.
+    - **Proof**: `tools/ewimsc/ewimsc_elite_negative_suite.py` (Must confirm 403 blocks).
+    - **Seal**: `outputs/seals/SEAL_D58_5_ELITE_GATING_FULL_STEEL.md`
+
+- [x] **D58.6 WEEKLY UNKNOWN TREND GATE (Ratchet + Staleness)**
+    - **Goal**: Enforce strict "Ratchet" (Count <= Baseline) + 7-Day improvement rule.
+    - **Wiring**: `tools/ewimsc/ewimsc_unknown_weekly_gate.py`
+    - **Policy**: `EWIMSC_WEEKLY_STRICT=1` (Fail build if count flat > 7 days).
+    - **Baseline**: `docs/canon/UNKNOWN_TREND_BASELINE.json`.
+    - **Seal**: `outputs/seals/SEAL_D58_6_UNKNOWN_WEEKLY_TREND_GATE.md`

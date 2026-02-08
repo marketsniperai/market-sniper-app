@@ -1,0 +1,38 @@
+[
+  {
+    "test": "UNAUTH_/elite/chat",
+    "status": "PASS",
+    "code": 403,
+    "expected": 403
+  },
+  {
+    "test": "UNAUTH_/elite/reflection",
+    "status": "PASS",
+    "code": 403,
+    "expected": 403
+  },
+  {
+    "test": "UNAUTH_/elite/settings",
+    "status": "PASS",
+    "code": 403,
+    "expected": 403
+  },
+  {
+    "test": "AUTH_/elite/chat",
+    "status": "PASS",
+    "code": 200,
+    "expected": "NOT 403"
+  },
+  {
+    "test": "AUTH_/elite/reflection",
+    "status": "PASS",
+    "code": 500,
+    "expected": "NOT 403"
+  },
+  {
+    "test": "AUTH_/elite/settings",
+    "status": "PASS",
+    "code": 200,
+    "expected": "NOT 403"
+  }
+]

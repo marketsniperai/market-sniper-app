@@ -43,7 +43,7 @@ class AppConfig {
     
     // Debug/Profile Default:
     if (kIsWeb) {
-      if (kDebugMode) return 'http://localhost:8000';
+      if (kDebugMode) return _canonicalProdUrl; // D61.2D: Web uses PROD to avoid localhost CORS/Port issues
     }
 
     // Default Fallback
@@ -58,7 +58,7 @@ class AppConfig {
   }
   
   static bool get isFounderBuild {
-    if (kDebugMode) return true; // Polish Phase: Auto-Unlock for Emulator Loop
+    // Verified: Removed blanket debug override (D61.x.06B)
     return const bool.fromEnvironment(
       'FOUNDER_BUILD',
       defaultValue: false,

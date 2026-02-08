@@ -1,0 +1,870 @@
+{
+  "/lab/run_pipeline": {
+    "path": "/lab/run_pipeline",
+    "path_norm": "/lab/run_pipeline",
+    "methods": [
+      "POST"
+    ],
+    "name": "run_pipeline_endpoint",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/misfire_autoheal": {
+    "path": "/lab/misfire_autoheal",
+    "path_norm": "/lab/misfire_autoheal",
+    "methods": [
+      "POST"
+    ],
+    "name": "misfire_autoheal",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/health_ext": {
+    "path": "/health_ext",
+    "path_norm": "/health_ext",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "name": "health_ext",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/dashboard": {
+    "path": "/dashboard",
+    "path_norm": "/dashboard",
+    "methods": [
+      "GET"
+    ],
+    "name": "dashboard",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/context": {
+    "path": "/context",
+    "path_norm": "/context",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "name": "context",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/efficacy": {
+    "path": "/efficacy",
+    "path_norm": "/efficacy",
+    "methods": [
+      "GET"
+    ],
+    "name": "efficacy",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/briefing": {
+    "path": "/briefing",
+    "path_norm": "/briefing",
+    "methods": [
+      "GET"
+    ],
+    "name": "briefing",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/misfire": {
+    "path": "/misfire",
+    "path_norm": "/misfire",
+    "methods": [
+      "GET"
+    ],
+    "name": "misfire",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/pulse": {
+    "path": "/pulse",
+    "path_norm": "/pulse",
+    "methods": [
+      "GET"
+    ],
+    "name": "pulse",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/aftermarket": {
+    "path": "/aftermarket",
+    "path_norm": "/aftermarket",
+    "methods": [
+      "GET"
+    ],
+    "name": "aftermarket",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/sunday_setup": {
+    "path": "/sunday_setup",
+    "path_norm": "/sunday_setup",
+    "methods": [
+      "GET"
+    ],
+    "name": "sunday_setup",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/options_report": {
+    "path": "/options_report",
+    "path_norm": "/options_report",
+    "methods": [
+      "GET"
+    ],
+    "name": "options_report",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/options_context": {
+    "path": "/options_context",
+    "path_norm": "/options_context",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_options_context",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/economic_calendar": {
+    "path": "/economic_calendar",
+    "path_norm": "/economic_calendar",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_economic_calendar",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/macro_context": {
+    "path": "/macro_context",
+    "path_norm": "/macro_context",
+    "methods": [
+      "GET"
+    ],
+    "name": "macro_context",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/evidence_summary": {
+    "path": "/evidence_summary",
+    "path_norm": "/evidence_summary",
+    "methods": [
+      "GET"
+    ],
+    "name": "evidence_summary",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/overlay_live": {
+    "path": "/overlay_live",
+    "path_norm": "/overlay_live",
+    "methods": [
+      "GET"
+    ],
+    "name": "overlay_live",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/voice_state": {
+    "path": "/voice_state",
+    "path_norm": "/voice_state",
+    "methods": [
+      "GET"
+    ],
+    "name": "voice_state",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/news_digest": {
+    "path": "/news_digest",
+    "path_norm": "/news_digest",
+    "methods": [
+      "GET"
+    ],
+    "name": "news_digest",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/autofix": {
+    "path": "/autofix",
+    "path_norm": "/autofix",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_autofix_status",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/lab/autofix/execute": {
+    "path": "/lab/autofix/execute",
+    "path_norm": "/lab/autofix/execute",
+    "methods": [
+      "POST"
+    ],
+    "name": "autofix_execute",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/housekeeper/status": {
+    "path": "/lab/os/self_heal/housekeeper/status",
+    "path_norm": "/lab/os/self_heal/housekeeper/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "housekeeper_status_endpoint",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/housekeeper/run": {
+    "path": "/lab/os/self_heal/housekeeper/run",
+    "path_norm": "/lab/os/self_heal/housekeeper/run",
+    "methods": [
+      "POST"
+    ],
+    "name": "housekeeper_run_endpoint",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/autofix/tier1/status": {
+    "path": "/lab/os/self_heal/autofix/tier1/status",
+    "path_norm": "/lab/os/self_heal/autofix/tier1/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "autofix_tier1_status",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/autofix/tier1/run": {
+    "path": "/lab/os/self_heal/autofix/tier1/run",
+    "path_norm": "/lab/os/self_heal/autofix/tier1/run",
+    "methods": [
+      "POST"
+    ],
+    "name": "autofix_tier1_run",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/autofix/decision_path": {
+    "path": "/lab/os/self_heal/autofix/decision_path",
+    "path_norm": "/lab/os/self_heal/autofix/decision_path",
+    "methods": [
+      "GET"
+    ],
+    "name": "autofix_decision_path",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/os/state_snapshot": {
+    "path": "/os/state_snapshot",
+    "path_norm": "/os/state_snapshot",
+    "methods": [
+      "GET"
+    ],
+    "name": "os_state_snapshot",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/lab/os/iron/status": {
+    "path": "/lab/os/iron/status",
+    "path_norm": "/lab/os/iron/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "iron_status",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/iron/timeline_tail": {
+    "path": "/lab/os/iron/timeline_tail",
+    "path_norm": "/lab/os/iron/timeline_tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "iron_timeline",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/findings": {
+    "path": "/lab/os/self_heal/findings",
+    "path_norm": "/lab/os/self_heal/findings",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_self_heal_findings",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/before_after": {
+    "path": "/lab/os/self_heal/before_after",
+    "path_norm": "/lab/os/self_heal/before_after",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_self_heal_before_after",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/iron/state_history": {
+    "path": "/lab/os/iron/state_history",
+    "path_norm": "/lab/os/iron/state_history",
+    "methods": [
+      "GET"
+    ],
+    "name": "iron_history",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/iron/drift": {
+    "path": "/lab/os/iron/drift",
+    "path_norm": "/lab/os/iron/drift",
+    "methods": [
+      "GET"
+    ],
+    "name": "iron_drift",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/iron/replay_integrity": {
+    "path": "/lab/os/iron/replay_integrity",
+    "path_norm": "/lab/os/iron/replay_integrity",
+    "methods": [
+      "GET"
+    ],
+    "name": "iron_replay",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/replay/day": {
+    "path": "/lab/replay/day",
+    "path_norm": "/lab/replay/day",
+    "methods": [
+      "POST"
+    ],
+    "name": "replay_day",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/housekeeper/run": {
+    "path": "/lab/os/housekeeper/run",
+    "path_norm": "/lab/os/housekeeper/run",
+    "methods": [
+      "POST"
+    ],
+    "name": "run_housekeeper",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/housekeeper/status": {
+    "path": "/lab/os/housekeeper/status",
+    "path_norm": "/lab/os/housekeeper/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_housekeeper_status",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/replay/archive/tail": {
+    "path": "/lab/replay/archive/tail",
+    "path_norm": "/lab/replay/archive/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_replay_archive",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/rollback": {
+    "path": "/lab/os/rollback",
+    "path_norm": "/lab/os/rollback",
+    "methods": [
+      "POST"
+    ],
+    "name": "os_rollback",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/war_room": {
+    "path": "/lab/war_room",
+    "path_norm": "/lab/war_room",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "name": "war_room_dashboard",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/warroom": {
+    "path": "/lab/warroom",
+    "path_norm": "/lab/warroom",
+    "methods": [
+      "GET"
+    ],
+    "name": "war_room_alias_1",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/war-room": {
+    "path": "/lab/war-room",
+    "path_norm": "/lab/war-room",
+    "methods": [
+      "GET"
+    ],
+    "name": "war_room_alias_2",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/canon/debt_index": {
+    "path": "/lab/canon/debt_index",
+    "path_norm": "/lab/canon/debt_index",
+    "methods": [
+      "GET"
+    ],
+    "name": "canon_debt_index",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/health": {
+    "path": "/lab/os/health",
+    "path_norm": "/lab/os/health",
+    "methods": [
+      "GET"
+    ],
+    "name": "os_health_alias",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/shadow_repair/propose": {
+    "path": "/lab/shadow_repair/propose",
+    "path_norm": "/lab/shadow_repair/propose",
+    "methods": [
+      "POST"
+    ],
+    "name": "shadow_repair_propose",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/agms/foundation": {
+    "path": "/agms/foundation",
+    "path_norm": "/agms/foundation",
+    "methods": [
+      "GET",
+      "HEAD"
+    ],
+    "name": "agms_foundation",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/ledger/tail": {
+    "path": "/agms/ledger/tail",
+    "path_norm": "/agms/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_ledger_tail",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/intelligence": {
+    "path": "/agms/intelligence",
+    "path_norm": "/agms/intelligence",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_intelligence",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/summary": {
+    "path": "/agms/summary",
+    "path_norm": "/agms/summary",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_summary",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/shadow/suggestions": {
+    "path": "/agms/shadow/suggestions",
+    "path_norm": "/agms/shadow/suggestions",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_shadow_suggestions",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/shadow/ledger/tail": {
+    "path": "/agms/shadow/ledger/tail",
+    "path_norm": "/agms/shadow/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_shadow_ledger_tail",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/handoff": {
+    "path": "/agms/handoff",
+    "path_norm": "/agms/handoff",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_handoff_latest",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/handoff/ledger/tail": {
+    "path": "/agms/handoff/ledger/tail",
+    "path_norm": "/agms/handoff/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_handoff_ledger_tail",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/lab/autopilot/execute_from_handoff": {
+    "path": "/lab/autopilot/execute_from_handoff",
+    "path_norm": "/lab/autopilot/execute_from_handoff",
+    "methods": [
+      "POST"
+    ],
+    "name": "autopilot_execute",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/events/latest": {
+    "path": "/events/latest",
+    "path_norm": "/events/latest",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_latest_events",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/agms/thresholds": {
+    "path": "/agms/thresholds",
+    "path_norm": "/agms/thresholds",
+    "methods": [
+      "GET"
+    ],
+    "name": "agms_thresholds_active",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/projection/report": {
+    "path": "/projection/report",
+    "path_norm": "/projection/report",
+    "methods": [
+      "GET"
+    ],
+    "name": "projection_report",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/immune/status": {
+    "path": "/immune/status",
+    "path_norm": "/immune/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "immune_status",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/immune/tail": {
+    "path": "/immune/tail",
+    "path_norm": "/immune/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "immune_tail",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/blackbox/status": {
+    "path": "/blackbox/status",
+    "path_norm": "/blackbox/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "blackbox_status",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/blackbox/ledger/tail": {
+    "path": "/blackbox/ledger/tail",
+    "path_norm": "/blackbox/ledger/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "blackbox_ledger",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/blackbox/snapshots": {
+    "path": "/blackbox/snapshots",
+    "path_norm": "/blackbox/snapshots",
+    "methods": [
+      "GET"
+    ],
+    "name": "blackbox_snapshots",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/war_room/snapshot": {
+    "path": "/lab/war_room/snapshot",
+    "path_norm": "/lab/war_room/snapshot",
+    "methods": [
+      "GET"
+    ],
+    "name": "war_room_snapshot",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/dojo/run": {
+    "path": "/lab/dojo/run",
+    "path_norm": "/lab/dojo/run",
+    "methods": [
+      "POST"
+    ],
+    "name": "dojo_run",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/dojo/status": {
+    "path": "/dojo/status",
+    "path_norm": "/dojo/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "dojo_status",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/dojo/tail": {
+    "path": "/dojo/tail",
+    "path_norm": "/dojo/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "dojo_tail",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/tuning/apply": {
+    "path": "/lab/tuning/apply",
+    "path_norm": "/lab/tuning/apply",
+    "methods": [
+      "POST"
+    ],
+    "name": "tuning_apply",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/tuning/status": {
+    "path": "/tuning/status",
+    "path_norm": "/tuning/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "tuning_status",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/tuning/tail": {
+    "path": "/tuning/tail",
+    "path_norm": "/tuning/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "tuning_tail",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/elite/explain/status": {
+    "path": "/elite/explain/status",
+    "path_norm": "/elite/explain/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "elite_explain_status",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/os/snapshot": {
+    "path": "/elite/os/snapshot",
+    "path_norm": "/elite/os/snapshot",
+    "methods": [
+      "GET"
+    ],
+    "name": "elite_os_snapshot",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/ritual/{ritual_id}": {
+    "path": "/elite/ritual/{ritual_id}",
+    "path_norm": "/elite/ritual/{ritual_id}",
+    "methods": [
+      "GET"
+    ],
+    "name": "elite_ritual_artifact",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/ritual": {
+    "path": "/elite/ritual",
+    "path_norm": "/elite/ritual",
+    "methods": [
+      "GET"
+    ],
+    "name": "elite_ritual_artifact_alias",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/script/first_interaction": {
+    "path": "/elite/script/first_interaction",
+    "path_norm": "/elite/script/first_interaction",
+    "methods": [
+      "GET"
+    ],
+    "name": "elite_first_interaction_script",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/context/status": {
+    "path": "/elite/context/status",
+    "path_norm": "/elite/context/status",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_elite_context_status",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/what_changed": {
+    "path": "/elite/what_changed",
+    "path_norm": "/elite/what_changed",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_elite_what_changed",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/micro_briefing/open": {
+    "path": "/elite/micro_briefing/open",
+    "path_norm": "/elite/micro_briefing/open",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_elite_micro_briefing_open",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/agms/recall": {
+    "path": "/elite/agms/recall",
+    "path_norm": "/elite/agms/recall",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_elite_agms_recall",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/lab/watchlist/log": {
+    "path": "/lab/watchlist/log",
+    "path_norm": "/lab/watchlist/log",
+    "methods": [
+      "POST"
+    ],
+    "name": "post_watchlist_log",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/watchlist/log/tail": {
+    "path": "/lab/watchlist/log/tail",
+    "path_norm": "/lab/watchlist/log/tail",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_watchlist_log_tail",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/on_demand/context": {
+    "path": "/on_demand/context",
+    "path_norm": "/on_demand/context",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_on_demand_context",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/elite/chat": {
+    "path": "/elite/chat",
+    "path_norm": "/elite/chat",
+    "methods": [
+      "POST"
+    ],
+    "name": "elite_chat_endpoint",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/state": {
+    "path": "/elite/state",
+    "path_norm": "/elite/state",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_elite_state",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/reflection": {
+    "path": "/elite/reflection",
+    "path_norm": "/elite/reflection",
+    "methods": [
+      "POST"
+    ],
+    "name": "submit_reflection",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/elite/settings": {
+    "path": "/elite/settings",
+    "path_norm": "/elite/settings",
+    "methods": [
+      "POST"
+    ],
+    "name": "update_settings",
+    "inferred_tier": "ELITE_GATED"
+  },
+  "/healthz": {
+    "path": "/healthz",
+    "path_norm": "/healthz",
+    "methods": [
+      "GET"
+    ],
+    "name": "healthz",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/readyz": {
+    "path": "/readyz",
+    "path_norm": "/readyz",
+    "methods": [
+      "GET"
+    ],
+    "name": "readyz",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/lab/healthz": {
+    "path": "/lab/healthz",
+    "path_norm": "/lab/healthz",
+    "methods": [
+      "GET"
+    ],
+    "name": "lab_healthz",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/readyz": {
+    "path": "/lab/readyz",
+    "path_norm": "/lab/readyz",
+    "methods": [
+      "GET"
+    ],
+    "name": "lab_readyz",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/universe": {
+    "path": "/universe",
+    "path_norm": "/universe",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_universe_status",
+    "inferred_tier": "PUBLIC_PRODUCT"
+  },
+  "/lab/os/iron/lkg": {
+    "path": "/lab/os/iron/lkg",
+    "path_norm": "/lab/os/iron/lkg",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_iron_lkg",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/iron/decision_path": {
+    "path": "/lab/os/iron/decision_path",
+    "path_norm": "/lab/os/iron/decision_path",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_iron_decision_path",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/iron/lock_reason": {
+    "path": "/lab/os/iron/lock_reason",
+    "path_norm": "/lab/os/iron/lock_reason",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_iron_lock_reason",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/os/self_heal/coverage": {
+    "path": "/lab/os/self_heal/coverage",
+    "path_norm": "/lab/os/self_heal/coverage",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_self_heal_coverage",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/evidence_summary": {
+    "path": "/lab/evidence_summary",
+    "path_norm": "/lab/evidence_summary",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_evidence_summary",
+    "inferred_tier": "LAB_INTERNAL"
+  },
+  "/lab/macro_context": {
+    "path": "/lab/macro_context",
+    "path_norm": "/lab/macro_context",
+    "methods": [
+      "GET"
+    ],
+    "name": "get_macro_context",
+    "inferred_tier": "LAB_INTERNAL"
+  }
+}

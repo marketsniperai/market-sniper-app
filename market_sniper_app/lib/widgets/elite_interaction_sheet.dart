@@ -952,8 +952,8 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
                              Container(
                                margin: const EdgeInsets.only(left: 8),
                                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                               decoration: BoxDecoration(color: Colors.purple.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(4)),
-                               child: const Text("AI", style: TextStyle(color: Colors.purpleAccent, fontSize: 8, fontWeight: FontWeight.bold)),
+                               decoration: BoxDecoration(color: AppColors.neonCyan.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(4)),
+                               child: const Text("AI", style: TextStyle(color: AppColors.neonCyan, fontSize: 8, fontWeight: FontWeight.bold)),
                              )
                          else if (structData != null)
                              Container(
