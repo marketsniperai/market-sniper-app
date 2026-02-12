@@ -6,8 +6,7 @@ import google.auth
 from google.auth.transport.requests import Request as GoogleRequest
 from datetime import datetime
 from backend.artifacts.io import safe_read_or_fallback, atomic_write_json
-from backend.os_ops.misfire_root_cause_reader import MisfireRootCauseReader, MisfireRootCauseSnapshot
-from backend.os_ops.misfire_tier2_reader import MisfireTier2Reader, MisfireTier2Snapshot
+from backend.os_ops.misfire_diagnostics import get_misfire_diagnostics
 
 # Default threshold 26 hours (93600 seconds)
 DEFAULT_THRESHOLD = 93600 
@@ -36,41 +35,9 @@ def check_misfire_status():
         "last_run_id": "UNKNOWN",
         "reason": "OK",
         "recommended_action": "NONE",
-        "diagnostics": {
-             "status": "UNAVAILABLE",
-             "root_cause": "UNAVAILABLE",
-             "tier2_signals": [],
-             "reason": "OK"
-        }
-    }
     
     # --- DIAGNOSTICS ENRICHMENT (Day 62 Expansion) ---
-    try:
-        # Root Cause
-        rc_snap = MisfireRootCauseReader.get_snapshot()
-        if rc_snap:
-            report["diagnostics"]["root_cause"] = rc_snap.misfire_type
-            report["diagnostics"]["status"] = "AVAILABLE"
-            report["diagnostics"]["reason"] = "INCIDENT_CAPTURED"
-        else:
-            report["diagnostics"]["reason"] = "NO_RECENT_MISFIRES"
-
-        # Tier 2
-        t2_snap = MisfireTier2Reader.get_snapshot()
-        if t2_snap:
-             # Convert steps to simple strings or dicts
-             steps_summary = []
-             for s in t2_snap.steps:
-                 steps_summary.append({
-                     "step": s.step_id,
-                     "attempted": s.attempted,
-                     "result": s.result or "UNKNOWN"
-                 })
-             report["diagnostics"]["tier2_signals"] = steps_summary
-             report["diagnostics"]["status"] = "AVAILABLE"
-             
-    except Exception as e:
-        report["diagnostics"]["reason"] = f"PARTIAL_READ_ERROR: {str(e)}"
+    report["diagnostics"] = get_misfire_diagnostics()
     # -------------------------------------------------
     
     # Check run_manifest (FULL is truth)
@@ -203,6 +170,7 @@ def update_nominal_on_success(run_id: str):
         "artifact_age_seconds": 0.0,
         "last_run_id": run_id,
         "reason": "PIPELINE_SUCCESS",
-        "recommended_action": "NONE"
+        "recommended_action": "NONE",
+        "diagnostics": get_misfire_diagnostics()
     }
     atomic_write_json("misfire_report.json", report)

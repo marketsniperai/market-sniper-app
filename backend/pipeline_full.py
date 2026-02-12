@@ -5,10 +5,13 @@ from backend.cadence_engine import get_window, get_now_et
 from backend.producers.producer_manifest import generate_manifest
 from backend.producers.producer_context import produce_context
 from backend.producers.producer_dashboard import produce_dashboard
-import backend.misfire_monitor as misfire_monitor
+# import backend.misfire_monitor as misfire_monitor # D62.1: Removed broken import (File does not exist at backend root)
+from backend.artifacts.io import safe_read_or_fallback # For misfire reporting if needed
+
 from backend.os_ops.immune_system import ImmuneSystemEngine
 
 ARTIFACTS_ROOT = Path("backend/outputs")
+from backend.os_ops.misfire_diagnostics import get_misfire_diagnostics
 
 def run_full_pipeline(run_id: str, output_dir: Path = ARTIFACTS_ROOT) -> list:
     """
@@ -32,6 +35,44 @@ def run_full_pipeline(run_id: str, output_dir: Path = ARTIFACTS_ROOT) -> list:
     with open(output_dir / "context_market_sniper.json", "w") as f:
         json.dump(context_data, f, indent=2)
     generated.append("context_market_sniper.json")
+
+    # 1.1 Alpha Vantage Ingestion (D62.1 Batch Integration)
+    # Optional stage. Fail-safe.
+    try:
+        from backend.providers.run_batch import AlphaVantageBatchRunner
+        print("[Pipeline] Running Alpha Vantage Batch Ingestion (Optional)...")
+        av_runner = AlphaVantageBatchRunner()
+        # D62.16D: Pass output_dir to ensure it writes to full/providers/
+        av_snapshot = av_runner.run_and_get_snapshot(output_dir=output_dir)
+        
+        # Merge into Context (Provider Snapshot)
+        # We need to re-read or update context_data dict before moving on
+        # Since context_data is in memory, we just add it.
+        # But we ALREADY wrote the file on line 32. 
+        # Integration Plan: We should rewrite it or write it later?
+        # Code structure:
+        # 31: context_data = produce_context(...)
+        # 32: with open(...) as f: json.dump(context_data, f)
+        # 
+        # Modifying to inject BEFORE write would be cleaner, but I can't easily change lines 31-33 without a large match.
+        # I will update the dict in memory and REWRITE the file. 
+        # This is safe and ensures context_market_sniper.json is output accurately with av data.
+        
+        if "providers" not in context_data:
+            context_data["providers"] = {}
+        context_data["providers"]["alpha_vantage"] = av_snapshot
+        
+        # Re-write Context with AV Data
+        with open(output_dir / "context_market_sniper.json", "w") as f:
+            json.dump(context_data, f, indent=2)
+            
+        # Also note we generated a new artifact locally in outputs/providers/alpha_vantage_snapshot.json
+        # generated.append("providers/alpha_vantage_snapshot.json") # Relative path might be tricky, it's in outputs root not output_dir
+        
+    except Exception as e:
+        print(f"[Pipeline] Alpha Vantage Ingestion Skipped/Failed: {e}")
+        # Fail-Safe: Do not crash pipeline.
+
 
     # 1.5. Immune System Scan (Shadow Sanitize)
     try:
@@ -90,7 +131,8 @@ def run_full_pipeline(run_id: str, output_dir: Path = ARTIFACTS_ROOT) -> list:
             "reason": "OK",
             "last_run_id": run_id,
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-            "recommended_action": "NONE"
+            "recommended_action": "NONE",
+            "diagnostics": get_misfire_diagnostics()
         }
         with open(output_dir / "misfire_report.json", "w") as f:
             json.dump(report, f, indent=2)
@@ -104,3 +146,11 @@ def run_full_pipeline(run_id: str, output_dir: Path = ARTIFACTS_ROOT) -> list:
     BlackBox.record_event("PIPELINE_RUN", {"run_id": run_id, "mode": "FULL", "status": "COMPLETE", "generated": generated}, {})
     
     return generated
+
+if __name__ == "__main__":
+    import uuid
+    run_id = str(uuid.uuid4())
+    print(f"--- Manual Execution: pipeline_full (run_id={run_id}) ---")
+    generated = run_full_pipeline(run_id)
+    print(f"--- Pipeline Complete. Generated: {generated} ---")
+
