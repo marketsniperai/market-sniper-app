@@ -183,6 +183,18 @@ def trigger_pipeline(mode: str = "AUTO"):
         update_ledger(mode, run_id)
         
         logger.info(f"Pipeline SUCCESS. Generated: {generated}")
+        # 6. V4.1 System State Snapshot (Legacy + Full)
+        # Added via Output Alignment Fix (D62.XX)
+        try:
+            from backend.os_ops.state_snapshot_engine import StateSnapshotEngine
+            logger.info("Generating System State Snapshot...")
+            snapshot = StateSnapshotEngine.generate_snapshot()
+            generated.append("os/state_snapshot.json")
+            generated.append("full/system_state.json")
+        except Exception as e:
+            logger.error(f"System State Generation Failed: {e}")
+            # Non-blocking, but logged
+            
         return {"result": "SUCCESS", "mode": mode, "run_id": run_id, "artifacts": generated}
         
     except Exception as e:
