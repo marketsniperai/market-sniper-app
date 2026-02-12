@@ -321,8 +321,8 @@ class StateSnapshotEngine:
             # OPS
             "OS.Ops.Pipeline": ["full/run_manifest.json", "light/run_manifest.json"],
             "OS.Ops.Misfire": ["full/misfire_report.json", "misfire_report.json"],
-            "OS.Ops.Housekeeper": ["os/os_findings.json", "runtime/housekeeper/housekeeper_scan.json"],
-            "OS.Ops.Iron": ["os/os_state.json", "os/os_findings.json"],
+            "OS.Ops.Housekeeper": ["os/os_findings.json", "os/housekeeper_scan.json", "runtime/housekeeper/housekeeper_scan.json"],
+            "OS.Ops.Iron": ["os/os_state.json", "os/os_findings.json", "os/os_coverage.json"],
             "OS.Ops.ImmuneSystem": ["runtime/immune/immune_snapshot.json", "runtime/immune/immune_ledger.jsonl"],
             "OS.Ops.BlackBox": ["runtime/black_box/decision_ledger.jsonl"],
             "OS.Ops.AutoFix": ["runtime/autofix/autofix_status.json"],
@@ -333,7 +333,7 @@ class StateSnapshotEngine:
             
             # INTEL
             "OS.Intel.News": ["full/news_digest.json", "news_digest.json", "os/engine/provider_health.json"],
-            "OS.Intel.Options": ["options_report.json", "os/engine/provider_health.json"],
+            "OS.Intel.Options": ["engine/options_context.json", "options_report.json", "os/engine/provider_health.json"],
             
             # INFRA (Probes)
             "OS.Infra.API": ["full/run_manifest.json"], # If pipeline runs, API code is detectable
