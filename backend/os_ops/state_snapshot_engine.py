@@ -321,7 +321,24 @@ class StateSnapshotEngine:
                  res = safe_read_or_fallback("misfire_report.json")
             
             if res["success"]:
-                data = res["data"]
+                # The artifact reader returns {"success": True, "data": content}
+                # If content itself has a 'data' wrapper (common in our system), unwrap it.
+                # In verify script, we wrote: {"success": True, "data": misfire_report} -> wrapper I added
+                # But safe_read_or_fallback reads the file content.
+                # If file content is {"success": True, "data": ...}, then res["data"] is that dict.
+                
+                raw_data = res["data"]
+                
+                # Handle double-wrapping if present (safe_read might return the file content directly)
+                # If the file content is the report itself:
+                if "status" in raw_data and "diagnostics" in raw_data:
+                     data = raw_data
+                # If the file content is wrapped in "data":
+                elif "data" in raw_data and isinstance(raw_data["data"], dict):
+                     data = raw_data["data"]
+                else:
+                     data = raw_data
+
                 return {
                     "status": data.get("status", "UNKNOWN"),
                     "last_update": data.get("timestamp_utc"),
@@ -331,6 +348,18 @@ class StateSnapshotEngine:
                             "status": "UNAVAILABLE", 
                             "reason": "MISSING_BLOCK"
                         })
+                    }
+                }
+            else:
+                # Explicit fallback for missing artifact
+                return {
+                    "status": "UNKNOWN",
+                    "reason": "MISSING_ARTIFACT",
+                    "meta": {
+                        "diagnostics": {
+                            "status": "UNAVAILABLE",
+                            "reason": "MISSING_ARTIFACT"
+                        }
                     }
                 }
 
