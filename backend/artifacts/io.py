@@ -90,6 +90,10 @@ def atomic_write_json(filename: str, data: Dict[str, Any]):
     """
     target = get_artifacts_root() / filename
     
+    # D71: Residency Fix - Ensure parent directory exists
+    if not target.parent.exists():
+        target.parent.mkdir(parents=True, exist_ok=True)
+
     # Create temp file in the same directory to ensure same filesystem for rename
     # Use simple suffix
     tmp_path = target.with_suffix(".tmp")
