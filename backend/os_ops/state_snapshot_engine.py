@@ -314,6 +314,26 @@ class StateSnapshotEngine:
             # Self-reference
             return {"status": "LIVE", "last_update": datetime.utcnow().isoformat()}
 
+        if module_id == "OS.Ops.Misfire":
+            # D62: Deep Embed of Diagnostics
+            res = safe_read_or_fallback("full/misfire_report.json")
+            if not res["success"]:
+                 res = safe_read_or_fallback("misfire_report.json")
+            
+            if res["success"]:
+                data = res["data"]
+                return {
+                    "status": data.get("status", "UNKNOWN"),
+                    "last_update": data.get("timestamp_utc"),
+                    "reason": data.get("reason", "OK"),
+                    "meta": {
+                        "diagnostics": data.get("diagnostics", {
+                            "status": "UNAVAILABLE", 
+                            "reason": "MISSING_BLOCK"
+                        })
+                    }
+                }
+
         # Extended Hardening Map (D62.XX)
         # Maps Module ID to list of possible artifact paths (relative to ARTIFACTS_ROOT)
         # First match wins.
