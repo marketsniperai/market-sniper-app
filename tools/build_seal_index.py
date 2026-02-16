@@ -25,6 +25,42 @@ def parse_seal_filename(filename):
         
     return "Unknown Day"
 
+def extract_metadata(filepath):
+    """
+    Extracts metadata from the seal file content.
+    """
+    meta = {
+        "authority": "UNKNOWN",
+        "date": "UNKNOWN",
+        "type": "UNKNOWN",
+        "scope": "UNKNOWN"
+    }
+    
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            content = f.read()
+            
+            # Simple Regex Extraction
+            # matches: **Key:** Value
+            import re
+            
+            auth_match = re.search(r"\*\*Authority:\*\*\s*(.*)", content, re.IGNORECASE)
+            if auth_match: meta["authority"] = auth_match.group(1).strip()
+            
+            date_match = re.search(r"\*\*Date:\*\*\s*(.*)", content, re.IGNORECASE)
+            if date_match: meta["date"] = date_match.group(1).strip()
+            
+            type_match = re.search(r"\*\*Type:\*\*\s*(.*)", content, re.IGNORECASE)
+            if type_match: meta["type"] = type_match.group(1).strip()
+            
+            scope_match = re.search(r"\*\*Scope:\*\*\s*(.*)", content, re.IGNORECASE)
+            if scope_match: meta["scope"] = scope_match.group(1).strip()
+            
+    except Exception as e:
+        print(f"WARN: Could not read {filepath}: {e}")
+        
+    return meta
+
 def scan_seals():
     if not SEALS_DIR.exists():
         print(f"ERROR: {SEALS_DIR} does not exist.")
@@ -37,13 +73,16 @@ def scan_seals():
     for entry in os.scandir(SEALS_DIR):
         if entry.is_file() and entry.name.endswith(".md") and entry.name.startswith("SEAL_"):
             day_id = parse_seal_filename(entry.name)
+            meta = extract_metadata(entry.path)
             
-            # Read first few lines for summary/title if needed, 
-            # but for now we just index the filename and path.
             seal_data = {
                 "filename": entry.name,
                 "path": str(Path(entry.path).as_posix()),
                 "day_id": day_id,
+                "authority": meta["authority"],
+                "date": meta["date"],
+                "type": meta["type"],
+                "scope": meta["scope"],
                 "indexed_at": datetime.now().isoformat()
             }
             seal_index.append(seal_data)
