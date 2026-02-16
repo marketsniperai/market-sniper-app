@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../config/app_config.dart';
 import '../../domain/universe/core20_universe.dart';
 import '../../repositories/universe_repository.dart';
-import '../../services/api_client.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 
@@ -24,8 +23,7 @@ class _UniverseScreenState extends State<UniverseScreen> {
   @override
   void initState() {
     super.initState();
-    _repo = UniverseRepository(
-        api: ApiClient()); // In real app, inject via Provider
+    _repo = UniverseRepository(); // D74: No external ApiClient injection
     _load();
   }
 

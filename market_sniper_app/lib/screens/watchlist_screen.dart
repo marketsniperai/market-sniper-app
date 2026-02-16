@@ -6,11 +6,15 @@ import '../logic/watchlist_store.dart';
 import '../logic/navigation_bus.dart'; // D44.02B
 import '../logic/watchlist_ledger.dart'; // D44.02B
 import '../repositories/war_room_repository.dart'; // D44.02B
-import '../services/api_client.dart'; // D44.02B
+// import '../services/api_client.dart'; // Removed (D74)
 import '../widgets/lock_reason_modal.dart'; // D44.02A
 import '../logic/on_demand_intent.dart'; // D44.06
 import '../logic/watchlist_state_resolver.dart'; // D44.09
 import '../logic/watchlist_last_analyzed_resolver.dart'; // D44.10
+
+import '../repositories/unified_snapshot_repository.dart'; // D73
+import '../models/system_health.dart'; // Ensure we have the model
+import '../models/war_room_snapshot.dart'; // For LockReasonSnapshot
 
 class WatchlistScreen extends StatefulWidget {
   const WatchlistScreen({super.key});
@@ -21,6 +25,7 @@ class WatchlistScreen extends StatefulWidget {
 
 class _WatchlistScreenState extends State<WatchlistScreen> {
   final WatchlistStore _store = WatchlistStore();
+  final UnifiedSnapshotRepository _unified = UnifiedSnapshotRepository(); // D73
 
   @override
   void initState() {
@@ -38,13 +43,17 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
 
   Future<void> _refreshGlobalState() async {
     try {
-      final api = ApiClient();
-      final repo = WarRoomRepository(api: api);
-      final health = await repo.healthRepo.fetchUnifiedHealth();
-      if (mounted) {
-        setState(() {
-          _stateResolver.setGlobalStateFromHealth(health.status.name);
-        });
+      // D73: SSOT Migration
+      final envelope = await _unified.fetch();
+      final healthData = _unified.getModule('misfire'); // Mapping 'misfire' to SystemHealth
+      
+      if (healthData != null) {
+         final health = SystemHealth.fromJson(healthData);
+         if (mounted) {
+           setState(() {
+             _stateResolver.setGlobalStateFromHealth(health.status);
+           });
+         }
       }
     } catch (e) {
       // Silent fail to LIVE or keep default
@@ -65,26 +74,25 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
   Future<void> _analyze(String ticker) async {
     // D44.02B Real Flow
     // 1. Resolve State
-    // Ideally we'd have a cached health/dashboard state, but for now we do a fresh check or assume nominal for speed if no cache provider.
-    // To be robust, we fetch unified health via Repo.
-
-    final api = ApiClient(); // In a real app, use provider/GetIt
-    final repo = WarRoomRepository(
-        api:
-            api); // Lightweight just for Health check if needed, or SystemHealthRepo direct.
-    // Simplified: Just check OS Health & Dashboard Basic
-    // Since we don't have a global provider for 'current state' easily accessible without fetching,
-    // we will check SystemHealthRepository.
-
-    final healthSnapshot = await repo.healthRepo.fetchUnifiedHealth();
-    // We also need dashboard for age check (stale). Fetching dashboard is heavy,
-    // so we might rely on Health 'status' which includes 'DEGRADED' or 'LOCKED'.
+    // D73: Use Unified Snapshot for Check
+    
+    final envelope = await _unified.fetch();
+    final healthData = _unified.getModule('misfire');
+    
+    // Default to LIVE if missing? Or should we block?
+    // If snapshot is missing, we likely have bigger issues.
+    SystemHealth healthSnapshot;
+    if (healthData != null) {
+       healthSnapshot = SystemHealth.fromJson(healthData);
+    } else {
+       healthSnapshot = SystemHealth.unavailable("SNAPSHOT_MISSING");
+    }
 
     final isLocked =
-        healthSnapshot.status.name.toUpperCase().contains('LOCKED');
+        healthSnapshot.status.toUpperCase().contains('LOCKED');
     final isStale =
-        healthSnapshot.status.name.toUpperCase().contains('DEGRADED') ||
-            healthSnapshot.status.name.toUpperCase().contains('MISFIRE');
+        healthSnapshot.status.toUpperCase().contains('DEGRADED') ||
+            healthSnapshot.status.toUpperCase().contains('MISFIRE');
 
     String resolvedState = "LIVE";
     if (isLocked) {
@@ -95,8 +103,15 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
 
     if (isLocked || isStale) {
       // A. BLOCKED PATH
-      // Fetch specific reason
-      final lockReason = await repo.fetchLockReason();
+      // Construct LockReason from Health Snapshot
+      final lockReason = LockReasonSnapshot(
+          lockState: isLocked ? "LOCKED" : "DEGRADED",
+          reasonCode: healthSnapshot.reason.isNotEmpty ? healthSnapshot.reason : "IMPEDIMENT",
+          description: "System health indicates ${healthSnapshot.status}. Operation blocked by SSOT.",
+          module: "SystemHealth",
+          timestamp: DateTime.now().toUtc().toIso8601String(),
+          isAvailable: true
+      );
 
       if (mounted) {
         showLockReasonModal(context, lockReason,
@@ -111,6 +126,7 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
           result: "BLOCKED",
           lockReason: "${lockReason.reasonCode}: ${lockReason.description}");
     } else {
+
       // B. SUCCESS PATH (D44.06 Integration)
       // Navigate to OnDemand (Index 3) with Intent
       NavigationBus().navigate(3,

@@ -1,0 +1,28 @@
+diff a/backend/artifacts/io.py b/backend/artifacts/io.py	(rejected hunks)
+@@ -10,11 +10,21 @@ from datetime import datetime
+ # However, this calculation is brittle if cwd varies or __file__ context is weird.
+ # We will make it robust.
+ 
+-# If we are in backend/artifacts/io.py:
+-# parent: backend/artifacts
+-# parent.parent: backend
+-# parent.parent.parent: repo root (MarketSniperRepo)
+-ARTIFACTS_ROOT = Path(__file__).parent.parent.parent / "outputs"
++# D62.18 PATCH: Dynamic Resolution
++# Priority:
++# 1. OUTPUTS_PATH env var (Source of Truth)
++# 2. <repo>/backend/outputs (Writer Default)
++# 3. <repo>/outputs (Legacy Fallback)
++
++_repo_root = Path(__file__).parent.parent.parent
++_env_path = os.environ.get("OUTPUTS_PATH")
++
++if _env_path:
++    ARTIFACTS_ROOT = Path(_env_path)
++elif (_repo_root / "backend/outputs").exists():
++    ARTIFACTS_ROOT = _repo_root / "backend/outputs"
++else:
++    ARTIFACTS_ROOT = _repo_root / "outputs"
+ 
+ def get_artifacts_root() -> Path:
+     """Returns the immutable Artifacts Root."""

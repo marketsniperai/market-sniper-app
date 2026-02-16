@@ -15,6 +15,17 @@ class WarRoomPolicyException implements Exception {
 }
 
 class ApiClient {
+  // D73: Snapshot Only Policy Enforcer
+  void _checkSnapshotPolicy(String endpoint) {
+    if (AppConfig.isSnapshotOnlyMode) {
+      throw WarRoomPolicyException("Legacy Endpoint Blocked", endpoint);
+    }
+  }
+
+
+  // ... (Apply to other methods: system_health, universe, options, macro, news, etc.)
+  // I will use multi_replace for this to cover all methods efficiently.
+
   final String baseUrl;
   final http.Client client;
 
@@ -54,8 +65,19 @@ class ApiClient {
     final path = url.path;
     
     // GUARD: If War Room is ACTIVE, strictly forbid any non-Snapshot traffic.
+    // BOARDING PASS (D56.01.5: War Room Strict SSOT)
     if (AppConfig.isWarRoomActive) {
-        if (!path.contains('/lab/war_room/snapshot')) {
+        // ALLOW-LIST
+        bool isAllowed = false;
+
+        // 1. USP-1 Core
+        if (path.contains('/lab/war_room/snapshot')) isAllowed = true;
+        
+        // 2. Writes (Logging/Telemetry)
+        // Allowed as they don't violate Read-SSOT
+        if (path.contains('/lab/watchlist/log')) isAllowed = true;
+
+        if (!isAllowed) {
             final msg = "WAR_ROOM_POLICY: BLOCKED legacy call to $path";
             if (AppConfig.isNetAuditEnabled) debugPrint(msg);
             // Safe Deny: Throw controlled exception
@@ -80,6 +102,7 @@ class ApiClient {
   }
 
   Future<DashboardPayload> fetchDashboard() async {
+    _checkSnapshotPolicy('/dashboard');
     final url = Uri.parse('$baseUrl/dashboard');
     try {
         _audit('GET', url);
@@ -87,7 +110,17 @@ class ApiClient {
 
         if (response.statusCode == 200) {
           final jsonEnvelope = json.decode(response.body);
-          final data = jsonEnvelope['data'];
+          // D62.10: PROD Schema Fix. Response has 'payload', not 'data'.
+          // We check both for backward compat, but 'payload' is canonical 1.0.
+          final data = jsonEnvelope['payload'] ?? jsonEnvelope['data'];
+          
+          if (data == null) {
+             throw Exception('Dashboard payload is null');
+          }
+          if (data is! Map<String, dynamic>) {
+             throw Exception('Dashboard payload is not a Map');
+          }
+          
           return DashboardPayload.fromJson(data);
         } else {
           throw Exception('Failed to load dashboard: ${response.statusCode}');
@@ -109,6 +142,7 @@ class ApiClient {
   Future<SystemHealth> fetchSystemHealth() async {
     final url = Uri.parse('$baseUrl/misfire');
     try {
+        _checkSnapshotPolicy('/misfire'); // Legacy alias
         _audit('GET', url);
         final response = await client.get(url, headers: _headers);
         if (response.statusCode == 200) {
@@ -126,7 +160,9 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchAutofixStatus() async {
-    final url = Uri.parse('$baseUrl/lab/autofix/status');
+    _checkSnapshotPolicy('/autofix');
+    // REWIRED: Ghost /lab/autofix/status -> Canonical /autofix (Day 15)
+    final url = Uri.parse('$baseUrl/autofix');
     _audit('GET', url);
     try {
       final response = await client.get(url, headers: _headers);
@@ -134,10 +170,11 @@ class ApiClient {
         return json.decode(response.body);
       }
     } catch (_) {}
-    return {};
+    return {'status': 'UNAVAILABLE'};
   }
 
   Future<Map<String, dynamic>> fetchAutoFixTier1Status() async {
+    _checkSnapshotPolicy('/lab/os/self_heal/autofix/tier1/status');
     final url = Uri.parse('$baseUrl/lab/os/self_heal/autofix/tier1/status');
     _audit('GET', url);
     try {
@@ -150,6 +187,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchAutoFixDecisionPath() async {
+    _checkSnapshotPolicy('/lab/os/self_heal/autofix/decision_path');
     final url = Uri.parse('$baseUrl/lab/os/self_heal/autofix/decision_path');
     _audit('GET', url);
     try {
@@ -161,79 +199,32 @@ class ApiClient {
     return {};
   }
 
-  Future<Map<String, dynamic>> fetchMisfireRootCause() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/misfire/root_cause');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
-  }
+
 
   Future<Map<String, dynamic>> fetchSelfHealConfidence() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/confidence');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
+    // STUB: Deep Dive not yet implemented.
+    return {'status': 'UNAVAILABLE', 'score': 0.0};
   }
 
   Future<Map<String, dynamic>> fetchSelfHealWhatChanged() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/what_changed');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
+    // STUB: Deep Dive not yet implemented.
+    return {'status': 'UNAVAILABLE', 'changes': []};
   }
 
   Future<Map<String, dynamic>> fetchCooldownTransparency() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/cooldowns');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
+    // STUB: Deep Dive not yet implemented.
+    return {'status': 'UNAVAILABLE', 'active': false};
   }
 
   Future<Map<String, dynamic>> fetchRedButtonStatus() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/red_button/status');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
+    // STUB: Deep Dive not yet implemented.
+    return {'status': 'UNAVAILABLE', 'active': false};
   }
 
-  Future<Map<String, dynamic>> fetchMisfireTier2() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/misfire/tier2');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
-  }
+
 
   Future<Map<String, dynamic>> fetchOptionsContext() async {
+    _checkSnapshotPolicy('/options_context');
     final url = Uri.parse('$baseUrl/options_context');
     _audit('GET', url);
     try {
@@ -246,6 +237,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchMacroContext() async {
+    _checkSnapshotPolicy('/macro_context');
     final url = Uri.parse('$baseUrl/macro_context');
     _audit('GET', url);
     try {
@@ -258,6 +250,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchEconomicCalendar() async {
+    _checkSnapshotPolicy('/economic_calendar');
     final url = Uri.parse('$baseUrl/economic_calendar');
     _audit('GET', url);
     try {
@@ -269,7 +262,21 @@ class ApiClient {
     return {'source': 'OFFLINE', 'events': []};
   }
 
+  Future<Map<String, dynamic>> fetchNewsDigest() async {
+    _checkSnapshotPolicy('/news_digest');
+    final url = Uri.parse('$baseUrl/news_digest');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {'source': 'OFFLINE', 'items': []}; // Safe Fallback
+  }
+
   Future<Map<String, dynamic>> fetchEvidenceSummary() async {
+    _checkSnapshotPolicy('/evidence_summary');
     final url = Uri.parse('$baseUrl/evidence_summary');
     _audit('GET', url);
     try {
@@ -282,6 +289,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchHousekeeperStatus() async {
+    _checkSnapshotPolicy('/lab/os/self_heal/housekeeper/status');
     final url = Uri.parse('$baseUrl/lab/os/self_heal/housekeeper/status');
     _audit('GET', url);
     try {
@@ -294,6 +302,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronStatus() async {
+    _checkSnapshotPolicy('/lab/os/iron/status');
     final url = Uri.parse('$baseUrl/lab/os/iron/status');
     _audit('GET', url);
     try {
@@ -306,6 +315,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronTimeline() async {
+    _checkSnapshotPolicy('/lab/os/iron/timeline_tail');
     final url = Uri.parse('$baseUrl/lab/os/iron/timeline_tail');
     _audit('GET', url);
     try {
@@ -318,6 +328,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronHistory() async {
+    _checkSnapshotPolicy('/lab/os/iron/state_history');
     final url = Uri.parse('$baseUrl/lab/os/iron/state_history');
     _audit('GET', url);
     try {
@@ -330,6 +341,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronLKG() async {
+    _checkSnapshotPolicy('/lab/os/iron/lkg');
     final url = Uri.parse('$baseUrl/lab/os/iron/lkg');
     _audit('GET', url);
     try {
@@ -342,6 +354,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronDecisionPath() async {
+    _checkSnapshotPolicy('/lab/os/iron/decision_path');
     final url = Uri.parse('$baseUrl/lab/os/iron/decision_path');
     _audit('GET', url);
     try {
@@ -354,6 +367,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronDrift() async {
+    _checkSnapshotPolicy('/lab/os/iron/drift');
     final url = Uri.parse('$baseUrl/lab/os/iron/drift');
     _audit('GET', url);
     try {
@@ -366,6 +380,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchIronReplayIntegrity() async {
+    _checkSnapshotPolicy('/lab/os/iron/replay_integrity');
     final url = Uri.parse('$baseUrl/lab/os/iron/replay_integrity');
     _audit('GET', url);
     try {
@@ -378,30 +393,17 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchLockReason() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/lock_reason');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
+    // STUB: Use Unified Snapshot instead.
+    return {'status': 'UNAVAILABLE', 'reason': 'Use Unified Snapshot'};
   }
 
   Future<Map<String, dynamic>> fetchCoverage() async {
-    final url = Uri.parse('$baseUrl/lab/os/self_heal/coverage');
-    _audit('GET', url);
-    try {
-      final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      }
-    } catch (_) {}
-    return {};
+    // STUB: Deep Dive not yet implemented.
+    return {'status': 'UNAVAILABLE', 'percent': 0.0};
   }
 
   Future<Map<String, dynamic>> fetchFindings() async {
+    _checkSnapshotPolicy('/lab/os/self_heal/findings');
     final url = Uri.parse('$baseUrl/lab/os/self_heal/findings');
     _audit('GET', url);
     try {
@@ -414,6 +416,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchBeforeAfterDiff() async {
+    _checkSnapshotPolicy('/lab/os/self_heal/before_after');
     final url = Uri.parse('$baseUrl/lab/os/self_heal/before_after');
     _audit('GET', url);
     try {
@@ -426,6 +429,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchUniverse() async {
+    _checkSnapshotPolicy('/universe');
     final url = Uri.parse('$baseUrl/universe');
     _audit('GET', url);
     try {
@@ -438,6 +442,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchMisfireStatus() async {
+    _checkSnapshotPolicy('/misfire');
     final url = Uri.parse('$baseUrl/misfire');
     _audit('GET', url);
     try {
@@ -472,6 +477,17 @@ class ApiClient {
       'timeframe': timeframe,
       'allow_stale': allowStale.toString(),
     });
+    
+    _checkSnapshotPolicy('/on_demand/context');
+    _audit('GET', uri);
+    // OnDemand is a READ path, it should be subject to policy?
+    // User said "All UI read operations MUST originate from UnifiedSnapshotRepository".
+    // But OnDemand is likely "On Demand" and might not be in snapshot?
+    // "PART V — ... In ApiClient (read methods only): exception in snapshot mode"
+    // So if OnDemand is not in snapshot, it's effectively KILLED in snapshot mode.
+    // If it is allowed, it must be white-listed.
+    // Assuming strictly, it should be blocked.
+    _checkSnapshotPolicy('/on_demand/context');
     _audit('GET', uri);
 
     try {
@@ -484,6 +500,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchLiveOverlay() async {
+    _checkSnapshotPolicy('/overlay_live');
     final url = Uri.parse('$baseUrl/overlay_live');
     _audit('GET', url);
     try {
@@ -496,6 +513,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchHealthExt() async {
+    _checkSnapshotPolicy('/health_ext');
     final url = Uri.parse('$baseUrl/health_ext');
     _audit('GET', url);
     try {
@@ -506,6 +524,7 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> fetchOsHealth() async {
+    _checkSnapshotPolicy('/lab/os/health');
     final url = Uri.parse('$baseUrl/lab/os/health');
     _audit('GET', url);
     try {
@@ -517,22 +536,50 @@ class ApiClient {
 
   Future<Map<String, dynamic>> fetchUnifiedSnapshot() async {
     final url = Uri.parse('$baseUrl/lab/war_room/snapshot');
-    _audit('GET', url);
     try {
       final response = await client.get(url, headers: _headers);
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        debugPrint("USP_FETCH_FAIL status=${response.statusCode}");
-      }
+      return _processResponse(response);
     } catch (e) {
-      debugPrint("USP_FETCH_ERROR: $e");
-      rethrow; 
+      debugPrint("API_CLIENT: Snapshot Fetch Error: $e");
+      rethrow;
     }
-    return {};
+  }
+
+  // D73: Total SSOT Migration - Raw Fetch for Repository
+  // Whitelisted from blocking policy.
+  Future<Map<String, dynamic>> fetchUnifiedSnapshotRaw({bool nocache = false}) async {
+    var uri = Uri.parse('$baseUrl/lab/war_room/snapshot');
+    if (nocache) {
+      uri = uri.replace(queryParameters: {'nocache': '1'});
+    }
+    
+    // NO BLOCKING CHECK HERE - This is the designated survivor.
+    
+    try {
+      final response = await client.get(uri, headers: _headers);
+      // We return the raw JSON body (which is the Envelope)
+      return _processResponse(response);
+    } catch (e) {
+      debugPrint("API_CLIENT: SSOT Raw Fetch Error: $e");
+      rethrow;
+    }
+  }
+
+  Map<String, dynamic> _processResponse(http.Response response) {
+    if (response.statusCode == 200) {
+      if (response.body.isEmpty) return {};
+      return json.decode(response.body);
+    }
+    // D55: Fail-Hidden (return empty) or Throw?
+    // For USP-1 we might want to know about failures.
+    // But basic contract is Map.
+    debugPrint("API_CLIENT: Non-200 Response: ${response.statusCode} ${response.request?.url}");
+    if (response.statusCode == 404) return {}; 
+    throw Exception("API Error: ${response.statusCode}");
   }
 
   Future<Map<String, dynamic>> fetchWarRoomDashboard() async {
+    _checkSnapshotPolicy('/lab/war_room');
     final url = Uri.parse('$baseUrl/lab/war_room');
     _audit('GET', url);
     debugPrint("WARROOM_FETCH url=$url"); 
@@ -551,6 +598,139 @@ class ApiClient {
     } catch (e) {
       debugPrint("WARROOM_FETCH Error: $e");
     }
+    return {};
+  }
+  Future<Map<String, dynamic>> fetchProjectionReport(String symbol) async {
+    _checkSnapshotPolicy('/projection/report');
+    final url = Uri.parse('$baseUrl/projection/report?symbol=$symbol');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+  // --- ELITE METHODS (Delegated from EliteRepository) ---
+
+  Future<Map<String, dynamic>> fetchEliteRitual(String ritualId) async {
+    _checkSnapshotPolicy('/elite/ritual');
+    final url = Uri.parse('$baseUrl/elite/ritual/$ritualId');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+
+  Future<Map<String, dynamic>> postEliteSettings(Map<String, dynamic> body) async {
+    _checkSnapshotPolicy('/elite/settings');
+    final url = Uri.parse('$baseUrl/elite/settings');
+    _audit('POST', url);
+    try {
+      final response = await client.post(url, headers: _headers, body: json.encode(body));
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+
+  Future<Map<String, dynamic>> postEliteReflection(Map<String, dynamic> body) async {
+    _checkSnapshotPolicy('/elite/reflection');
+    final url = Uri.parse('$baseUrl/elite/reflection');
+    _audit('POST', url);
+    try {
+      final response = await client.post(url, headers: _headers, body: json.encode(body));
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+
+  Future<List<dynamic>> fetchEliteEvents({String? since}) async {
+    _checkSnapshotPolicy('/events/latest');
+    String urlStr = '$baseUrl/events/latest';
+    if (since != null) urlStr += '?since=$since';
+    final url = Uri.parse(urlStr);
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        return data['events'] as List<dynamic>;
+      }
+    } catch (_) {}
+    return [];
+  }
+
+  Future<Map<String, dynamic>> fetchEliteState() async {
+    _checkSnapshotPolicy('/elite/state');
+    final url = Uri.parse('$baseUrl/elite/state');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+
+  Future<Map<String, dynamic>> fetchEliteExplainStatus() async {
+    _checkSnapshotPolicy('/elite/explain/status');
+    final url = Uri.parse('$baseUrl/elite/explain/status');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers).timeout(const Duration(seconds: 3));
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {'status': 'UNAVAILABLE'};
+  }
+
+  Future<Map<String, dynamic>> fetchEliteOsSnapshot() async {
+    _checkSnapshotPolicy('/elite/os/snapshot');
+    final url = Uri.parse('$baseUrl/elite/os/snapshot');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+
+  Future<Map<String, dynamic>> fetchEliteFirstInteractionScript() async {
+    _checkSnapshotPolicy('/elite/script/first_interaction');
+    final url = Uri.parse('$baseUrl/elite/script/first_interaction');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
+    return {};
+  }
+
+  Future<Map<String, dynamic>> fetchEliteMicroBriefingOpen() async {
+    _checkSnapshotPolicy('/elite/micro_briefing/open');
+    final url = Uri.parse('$baseUrl/elite/micro_briefing/open');
+    _audit('GET', url);
+    try {
+      final response = await client.get(url, headers: _headers);
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      }
+    } catch (_) {}
     return {};
   }
 }

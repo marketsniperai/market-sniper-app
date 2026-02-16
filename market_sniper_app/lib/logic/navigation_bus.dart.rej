@@ -1,0 +1,38 @@
+diff a/market_sniper_app/lib/logic/navigation_bus.dart b/market_sniper_app/lib/logic/navigation_bus.dart	(rejected hunks)
+@@ -1,4 +1,5 @@
+ import 'dart:async';
++import 'package:flutter/widgets.dart'; // Required for Widget type
+ 
+ /// Simple event bus for navigating between decoupled screens/tabs.
+ /// Used to switch tabs in MainLayout from deep child widgets.
+@@ -11,7 +12,17 @@ class NavigationBus {
+   Stream<NavigationEvent> get events => _controller.stream;
+ 
+   void navigate(int tabIndex, {Object? arguments}) {
+-    _controller.add(NavigationEvent(tabIndex, arguments: arguments));
++    _controller.add(NavigationEvent(tabIndex: tabIndex, arguments: arguments));
++  }
++
++  /// Requests the shell to show a full-screen overlay (e.g. War Room, Universe)
++  /// maintaining the Top Bar and Bottom Nav.
++  void showOverlay(Widget overlay) {
++    _controller.add(NavigationEvent(overlay: overlay));
++  }
++
++  void clearOverlay() {
++    _controller.add(NavigationEvent(overlay: null));
+   }
+ 
+   void dispose() {
+@@ -20,8 +31,9 @@ class NavigationBus {
+ }
+ 
+ class NavigationEvent {
+-  final int tabIndex;
++  final int? tabIndex; // Nullable if event is overlay-only
+   final Object? arguments;
++  final Widget? overlay; // New: Request to show an overlay
+ 
+-  NavigationEvent(this.tabIndex, {this.arguments});
++  NavigationEvent({this.tabIndex, this.arguments, this.overlay});
+ }

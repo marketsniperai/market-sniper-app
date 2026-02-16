@@ -1,0 +1,25 @@
+diff a/market_sniper_app/lib/models/dashboard_payload.dart b/market_sniper_app/lib/models/dashboard_payload.dart	(rejected hunks)
+@@ -34,6 +34,7 @@ class DashboardPayload {
+   final String? generatedAt;
+   final String? runManifestRef;
+   final Map<String, dynamic> marketSnapshot;
++  final Map<String, dynamic>? volumeIntelligence;
+ 
+   DashboardPayload({
+     required this.systemStatus,
+@@ -42,6 +43,7 @@ class DashboardPayload {
+     this.generatedAt,
+     this.runManifestRef,
+     required this.marketSnapshot,
++    this.volumeIntelligence,
+   });
+ 
+   factory DashboardPayload.fromJson(Map<String, dynamic> json) {
+@@ -56,6 +58,7 @@ class DashboardPayload {
+       generatedAt: json['generated_at'],
+       runManifestRef: json['run_manifest_ref'],
+       marketSnapshot: json['market_snapshot'] ?? {},
++      volumeIntelligence: json['volume_intelligence'],
+     );
+   }
+ 

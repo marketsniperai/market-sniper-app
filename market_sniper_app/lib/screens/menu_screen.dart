@@ -16,7 +16,7 @@ import '../theme/app_typography.dart';
 import '../theme/app_spacing.dart';
 import 'package:provider/provider.dart';
 import '../state/locale_provider.dart';
-import '../logic/api_client.dart'; // D49
+import '../repositories/elite_repository.dart'; // D49
 import '../widgets/elite/elite_reflection_modal.dart'; // D49
 
 class MenuScreen extends StatefulWidget {

@@ -39,14 +39,21 @@ In Release Mode, the system MUST contain **ZERO (0)** Unknown Zombies.
 - Any `UNKNOWN` route detected during a Release build fails the pipeline immediately.
 - Exception: In `DEV` mode, unknowns are strictly ratcheted (cannot rise) but allowed if descending (Weekly Gate).
 ^>
-**RULE:**
-Glossary
-is
-the
-semantic
-authority:
-when
-in
-doubt
-follow
-GLOSSARY.
+## 7. ARTIFACT PRESERVATION LAW (NO DELETE)
+**Status:** ABSOLUTE LAW
+- No file, widget, or module may be deleted without `FOUNDER_DELETE_APPROVAL.txt`.
+- **Enforcement:** `tools/verify_no_delete.ps1`
+
+## 8. ROOT-ANCHORED DOCTRINE
+**Status:** ABSOLUTE LAW
+- All operations must start from `git rev-parse --show-toplevel`.
+- **Enforcement:** `tools/verify_repo_root.py`
+
+## 9. CANON DISCIPLINE LAW (DERIVED TRUTH)
+**Status:** ABSOLUTE LAW
+- War Calendar (`OMSR_WAR_CALENDAR...`) is a DERIVED artifact from `outputs/seals/*.md`.
+- **Enforcement:** `tools/verify_canon_sync.py` / `tools/build_seal_index.py`
+
+## 10. GLOSSARY RULE
+Glossary is the semantic authority: when in doubt follow GLOSSARY.
+

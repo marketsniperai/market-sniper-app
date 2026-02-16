@@ -1,0 +1,745 @@
+{
+  "meta": {
+    "generated_at_utc": "2026-02-13T14:41:08.812656Z",
+    "run_id": "a6e69c26-765d-46c5-b1c1-86a7b214c844",
+    "module_count": 89,
+    "api_revision": "UNKNOWN",
+    "commit_hash": "UNKNOWN"
+  },
+  "ops": {
+    "OS.Infra.LayoutPolice": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Runtime Layout Guard."
+    },
+    "OS.Ops.Pipeline": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-13T14:41:07.374682",
+      "reason": "Evidence: full/run_manifest.json",
+      "notes": "Orchestrates data generation pipelines."
+    },
+    "OS.Ops.Misfire": {
+      "status": "NOMINAL",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-13T14:41:07.519197+00:00",
+      "reason": "OK",
+      "notes": "Detects missed schedules and triggers auto-heal.",
+      "meta": {
+        "diagnostics": {
+          "status": "UNAVAILABLE",
+          "root_cause": "UNAVAILABLE",
+          "tier2_signals": [],
+          "reason": "NO_RECENT_MISFIRES"
+        }
+      }
+    },
+    "OS.Ops.AutoFix": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-11T03:47:25.753000",
+      "reason": "Evidence: runtime/autofix/autofix_status.json",
+      "notes": "Recommends and executes recovery actions."
+    },
+    "OS.Ops.Housekeeper": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Artifact Evidence",
+      "notes": "Hygiene Engine (Wired/Manual)."
+    },
+    "OS.Ops.Iron": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Artifact Evidence",
+      "notes": "State Management, Replay, and History Engine."
+    },
+    "OS.Ops.Replay": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Time Machine for Operational States."
+    },
+    "OS.Ops.Rollback": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Founder Intent Ledger for State Rollbacks."
+    },
+    "OS.Ops.WarRoom": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Unified command center (V2 Refactor)."
+    },
+    "OS.Ops.ImmuneSystem": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-13T14:41:06.631030",
+      "reason": "Evidence: runtime/immune/immune_snapshot.json",
+      "notes": "Active defense against poisoned inputs."
+    },
+    "OS.Ops.BlackBox": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-13T14:41:07.801825",
+      "reason": "Evidence: runtime/black_box/decision_ledger.jsonl",
+      "notes": "Forensic Indestructibility & Truth Recorder."
+    },
+    "OS.Ops.ShadowRepair": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Proposes Patches and Executes Runtime Surgery."
+    },
+    "OS.Ops.TuningGate": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Governance for Runtime Tuning (2-Vote)."
+    },
+    "OS.Ops.ReliabilityLedgerGlobal": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Append-only record of projections."
+    },
+    "OS.Ops.ReliabilityReconciler": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Closes the loop with realized outcomes."
+    },
+    "OS.Ops.KnowledgeIndex": {
+      "status": "STATIC",
+      "source": "artifact",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "SSOT of all OS modules."
+    },
+    "OS.Ops.CalibrationReport": {
+      "status": "STATIC",
+      "source": "artifact",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "Generates accuracy artifacts."
+    },
+    "OS.Ops.StateSnapshot": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-13T14:41:09.115033",
+      "reason": null,
+      "notes": "Real-time system health for Elite (V3)."
+    },
+    "OS.Ops.EventRouter": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Central System Event Bus."
+    },
+    "OS.Ops.Voice": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Governance stub for future Voice Engine."
+    },
+    "OS.Logic.Ritual": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Local notification triggers."
+    },
+    "OS.OnDemand.Ledger": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Daily Cost Policy Enforcer."
+    }
+  },
+  "intel": {
+    "OS.Intel.Foundation": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Memory, Truth Mirror, and Base Truth."
+    },
+    "OS.Intel.Intel": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Pattern recognition and coherence analysis."
+    },
+    "OS.Intel.Dojo": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Offline Simulation & Deep Dreaming."
+    },
+    "OS.Intel.ShadowRec": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Maps patterns to Shadow Playbooks."
+    },
+    "OS.Intel.Handoff": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Secure bridge from Thinker to Actor."
+    },
+    "OS.Intel.Thresholds": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Self-tuning sensitivity based on market state."
+    },
+    "OS.Intel.Bands": {
+      "status": "STATIC",
+      "source": "artifact",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "Standardizes confidence levels."
+    },
+    "OS.Intel.Options": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-11T02:16:15.191000",
+      "reason": "Evidence: engine/options_context.json",
+      "notes": "Descriptive IV/Skew/Move context (N/A Safe)."
+    },
+    "OS.Intel.Macro": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Rates/USD/Oil context + degradation."
+    },
+    "OS.Intel.Evidence": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Regime matching + Sample Size guard."
+    },
+    "OS.Intel.Projection": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Central mixing engine (Fusion)."
+    },
+    "OS.Intel.News": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Artifact Evidence",
+      "notes": "Unified News Truth (Source Ladder)."
+    },
+    "OS.Intel.Calendar": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "High-Impact Event Schedule."
+    },
+    "OS.Intel.Attribution": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "\"Show Work\" Logic for Projections."
+    },
+    "OS.Intel.IntradaySeries": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Deterministic 5m candle generator."
+    },
+    "OS.Intel.ContextTagger": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Semantic tagging for inputs."
+    },
+    "OS.Intel.RitualRouter": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Router for ritual artifacts."
+    },
+    "OS.Intel.ChatCore": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Hybrid Chat + Tool Router."
+    },
+    "OS.Intel.UserMemory": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Longitudinal user reflection."
+    },
+    "OS.Intel.LLMBoundary": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Safe LLM wrapper with cost/PII guards."
+    }
+  },
+  "data": {
+    "OS.Data.DataMux": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Artifact Evidence",
+      "notes": "Multi-Provider Failover Layer."
+    },
+    "OS.OnDemand.Cache": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Universe-agnostic analysis cache."
+    },
+    "OS.OnDemand.Global": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Shared dossier deduplication (Public)."
+    },
+    "OS.OnDemand.Recent": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Local offline snapshot persistence."
+    },
+    "OS.Data.Provider.AlphaVantage": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-12T23:51:36.502848",
+      "reason": "Evidence: full/providers/alpha_vantage_snapshot.json",
+      "notes": "Batch-Only Provider Integration."
+    },
+    "OS.Logic.WatchlistStore": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Local persistence for tickers."
+    }
+  },
+  "infra": {
+    "OS.Infra.API": {
+      "status": "LIVE",
+      "source": "runtime",
+      "observable": true,
+      "last_update": "2026-02-13T14:41:07.374682",
+      "reason": "Evidence: full/run_manifest.json",
+      "notes": "Entry point for all system interactions."
+    },
+    "OS.Infra.CloudRun": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Core Compute (Procfile + Lab Probes)."
+    },
+    "OS.Infra.LB": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "HTTPS termination + Serverless NEG."
+    },
+    "OS.Infra.Hosting": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Static Assets + Rewrite Layer."
+    }
+  },
+  "ui": {
+    "UI.Layout.DashboardComposer": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Dashboard Widget Orchestrator."
+    },
+    "UI.Component.DashboardCard": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Canonical Card Wrapper."
+    },
+    "UI.WarRoom.Shell": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Institutional Command Center Shell."
+    },
+    "OS.UI.UniverseScreen": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Core Universe Management."
+    },
+    "OS.UI.OnDemandPanel": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Ticker search and analysis surface."
+    },
+    "OS.UI.WatchlistScreen": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Persistent watchlist management."
+    },
+    "OS.UI.NewsTab": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Flip-card daily digest surface."
+    },
+    "OS.UI.CalendarTab": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Impact-rated event schedule."
+    },
+    "OS.UI.PremiumMatrix": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "Feature comparison and upgrade."
+    },
+    "OS.UI.ShareSheet": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Watermarked image export."
+    },
+    "OS.UI.CommandCenter": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Elite-only mystery surface."
+    },
+    "OS.UI.CoherenceQuartet": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Premium Anchor (4-Quadrant)."
+    },
+    "OS.UI.RegimeSentinel": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Index Detail Widget (Skeleton)."
+    },
+    "UI.Synthesis.Global": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Risk State/Driver Synthesis."
+    },
+    "OS.UI.SectorSentinel": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Real-Time Sector Strip."
+    },
+    "OS.UI.TimeTraveller": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Interactive H/L/C Chart."
+    },
+    "OS.UI.ReliabilityMeter": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Real-time Accuracy/Uptime visuals."
+    },
+    "OS.UI.TacticalPlaybook": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "AI Strategy & Setup visualization."
+    },
+    "OS.UI.IntelCards": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Carousel of synthesis briefings."
+    },
+    "OS.UI.MicroBriefing": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Briefing content widget."
+    },
+    "OS.Elite.ShellV2": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "Glass Ritual Panel Overlay (70%)."
+    },
+    "OS.Elite.Overlay": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "70/30 Context Shell (Base)."
+    },
+    "OS.Elite.RitualGrid": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": false,
+      "last_update": null,
+      "reason": null,
+      "notes": "2x3 Ritual Selection Grid."
+    },
+    "OS.Elite.BadgeController": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Notification Badge Logic."
+    },
+    "OS.Logic.TabState": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Bottom nav persistence."
+    }
+  },
+  "security": {
+    "OS.Infra.Gates": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Enforces system safety and data freshness."
+    },
+    "OS.Logic.RitualPolicy": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Windows + Countdown Logic."
+    },
+    "OS.Logic.FreeWindow": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Monday Free Window Tracking."
+    },
+    "OS.OnDemand.Resolver": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Founder/Elite/Plus/Free Resolution."
+    },
+    "OS.Security.EliteGate": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Fail-closed cost/write protection."
+    }
+  },
+  "contract": {
+    "OS.Biz.Dashboard": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "Main user interface data payload."
+    },
+    "OS.Biz.Context": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "Narrative context and market status."
+    },
+    "OS.Domain.Universe": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "`Core20` Definitions."
+    },
+    "OS.Contract.WarRoom": {
+      "status": "STATIC",
+      "source": "static",
+      "observable": true,
+      "last_update": null,
+      "reason": null,
+      "notes": "SSOT for Required Keys (Hydration)."
+    }
+  },
+  "tooling": {
+    "Tool.Verifier.Discipline": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Enforces detailed canonical rules."
+    },
+    "Tool.Verifier.Schema": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Enforces strict JSON contracts."
+    },
+    "Tool.Verifier.Dashboard": {
+      "status": "UNKNOWN",
+      "source": "runtime",
+      "observable": true,
+      "last_update": null,
+      "reason": "No Evidence",
+      "notes": "Enforces dashboard specific layout rules."
+    }
+  }
+}

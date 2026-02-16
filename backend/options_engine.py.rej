@@ -1,0 +1,92 @@
+diff a/backend/options_engine.py b/backend/options_engine.py	(rejected hunks)
+@@ -5,10 +5,12 @@ from pathlib import Path
+ from backend.options_provider import get_provider
+ from backend.options_compute import compute_options_context
+ from backend.lexicon_pro_engine import LexiconProEngine
++# D62.6: Enforce Artifact Root Consistency
++from backend.artifacts.io import get_artifacts_root
+ 
+-# Canonical Output Paths
+-OUTPUT_PATH = Path("outputs/engine/options_context.json")
+-CACHE_PATH = Path("outputs/cache/options_cache.json")
++# Canonical Output Paths (D62.6: Resolved via IO module)
++OUTPUT_PATH = get_artifacts_root() / "engine/options_context.json"
++CACHE_PATH = get_artifacts_root() / "cache/options_cache.json"
+ 
+ def generate_options_context():
+     """
+@@ -35,9 +37,9 @@ def generate_options_context():
+     # A. Check Configuration
+     # ---------------------------------------------------------
+     if not provider.is_configured():
+-        diagnostics["fallback_reason"] = "PROVIDER_DENIED_NO_KEY"
+-        _write_artifact(symbol, "PROVIDER_DENIED", "N_A", diagnostics, 
+-                       "Options Intelligence offline. API Key missing.",
++        diagnostics["fallback_reason"] = "OPTIONS_PROVIDER_UNAVAILABLE"
++        _write_artifact(symbol, "MISSING", "N_A", diagnostics, 
++                       "OPTIONS_PROVIDER_UNAVAILABLE",
+                        iv_regime="N/A", skew="N/A", exp_move="N/A")
+         return
+ 
+@@ -47,11 +49,13 @@ def generate_options_context():
+     cached_data = _read_cache(symbol)
+     if cached_data:
+         # Robust ISO parsing
+-        ts_str = cached_data["cached_at_utc"].replace("Z", "")
++        ts_str = cached_data["cached_at_utc"].replace("Z", "+00:00")
+         # If no decimals, padding might be needed or just try/except
+         try:
+              cache_dt = datetime.datetime.fromisoformat(ts_str)
+-             age = (datetime.datetime.utcnow() - cache_dt).total_seconds()
++             # D62.6: Use timezone-aware UTC now
++             now_utc = datetime.datetime.now(datetime.UTC)
++             age = (now_utc - cache_dt).total_seconds()
+              
+              diagnostics["cache_age_seconds"] = int(age)
+              
+@@ -123,9 +127,11 @@ def _read_cache(symbol: str):
+ 
+ def _write_cache(symbol: str, payload: dict):
+     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
++    # D62.6: Use timezone-aware UTC now
++    now_utc = datetime.datetime.now(datetime.UTC)
+     cache_entry = {
+         "symbol": symbol,
+-        "cached_at_utc": datetime.datetime.utcnow().isoformat() + "Z",
++        "cached_at_utc": now_utc.isoformat().replace("+00:00", "Z"),
+         "payload": payload
+     }
+     with open(CACHE_PATH, "w") as f:
+@@ -135,7 +141,9 @@ def _write_artifact_from_payload(payload_in: dict, status_override: str, diagnos
+     # Enforce contract fields over payload
+     payload = payload_in.copy()
+     payload["status"] = status_override
+-    payload["as_of_utc"] = datetime.datetime.utcnow().isoformat() + "Z"
++    # D62.6: Use timezone-aware UTC now
++    now_utc = datetime.datetime.now(datetime.UTC)
++    payload["as_of_utc"] = now_utc.isoformat().replace("+00:00", "Z")
+     payload["diagnostics"] = diagnostics
+     payload["version"] = "1.1.0"
+     
+@@ -148,9 +156,11 @@ def _write_artifact_from_payload(payload_in: dict, status_override: str, diagnos
+     _dump(payload)
+ 
+ def _write_artifact(symbol, status, coverage, diagnostics, note, iv_regime="N_A", skew="N/A", exp_move="N/A"):
++    # D62.6: Use timezone-aware UTC now
++    now_utc = datetime.datetime.now(datetime.UTC)
+     payload = {
+         "version": "1.1.0",
+-        "as_of_utc": datetime.datetime.utcnow().isoformat() + "Z",
++        "as_of_utc": now_utc.isoformat().replace("+00:00", "Z"),
+         "symbol": symbol,
+         "status": status,
+         "coverage": coverage,
+@@ -169,7 +179,7 @@ def _dump(payload):
+     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+         json.dump(payload, f, indent=2)
+-    print(f"[OPTIONS_ENGINE_V1.1] Artifact written (Status: {payload['status']})")
++    print(f"[OPTIONS_ENGINE_V1.1] Artifact written (Status: {payload['status']}) to {OUTPUT_PATH}")
+ 
+ 
+ if __name__ == "__main__":

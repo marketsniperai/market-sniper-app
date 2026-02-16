@@ -97,21 +97,19 @@ class _MarketPressureOrbState extends State<MarketPressureOrb>
     if (isBear) glowColor = AppColors.marketBear;
 
     // Orb Size constraints
-    // "Orb occupies left half of its container."
-    // "Right half intentionally empty."
-    // Fixed height 240 to be elegant.
-    const double orbSize = 200.0; 
+    // D61.x.07 Polish: 160px orb, Right aligned to create "Trinity" balance with Vol Meter
+    const double orbSize = 160.0; 
 
     return Container(
-      height: 240, 
-      alignment: Alignment.centerLeft, // Left Aligned
+      height: 180, 
+      alignment: Alignment.centerRight, // Right Aligned
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           // 1. Ambient Glow (Behind)
           Positioned(
-             left: 20, // Center the orb relative to the left area
-             top: 20,
+             right: 4, // Center relative to right edge
+             top: 10,
              child: Transform.scale(
               scale: breatheScale * 1.05,
               child: Container(
@@ -133,8 +131,8 @@ class _MarketPressureOrbState extends State<MarketPressureOrb>
 
           // 2. The Physical Orb
           Positioned(
-             left: 20,
-             top: 20,
+             right: 4,
+             top: 10,
              child: GestureDetector(
                 onTap: (widget.tier == CommandCenterTier.elite) 
                     ? () => _showExplainerModal(context) 
@@ -289,8 +287,8 @@ class _MarketPressureOrbState extends State<MarketPressureOrb>
           // 7. Info Icon (Outside, Floating Right)
           if (widget.tier == CommandCenterTier.elite)
             Positioned(
-              left: 20 + orbSize - 10, // Just off the edge
-              top: 20,
+              right: 18, 
+              top: 0,
               child: GestureDetector(
                 onTap: () => _showExplainerModal(context),
                 child: Container(

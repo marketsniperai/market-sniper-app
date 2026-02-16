@@ -1,0 +1,44 @@
+diff a/market_sniper_app/lib/models/news/news_digest_model.dart b/market_sniper_app/lib/models/news/news_digest_model.dart	(rejected hunks)
+@@ -49,4 +49,42 @@ class NewsDigestViewModel {
+       items: [],
+     );
+   }
++
++  factory NewsDigestViewModel.fromJson(Map<String, dynamic> json) {
++    // D62.12: Handle Envelope (payload key) vs Direct
++    final data = json.containsKey('payload') ? json['payload'] : json;
++    
++    if (data == null || data is! Map<String, dynamic>) {
++      return NewsDigestViewModel.offline();
++    }
++
++    final itemsList = (data['items'] as List<dynamic>?) ?? [];
++    final items = itemsList.map((i) => NewsDigestItem(
++      id: i['id'] ?? 'unknown',
++      title: i['title'] ?? 'Untitled',
++      source: i['source'] ?? 'Unknown',
++      publishedUtc: DateTime.tryParse(i['published_utc'] ?? '') ?? DateTime.now(),
++      impact: _parseImpact(i['impact']),
++      summaryBrief: i['summary_brief'] ?? '',
++      summaryExpand: i['summary_expand'] ?? '',
++      symbols: (i['symbols'] as List<dynamic>?)?.map((s) => s.toString()).toList() ?? [],
++      rankingReason: i['ranking_reason'],
++    )).toList();
++
++    return NewsDigestViewModel(
++      freshness: DigestFreshness.live,
++      source: DigestSource.pipeline,
++      asOfUtc: DateTime.tryParse(data['as_of_utc'] ?? '') ?? DateTime.now(),
++      items: items,
++    );
++  }
++
++  static DigestImpact _parseImpact(String? imp) {
++    switch (imp?.toLowerCase()) {
++      case 'high': return DigestImpact.high;
++      case 'medium': return DigestImpact.medium;
++      case 'low': return DigestImpact.low;
++      default: return DigestImpact.low;
++    }
++  }
+ }

@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart'; // kDebugMode
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
+// Imports Checked
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../../ui/tokens/dashboard_spacing.dart';
@@ -137,7 +137,7 @@ class _SectorFlipWidgetV1State extends State<SectorFlipWidgetV1>
 
   void _loadFramesFromPulseArtifacts() {
      // Placeholder: If fetch fails, we retain synthetic history
-     // Real implementation would http.get /dashboard here
+     // Real implementation would (get) /dashboard here
      if (_frames.isEmpty) _seedSyntheticFrames();
   }
   

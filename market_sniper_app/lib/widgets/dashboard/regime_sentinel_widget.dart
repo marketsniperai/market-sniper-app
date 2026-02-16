@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+// import 'dart:convert'; // D74: Removed
+// Header Imports Checked
 import '../../config/app_config.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../../ui/tokens/dashboard_spacing.dart';
-import '../../models/regime_sentinel_model.dart';
+import '../../models/regime_sentinel_model.dart'; // Ensure this exists or is not needed if we use local classes
 import '../../utils/time_utils.dart';
 import 'breathing_status_accent.dart';
+import '../../repositories/regime_repository.dart'; // D74
 
 // HF18: Local Model for Charting
 class IntradayCandle {
@@ -75,7 +76,6 @@ class _RegimeSentinelWidgetState extends State<RegimeSentinelWidget> with Ticker
   final double _timelineMin = -4;
 
   // 10:30 AM Gating State
-  // 10:30 AM Gating State
   bool _isCalibrating = true; // Default true until fetched
   String? _calibrationMessage;
   Timer? _calibrationTimer;
@@ -120,12 +120,10 @@ class _RegimeSentinelWidgetState extends State<RegimeSentinelWidget> with Ticker
 
   Future<void> _checkCalibration() async {
      try {
-       // HF18: Real Fetch
-       final uri = Uri.parse('${AppConfig.apiBaseUrl}/projection/report?symbol=$_selectedIndex');
-       final response = await http.get(uri);
+       // HF18: Real Fetch via Repository
+       final data = await RegimeRepository().fetchProjectionReport(_selectedIndex);
        
-       if (response.statusCode == 200) {
-           final data = json.decode(response.body);
+       if (data.isNotEmpty) {
            final state = data['state'];
            final stateReasons = List<String>.from(data['stateReasons'] ?? []);
            

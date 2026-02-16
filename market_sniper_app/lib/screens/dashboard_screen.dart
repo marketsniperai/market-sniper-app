@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 // import '../theme/app_colors.dart'; // Moved to Composer
 import '../models/dashboard_payload.dart';
 import '../models/system_health.dart';
-import '../services/api_client.dart';
+// import '../services/api_client.dart'; // Removed (D74 Snapshot-First Law)
 import '../config/app_config.dart';
 // import '../widgets/dashboard_widgets.dart'; // Moved to Composer
 import '../logic/data_state_resolver.dart';
 import '../repositories/dashboard_repository.dart';
+import '../repositories/unified_snapshot_repository.dart'; // D73
 import '../utils/time_utils.dart';
 // import '../widgets/session_window_strip.dart'; // Moved to Composer
 
@@ -17,8 +18,8 @@ import '../utils/time_utils.dart';
 // import '../widgets/last_run_widget.dart'; // Moved to Composer
 // import '../widgets/founder_banner.dart'; // Moved to Composer
 import '../logic/dashboard_refresh_controller.dart';
-import '../repositories/system_health_repository.dart';
-import '../repositories/last_run_repository.dart';
+// import '../repositories/system_health_repository.dart'; // Removed (D74)
+// import '../repositories/last_run_repository.dart'; // Removed (D74)
 import '../models/system_health_snapshot.dart';
 import '../models/last_run_snapshot.dart';
 import '../logic/dashboard_degrade_policy.dart';
@@ -35,21 +36,23 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen>
     with WidgetsBindingObserver {
-  late DashboardRepository _repo;
-  late SystemHealthRepository _healthRepo;
-  late LastRunRepository _lastRunRepo;
-  late ApiClient
-      _api; // Kept for health (separate concern for now, or move to repo later)
+  // D73: Unified Snapshot SSOT
+  final UnifiedSnapshotRepository _unified = UnifiedSnapshotRepository();
+
+  // Legacy repos removed/unused in this view
+  // late DashboardRepository _repo; 
+  // late SystemHealthRepository _healthRepo;
+  // late LastRunRepository _lastRunRepo;
+
   DashboardPayload? _dashboard;
-  SystemHealth? _health; // Legacy
+  SystemHealth? _health;
   SystemHealthSnapshot _healthSnapshot = SystemHealthSnapshot.unknown;
   LastRunSnapshot _lastRunSnapshot = LastRunSnapshot.unknown;
-  Map<String, dynamic>? _optionsContext; // D36.3
+  Map<String, dynamic>? _optionsContext;
 
   bool _loading = true;
   String? _error;
   late DashboardRefreshController _refreshController;
-  // Timer? _refreshTimer; // Replaced by DashboardRefreshController
 
   @override
   void initState() {
@@ -59,22 +62,14 @@ class _DashboardScreenState extends State<DashboardScreen>
     // D37.02: Initialize Timezones
     TimeUtils.init();
 
-    _api = ApiClient();
-    _repo = DashboardRepository(api: _api);
-    _healthRepo = SystemHealthRepository(api: _api);
-    _lastRunRepo = LastRunRepository(api: _api);
-
     _refreshController = DashboardRefreshController(
-      onRefresh: () async => await _loadData(silent: true),
+      onRefresh: () async => await _loadData(),
     );
 
     // Initial load
     _loadData().then((_) {
-      // Start auto-refresh after initial load
       _refreshController.start();
     });
-
-    // _startTimer(); // Removed
 
     // Forensic Trace
     if (AppConfig.isFounderBuild) {
@@ -83,86 +78,70 @@ class _DashboardScreenState extends State<DashboardScreen>
     }
   }
 
-  @override
-  void dispose() {
-    _refreshController.dispose();
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
+  // ... dispose/lifecycle ...
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) {
-      _refreshController.resume();
-      // Resume should trigger refresh if needed, handled by controller
-    } else if (state == AppLifecycleState.paused) {
-      _refreshController.pause();
+  Future<void> _loadData() async {
+    if (!_refreshController.isManual) {
+      // Don't show full loading spinner on auto-refresh, just let it update
+      // But if it's first load (_loading=true), we show it.
+      if (_loading) setState(() => _error = null); 
+    } else {
+       // Manual refresh
+       setState(() {
+         _loading = true;
+         _error = null;
+       });
     }
-  }
 
-  // Timer logic removed, handled by controller
-
-  Future<void> _loadData({bool silent = false}) async {
-    if (!silent) {
-      setState(() {
-        _loading = true;
-        _error = null;
-      });
-    }
     try {
-      final results = await Future.wait([
-        _repo.fetchDashboard(),
-        _api.fetchSystemHealth(), // TODO: Move to SystemRepository
-      ]);
+      // D73: SINGLE SOURCE OF TRUTH FETCH
+      final envelope = await _unified.fetch();
 
       if (mounted) {
         setState(() {
-          _dashboard = results[0] as DashboardPayload;
-          _health = results[1] as SystemHealth; // Legacy
+          // 1. Dashboard Module
+          final dashData = _unified.getModule('dashboard');
+          if (dashData != null) {
+             _dashboard = DashboardPayload.fromJson(dashData);
+          } else {
+             // D73: Partial Availability - handle missing module
+             // We can allow _dashboard to be null or generic empty?
+             // DashboardComposer handles nulls gracefully-ish
+          }
 
-          // D37.04: Fetch Unified Health logic (integrated here for now to ensure data availability)
-          // Ideally this should participate in the Future.wait, but we need _dashboard first for resolver override if possible.
-          // However, repo.fetchUnifiedHealth accepts override.
+          // 2. Health (Legacy Model)
+          // We construct it from 'os_health' or 'misfire' module if available
+          final misfireData = _unified.getModule('misfire'); // or os_health?
+          if (misfireData != null) {
+              _health = SystemHealth.fromJson(misfireData);
+          } else {
+              _health = SystemHealth.unavailable("SNAPSHOT_MISSING");
+          }
 
-          final d = _dashboard!;
-          final resolved =
-              DataStateResolver.resolve(dashboard: d, health: _health);
+          // 3. Health Snapshot (New Model)
+          // Usually from os_health
+          // final healthSnapData = _unified.getModule('os_health'); 
+          // if (healthSnapData != null) _healthSnapshot = SystemHealthSnapshot.fromJson(healthSnapData);
 
-          // D37.07: Report Locked State to Controller
-          _refreshController
-              .reportLockedState(resolved.state == DataState.locked);
+          // 4. Options Context
+          _optionsContext = _unified.getModule('options');
 
-          // We trigger the unified fetch NOW, using the resolved state
-          _healthRepo.fetchUnifiedHealth(dataState: resolved).then((h) {
-            if (mounted) setState(() => _healthSnapshot = h);
-          });
-
-          // Fetch Last Run (D37.05)
-          _lastRunRepo.fetchLastRun().then((lr) {
-            if (mounted) setState(() => _lastRunSnapshot = lr);
-          });
-
-          // D36.3: Fetch Options Context (Async, non-blocking)
-          _repo.fetchOptionsContext().then((opts) {
-            if (mounted) {
-              setState(() {
-                // We need to pass this to composer.
-                // Storing in state for now, will add variable.
-                _optionsContext = opts;
-              });
-            }
-          });
+          // 5. Last Run
+          // _lastRunSnapshot = ... (if in snapshot)
 
           _loading = false;
+          
+          // D37.07: Report Locked State
+          // Re-resolve state based on new data
+           final resolved =
+              DataStateResolver.resolve(dashboard: _dashboard, health: _health);
+           _refreshController.reportLockedState(resolved.state == DataState.locked);
         });
       }
     } catch (e) {
       if (mounted) {
         setState(() {
           _error = e.toString();
-          // Even on error, try to show whatever health we got if possible,
-          // but Future.wait fails all.
-          // For resilience, fetching health could be separate, but strict error handling is okay.
           _loading = false;
         });
       }

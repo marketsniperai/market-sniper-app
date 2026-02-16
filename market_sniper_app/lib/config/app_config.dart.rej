@@ -1,0 +1,57 @@
+diff a/market_sniper_app/lib/config/app_config.dart b/market_sniper_app/lib/config/app_config.dart	(rejected hunks)
+@@ -16,13 +16,15 @@ class AppConfig {
+   
+   // Route B: API Key for Gateway
+   static String get founderApiKey {
++      // D62.9: Prefer FOUNDER_KEY (Canonical) -> FOUNDER_API_KEY (Legacy)
++      const canonical = String.fromEnvironment('FOUNDER_KEY', defaultValue: '');
++      if (canonical.isNotEmpty) return canonical;
++
+       const env = String.fromEnvironment('FOUNDER_API_KEY', defaultValue: '');
+       if (env.isEmpty && kDebugMode) return 'mz_founder_888'; // D56.01.2A: Auto-Unlock for Local Debug
+       return env;
+   }
+ 
+-  // Dart Define ensures these can be set at build time
+-  // RELEASE GUARD: If kReleaseMode, IGNORE env var and force PROD.
+   // Dart Define ensures these can be set at build time
+   // RELEASE GUARD: If kReleaseMode, IGNORE env var and force PROD.
+   static String get apiBaseUrl {
+@@ -51,9 +53,13 @@ class AppConfig {
+   }
+   
+   static void printStartupLog() {
+-     if (kDebugMode && isNetAuditEnabled) {
+-         print("APP_CONFIG: apiBaseUrl=$apiBaseUrl");
+-         print("APP_CONFIG: netAuditEnabled=$isNetAuditEnabled");
++     if (kDebugMode) {
++         // D62.9: Injection Proof
++         final key = founderApiKey;
++         final hasKey = key.isNotEmpty;
++         final hash = hasKey ? key.substring(0, 5) : "NULL";
++         debugPrint("APP_CONFIG: apiBaseUrl=$apiBaseUrl");
++         debugPrint("APP_CONFIG: FOUNDER_KEY_INJECTED=$hasKey [prefix: $hash]");
+      }
+   }
+   
+@@ -65,6 +71,11 @@ class AppConfig {
+     );
+   }
+ 
++  // D61.x.06D: Founder Force Elite SSOT
++  // If true, forces Command Center to Elite Tier regardless of user state.
++  static bool get founderForceElite =>
++      const bool.fromEnvironment('FOUNDER_FORCE_ELITE', defaultValue: false);
++
+   // D37.07 Refresh Governance
+   static const int dashboardAutoRefreshSeconds = 60;
+   static const int dashboardErrorBackoffSeconds = 120;
+@@ -99,7 +110,7 @@ class AppConfig {
+   static bool get isWarRoomActive => _warRoomActive;
+   static void setWarRoomActive(bool active) {
+     if (_warRoomActive != active) {
+-        if (kDebugMode && isNetAuditEnabled) print("WAR_ROOM_STATE: active=$active");
++        if (kDebugMode && isNetAuditEnabled) debugPrint("WAR_ROOM_STATE: active=$active");
+         _warRoomActive = active;
+     }
+   }

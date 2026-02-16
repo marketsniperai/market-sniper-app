@@ -1,0 +1,31 @@
+diff a/market_sniper_app/lib/layout/main_layout.dart b/market_sniper_app/lib/layout/main_layout.dart	(rejected hunks)
+@@ -63,8 +63,27 @@ class _MainLayoutState extends State<MainLayout> {
+     // Also persist intent-driven changes.
+     _navSubscription = NavigationBus().events.listen((event) {
+       if (mounted) {
+-        setState(() => _currentIndex = event.tabIndex);
+-        _tabStore.saveLastTabIndex(event.tabIndex);
++        // Handle Tab Navigation
++        if (event.tabIndex != null) {
++          setState(() => _currentIndex = event.tabIndex!);
++          _tabStore.saveLastTabIndex(event.tabIndex!);
++          // Clear overlay on tab change, unless the event explicitly requests an overlay (unlikely combo)
++          if (event.overlay == null) {
++            _setOverlay(null); 
++          }
++        }
++        
++        // Handle Overlay Request (Universe / War Room)
++        if (event.overlay != null) {
++           _setOverlay(event.overlay);
++        } else if (event.tabIndex == null && event.overlay == null) {
++           // Explicit clear request (if we had a clearOverlay event, which sends null)
++           // But here we rely on the specific overlay field being null in a "clear" event context?
++           // The bus logic sends `NavigationEvent(overlay: null)` for clear.
++           // But `tabIndex` is also null.
++           // So if both are null, it's a clear.
++           _setOverlay(null);
++        }
+       }
+     });
+   }

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
-import '../../logic/api_client.dart'; // For submission
+import '../../repositories/elite_repository.dart'; // For submission
 import 'dart:ui' as ui;
 
 class EliteReflectionModal extends StatefulWidget {
@@ -54,8 +54,8 @@ class _EliteReflectionModalState extends State<EliteReflectionModal> {
            }
         };
 
-        // Call API
-        await ApiClient().post('/elite/reflection', payload);
+        // Call API via Repository
+        await EliteRepository().post('/elite/reflection', payload);
         
         if (mounted) {
            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Reflection Logged.")));

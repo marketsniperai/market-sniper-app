@@ -26,11 +26,16 @@ void main() {
   
   // D56.01.5 Fail-Safe: Create instance.
   final routeObserver = WarRoomRouteObserver();
-  AppConfig.setWarRoomActive(false);
+  // REMOVED: AppConfig.setWarRoomActive(false) to respect ENV SSOT.
 
-  // Reverted logging commands
-  // debugPrint("RUNTIME_VERIFY: AppConfig.apiBaseUrl = ${AppConfig.apiBaseUrl}");
-  // debugPrint("RUNTIME_VERIFY: AppConfig.isFounderBuild = ${AppConfig.isFounderBuild}");
+  // PHASE A: Dart-Define Truth Probe
+  debugPrint("TRUTH_PROBE: API_BASE_URL = ${AppConfig.apiBaseUrl}");
+  debugPrint("TRUTH_PROBE: FOUNDER_BUILD = ${AppConfig.isFounderBuild}");
+  debugPrint("TRUTH_PROBE: WAR_ROOM_ACTIVE = ${AppConfig.isWarRoomActive}");
+  
+  final k = AppConfig.founderApiKey;
+  final masked = k.isNotEmpty ? "${k.substring(0, k.length > 5 ? 5 : k.length)}..." : "EMPTY";
+  debugPrint("TRUTH_PROBE: FOUNDER_KEY_LEN = ${k.length}, PREFIX = $masked");
 
   LayoutPoliceGuard.install(enabled: AppConfig.isFounderBuild);
 

@@ -35,6 +35,7 @@ def check_misfire_status():
         "last_run_id": "UNKNOWN",
         "reason": "OK",
         "recommended_action": "NONE",
+    }
     
     # --- DIAGNOSTICS ENRICHMENT (Day 62 Expansion) ---
     report["diagnostics"] = get_misfire_diagnostics()

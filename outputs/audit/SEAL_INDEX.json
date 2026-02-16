@@ -1,0 +1,3626 @@
+[
+  {
+    "filename": "SEAL_BACKEND_DEPLOY_MISFIRE_EMBED_20260213_1440.md",
+    "path": "outputs/seals/SEAL_BACKEND_DEPLOY_MISFIRE_EMBED_20260213_1440.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287333"
+  },
+  {
+    "filename": "SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md",
+    "path": "outputs/seals/SEAL_BUILD_RELEASE_APK_TO_ONEDRIVE.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287368"
+  },
+  {
+    "filename": "SEAL_CANON_0_REGISTRY.md",
+    "path": "outputs/seals/SEAL_CANON_0_REGISTRY.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287378"
+  },
+  {
+    "filename": "SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md",
+    "path": "outputs/seals/SEAL_CANON_ADD_OMSR_WAR_CALENDAR_CHECKLIST.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287384"
+  },
+  {
+    "filename": "SEAL_CANON_REFRESH_POST_D56_01_10.md",
+    "path": "outputs/seals/SEAL_CANON_REFRESH_POST_D56_01_10.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287390"
+  },
+  {
+    "filename": "SEAL_CANON_SCOPE_HISTORICO.md",
+    "path": "outputs/seals/SEAL_CANON_SCOPE_HISTORICO.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287395"
+  },
+  {
+    "filename": "SEAL_CANON_SYNC_UP_TO_DAY_08.md",
+    "path": "outputs/seals/SEAL_CANON_SYNC_UP_TO_DAY_08.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287400"
+  },
+  {
+    "filename": "SEAL_CHECKPOINT_D51_GIT.md",
+    "path": "outputs/seals/SEAL_CHECKPOINT_D51_GIT.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.287406"
+  },
+  {
+    "filename": "SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md",
+    "path": "outputs/seals/SEAL_D31_1_TOPBAR_LOGO_AND_TYPOGRAPHY.md",
+    "day_id": "Day 31",
+    "indexed_at": "2026-02-16T12:08:19.287412"
+  },
+  {
+    "filename": "SEAL_D44_FINAL_CLOSE.md",
+    "path": "outputs/seals/SEAL_D44_FINAL_CLOSE.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.287420"
+  },
+  {
+    "filename": "SEAL_D45_CANON_DEBT_RADAR_V1.md",
+    "path": "outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V1.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287425"
+  },
+  {
+    "filename": "SEAL_D45_CANON_DEBT_RADAR_V2.1.md",
+    "path": "outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2.1.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287431"
+  },
+  {
+    "filename": "SEAL_D45_CANON_DEBT_RADAR_V2.md",
+    "path": "outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287437"
+  },
+  {
+    "filename": "SEAL_D45_CANON_DEBT_RADAR_V2_1.md",
+    "path": "outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2_1.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287442"
+  },
+  {
+    "filename": "SEAL_D45_CANON_PENDING_01.md",
+    "path": "outputs/seals/SEAL_D45_CANON_PENDING_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287447"
+  },
+  {
+    "filename": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md",
+    "path": "outputs/seals/SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287451"
+  },
+  {
+    "filename": "SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md",
+    "path": "outputs/seals/SEAL_D45_CANON_PENDING_CLOSURE_HOOK_V2.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287456"
+  },
+  {
+    "filename": "SEAL_D45_CANON_PENDING_INDEX_02.md",
+    "path": "outputs/seals/SEAL_D45_CANON_PENDING_INDEX_02.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287460"
+  },
+  {
+    "filename": "SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+    "path": "outputs/seals/SEAL_D45_CANON_PENDING_LIFECYCLE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287464"
+  },
+  {
+    "filename": "SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md",
+    "path": "outputs/seals/SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287531"
+  },
+  {
+    "filename": "SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+    "path": "outputs/seals/SEAL_D45_HF03_SECTOR_FLIP_V1_SMOKE_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287536"
+  },
+  {
+    "filename": "SEAL_D45_HF04_BUILD_RESTORE.md",
+    "path": "outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287540"
+  },
+  {
+    "filename": "SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+    "path": "outputs/seals/SEAL_D45_HF04_WAR_ROOM_WIRING_AUDIT_AND_CANON_DEBT_RADAR_FIX.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287546"
+  },
+  {
+    "filename": "SEAL_D45_HF05_AUTH_GATEWAY.md",
+    "path": "outputs/seals/SEAL_D45_HF05_AUTH_GATEWAY.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287552"
+  },
+  {
+    "filename": "SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md",
+    "path": "outputs/seals/SEAL_D45_HF05_CLOUD_RUN_403_RESTORE_PUBLIC_ACCESS.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287556"
+  },
+  {
+    "filename": "SEAL_D45_HF06_INFRA_DISCOVERY.md",
+    "path": "outputs/seals/SEAL_D45_HF06_INFRA_DISCOVERY.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287561"
+  },
+  {
+    "filename": "SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "path": "outputs/seals/SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287566"
+  },
+  {
+    "filename": "SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "path": "outputs/seals/SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287570"
+  },
+  {
+    "filename": "SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md",
+    "path": "outputs/seals/SEAL_D45_HF09_APP_CONFIG_DUPLICATE_GETTER_FIX.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287575"
+  },
+  {
+    "filename": "SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md",
+    "path": "outputs/seals/SEAL_D45_HF10A_VOLUME_INTEL_FRONT_UPGRADE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287580"
+  },
+  {
+    "filename": "SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md",
+    "path": "outputs/seals/SEAL_D45_HF10B_VOLUME_INTEL_BACK_WHY_PANEL.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287584"
+  },
+  {
+    "filename": "SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md",
+    "path": "outputs/seals/SEAL_D45_HF10C_VOLUME_INTEL_FRONT_POLISH.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287588"
+  },
+  {
+    "filename": "SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md",
+    "path": "outputs/seals/SEAL_D45_HF10D_VOLUME_INTEL_FRONT_WELCOME_SHIMMER_COMPACT.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287593"
+  },
+  {
+    "filename": "SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md",
+    "path": "outputs/seals/SEAL_D45_HF10E_LAYOUT_POLICE_PARENTDATA_FIX.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287600"
+  },
+  {
+    "filename": "SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md",
+    "path": "outputs/seals/SEAL_D45_HF10F_VOLUME_INTEL_FRONT_TOP4_SHIMMER_DARKCYAN.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287604"
+  },
+  {
+    "filename": "SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md",
+    "path": "outputs/seals/SEAL_D45_HF10G_VOLUME_INTEL_TIMELINE_NOW_PAST_FUTURE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287609"
+  },
+  {
+    "filename": "SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md",
+    "path": "outputs/seals/SEAL_D45_PENDING_FLUTTER_ANALYZE_BASELINE_REGISTERED.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287614"
+  },
+  {
+    "filename": "SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md",
+    "path": "outputs/seals/SEAL_D45_POLISH_ACCOUNT_IDENTITY_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287618"
+  },
+  {
+    "filename": "SEAL_D45_POLISH_MENU_ENTRY_01.md",
+    "path": "outputs/seals/SEAL_D45_POLISH_MENU_ENTRY_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287624"
+  },
+  {
+    "filename": "SEAL_D45_POLISH_PARTNER_PROGRESS_01.md",
+    "path": "outputs/seals/SEAL_D45_POLISH_PARTNER_PROGRESS_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287629"
+  },
+  {
+    "filename": "SEAL_D45_POLISH_SECTOR_FLIP_V2.md",
+    "path": "outputs/seals/SEAL_D45_POLISH_SECTOR_FLIP_V2.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287634"
+  },
+  {
+    "filename": "SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+    "path": "outputs/seals/SEAL_D45_POLISH_SECTOR_FLIP_V3.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287697"
+  },
+  {
+    "filename": "SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md",
+    "path": "outputs/seals/SEAL_D45_POLISH_SECTOR_HEADER_COPY_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287701"
+  },
+  {
+    "filename": "SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md",
+    "path": "outputs/seals/SEAL_D45_SECTOR_REPLAY_SCRUBBER_RESTORE_01.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287706"
+  },
+  {
+    "filename": "SEAL_D45_SECTOR_REPLAY_V1_1.md",
+    "path": "outputs/seals/SEAL_D45_SECTOR_REPLAY_V1_1.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287711"
+  },
+  {
+    "filename": "SEAL_D45_SECTOR_REPLAY_V1_2.md",
+    "path": "outputs/seals/SEAL_D45_SECTOR_REPLAY_V1_2.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287717"
+  },
+  {
+    "filename": "SEAL_D45_SECTOR_REPLAY_V1_3.md",
+    "path": "outputs/seals/SEAL_D45_SECTOR_REPLAY_V1_3.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287722"
+  },
+  {
+    "filename": "SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+    "path": "outputs/seals/SEAL_D45_SECTOR_SENTINEL_RT_V0.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.287727"
+  },
+  {
+    "filename": "SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md",
+    "path": "outputs/seals/SEAL_D46_HF11A_REGIME_SENTINEL_SKELETON.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.287731"
+  },
+  {
+    "filename": "SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md",
+    "path": "outputs/seals/SEAL_D46_HF11_REGIME_SENTINEL_POLISH_DIA_GRID_CANDLE_FULLSCREEN.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.287737"
+  },
+  {
+    "filename": "SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md",
+    "path": "outputs/seals/SEAL_D46_HF12B_WATCHLIST_MICRO_POLISH.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.287742"
+  },
+  {
+    "filename": "SEAL_D46_HF12_WATCHLIST_UI_POLISH.md",
+    "path": "outputs/seals/SEAL_D46_HF12_WATCHLIST_UI_POLISH.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.287746"
+  },
+  {
+    "filename": "SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md",
+    "path": "outputs/seals/SEAL_D46_HF12_WIDGET_TITLES_AND_BREATHING_ACCENT.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.287751"
+  },
+  {
+    "filename": "SEAL_D46_WATCHLIST_FINAL_SEAL.md",
+    "path": "outputs/seals/SEAL_D46_WATCHLIST_FINAL_SEAL.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.287755"
+  },
+  {
+    "filename": "SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md",
+    "path": "outputs/seals/SEAL_D47_AGMS_DEEP_FUNCTIONAL_REPORT.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287761"
+  },
+  {
+    "filename": "SEAL_D47_CALENDAR_AUDIT.md",
+    "path": "outputs/seals/SEAL_D47_CALENDAR_AUDIT.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287766"
+  },
+  {
+    "filename": "SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md",
+    "path": "outputs/seals/SEAL_D47_CANON_DOCS_SYNC_PROJECTION_ON_DEMAND.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287771"
+  },
+  {
+    "filename": "SEAL_D47_CANON_SYNC_CHECKPOINT.md",
+    "path": "outputs/seals/SEAL_D47_CANON_SYNC_CHECKPOINT.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287776"
+  },
+  {
+    "filename": "SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md",
+    "path": "outputs/seals/SEAL_D47_DEEP_OS_FUNCTIONAL_AUDIT.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287780"
+  },
+  {
+    "filename": "SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md",
+    "path": "outputs/seals/SEAL_D47_FIX_02_AGMS_RELIABILITY_SCOREBOARD.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287785"
+  },
+  {
+    "filename": "SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md",
+    "path": "outputs/seals/SEAL_D47_HF13_NEWS_DEMO_ENGINE_READY_FOR_DATA.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287789"
+  },
+  {
+    "filename": "SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md",
+    "path": "outputs/seals/SEAL_D47_HF14_NEWS_RANKING_SKELETON_RULES_ONLY.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287794"
+  },
+  {
+    "filename": "SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D47_HF15X_DISCIPLINE_UNBLOCK.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287799"
+  },
+  {
+    "filename": "SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md",
+    "path": "outputs/seals/SEAL_D47_HF16_ON_DEMAND_0400_ET_SYNC.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287803"
+  },
+  {
+    "filename": "SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md",
+    "path": "outputs/seals/SEAL_D47_HF17_PROJECTION_ORCHESTRATOR_V0.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287847"
+  },
+  {
+    "filename": "SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md",
+    "path": "outputs/seals/SEAL_D47_HF18_INTRADAY_SERIES_COORDS_DEMO.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287852"
+  },
+  {
+    "filename": "SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md",
+    "path": "outputs/seals/SEAL_D47_HF19_PROJECTION_INPUTS_WIRING.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287857"
+  },
+  {
+    "filename": "SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md",
+    "path": "outputs/seals/SEAL_D47_HF20_PROJECTION_CONTEXT_FUSION.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287861"
+  },
+  {
+    "filename": "SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md",
+    "path": "outputs/seals/SEAL_D47_HF21_ON_DEMAND_PROJECTION_CONSUME.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287867"
+  },
+  {
+    "filename": "SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md",
+    "path": "outputs/seals/SEAL_D47_HF22_ON_DEMAND_DECRYPTION_RITUAL.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287871"
+  },
+  {
+    "filename": "SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md",
+    "path": "outputs/seals/SEAL_D47_HF23_ON_DEMAND_TIMEFRAME_CONTROL.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287876"
+  },
+  {
+    "filename": "SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md",
+    "path": "outputs/seals/SEAL_D47_HF24_TIME_TRAVELLER_CHART_V1.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287880"
+  },
+  {
+    "filename": "SEAL_D47_HF25_RELIABILITY_METER.md",
+    "path": "outputs/seals/SEAL_D47_HF25_RELIABILITY_METER.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287885"
+  },
+  {
+    "filename": "SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md",
+    "path": "outputs/seals/SEAL_D47_HF26_MICRO_BRIEFINGS_V1.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287889"
+  },
+  {
+    "filename": "SEAL_D47_HF27_TACTICAL_PLAYBOOK.md",
+    "path": "outputs/seals/SEAL_D47_HF27_TACTICAL_PLAYBOOK.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287894"
+  },
+  {
+    "filename": "SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md",
+    "path": "outputs/seals/SEAL_D47_HF28_ELITE_MENTOR_BRIDGE.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287898"
+  },
+  {
+    "filename": "SEAL_D47_HF29_SHARE_MINI_CARD.md",
+    "path": "outputs/seals/SEAL_D47_HF29_SHARE_MINI_CARD.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287903"
+  },
+  {
+    "filename": "SEAL_D47_HF30_BLURRED_TRUTH_GATING.md",
+    "path": "outputs/seals/SEAL_D47_HF30_BLURRED_TRUTH_GATING.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287908"
+  },
+  {
+    "filename": "SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md",
+    "path": "outputs/seals/SEAL_D47_HF31_TIER_RESOLVER_V1_HF30_COMPLETE.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287913"
+  },
+  {
+    "filename": "SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md",
+    "path": "outputs/seals/SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287917"
+  },
+  {
+    "filename": "SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md",
+    "path": "outputs/seals/SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287922"
+  },
+  {
+    "filename": "SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md",
+    "path": "outputs/seals/SEAL_D47_HF35_CALENDAR_ACTIVATION_V1_ARTIFACT_FIRST.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287926"
+  },
+  {
+    "filename": "SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md",
+    "path": "outputs/seals/SEAL_D47_HF36_WALK_THE_WALL_VISUAL_PROOF_PACK.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287931"
+  },
+  {
+    "filename": "SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md",
+    "path": "outputs/seals/SEAL_D47_HFXX_BUILD_RESCUE_HOTFIX.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287935"
+  },
+  {
+    "filename": "SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md",
+    "path": "outputs/seals/SEAL_D47_HF_A_NEWS_BACKEND_UNIFICATION.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287944"
+  },
+  {
+    "filename": "SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md",
+    "path": "outputs/seals/SEAL_D47_HF_B_PROJECTION_CONTRACT_V1_FREEZE.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287987"
+  },
+  {
+    "filename": "SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md",
+    "path": "outputs/seals/SEAL_D47_HF_CACHE_SERVER_ON_DEMAND.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287992"
+  },
+  {
+    "filename": "SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md",
+    "path": "outputs/seals/SEAL_D47_HF_RECENT_LOCAL_RECENT_DOSSIERS.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287997"
+  },
+  {
+    "filename": "SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md",
+    "path": "outputs/seals/SEAL_D47_HFxx_BUILD_RESCUE_ON_DEMAND.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.287939"
+  },
+  {
+    "filename": "SEAL_D47_ON_DEMAND_AREA_SEALED.md",
+    "path": "outputs/seals/SEAL_D47_ON_DEMAND_AREA_SEALED.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.288001"
+  },
+  {
+    "filename": "SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md",
+    "path": "outputs/seals/SEAL_D47_WAR_CALENDAR_PENDING_EXPANSION.md",
+    "day_id": "Day 47",
+    "indexed_at": "2026-02-16T12:08:19.288006"
+  },
+  {
+    "filename": "SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md",
+    "path": "outputs/seals/SEAL_D48_BRAIN_01_SCHEMA_AUTHORITY_V1.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288010"
+  },
+  {
+    "filename": "SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md",
+    "path": "outputs/seals/SEAL_D48_BRAIN_02_ATTRIBUTION_ENGINE_V1.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288015"
+  },
+  {
+    "filename": "SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md",
+    "path": "outputs/seals/SEAL_D48_BRAIN_03_SURFACE_ADAPTERS_V1_ON_DEMAND.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288021"
+  },
+  {
+    "filename": "SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md",
+    "path": "outputs/seals/SEAL_D48_BRAIN_04_RELIABILITY_LEDGER_GLOBAL_TRUTH.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288026"
+  },
+  {
+    "filename": "SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+    "path": "outputs/seals/SEAL_D48_BRAIN_05_PROVIDER_DATAMUX_V1.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288030"
+  },
+  {
+    "filename": "SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md",
+    "path": "outputs/seals/SEAL_D48_BRAIN_06_EVENT_ROUTER_V1.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288036"
+  },
+  {
+    "filename": "SEAL_D48_OPS_PEND_REGISTRY_PATH.md",
+    "path": "outputs/seals/SEAL_D48_OPS_PEND_REGISTRY_PATH.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288043"
+  },
+  {
+    "filename": "SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md",
+    "path": "outputs/seals/SEAL_D48_PEND_SWEEP_01_PENDING_AUDIT_AND_SAFE_CLOSURE.md",
+    "day_id": "Day 48",
+    "indexed_at": "2026-02-16T12:08:19.288048"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_AREA_SEALED_CANON_SYNC.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288052"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_CHAT_CORE_V1_WITH_OS_AUTHORITY.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288058"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_FIX_01_LAYOUT_GLASS_INPUT.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288062"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_FIX_02_PERSISTENT_OVERLAY_ABOVE_BOTTOMNAV.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288067"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_FIX_03_RITUAL_STRIP_COMPACT_TRUE_GLASS.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288073"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_FIX_04_RITUAL_STRIP_DENSITY_AND_TRUE_GLASS_VERIFIED.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288078"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_FIX_05_RITUAL_GRID_2X3_TRUE_GLASS.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288082"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_FREE_WINDOW_COUNTDOWN_V2.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288087"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_HF01_CONTRACT_SYNC_RITUAL_API.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288135"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_LLM_KEY_INTEGRATION_GEMINI.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288140"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_NOTIFICATIONS_BADGES_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288145"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_RITUAL_API_ROUTER_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288150"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_RITUAL_CONTRACTS_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288154"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_RITUAL_ENGINES_V1_ARTIFACT_FIRST.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288159"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_RITUAL_MODALS_WIRING_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288163"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_RITUAL_POLICY_V1_WINDOWS_COUNTDOWN.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288168"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_SHELL_V2_GLASS_RITUAL_PANEL.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288172"
+  },
+  {
+    "filename": "SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md",
+    "path": "outputs/seals/SEAL_D49_ELITE_USER_REFLECTION_MEMORY_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288177"
+  },
+  {
+    "filename": "SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md",
+    "path": "outputs/seals/SEAL_D49_FOUNDER_RELEASE_APK_BUILD.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288181"
+  },
+  {
+    "filename": "SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md",
+    "path": "outputs/seals/SEAL_D49_OS_KNOWLEDGE_INDEX_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288185"
+  },
+  {
+    "filename": "SEAL_D49_OS_STATE_SNAPSHOT_V1.md",
+    "path": "outputs/seals/SEAL_D49_OS_STATE_SNAPSHOT_V1.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288190"
+  },
+  {
+    "filename": "SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md",
+    "path": "outputs/seals/SEAL_D49_WAR_CALENDAR_BACKFILL_AND_GIT_CHECKPOINT.md",
+    "day_id": "Day 49",
+    "indexed_at": "2026-02-16T12:08:19.288195"
+  },
+  {
+    "filename": "SEAL_D50_EWIMS_AUDIT_COMPLETE.md",
+    "path": "outputs/seals/SEAL_D50_EWIMS_AUDIT_COMPLETE.md",
+    "day_id": "Day 50",
+    "indexed_at": "2026-02-16T12:08:19.288199"
+  },
+  {
+    "filename": "SEAL_D50_EWIMS_DETERMINISTIC_ATOMIC.md",
+    "path": "outputs/seals/SEAL_D50_EWIMS_DETERMINISTIC_ATOMIC.md",
+    "day_id": "Day 50",
+    "indexed_at": "2026-02-16T12:08:19.288204"
+  },
+  {
+    "filename": "SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md",
+    "path": "outputs/seals/SEAL_D50_EWIMS_GOLD_TRUTH_COMPLETE.md",
+    "day_id": "Day 50",
+    "indexed_at": "2026-02-16T12:08:19.288208"
+  },
+  {
+    "filename": "SEAL_D50_EWIMS_NO_FALSE_GOLD.md",
+    "path": "outputs/seals/SEAL_D50_EWIMS_NO_FALSE_GOLD.md",
+    "day_id": "Day 50",
+    "indexed_at": "2026-02-16T12:08:19.288213"
+  },
+  {
+    "filename": "SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md",
+    "path": "outputs/seals/SEAL_D50_OPTRUTH_AUDIT_01_FULL_SYSTEM_FUNCTIONAL_ROOT_CAUSE_MAP.md",
+    "day_id": "Day 50",
+    "indexed_at": "2026-02-16T12:08:19.288220"
+  },
+  {
+    "filename": "SEAL_D51_01_BOTTOM_NAV_WIRING_EVIDENCE.md",
+    "path": "outputs/seals/SEAL_D51_01_BOTTOM_NAV_WIRING_EVIDENCE.md",
+    "day_id": "Day 51",
+    "indexed_at": "2026-02-16T12:08:19.288226"
+  },
+  {
+    "filename": "SEAL_D51_CLEAN_SLATE_TRIAGE.md",
+    "path": "outputs/seals/SEAL_D51_CLEAN_SLATE_TRIAGE.md",
+    "day_id": "Day 51",
+    "indexed_at": "2026-02-16T12:08:19.288231"
+  },
+  {
+    "filename": "SEAL_D51_PENDING_269_TRIAGE.md",
+    "path": "outputs/seals/SEAL_D51_PENDING_269_TRIAGE.md",
+    "day_id": "Day 51",
+    "indexed_at": "2026-02-16T12:08:19.288236"
+  },
+  {
+    "filename": "SEAL_D52_WAR_ROOM_DESIGN.md",
+    "path": "outputs/seals/SEAL_D52_WAR_ROOM_DESIGN.md",
+    "day_id": "Day 52",
+    "indexed_at": "2026-02-16T12:08:19.288242"
+  },
+  {
+    "filename": "SEAL_D53_1_WAR_ROOM_COMPILE_FIX.md",
+    "path": "outputs/seals/SEAL_D53_1_WAR_ROOM_COMPILE_FIX.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288286"
+  },
+  {
+    "filename": "SEAL_D53_2_WAR_ROOM_EXIT_AND_SKELETON.md",
+    "path": "outputs/seals/SEAL_D53_2_WAR_ROOM_EXIT_AND_SKELETON.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288291"
+  },
+  {
+    "filename": "SEAL_D53_3A_ALPHA_STRIP_SLIVER_FIX.md",
+    "path": "outputs/seals/SEAL_D53_3A_ALPHA_STRIP_SLIVER_FIX.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288296"
+  },
+  {
+    "filename": "SEAL_D53_3B_WAR_ROOM_EXIT_UNLOCK_PROOF.md",
+    "path": "outputs/seals/SEAL_D53_3B_WAR_ROOM_EXIT_UNLOCK_PROOF.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288302"
+  },
+  {
+    "filename": "SEAL_D53_3C_WAR_ROOM_PROOF_OF_LIFE.md",
+    "path": "outputs/seals/SEAL_D53_3C_WAR_ROOM_PROOF_OF_LIFE.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288307"
+  },
+  {
+    "filename": "SEAL_D53_3D_WAR_ROOM_REAL_PROOF_OF_LIFE.md",
+    "path": "outputs/seals/SEAL_D53_3D_WAR_ROOM_REAL_PROOF_OF_LIFE.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288311"
+  },
+  {
+    "filename": "SEAL_D53_3_WAR_ROOM_UNLOCK_EXIT_DENSITY_PASS.md",
+    "path": "outputs/seals/SEAL_D53_3_WAR_ROOM_UNLOCK_EXIT_DENSITY_PASS.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288316"
+  },
+  {
+    "filename": "SEAL_D53_4_WAR_ROOM_V2_POLISH.md",
+    "path": "outputs/seals/SEAL_D53_4_WAR_ROOM_V2_POLISH.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288321"
+  },
+  {
+    "filename": "SEAL_D53_5_WAR_ROOM_REAL_WIRING_PARTIAL.md",
+    "path": "outputs/seals/SEAL_D53_5_WAR_ROOM_REAL_WIRING_PARTIAL.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288326"
+  },
+  {
+    "filename": "SEAL_D53_6A_WAR_ROOM_TRUTH_PROOF_PANEL.md",
+    "path": "outputs/seals/SEAL_D53_6A_WAR_ROOM_TRUTH_PROOF_PANEL.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288330"
+  },
+  {
+    "filename": "SEAL_D53_6B_1_WAR_ROOM_NO_BLANK_GUARANTEE.md",
+    "path": "outputs/seals/SEAL_D53_6B_1_WAR_ROOM_NO_BLANK_GUARANTEE.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288334"
+  },
+  {
+    "filename": "SEAL_D53_6B_2_WAR_ROOM_FLASH_BLANK_ROOT_CAUSE_FIX.md",
+    "path": "outputs/seals/SEAL_D53_6B_2_WAR_ROOM_FLASH_BLANK_ROOT_CAUSE_FIX.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288339"
+  },
+  {
+    "filename": "SEAL_D53_6B_WAR_ROOM_TILE_SOURCE_OVERLAY.md",
+    "path": "outputs/seals/SEAL_D53_6B_WAR_ROOM_TILE_SOURCE_OVERLAY.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288343"
+  },
+  {
+    "filename": "SEAL_D53_6C_WAR_ROOM_RESPONSIVE_DENSITY_LOCK.md",
+    "path": "outputs/seals/SEAL_D53_6C_WAR_ROOM_RESPONSIVE_DENSITY_LOCK.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288348"
+  },
+  {
+    "filename": "SEAL_D53_6X_WAR_ROOM_WIDGET_DISAPPEAR_INVESTIGATION.md",
+    "path": "outputs/seals/SEAL_D53_6X_WAR_ROOM_WIDGET_DISAPPEAR_INVESTIGATION.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288353"
+  },
+  {
+    "filename": "SEAL_D53_6Y_TRUTH_COVERAGE_METER.md",
+    "path": "outputs/seals/SEAL_D53_6Y_TRUTH_COVERAGE_METER.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288357"
+  },
+  {
+    "filename": "SEAL_D53_6Z_WAR_ROOM_VIEWPORT_NULL_FIX.md",
+    "path": "outputs/seals/SEAL_D53_6Z_WAR_ROOM_VIEWPORT_NULL_FIX.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288362"
+  },
+  {
+    "filename": "SEAL_D53_6_WAR_ROOM_TRUTH_EXPOSURE.md",
+    "path": "outputs/seals/SEAL_D53_6_WAR_ROOM_TRUTH_EXPOSURE.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288366"
+  },
+  {
+    "filename": "SEAL_D53_WAR_ROOM_STRUCTURAL_REFACTOR.md",
+    "path": "outputs/seals/SEAL_D53_WAR_ROOM_STRUCTURAL_REFACTOR.md",
+    "day_id": "Day 53",
+    "indexed_at": "2026-02-16T12:08:19.288371"
+  },
+  {
+    "filename": "SEAL_D54_0A_WAR_ROOM_ENDPOINT_404_SLAYED.md",
+    "path": "outputs/seals/SEAL_D54_0A_WAR_ROOM_ENDPOINT_404_SLAYED.md",
+    "day_id": "Day 54",
+    "indexed_at": "2026-02-16T12:08:19.288376"
+  },
+  {
+    "filename": "SEAL_D54_0_WAR_ROOM_WEB_FETCH_AND_LAYOUT_HARDENING.md",
+    "path": "outputs/seals/SEAL_D54_0_WAR_ROOM_WEB_FETCH_AND_LAYOUT_HARDENING.md",
+    "day_id": "Day 54",
+    "indexed_at": "2026-02-16T12:08:19.288380"
+  },
+  {
+    "filename": "SEAL_D54_1_WAR_ROOM_ZERO_OVERFLOWS_POLISH.md",
+    "path": "outputs/seals/SEAL_D54_1_WAR_ROOM_ZERO_OVERFLOWS_POLISH.md",
+    "day_id": "Day 54",
+    "indexed_at": "2026-02-16T12:08:19.288385"
+  },
+  {
+    "filename": "SEAL_D54_2B_PY_DEV_PROXY_FOR_WEB.md",
+    "path": "outputs/seals/SEAL_D54_2B_PY_DEV_PROXY_FOR_WEB.md",
+    "day_id": "Day 54",
+    "indexed_at": "2026-02-16T12:08:19.288502"
+  },
+  {
+    "filename": "SEAL_D54_3_CLOUD_RUN_REALITY_AUDIT.md",
+    "path": "outputs/seals/SEAL_D54_3_CLOUD_RUN_REALITY_AUDIT.md",
+    "day_id": "Day 54",
+    "indexed_at": "2026-02-16T12:08:19.288539"
+  },
+  {
+    "filename": "SEAL_D55_0B_HEAD_OPTIONS_METHOD_HARDENING.md",
+    "path": "outputs/seals/SEAL_D55_0B_HEAD_OPTIONS_METHOD_HARDENING.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288549"
+  },
+  {
+    "filename": "SEAL_D55_0D_PUBLIC_GATEWAY_PROXY_FOR_WEB.md",
+    "path": "outputs/seals/SEAL_D55_0D_PUBLIC_GATEWAY_PROXY_FOR_WEB.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288555"
+  },
+  {
+    "filename": "SEAL_D55_0E_FIREBASE_HOSTING_REWRITE_WEB_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D55_0E_FIREBASE_HOSTING_REWRITE_WEB_UNBLOCK.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288561"
+  },
+  {
+    "filename": "SEAL_D55_0_FULL_REDEPLOY_AND_ROUTE_RESTORATION.md",
+    "path": "outputs/seals/SEAL_D55_0_FULL_REDEPLOY_AND_ROUTE_RESTORATION.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288566"
+  },
+  {
+    "filename": "SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md",
+    "path": "outputs/seals/SEAL_D55_10_PUBLIC_SURFACE_HARDENING_AUDIT.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288572"
+  },
+  {
+    "filename": "SEAL_D55_11C_STRIP_API_PREFIX_FOR_HOSTING_REWRITE.md",
+    "path": "outputs/seals/SEAL_D55_11C_STRIP_API_PREFIX_FOR_HOSTING_REWRITE.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288577"
+  },
+  {
+    "filename": "SEAL_D55_12B_PUBLIC_SURFACE_MINIMIZATION_AND_LAB_SHIELD.md",
+    "path": "outputs/seals/SEAL_D55_12B_PUBLIC_SURFACE_MINIMIZATION_AND_LAB_SHIELD.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288589"
+  },
+  {
+    "filename": "SEAL_D55_13_PUBLIC_PRODUCTION_GUARDRAIL.md",
+    "path": "outputs/seals/SEAL_D55_13_PUBLIC_PRODUCTION_GUARDRAIL.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288594"
+  },
+  {
+    "filename": "SEAL_D55_14_SYSTEM_HYGIENE_AND_CHECKPOINT.md",
+    "path": "outputs/seals/SEAL_D55_14_SYSTEM_HYGIENE_AND_CHECKPOINT.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288600"
+  },
+  {
+    "filename": "SEAL_D55_15_CANON_AUDIT_REPORT.md",
+    "path": "outputs/seals/SEAL_D55_15_CANON_AUDIT_REPORT.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288605"
+  },
+  {
+    "filename": "SEAL_D55_15_CANON_RECONCILIATION.md",
+    "path": "outputs/seals/SEAL_D55_15_CANON_RECONCILIATION.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288610"
+  },
+  {
+    "filename": "SEAL_D55_16A_BACKEND_INVENTORY.md",
+    "path": "outputs/seals/SEAL_D55_16A_BACKEND_INVENTORY.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288616"
+  },
+  {
+    "filename": "SEAL_D55_16B_10_WAR_ROOM_ARCHITECTURE_DECISION.md",
+    "path": "outputs/seals/SEAL_D55_16B_10_WAR_ROOM_ARCHITECTURE_DECISION.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288621"
+  },
+  {
+    "filename": "SEAL_D55_16B_1_SHIELD_HARDENING.md",
+    "path": "outputs/seals/SEAL_D55_16B_1_SHIELD_HARDENING.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288626"
+  },
+  {
+    "filename": "SEAL_D55_16B_2_SHIELD_HYGIENE_AND_PROOFS.md",
+    "path": "outputs/seals/SEAL_D55_16B_2_SHIELD_HYGIENE_AND_PROOFS.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288632"
+  },
+  {
+    "filename": "SEAL_D55_16B_3_FLUTTER_BUILD_FIX.md",
+    "path": "outputs/seals/SEAL_D55_16B_3_FLUTTER_BUILD_FIX.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288637"
+  },
+  {
+    "filename": "SEAL_D55_16B_5_DEV_RITUAL_AND_WEB_DEBUG_WIRING.md",
+    "path": "outputs/seals/SEAL_D55_16B_5_DEV_RITUAL_AND_WEB_DEBUG_WIRING.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288642"
+  },
+  {
+    "filename": "SEAL_D55_16B_6_1_FLUTTER_BUILD_IMPORT_FIX.md",
+    "path": "outputs/seals/SEAL_D55_16B_6_1_FLUTTER_BUILD_IMPORT_FIX.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288648"
+  },
+  {
+    "filename": "SEAL_D55_16B_6_FRONTEND_FOUNDER_HEADER_INJECTION.md",
+    "path": "outputs/seals/SEAL_D55_16B_6_FRONTEND_FOUNDER_HEADER_INJECTION.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288654"
+  },
+  {
+    "filename": "SEAL_D55_16B_8_BACKEND_DEBT_INDEX_AND_OS_HEALTH_ALIAS.md",
+    "path": "outputs/seals/SEAL_D55_16B_8_BACKEND_DEBT_INDEX_AND_OS_HEALTH_ALIAS.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288664"
+  },
+  {
+    "filename": "SEAL_D55_16B_9_FRONTEND_CANON_DEBT_RADAR_ROUTE_FIX.md",
+    "path": "outputs/seals/SEAL_D55_16B_9_FRONTEND_CANON_DEBT_RADAR_ROUTE_FIX.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288750"
+  },
+  {
+    "filename": "SEAL_D55_16B_WAR_ROOM_SIGNAL_RESTORE.md",
+    "path": "outputs/seals/SEAL_D55_16B_WAR_ROOM_SIGNAL_RESTORE.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288757"
+  },
+  {
+    "filename": "SEAL_D55_16_WAR_ROOM_VISIBILITY_RESTORE.md",
+    "path": "outputs/seals/SEAL_D55_16_WAR_ROOM_VISIBILITY_RESTORE.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288763"
+  },
+  {
+    "filename": "SEAL_D55_1B_ZERO_HUMAN_FIREBASE_SA_AND_HOSTING_DEPLOY.md",
+    "path": "outputs/seals/SEAL_D55_1B_ZERO_HUMAN_FIREBASE_SA_AND_HOSTING_DEPLOY.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288768"
+  },
+  {
+    "filename": "SEAL_D55_1_WEB_ACCESS_UNBLOCK_ZERO_HUMAN.md",
+    "path": "outputs/seals/SEAL_D55_1_WEB_ACCESS_UNBLOCK_ZERO_HUMAN.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288773"
+  },
+  {
+    "filename": "SEAL_D55_2_FIREBASE_HOSTING_BOOTSTRAP_FAILURE.md",
+    "path": "outputs/seals/SEAL_D55_2_FIREBASE_HOSTING_BOOTSTRAP_FAILURE.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288778"
+  },
+  {
+    "filename": "SEAL_D55_3_LB_WEB_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D55_3_LB_WEB_UNBLOCK.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288784"
+  },
+  {
+    "filename": "SEAL_D55_4_SSL_CERT_PROVISIONING_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D55_4_SSL_CERT_PROVISIONING_UNBLOCK.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288789"
+  },
+  {
+    "filename": "SEAL_D55_5_OWNERSHIP_AUDIT.md",
+    "path": "outputs/seals/SEAL_D55_5_OWNERSHIP_AUDIT.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288794"
+  },
+  {
+    "filename": "SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D55_6_FIREBASE_HOSTING_REWRITE_UNBLOCK.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288800"
+  },
+  {
+    "filename": "SEAL_D55_7_DOMAIN_RESTRICTION_DIAGNOSIS.md",
+    "path": "outputs/seals/SEAL_D55_7_DOMAIN_RESTRICTION_DIAGNOSIS.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288805"
+  },
+  {
+    "filename": "SEAL_D55_8_DOMAIN_RESTRICTION_OVERRIDE_FAILURE.md",
+    "path": "outputs/seals/SEAL_D55_8_DOMAIN_RESTRICTION_OVERRIDE_FAILURE.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288810"
+  },
+  {
+    "filename": "SEAL_D55_9_PUBLIC_WEB_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D55_9_PUBLIC_WEB_UNBLOCK.md",
+    "day_id": "Day 55",
+    "indexed_at": "2026-02-16T12:08:19.288815"
+  },
+  {
+    "filename": "SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md",
+    "path": "outputs/seals/SEAL_D56_01_10_CLOUD_RUN_PROBES_SMOKE_GREEN.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288820"
+  },
+  {
+    "filename": "SEAL_D56_01_1_USP_FRONTEND_BUILD_RESTORE.md",
+    "path": "outputs/seals/SEAL_D56_01_1_USP_FRONTEND_BUILD_RESTORE.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288824"
+  },
+  {
+    "filename": "SEAL_D56_01_2A_FOUNDER_KEY_WIRING_MAP_AND_FIX.md",
+    "path": "outputs/seals/SEAL_D56_01_2A_FOUNDER_KEY_WIRING_MAP_AND_FIX.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288829"
+  },
+  {
+    "filename": "SEAL_D56_01_2B_BACKEND_KEY_MATCH_FIX.md",
+    "path": "outputs/seals/SEAL_D56_01_2B_BACKEND_KEY_MATCH_FIX.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288834"
+  },
+  {
+    "filename": "SEAL_D56_01_2C_DEV_RITUAL_SKIP_VERIFICATION.md",
+    "path": "outputs/seals/SEAL_D56_01_2C_DEV_RITUAL_SKIP_VERIFICATION.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288840"
+  },
+  {
+    "filename": "SEAL_D56_01_3_USP_SINGLE_CALL_AND_TILE_MATERIALIZATION.md",
+    "path": "outputs/seals/SEAL_D56_01_3_USP_SINGLE_CALL_AND_TILE_MATERIALIZATION.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288846"
+  },
+  {
+    "filename": "SEAL_D56_01_4_DEV_RITUAL_HARDENING.md",
+    "path": "outputs/seals/SEAL_D56_01_4_DEV_RITUAL_HARDENING.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288851"
+  },
+  {
+    "filename": "SEAL_D56_01_5_WARROOM_SNAPSHOT_ONLY.md",
+    "path": "outputs/seals/SEAL_D56_01_5_WARROOM_SNAPSHOT_ONLY.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288856"
+  },
+  {
+    "filename": "SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md",
+    "path": "outputs/seals/SEAL_D56_01_6_WARROOM_GREEN_HARD_GATE.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288861"
+  },
+  {
+    "filename": "SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md",
+    "path": "outputs/seals/SEAL_D56_01_7_V3_HYDRATION_SNAPSHOT_FULL.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288911"
+  },
+  {
+    "filename": "SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md",
+    "path": "outputs/seals/SEAL_D56_01_8_CLOUD_RUN_DEPLOY_PROOF.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288916"
+  },
+  {
+    "filename": "SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md",
+    "path": "outputs/seals/SEAL_D56_01_9_CLOUD_RUN_SMOKE_GUARDRAILS.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288920"
+  },
+  {
+    "filename": "SEAL_D56_01_UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION.md",
+    "path": "outputs/seals/SEAL_D56_01_UNIFIED_SNAPSHOT_PROTOCOL_IMPLEMENTATION.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288925"
+  },
+  {
+    "filename": "SEAL_D56_AUDIT_CHUNK_01_BLOCKER.md",
+    "path": "outputs/seals/SEAL_D56_AUDIT_CHUNK_01_BLOCKER.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288929"
+  },
+  {
+    "filename": "SEAL_D56_AUDIT_CHUNK_D00_D10.md",
+    "path": "outputs/seals/SEAL_D56_AUDIT_CHUNK_D00_D10.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288934"
+  },
+  {
+    "filename": "SEAL_D56_AUDIT_CHUNK_D51_D56.md",
+    "path": "outputs/seals/SEAL_D56_AUDIT_CHUNK_D51_D56.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288939"
+  },
+  {
+    "filename": "SEAL_D56_EWIMSC_AUDIT_COMPLETE.md",
+    "path": "outputs/seals/SEAL_D56_EWIMSC_AUDIT_COMPLETE.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288943"
+  },
+  {
+    "filename": "SEAL_D56_HK_1_HOUSEKEEPER_WIRING_RESTORED.md",
+    "path": "outputs/seals/SEAL_D56_HK_1_HOUSEKEEPER_WIRING_RESTORED.md",
+    "day_id": "Day 56",
+    "indexed_at": "2026-02-16T12:08:19.288948"
+  },
+  {
+    "filename": "SEAL_D57_1_EWIMSC_CI_GATE_FULL_STEEL.md",
+    "path": "outputs/seals/SEAL_D57_1_EWIMSC_CI_GATE_FULL_STEEL.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288953"
+  },
+  {
+    "filename": "SEAL_D57_2_EWIMSC_NEGATIVE_PACK.md",
+    "path": "outputs/seals/SEAL_D57_2_EWIMSC_NEGATIVE_PACK.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288957"
+  },
+  {
+    "filename": "SEAL_D57_3_EWIMSC_CONTRACT_FREEZE.md",
+    "path": "outputs/seals/SEAL_D57_3_EWIMSC_CONTRACT_FREEZE.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288963"
+  },
+  {
+    "filename": "SEAL_D57_4_EWIMSC_ZOMBIE_SCAN_REPORT.md",
+    "path": "outputs/seals/SEAL_D57_4_EWIMSC_ZOMBIE_SCAN_REPORT.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288967"
+  },
+  {
+    "filename": "SEAL_D57_5_EWIMSC_ZOMBIE_TRIAGE_FULL_STEEL.md",
+    "path": "outputs/seals/SEAL_D57_5_EWIMSC_ZOMBIE_TRIAGE_FULL_STEEL.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288973"
+  },
+  {
+    "filename": "SEAL_D57_6_1_EWIMSC_LAB_INTERNAL_NO_TIMEOUT_FIX.md",
+    "path": "outputs/seals/SEAL_D57_6_1_EWIMSC_LAB_INTERNAL_NO_TIMEOUT_FIX.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288978"
+  },
+  {
+    "filename": "SEAL_D57_7_WIRING_PACK_FULL_CABLE_MAP.md",
+    "path": "outputs/seals/SEAL_D57_7_WIRING_PACK_FULL_CABLE_MAP.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288982"
+  },
+  {
+    "filename": "SEAL_D57_8_WIRING_PACK_EXPORT.md",
+    "path": "outputs/seals/SEAL_D57_8_WIRING_PACK_EXPORT.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288987"
+  },
+  {
+    "filename": "SEAL_D57_9_UNKNOWN_ZOMBIE_RESOLUTION_PLAN.md",
+    "path": "outputs/seals/SEAL_D57_9_UNKNOWN_ZOMBIE_RESOLUTION_PLAN.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288991"
+  },
+  {
+    "filename": "SEAL_D57_EWIMSC_SINGLE_HARNESS.md",
+    "path": "outputs/seals/SEAL_D57_EWIMSC_SINGLE_HARNESS.md",
+    "day_id": "Day 57",
+    "indexed_at": "2026-02-16T12:08:19.288995"
+  },
+  {
+    "filename": "SEAL_D58_0_LAB_INTERNAL_FAIL_HIDDEN_POLICY.md",
+    "path": "outputs/seals/SEAL_D58_0_LAB_INTERNAL_FAIL_HIDDEN_POLICY.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289000"
+  },
+  {
+    "filename": "SEAL_D58_1_NO_NEW_UNKNOWN_GATE.md",
+    "path": "outputs/seals/SEAL_D58_1_NO_NEW_UNKNOWN_GATE.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289005"
+  },
+  {
+    "filename": "SEAL_D58_2_UNKNOWN_PURPOSE_MAP.md",
+    "path": "outputs/seals/SEAL_D58_2_UNKNOWN_PURPOSE_MAP.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289010"
+  },
+  {
+    "filename": "SEAL_D58_3B_UNKNOWN_SMOKE_PROOF_FIX.md",
+    "path": "outputs/seals/SEAL_D58_3B_UNKNOWN_SMOKE_PROOF_FIX.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289014"
+  },
+  {
+    "filename": "SEAL_D58_3_UNKNOWN_WIRING_RECOVERY.md",
+    "path": "outputs/seals/SEAL_D58_3_UNKNOWN_WIRING_RECOVERY.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289058"
+  },
+  {
+    "filename": "SEAL_D58_4_PUBLIC_PROMOTION_BATCH_2.md",
+    "path": "outputs/seals/SEAL_D58_4_PUBLIC_PROMOTION_BATCH_2.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289063"
+  },
+  {
+    "filename": "SEAL_D58_5_ELITE_GATING_FULL_STEEL.md",
+    "path": "outputs/seals/SEAL_D58_5_ELITE_GATING_FULL_STEEL.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289067"
+  },
+  {
+    "filename": "SEAL_D58_6_UNKNOWN_WEEKLY_TREND_GATE.md",
+    "path": "outputs/seals/SEAL_D58_6_UNKNOWN_WEEKLY_TREND_GATE.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289072"
+  },
+  {
+    "filename": "SEAL_D58_X_UNKNOWN_ZERO_RELEASE_GATE.md",
+    "path": "outputs/seals/SEAL_D58_X_UNKNOWN_ZERO_RELEASE_GATE.md",
+    "day_id": "Day 58",
+    "indexed_at": "2026-02-16T12:08:19.289077"
+  },
+  {
+    "filename": "SEAL_D59_1_PUBLIC_PROMOTION_BATCH_A.md",
+    "path": "outputs/seals/SEAL_D59_1_PUBLIC_PROMOTION_BATCH_A.md",
+    "day_id": "Day 59",
+    "indexed_at": "2026-02-16T12:08:19.289083"
+  },
+  {
+    "filename": "SEAL_D59_2_LAB_INTERNAL_PROMOTION_BATCH_B.md",
+    "path": "outputs/seals/SEAL_D59_2_LAB_INTERNAL_PROMOTION_BATCH_B.md",
+    "day_id": "Day 59",
+    "indexed_at": "2026-02-16T12:08:19.289088"
+  },
+  {
+    "filename": "SEAL_D59_3_ELITE_CLASSIFICATION_BATCH_C.md",
+    "path": "outputs/seals/SEAL_D59_3_ELITE_CLASSIFICATION_BATCH_C.md",
+    "day_id": "Day 59",
+    "indexed_at": "2026-02-16T12:08:19.289092"
+  },
+  {
+    "filename": "SEAL_D59_5_ZERO_UNKNOWN_VICTORY.md",
+    "path": "outputs/seals/SEAL_D59_5_ZERO_UNKNOWN_VICTORY.md",
+    "day_id": "Day 59",
+    "indexed_at": "2026-02-16T12:08:19.289097"
+  },
+  {
+    "filename": "SEAL_D59_CONTEXT_PACK_MASTER.md",
+    "path": "outputs/seals/SEAL_D59_CONTEXT_PACK_MASTER.md",
+    "day_id": "Day 59",
+    "indexed_at": "2026-02-16T12:08:19.289101"
+  },
+  {
+    "filename": "SEAL_D60_1B_COMMAND_CENTER_INVENTORY_TRUTH.md",
+    "path": "outputs/seals/SEAL_D60_1B_COMMAND_CENTER_INVENTORY_TRUTH.md",
+    "day_id": "Day 60",
+    "indexed_at": "2026-02-16T12:08:19.289106"
+  },
+  {
+    "filename": "SEAL_D60_2_FRONTEND_GHOST_SWEEP.md",
+    "path": "outputs/seals/SEAL_D60_2_FRONTEND_GHOST_SWEEP.md",
+    "day_id": "Day 60",
+    "indexed_at": "2026-02-16T12:08:19.289110"
+  },
+  {
+    "filename": "SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md",
+    "path": "outputs/seals/SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md",
+    "day_id": "Day 60",
+    "indexed_at": "2026-02-16T12:08:19.289115"
+  },
+  {
+    "filename": "SEAL_D61_0_COMMAND_CENTER_MANIFEST.md",
+    "path": "outputs/seals/SEAL_D61_0_COMMAND_CENTER_MANIFEST.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289120"
+  },
+  {
+    "filename": "SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md",
+    "path": "outputs/seals/SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289126"
+  },
+  {
+    "filename": "SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md",
+    "path": "outputs/seals/SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289131"
+  },
+  {
+    "filename": "SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289136"
+  },
+  {
+    "filename": "SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md",
+    "path": "outputs/seals/SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289140"
+  },
+  {
+    "filename": "SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md",
+    "path": "outputs/seals/SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289145"
+  },
+  {
+    "filename": "SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md",
+    "path": "outputs/seals/SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289151"
+  },
+  {
+    "filename": "SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md",
+    "path": "outputs/seals/SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289155"
+  },
+  {
+    "filename": "SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md",
+    "path": "outputs/seals/SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289160"
+  },
+  {
+    "filename": "SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md",
+    "path": "outputs/seals/SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289165"
+  },
+  {
+    "filename": "SEAL_D61_COMMAND_CENTER_LAYOUT_TOPBAR_HEADER_SPACING.md",
+    "path": "outputs/seals/SEAL_D61_COMMAND_CENTER_LAYOUT_TOPBAR_HEADER_SPACING.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289210"
+  },
+  {
+    "filename": "SEAL_D61_FOUNDER_APK_RELEASE_HANDHELD.md",
+    "path": "outputs/seals/SEAL_D61_FOUNDER_APK_RELEASE_HANDHELD.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289215"
+  },
+  {
+    "filename": "SEAL_D61_RECOVERY_COMPLETE.md",
+    "path": "outputs/seals/SEAL_D61_RECOVERY_COMPLETE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289220"
+  },
+  {
+    "filename": "SEAL_D61_X_02_COPY_AND_HF1_LAW.md",
+    "path": "outputs/seals/SEAL_D61_X_02_COPY_AND_HF1_LAW.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289224"
+  },
+  {
+    "filename": "SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md",
+    "path": "outputs/seals/SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289229"
+  },
+  {
+    "filename": "SEAL_D61_X_03_TOOLTIP_EXPANSION.md",
+    "path": "outputs/seals/SEAL_D61_X_03_TOOLTIP_EXPANSION.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289234"
+  },
+  {
+    "filename": "SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md",
+    "path": "outputs/seals/SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289239"
+  },
+  {
+    "filename": "SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md",
+    "path": "outputs/seals/SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289245"
+  },
+  {
+    "filename": "SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md",
+    "path": "outputs/seals/SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289250"
+  },
+  {
+    "filename": "SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md",
+    "path": "outputs/seals/SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289254"
+  },
+  {
+    "filename": "SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md",
+    "path": "outputs/seals/SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289259"
+  },
+  {
+    "filename": "SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md",
+    "path": "outputs/seals/SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289264"
+  },
+  {
+    "filename": "SEAL_D61_X_06C_CC_LINE_PURGE_AND_ORB_GLASS_DISCIPLINE.md",
+    "path": "outputs/seals/SEAL_D61_X_06C_CC_LINE_PURGE_AND_ORB_GLASS_DISCIPLINE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289269"
+  },
+  {
+    "filename": "SEAL_D61_X_06D_FOUNDER_FORCE_ELITE_SSOT.md",
+    "path": "outputs/seals/SEAL_D61_X_06D_FOUNDER_FORCE_ELITE_SSOT.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289275"
+  },
+  {
+    "filename": "SEAL_D61_X_06E_WEB_COMPILE_UNBLOCK.md",
+    "path": "outputs/seals/SEAL_D61_X_06E_WEB_COMPILE_UNBLOCK.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289279"
+  },
+  {
+    "filename": "SEAL_D61_X_06_MARKET_PRESSURE_ORB.md",
+    "path": "outputs/seals/SEAL_D61_X_06_MARKET_PRESSURE_ORB.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289284"
+  },
+  {
+    "filename": "SEAL_D61_X_07_CC_TOP_LAYOUT_AND_VOLATILITY_METER.md",
+    "path": "outputs/seals/SEAL_D61_X_07_CC_TOP_LAYOUT_AND_VOLATILITY_METER.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289288"
+  },
+  {
+    "filename": "SEAL_D61_X_08_CC_VOLATILITY_PLASMA_GLASS_AND_ORB_BALANCE.md",
+    "path": "outputs/seals/SEAL_D61_X_08_CC_VOLATILITY_PLASMA_GLASS_AND_ORB_BALANCE.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289293"
+  },
+  {
+    "filename": "SEAL_D61_X_08_VOLATILITY_METER_PLASMA_GLASS.md",
+    "path": "outputs/seals/SEAL_D61_X_08_VOLATILITY_METER_PLASMA_GLASS.md",
+    "day_id": "Day 61",
+    "indexed_at": "2026-02-16T12:08:19.289299"
+  },
+  {
+    "filename": "SEAL_D62_10_OS_SURFACE_SCAN_WIDGET_CONTRACT_HARDENING.md",
+    "path": "outputs/seals/SEAL_D62_10_OS_SURFACE_SCAN_WIDGET_CONTRACT_HARDENING.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289303"
+  },
+  {
+    "filename": "SEAL_D62_11B_SECTOR_FLIP_RESTORED_DEGRADE_MODE.md",
+    "path": "outputs/seals/SEAL_D62_11B_SECTOR_FLIP_RESTORED_DEGRADE_MODE.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289308"
+  },
+  {
+    "filename": "SEAL_D62_11_WIDGET_DATA_ARRIVAL_AND_DEMO_FALLBACK_PURGE.md",
+    "path": "outputs/seals/SEAL_D62_11_WIDGET_DATA_ARRIVAL_AND_DEMO_FALLBACK_PURGE.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289352"
+  },
+  {
+    "filename": "SEAL_D62_12_PROVIDER_READINESS_MATRIX_AND_LIVE_DATA_MAP.md",
+    "path": "outputs/seals/SEAL_D62_12_PROVIDER_READINESS_MATRIX_AND_LIVE_DATA_MAP.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289357"
+  },
+  {
+    "filename": "SEAL_D62_13B_SCHEDULER_AUTH_FIX.md",
+    "path": "outputs/seals/SEAL_D62_13B_SCHEDULER_AUTH_FIX.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289362"
+  },
+  {
+    "filename": "SEAL_D62_13_VOLUME_INTELLIGENCE_FORENSIC_TRACE.md",
+    "path": "outputs/seals/SEAL_D62_13_VOLUME_INTELLIGENCE_FORENSIC_TRACE.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289366"
+  },
+  {
+    "filename": "SEAL_D62_16C_AV_KEY_INJECTED_STUB_PERSISTS_TRUTH_DRILL.md",
+    "path": "outputs/seals/SEAL_D62_16C_AV_KEY_INJECTED_STUB_PERSISTS_TRUTH_DRILL.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289371"
+  },
+  {
+    "filename": "SEAL_D62_16D_ALPHA_VANTAGE_PROVIDER_ARTIFACT_AND_STUB_EXIT.md",
+    "path": "outputs/seals/SEAL_D62_16D_ALPHA_VANTAGE_PROVIDER_ARTIFACT_AND_STUB_EXIT.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289376"
+  },
+  {
+    "filename": "SEAL_D62_16_STUB_MODE_AUTOPSY_PROVIDER_KEY_TRUTH.md",
+    "path": "outputs/seals/SEAL_D62_16_STUB_MODE_AUTOPSY_PROVIDER_KEY_TRUTH.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289381"
+  },
+  {
+    "filename": "SEAL_D62_ALPHA_VANTAGE_PROVIDER_BATCH_ONLY.md",
+    "path": "outputs/seals/SEAL_D62_ALPHA_VANTAGE_PROVIDER_BATCH_ONLY.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289385"
+  },
+  {
+    "filename": "SEAL_D62_RECONSTITUTION_COMPLETE.md",
+    "path": "outputs/seals/SEAL_D62_RECONSTITUTION_COMPLETE.md",
+    "day_id": "Day 62",
+    "indexed_at": "2026-02-16T12:08:19.289390"
+  },
+  {
+    "filename": "SEAL_DAY_00_0_WORKSPACE_TRUTH.md",
+    "path": "outputs/seals/SEAL_DAY_00_0_WORKSPACE_TRUTH.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289395"
+  },
+  {
+    "filename": "SEAL_DAY_00_1_GIT_INIT.md",
+    "path": "outputs/seals/SEAL_DAY_00_1_GIT_INIT.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289399"
+  },
+  {
+    "filename": "SEAL_DAY_00_2_SKELETON.md",
+    "path": "outputs/seals/SEAL_DAY_00_2_SKELETON.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289404"
+  },
+  {
+    "filename": "SEAL_DAY_00_3_TRUTH_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_00_3_TRUTH_SURFACE.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289409"
+  },
+  {
+    "filename": "SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md",
+    "path": "outputs/seals/SEAL_DAY_00_4_FOUNDER_ALWAYS_ON.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289414"
+  },
+  {
+    "filename": "SEAL_DAY_00_5_FLUTTER_SHELL.md",
+    "path": "outputs/seals/SEAL_DAY_00_5_FLUTTER_SHELL.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289419"
+  },
+  {
+    "filename": "SEAL_DAY_00_MASTER.md",
+    "path": "outputs/seals/SEAL_DAY_00_MASTER.md",
+    "day_id": "Day 00",
+    "indexed_at": "2026-02-16T12:08:19.289423"
+  },
+  {
+    "filename": "SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md",
+    "path": "outputs/seals/SEAL_DAY_01_1_CANON_VERSION_GLOSSARY.md",
+    "day_id": "Day 01",
+    "indexed_at": "2026-02-16T12:08:19.289428"
+  },
+  {
+    "filename": "SEAL_DAY_01_SYSTEM_CONTRACT.md",
+    "path": "outputs/seals/SEAL_DAY_01_SYSTEM_CONTRACT.md",
+    "day_id": "Day 01",
+    "indexed_at": "2026-02-16T12:08:19.289432"
+  },
+  {
+    "filename": "SEAL_DAY_02_SCHEMAS_AND_LENS.md",
+    "path": "outputs/seals/SEAL_DAY_02_SCHEMAS_AND_LENS.md",
+    "day_id": "Day 02",
+    "indexed_at": "2026-02-16T12:08:19.289436"
+  },
+  {
+    "filename": "SEAL_DAY_03_1_AUTONOMY_HARDENING.md",
+    "path": "outputs/seals/SEAL_DAY_03_1_AUTONOMY_HARDENING.md",
+    "day_id": "Day 03",
+    "indexed_at": "2026-02-16T12:08:19.289440"
+  },
+  {
+    "filename": "SEAL_DAY_03_AUTONOMY_SPINE.md",
+    "path": "outputs/seals/SEAL_DAY_03_AUTONOMY_SPINE.md",
+    "day_id": "Day 03",
+    "indexed_at": "2026-02-16T12:08:19.289445"
+  },
+  {
+    "filename": "SEAL_DAY_04_PIPELINE_MIN_REAL.md",
+    "path": "outputs/seals/SEAL_DAY_04_PIPELINE_MIN_REAL.md",
+    "day_id": "Day 04",
+    "indexed_at": "2026-02-16T12:08:19.289449"
+  },
+  {
+    "filename": "SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md",
+    "path": "outputs/seals/SEAL_DAY_05_1_LINE_ENDINGS_POLICY.md",
+    "day_id": "Day 05",
+    "indexed_at": "2026-02-16T12:08:19.289453"
+  },
+  {
+    "filename": "SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md",
+    "path": "outputs/seals/SEAL_DAY_05_FLUTTER_DASHBOARD_LENS.md",
+    "day_id": "Day 05",
+    "indexed_at": "2026-02-16T12:08:19.289496"
+  },
+  {
+    "filename": "SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md",
+    "path": "outputs/seals/SEAL_DAY_06_1_SCHEMA_MANIFEST_COMPAT.md",
+    "day_id": "Day 06",
+    "indexed_at": "2026-02-16T12:08:19.289501"
+  },
+  {
+    "filename": "SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md",
+    "path": "outputs/seals/SEAL_DAY_06_2_PIPELINE_HYDRATION_AND_SCHEDULER.md",
+    "day_id": "Day 06",
+    "indexed_at": "2026-02-16T12:08:19.289505"
+  },
+  {
+    "filename": "SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md",
+    "path": "outputs/seals/SEAL_DAY_06_3_GCSFUSE_PERSISTENCE_HYDRATION_SCHEDULER.md",
+    "day_id": "Day 06",
+    "indexed_at": "2026-02-16T12:08:19.289509"
+  },
+  {
+    "filename": "SEAL_DAY_06_INTEGRITY_SWEEP.md",
+    "path": "outputs/seals/SEAL_DAY_06_INTEGRITY_SWEEP.md",
+    "day_id": "Day 06",
+    "indexed_at": "2026-02-16T12:08:19.289513"
+  },
+  {
+    "filename": "SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md",
+    "path": "outputs/seals/SEAL_DAY_07_CANON_TRUTH_AND_CONTRACT_HARDENING.md",
+    "day_id": "Day 07",
+    "indexed_at": "2026-02-16T12:08:19.289518"
+  },
+  {
+    "filename": "SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md",
+    "path": "outputs/seals/SEAL_DAY_08_MISFIRE_MONITOR_AND_AUTOHEAL.md",
+    "day_id": "Day 08",
+    "indexed_at": "2026-02-16T12:08:19.289522"
+  },
+  {
+    "filename": "SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_09_FRONTEND_SYSTEM_HEALTH_SURFACE.md",
+    "day_id": "Day 09",
+    "indexed_at": "2026-02-16T12:08:19.289526"
+  },
+  {
+    "filename": "SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md",
+    "path": "outputs/seals/SEAL_DAY_10_DUAL_PIPELINE_LOCKS_COOLDOWNS.md",
+    "day_id": "Day 10",
+    "indexed_at": "2026-02-16T12:08:19.289531"
+  },
+  {
+    "filename": "SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md",
+    "path": "outputs/seals/SEAL_DAY_11_SCHEDULER_DUAL_CADENCE.md",
+    "day_id": "Day 11",
+    "indexed_at": "2026-02-16T12:08:19.289535"
+  },
+  {
+    "filename": "SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md",
+    "path": "outputs/seals/SEAL_DAY_12_RELEASE_CANDIDATE_PACK.md",
+    "day_id": "Day 12",
+    "indexed_at": "2026-02-16T12:08:19.289539"
+  },
+  {
+    "filename": "SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md",
+    "path": "outputs/seals/SEAL_DAY_13_DEPLOYMENT_AND_HANDOVER_PACK.md",
+    "day_id": "Day 13",
+    "indexed_at": "2026-02-16T12:08:19.289543"
+  },
+  {
+    "filename": "SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md",
+    "path": "outputs/seals/SEAL_DAY_14_01_AUTOHEAL_ARGS_FIX_AND_REVERIFY.md",
+    "day_id": "Day 14",
+    "indexed_at": "2026-02-16T12:08:19.289547"
+  },
+  {
+    "filename": "SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md",
+    "path": "outputs/seals/SEAL_DAY_14_02_CALENDAR_CANON_ALIGNMENT.md",
+    "day_id": "Day 14",
+    "indexed_at": "2026-02-16T12:08:19.289552"
+  },
+  {
+    "filename": "SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md",
+    "path": "outputs/seals/SEAL_DAY_14_MISFIRE_AUTOHEAL_FOUNDER_RED_BUTTON_VERIFY.md",
+    "day_id": "Day 14",
+    "indexed_at": "2026-02-16T12:08:19.289556"
+  },
+  {
+    "filename": "SEAL_DAY_15_AUTOFIX.md",
+    "path": "outputs/seals/SEAL_DAY_15_AUTOFIX.md",
+    "day_id": "Day 15",
+    "indexed_at": "2026-02-16T12:08:19.289560"
+  },
+  {
+    "filename": "SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md",
+    "path": "outputs/seals/SEAL_DAY_15_AUTOFIX_CONTROL_PLANE_OBSERVE_RECOMMEND_LEDGER.md",
+    "day_id": "Day 15",
+    "indexed_at": "2026-02-16T12:08:19.289564"
+  },
+  {
+    "filename": "SEAL_DAY_16_AUTOFIX_EXECUTE.md",
+    "path": "outputs/seals/SEAL_DAY_16_AUTOFIX_EXECUTE.md",
+    "day_id": "Day 16",
+    "indexed_at": "2026-02-16T12:08:19.289568"
+  },
+  {
+    "filename": "SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md",
+    "path": "outputs/seals/SEAL_DAY_16_AUTOFIX_EXECUTE_TIER1_COOLDOWNS_AUDIT.md",
+    "day_id": "Day 16",
+    "indexed_at": "2026-02-16T12:08:19.289572"
+  },
+  {
+    "filename": "SEAL_DAY_17_HOUSEKEEPER.md",
+    "path": "outputs/seals/SEAL_DAY_17_HOUSEKEEPER.md",
+    "day_id": "Day 17",
+    "indexed_at": "2026-02-16T12:08:19.289576"
+  },
+  {
+    "filename": "SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md",
+    "path": "outputs/seals/SEAL_DAY_17_HOUSEKEEPER_AUTOCLEAN_DRIFT.md",
+    "day_id": "Day 17",
+    "indexed_at": "2026-02-16T12:08:19.289582"
+  },
+  {
+    "filename": "SEAL_DAY_18_WAR_ROOM.md",
+    "path": "outputs/seals/SEAL_DAY_18_WAR_ROOM.md",
+    "day_id": "Day 18",
+    "indexed_at": "2026-02-16T12:08:19.289587"
+  },
+  {
+    "filename": "SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md",
+    "path": "outputs/seals/SEAL_DAY_18_WAR_ROOM_COMMAND_CENTER.md",
+    "day_id": "Day 18",
+    "indexed_at": "2026-02-16T12:08:19.289634"
+  },
+  {
+    "filename": "SEAL_DAY_19_PLAYBOOK_LAW.md",
+    "path": "outputs/seals/SEAL_DAY_19_PLAYBOOK_LAW.md",
+    "day_id": "Day 19",
+    "indexed_at": "2026-02-16T12:08:19.289639"
+  },
+  {
+    "filename": "SEAL_DAY_19_TITANIUM.md",
+    "path": "outputs/seals/SEAL_DAY_19_TITANIUM.md",
+    "day_id": "Day 19",
+    "indexed_at": "2026-02-16T12:08:19.289644"
+  },
+  {
+    "filename": "SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md",
+    "path": "outputs/seals/SEAL_DAY_19_TITANIUM_PLAYBOOKS_AUTOFIX_V2_WAR_ROOM_SHADOW_REPAIR.md",
+    "day_id": "Day 19",
+    "indexed_at": "2026-02-16T12:08:19.289649"
+  },
+  {
+    "filename": "SEAL_DAY_20_AGMS.md",
+    "path": "outputs/seals/SEAL_DAY_20_AGMS.md",
+    "day_id": "Day 20",
+    "indexed_at": "2026-02-16T12:08:19.289654"
+  },
+  {
+    "filename": "SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md",
+    "path": "outputs/seals/SEAL_DAY_20_AGMS_FOUNDATION_MEMORY_MIRROR_TRUTH.md",
+    "day_id": "Day 20",
+    "indexed_at": "2026-02-16T12:08:19.289658"
+  },
+  {
+    "filename": "SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md",
+    "path": "outputs/seals/SEAL_DAY_21_AGMS_INTELLIGENCE_SHADOW_MODE.md",
+    "day_id": "Day 21",
+    "indexed_at": "2026-02-16T12:08:19.289662"
+  },
+  {
+    "filename": "SEAL_DAY_21_INTELLIGENCE.md",
+    "path": "outputs/seals/SEAL_DAY_21_INTELLIGENCE.md",
+    "day_id": "Day 21",
+    "indexed_at": "2026-02-16T12:08:19.289666"
+  },
+  {
+    "filename": "SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md",
+    "path": "outputs/seals/SEAL_DAY_22_AGMS_SHADOW_RECOMMENDER_SUGGEST_ONLY.md",
+    "day_id": "Day 22",
+    "indexed_at": "2026-02-16T12:08:19.289671"
+  },
+  {
+    "filename": "SEAL_DAY_22_RECOMMENDER.md",
+    "path": "outputs/seals/SEAL_DAY_22_RECOMMENDER.md",
+    "day_id": "Day 22",
+    "indexed_at": "2026-02-16T12:08:19.289675"
+  },
+  {
+    "filename": "SEAL_DAY_23_AUTOPILOT.md",
+    "path": "outputs/seals/SEAL_DAY_23_AUTOPILOT.md",
+    "day_id": "Day 23",
+    "indexed_at": "2026-02-16T12:08:19.289679"
+  },
+  {
+    "filename": "SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md",
+    "path": "outputs/seals/SEAL_DAY_23_AUTOPILOT_HANDOFF_AGMS_TO_AUTOFIX.md",
+    "day_id": "Day 23",
+    "indexed_at": "2026-02-16T12:08:19.289683"
+  },
+  {
+    "filename": "SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md",
+    "path": "outputs/seals/SEAL_DAY_24_DYNAMIC_THRESHOLDS_SELF_TUNING.md",
+    "day_id": "Day 24",
+    "indexed_at": "2026-02-16T12:08:19.289688"
+  },
+  {
+    "filename": "SEAL_DAY_24_THRESHOLDS.md",
+    "path": "outputs/seals/SEAL_DAY_24_THRESHOLDS.md",
+    "day_id": "Day 24",
+    "indexed_at": "2026-02-16T12:08:19.289692"
+  },
+  {
+    "filename": "SEAL_DAY_25_BANDS.md",
+    "path": "outputs/seals/SEAL_DAY_25_BANDS.md",
+    "day_id": "Day 25",
+    "indexed_at": "2026-02-16T12:08:19.289696"
+  },
+  {
+    "filename": "SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md",
+    "path": "outputs/seals/SEAL_DAY_25_CONFIDENCE_STABILITY_BANDS.md",
+    "day_id": "Day 25",
+    "indexed_at": "2026-02-16T12:08:19.289700"
+  },
+  {
+    "filename": "SEAL_DAY_26_MODULAR_COHERENCE.md",
+    "path": "outputs/seals/SEAL_DAY_26_MODULAR_COHERENCE.md",
+    "day_id": "Day 26",
+    "indexed_at": "2026-02-16T12:08:19.289704"
+  },
+  {
+    "filename": "SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md",
+    "path": "outputs/seals/SEAL_DAY_26_MODULE_REGISTRY_LAW_AND_COHERENCE_WIRING.md",
+    "day_id": "Day 26",
+    "indexed_at": "2026-02-16T12:08:19.289708"
+  },
+  {
+    "filename": "SEAL_DAY_27_MODULAR_REFACTOR.md",
+    "path": "outputs/seals/SEAL_DAY_27_MODULAR_REFACTOR.md",
+    "day_id": "Day 27",
+    "indexed_at": "2026-02-16T12:08:19.289711"
+  },
+  {
+    "filename": "SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md",
+    "path": "outputs/seals/SEAL_DAY_28_01_PLAYBOOK_EXPANSION_V1.md",
+    "day_id": "Day 28",
+    "indexed_at": "2026-02-16T12:08:19.289716"
+  },
+  {
+    "filename": "SEAL_DAY_28_02_SHADOW_REPAIR_V1_5.md",
+    "path": "outputs/seals/SEAL_DAY_28_02_SHADOW_REPAIR_V1_5.md",
+    "day_id": "Day 28",
+    "indexed_at": "2026-02-16T12:08:19.289720"
+  },
+  {
+    "filename": "SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md",
+    "path": "outputs/seals/SEAL_DAY_28_02_SHADOW_REPAIR_V1_5_UNIFIED_DIFF_RISK_TAGS.md",
+    "day_id": "Day 28",
+    "indexed_at": "2026-02-16T12:08:19.289724"
+  },
+  {
+    "filename": "SEAL_DAY_28_AUTOPILOT_POLICY_V1.md",
+    "path": "outputs/seals/SEAL_DAY_28_AUTOPILOT_POLICY_V1.md",
+    "day_id": "Day 28",
+    "indexed_at": "2026-02-16T12:08:19.289728"
+  },
+  {
+    "filename": "SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md",
+    "path": "outputs/seals/SEAL_DAY_29_AUTOPILOT_SHADOW_OBSERVATION.md",
+    "day_id": "Day 29",
+    "indexed_at": "2026-02-16T12:08:19.289769"
+  },
+  {
+    "filename": "SEAL_DAY_29_SHADOW_OBSERVATION.md",
+    "path": "outputs/seals/SEAL_DAY_29_SHADOW_OBSERVATION.md",
+    "day_id": "Day 29",
+    "indexed_at": "2026-02-16T12:08:19.289773"
+  },
+  {
+    "filename": "SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md",
+    "path": "outputs/seals/SEAL_DAY_30_1_FREEZE_CORE_OS_KILL_SWITCHES_RELEASE_CHECKLIST.md",
+    "day_id": "Day 30",
+    "indexed_at": "2026-02-16T12:08:19.289778"
+  },
+  {
+    "filename": "SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md",
+    "path": "outputs/seals/SEAL_DAY_30_2_SURGEON_2VOTE_CONSENSUS.md",
+    "day_id": "Day 30",
+    "indexed_at": "2026-02-16T12:08:19.289782"
+  },
+  {
+    "filename": "SEAL_DAY_30_SAFE_AUTOPILOT.md",
+    "path": "outputs/seals/SEAL_DAY_30_SAFE_AUTOPILOT.md",
+    "day_id": "Day 30",
+    "indexed_at": "2026-02-16T12:08:19.289786"
+  },
+  {
+    "filename": "SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md",
+    "path": "outputs/seals/SEAL_DAY_30_SAFE_AUTOPILOT_PROD_OBSERVATION.md",
+    "day_id": "Day 30",
+    "indexed_at": "2026-02-16T12:08:19.289790"
+  },
+  {
+    "filename": "SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md",
+    "path": "outputs/seals/SEAL_DAY_31_1_CANON_SYNC_POST_SURGEON.md",
+    "day_id": "Day 31",
+    "indexed_at": "2026-02-16T12:08:19.289794"
+  },
+  {
+    "filename": "SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION.md",
+    "path": "outputs/seals/SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION.md",
+    "day_id": "Day 31",
+    "indexed_at": "2026-02-16T12:08:19.289798"
+  },
+  {
+    "filename": "SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md",
+    "path": "outputs/seals/SEAL_DAY_31_2_ANTIGRAVITY_CONSTITUTION_AND_DISCIPLINE.md",
+    "day_id": "Day 31",
+    "indexed_at": "2026-02-16T12:08:19.289803"
+  },
+  {
+    "filename": "SEAL_DAY_31_THE_SURGEON.md",
+    "path": "outputs/seals/SEAL_DAY_31_THE_SURGEON.md",
+    "day_id": "Day 31",
+    "indexed_at": "2026-02-16T12:08:19.289808"
+  },
+  {
+    "filename": "SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md",
+    "path": "outputs/seals/SEAL_DAY_31_THE_SURGEON_RUNTIME_SELF_REPAIR.md",
+    "day_id": "Day 31",
+    "indexed_at": "2026-02-16T12:08:19.289812"
+  },
+  {
+    "filename": "SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md",
+    "path": "outputs/seals/SEAL_DAY_32_IMMUNE_SYSTEM_SHADOW_SANITIZE.md",
+    "day_id": "Day 32",
+    "indexed_at": "2026-02-16T12:08:19.289817"
+  },
+  {
+    "filename": "SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md",
+    "path": "outputs/seals/SEAL_DAY_33_1_TUNING_GATE_2VOTE_RUNTIME_ONLY.md",
+    "day_id": "Day 33",
+    "indexed_at": "2026-02-16T12:08:19.289822"
+  },
+  {
+    "filename": "SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md",
+    "path": "outputs/seals/SEAL_DAY_33_DOJO_OFFLINE_SIMULATION.md",
+    "day_id": "Day 33",
+    "indexed_at": "2026-02-16T12:08:19.289826"
+  },
+  {
+    "filename": "SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md",
+    "path": "outputs/seals/SEAL_DAY_34_BLACK_BOX_FORENSIC_INDESTRUCTIBILITY.md",
+    "day_id": "Day 34",
+    "indexed_at": "2026-02-16T12:08:19.289830"
+  },
+  {
+    "filename": "SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md",
+    "path": "outputs/seals/SEAL_DAY_36_1_FORENSIC_LANGUAGE_AUDIT_AND_REMEDIATION.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289836"
+  },
+  {
+    "filename": "SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md",
+    "path": "outputs/seals/SEAL_DAY_36_2_ENGINE_RECONCILIATION_BACKLOG_INSERT.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289841"
+  },
+  {
+    "filename": "SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md",
+    "path": "outputs/seals/SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289845"
+  },
+  {
+    "filename": "SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1_PROVIDER_READY.md",
+    "path": "outputs/seals/SEAL_DAY_36_3A_OPTIONS_INTELLIGENCE_V1_1_PROVIDER_READY.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289850"
+  },
+  {
+    "filename": "SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md",
+    "path": "outputs/seals/SEAL_DAY_36_3_OPTIONS_INTELLIGENCE_V1.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289854"
+  },
+  {
+    "filename": "SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md",
+    "path": "outputs/seals/SEAL_DAY_36_4_EVIDENCE_BACKTESTING_V1.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289858"
+  },
+  {
+    "filename": "SEAL_DAY_36_5_MACRO_LAYER_V1.md",
+    "path": "outputs/seals/SEAL_DAY_36_5_MACRO_LAYER_V1.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289862"
+  },
+  {
+    "filename": "SEAL_DAY_36_6_LEXICON_PRO_V1.md",
+    "path": "outputs/seals/SEAL_DAY_36_6_LEXICON_PRO_V1.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289901"
+  },
+  {
+    "filename": "SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md",
+    "path": "outputs/seals/SEAL_DAY_36_7_VOICE_MVP_REABSORPTION.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289906"
+  },
+  {
+    "filename": "SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md",
+    "path": "outputs/seals/SEAL_DAY_36_SYSTEM_LANGUAGE_NORMALIZATION.md",
+    "day_id": "Day 36",
+    "indexed_at": "2026-02-16T12:08:19.289910"
+  },
+  {
+    "filename": "SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md",
+    "path": "outputs/seals/SEAL_DAY_37_00_1A_FLUTTER_SDK_DECONTAMINATION_UPGRADE_RETRY.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289915"
+  },
+  {
+    "filename": "SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md",
+    "path": "outputs/seals/SEAL_DAY_37_00_2_GLOBAL_SHELL_BASELINE.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289919"
+  },
+  {
+    "filename": "SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md",
+    "path": "outputs/seals/SEAL_DAY_37_00_3_PREMIUM_PALETTE_ALIGNMENT.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289924"
+  },
+  {
+    "filename": "SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md",
+    "path": "outputs/seals/SEAL_DAY_37_00_FRONTEND_PREFLIGHT_APP_COLORS_TOKENS.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289928"
+  },
+  {
+    "filename": "SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md",
+    "path": "outputs/seals/SEAL_DAY_37_01_DASHBOARD_SSOT_WIRING.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289933"
+  },
+  {
+    "filename": "SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md",
+    "path": "outputs/seals/SEAL_DAY_37_02_1_SESSION_STRIP_POLISH.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289938"
+  },
+  {
+    "filename": "SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md",
+    "path": "outputs/seals/SEAL_DAY_37_02_SESSION_WINDOW_WIDGET.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289943"
+  },
+  {
+    "filename": "SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md",
+    "path": "outputs/seals/SEAL_DAY_37_03_LIVE_STALE_LOCKED_PRECEDENCE.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289947"
+  },
+  {
+    "filename": "SEAL_DAY_37_04_OS_HEALTH_WIDGET.md",
+    "path": "outputs/seals/SEAL_DAY_37_04_OS_HEALTH_WIDGET.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289951"
+  },
+  {
+    "filename": "SEAL_DAY_37_05_LAST_RUN_WIDGET.md",
+    "path": "outputs/seals/SEAL_DAY_37_05_LAST_RUN_WIDGET.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289955"
+  },
+  {
+    "filename": "SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md",
+    "path": "outputs/seals/SEAL_DAY_37_06_FOUNDER_MODE_ALWAYS_ON.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289959"
+  },
+  {
+    "filename": "SEAL_DAY_37_07_REFRESH_GOVERNANCE.md",
+    "path": "outputs/seals/SEAL_DAY_37_07_REFRESH_GOVERNANCE.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289964"
+  },
+  {
+    "filename": "SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md",
+    "path": "outputs/seals/SEAL_DAY_37_08_DASHBOARD_DEGRADE_RULES.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289969"
+  },
+  {
+    "filename": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md",
+    "path": "outputs/seals/SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_EXPANSION.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289973"
+  },
+  {
+    "filename": "SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md",
+    "path": "outputs/seals/SEAL_DAY_37_WAR_CALENDAR_PHASE_6_FULL_FINAL.md",
+    "day_id": "Day 37",
+    "indexed_at": "2026-02-16T12:08:19.289978"
+  },
+  {
+    "filename": "SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md",
+    "path": "outputs/seals/SEAL_DAY_38_01_1_DASHBOARD_LAYOUT_SYSTEM_ANTI_OVERLAP.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.289982"
+  },
+  {
+    "filename": "SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md",
+    "path": "outputs/seals/SEAL_DAY_38_01_2_DASHBOARD_LAYOUT_DISCIPLINE_VERIFIER.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.289986"
+  },
+  {
+    "filename": "SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md",
+    "path": "outputs/seals/SEAL_DAY_38_01_WAR_ROOM_TILES_SHELL.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.289992"
+  },
+  {
+    "filename": "SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md",
+    "path": "outputs/seals/SEAL_DAY_38_02_WAR_ROOM_TILES_WIRING.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.289996"
+  },
+  {
+    "filename": "SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md",
+    "path": "outputs/seals/SEAL_DAY_38_03_AUTOFIX_CONTROL_PLANE_TILE.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290026"
+  },
+  {
+    "filename": "SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md",
+    "path": "outputs/seals/SEAL_DAY_38_04_MISFIRE_HOUSEKEEPER_TILES.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290031"
+  },
+  {
+    "filename": "SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md",
+    "path": "outputs/seals/SEAL_DAY_38_05_MISFIRE_MONITOR_AUTO_RECOVERY_TILE.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290037"
+  },
+  {
+    "filename": "SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md",
+    "path": "outputs/seals/SEAL_DAY_38_06_IRON_OS_TILE_STATE_ROLLBACK_REPLAY.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290042"
+  },
+  {
+    "filename": "SEAL_DAY_38_07_UNIVERSE_TILE.md",
+    "path": "outputs/seals/SEAL_DAY_38_07_UNIVERSE_TILE.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290049"
+  },
+  {
+    "filename": "SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md",
+    "path": "outputs/seals/SEAL_DAY_38_08_WAR_ROOM_REFRESH_GOVERNANCE.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290054"
+  },
+  {
+    "filename": "SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md",
+    "path": "outputs/seals/SEAL_DAY_38_09_WAR_ROOM_TRUTH_HARDENING.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290059"
+  },
+  {
+    "filename": "SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md",
+    "path": "outputs/seals/SEAL_DAY_38_WAR_CALENDAR_MOAT_IDEAS_CAPTURE.md",
+    "day_id": "Day 38",
+    "indexed_at": "2026-02-16T12:08:19.290064"
+  },
+  {
+    "filename": "SEAL_DAY_39_01A_CORE20_CANON_FIX.md",
+    "path": "outputs/seals/SEAL_DAY_39_01A_CORE20_CANON_FIX.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290069"
+  },
+  {
+    "filename": "SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md",
+    "path": "outputs/seals/SEAL_DAY_39_01B_CORE20_CANON_CORRECTION.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290074"
+  },
+  {
+    "filename": "SEAL_DAY_39_01C_CORE20_CANON_FINAL.md",
+    "path": "outputs/seals/SEAL_DAY_39_01C_CORE20_CANON_FINAL.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290078"
+  },
+  {
+    "filename": "SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md",
+    "path": "outputs/seals/SEAL_DAY_39_01D_CORE_UNIVERSE_CANON_CLARIFICATION.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290083"
+  },
+  {
+    "filename": "SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md",
+    "path": "outputs/seals/SEAL_DAY_39_01_CORE20_UNIVERSE_SURFACE_AND_WATCHLIST_COMPLIANCE.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290088"
+  },
+  {
+    "filename": "SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md",
+    "path": "outputs/seals/SEAL_DAY_39_02_EXTENDED_UNIVERSE_UI.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290093"
+  },
+  {
+    "filename": "SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md",
+    "path": "outputs/seals/SEAL_DAY_39_03_EXTENDED_GOVERNANCE_VISIBILITY.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290098"
+  },
+  {
+    "filename": "SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md",
+    "path": "outputs/seals/SEAL_DAY_39_04_OVERLAY_TRUTH_METADATA_UI.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290102"
+  },
+  {
+    "filename": "SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md",
+    "path": "outputs/seals/SEAL_DAY_39_05_EXTENDED_SUMMARY_OVERLAY_INJECTION.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290107"
+  },
+  {
+    "filename": "SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md",
+    "path": "outputs/seals/SEAL_DAY_39_06_UNIVERSE_PROPAGATION_AUDIT.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290112"
+  },
+  {
+    "filename": "SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md",
+    "path": "outputs/seals/SEAL_DAY_39_07_SAFE_DEGRADE_RULES.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290117"
+  },
+  {
+    "filename": "SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md",
+    "path": "outputs/seals/SEAL_DAY_39_08_UNIVERSE_INTEGRITY_TILE.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290122"
+  },
+  {
+    "filename": "SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_39_09_UNIVERSE_DRIFT_SURFACE.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290126"
+  },
+  {
+    "filename": "SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md",
+    "path": "outputs/seals/SEAL_DAY_39_10_SECTOR_HEATMAP_MINI_OPTIONAL.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290131"
+  },
+  {
+    "filename": "SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md",
+    "path": "outputs/seals/SEAL_DAY_39_11_SECTOR_SENTINEL_STATUS_PLACEHOLDER_UI.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290162"
+  },
+  {
+    "filename": "SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md",
+    "path": "outputs/seals/SEAL_DAY_39_HF01_WEB_SHELL_VISIBILITY.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290167"
+  },
+  {
+    "filename": "SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md",
+    "path": "outputs/seals/SEAL_DAY_39_UNIVERSE_V3_COMPLETE.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290172"
+  },
+  {
+    "filename": "SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md",
+    "path": "outputs/seals/SEAL_DAY_39_WAR_CALENDAR_UNIVERSE_V3_PARITY_APPEND.md",
+    "day_id": "Day 39",
+    "indexed_at": "2026-02-16T12:08:19.290176"
+  },
+  {
+    "filename": "SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md",
+    "path": "outputs/seals/SEAL_DAY_40_01_CORE_UNIVERSE_REALTIME_TAPE.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290181"
+  },
+  {
+    "filename": "SEAL_DAY_40_02_PULSE_CORE.md",
+    "path": "outputs/seals/SEAL_DAY_40_02_PULSE_CORE.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290187"
+  },
+  {
+    "filename": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md",
+    "path": "outputs/seals/SEAL_DAY_40_03_SECTOR_SENTINEL_RT.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290193"
+  },
+  {
+    "filename": "SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_40_03_SECTOR_SENTINEL_RT_SURFACE.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290198"
+  },
+  {
+    "filename": "SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md",
+    "path": "outputs/seals/SEAL_DAY_40_04_EXTENDED_OVERLAY_LIVE_COMPOSER.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290202"
+  },
+  {
+    "filename": "SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md",
+    "path": "outputs/seals/SEAL_DAY_40_05_GLOBAL_PULSE_SYNTHESIS_UI.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290207"
+  },
+  {
+    "filename": "SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md",
+    "path": "outputs/seals/SEAL_DAY_40_06_DISAGREEMENT_REPORT_UI.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290211"
+  },
+  {
+    "filename": "SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md",
+    "path": "outputs/seals/SEAL_DAY_40_07_ELITE_EXPLAIN_TRIGGER_WIRING.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290215"
+  },
+  {
+    "filename": "SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md",
+    "path": "outputs/seals/SEAL_DAY_40_08_AUTO_RISK_ACTIONS_UI_ONLY.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290221"
+  },
+  {
+    "filename": "SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md",
+    "path": "outputs/seals/SEAL_DAY_40_09_PULSE_CONFIDENCE_BANDS.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290225"
+  },
+  {
+    "filename": "SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_40_10_PULSE_DRIFT_SURFACE.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290229"
+  },
+  {
+    "filename": "SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md",
+    "path": "outputs/seals/SEAL_DAY_40_11_SENTINEL_HEATMAP_RT.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290243"
+  },
+  {
+    "filename": "SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md",
+    "path": "outputs/seals/SEAL_DAY_40_11_SENTINEL_SECTOR_HEATMAP_RT.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290247"
+  },
+  {
+    "filename": "SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md",
+    "path": "outputs/seals/SEAL_DAY_40_12_GLOBAL_PULSE_TIMELINE_UI.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290251"
+  },
+  {
+    "filename": "SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md",
+    "path": "outputs/seals/SEAL_DAY_40_13_REALTIME_FRESHNESS_MONITOR.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290256"
+  },
+  {
+    "filename": "SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md",
+    "path": "outputs/seals/SEAL_DAY_40_14_REALTIME_DEGRADE_RULES.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290260"
+  },
+  {
+    "filename": "SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md",
+    "path": "outputs/seals/SEAL_DAY_40_15_WHAT_CHANGED_RT_PANEL.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290264"
+  },
+  {
+    "filename": "SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md",
+    "path": "outputs/seals/SEAL_DAY_40_REALTIME_INTELLIGENCE_ARC_COMPLETE.md",
+    "day_id": "Day 40",
+    "indexed_at": "2026-02-16T12:08:19.290268"
+  },
+  {
+    "filename": "SEAL_DAY_41_01_IRON_OS_STATUS.md",
+    "path": "outputs/seals/SEAL_DAY_41_01_IRON_OS_STATUS.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290302"
+  },
+  {
+    "filename": "SEAL_DAY_41_02_TIMELINE_TAIL.md",
+    "path": "outputs/seals/SEAL_DAY_41_02_TIMELINE_TAIL.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290306"
+  },
+  {
+    "filename": "SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md",
+    "path": "outputs/seals/SEAL_DAY_41_03_INSTITUTIONAL_DAY_REPLAY_UI.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290310"
+  },
+  {
+    "filename": "SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md",
+    "path": "outputs/seals/SEAL_DAY_41_04_REPLAY_ARCHIVE_TIME_MACHINE_UI.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290314"
+  },
+  {
+    "filename": "SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md",
+    "path": "outputs/seals/SEAL_DAY_41_05_FOUNDER_ROLLBACK_UI_CONFIRM_LOGGING.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290318"
+  },
+  {
+    "filename": "SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md",
+    "path": "outputs/seals/SEAL_DAY_41_06_REPLAY_ROLLBACK_FAILSAFE_STATES.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290321"
+  },
+  {
+    "filename": "SEAL_DAY_41_07_IRON_STATE_HISTORY.md",
+    "path": "outputs/seals/SEAL_DAY_41_07_IRON_STATE_HISTORY.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290325"
+  },
+  {
+    "filename": "SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_41_08_IRON_DRIFT_SURFACE.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290329"
+  },
+  {
+    "filename": "SEAL_DAY_41_09_LKG_VIEWER.md",
+    "path": "outputs/seals/SEAL_DAY_41_09_LKG_VIEWER.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290333"
+  },
+  {
+    "filename": "SEAL_DAY_41_10_IRON_DECISION_PATH.md",
+    "path": "outputs/seals/SEAL_DAY_41_10_IRON_DECISION_PATH.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290336"
+  },
+  {
+    "filename": "SEAL_DAY_41_11_REPLAY_INTEGRITY.md",
+    "path": "outputs/seals/SEAL_DAY_41_11_REPLAY_INTEGRITY.md",
+    "day_id": "Day 41",
+    "indexed_at": "2026-02-16T12:08:19.290340"
+  },
+  {
+    "filename": "SEAL_DAY_42_01_LOCK_REASON.md",
+    "path": "outputs/seals/SEAL_DAY_42_01_LOCK_REASON.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290344"
+  },
+  {
+    "filename": "SEAL_DAY_42_02_COVERAGE.md",
+    "path": "outputs/seals/SEAL_DAY_42_02_COVERAGE.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290347"
+  },
+  {
+    "filename": "SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md",
+    "path": "outputs/seals/SEAL_DAY_42_03_HOUSEKEEPER_AUTO.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290351"
+  },
+  {
+    "filename": "SEAL_DAY_42_04_AUTOFIX_TIER1.md",
+    "path": "outputs/seals/SEAL_DAY_42_04_AUTOFIX_TIER1.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290355"
+  },
+  {
+    "filename": "SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md",
+    "path": "outputs/seals/SEAL_DAY_42_05_MISFIRE_TIER2_VISIBILITY.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290359"
+  },
+  {
+    "filename": "SEAL_DAY_42_06_RED_BUTTON_SURFACES.md",
+    "path": "outputs/seals/SEAL_DAY_42_06_RED_BUTTON_SURFACES.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290363"
+  },
+  {
+    "filename": "SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md",
+    "path": "outputs/seals/SEAL_DAY_42_07_COOLDOWN_TRANSPARENCY.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290367"
+  },
+  {
+    "filename": "SEAL_DAY_42_08_FINDINGS_PANEL.md",
+    "path": "outputs/seals/SEAL_DAY_42_08_FINDINGS_PANEL.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290371"
+  },
+  {
+    "filename": "SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md",
+    "path": "outputs/seals/SEAL_DAY_42_09_BEFORE_AFTER_DIFF.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290375"
+  },
+  {
+    "filename": "SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md",
+    "path": "outputs/seals/SEAL_DAY_42_10_AUTOFIX_DECISION_PATH.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290378"
+  },
+  {
+    "filename": "SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md",
+    "path": "outputs/seals/SEAL_DAY_42_11_MISFIRE_ROOT_CAUSE.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290382"
+  },
+  {
+    "filename": "SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md",
+    "path": "outputs/seals/SEAL_DAY_42_12_SELF_HEAL_CONFIDENCE.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290386"
+  },
+  {
+    "filename": "SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md",
+    "path": "outputs/seals/SEAL_DAY_42_13_SELF_HEAL_WHAT_CHANGED.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290392"
+  },
+  {
+    "filename": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md",
+    "path": "outputs/seals/SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290425"
+  },
+  {
+    "filename": "SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md",
+    "path": "outputs/seals/SEAL_DAY_42_AUTO_STAGE_CANON_OUTPUTS_PATCH.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290430"
+  },
+  {
+    "filename": "SEAL_DAY_42_BUILD_APK_SMOKE.md",
+    "path": "outputs/seals/SEAL_DAY_42_BUILD_APK_SMOKE.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290434"
+  },
+  {
+    "filename": "SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md",
+    "path": "outputs/seals/SEAL_DAY_42_GIT_COMMIT_CHECKPOINT.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290439"
+  },
+  {
+    "filename": "SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md",
+    "path": "outputs/seals/SEAL_DAY_42_GIT_COMMIT_SEAL_CANONIZED.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290443"
+  },
+  {
+    "filename": "SEAL_DAY_42_GIT_HYGIENE_FIX.md",
+    "path": "outputs/seals/SEAL_DAY_42_GIT_HYGIENE_FIX.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290448"
+  },
+  {
+    "filename": "SEAL_DAY_42_GIT_STAGE_UNTRACKED.md",
+    "path": "outputs/seals/SEAL_DAY_42_GIT_STAGE_UNTRACKED.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290452"
+  },
+  {
+    "filename": "SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md",
+    "path": "outputs/seals/SEAL_DAY_42_PROJECT_STATE_WAR_ROOM_CATCHUP.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290456"
+  },
+  {
+    "filename": "SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md",
+    "path": "outputs/seals/SEAL_DAY_42_WAR_CALENDAR_CANONIZED.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290460"
+  },
+  {
+    "filename": "SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md",
+    "path": "outputs/seals/SEAL_DAY_42_WAR_ROOM_ENTRY_5TAP_FIX.md",
+    "day_id": "Day 42",
+    "indexed_at": "2026-02-16T12:08:19.290464"
+  },
+  {
+    "filename": "SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md",
+    "path": "outputs/seals/SEAL_DAY_43_00_ELITE_FIRST_INTERACTION.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290467"
+  },
+  {
+    "filename": "SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md",
+    "path": "outputs/seals/SEAL_DAY_43_01_ELITE_OVERLAY_SHELL.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290471"
+  },
+  {
+    "filename": "SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md",
+    "path": "outputs/seals/SEAL_DAY_43_02_ELITE_MENTOR_BRAIN.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290475"
+  },
+  {
+    "filename": "SEAL_DAY_43_03_ELITE_OS_READER.md",
+    "path": "outputs/seals/SEAL_DAY_43_03_ELITE_OS_READER.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290478"
+  },
+  {
+    "filename": "SEAL_DAY_43_04_DAY_MEMORY.md",
+    "path": "outputs/seals/SEAL_DAY_43_04_DAY_MEMORY.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290483"
+  },
+  {
+    "filename": "SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md",
+    "path": "outputs/seals/SEAL_DAY_43_05_ELITE_AGMS_RECALL_READER.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290487"
+  },
+  {
+    "filename": "SEAL_DAY_43_06_EXPLAIN_ROUTER.md",
+    "path": "outputs/seals/SEAL_DAY_43_06_EXPLAIN_ROUTER.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290490"
+  },
+  {
+    "filename": "SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md",
+    "path": "outputs/seals/SEAL_DAY_43_07_EXPLAIN_BUTTONS_WIRING.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290494"
+  },
+  {
+    "filename": "SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md",
+    "path": "outputs/seals/SEAL_DAY_43_08_SESSION_THREAD_MEMORY_V2.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290498"
+  },
+  {
+    "filename": "SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md",
+    "path": "outputs/seals/SEAL_DAY_43_09_DAILY_RITUAL_TRIGGERS.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290502"
+  },
+  {
+    "filename": "SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md",
+    "path": "outputs/seals/SEAL_DAY_43_10_ELITE_EXPLAINER_PROTOCOL.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290506"
+  },
+  {
+    "filename": "SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md",
+    "path": "outputs/seals/SEAL_DAY_43_11_ELITE_CONTEXT_ENGINE_STATUS.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290510"
+  },
+  {
+    "filename": "SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md",
+    "path": "outputs/seals/SEAL_DAY_43_12_ELITE_WHAT_CHANGED.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290514"
+  },
+  {
+    "filename": "SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md",
+    "path": "outputs/seals/SEAL_DAY_43_13_ELITE_CONTEXTUAL_RECALL.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290550"
+  },
+  {
+    "filename": "SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md",
+    "path": "outputs/seals/SEAL_DAY_43_14_EXPLAIN_MY_SCREEN.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290555"
+  },
+  {
+    "filename": "SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md",
+    "path": "outputs/seals/SEAL_DAY_43_15_ELITE_MICRO_BRIEFING_OPEN.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290560"
+  },
+  {
+    "filename": "SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md",
+    "path": "outputs/seals/SEAL_DAY_43_16_ELITE_CONTEXT_SAFETY_LAYER.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290565"
+  },
+  {
+    "filename": "SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md",
+    "path": "outputs/seals/SEAL_DAY_43_APK_FOUNDER_RELEASE_BUILD.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290570"
+  },
+  {
+    "filename": "SEAL_DAY_43_CANON_SYNC_TOTAL.md",
+    "path": "outputs/seals/SEAL_DAY_43_CANON_SYNC_TOTAL.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290573"
+  },
+  {
+    "filename": "SEAL_DAY_43_GLOBAL_SCROLL_LAW.md",
+    "path": "outputs/seals/SEAL_DAY_43_GLOBAL_SCROLL_LAW.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290577"
+  },
+  {
+    "filename": "SEAL_DAY_43_LAYOUT_POLICE_GUARD.md",
+    "path": "outputs/seals/SEAL_DAY_43_LAYOUT_POLICE_GUARD.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290582"
+  },
+  {
+    "filename": "SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md",
+    "path": "outputs/seals/SEAL_DAY_43_LAYOUT_POLICE_HOTLIST.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290587"
+  },
+  {
+    "filename": "SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md",
+    "path": "outputs/seals/SEAL_DAY_43_X1_WATCHLIST_UNIVERSE_SCROLL_SAFE.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290591"
+  },
+  {
+    "filename": "SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md",
+    "path": "outputs/seals/SEAL_DAY_43_X2_ELITE_FIRST_INTERACTION_DEFAULT_STATE.md",
+    "day_id": "Day 43",
+    "indexed_at": "2026-02-16T12:08:19.290595"
+  },
+  {
+    "filename": "SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md",
+    "path": "outputs/seals/SEAL_DAY_44_01_WATCHLIST_STORE_LOCAL.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290599"
+  },
+  {
+    "filename": "SEAL_DAY_44_02A_LOCK_REASON_MODAL.md",
+    "path": "outputs/seals/SEAL_DAY_44_02A_LOCK_REASON_MODAL.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290603"
+  },
+  {
+    "filename": "SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md",
+    "path": "outputs/seals/SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290608"
+  },
+  {
+    "filename": "SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md",
+    "path": "outputs/seals/SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290612"
+  },
+  {
+    "filename": "SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md",
+    "path": "outputs/seals/SEAL_DAY_44_04A_ON_DEMAND_REABSORPTION.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290616"
+  },
+  {
+    "filename": "SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md",
+    "path": "outputs/seals/SEAL_DAY_44_04B_ON_DEMAND_PANEL_HYGIENE.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290619"
+  },
+  {
+    "filename": "SEAL_DAY_44_04_ON_DEMAND_SCREEN.md",
+    "path": "outputs/seals/SEAL_DAY_44_04_ON_DEMAND_SCREEN.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290624"
+  },
+  {
+    "filename": "SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md",
+    "path": "outputs/seals/SEAL_DAY_44_05_ON_DEMAND_CACHE_FRESHNESS.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290627"
+  },
+  {
+    "filename": "SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md",
+    "path": "outputs/seals/SEAL_DAY_44_06_TIER_LIMITS_COUNTERS.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290631"
+  },
+  {
+    "filename": "SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md",
+    "path": "outputs/seals/SEAL_DAY_44_06_WATCHLIST_ON_DEMAND_PREFILL_AUTOTRIGGER.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290635"
+  },
+  {
+    "filename": "SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md",
+    "path": "outputs/seals/SEAL_DAY_44_07_ON_DEMAND_ENVELOPE_LEXICON_ENFORCEMENT.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290639"
+  },
+  {
+    "filename": "SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md",
+    "path": "outputs/seals/SEAL_DAY_44_08_BADGESTRIP_NO_OVERLAP_PROOF.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290670"
+  },
+  {
+    "filename": "SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md",
+    "path": "outputs/seals/SEAL_DAY_44_09_WATCHLIST_STATE_CHIPS.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290674"
+  },
+  {
+    "filename": "SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md",
+    "path": "outputs/seals/SEAL_DAY_44_10_WATCHLIST_LAST_ANALYZED_TIMESTAMP.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290678"
+  },
+  {
+    "filename": "SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md",
+    "path": "outputs/seals/SEAL_DAY_44_11_ON_DEMAND_ENVELOPE_PREVIEW_HEADER.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290681"
+  },
+  {
+    "filename": "SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md",
+    "path": "outputs/seals/SEAL_DAY_44_12_ON_DEMAND_CONTEXT_STRIP.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290685"
+  },
+  {
+    "filename": "SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md",
+    "path": "outputs/seals/SEAL_DAY_44_13_ON_DEMAND_ELITE_EXPLAIN_BUTTON.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290689"
+  },
+  {
+    "filename": "SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md",
+    "path": "outputs/seals/SEAL_DAY_44_14A_WATCHLIST_ANALYZE_STUB.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290693"
+  },
+  {
+    "filename": "SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md",
+    "path": "outputs/seals/SEAL_DAY_44_14_WATCHLIST_SCREEN_BASIC.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290696"
+  },
+  {
+    "filename": "SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md",
+    "path": "outputs/seals/SEAL_DAY_44_15_ON_DEMAND_HISTORY_LAST5.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290700"
+  },
+  {
+    "filename": "SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md",
+    "path": "outputs/seals/SEAL_DAY_44_16_ON_DEMAND_STALE_WARNING.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290704"
+  },
+  {
+    "filename": "SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md",
+    "path": "outputs/seals/SEAL_DAY_44_COMMIT_AND_APK_RELEASE.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290708"
+  },
+  {
+    "filename": "SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md",
+    "path": "outputs/seals/SEAL_DAY_44_GOVERNANCE_UPDATE_WAR_CALENDAR_OS_MODULES.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290713"
+  },
+  {
+    "filename": "SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md",
+    "path": "outputs/seals/SEAL_DAY_44_WATCHLIST_ON_DEMAND_V1.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290716"
+  },
+  {
+    "filename": "SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md",
+    "path": "outputs/seals/SEAL_DAY_44_X_ON_DEMAND_GLOBAL_CANON.md",
+    "day_id": "Day 44",
+    "indexed_at": "2026-02-16T12:08:19.290720"
+  },
+  {
+    "filename": "SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md",
+    "path": "outputs/seals/SEAL_DAY_45_01_SYSTEM_STATUS_PANEL_HYGIENE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290724"
+  },
+  {
+    "filename": "SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md",
+    "path": "outputs/seals/SEAL_DAY_45_02_BOTTOM_NAV_TAB_STATE_PERSISTENCE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290728"
+  },
+  {
+    "filename": "SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md",
+    "path": "outputs/seals/SEAL_DAY_45_03_NEWS_DAILY_DIGEST_FLIP.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290732"
+  },
+  {
+    "filename": "SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md",
+    "path": "outputs/seals/SEAL_DAY_45_04_ECONOMIC_CALENDAR_DAILY_WEEKLY.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290736"
+  },
+  {
+    "filename": "SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md",
+    "path": "outputs/seals/SEAL_DAY_45_05_PREMIUM_FEATURE_MATRIX.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290740"
+  },
+  {
+    "filename": "SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md",
+    "path": "outputs/seals/SEAL_DAY_45_06_TRIAL_3_MARKET_OPENS_TRYME_SCHEDULER.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290744"
+  },
+  {
+    "filename": "SEAL_DAY_45_07_ABORTED_ROLLBACK.md",
+    "path": "outputs/seals/SEAL_DAY_45_07_ABORTED_ROLLBACK.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290748"
+  },
+  {
+    "filename": "SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md",
+    "path": "outputs/seals/SEAL_DAY_45_07_ELITE_ACCESS_WINDOW_CONTROLLER.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290752"
+  },
+  {
+    "filename": "SEAL_DAY_45_08_SHARE_ENGINE_V1.md",
+    "path": "outputs/seals/SEAL_DAY_45_08_SHARE_ENGINE_V1.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290784"
+  },
+  {
+    "filename": "SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md",
+    "path": "outputs/seals/SEAL_DAY_45_09_SHARE_LIBRARY_CTA_LOOP.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290788"
+  },
+  {
+    "filename": "SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md",
+    "path": "outputs/seals/SEAL_DAY_45_10_SHARE_PROMPT_LOOP.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290792"
+  },
+  {
+    "filename": "SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md",
+    "path": "outputs/seals/SEAL_DAY_45_11_SHARE_TO_INSTALL_SCAFFOLD.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290796"
+  },
+  {
+    "filename": "SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md",
+    "path": "outputs/seals/SEAL_DAY_45_12_SHARE_ATTRIBUTION_DASHBOARD.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290801"
+  },
+  {
+    "filename": "SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md",
+    "path": "outputs/seals/SEAL_DAY_45_13_COMMAND_CENTER_SECRET_SURFACE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290806"
+  },
+  {
+    "filename": "SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md",
+    "path": "outputs/seals/SEAL_DAY_45_14_PLUS_5DAY_UNLOCK_ELITE_IMMEDIATE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290810"
+  },
+  {
+    "filename": "SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md",
+    "path": "outputs/seals/SEAL_DAY_45_15_COMMAND_CENTER_CONTENT_SPEC.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290814"
+  },
+  {
+    "filename": "SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md",
+    "path": "outputs/seals/SEAL_DAY_45_16_VIRAL_TEASER_SHARE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290818"
+  },
+  {
+    "filename": "SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md",
+    "path": "outputs/seals/SEAL_DAY_45_17_SESSION_AWARENESS_MICRO_PANEL.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290822"
+  },
+  {
+    "filename": "SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md",
+    "path": "outputs/seals/SEAL_DAY_45_18_PROVIDER_STATUS_INDICATOR.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290826"
+  },
+  {
+    "filename": "SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md",
+    "path": "outputs/seals/SEAL_DAY_45_19_PREMIUM_FEATURE_MATRIX_VISUAL_GRID.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290832"
+  },
+  {
+    "filename": "SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md",
+    "path": "outputs/seals/SEAL_DAY_45_20_21_NEWS_CALENDAR_FINAL_POLISH.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290836"
+  },
+  {
+    "filename": "SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md",
+    "path": "outputs/seals/SEAL_DAY_45_22_23_24_SHARING_GROWTH_FINAL.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290840"
+  },
+  {
+    "filename": "SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md",
+    "path": "outputs/seals/SEAL_DAY_45_F1_FOUNDER_ROUTER_SELECTOR.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290845"
+  },
+  {
+    "filename": "SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md",
+    "path": "outputs/seals/SEAL_DAY_45_FOUNDER_ROUTER_SELECTOR.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290850"
+  },
+  {
+    "filename": "SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md",
+    "path": "outputs/seals/SEAL_DAY_45_FULL_FOUNDER_APK_BUILD.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290855"
+  },
+  {
+    "filename": "SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md",
+    "path": "outputs/seals/SEAL_DAY_45_H1_STABILIZATION_CLEAN_COMMIT_IDEMPOTENT_ELITE_NOTICES.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290860"
+  },
+  {
+    "filename": "SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md",
+    "path": "outputs/seals/SEAL_DAY_45_H2_FOUNDER_PHONE_HOTFIX_BASEURL_AND_RITUAL.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290864"
+  },
+  {
+    "filename": "SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md",
+    "path": "outputs/seals/SEAL_DAY_45_H3_FOUNDER_RITUAL_HITBOX_AND_NETWORK_PERMISSION.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290868"
+  },
+  {
+    "filename": "SEAL_DAY_45_H4_COMPILATION_REPAIR.md",
+    "path": "outputs/seals/SEAL_DAY_45_H4_COMPILATION_REPAIR.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290872"
+  },
+  {
+    "filename": "SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md",
+    "path": "outputs/seals/SEAL_DAY_45_H5_WAR_CALENDAR_CANON_HOTFIX_PHASE_D35.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290906"
+  },
+  {
+    "filename": "SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md",
+    "path": "outputs/seals/SEAL_DAY_45_H6_FLUTTER_WEB_L10N_FIX.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290910"
+  },
+  {
+    "filename": "SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md",
+    "path": "outputs/seals/SEAL_DAY_45_H7_COMPILATION_REPAIR_SHELL_SWEEP.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290916"
+  },
+  {
+    "filename": "SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md",
+    "path": "outputs/seals/SEAL_DAY_45_HF02_WEB_BUILD_REPAIR_TIMEZONE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290920"
+  },
+  {
+    "filename": "SEAL_DAY_45_MASTER_CLOSE.md",
+    "path": "outputs/seals/SEAL_DAY_45_MASTER_CLOSE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290924"
+  },
+  {
+    "filename": "SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md",
+    "path": "outputs/seals/SEAL_DAY_45_POLISH_02_COMPILATION_REPAIR_NEON_CYAN.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290929"
+  },
+  {
+    "filename": "SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md",
+    "path": "outputs/seals/SEAL_DAY_45_POLISH_03_CANONICAL_CYAN_CORRECTION.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290934"
+  },
+  {
+    "filename": "SEAL_DAY_45_WAR_CALENDAR_UPDATE.md",
+    "path": "outputs/seals/SEAL_DAY_45_WAR_CALENDAR_UPDATE.md",
+    "day_id": "Day 45",
+    "indexed_at": "2026-02-16T12:08:19.290938"
+  },
+  {
+    "filename": "SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md",
+    "path": "outputs/seals/SEAL_DAY_46_WAR_CALENDAR_MSK_KERNEL_STEP_ADDED.md",
+    "day_id": "Day 46",
+    "indexed_at": "2026-02-16T12:08:19.290942"
+  },
+  {
+    "filename": "SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md",
+    "path": "outputs/seals/SEAL_DAY_XX_WELCOME_02_INVITE_GATE_ATTRIBUTION.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290946"
+  },
+  {
+    "filename": "SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md",
+    "path": "outputs/seals/SEAL_DAY_XX_WELCOME_03_WELCOME_INTEGRITY.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290951"
+  },
+  {
+    "filename": "SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md",
+    "path": "outputs/seals/SEAL_DAY_XX_WELCOME_SCREEN_INTEGRATION.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290955"
+  },
+  {
+    "filename": "SEAL_Dxx_UI_LEATHER_BARS_ONLY.md",
+    "path": "outputs/seals/SEAL_Dxx_UI_LEATHER_BARS_ONLY.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290959"
+  },
+  {
+    "filename": "SEAL_FOUNDER_KEY_DRIFT_PREVENTION_TOOLING_20260213_1645.md",
+    "path": "outputs/seals/SEAL_FOUNDER_KEY_DRIFT_PREVENTION_TOOLING_20260213_1645.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290963"
+  },
+  {
+    "filename": "SEAL_FOUNDER_KEY_FULL_SYSTEM_AUDIT_20260213_1620.md",
+    "path": "outputs/seals/SEAL_FOUNDER_KEY_FULL_SYSTEM_AUDIT_20260213_1620.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290968"
+  },
+  {
+    "filename": "SEAL_FOUNDER_KEY_GLOBAL_AUDIT_20260213_1635.md",
+    "path": "outputs/seals/SEAL_FOUNDER_KEY_GLOBAL_AUDIT_20260213_1635.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290972"
+  },
+  {
+    "filename": "SEAL_FOUNDER_KEY_SSOT_AND_SNAPSHOT_200_PROOF_20260213_1555.md",
+    "path": "outputs/seals/SEAL_FOUNDER_KEY_SSOT_AND_SNAPSHOT_200_PROOF_20260213_1555.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290976"
+  },
+  {
+    "filename": "SEAL_FOUNDER_KEY_SSOT_AND_SNAPSHOT_200_PROOF_STRICT_20260213_1610.md",
+    "path": "outputs/seals/SEAL_FOUNDER_KEY_SSOT_AND_SNAPSHOT_200_PROOF_STRICT_20260213_1610.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290980"
+  },
+  {
+    "filename": "SEAL_FOUNDER_KEY_SSOT_SERVICE_JOB_SYNC_20260213_1645.md",
+    "path": "outputs/seals/SEAL_FOUNDER_KEY_SSOT_SERVICE_JOB_SYNC_20260213_1645.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290984"
+  },
+  {
+    "filename": "SEAL_FRONTEND_MISFIRE_REWIRE_20260213_1400.md",
+    "path": "outputs/seals/SEAL_FRONTEND_MISFIRE_REWIRE_20260213_1400.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290988"
+  },
+  {
+    "filename": "SEAL_FRONTEND_SSOT_TOTAL_20260213_1500.md",
+    "path": "outputs/seals/SEAL_FRONTEND_SSOT_TOTAL_20260213_1500.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.290992"
+  },
+  {
+    "filename": "SEAL_GOVERNANCE_BOOTSTRAP_LOCKED.md",
+    "path": "outputs/seals/SEAL_GOVERNANCE_BOOTSTRAP_LOCKED.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291027"
+  },
+  {
+    "filename": "SEAL_GOVERNANCE_OVERHAUL_ZERO_REGRESSION_20260213.md",
+    "path": "outputs/seals/SEAL_GOVERNANCE_OVERHAUL_ZERO_REGRESSION_20260213.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291032"
+  },
+  {
+    "filename": "SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md",
+    "path": "outputs/seals/SEAL_GOVERNANCE_SYNC_D36_45_COMPLETE.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291036"
+  },
+  {
+    "filename": "SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md",
+    "path": "outputs/seals/SEAL_HF_DEDUPE_GLOBAL_SHARED_DOSSIERS.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291040"
+  },
+  {
+    "filename": "SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md",
+    "path": "outputs/seals/SEAL_HOTFIX_MENU_LANGUAGE_COMPILATION_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291045"
+  },
+  {
+    "filename": "SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md",
+    "path": "outputs/seals/SEAL_HOTFIX_MENU_SHELL_02_MATERIAL_ANCESTOR.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291049"
+  },
+  {
+    "filename": "SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md",
+    "path": "outputs/seals/SEAL_HOTFIX_MENU_SHELL_03_MATERIAL_SELFHEAL.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291053"
+  },
+  {
+    "filename": "SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md",
+    "path": "outputs/seals/SEAL_HOTFIX_WARROOM_WEB_01_STORE_GUARD_LAYOUT_SCROLL.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291057"
+  },
+  {
+    "filename": "SEAL_MISFIRE_UNIFIED_SNAPSHOT_EMBED_20260213_1415.md",
+    "path": "outputs/seals/SEAL_MISFIRE_UNIFIED_SNAPSHOT_EMBED_20260213_1415.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291061"
+  },
+  {
+    "filename": "SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md",
+    "path": "outputs/seals/SEAL_PHASE_D36_BACKLOG_RECONCILIATION_COMPLETE.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291066"
+  },
+  {
+    "filename": "SEAL_POLISH_ACCOUNT_CLEAN_01.md",
+    "path": "outputs/seals/SEAL_POLISH_ACCOUNT_CLEAN_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291074"
+  },
+  {
+    "filename": "SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md",
+    "path": "outputs/seals/SEAL_POLISH_ACCOUNT_FLIP_01_PARTNER_PROTOCOL.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291078"
+  },
+  {
+    "filename": "SEAL_POLISH_ACCOUNT_UI_01.md",
+    "path": "outputs/seals/SEAL_POLISH_ACCOUNT_UI_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291082"
+  },
+  {
+    "filename": "SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md",
+    "path": "outputs/seals/SEAL_POLISH_ACCOUNT_UI_02_PARTNER_CARD_UNIFY.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291086"
+  },
+  {
+    "filename": "SEAL_POLISH_DASHBOARD_CLEANUP_01.md",
+    "path": "outputs/seals/SEAL_POLISH_DASHBOARD_CLEANUP_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291089"
+  },
+  {
+    "filename": "SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md",
+    "path": "outputs/seals/SEAL_POLISH_DASHBOARD_UI_01_BANNER_CLEANUP.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291093"
+  },
+  {
+    "filename": "SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md",
+    "path": "outputs/seals/SEAL_POLISH_FORENSICS_ENGINE_AUDIT_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291096"
+  },
+  {
+    "filename": "SEAL_POLISH_GLOBAL_SPACING_01.md",
+    "path": "outputs/seals/SEAL_POLISH_GLOBAL_SPACING_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291103"
+  },
+  {
+    "filename": "SEAL_POLISH_HYGIENE_ANALYZE_01.md",
+    "path": "outputs/seals/SEAL_POLISH_HYGIENE_ANALYZE_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291111"
+  },
+  {
+    "filename": "SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md",
+    "path": "outputs/seals/SEAL_POLISH_HYGIENE_FLUTTER_WEB_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291144"
+  },
+  {
+    "filename": "SEAL_POLISH_MENU_LANGUAGE_01.md",
+    "path": "outputs/seals/SEAL_POLISH_MENU_LANGUAGE_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291155"
+  },
+  {
+    "filename": "SEAL_POLISH_MENU_SHELL_01.md",
+    "path": "outputs/seals/SEAL_POLISH_MENU_SHELL_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291159"
+  },
+  {
+    "filename": "SEAL_POLISH_MENU_UI_01.md",
+    "path": "outputs/seals/SEAL_POLISH_MENU_UI_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291162"
+  },
+  {
+    "filename": "SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+    "path": "outputs/seals/SEAL_POLISH_PREMIUM_PROTOCOL_VISIBILITY_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291177"
+  },
+  {
+    "filename": "SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md",
+    "path": "outputs/seals/SEAL_POLISH_SHELL_GLOBAL_01_PERSISTENT_BARS.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291181"
+  },
+  {
+    "filename": "SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md",
+    "path": "outputs/seals/SEAL_POLISH_SHELL_SWEEP_01_BODY_ONLY_SCREENS.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291185"
+  },
+  {
+    "filename": "SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md",
+    "path": "outputs/seals/SEAL_POLISH_VISUAL_CYAN_01_CANONICAL_NEON.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291188"
+  },
+  {
+    "filename": "SEAL_POLISH_WARROOM_RESTORE_02.md",
+    "path": "outputs/seals/SEAL_POLISH_WARROOM_RESTORE_02.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291192"
+  },
+  {
+    "filename": "SEAL_POLISH_WELCOME_UI_01.md",
+    "path": "outputs/seals/SEAL_POLISH_WELCOME_UI_01.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291196"
+  },
+  {
+    "filename": "SEAL_POLISH_WELCOME_UI_01_V2.md",
+    "path": "outputs/seals/SEAL_POLISH_WELCOME_UI_01_V2.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291200"
+  },
+  {
+    "filename": "SEAL_PROD_PROOF_MISFIRE_EMBED_20260213_1445.md",
+    "path": "outputs/seals/SEAL_PROD_PROOF_MISFIRE_EMBED_20260213_1445.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291204"
+  },
+  {
+    "filename": "SEAL_Polish_01_BaseUrlCloud_Default.md",
+    "path": "outputs/seals/SEAL_Polish_01_BaseUrlCloud_Default.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291070"
+  },
+  {
+    "filename": "SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md",
+    "path": "outputs/seals/SEAL_Polish_FounderLaw_01_AlwaysOn_NoGating.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291100"
+  },
+  {
+    "filename": "SEAL_Polish_Human_01_Global_Tone_Layer.md",
+    "path": "outputs/seals/SEAL_Polish_Human_01_Global_Tone_Layer.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291107"
+  },
+  {
+    "filename": "SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md",
+    "path": "outputs/seals/SEAL_Polish_Menu_01_Fullscreen_Menu_NoDrawer.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291148"
+  },
+  {
+    "filename": "SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md",
+    "path": "outputs/seals/SEAL_Polish_Menu_02_Account_Terms_Modals_Wired.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291152"
+  },
+  {
+    "filename": "SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md",
+    "path": "outputs/seals/SEAL_Polish_NavBack_Overlay_01_Global_Back_Button.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291166"
+  },
+  {
+    "filename": "SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md",
+    "path": "outputs/seals/SEAL_Polish_Notifications_01_Ritual_Local_Scheduled.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291170"
+  },
+  {
+    "filename": "SEAL_Polish_Notifications_02_TapRouting_DeepLink.md",
+    "path": "outputs/seals/SEAL_Polish_Notifications_02_TapRouting_DeepLink.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291174"
+  },
+  {
+    "filename": "SEAL_REPO_HYGIENE_CLEAN_BOUNDARY_20260213_1430.md",
+    "path": "outputs/seals/SEAL_REPO_HYGIENE_CLEAN_BOUNDARY_20260213_1430.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291208"
+  },
+  {
+    "filename": "SEAL_SNAPSHOT_ONLY_POLICY_GLOBAL_20260213_1820.md",
+    "path": "outputs/seals/SEAL_SNAPSHOT_ONLY_POLICY_GLOBAL_20260213_1820.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291212"
+  },
+  {
+    "filename": "SEAL_TARGET_STATE_FROZEN.md",
+    "path": "outputs/seals/SEAL_TARGET_STATE_FROZEN.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291217"
+  },
+  {
+    "filename": "SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md",
+    "path": "outputs/seals/SEAL_UI_CANON_V1_THEME_TYPOGRAPHY_SHELL.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291220"
+  },
+  {
+    "filename": "SEAL_UI_REGRESSION_AUTOPSY_20260213_1530.md",
+    "path": "outputs/seals/SEAL_UI_REGRESSION_AUTOPSY_20260213_1530.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291224"
+  },
+  {
+    "filename": "SEAL_UI_REGRESSION_FIX_FORWARD_20260213_1535.md",
+    "path": "outputs/seals/SEAL_UI_REGRESSION_FIX_FORWARD_20260213_1535.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291245"
+  },
+  {
+    "filename": "SEAL_UNIFIED_SNAPSHOT_REPOSITORY_FOUNDATION_20260213_1810.md",
+    "path": "outputs/seals/SEAL_UNIFIED_SNAPSHOT_REPOSITORY_FOUNDATION_20260213_1810.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291249"
+  },
+  {
+    "filename": "SEAL_USP1_STABILIZATION_AND_CONFIG_FIX_20260213_1700.md",
+    "path": "outputs/seals/SEAL_USP1_STABILIZATION_AND_CONFIG_FIX_20260213_1700.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291252"
+  },
+  {
+    "filename": "SEAL_VICTORY_DRILLDOWN_CREATED.md",
+    "path": "outputs/seals/SEAL_VICTORY_DRILLDOWN_CREATED.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291256"
+  },
+  {
+    "filename": "SEAL_WAR_CALENDAR_DEDUPLICATION_FIX.md",
+    "path": "outputs/seals/SEAL_WAR_CALENDAR_DEDUPLICATION_FIX.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291261"
+  },
+  {
+    "filename": "SEAL_WAR_ROOM_CONFIG_AND_ROUTE_FIX_20260213_1540.md",
+    "path": "outputs/seals/SEAL_WAR_ROOM_CONFIG_AND_ROUTE_FIX_20260213_1540.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291267"
+  },
+  {
+    "filename": "SEAL_WAR_ROOM_SNAPSHOT_RESIDENCY_FIX_20260213_1710.md",
+    "path": "outputs/seals/SEAL_WAR_ROOM_SNAPSHOT_RESIDENCY_FIX_20260213_1710.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291270"
+  },
+  {
+    "filename": "SEAL_WAR_ROOM_SSOT_ENFORCEMENT_20260213_1720.md",
+    "path": "outputs/seals/SEAL_WAR_ROOM_SSOT_ENFORCEMENT_20260213_1720.md",
+    "day_id": "Unknown Day",
+    "indexed_at": "2026-02-16T12:08:19.291274"
+  }
+]

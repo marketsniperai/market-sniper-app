@@ -4,7 +4,7 @@ import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
 import '../logic/navigation_bus.dart'; // D44.02B
 import '../logic/on_demand_intent.dart'; // D44.06
-import '../services/api_client.dart'; // D44.05
+import '../repositories/on_demand_repository.dart'; // D44.05 Refactor
 import '../logic/on_demand_history_store.dart'; // D44.15
 import '../ui/components/decryption_ritual_overlay.dart'; // HF22
 import '../logic/standard_envelope.dart'; // D44.07
@@ -190,11 +190,9 @@ class _OnDemandPanelState extends State<OnDemandPanel> {
     });
 
     // 3. Real Fetch (D44.05) wrapped in Ritual (HF22)
-    final api = context.findAncestorWidgetOfExactType<MainLayout>() != null
-        ? ApiClient()
-        : ApiClient();
+    final repo = OnDemandRepository();
 
-    final response = await DecryptionRitualOverlay.run(context, task: api.fetchOnDemandContext(input, timeframe: _timeframe));
+    final response = await DecryptionRitualOverlay.run(context, task: repo.fetchOnDemandContext(input, timeframe: _timeframe));
 
     if (!mounted) return;
 

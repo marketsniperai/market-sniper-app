@@ -1,0 +1,9 @@
+diff a/backend/schemas/dashboard_schema.py b/backend/schemas/dashboard_schema.py	(rejected hunks)
+@@ -16,6 +16,7 @@ class DashboardPayload(BaseModel):
+     # Linkage & Snapshot
+     run_manifest_ref: Optional[str] = None
+     market_snapshot: Dict[str, Any] = Field(default_factory=dict)
++    volume_intelligence: Optional[Dict[str, Any]] = None
+     
+     # Forensic trace is often injected dynamically, but we can model it if present
+     forensic_trace: Optional[Dict[str, Any]] = None

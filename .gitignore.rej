@@ -1,0 +1,10 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -86,3 +86,8 @@ flutter_chrome_build_ok.txt
+ # Caches
+ outputs/cache/
+ outputs/on_demand_public/
++outputs/proofs/HARD_GATE/
++outputs/proofs/D62_15_backend_stub_integrity_without_key.json
++outputs/proofs/D62_15_dashboard_raw.txt
++outputs/proofs/D62_15_dashboard_raw.json
++verify_report.txt

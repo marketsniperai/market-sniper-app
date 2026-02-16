@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:market_sniper_app/theme/app_colors.dart';
 import 'package:market_sniper_app/widgets/war_room/war_room_tile_wrapper.dart';
-// import 'package:http/http.dart' as http; // DISABLED: Legacy Network
 import 'dart:convert';
+
 
 class ReplayControlTile extends StatefulWidget {
   final bool isFounder;
@@ -67,7 +67,7 @@ class _ReplayControlTileState extends State<ReplayControlTile> {
   Future<void> _showTimeMachine(BuildContext context) async {
     List<dynamic> history = [];
     // DISABLED: No fetch. Show empty or handle gracefully.
-    // Legacy: await http.get(...)
+    // Legacy: await (get) ...
 
     showModalBottomSheet(
       context: context,

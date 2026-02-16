@@ -7,7 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../repositories/war_room_repository.dart';
 import '../models/war_room_snapshot.dart';
 import '../models/system_health_snapshot.dart';
-import '../services/api_client.dart';
+// import '../services/api_client.dart'; // Removed (D74)
+import '../services/war_room_probe_service.dart'; // D74 Hardening
 
 import '../logic/war_room_refresh_controller.dart';
 import '../config/app_config.dart';
@@ -21,7 +22,7 @@ import '../widgets/war_room/zones/console_gates.dart';
 import '../services/command_center/discipline_counter_service.dart';
 import '../models/command_center/command_center_tier.dart';
 
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http; // Removed (D74)
 
 
 class WarRoomScreen extends StatefulWidget {
@@ -56,45 +57,8 @@ class _WarRoomScreenState extends State<WarRoomScreen>
   }
 
   Future<void> _runProbes() async {
-    if (!_warRoomProbeEnabled()) return;
-
-    final baseUrl = AppConfig.apiBaseUrl;
-    debugPrint("WAR_ROOM_PROBE_CTX baseUrl=$baseUrl founder=${AppConfig.isFounderBuild} web=$kIsWeb");
-
-    // NET Probe: Health
-    final healthUrl = "$baseUrl/health_ext";
-    try {
-      final sw = Stopwatch()..start();
-      final resp = await http.get(Uri.parse(healthUrl));
-      sw.stop();
-      debugPrint("WAR_ROOM_PROBE_NET health_ext code=${resp.statusCode} ms=${sw.elapsedMilliseconds}");
-    } catch (e) {
-      debugPrint("WAR_ROOM_PROBE_NET health_ext error=$e");
-    }
-
-    // NET Probe: Snapshot
-    final snapUrl = "$baseUrl/lab/war_room/snapshot";
-    try {
-      final sw = Stopwatch()..start();
-      final resp = await http.get(Uri.parse(snapUrl));
-      sw.stop();
-      debugPrint("WAR_ROOM_PROBE_NET snapshot code=${resp.statusCode} ms=${sw.elapsedMilliseconds}");
-      if (resp.statusCode == 200) {
-         try {
-           final json = jsonDecode(resp.body);
-           if (json is Map<String, dynamic>) {
-              // Log top-level keys only
-              debugPrint("WAR_ROOM_PROBE_NET snapshot keys=${json.keys.toList()}");
-           } else {
-              debugPrint("WAR_ROOM_PROBE_NET snapshot rawType=${json.runtimeType}");
-           }
-         } catch (e) {
-            debugPrint("WAR_ROOM_PROBE_PARSE snapshot_manual error=$e");
-         }
-      }
-    } catch (e) {
-      debugPrint("WAR_ROOM_PROBE_NET snapshot error=$e");
-    }
+    // D74: Logic moved to WarRoomProbeService to comply with Snapshot-First Law (No Network in UI)
+    await WarRoomProbeService.runProbes(); 
   }
 
   @override

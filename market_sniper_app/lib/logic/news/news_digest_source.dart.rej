@@ -1,0 +1,28 @@
+diff a/market_sniper_app/lib/logic/news/news_digest_source.dart b/market_sniper_app/lib/logic/news/news_digest_source.dart	(rejected hunks)
+@@ -1,4 +1,5 @@
+ import '../../models/news/news_digest_model.dart';
++import '../../services/api_client.dart'; // D62.11
+ import 'news_ranker.dart'; // D47.HF14
+ 
+ /// Abstract contract for fetching the Daily Digest.
+@@ -94,3 +95,20 @@ class LocalDemoNewsDigestSource implements NewsDigestSource {
+     );
+   }
+ }
++
++/// Real API Source for Production.
++/// Fetches from /news_digest endpoint.
++class ApiNewsDigestSource implements NewsDigestSource {
++  final ApiClient _api = ApiClient();
++
++  @override
++  Future<NewsDigestViewModel> loadDigest({List<String>? watchlistSymbols}) async {
++    try {
++      final payload = await _api.fetchNewsDigest();
++      return NewsDigestViewModel.fromJson(payload);
++    } catch (e) {
++      // Graceful offline fallback on error
++      return NewsDigestViewModel.offline();
++    }
++  }
++}

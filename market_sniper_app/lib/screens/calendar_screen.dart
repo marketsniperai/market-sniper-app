@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../../theme/app_colors.dart';
 import '../../models/calendar/economic_calendar_model.dart';
 import '../../widgets/calendar_event_card.dart';
-import '../../services/api_client.dart'; // HF35
+import '../../repositories/calendar_repository.dart'; // HF35
 import '../../theme/app_colors.dart';
 
 class CalendarScreen extends StatefulWidget {
@@ -32,11 +32,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
   Future<void> _loadData() async {
     try {
       if (mounted) setState(() => _isLoading = true);
-      // Use ApiClient (Service Locator or direct import)
-      // Assuming simple instantiation for now or provider if available.
-      // In this codebase, we often see ApiClient().fetch... or similar.
-      // Let's import ApiClient.
-      final payload = await ApiClient().fetchEconomicCalendar(); 
+      // Use Repository
+      final payload = await CalendarRepository().fetchEconomicCalendar(); 
       final vm = EconomicCalendarViewModel.fromJson(payload);
       
       if (mounted) {

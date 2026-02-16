@@ -1,0 +1,13 @@
+diff a/backend/producers/producer_dashboard.py b/backend/producers/producer_dashboard.py	(rejected hunks)
+@@ -34,5 +34,10 @@ def produce_dashboard(run_id: str, context: dict) -> dict:
+         "widgets": widgets,
+         "generated_at": ts,
+         "run_manifest_ref": run_id,
+-        "market_snapshot": snapshot
++        "run_manifest_ref": run_id,
++        "market_snapshot": snapshot,
++        "volume_intelligence": {
++            "ratio": snapshot.get("volume_ratio", 0.0),
++            "status": snapshot.get("volume_status", "UNKNOWN")
++        }
+     }

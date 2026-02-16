@@ -93,12 +93,36 @@ class PublicSurfaceShieldMiddleware:
                 headers = dict(scope.get("headers", []))
                 req_key_bytes = headers.get(b"x-founder-key")
                 
+                # Validation Logic
                 authorized = False
-                # D55.16B.1: Strict Founder Check (Env + Key Match)
                 if env_key and req_key_bytes:
-                    if req_key_bytes.decode("utf-8") == env_key:
-                        authorized = True
+                     # Strict Compare
+                     if req_key_bytes.decode("utf-8") == env_key:
+                         authorized = True
                 
+                # D62.8: Founder Allowlist Bypass
+                # If authorized, allow specific /lab paths for War Room / Registry
+                if authorized:
+                    # Explicit Allowlist for D62.8
+                    allowed_prefixes = [
+                        "/lab/war_room",         # Dashboard & Snapshot
+                        "/lab/warroom",          # Aliases
+                        "/lab/war-room",
+                        "/lab/os/health",        # Health Alias
+                        "/lab/os/registry",      # Registry
+                        "/lab/truth/fingerprint", # Fingerprint
+                        "/lab/founder_war_room", # Legacy Alias
+                        "/lab/os/iron",          # Iron OS
+                        "/lab/os/self_heal",     # Self Heal
+                        "/lab/replay",           # Replay
+                        "/lab/watchlist",        # Watchlist
+                    ]
+
+                    if any(path.startswith(p) for p in allowed_prefixes):
+                        # BYPASS SHIELD
+                        await self.app(scope, receive, send)
+                        return
+
                 if not authorized:
                     # D62.0 HOTFIX: Observability for Denials
                     if path.startswith("/lab/war_room/snapshot"):
@@ -221,6 +245,22 @@ def wired_compute_and_cache(filename: str, schema_cls, route_name: str, compute_
     # Compute (Cache Miss)
     try:
         data = compute_func()
+        
+        # D70: USP-1 Stabilization - Ensure directory exists (Zero 404s)
+        # We rely on OUTPUTS_PATH env var, defaulting to /app/outputs
+        outputs_root = os.getenv("OUTPUTS_PATH", "/app/outputs")
+        target_dir = os.path.join(outputs_root, subdir)
+        
+        # D71: Diagnostic Log (One-time check)
+        tmp_check_path = os.path.join(target_dir, filename + ".tmp")
+        print(f"WAR_ROOM_SNAPSHOT_TMP_PATH={tmp_check_path}")
+        print(f"WAR_ROOM_SNAPSHOT_TMP_DIR_EXISTS={os.path.exists(target_dir)}")
+        
+        if not os.path.exists(target_dir):
+            print(f"USP_STABILIZATION: Creating missing directory {target_dir}")
+            os.makedirs(target_dir, exist_ok=True)
+            print(f"WAR_ROOM_SNAPSHOT_TMP_DIR_CREATED={os.path.exists(target_dir)}")
+            
         # Write to artifact
         atomic_write_json(path_to_read, data)
         print(f"WIRING_OK endpoint={route_name} path={subdir}/{filename} strat=STRAT_B")
@@ -228,6 +268,8 @@ def wired_compute_and_cache(filename: str, schema_cls, route_name: str, compute_
         # Return valid envelope
         return FallbackEnvelope.create_valid(schema_cls(**data))
     except Exception as e:
+        # D58.3: FAIL-SAFE - Never return 404/500 for a known route with valid auth.
+        # Return 200 OK with COMPUTE_ERROR status.
         print(f"WIRING_FAIL: endpoint={route_name} path={subdir}/{filename} Error: {e}")
         return FallbackEnvelope.create_fallback("COMPUTE_ERROR", [str(e)])
 

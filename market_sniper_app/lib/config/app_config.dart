@@ -16,13 +16,15 @@ class AppConfig {
   
   // Route B: API Key for Gateway
   static String get founderApiKey {
+      // D62.9: Prefer FOUNDER_KEY (Canonical) -> FOUNDER_API_KEY (Legacy)
+      const canonical = String.fromEnvironment('FOUNDER_KEY', defaultValue: '');
+      if (canonical.isNotEmpty) return canonical;
+
       const env = String.fromEnvironment('FOUNDER_API_KEY', defaultValue: '');
       if (env.isEmpty && kDebugMode) return 'mz_founder_888'; // D56.01.2A: Auto-Unlock for Local Debug
       return env;
   }
 
-  // Dart Define ensures these can be set at build time
-  // RELEASE GUARD: If kReleaseMode, IGNORE env var and force PROD.
   // Dart Define ensures these can be set at build time
   // RELEASE GUARD: If kReleaseMode, IGNORE env var and force PROD.
   static String get apiBaseUrl {
@@ -51,9 +53,16 @@ class AppConfig {
   }
   
   static void printStartupLog() {
-     if (kDebugMode && isNetAuditEnabled) {
-         print("APP_CONFIG: apiBaseUrl=$apiBaseUrl");
-         print("APP_CONFIG: netAuditEnabled=$isNetAuditEnabled");
+     if (kDebugMode) {
+         // D62.9: Injection Proof
+         final key = founderApiKey;
+         final hasKey = key.isNotEmpty;
+         final hash = hasKey ? key.substring(0, 5) : "NULL";
+         debugPrint("APP_CONFIG: apiBaseUrl=$apiBaseUrl");
+         debugPrint("APP_CONFIG: FOUNDER_KEY_INJECTED=$hasKey [prefix: $hash]");
+         // D70: USP-1 Truth Probe / D72 Enforced
+         debugPrint(
+             "TRUTH_PROBE: WAR_ROOM_ACTIVE = $_runtimeWarRoomActive (ENV=$_envWarRoomActive)");
      }
   }
   
@@ -64,6 +73,11 @@ class AppConfig {
       defaultValue: false,
     );
   }
+
+  // D61.x.06D: Founder Force Elite SSOT
+  // If true, forces Command Center to Elite Tier regardless of user state.
+  static bool get founderForceElite =>
+      const bool.fromEnvironment('FOUNDER_FORCE_ELITE', defaultValue: false);
 
   // D37.07 Refresh Governance
   static const int dashboardAutoRefreshSeconds = 60;
@@ -95,19 +109,42 @@ class AppConfig {
 
   // D56.01.5: War Room Network Policy Guard
   // Tracks if the War Room is active to enforce Snapshot-Only fetching.
-  static bool _warRoomActive = false;
-  static bool get isWarRoomActive => _warRoomActive;
+  // FIX: Initialize from environment to respect --dart-define
+  // D72: ENV IS SSOT.
+  static const bool _envWarRoomActive =
+      bool.fromEnvironment('WAR_ROOM_ACTIVE', defaultValue: false);
+
+  static bool _runtimeWarRoomActive = _envWarRoomActive;
+
+  static bool get isWarRoomActive => _runtimeWarRoomActive;
+
   static void setWarRoomActive(bool active) {
-    if (_warRoomActive != active) {
-        if (kDebugMode && isNetAuditEnabled) print("WAR_ROOM_STATE: active=$active");
-        _warRoomActive = active;
+    // ENV is SSOT — block manual override if defined true
+    if (_envWarRoomActive) {
+      if (kDebugMode) {
+        debugPrint(
+            "WAR_ROOM_STATE_OVERRIDE_BLOCKED: ENV=true, manual change ignored.");
+      }
+      return;
+    }
+
+    if (_runtimeWarRoomActive != active) {
+      if (kDebugMode) {
+        debugPrint("WAR_ROOM_STATE: active=$active (Manual Change)");
+      }
+      _runtimeWarRoomActive = active;
     }
   }
 
-  // D56.01.5: Network Audit Log Toggle
-  // Default: FALSE (Quiet). Enable via --dart-define=NET_AUDIT_ENABLED=true
   static bool get isNetAuditEnabled {
     if (!kDebugMode) return false;
     return const bool.fromEnvironment('NET_AUDIT_ENABLED', defaultValue: false);
+  }
+
+  // D73: Snapshot Only Policy
+  // Active if War Room is Active OR explicitly set via SNAPSHOT_ONLY
+  static bool get isSnapshotOnlyMode {
+    const explicit = bool.fromEnvironment('SNAPSHOT_ONLY', defaultValue: false);
+    return isWarRoomActive || explicit;
   }
 }

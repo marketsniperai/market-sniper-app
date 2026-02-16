@@ -7,9 +7,12 @@ import '../models/system_health_snapshot.dart';
 // import '../logic/data_state_resolver.dart';
 // Needed if we reuse DataStateResolver logic, but here we mostly map raw JSON
 
+import '../repositories/unified_snapshot_repository.dart'; // D73
+
 class WarRoomRepository {
   final ApiClient api;
   final SystemHealthRepository healthRepo;
+  final UnifiedSnapshotRepository _unified = UnifiedSnapshotRepository();
 
   WarRoomRepository({required this.api})
       : healthRepo = SystemHealthRepository(api: api);
@@ -31,15 +34,19 @@ class WarRoomRepository {
 
   Future<LockReasonSnapshot> fetchLockReason() async {
     // Legacy support or direct fetch if needed, though mostly used internally by snapshot
+    // Redirect to Unified Snapshot if possible, or leave as legacy (blocked if policy enforced on ApiClient)
+    // For now, leaving as ApiClient call - if blocked, it throws.
     final json = await api.fetchLockReason();
     return _parseLockReason(json);
   }
 
   Future<WarRoomSnapshot> fetchSnapshot() async {
-    debugPrint("WAR_ROOM_REPO: Fetching Unified Snapshot (USP-1)...");
+    debugPrint("WAR_ROOM_REPO: Fetching Unified Snapshot (USP-1) via SSOT...");
     try {
-      final unified = await api.fetchUnifiedSnapshot();
-      return _parseUnifiedSnapshot(unified);
+      // D73: Use Unified Repository
+      final envelope = await _unified.fetch();
+      // Parse the payload from envelope
+      return _parseUnifiedSnapshot(envelope.payload ?? {});
     } catch (e, st) {
       debugPrint("WAR_ROOM_REPO FATAL ERROR: $e");
       debugPrintStack(stackTrace: st);
@@ -113,15 +120,36 @@ class WarRoomRepository {
     // final findingsJson = getMod('findings'); // Unused, forcing unknown below 
     final afxTier1Json = getMod('autofix_tier1');
     final afxDecisionPathJson = getMod('autofix_decision_path');
-    final misfireRootCauseJson = getMod('misfire_root_cause');
+    final misfireRootCauseJson = getMod('misfire_root_cause'); // Legacy/Direct
     final selfHealConfidenceJson = getMod('self_heal_confidence');
     final selfHealWhatChangedJson = getMod('self_heal_what_changed');
     final cooldownTransparencyJson = getMod('cooldown_transparency');
     final redButtonJson = getMod('red_button');
-    final misfireTier2Json = getMod('misfire_tier2');
+    final misfireTier2Json = getMod('misfire_tier2'); // Legacy/Direct
     final optionsJson = getMod('options');
     final macroJson = getMod('macro');
     final evidenceJson = getMod('evidence');
+
+    // D62: Prefer Diagnostics from Misfire Report if available
+    final misfireDiag = misfireJson['diagnostics'];
+    
+    // Wire Root Cause (Prefer embedded diagnostics)
+    MisfireRootCauseSnapshot rootCause = _parseMisfireRootCause(misfireRootCauseJson);
+    if (misfireDiag != null && misfireDiag is Map<String, dynamic>) {
+       // Check if we have root_cause data there
+       if (misfireDiag['root_cause'] != null && misfireDiag['root_cause'] != "UNAVAILABLE") {
+           // We have a summary from system_state
+           rootCause = _mapSummaryRootCause(misfireDiag);
+       }
+    }
+
+    // Wire Tier 2 (Prefer embedded diagnostics)
+    MisfireTier2Snapshot tier2 = _parseMisfireTier2(misfireTier2Json);
+    if (misfireDiag != null && misfireDiag is Map<String, dynamic>) {
+       if (misfireDiag['tier2_signals'] != null && (misfireDiag['tier2_signals'] as List).isNotEmpty) {
+           tier2 = _mapSummaryTier2(misfireDiag);
+       }
+    }
 
     return WarRoomSnapshot(
         osHealth: osHealth,
@@ -142,12 +170,12 @@ class WarRoomRepository {
         beforeAfterDiff: null, // Pending
         autofixTier1: _parseAutoFixTier1(afxTier1Json),
         autofixDecisionPath: _parseAutoFixDecisionPath(afxDecisionPathJson),
-        misfireRootCause: _parseMisfireRootCause(misfireRootCauseJson),
+        misfireRootCause: rootCause,
         selfHealConfidence: _parseSelfHealConfidence(selfHealConfidenceJson),
         selfHealWhatChanged: _parseSelfHealWhatChanged(selfHealWhatChangedJson),
         cooldownTransparency: _parseCooldownTransparency(cooldownTransparencyJson),
         redButton: _parseRedButton(redButtonJson),
-        misfireTier2: _parseMisfireTier2(misfireTier2Json),
+        misfireTier2: tier2,
         options: _parseOptions(optionsJson),
         macro: _parseMacro(macroJson),
         evidence: _parseEvidence(evidenceJson),
@@ -155,28 +183,6 @@ class WarRoomRepository {
     );
   }
 
-  /*
-  Future<Map<String, dynamic>> _fetchDashboardSafe() async {
-    // Wrapper to return {data: json, status: code} because ApiClient likely returns just JSON or throws
-    // Actually ApiClient usually returns Map. We need to check if we can get status.
-    // If ApiClient swallows status, we might need a specific method or assume 200 if not empty.
-    // Checking ApiClient contract... assuming standard fetch returns body.
-    // For D53.6A we need status.
-    // If we can't get strict status without modifying ApiClient (blocked), we infer:
-    // Non-empty + success key = 200. Empty/Error = 500/0.
-    // Let's rely on the result.
-    try {
-      final json = await api.fetchWarRoomDashboard();
-      if (json.isNotEmpty) {
-         // If we got data, it's likely 200 matching our pattern
-         return {'data': json, 'status': 200};
-      }
-      return {'data': <String, dynamic>{}, 'status': 404}; 
-    } catch (e) {
-      return {'data': <String, dynamic>{}, 'status': 500};
-    }
-  }
-  */
 
 // ... (omitting intermediate methods for brevity, targeting _parseUniverse next)
 
@@ -288,26 +294,9 @@ class WarRoomRepository {
     );
   }
 
-  /*
-  Future<BeforeAfterDiffSnapshot?> _parseBeforeAfterDiff(
-      Map<String, dynamic> json) async {
-    if (json.isNotEmpty) {
-      return BeforeAfterDiffSnapshot.fromJson(json);
-    }
-    return null;
-  }
-  */
 
-  /*
-  Future<FindingsSnapshot?> _parseFindingsWrapper(
-      Map<String, dynamic> json) async {
-    if (json.isEmpty) return null;
-    if (json.containsKey("findings")) {
-      return FindingsSnapshot.fromJson(json);
-    }
-    return null;
-  }
-  */
+
+
 
   AutopilotSnapshot _parseAutopilot(Map<String, dynamic> autofix) {
     if (autofix.isNotEmpty) {
@@ -426,61 +415,6 @@ class WarRoomRepository {
     );
   }
 
-  /*
-  IronTimelineSnapshot _parseIronTimeline(Map<String, dynamic> json) {
-    if (json.isNotEmpty && json.containsKey('events')) {
-      final list = json['events'] as List;
-      final events = list
-          .map((e) => IronTimelineEvent(
-                timestamp: e['timestamp_utc'] ?? 'N/A',
-                type: e['type'] ?? 'UNKNOWN',
-                source: e['source'] ?? 'UNKNOWN',
-                summary: e['summary'] ?? '-',
-              ))
-          .toList();
-
-      return IronTimelineSnapshot(
-        events: events,
-        source: "/lab/os/iron/timeline_tail",
-        isAvailable: true,
-      );
-    }
-
-    return const IronTimelineSnapshot(
-      events: [],
-      source: "MISSING",
-      isAvailable: false,
-    );
-  }
-  */
-
-  /*
-  IronStateHistorySnapshot _parseIronHistory(Map<String, dynamic> json) {
-    if (json.isNotEmpty && json.containsKey('history')) {
-      final list = json['history'] as List;
-      final entries = list
-          .map((e) => IronStateHistoryEntry(
-                state: e['state'] ?? 'UNKNOWN',
-                timestamp: e['timestamp_utc'] ?? 'N/A',
-                source: e['source'] ?? 'UNKNOWN',
-              ))
-          .toList();
-
-      return IronStateHistorySnapshot(
-        history: entries,
-        source: "/lab/os/iron/state_history",
-        isAvailable: true,
-      );
-    }
-
-    return const IronStateHistorySnapshot(
-      history: [],
-      source: "MISSING",
-      isAvailable: false,
-    );
-  }
-  */
-
   LKGSnapshot _parseIronLKG(Map<String, dynamic> json) {
     if (json.isNotEmpty) {
       return LKGSnapshot(
@@ -502,31 +436,6 @@ class WarRoomRepository {
       isAvailable: false,
     );
   }
-
-  /*
-  DecisionPathSnapshot _parseDecisionPath(Map<String, dynamic> json) {
-    if (json.isNotEmpty) {
-      return DecisionPathSnapshot(
-        timestamp: json['timestamp_utc'] ?? 'N/A',
-        type: json['decision_type'] ?? 'UNKNOWN',
-        reason: json['reason'] ?? 'None',
-        fallbackUsed: json['fallback_used'] ?? false,
-        actionTaken: json['action_taken'],
-        source: "/lab/os/iron/decision_path",
-        isAvailable: true,
-      );
-    }
-    return const DecisionPathSnapshot(
-      timestamp: "N/A",
-      type: "UNKNOWN",
-      reason: "Missing",
-      fallbackUsed: false,
-      actionTaken: null,
-      source: "MISSING",
-      isAvailable: false,
-    );
-  }
-  */
 
   DriftSnapshot _parseIronDrift(Map<String, dynamic> json) {
     if (json.containsKey('drift')) {
@@ -582,49 +491,6 @@ class WarRoomRepository {
     );
   }
 
-  // Assuming there's a method like this that aggregates Iron-related snapshots
-  // This block is inferred from the provided change snippet.
-  // If this method doesn't exist, the user's instruction is incomplete.
-  // For the purpose of this task, I will place it here as if it were part of a larger class.
-  // This is a placeholder to demonstrate where the `findings` logic would go.
-  /*
-  Future<IronAggregatedSnapshot> _fetchIronAggregatedSnapshots() async {
-    try {
-      final ironStatus = await _parseIron(await _fetchJson('/lab/os/iron/status'));
-      final ironTimeline = await _parseIronTimeline(await _fetchJson('/lab/os/iron/timeline_tail'));
-      final ironHistory = await _parseIronHistory(await _fetchJson('/lab/os/iron/state_history'));
-      final lkg = await _parseIronLKG(await _fetchJson('/lab/os/iron/lkg'));
-      final decisionPath = await _parseDecisionPath(await _fetchJson('/lab/os/iron/decision_path'));
-      final drift = await _parseIronDrift(await _fetchJson('/lab/os/iron/drift'));
-      final replay = await _parseIronReplay(await _fetchJson('/lab/os/iron/replay_integrity'));
-      final lockReason = await _parseLockReason(await _fetchJson('/lab/os/iron/lock_reason'));
-      final coverage = await _parseCoverage(await _fetchJson('/lab/os/self_heal/coverage'));
-      final findings = await _parseFindings(await _fetchJson('/lab/os/self_heal/findings')); // New line
-
-      // Assuming baseSnapshot is an existing object or a constructor parameter
-      // This part of the snippet is highly contextual and depends on the surrounding code.
-      // I'm integrating it as if it's part of an existing update/fetch method.
-      return baseSnapshot.copyWith(
-        ironStatus: ironStatus,
-        ironTimeline: ironTimeline,
-        ironHistory: ironHistory,
-        ironLKG: lkg,
-        decisionPath: decisionPath,
-        ironDrift: drift,
-        ironReplay: replay,
-        lockReason: lockReason,
-        coverage: coverage,
-        findings: findings, // New line
-      );
-    } catch (e) {
-      // Handle error
-      rethrow;
-    }
-  }
-  */
-
-  // Removed unused _parseFindings
-
   LockReasonSnapshot _parseLockReason(Map<String, dynamic> json) {
     if (json.isNotEmpty) {
       return LockReasonSnapshot(
@@ -638,27 +504,6 @@ class WarRoomRepository {
     }
     return LockReasonSnapshot.unknown;
   }
-
-  /*
-  CoverageSnapshot _parseCoverage(Map<String, dynamic> json) {
-    if (json.containsKey('entries')) {
-      final list = (json['entries'] as List)
-          .map((e) => CoverageEntry(
-                capability: e['capability'] ?? 'UNKNOWN',
-                status: e['status'] ?? 'UNAVAILABLE',
-                reason: e['reason'],
-              ))
-          .toList();
-
-      return CoverageSnapshot(
-          entries: list,
-          source: "/lab/os/self_heal/coverage",
-          isAvailable: true);
-    }
-
-    return CoverageSnapshot.unknown;
-  }
-  */
 
   IronSnapshot _parseIron(Map<String, dynamic> json) {
     if (json.isNotEmpty) {
@@ -681,8 +526,6 @@ class WarRoomRepository {
       isAvailable: false,
     );
   }
-
-
 
   AutoFixDecisionPathSnapshot _parseAutoFixDecisionPath(
       Map<String, dynamic> json) {
@@ -726,6 +569,47 @@ class WarRoomRepository {
       );
     }
     return MisfireRootCauseSnapshot.unknown;
+  }
+
+  MisfireRootCauseSnapshot _mapSummaryRootCause(Map<String, dynamic> diag) {
+      // D62.0: Maps summary string to snapshot
+      final type = diag['root_cause'] ?? "UNKNOWN";
+      return MisfireRootCauseSnapshot(
+          timestampUtc: "N/A", // Not in summary
+          incidentId: "SUMMARY_VIEW",
+          misfireType: type,
+          originatingModule: "SystemState",
+          detectedBy: "MisfireMonitor",
+          outcome: "DIAGNOSED",
+          isAvailable: true,
+          notes: "Derived from System State Diagnostics"
+      );
+  }
+
+  MisfireTier2Snapshot _mapSummaryTier2(Map<String, dynamic> diag) {
+     final stepsRaw = diag['tier2_signals'] as List? ?? [];
+     final steps = stepsRaw.map((s) {
+         if (s is Map<String, dynamic>) {
+             return MisfireEscalationStepSnapshot(
+                 stepId: s['step'] ?? "UNKNOWN", 
+                 description: "System State Signal",
+                 attempted: s['step'] != null, // In summary, presence implies attempted usually, or we check result
+                 permitted: true,
+                 result: s['result']
+             );
+         }
+         return const MisfireEscalationStepSnapshot(stepId: "UNKNOWN", description: "Malformed Signal", attempted: false, permitted: false);
+     }).toList();
+
+     return MisfireTier2Snapshot(
+         timestampUtc: "N/A",
+         incidentId: "SUMMARY_VIEW",
+         detectedBy: "MisfireMonitor",
+         escalationPolicy: "TIER2_AGMS",
+         steps: steps,
+         finalOutcome: steps.isNotEmpty ? (steps.last.result ?? "UNKNOWN") : "NONE",
+         isAvailable: true
+     );
   }
 
   SelfHealConfidenceSnapshot _parseSelfHealConfidence(

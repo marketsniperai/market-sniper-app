@@ -1,0 +1,41 @@
+diff a/backend/api_server.py b/backend/api_server.py	(rejected hunks)
+@@ -93,12 +93,36 @@ class PublicSurfaceShieldMiddleware:
+                 headers = dict(scope.get("headers", []))
+                 req_key_bytes = headers.get(b"x-founder-key")
+                 
++                # Validation Logic
+                 authorized = False
+-                # D55.16B.1: Strict Founder Check (Env + Key Match)
+                 if env_key and req_key_bytes:
+-                    if req_key_bytes.decode("utf-8") == env_key:
+-                        authorized = True
++                     # Strict Compare
++                     if req_key_bytes.decode("utf-8") == env_key:
++                         authorized = True
+                 
++                # D62.8: Founder Allowlist Bypass
++                # If authorized, allow specific /lab paths for War Room / Registry
++                if authorized:
++                    # Explicit Allowlist for D62.8
++                    allowed_prefixes = [
++                        "/lab/war_room",         # Dashboard & Snapshot
++                        "/lab/warroom",          # Aliases
++                        "/lab/war-room",
++                        "/lab/os/health",        # Health Alias
++                        "/lab/os/registry",      # Registry
++                        "/lab/truth/fingerprint", # Fingerprint
++                        "/lab/founder_war_room", # Legacy Alias
++                        "/lab/os/iron",          # Iron OS
++                        "/lab/os/self_heal",     # Self Heal
++                        "/lab/replay",           # Replay
++                        "/lab/watchlist",        # Watchlist
++                    ]
++                    
++                    if any(path.startswith(p) for p in allowed_prefixes):
++                        # BYPASS SHIELD
++                        await self.app(scope, receive, send)
++                        return
++
+                 if not authorized:
+                     # D62.0 HOTFIX: Observability for Denials
+                     if path.startswith("/lab/war_room/snapshot"):

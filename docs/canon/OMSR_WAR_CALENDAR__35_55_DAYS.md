@@ -471,7 +471,7 @@ This phase externalizes already-sealed OS capabilities into visible, usable, and
     - ↳ Seal: `SEAL_DAY_44_02B_WATCHLIST_ANALYZE_NOW.md`
   - [x] D44.03 — Watchlist action logging endpoint wiring (/lab/watchlist/log) + jsonl ledger
     - ↳ Seal: `SEAL_DAY_44_03_WATCHLIST_ACTION_LOGGING.md`
-  - [x] D44.04 — On-Demand screen (ticker input + results modal/screen)
+
   - [x] D44.04 — On-Demand screen (ticker input + results modal/screen)
     - ↳ Seal: [`SEAL_DAY_44_04_ON_DEMAND_SCREEN.md`](../../outputs/seals/SEAL_DAY_44_04_ON_DEMAND_SCREEN.md)
     - ↳ Correction: Reabsorbed as `OnDemandPanel` (D44.04A).
@@ -637,10 +637,7 @@ DAY 45 COMPLETE (SEALED)
   - ↳ Seal: [`SEAL_D45_CANON_DEBT_RADAR_V2.md`](../../outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2.md)
 - [x] **D45.CANON.DEBT_RADAR.V2.1** — War Room Debt Radar V2.1 (Fingerprint Guard)
   - ↳ Seal: [`SEAL_D45_CANON_DEBT_RADAR_V2.1.md`](../../outputs/seals/SEAL_D45_CANON_DEBT_RADAR_V2_1.md)
-- [x] **D45.HF04.BUILD_RESTORE** — SectorFlip + CanonRadar Repair
-  - ↳ Seal: [`SEAL_D45_HF04_BUILD_RESTORE.md`](../../outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md)
-- [x] **D45.HF04.BUILD_RESTORE** — SectorFlip + CanonRadar Repair
-  - ↳ Seal: [`SEAL_D45_HF04_BUILD_RESTORE.md`](../../outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md)
+
 - [x] **D45.HF04.BUILD_RESTORE** — SectorFlip + CanonRadar Repair
   - ↳ Seal: [`SEAL_D45_HF04_BUILD_RESTORE.md`](../../outputs/seals/SEAL_D45_HF04_BUILD_RESTORE.md)
   - ↳ Fix: [`SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md`](../../outputs/seals/SEAL_D45_FIX_CANON_DEBT_RADAR_TOKENS_01.md)
@@ -654,7 +651,6 @@ DAY 45 COMPLETE (SEALED)
   - ↳ Deploy (Gateway): [`SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md`](../../outputs/seals/SEAL_D45_HF07_AUTH_GATEWAY_DEPLOY_VERIFY.md)
   - ↳ Auto (Gateway): [`SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md`](../../outputs/seals/SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md)
 
-  - ↳ Auto (Gateway): [`SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md`](../../outputs/seals/SEAL_D45_HF08_AUTH_GATEWAY_DEPLOY_VERIFY.md)
   - ↳ Canon (Pending Lifecycle): [`SEAL_D45_CANON_PENDING_LIFECYCLE.md`](../../outputs/seals/SEAL_D45_CANON_PENDING_LIFECYCLE.md)
   - ↳ Canon (Closure Hook): [`SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md`](../../outputs/seals/SEAL_D45_CANON_PENDING_CLOSURE_HOOK.md)
 
@@ -741,7 +737,7 @@ DAY 45 COMPLETE (SEALED)
     - ↳ Seal: [`SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md`](../../outputs/seals/SEAL_D47_HF32_ON_DEMAND_COST_POLICY_PER_TICKER_DAY.md)
   - [x] D47.HF33 — On-Demand Area Seal (Capstone)
     - ↳ Seal: [`SEAL_D47_ON_DEMAND_AREA_SEALED.md`](../../outputs/seals/SEAL_D47_ON_DEMAND_AREA_SEALED.md)
-  - [x] D47.HF34 — On-Demand Capstone Doc + Canon Sync
+
   - [x] D47.HF34 — On-Demand Capstone Doc + Canon Sync
     - ↳ Seal: [`SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md`](../../outputs/seals/SEAL_D47_HF34_ON_DEMAND_CAPSTONE_CANON_SYNC.md)
   - [x] D47.HF35 — Calendar Activation V1 (Artifact-First)
@@ -1131,3 +1127,388 @@ Seal:
     - **Policy**: `EWIMSC_WEEKLY_STRICT=1` (Fail build if count flat > 7 days).
     - **Baseline**: `docs/canon/UNKNOWN_TREND_BASELINE.json`.
     - **Seal**: `outputs/seals/SEAL_D58_6_UNKNOWN_WEEKLY_TREND_GATE.md`
+
+
+- [x] **D60 — Ghost Liquidation (API Integrity)**
+  - [x] D60.1 — Command Center Inventory Truth (Manifest)
+    - ↳ Seal: [`SEAL_D62_16_STUB_MODE_AUTOPSY_PROVIDER_KEY_TRUTH.md`](../../outputs/seals/SEAL_D62_16_STUB_MODE_AUTOPSY_PROVIDER_KEY_TRUTH.md)
+  - [x] **D62.16C AV Key Injected Stub Persists Truth Drill** (SEALED)
+    - **Goal**: Investigate why STUB_MODE persists after Key Injection.
+    - **Status**: **EXECUTION_FAILED (Command Error).** Job crashed with `exit(2)`. Bad args `--args="--mode,FULL"`. Write Plane never updated.
+    - ↳ Seal: [`SEAL_D62_16C_AV_KEY_INJECTED_STUB_PERSISTS_TRUTH_DRILL.md`](../../outputs/seals/SEAL_D62_16C_AV_KEY_INJECTED_STUB_PERSISTS_TRUTH_DRILL.md)
+  - [x] **D62.16D Alpha Vantage Fetch Proof & Stub Exit** (SEALED)
+    - **Goal**: Make FULL pipeline generate real market snapshot and write provider artifact.
+    - **Status**: **BUILD_FAILED (Deployment Blocker).** Local code fixed (wiring + deps), but Cloud Build failed (`b743...`) and logs inaccessible. Stale code running in prod.
+    - ↳ Seal: [`SEAL_D62_16D_ALPHA_VANTAGE_PROVIDER_ARTIFACT_AND_STUB_EXIT.md`](../../outputs/seals/SEAL_D62_16D_ALPHA_VANTAGE_PROVIDER_ARTIFACT_AND_STUB_EXIT.md)
+  - [x] D60.2 — Frontend Ghost Sweep (Dead Endpoints)
+    - ↳ Seal: [`SEAL_D60_2_FRONTEND_GHOST_SWEEP.md`](../../outputs/seals/SEAL_D60_2_FRONTEND_GHOST_SWEEP.md)
+  - [x] D60.3 — Remediation & Verification (Zero Ghosts)
+    - ↳ Seal: [`SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md`](../../outputs/seals/SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md)
+
+- [x] **D61 — Command Center Manifest & Cleanse**
+  - [x] D61.0 — Architecture Manifest (Cleanse + Tiers + Quartet Spec)
+    - ↳ Seal: [`SEAL_D61_0_COMMAND_CENTER_MANIFEST.md`](../../outputs/seals/SEAL_D61_0_COMMAND_CENTER_MANIFEST.md)
+  - [x] D61.1 — Coherence Quartet UI Implementation (Widgets V2)
+    - ↳ Seal: [`SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md`](../../outputs/seals/SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md)
+  - [x] D61.2 — Tier Gating Logic (Discipline Counter Service)
+    - ↳ Seal: [`SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md`](../../outputs/seals/SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md)
+  - [x] D61.2B — Compilation Fixes (CommandCenterTier/Enum)
+    - ↳ Seal: [`SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md`](../../outputs/seals/SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md)
+  - [x] D61.2C — Compile Unblock (Syntax/Imports)
+    - ↳ Seal: [`SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md`](../../outputs/seals/SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md)
+  - [x] D61.2D — Web Probe & Base URL Fixes
+    - ↳ Seal: [`SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md`](../../outputs/seals/SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md)
+    - ↳ Seal: [`SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md`](../../outputs/seals/SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md)
+  - [x] D61.2E — Terms Asset Web Fix
+    - ↳ Seal: [`SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md`](../../outputs/seals/SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md)
+  - [x] D61.3 — Command Center Polish & Token Discipline (100%)
+    - ↳ Seal: [`SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md`](../../outputs/seals/SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md)
+    - ↳ Seal: [`SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md`](../../outputs/seals/SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md)
+
+  BEAST PARITY (NEW)
+  - [x] **D61.XX — Visual Hardening Series (Founder Only)**
+    - [x] D61.X.02 — HF 1 Law Adoption
+      - ↳ Seal: [`SEAL_D61_X_02_COPY_AND_HF1_LAW.md`](../../outputs/seals/SEAL_D61_X_02_COPY_AND_HF1_LAW.md)
+    - [x] D61.X.03 — Coherence Quartet Responsive Layout
+      - ↳ Seal: [`SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md`](../../outputs/seals/SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md)
+      - ↳ Seal: [`SEAL_D61_X_03_TOOLTIP_EXPANSION.md`](../../outputs/seals/SEAL_D61_X_03_TOOLTIP_EXPANSION.md)
+    - [x] D61.X.04 — Capital Activity Stub
+      - ↳ Seal: [`SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md`](../../outputs/seals/SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md)
+    - [x] D61.X.05 — Market Tilt & Pressure Gauge
+      - ↳ Seal: [`SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md`](../../outputs/seals/SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md)
+      - ↳ Seal: [`SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md`](../../outputs/seals/SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md)
+      - ↳ Seal: [`SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md`](../../outputs/seals/SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md)
+    - [x] D61.X.06 — Market Pressure Orb & Visibility Purge
+      - ↳ Seal: [`SEAL_D61_X_06_MARKET_PRESSURE_ORB.md`](../../outputs/seals/SEAL_D61_X_06_MARKET_PRESSURE_ORB.md)
+      - ↳ Seal: [`SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md`](../../outputs/seals/SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md)
+      - ↳ Seal: [`SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md`](../../outputs/seals/SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md)
+      - ↳ Seal: [`SEAL_D61_X_06C_CC_LINE_PURGE_AND_ORB_GLASS_DISCIPLINE.md`](../../outputs/seals/SEAL_D61_X_06C_CC_LINE_PURGE_AND_ORB_GLASS_DISCIPLINE.md)
+      - ↳ Seal: [`SEAL_D61_X_06D_FOUNDER_FORCE_ELITE_SSOT.md`](../../outputs/seals/SEAL_D61_X_06D_FOUNDER_FORCE_ELITE_SSOT.md)
+      - ↳ Seal: [`SEAL_D61_X_06E_WEB_COMPILE_UNBLOCK.md`](../../outputs/seals/SEAL_D61_X_06E_WEB_COMPILE_UNBLOCK.md)
+    - [x] D61.X.07 — Top Layout & Volatility Meter
+      - ↳ Seal: [`SEAL_D61_X_07_CC_TOP_LAYOUT_AND_VOLATILITY_METER.md`](../../outputs/seals/SEAL_D61_X_07_CC_TOP_LAYOUT_AND_VOLATILITY_METER.md)
+    - [x] D61.X.08 — Volatility Plasma Glass & Balance
+      - ↳ Seal: [`SEAL_D61_X_08_CC_VOLATILITY_PLASMA_GLASS_AND_ORB_BALANCE.md`](../../outputs/seals/SEAL_D61_X_08_CC_VOLATILITY_PLASMA_GLASS_AND_ORB_BALANCE.md)
+      - ↳ Seal: [`SEAL_D61_X_08_VOLATILITY_METER_PLASMA_GLASS.md`](../../outputs/seals/SEAL_D61_X_08_VOLATILITY_METER_PLASMA_GLASS.md)
+    - [x] D61.X.09 — Command Center Layout Polish (Top Bar + Spacing)
+      - ↳ Seal: [`SEAL_D61_COMMAND_CENTER_LAYOUT_TOPBAR_HEADER_SPACING.md`](../../outputs/seals/SEAL_D61_COMMAND_CENTER_LAYOUT_TOPBAR_HEADER_SPACING.md)
+  
+  - [x] **D61.FOUNDER — APK Release (Handheld)**
+    - ↳ Seal: [`SEAL_D61_FOUNDER_APK_RELEASE_HANDHELD.md`](../../outputs/seals/SEAL_D61_FOUNDER_APK_RELEASE_HANDHELD.md)
+    - **Status:** SUCCESSFULLY DEPLOYED (2026-02-08)
+
+
+- [x] **D62 — Alpha Vantage Provider (Batch-Only)**
+  - **Goal**: Add AV as data provider for internal testing + AGMS. Batch-only, Cached, Rate-Limited.
+  - **Wiring**: `backend/providers/alpha_vantage_client.py`
+  - **Policy**: 5 RPM, Daily Budget (Ledger), Fail-Safe (N/A).
+  - **Artifact**: `outputs/alpha_vantage_ingest_report.json`
+  - ↳ Seal: [`SEAL_D62_ALPHA_VANTAGE_PROVIDER_BATCH_ONLY.md`](../../outputs/seals/SEAL_D62_ALPHA_VANTAGE_PROVIDER_BATCH_ONLY.md)
+
+- [x] **D62.8 Lab Founder Unblock & Scan** (SEALED)
+  - **Goal**: Unblock War Room Access for Founder (Fix 403) + Widget Audit.
+  - **Action**: Modified `PublicSurfaceShieldMiddleware` allowlist.
+  - **Status**: **UNBLOCKED.**
+  - **Seal**: `outputs/seals/SEAL_D62_8_LAB_FOUNDER_ALLOWLIST_UNBLOCK_WARROOM.md`
+
+- [x] **D62.9 Founder Key Web Injection & Welcome Unblock** (SEALED)
+  - **Goal**: Unblock Web War Room via proper Key Injection.
+  - **Action**: Modified `AppConfig` to read/log `FOUNDER_KEY`. Verified PROD access.
+  - **Status**: **UNBLOCKED.**
+  - **Seal**: `outputs/seals/SEAL_D62_9_FOUNDER_KEY_WEB_INJECTION_AND_WELCOME_UNBLOCK.md`
+
+  - [x] **D62.10 OS Full Surface Scan & Hardening** (SEALED)
+    - ↳ Seal: [`SEAL_D62_10_OS_SURFACE_SCAN_WIDGET_CONTRACT_HARDENING.md`](../../outputs/seals/SEAL_D62_10_OS_SURFACE_SCAN_WIDGET_CONTRACT_HARDENING.md)
+
+  - [x] **D62.11 Data Arrival & Demo Purge (News Fix)** (SEALED)
+    - **Goal**: Audit & Purge "Demo" data. Connect News to `/news_digest` API.
+    - **Status**: **PURGED.** News uses real API.
+    - ↳ Seal: [`SEAL_D62_11_WIDGET_DATA_ARRIVAL_AND_DEMO_FALLBACK_PURGE.md`](../../outputs/seals/SEAL_D62_11_WIDGET_DATA_ARRIVAL_AND_DEMO_FALLBACK_PURGE.md)
+
+  - [x] **D62.11B Sector Flip Restore (Degrade Mode)** (SEALED)
+    - **Goal**: Restore Sector Flip widget without fake data.
+    - **Status**: **RESTORED (DEGRADED).** Safe placeholder.
+    - ↳ Seal: [`SEAL_D62_11B_SECTOR_FLIP_RESTORED_DEGRADE_MODE.md`](../../outputs/seals/SEAL_D62_11B_SECTOR_FLIP_RESTORED_DEGRADE_MODE.md)
+
+  - [x] **D62.12 Provider Readiness Matrix & Live Data Map** (SEALED)
+    - **Goal**: Full provider probe, live data mapping, and wiring fixes (News).
+    - **Status**: **MAPPED & WIRED.** All endpoints probed. UTC Anchor Enforced.
+    - ↳ Seal: [`SEAL_D62_12_PROVIDER_READINESS_MATRIX_AND_LIVE_DATA_MAP.md`](../../outputs/seals/SEAL_D62_12_PROVIDER_READINESS_MATRIX_AND_LIVE_DATA_MAP.md)
+
+  - [x] **D62.13 Volume Intelligence Forensic Trace** (SEALED)
+    - **Goal**: End-to-end trace of Volume data flow.
+    - **Status**: **CRITICAL PIPELINE FAILURE.** Artifacts stale (Feb 10).
+    - ↳ Seal: [`SEAL_D62_13_VOLUME_INTELLIGENCE_FORENSIC_TRACE.md`](../../outputs/seals/SEAL_D62_13_VOLUME_INTELLIGENCE_FORENSIC_TRACE.md)
+
+  - [x] **D62.13B Scheduler Autopsy & Fix** (SEALED)
+    - **Goal**: Restore Scheduler Auth.
+    - **Status**: **FIXED.** Granted `roles/run.invoker` to `ms-scheduler-sa`.
+    - ↳ Seal: [`SEAL_D62_13B_SCHEDULER_AUTH_FIX.md`](../../outputs/seals/SEAL_D62_13B_SCHEDULER_AUTH_FIX.md)
+
+***
+
+## PHASE: SYSTEM CONSOLIDATION & EVIDENCE EXPANSION
+**(Day 63+) — Transition to Structured Evolution**
+
+> **Objective:** Transition from Debug Stabilization Phase (D58–D62) into a permanent, evidence-based architecture.
+
+### **STRATEGIC ROADMAP (D63+)**
+
+1. [ ] **SNAPSHOT 100% MODULE COVERAGE**
+   - **Purpose:** Expand unified snapshot to represent ALL real modules.
+   - **Details:** Each module must expose `status`, `reason`, `last_update`. No hidden runtime state allowed. War Room must derive solely from snapshot.
+   - **Outcome:** Full observability via single JSON payload.
+
+2. [ ] **GHOST ENDPOINT DEPRECATION PLAN**
+   - **Purpose:** Stop granular FE calls.
+   - **Details:** Implement alias layer (read-only extractors from snapshot). Mark granular endpoints as `TEMPORARY_COMPAT` only.
+   - **Dependencies:** Snapshot Coverage.
+   - **Outcome:** Zero ghosts, clean API surface.
+
+3. [ ] **API CONTRACT V2 (Unified Doctrine)**
+   - **Purpose:** Define snapshot as canonical source.
+   - **Details:** Document allowed public vs founder surfaces. Freeze schema once validated.
+   - **Dependencies:** Ghost Deprecation.
+   - **Outcome:** Stable, versioned API contract.
+
+4. [ ] **HISTORICALSTORE DESIGN (Artifact-First)**
+   - **Purpose:** Define `OS.Data.HistoricalStore` module.
+   - **Details:** Storage: Parquet/JSON artifacts in GCS. Scope: 2–10 years of market state fingerprints. Declare dependency link to `OS.Intel.Evidence`.
+   - **Outcome:** Long-term memory infrastructure plan.
+
+5. [ ] **EVIDENCE ENGINE HARDENING**
+   - **Purpose:** Explicit dependency on HistoricalStore.
+   - **Details:** Add coverage metrics to snapshot. Surface `sample_size` + `coverage_status`.
+   - **Dependencies:** HistoricalStore.
+   - **Outcome:** Robust, evidence-based backtesting signals.
+
+6. [ ] **EFFICACY LOOP TRACEABILITY**
+   - **Purpose:** Map projection → realization pipeline.
+   - **Details:** Ensure ledger + reconciler visible in snapshot.
+   - **Dependencies:** Snapshot Coverage.
+   - **Outcome:** Closed-loop accuracy tracking.
+
+7. [ ] **MODULE STATE VISIBILITY AUDIT**
+   - **Purpose:** Verify every module in `OS_MODULES` inventory is classed correctly.
+   - **Details:** Must be `LIVE`, `SHADOW`, `DEPRECATED`, or `CALIBRATING` with reason.
+   - **Outcome:** 100% Inventory Accuracy.
+
+8. [ ] **RUNTIME IDENTITY CONTRACT ENFORCEMENT**
+   - **Purpose:** Ensure `commit_hash` + `revision` + `image_digest` exposed via lab surface.
+   - **Details:** Tie to Deployment Truth Chain.
+   - **Outcome:** Cryptographic certainty of running code.
+
+9. [ ] **WAR ROOM SIMPLIFICATION**
+   - **Purpose:** Refactor War Room to consume snapshot only.
+   - **Details:** Remove granular fetch logic.
+   - **Dependencies:** Snapshot Coverage.
+   - **Outcome:** Lighter, faster, glitch-free War Room.
+
+10. [ ] **PULSE LAYER STATUS VERIFICATION**
+    - **Purpose:** Verify operational state of Pulse Layer.
+    - **Details:** If inactive → explicitly mark `SHADOW`.
+    - **Outcome:** Accurate operational status.
+
+11. [ ] **DATA COVERAGE REPORTING**
+    - **Purpose:** Add historical coverage summary to snapshot.
+    - **Details:** Expose years available, symbols tracked.
+    - **Dependencies:** HistoricalStore.
+    - **Outcome:** Transparency on data depth.
+
+12. [ ] **MSK PREPARATION NOTE**
+    - **Purpose:** Document how MSK will interact with Snapshot.
+    - **Details:** Ensure MSK does not reintroduce multi-source drift.
+    - **Dependencies:** API Contract V2.
+    - **Outcome:** MSK-ready architecture.
+
+- [x] **D60 — Ghost Liquidation (API Integrity)**
+  - [x] D60.1 — Command Center Inventory Truth (Manifest)
+    - ↳ Seal: [`SEAL_D62_16_STUB_MODE_AUTOPSY_PROVIDER_KEY_TRUTH.md`](../../outputs/seals/SEAL_D62_16_STUB_MODE_AUTOPSY_PROVIDER_KEY_TRUTH.md)
+  - [x] **D62.16C AV Key Injected Stub Persists Truth Drill** (SEALED)
+    - **Goal**: Investigate why STUB_MODE persists after Key Injection.
+    - **Status**: **EXECUTION_FAILED (Command Error).** Job crashed with `exit(2)`. Bad args `--args="--mode,FULL"`. Write Plane never updated.
+    - ↳ Seal: [`SEAL_D62_16C_AV_KEY_INJECTED_STUB_PERSISTS_TRUTH_DRILL.md`](../../outputs/seals/SEAL_D62_16C_AV_KEY_INJECTED_STUB_PERSISTS_TRUTH_DRILL.md)
+  - [x] **D62.16D Alpha Vantage Fetch Proof & Stub Exit** (SEALED)
+    - **Goal**: Make FULL pipeline generate real market snapshot and write provider artifact.
+    - **Status**: **BUILD_FAILED (Deployment Blocker).** Local code fixed (wiring + deps), but Cloud Build failed (`b743...`) and logs inaccessible. Stale code running in prod.
+    - ↳ Seal: [`SEAL_D62_16D_ALPHA_VANTAGE_PROVIDER_ARTIFACT_AND_STUB_EXIT.md`](../../outputs/seals/SEAL_D62_16D_ALPHA_VANTAGE_PROVIDER_ARTIFACT_AND_STUB_EXIT.md)
+  - [x] D60.2 — Frontend Ghost Sweep (Dead Endpoints)
+    - ↳ Seal: [`SEAL_D60_2_FRONTEND_GHOST_SWEEP.md`](../../outputs/seals/SEAL_D60_2_FRONTEND_GHOST_SWEEP.md)
+  - [x] D60.3 — Remediation & Verification (Zero Ghosts)
+    - ↳ Seal: [`SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md`](../../outputs/seals/SEAL_D60_3_GHOST_REMEDIATION_FULL_STEEL.md)
+
+- [x] **D61 — Command Center Manifest & Cleanse**
+  - [x] D61.0 — Architecture Manifest (Cleanse + Tiers + Quartet Spec)
+    - ↳ Seal: [`SEAL_D61_0_COMMAND_CENTER_MANIFEST.md`](../../outputs/seals/SEAL_D61_0_COMMAND_CENTER_MANIFEST.md)
+  - [x] D61.1 — Coherence Quartet UI Implementation (Widgets V2)
+    - ↳ Seal: [`SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md`](../../outputs/seals/SEAL_D61_1_QUARTET_UI_IMPLEMENTED.md)
+  - [x] D61.2 — Tier Gating Logic (Discipline Counter Service)
+    - ↳ Seal: [`SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md`](../../outputs/seals/SEAL_D61_2_COMMAND_CENTER_TIERS_WIRED.md)
+  - [x] D61.2B — Compilation Fixes (CommandCenterTier/Enum)
+    - ↳ Seal: [`SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md`](../../outputs/seals/SEAL_D61_2B_COMMAND_CENTER_COMPILE_FIX.md)
+  - [x] D61.2C — Compile Unblock (Syntax/Imports)
+    - ↳ Seal: [`SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md`](../../outputs/seals/SEAL_D61_2C_COMMAND_CENTER_COMPILE_UNBLOCK.md)
+  - [x] D61.2D — Web Probe & Base URL Fixes
+    - ↳ Seal: [`SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md`](../../outputs/seals/SEAL_D61_2D_WEB_PROBE_COMPILE_FIX.md)
+    - ↳ Seal: [`SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md`](../../outputs/seals/SEAL_D61_2D_WEB_BASE_URL_TRUTH_PROBE.md)
+  - [x] D61.2E — Terms Asset Web Fix
+    - ↳ Seal: [`SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md`](../../outputs/seals/SEAL_D61_2E_TERMS_ASSET_WEB_FIX.md)
+  - [x] D61.3 — Command Center Polish & Token Discipline (100%)
+    - ↳ Seal: [`SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md`](../../outputs/seals/SEAL_D61_3_COMMAND_CENTER_POLISH_FULL_TOKEN_DISCIPLINE.md)
+    - ↳ Seal: [`SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md`](../../outputs/seals/SEAL_D61_3_COMMAND_CENTER_SCREEN_REWIRE.md)
+
+  BEAST PARITY (NEW)
+  - [x] **D61.XX — Visual Hardening Series (Founder Only)**
+    - [x] D61.X.02 — HF 1 Law Adoption
+      - ↳ Seal: [`SEAL_D61_X_02_COPY_AND_HF1_LAW.md`](../../outputs/seals/SEAL_D61_X_02_COPY_AND_HF1_LAW.md)
+    - [x] D61.X.03 — Coherence Quartet Responsive Layout
+      - ↳ Seal: [`SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md`](../../outputs/seals/SEAL_D61_X_03_QUARTET_LAYOUT_LIVING_RESPONSIVE.md)
+      - ↳ Seal: [`SEAL_D61_X_03_TOOLTIP_EXPANSION.md`](../../outputs/seals/SEAL_D61_X_03_TOOLTIP_EXPANSION.md)
+    - [x] D61.X.04 — Capital Activity Stub
+      - ↳ Seal: [`SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md`](../../outputs/seals/SEAL_D61_X_04_CAPITAL_ACTIVITY_PLUG_STUB.md)
+    - [x] D61.X.05 — Market Tilt & Pressure Gauge
+      - ↳ Seal: [`SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md`](../../outputs/seals/SEAL_D61_X_05_MARKET_TILT_INSTITUTIONAL_PRESSURE.md)
+      - ↳ Seal: [`SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md`](../../outputs/seals/SEAL_D61_X_05B_COMMAND_CENTER_VISUAL_CORRECTION.md)
+      - ↳ Seal: [`SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md`](../../outputs/seals/SEAL_D61_X_05C_COMMAND_CENTER_CONTENT_RESTORE.md)
+    - [x] D61.X.06 — Market Pressure Orb & Visibility Purge
+      - ↳ Seal: [`SEAL_D61_X_06_MARKET_PRESSURE_ORB.md`](../../outputs/seals/SEAL_D61_X_06_MARKET_PRESSURE_ORB.md)
+      - ↳ Seal: [`SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md`](../../outputs/seals/SEAL_D61_X_06A_MARKET_PRESSURE_POLISH.md)
+      - ↳ Seal: [`SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md`](../../outputs/seals/SEAL_D61_X_06B_FOUNDER_VISIBILITY_AND_UNDERLINE_PURGE.md)
+      - ↳ Seal: [`SEAL_D61_X_06C_CC_LINE_PURGE_AND_ORB_GLASS_DISCIPLINE.md`](../../outputs/seals/SEAL_D61_X_06C_CC_LINE_PURGE_AND_ORB_GLASS_DISCIPLINE.md)
+      - ↳ Seal: [`SEAL_D61_X_06D_FOUNDER_FORCE_ELITE_SSOT.md`](../../outputs/seals/SEAL_D61_X_06D_FOUNDER_FORCE_ELITE_SSOT.md)
+      - ↳ Seal: [`SEAL_D61_X_06E_WEB_COMPILE_UNBLOCK.md`](../../outputs/seals/SEAL_D61_X_06E_WEB_COMPILE_UNBLOCK.md)
+    - [x] D61.X.07 — Top Layout & Volatility Meter
+      - ↳ Seal: [`SEAL_D61_X_07_CC_TOP_LAYOUT_AND_VOLATILITY_METER.md`](../../outputs/seals/SEAL_D61_X_07_CC_TOP_LAYOUT_AND_VOLATILITY_METER.md)
+    - [x] D61.X.08 — Volatility Plasma Glass & Balance
+      - ↳ Seal: [`SEAL_D61_X_08_CC_VOLATILITY_PLASMA_GLASS_AND_ORB_BALANCE.md`](../../outputs/seals/SEAL_D61_X_08_CC_VOLATILITY_PLASMA_GLASS_AND_ORB_BALANCE.md)
+      - ↳ Seal: [`SEAL_D61_X_08_VOLATILITY_METER_PLASMA_GLASS.md`](../../outputs/seals/SEAL_D61_X_08_VOLATILITY_METER_PLASMA_GLASS.md)
+    - [x] D61.X.09 — Command Center Layout Polish (Top Bar + Spacing)
+      - ↳ Seal: [`SEAL_D61_COMMAND_CENTER_LAYOUT_TOPBAR_HEADER_SPACING.md`](../../outputs/seals/SEAL_D61_COMMAND_CENTER_LAYOUT_TOPBAR_HEADER_SPACING.md)
+  
+  - [x] **D61.FOUNDER — APK Release (Handheld)**
+    - ↳ Seal: [`SEAL_D61_FOUNDER_APK_RELEASE_HANDHELD.md`](../../outputs/seals/SEAL_D61_FOUNDER_APK_RELEASE_HANDHELD.md)
+    - **Status:** SUCCESSFULLY DEPLOYED (2026-02-08)
+
+
+- [x] **D62 — Alpha Vantage Provider (Batch-Only)**
+  - **Goal**: Add AV as data provider for internal testing + AGMS. Batch-only, Cached, Rate-Limited.
+  - **Wiring**: `backend/providers/alpha_vantage_client.py`
+  - **Policy**: 5 RPM, Daily Budget (Ledger), Fail-Safe (N/A).
+  - **Artifact**: `outputs/alpha_vantage_ingest_report.json`
+  - ↳ Seal: [`SEAL_D62_ALPHA_VANTAGE_PROVIDER_BATCH_ONLY.md`](../../outputs/seals/SEAL_D62_ALPHA_VANTAGE_PROVIDER_BATCH_ONLY.md)
+
+- [x] **D62.8 Lab Founder Unblock & Scan** (SEALED)
+  - **Goal**: Unblock War Room Access for Founder (Fix 403) + Widget Audit.
+  - **Action**: Modified `PublicSurfaceShieldMiddleware` allowlist.
+  - **Status**: **UNBLOCKED.**
+  - **Seal**: `outputs/seals/SEAL_D62_8_LAB_FOUNDER_ALLOWLIST_UNBLOCK_WARROOM.md`
+
+- [x] **D62.9 Founder Key Web Injection & Welcome Unblock** (SEALED)
+  - **Goal**: Unblock Web War Room via proper Key Injection.
+  - **Action**: Modified `AppConfig` to read/log `FOUNDER_KEY`. Verified PROD access.
+  - **Status**: **UNBLOCKED.**
+  - **Seal**: `outputs/seals/SEAL_D62_9_FOUNDER_KEY_WEB_INJECTION_AND_WELCOME_UNBLOCK.md`
+
+  - [x] **D62.10 OS Full Surface Scan & Hardening** (SEALED)
+    - ↳ Seal: [`SEAL_D62_10_OS_SURFACE_SCAN_WIDGET_CONTRACT_HARDENING.md`](../../outputs/seals/SEAL_D62_10_OS_SURFACE_SCAN_WIDGET_CONTRACT_HARDENING.md)
+
+  - [x] **D62.11 Data Arrival & Demo Purge (News Fix)** (SEALED)
+    - **Goal**: Audit & Purge "Demo" data. Connect News to `/news_digest` API.
+    - **Status**: **PURGED.** News uses real API.
+    - ↳ Seal: [`SEAL_D62_11_WIDGET_DATA_ARRIVAL_AND_DEMO_FALLBACK_PURGE.md`](../../outputs/seals/SEAL_D62_11_WIDGET_DATA_ARRIVAL_AND_DEMO_FALLBACK_PURGE.md)
+
+  - [x] **D62.11B Sector Flip Restore (Degrade Mode)** (SEALED)
+    - **Goal**: Restore Sector Flip widget without fake data.
+    - **Status**: **RESTORED (DEGRADED).** Safe placeholder.
+    - ↳ Seal: [`SEAL_D62_11B_SECTOR_FLIP_RESTORED_DEGRADE_MODE.md`](../../outputs/seals/SEAL_D62_11B_SECTOR_FLIP_RESTORED_DEGRADE_MODE.md)
+
+  - [x] **D62.12 Provider Readiness Matrix & Live Data Map** (SEALED)
+    - **Goal**: Full provider probe, live data mapping, and wiring fixes (News).
+    - **Status**: **MAPPED & WIRED.** All endpoints probed. UTC Anchor Enforced.
+    - ↳ Seal: [`SEAL_D62_12_PROVIDER_READINESS_MATRIX_AND_LIVE_DATA_MAP.md`](../../outputs/seals/SEAL_D62_12_PROVIDER_READINESS_MATRIX_AND_LIVE_DATA_MAP.md)
+
+  - [x] **D62.13 Volume Intelligence Forensic Trace** (SEALED)
+    - **Goal**: End-to-end trace of Volume data flow.
+    - **Status**: **CRITICAL PIPELINE FAILURE.** Artifacts stale (Feb 10).
+    - ↳ Seal: [`SEAL_D62_13_VOLUME_INTELLIGENCE_FORENSIC_TRACE.md`](../../outputs/seals/SEAL_D62_13_VOLUME_INTELLIGENCE_FORENSIC_TRACE.md)
+
+  - [x] **D62.13B Scheduler Autopsy & Fix** (SEALED)
+    - **Goal**: Restore Scheduler Auth.
+    - **Status**: **FIXED.** Granted `roles/run.invoker` to `ms-scheduler-sa`.
+    - ↳ Seal: [`SEAL_D62_13B_SCHEDULER_AUTH_FIX.md`](../../outputs/seals/SEAL_D62_13B_SCHEDULER_AUTH_FIX.md)
+
+***
+
+## PHASE: SYSTEM CONSOLIDATION & EVIDENCE EXPANSION
+**(Day 63+) — Transition to Structured Evolution**
+
+> **Objective:** Transition from Debug Stabilization Phase (D58–D62) into a permanent, evidence-based architecture.
+
+### **STRATEGIC ROADMAP (D63+)**
+
+1. [ ] **SNAPSHOT 100% MODULE COVERAGE**
+   - **Purpose:** Expand unified snapshot to represent ALL real modules.
+   - **Details:** Each module must expose `status`, `reason`, `last_update`. No hidden runtime state allowed. War Room must derive solely from snapshot.
+   - **Outcome:** Full observability via single JSON payload.
+
+2. [ ] **GHOST ENDPOINT DEPRECATION PLAN**
+   - **Purpose:** Stop granular FE calls.
+   - **Details:** Implement alias layer (read-only extractors from snapshot). Mark granular endpoints as `TEMPORARY_COMPAT` only.
+   - **Dependencies:** Snapshot Coverage.
+   - **Outcome:** Zero ghosts, clean API surface.
+
+3. [ ] **API CONTRACT V2 (Unified Doctrine)**
+   - **Purpose:** Define snapshot as canonical source.
+   - **Details:** Document allowed public vs founder surfaces. Freeze schema once validated.
+   - **Dependencies:** Ghost Deprecation.
+   - **Outcome:** Stable, versioned API contract.
+
+4. [ ] **HISTORICALSTORE DESIGN (Artifact-First)**
+   - **Purpose:** Define `OS.Data.HistoricalStore` module.
+   - **Details:** Storage: Parquet/JSON artifacts in GCS. Scope: 2–10 years of market state fingerprints. Declare dependency link to `OS.Intel.Evidence`.
+   - **Outcome:** Long-term memory infrastructure plan.
+
+5. [ ] **EVIDENCE ENGINE HARDENING**
+   - **Purpose:** Explicit dependency on HistoricalStore.
+   - **Details:** Add coverage metrics to snapshot. Surface `sample_size` + `coverage_status`.
+   - **Dependencies:** HistoricalStore.
+   - **Outcome:** Robust, evidence-based backtesting signals.
+
+6. [ ] **EFFICACY LOOP TRACEABILITY**
+   - **Purpose:** Map projection → realization pipeline.
+   - **Details:** Ensure ledger + reconciler visible in snapshot.
+   - **Dependencies:** Snapshot Coverage.
+   - **Outcome:** Closed-loop accuracy tracking.
+
+7. [ ] **MODULE STATE VISIBILITY AUDIT**
+   - **Purpose:** Verify every module in `OS_MODULES` inventory is classed correctly.
+   - **Details:** Must be `LIVE`, `SHADOW`, `DEPRECATED`, or `CALIBRATING` with reason.
+   - **Outcome:** 100% Inventory Accuracy.
+
+8. [ ] **RUNTIME IDENTITY CONTRACT ENFORCEMENT**
+   - **Purpose:** Ensure `commit_hash` + `revision` + `image_digest` exposed via lab surface.
+   - **Details:** Tie to Deployment Truth Chain.
+   - **Outcome:** Cryptographic certainty of running code.
+
+9. [ ] **WAR ROOM SIMPLIFICATION**
+   - **Purpose:** Refactor War Room to consume snapshot only.
+   - **Details:** Remove granular fetch logic.
+   - **Dependencies:** Snapshot Coverage.
+   - **Outcome:** Lighter, faster, glitch-free War Room.
+
+10. [ ] **PULSE LAYER STATUS VERIFICATION**
+    - **Purpose:** Verify operational state of Pulse Layer.
+    - **Details:** If inactive → explicitly mark `SHADOW`.
+    - **Outcome:** Accurate operational status.
+
+11. [ ] **DATA COVERAGE REPORTING**
+    - **Purpose:** Add historical coverage summary to snapshot.
+    - **Details:** Expose years available, symbols tracked.
+    - **Dependencies:** HistoricalStore.
+    - **Outcome:** Transparency on data depth.
+
+12. [ ] **MSK PREPARATION NOTE**
+    - **Purpose:** Document how MSK will interact with Snapshot.
+    - **Details:** Ensure MSK does not reintroduce multi-source drift.
+    - **Dependencies:** API Contract V2.
+    - **Outcome:** MSK-ready architecture.

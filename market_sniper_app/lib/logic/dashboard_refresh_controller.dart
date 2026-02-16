@@ -16,10 +16,13 @@ class DashboardRefreshController {
   DateTime? _lastErrorTime;
   bool _isPaused = false;
   bool _isRefreshing = false;
+  RefreshReason _lastRefreshReason = RefreshReason.startup;
 
   bool _lastWasLocked = false;
 
   DashboardRefreshController({required this.onRefresh});
+  
+  bool get isManual => _lastRefreshReason == RefreshReason.manual;
 
   // Start the auto-refresh timer logic
   void start() {
@@ -66,6 +69,7 @@ class DashboardRefreshController {
     if (_isRefreshing) return;
 
     _isRefreshing = true;
+    _lastRefreshReason = reason;
     _lastRefreshTime = DateTime.now();
 
     try {

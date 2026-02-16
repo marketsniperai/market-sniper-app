@@ -35,7 +35,10 @@ class WarRoomRouteObserver extends NavigatorObserver {
     }
 
     // Toggle Policy
-    AppConfig.setWarRoomActive(isActive);
+    // D72: Wrap setter to avoid redundant calls or fighting ENV SSOT
+    if (AppConfig.isWarRoomActive != isActive) {
+      AppConfig.setWarRoomActive(isActive);
+    }
     
     if (AppConfig.isNetAuditEnabled) {
       debugPrint("WAR_ROOM_OBSERVER: AppConfig.isWarRoomActive is now: ${AppConfig.isWarRoomActive}");

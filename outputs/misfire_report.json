@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-02-13T17:05:10.416982",
+  "status": "MISFIRE",
+  "artifact_age_seconds": 0.0,
+  "last_run_id": "TEST_RUN",
+  "reason": "INVALID_MANIFEST_TIMESTAMP",
+  "recommended_action": "RUN_PIPELINE_FULL",
+  "diagnostics": {
+    "status": "UNAVAILABLE",
+    "root_cause": "UNAVAILABLE",
+    "tier2_signals": [],
+    "reason": "NO_RECENT_MISFIRES"
+  }
+}

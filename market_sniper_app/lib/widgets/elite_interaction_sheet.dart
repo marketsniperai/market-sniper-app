@@ -1,21 +1,20 @@
-// ignore_for_file: unused_element, unused_field, unused_local_variable, unused_import
+// Imports Checked
 import 'dart:async';
-import 'dart:convert';
+import 'dart:convert'; // Added for JSON encoding
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-import '../config/app_config.dart';
+// import '../config/app_config.dart'; // Unused
 import '../logic/day_memory_store.dart';
 import '../logic/elite_mentor_brain.dart';
 import '../logic/session_thread_memory_store.dart';
 import '../logic/ritual_scheduler.dart';
-import '../logic/elite_contextual_recall_engine.dart'; // D43.13
+// import '../logic/elite_contextual_recall_engine.dart'; // D43.13 Unused
 import 'canonical_scroll_container.dart';
 import '../logic/elite_access_window_controller.dart'; // D45.07
 import 'elite_ritual_grid.dart'; // Replaces elite_ritual_strip.dart
-import '../logic/api_client.dart';
+import '../repositories/elite_repository.dart'; // Logic moved to repo (D74/D75)
 import 'elite/elite_ritual_modal.dart';
 import '../logic/elite_badge_controller.dart'; // D49
 
@@ -44,7 +43,7 @@ class EliteInteractionSheet extends StatefulWidget {
 class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
   EliteTier _tier = EliteTier.free; // Default safe, updated in initState
   String _statusText = "CHECKING...";
-  Color _statusColor = AppColors.textDisabled;
+  // Color _statusColor = AppColors.textDisabled; // Unused
   String? _pendingExplainKey;
   bool _showExplainMyScreen = false;
   Map<String, dynamic>? _osSnapshotData;
@@ -53,7 +52,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
   Map<String, dynamic>? _scriptData;
 
   // D43.04: Day Memory
-  List<String> _memoryBullets = [];
+  // List<String> _memoryBullets = []; // Unused
   // D43.08: Session Thread
   List<Map<String, String>> _sessionTurns = [];
   // D43.11: Context Status
@@ -136,62 +135,12 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     _refreshMemoryView();
   }
 
-//   Future<void> _fetchContextStatus() async {
-//     try {
-//       // D43.11: Direct API fetch
-//       final response = await http
-//           .get(Uri.parse('${AppConfig.apiBaseUrl}/elite/context/status'));
-//       if (response.statusCode == 200) {
-//         if (mounted) {
-//           setState(() {
-//             _contextStatus = jsonDecode(response.body);
-//           });
-//         }
-//       }
-//     } catch (_) {
-//       // Silent fail on connection error, stays null
-//     }
-//   }
-
-//   Future<void> _fetchWhatChanged() async {
-//     try {
-//       final response = await http
-//           .get(Uri.parse('${AppConfig.apiBaseUrl}/elite/what_changed'));
-//       if (response.statusCode == 200) {
-//         if (mounted) {
-//           setState(() {
-//             _whatChanged = jsonDecode(response.body);
-//           });
-//         }
-//       }
-//     } catch (_) {
-//       // Silent fail
-//     }
-//   }
-
-//   Future<void> _fetchAgmsRecall() async {
-//     try {
-//       // Pass arbitrary tier for now, or match _tier variable
-//       final tierStr = _tier.name;
-//       final response = await http.get(
-//           Uri.parse('${AppConfig.apiBaseUrl}/elite/agms/recall?tier=$tierStr'));
-//       if (response.statusCode == 200) {
-//         if (mounted) {
-//           setState(() {
-//             _agmsRecall = jsonDecode(response.body);
-//           });
-//         }
-//       }
-//     } catch (_) {
-//       // Silent fail
-//     }
-//   }
 
   void _refreshMemoryView() {
     if (mounted) {
       setState(() {
-        final bullets = DayMemoryStore().getBullets();
-        _memoryBullets = bullets.reversed.toList();
+        // final bullets = DayMemoryStore().getBullets(); // Unused
+        // _memoryBullets = bullets.reversed.toList(); // Unused
 
         // D43.08
         final turns = SessionThreadMemoryStore().getTurns();
@@ -209,7 +158,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     if (_tier == EliteTier.free && key != 'MARKET_REGIME') {
       setState(() {
         _statusText = "EXPLAIN: LOCKED (TIER)";
-        _statusColor = AppColors.stateLocked;
+        // _statusColor = AppColors.stateLocked;
       });
       return;
     }
@@ -217,39 +166,32 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     // Simulate Fetching
     setState(() {
       _statusText = "EXPLAINING: $key";
-      _statusColor = AppColors.neonCyan;
+     // _statusColor = AppColors.neonCyan;
     });
   }
 
   Future<void> _fetchStatus() async {
     try {
-      final url = Uri.parse('${AppConfig.apiBaseUrl}/elite/explain/status');
-      final response = await http.get(url).timeout(const Duration(seconds: 3));
+      final data = await EliteRepository().fetchEliteExplainStatus();
+      final bool isAvailable = data['status'] == 'AVAILABLE';
 
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        final bool isAvailable = data['status'] == 'AVAILABLE';
-
-        if (mounted) {
-          setState(() {
-            // Use isAvailable to determine status
-            if (isAvailable) {
-              _statusText = "EXPLAIN: ACTIVE";
-              _statusColor = AppColors.neonCyan;
-            } else {
-              _statusText = "EXPLAIN: UNAVAILABLE";
-              _statusColor = AppColors.stateLocked;
-            }
-          });
-        }
-      } else {
-        _handleError();
+      if (mounted) {
+        setState(() {
+          // Use isAvailable to determine status
+          if (isAvailable) {
+            _statusText = "EXPLAIN: ACTIVE";
+            // _statusColor = AppColors.neonCyan;
+          } else {
+            _statusText = "EXPLAIN: UNAVAILABLE";
+            // _statusColor = AppColors.stateLocked;
+          }
+        });
       }
     } catch (e) {
       _handleError();
     }
   }
-
+/*
   Future<void> _triggerExplainMyScreen() async {
     setState(() {
       _statusText = "ANALYZING CONTEXT...";
@@ -261,11 +203,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
 
     // D43.14: Fetch Snapshot from generic reader
     try {
-      final response = await http
-          .get(Uri.parse('${AppConfig.apiBaseUrl}/elite/os/snapshot'));
-      if (response.statusCode == 200) {
-        _osSnapshotData = json.decode(response.body);
-      }
+      _osSnapshotData = await EliteRepository().fetchEliteOsSnapshot();
     } catch (e) {
       // Fallback
     }
@@ -288,7 +226,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
       _refreshMemoryView();
     }
   }
-
+*/
   void _clearExplainMyScreen() {
     setState(() {
       _showExplainMyScreen = false;
@@ -299,16 +237,12 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     });
   }
 
+
   // D43.00: Fetch Script
   Future<void> _fetchFirstInteractionScript() async {
     try {
-      final response = await http.get(
-          Uri.parse('${AppConfig.apiBaseUrl}/elite/script/first_interaction'));
-      if (response.statusCode == 200) {
-        setState(() {
-          _scriptData = json.decode(response.body);
-        });
-      }
+      _scriptData = await EliteRepository().fetchEliteFirstInteractionScript();
+      if (mounted) setState(() {});
     } catch (e) {
       // Fallback or silent fail
     }
@@ -426,11 +360,11 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
   Future<void> _handleRitualTap(String ritualId) async {
       setState(() {
           _statusText = "ACCESSING RITUAL...";
-          _statusColor = AppColors.neonCyan;
+          // _statusColor = AppColors.neonCyan;
       });
       
       try {
-          final payload = await ApiClient().fetchEliteRitual(ritualId);
+          final payload = await EliteRepository().fetchEliteRitual(ritualId);
           
           if (!mounted) return;
           
@@ -446,7 +380,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
           
           setState(() {
               _statusText = "ELITE: ONLINE";
-              _statusColor = AppColors.neonCyan;
+              // _statusColor = AppColors.neonCyan;
           });
           
       } catch (e) {
@@ -456,8 +390,8 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
                  backgroundColor: AppColors.surface2,
              ));
              setState(() {
-                _statusText = "RITUAL UNAVAILABLE";
-                _statusColor = AppColors.stateLocked;
+                  _statusText = "RITUAL UNAVAILABLE";
+                // _statusColor = AppColors.stateLocked;
              });
       }
   }
@@ -672,8 +606,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     if (mounted) {
       setState(() {
         _statusText = "EXPLAIN: UNAVAILABLE";
-        _statusColor = AppColors
-            .stateLocked; // Fixed: Use stateLocked instead of stateError
+        // _statusColor = AppColors.stateLocked;
       });
     }
   }
@@ -780,9 +713,7 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
     );
   }
 
-  Widget _buildEliteHeader(BuildContext context) {
-      return _buildTopBar(context);
-  }
+
 
   Widget _buildTopBar(BuildContext context) {
     return Padding(
@@ -1139,21 +1070,18 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
      _refreshMemoryView();
 
      try {
-       // 2. Call API
+       // 2. Call API via Repository
        // Context needed? For V1 passing simplified context
        final contextPayload = {
          "screen_id": "DASHBOARD", // Static for now, or dynamic if we passed it
          "status_text": _statusText
        };
        
-       final response = await ApiClient().post('/elite/chat', {
-         "message": message,
-         "context": contextPayload
-       });
+       final response = await EliteRepository().sendChatMessage(message, contextPayload);
        
-       // 3. Process Response
-       final String answer = response['answer'] ?? "No response.";
-       final String mode = response['mode'] ?? "UNKNOWN";
+       // 3. Process Response (Stored as full JSON for V1)
+       // final String answer = response['answer'] ?? "No response.";
+       // final String mode = response['mode'] ?? "UNKNOWN";
        
        // Serialize full response to store in memory (hack for V1 to render sections later)
        // We prepend a marker to identify JSON content
@@ -1210,84 +1138,4 @@ class _EliteInteractionSheetState extends State<EliteInteractionSheet> {
 //       return const SizedBox.shrink();
 //   }
 
-  // Morning Briefing Logic
-  Future<void> _handleMorningBriefing(RitualDefinition ritual) async {
-       // ... (Logic preserved same as before)
-       // 1. Mark Fired
-    await RitualScheduler().markFired(ritual);
-
-    // 2. Fetch Briefing
-    List<String> bullets = [];
-    String boundary = "";
-    try {
-      final response = await http
-          .get(Uri.parse('${AppConfig.apiBaseUrl}/elite/micro_briefing/open'));
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        bullets = List<String>.from(data['bullets'] ?? []);
-        boundary = data['boundary'] ?? "";
-
-        bool isSafetyFiltered = data['safety_filtered'] == true;
-        if (isSafetyFiltered) {
-          bullets.add("[SAFETY FILTER APPLIED]");
-        }
-      } else {
-        bullets = ["Briefing Unavailable (API Error)"];
-      }
-    } catch (e) {
-      bullets = ["Briefing Unavailable (Connection Error)"];
-    }
-
-    // 3. Construct Text
-    final buffer = StringBuffer();
-    buffer.writeln("MICRO-BRIEFING ON OPEN");
-    for (final b in bullets) {
-      buffer.writeln("• $b");
-    }
-    if (boundary.isNotEmpty) buffer.writeln(boundary);
-
-    final fullText = buffer.toString().trim();
-
-    // 4. Log
-    await SessionThreadMemoryStore()
-        .append("USER", "Started Ritual: ${ritual.label}");
-    await SessionThreadMemoryStore().append("ELITE", fullText);
-    await DayMemoryStore().append("Ritual Completed: ${ritual.label}");
-    await DayMemoryStore().append("MICRO_BRIEFING_OPEN: $fullText");
-    
-    _refreshMemoryView();
-    // In new UI, this will update _sessionTurns which _buildChatList renders.
-  }
-
-
-  
-
-//   Widget _buildContextualRecall(BuildContext context) {
-//       return const SizedBox.shrink();
-//   }
-  
-//   Future<void> _handleShowRecall() async {
-//       // ... (Logic preserved)
-//       try {
-//       final engine = EliteContextualRecallEngine();
-//       final snapshot = await engine.build();
-// 
-//       if (mounted) {
-//         setState(() {
-//           _recallSnapshot = snapshot;
-//         });
-//       }
-//       if (snapshot.status == "SUCCESS") {
-//         final textBlock = snapshot.bullets.join(" | ");
-//         await DayMemoryStore().append("CONTEXTUAL_RECALL_LAST: $textBlock");
-//         _refreshMemoryView(); 
-//       }
-//     } catch (e) {
-//     }
-//   }
-
-
-//   Widget _buildAgmsRecall(BuildContext context) {
-//       return const SizedBox.shrink();
-//   }
 }
